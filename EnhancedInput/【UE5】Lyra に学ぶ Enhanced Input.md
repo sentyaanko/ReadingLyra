@@ -222,7 +222,7 @@ Lyra についての大まかな説明は以上です。
 
 ## Lyra における UInputAction
 
-`Content Browser の Search` で `Type=InputAction` と記述すると一覧が確認できます。
+`Content Browser の Search` で `Type=InputAction` と記述すると一覧が確認できます。  
 ![](images/ContentBrowser-Type%3DInputAction.png)
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
@@ -240,7 +240,7 @@ Lyra についての大まかな説明は以上です。
 
 ## Lyra における UInputMappingContext
 
-`Content Browser の Search` で `Type=InputMappingContext` と記述すると一覧が確認できます。
+`Content Browser の Search` で `Type=InputMappingContext` と記述すると一覧が確認できます。  
 ![](images/ContentBrowser-Type%3DInputMappingContext.png)
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
@@ -252,8 +252,7 @@ Lyra についての大まかな説明は以上です。
 		* `GA_ADS` 内で ADS 用の操作 `IMC_ADS_Speed` を一時的にマッピングするのに利用しています。
 		* 解説は割愛します。
 
-図にすると以下のような状況です。
-
+図にすると以下のような状況です。  
 ![](images/UInputMappingContext-Referencing.png)
 
 また、それぞれ以下の `UInputAction` を参照しています。
@@ -294,14 +293,14 @@ Lyra についての大まかな説明は以上です。
 
 ## Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由
 
-`Content Browser の Search` で `Type=PlayerMappableInputConfig` と記述すると一覧が確認できます。
+`Content Browser の Search` で `Type=PlayerMappableInputConfig` と記述すると一覧が確認できます。  
 ![](images/ContentBrowser-Type%3DPlayerMappableInputConfig.png)
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `B_SimpleHeroPawn` ( `ULyraCharacter` 派生BP)
 	* `ShooterCore/TopDownArena` （ `UGameFeatureData` ）
 
-図にすると以下のような状況です。
+図にすると以下のような状況です。  
 ![](images/UPlayerMappableInputConfig-Referencing.png)
 
 それぞれについて、どのように利用されるかを解説します。
@@ -519,15 +518,12 @@ Lyra についての大まかな説明は以上です。
 		* こちらのケースも前述のものと同じように、レベルの初期化が起点となっています。
 
 `Reference Viewer` で `UInputAction` の依存関係を追うと以下のようになります。  
-
 ![](images/ULyraInputConfig-Referenced.png)
 
 `Reference Viewer` で `ULyraPawnData` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
-
 ![](images/ULyraInputConfig-Referencing_PawnData.png)
 
 `Reference Viewer` で `ULyraExperienceActionSet` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
-
 ![](images/ULyraInputConfig-Referencing_ActionSet.png)
 
 これらの依存関係を見ていくと、どのレベルでどの入力アクションがバインドされているのかがわかります。
