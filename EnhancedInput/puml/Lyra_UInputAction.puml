@@ -1,0 +1,309 @@
+@startuml Lyra
+
+!$nMode_Character = 1
+!$nMode_UInputMappingContext = 2
+!$nMode_ULyraInputConfig = 3
+!$nMode_Widget = 4
+
+!$nMode = $nMode_Widget
+!$nCase = 1
+
+
+!if $nMode == $nMode_Character
+namespace UInputAction{
+	object IA_QuickSlot_CycleBackward
+	object IA_QuickSlot_CycleForward
+	object IA_QuickSlot1
+	object IA_QuickSlot2
+	object IA_QuickSlot3
+}
+
+namespace Character{
+	object B_Hero_ShooterMannequin
+}
+
+B_Hero_ShooterMannequin --> IA_QuickSlot_CycleBackward
+B_Hero_ShooterMannequin --> IA_QuickSlot_CycleForward
+B_Hero_ShooterMannequin --> IA_QuickSlot1
+B_Hero_ShooterMannequin --> IA_QuickSlot2
+B_Hero_ShooterMannequin --> IA_QuickSlot3
+!endif
+
+!if $nMode == $nMode_UInputMappingContext
+
+namespace UInputAction{
+!if $nCase == 1
+	object IA_Ability_Dash
+	object IA_AutoRun
+	object IA_Crouch
+	object IA_Jump
+	object IA_Look_Mouse
+	object IA_Look_Stick
+	object IA_Move
+	object IA_Weapon_Fire
+	object IA_Weapon_Fire_Auto
+	object IA_Weapon_Reload
+
+	note "IMC_Default_Gamepad" as N_IMC_Default_Gamepad
+	note "IMC_Default_KBM" as N_IMC_Default_KBM
+
+!elseif $nCase == 2
+	object IA_ADS
+	object IA_Emote
+	object IA_Grenade
+	object IA_Look_Stick
+	object IA_Melee
+	object IA_Move
+	object IA_QuickSlot_CycleBackward
+	object IA_QuickSlot_CycleForward
+	object IA_QuickSlot1
+	object IA_QuickSlot2
+	object IA_QuickSlot3
+	object IA_ShowScoreboard
+
+	note "IMC_ShooterGame_Gamepad" as N_IMC_ShooterGame_Gamepad
+	note "IMC_ShooterGame_KBM" as N_IMC_ShooterGame_KBM
+
+!elseif $nCase == 3
+	object IA_Emote
+	object IA_Interact
+	object IA_ToggleInventory
+	object IA_ToggleMap
+	object IA_ToggleMarkerInWorld
+
+	object IA_Look_Mouse
+	object IA_Look_Stick
+	object IA_Move
+
+	note "IMC_InventoryTest" as N_IMC_InventoryTest
+	note "IMC_ADS_Speed" as N_IMC_ADS_Speed
+
+!endif
+}
+
+namespace UInputMappingContext{
+!if $nCase == 1
+	object IMC_Default_Gamepad
+	object IMC_Default_KBM
+!elseif $nCase == 2
+	object IMC_ShooterGame_Gamepad
+	object IMC_ShooterGame_KBM
+!elseif $nCase == 3
+	object IMC_InventoryTest
+	object IMC_ADS_Speed
+!endif
+}
+
+!if $nCase == 1
+IMC_Default_Gamepad --> UInputAction.N_IMC_Default_Gamepad
+IMC_Default_KBM --> UInputAction.N_IMC_Default_KBM
+UInputAction.N_IMC_Default_Gamepad --> IA_Ability_Dash
+UInputAction.N_IMC_Default_Gamepad --> IA_Crouch
+UInputAction.N_IMC_Default_Gamepad --> IA_Jump
+UInputAction.N_IMC_Default_Gamepad --> IA_Look_Stick
+UInputAction.N_IMC_Default_Gamepad --> IA_Move
+UInputAction.N_IMC_Default_Gamepad --> IA_Weapon_Fire
+UInputAction.N_IMC_Default_Gamepad --> IA_Weapon_Fire_Auto
+UInputAction.N_IMC_Default_Gamepad --> IA_Weapon_Reload
+UInputAction.N_IMC_Default_KBM --> IA_Ability_Dash
+UInputAction.N_IMC_Default_KBM --> IA_AutoRun
+UInputAction.N_IMC_Default_KBM --> IA_Crouch
+UInputAction.N_IMC_Default_KBM --> IA_Jump
+UInputAction.N_IMC_Default_KBM --> IA_Look_Mouse
+UInputAction.N_IMC_Default_KBM --> IA_Move
+UInputAction.N_IMC_Default_KBM --> IA_Weapon_Fire
+UInputAction.N_IMC_Default_KBM --> IA_Weapon_Fire_Auto
+UInputAction.N_IMC_Default_KBM --> IA_Weapon_Reload
+!elseif $nCase == 2
+IMC_ShooterGame_Gamepad --> UInputAction.N_IMC_ShooterGame_Gamepad
+IMC_ShooterGame_KBM --> UInputAction.N_IMC_ShooterGame_KBM
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_ADS
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_Emote
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_Grenade
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_Look_Stick
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_Melee
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_Move
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_QuickSlot_CycleBackward
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_QuickSlot_CycleForward
+UInputAction.N_IMC_ShooterGame_Gamepad --> IA_ShowScoreboard
+UInputAction.N_IMC_ShooterGame_KBM --> IA_ADS
+UInputAction.N_IMC_ShooterGame_KBM --> IA_Emote
+UInputAction.N_IMC_ShooterGame_KBM --> IA_Grenade
+UInputAction.N_IMC_ShooterGame_KBM --> IA_Melee
+UInputAction.N_IMC_ShooterGame_KBM --> IA_QuickSlot_CycleBackward
+UInputAction.N_IMC_ShooterGame_KBM --> IA_QuickSlot_CycleForward
+UInputAction.N_IMC_ShooterGame_KBM --> IA_QuickSlot1
+UInputAction.N_IMC_ShooterGame_KBM --> IA_QuickSlot2
+UInputAction.N_IMC_ShooterGame_KBM --> IA_QuickSlot3
+UInputAction.N_IMC_ShooterGame_KBM --> IA_ShowScoreboard
+!elseif $nCase == 3
+IMC_InventoryTest --> UInputAction.N_IMC_InventoryTest
+UInputAction.N_IMC_InventoryTest --> IA_Emote
+UInputAction.N_IMC_InventoryTest --> IA_Interact
+UInputAction.N_IMC_InventoryTest --> IA_ToggleInventory
+UInputAction.N_IMC_InventoryTest --> IA_ToggleMap
+UInputAction.N_IMC_InventoryTest --> IA_ToggleMarkerInWorld
+
+IMC_ADS_Speed --> UInputAction.N_IMC_ADS_Speed
+UInputAction.N_IMC_ADS_Speed --> IA_Look_Mouse
+UInputAction.N_IMC_ADS_Speed --> IA_Look_Stick
+UInputAction.N_IMC_ADS_Speed --> IA_Move
+!endif
+!endif
+
+!if $nMode == $nMode_ULyraInputConfig
+/'
+namespace UInputAction{
+	object IA_Ability_Dash
+	object IA_Ability_Heal
+	object IA_AutoRun
+	object IA_Crouch
+	object IA_Jump
+	object IA_Look_Mouse
+	object IA_Look_Stick
+	object IA_Move
+	object IA_Weapon_Fire
+	object IA_Weapon_Fire_Auto
+	object IA_Weapon_Reload
+	object IA_ADS
+	object IA_DropWeapon
+	object IA_Emote
+	object IA_Grenade
+	object IA_Melee
+	object IA_QuickSlot1
+	object IA_QuickSlot2
+	object IA_QuickSlot3
+	object IA_QuickSlot_CycleBackward
+	object IA_QuickSlot_CycleForward
+	object IA_ShowScoreboard
+	object IA_Interact
+	object IA_ToggleInventory
+	object IA_ToggleMap
+	object IA_ToggleMarkerInWorld
+}
+
+namespace ULyraInputConfig{
+	object InputData_Arena
+	object InputData_Hero
+	object InputData_InventoryTest
+	object InputData_ShooterGame_AddOns
+	object InputData_SimplePawn
+}
+
+InputData_Arena --> IA_Move
+InputData_Arena --> IA_Weapon_Fire
+InputData_Hero --> IA_Ability_Dash
+InputData_Hero --> IA_Ability_Heal
+InputData_Hero --> IA_AutoRun
+InputData_Hero --> IA_Crouch
+InputData_Hero --> IA_Jump
+InputData_Hero --> IA_Look_Mouse
+InputData_Hero --> IA_Look_Stick
+InputData_Hero --> IA_Move
+InputData_Hero --> IA_Weapon_Fire
+InputData_Hero --> IA_Weapon_Fire_Auto
+InputData_Hero --> IA_Weapon_Reload
+InputData_InventoryTest --> IA_Emote
+InputData_InventoryTest --> IA_Interact
+InputData_InventoryTest --> IA_ToggleInventory
+InputData_InventoryTest --> IA_ToggleMap
+InputData_InventoryTest --> IA_ToggleMarkerInWorld
+InputData_ShooterGame_AddOns --> IA_ADS
+InputData_ShooterGame_AddOns --> IA_DropWeapon
+InputData_ShooterGame_AddOns --> IA_Emote
+InputData_ShooterGame_AddOns --> IA_Grenade
+InputData_ShooterGame_AddOns --> IA_Melee
+InputData_ShooterGame_AddOns --> IA_ShowScoreboard
+InputData_SimplePawn --> IA_AutoRun
+InputData_SimplePawn --> IA_Crouch
+InputData_SimplePawn --> IA_Jump
+InputData_SimplePawn --> IA_Look_Mouse
+InputData_SimplePawn --> IA_Look_Stick
+InputData_SimplePawn --> IA_Move
+'/
+!endif
+
+!if $nMode == $nMode_Widget
+namespace UInputAction{
+	object IA_Crouch
+	object IA_Ability_Dash
+	object IA_Emote
+	object IA_Weapon_Fire
+	object IA_Grenade
+	object IA_Jump
+	object IA_Melee
+	object IA_Move
+	object IA_Look_Stick
+	object IA_ADS
+	object IA_Weapon_Reload
+	object IA_QuickSlot1
+	object IA_QuickSlot2
+	object IA_QuickSlot3
+}
+
+namespace Widget{
+	object W_CrouchTouchButton
+	object W_DashTouchButton
+	object W_EmoteTouchButton
+	object W_FireButton
+	object W_GrenadeCooldown
+	object W_JumpTouchButton
+	object W_MeleeTouchButton
+	object W_OnScreenJoystick_Left
+	object W_OnScreenJoystick_Right
+	object W_ToggleADSTouchButton
+	object W_TouchRegion_Base
+	object W_TouchRegion_Left
+	object W_WeaponAmmoAndName
+	object W_QuickBar
+}
+
+W_CrouchTouchButton  --[hidden] W_DashTouchButton
+W_DashTouchButton  --[hidden] W_EmoteTouchButton
+W_EmoteTouchButton  --[hidden] W_FireButton
+W_FireButton  --[hidden] W_TouchRegion_Base
+W_TouchRegion_Base  --[hidden] W_GrenadeCooldown
+W_GrenadeCooldown  --[hidden] W_JumpTouchButton
+W_JumpTouchButton  --[hidden] W_MeleeTouchButton
+W_MeleeTouchButton  --[hidden] W_OnScreenJoystick_Left
+W_OnScreenJoystick_Left  --[hidden] W_OnScreenJoystick_Right
+W_OnScreenJoystick_Right  --[hidden] W_ToggleADSTouchButton
+W_ToggleADSTouchButton  --[hidden] W_TouchRegion_Left
+W_TouchRegion_Left  --[hidden] W_WeaponAmmoAndName
+W_WeaponAmmoAndName  --[hidden] W_QuickBar
+
+IA_Crouch  --[hidden] IA_Ability_Dash
+IA_Ability_Dash  --[hidden] IA_Emote
+IA_Emote  --[hidden] IA_Weapon_Fire
+IA_Weapon_Fire  --[hidden] IA_Weapon_Fire
+IA_Weapon_Fire  --[hidden] IA_Grenade
+IA_Grenade  --[hidden] IA_Jump
+IA_Jump  --[hidden] IA_Melee
+IA_Melee  --[hidden] IA_Move
+IA_Move  --[hidden] IA_Look_Stick
+IA_Look_Stick  --[hidden] IA_ADS
+IA_ADS  --[hidden] IA_ADS
+IA_ADS  --[hidden] IA_Weapon_Reload
+IA_Weapon_Reload  --[hidden] IA_QuickSlot1
+IA_QuickSlot1  --[hidden] IA_QuickSlot2
+IA_QuickSlot2  --[hidden] IA_QuickSlot3
+
+W_CrouchTouchButton -> IA_Crouch
+W_DashTouchButton -> IA_Ability_Dash
+W_EmoteTouchButton -> IA_Emote
+W_FireButton -> IA_Weapon_Fire
+W_TouchRegion_Base -> IA_Weapon_Fire
+W_GrenadeCooldown -> IA_Grenade
+W_JumpTouchButton -> IA_Jump
+W_MeleeTouchButton -> IA_Melee
+W_OnScreenJoystick_Left -> IA_Move
+W_OnScreenJoystick_Right -> IA_Look_Stick
+W_ToggleADSTouchButton -> IA_ADS
+W_TouchRegion_Left -> IA_ADS
+W_WeaponAmmoAndName -> IA_Weapon_Reload
+W_QuickBar -> IA_QuickSlot1
+W_QuickBar -> IA_QuickSlot2
+W_QuickBar -> IA_QuickSlot3
+!endif
+
+@enduml

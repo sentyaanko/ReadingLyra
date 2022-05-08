@@ -1,0 +1,216 @@
+/'
+Lyra の Enhanced Input 関連
+'/
+@startuml Lyra
+
+!$nMode_Referencing_PawnData = 1
+!$nMode_Referencing_ActionSet = 2
+!$nMode_Referenced = 3
+
+!$nMode = $nMode_Referencing_ActionSet
+
+namespace ULyraInputConfig {
+!if ($nMode == $nMode_Referenced) || ($nMode == $nMode_Referencing_PawnData)
+	object InputData_Arena
+	object InputData_Hero
+	object InputData_SimplePawn
+!endif
+
+!if ($nMode == $nMode_Referenced) || ($nMode == $nMode_Referencing_ActionSet)
+	object InputData_InventoryTest
+	object InputData_ShooterGame_AddOns
+!endif
+}
+
+!if ($nMode == $nMode_Referencing_PawnData) || ($nMode == $nMode_Referencing_ActionSet)
+namespace UInputAction {
+!if $nMode == $nMode_Referencing_PawnData
+	namespace Native {
+		object IA_Move
+		object IA_Look_Mouse
+		object IA_Look_Stick
+		object IA_Crouch
+		object IA_AutoRun
+	}
+	namespace Ability {
+		object IA_Jump
+		object IA_Weapon_Fire
+		object IA_Weapon_Fire_Auto
+		object IA_Weapon_Reload
+		object IA_Ability_Heal
+		object IA_Ability_Death
+	}
+!endif
+!if $nMode == $nMode_Referencing_ActionSet
+	namespace ActionSet {
+		object IA_Melee
+		object IA_ADS
+		object IA_Grenade
+		object IA_ShowScoreboard
+		object IA_DropWeapon
+
+		object IA_Emote
+
+		object IA_Interact
+		object IA_ToggleMap
+		object IA_ToggleInventory
+		object IA_ToggleMarkerInWorld
+	}
+!endif
+}
+!endif
+
+!if $nMode == $nMode_Referenced
+namespace ULyraPawnData {
+	object HeroData_Arena
+	object HeroData_ShooterGame
+	object SimplePawnData
+}
+namespace ULyraExperienceActionSet {
+	object LAS_InventoryTest
+	object LAS_ShooterGame_SharedInput
+}
+namespace ULyraExperienceDefinition {
+	object B_TopDownArenaExperience
+	object B_ShooterGame_Elimination
+	object B_LyraShooterGame_ControlPoints
+	object B_TestInventoryExperience
+	object B_LyraDefaultExperience
+	note "Use When **Default Gameplay Experience** is **None**" as UseWhenDefaultGameplayExperienceIsNone
+
+}
+namespace Level {
+	object L_TopDownArenaGym
+	object L_ShooterGym
+	object L_Expanse
+	object L_Expanse_Blockout
+	object L_FiringRange_WP
+	object L_Convolution_Blockout
+	object L_InventoryTestMap
+	object L_DefaultEditorOverview
+	note "**Default Gameplay Experience** is **None**" as DefaultGameplayExperienceIsNone
+
+}
+!endif
+
+!if $nMode == $nMode_Referencing_PawnData
+title "ULyraInputConfig の Referencing Objects List(PawnData 経由)"
+
+!elseif $nMode == $nMode_Referencing_ActionSet
+title "ULyraInputConfig の Referencing Objects List(ActionSet 経由)"
+
+!elseif $nMode == $nMode_Referenced
+title "ULyraInputConfig の Referenced Objects List"
+
+!endif
+
+
+!if $nMode == $nMode_Referencing_PawnData
+namespace UInputAction{
+	namespace Native{
+		note "InputData_Arena" as N_InputData_Arena
+		note "InputData_Hero" as N_InputData_Hero
+		note "InputData_SimplePawn" as N_InputData_SimplePawn
+	}
+	namespace Ability{
+		note "InputData_Arena" as A_InputData_Arena
+		note "InputData_Hero" as A_InputData_Hero
+		note "InputData_SimplePawn" as A_InputData_SimplePawn
+	}
+}
+InputData_Arena --> UInputAction.Native.N_InputData_Arena #line:red
+InputData_Arena --> UInputAction.Ability.A_InputData_Arena #line:blue
+
+InputData_Hero --> UInputAction.Native.N_InputData_Hero #line:red
+InputData_Hero --> UInputAction.Ability.A_InputData_Hero #line:blue
+
+InputData_SimplePawn --> UInputAction.Native.N_InputData_SimplePawn #line:red
+InputData_SimplePawn --> UInputAction.Ability.A_InputData_SimplePawn #line:blue
+
+UInputAction.Native.N_InputData_Arena --> IA_Move #line:red
+UInputAction.Ability.A_InputData_Arena --> IA_Weapon_Fire #line:blue
+UInputAction.Native.N_InputData_Hero --> IA_Move #line:red
+UInputAction.Native.N_InputData_Hero --> IA_Look_Mouse #line:red
+UInputAction.Native.N_InputData_Hero --> IA_Look_Stick #line:red
+UInputAction.Native.N_InputData_Hero --> IA_Crouch #line:red
+UInputAction.Native.N_InputData_Hero --> IA_AutoRun #line:red
+UInputAction.Ability.A_InputData_Hero --> IA_Jump #line:blue
+UInputAction.Ability.A_InputData_Hero --> IA_Weapon_Reload #line:blue
+UInputAction.Ability.A_InputData_Hero --> IA_Ability_Heal #line:blue
+UInputAction.Ability.A_InputData_Hero --> IA_Ability_Death #line:blue
+UInputAction.Ability.A_InputData_Hero --> IA_Weapon_Fire #line:blue
+UInputAction.Ability.A_InputData_Hero --> IA_Weapon_Fire_Auto #line:blue
+UInputAction.Native.N_InputData_SimplePawn --> IA_Move #line:red
+UInputAction.Native.N_InputData_SimplePawn --> IA_Look_Mouse #line:red
+UInputAction.Native.N_InputData_SimplePawn --> IA_Look_Stick #line:red
+UInputAction.Native.N_InputData_SimplePawn --> IA_Crouch #line:red
+UInputAction.Native.N_InputData_SimplePawn --> IA_AutoRun #line:red
+UInputAction.Ability.A_InputData_SimplePawn --> IA_Jump #line:blue
+!endif
+
+!if $nMode == $nMode_Referenced
+InputData_Arena <-- HeroData_Arena
+HeroData_Arena <-- B_TopDownArenaExperience
+B_TopDownArenaExperience <--- L_TopDownArenaGym
+
+InputData_Hero <-- HeroData_ShooterGame
+HeroData_ShooterGame <-- B_ShooterGame_Elimination
+B_ShooterGame_Elimination <--- L_ShooterGym
+B_ShooterGame_Elimination <--- L_Expanse
+B_ShooterGame_Elimination <--- L_Expanse_Blockout
+B_ShooterGame_Elimination <--- L_FiringRange_WP
+HeroData_ShooterGame <-- B_LyraShooterGame_ControlPoints
+B_LyraShooterGame_ControlPoints <--  L_Convolution_Blockout
+HeroData_ShooterGame <-- B_TestInventoryExperience
+B_TestInventoryExperience <--- L_InventoryTestMap
+ 
+InputData_SimplePawn <-- SimplePawnData
+SimplePawnData <-- B_LyraDefaultExperience
+B_LyraDefaultExperience <--- L_DefaultEditorOverview
+
+B_LyraDefaultExperience .. ULyraExperienceDefinition.UseWhenDefaultGameplayExperienceIsNone
+L_DefaultEditorOverview .. Level.DefaultGameplayExperienceIsNone
+
+!endif
+
+!if $nMode == $nMode_Referencing_ActionSet
+namespace UInputAction{
+	namespace ActionSet{
+		note "InputData_InventoryTest" as A_InputData_InventoryTest
+		note "InputData_ShooterGame_AddOns" as A_InputData_ShooterGame_AddOns
+	}
+}
+InputData_InventoryTest --> UInputAction.ActionSet.A_InputData_InventoryTest #line:green
+InputData_ShooterGame_AddOns --> UInputAction.ActionSet.A_InputData_ShooterGame_AddOns #line:green
+
+UInputAction.ActionSet.A_InputData_InventoryTest --> IA_Interact #line:green
+UInputAction.ActionSet.A_InputData_InventoryTest --> IA_ToggleMap #line:green
+UInputAction.ActionSet.A_InputData_InventoryTest --> IA_ToggleInventory #line:green
+UInputAction.ActionSet.A_InputData_InventoryTest --> IA_ToggleMarkerInWorld #line:green
+UInputAction.ActionSet.A_InputData_InventoryTest --> IA_Emote #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_ShowScoreboard #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_ADS #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_Grenade #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_Emote #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_DropWeapon #line:green
+UInputAction.ActionSet.A_InputData_ShooterGame_AddOns --> IA_Melee #line:green
+!endif
+
+!if $nMode == $nMode_Referenced
+InputData_InventoryTest <-- LAS_InventoryTest
+LAS_InventoryTest <-- B_TestInventoryExperience
+'B_TestInventoryExperience <--- L_InventoryTestMap
+InputData_ShooterGame_AddOns <-- LAS_ShooterGame_SharedInput
+LAS_ShooterGame_SharedInput <-- B_ShooterGame_Elimination
+'B_ShooterGame_Elimination <--- L_ShooterGym
+'B_ShooterGame_Elimination <--- L_Expanse
+'B_ShooterGame_Elimination <--- L_Expanse_Blockout
+'B_ShooterGame_Elimination <--- L_FiringRange_WP
+LAS_ShooterGame_SharedInput <-- B_LyraShooterGame_ControlPoints
+'B_LyraShooterGame_ControlPoints <--- L_Convolution_Blockout
+LAS_ShooterGame_SharedInput <-- B_TestInventoryExperience
+'B_TestInventoryExperience <--- L_InventoryTestMap
+
+!endif
+
+@enduml

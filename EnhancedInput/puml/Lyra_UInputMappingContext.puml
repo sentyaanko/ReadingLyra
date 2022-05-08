@@ -1,0 +1,38 @@
+@startuml Lyra
+
+/'
+'/
+namespace UInputMappingContext{
+	object IMC_Default_Gamepad
+	object IMC_Default_KBM
+	object IMC_InventoryTest
+	object IMC_ShooterGame_Gamepad
+	object IMC_ShooterGame_KBM
+	object IMC_ADS_Speed
+}
+namespace ULyraExperienceActionSet{
+	object LAS_InventoryTest
+	object LAS_ShooterGame_SharedInput
+}
+namespace UPlayerMappableInputConfig{
+	object PMI_Default_Gamepad
+	object PMI_Default_KBM
+	object PMI_ShooterDefaultConfig_Gamepad
+	object PMI_ShooterDefaultConfig_KBM
+}
+namespace GameplayAbility{
+	object GA_ADS
+}
+
+title "UInputMappingContext の Referencing Objects List"
+
+IMC_Default_Gamepad <-- PMI_Default_Gamepad
+IMC_Default_KBM <-- PMI_Default_KBM
+IMC_ShooterGame_Gamepad <-- PMI_ShooterDefaultConfig_Gamepad
+IMC_ShooterGame_KBM <-- PMI_ShooterDefaultConfig_KBM
+IMC_ShooterGame_KBM <-- LAS_ShooterGame_SharedInput
+IMC_InventoryTest <-- LAS_InventoryTest
+IMC_ADS_Speed <-- GA_ADS
+
+
+@enduml

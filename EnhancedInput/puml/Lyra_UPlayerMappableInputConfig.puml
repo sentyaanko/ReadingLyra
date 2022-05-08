@@ -1,0 +1,28 @@
+@startuml Lyra
+
+title "UPlayerMappableInputConfig の Referencing Object List"
+
+namespace UPlayerMappableInputConfig{
+	object PMI_Default_Gamepad
+	object PMI_Default_KBM
+	object PMI_ShooterDefaultConfig_Gamepad
+	object PMI_ShooterDefaultConfig_KBM
+}
+namespace Character{
+	object B_SimpleHeroPawn
+}
+namespace UGameFeatureData{
+	object ShooterCore
+	object TopDownArena
+}
+
+PMI_Default_Gamepad <-- B_SimpleHeroPawn
+PMI_Default_Gamepad <-- ShooterCore
+PMI_Default_Gamepad <-- TopDownArena
+PMI_Default_KBM <-- B_SimpleHeroPawn
+PMI_Default_KBM <-- ShooterCore
+PMI_Default_KBM <-- TopDownArena
+PMI_ShooterDefaultConfig_Gamepad <-- ShooterCore
+PMI_ShooterDefaultConfig_KBM <-- ShooterCore
+
+@enduml

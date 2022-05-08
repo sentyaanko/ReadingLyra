@@ -1,0 +1,883 @@
+/'
+Lyra の Enhanced Input 関連
+'/
+@startuml Lyra
+'skinparam groupInheritance 2
+
+'表示切替用変数
+
+'napespace 単位
+!$bDisp_UE = 1
+!$bDisp_UE_EnhancedInput = 0
+!$bDisp_UE_EnhancedInput_InputTrigger = 0
+!$bDisp_UE_EnhancedInput_InputModifier = 0
+!$bDisp_UE_GameFeature = 0
+!$bDisp_Lyra = 1
+!$bDisp_Lyra_Common = 0
+!$bDisp_Lyra_Character = 0
+!$bDisp_Lyra_IMC = 0
+!$bDisp_Lyra_GameFeatureAction = 0
+!$bDisp_Lyra_Experience = 0
+!$bDisp_Lyra_ExperienceActionSet = 0
+!$bDisp_Lyra_Config = 0
+!$bDisp_Lyra_Equipment = 0
+!$bDisp_Objects = 1
+
+
+'UE クラス単位
+!$bDisp_APawn = 0
+!$bDisp_UInputAction = 0
+!$bDisp_UPlayerMappableInputConfig = 0
+!$bDisp_UEnhancedPlayerInput = 0
+!$bDisp_UEnhancedInputLocalPlayerSubsystem = 0
+!$bDisp_UGameFeatureAction = 0
+!$bDisp_UGameFeatureData = 0
+
+'Lyra クラス単位
+
+!$bDisp_ALyraGameMode = 0
+!$bDisp_ALyraPlayerState = 0
+!$bDisp_ULyraPawnData = 0
+!$bDisp_ULyraInputConfig = 0
+!$bDisp_FLyraInputAction = 0
+!$bDisp_FMappableConfigPair = 0
+!$bDisp_ULyraHeroComponent = 0
+!$bDisp_UGameFeatureAction_AddInputConfig = 0
+!$bDisp_UGameFeatureAction_AddInputBinding = 0
+!$bDisp_ULyraExperienceActionSet = 0
+!$bDisp_PMI_Default_Gamepad = 0
+!$bDisp_PMI_Default_KBM = 0
+!$bDisp_PMI_ShooterDefaultConfig_Gamepad = 0
+!$bDisp_PMI_ShooterDefaultConfig_KBM = 0
+!$bDisp_B_SimpleHeroPawn = 0
+!$bDisp_SimplePawnData = 0
+!$bDisp_B_LyraDefaultExperience = 0
+
+
+'分類単位
+!$bDisp_Ability = 0
+!$bDisp_InputComponent = 0
+
+'出力モードの種類
+!$nMode_AddInputMapContextByCharacter = 1
+!$nMode_AddInputMapContextByGameFeature = 2
+!$nMode_BindInputAction = 3
+!$nMode_DefaultPawnSettingInExperience = 4
+
+!$nUMLType_Classes = 1
+!$nUMLType_Objects = 2
+
+'現在の出力モード
+!$nModeCurrent = $nMode_AddInputMapContextByCharacter
+!$nUMLCurrent = $nUMLType_Classes
+!$strTitle = "タイトル"
+
+'出力モード毎の on/off 設定
+!if $nUMLCurrent == $nUMLType_Classes
+	!$bDisp_Objects = 0
+!elseif $nUMLCurrent == $nUMLType_Objects
+	!$bDisp_UE = 0
+	!$bDisp_Lyra = 0
+!endif
+
+!if $nModeCurrent == $nMode_AddInputMapContextByCharacter
+	!if $nUMLCurrent == $nUMLType_Classes
+		!$strTitle = "キャラクタークラスの設定による InputMapContext の追加に関するクラス"
+		!$bDisp_UE_EnhancedInput = 1
+		!$bDisp_Lyra_Common = 1
+		!$bDisp_Lyra_Character = 1
+		!$bDisp_UInputAction = 1
+		!$bDisp_FMappableConfigPair = 1
+		!$bDisp_ULyraHeroComponent = 1
+		!$bDisp_UPlayerMappableInputConfig = 1
+		!$bDisp_B_SimpleHeroPawn = 1
+		!$bDisp_SimplePawnData = 1
+		!$bDisp_ULyraPawnData = 1
+	!elseif $nUMLCurrent == $nUMLType_Objects
+		!$strTitle = "キャラクタークラスの設定による InputMapContext の追加に関するオブジェクト"
+		!$bDisp_PMI_Default_Gamepad = 1
+		!$bDisp_PMI_Default_KBM = 1
+		!$bDisp_B_SimpleHeroPawn = 1
+		!$bDisp_SimplePawnData = 1
+		!$bDisp_B_LyraDefaultExperience = 1
+	!endif
+!elseif $nModeCurrent == $nMode_AddInputMapContextByGameFeature
+
+' GameFeatureData がどこで読まれているのか確認中。
+' ULyraExperienceManagerComponent あたりが関係している？
+	!if $nUMLCurrent == $nUMLType_Classes
+		!$strTitle = "GameFeature の設定による InputMapContext の追加に関するクラス"
+		!$bDisp_UE_EnhancedInput = 1
+		!$bDisp_UE_GameFeature = 1
+		!$bDisp_UInputAction = 1
+		!$bDisp_FMappableConfigPair = 1
+		!$bDisp_UPlayerMappableInputConfig = 1
+		!$bDisp_Lyra_Experience = 1
+		!$bDisp_Lyra_GameFeatureAction = 1
+		!$bDisp_UGameFeatureData = 1
+		!$bDisp_UGameFeatureAction = 1
+		!$bDisp_ULyraInputConfig = 1
+		!$bDisp_FLyraInputAction = 1
+		!$bDisp_UGameFeatureAction_AddInputConfig = 1
+		!$bDisp_ULyraExperienceActionSet = 1
+	!elseif $nUMLCurrent == $nUMLType_Objects
+	!endif
+!elseif $nModeCurrent == $nMode_BindInputAction
+	!$strTitle = "InputAction のバインド"
+	!$bDisp_ALyraPlayerState = 1
+	!$bDisp_ULyraPawnData = 1
+	!$bDisp_Lyra_Experience = 1
+!elseif $nModeCurrent == $nMode_DefaultPawnSettingInExperience
+	!if $nUMLCurrent == $nUMLType_Classes
+		!$strTitle = "あるエクスペリエンス中に使用するデフォルトポーンの設定に関するクラス"
+		!$bDisp_ALyraGameMode = 1
+		!$bDisp_Lyra_Experience = 1
+		!$bDisp_ULyraPawnData = 1
+		!$bDisp_Objects = 0
+	!elseif $nUMLCurrent == $nUMLType_Objects
+	!endif
+!endif
+
+title $strTitle
+
+'クラスの宣言（先に書いておかないとグループ分けがおかしくなるため。）
+!if $bDisp_UE
+namespace UE {
+!if $bDisp_APawn
+	class APawn
+!endif
+
+!if $bDisp_Ability
+	namespace GameplayAbility {
+		class UGameplayAbility
+	}
+!endif
+
+!if $bDisp_UE_EnhancedInput
+	namespace EnhancedInput {
+		class UInputTrigger
+		class UInputModifier
+
+!if $bDisp_UInputAction
+		class UInputAction
+!endif
+
+!if $bDisp_InputComponent
+		class UEnhancedInputComponent
+!endif
+
+!if $bDisp_UEnhancedPlayerInput
+		class UEnhancedPlayerInput
+!endif
+
+!if $bDisp_UEnhancedInputLocalPlayerSubsystem
+		class UEnhancedInputLocalPlayerSubsystem
+!endif
+
+!if $bDisp_UPlayerMappableInputConfig
+		class UPlayerMappableInputConfig
+!endif
+		class UInputMappingContext
+		class FEnhancedActionKeyMapping
+
+!if $bDisp_UE_EnhancedInput_InputTrigger
+		namespace InputTrigger {
+			class UInputTriggerDown
+			class UInputTriggerPressed
+			class UInputTriggerReleased
+			class UInputTriggerHold
+			class UInputTriggerHoldAndRelease
+			class UInputTriggerTap
+			class UInputTriggerPulse
+			class UInputTriggerChordAction
+		}
+!endif
+
+!if $bDisp_UE_EnhancedInput_InputModifier
+		namespace InputModifier {
+			class UInputModifierDeadZone
+			class UInputModifierScalar
+			class UInputModifierNegate
+			class UInputModifierSmooth
+			class UInputModifierResponseCurveExponential
+			class UInputModifierResponseCurveUser
+			class UInputModifierFOVScaling
+			class UInputModifierToWorldSpace
+			class UInputModifierSwizzleAxis
+			class UInputModifierCollection
+		}
+!endif
+	}
+!endif
+
+!if $bDisp_UE_GameFeature
+	namespace GameFeature {
+!if $bDisp_UGameFeatureData
+		class UGameFeatureData
+!endif
+!if $bDisp_UGameFeatureAction
+		class UGameFeatureAction
+!endif
+	}
+!endif
+
+
+}
+!endif
+
+!if $bDisp_Lyra
+namespace Lyra {
+
+!if $bDisp_Lyra_Common
+	namespace Common {
+!if $bDisp_ALyraGameMode
+		class ALyraGameMode
+!endif
+
+!if $bDisp_ALyraPlayerState
+		class ALyraPlayerState
+!endif
+
+!if $bDisp_ULyraHeroComponent
+		class ULyraHeroComponent
+!endif
+
+!if $bDisp_InputComponent
+		class ULyraInputComponent
+!endif
+		
+!if $bDisp_ULyraPawnData
+		class ULyraPawnData
+!endif
+
+!if $bDisp_ULyraInputConfig
+		class ULyraInputConfig
+!endif
+
+!if $bDisp_FLyraInputAction
+		class FLyraInputAction
+!endif
+
+!if $bDisp_FMappableConfigPair
+		class FMappableConfigPair
+!endif
+	}
+!endif
+
+!if $bDisp_Ability
+	namespace Ability {
+		class ULyraAbilitySet
+		class FLyraAbilitySet_GameplayAbility
+		class ULyraGameplayAbility
+	}
+!endif
+
+!if $bDisp_Lyra_Character
+	namespace Character {
+		class ULyraCharacter
+	}
+!endif
+
+!if $bDisp_Lyra_Equipment
+	namespace Equipment {
+		class FLyraEquipmentList
+		class ULyraEquipmentDefinition
+		class ULyraInventoryItemFragment
+		class UInventoryFragment_EquippableItem
+		class ULyraInventoryItemDefinition
+	}
+!endif
+
+!if $bDisp_Lyra_Config
+	namespace Config {
+		class ULyraSettingsLocal
+		class FLoadedMappableConfigPair
+		class ULyraAbilityTagRelationshipMapping
+	}
+!endif
+
+!if $bDisp_Lyra_GameFeatureAction
+	namespace GameFeatureAction {
+!if $bDisp_Ability
+		class FGameFeatureAbilitiesEntry
+!endif
+
+!if $bDisp_Ability
+		class UGameFeatureAction_AddAbilities
+!endif
+
+!if $bDisp_UGameFeatureAction_AddInputConfig
+		class UGameFeatureAction_AddInputConfig
+!endif
+!if $bDisp_UGameFeatureAction_AddInputBinding
+		class UGameFeatureAction_AddInputBinding
+!endif
+	}
+!endif
+
+!if $bDisp_Lyra_Experience
+	namespace Experience {
+!if $bDisp_ULyraExperienceActionSet
+		class ULyraExperienceActionSet
+!endif
+		class ULyraExperienceDefinition
+	}
+!endif
+
+
+!if $bDisp_Lyra_IMC
+	namespace IMC {
+		class IMC_Default_Gamepad
+		class IMC_Default_KBM
+		class IMC_ShooterGame_Gamepad
+		class IMC_ShooterGame_KBM
+		class IMC_ADS_Speed
+		class IMC_InventoryTest
+	}
+!endif
+
+!if $bDisp_Lyra_ExperienceActionSet
+	namespace ExperienceActionSet {
+		class LAS_ShooterGame_SharedInput
+		class LAS_ShooterGame_StandardComponents
+		class LAS_ShooterGame_StandardHUD
+		class LAS_InventoryTest
+		class EAS_BasicShooterAcolades
+	}
+!endif
+
+}
+!endif
+
+
+'クラスの定義
+!if $bDisp_UE
+namespace UE {
+!if $bDisp_UE_EnhancedInput
+	namespace EnhancedInput {
+!if $bDisp_UInputAction
+		class UInputAction {
+			Triggers : TArray<UInputTrigger*>
+			Modifiers : TArray<UInputModifier*>
+		}
+		UInputAction::Triggers "1" *-- "0..*" UInputTrigger
+		UInputAction::Modifiers  "1" *- "0..*" UInputModifier
+!endif
+
+		class FEnhancedActionKeyMapping
+		{
+!if $bDisp_UInputAction
+			Action : const UInputAction*
+!endif
+			Triggers : TArray<class UInputTrigger*>
+			Modifiers : TArray<class UInputModifier*>
+		}
+!if $bDisp_UInputAction
+		UInputAction "1" --o "1" FEnhancedActionKeyMapping::Action
+!endif
+		UInputTrigger "0..*" --* "1" FEnhancedActionKeyMapping::Triggers
+		UInputModifier "0..*" --* "1" FEnhancedActionKeyMapping::Modifiers
+
+		class UInputMappingContext
+		{
+			Mappings : TArray<FEnhancedActionKeyMapping>
+		}
+		FEnhancedActionKeyMapping "0..*" --* "1" UInputMappingContext::Mappings
+
+!if $bDisp_UPlayerMappableInputConfig
+		class UPlayerMappableInputConfig {
+			Contexts : TMap<UInputMappingContext*, int32>
+		}
+		UInputMappingContext "0..*" --o "1" UPlayerMappableInputConfig::Contexts
+!endif
+		
+!if $bDisp_UE_EnhancedInput_InputTrigger
+		namespace InputTrigger {
+			class UInputTriggerDown #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerPressed #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerReleased #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerHold #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerHoldAndRelease #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerTap #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerPulse #pink extends UE.EnhancedInput.UInputTrigger
+			class UInputTriggerChordAction #pink extends UE.EnhancedInput.UInputTrigger
+		}
+!endif
+
+!if $bDisp_UE_EnhancedInput_InputModifier
+		namespace InputModifier {
+			class UInputModifierDeadZone #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierScalar #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierNegate #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierSmooth #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierResponseCurveExponential #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierResponseCurveUser #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierFOVScaling #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierToWorldSpace #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierSwizzleAxis #pink extends UE.EnhancedInput.UInputModifier
+			class UInputModifierCollection #pink extends UE.EnhancedInput.UInputModifier
+		}
+!endif
+	}
+!endif
+!if $bDisp_UE_GameFeature
+	namespace GameFeature {
+!if $bDisp_UGameFeatureData
+		class UGameFeatureData {
+!if $bDisp_UGameFeatureAction
+			Actions : TArray<UGameFeatureAction*>
+!endif
+		}
+!if $bDisp_UGameFeatureAction
+		UGameFeatureData::Actions o-- UGameFeatureAction
+!endif
+!endif
+
+!if $bDisp_UGameFeatureAction
+		class UGameFeatureAction
+!endif
+	}
+!endif
+}
+!endif
+
+!if $bDisp_Lyra
+namespace Lyra {
+
+!if $bDisp_Lyra_Common
+	namespace Common {
+!if $bDisp_ALyraGameMode
+		class ALyraGameMode extends UE.AModularGameModeBase
+		ALyraGameMode ..> Lyra.Experience.ULyraExperienceDefinition
+		note on link : 初期化時に参照
+!endif
+
+
+!if $bDisp_ALyraPlayerState
+		class ALyraPlayerState {
+!if $bDisp_ULyraPawnData
+		PawnData : ULyraPawnData*
+!endif
+		}
+!if $bDisp_ULyraPawnData
+		ALyraPlayerState::PawnData o-- ULyraPawnData
+		note right of ALyraPlayerState::PawnData
+			Avator Actor の設定
+		end note
+!endif
+!endif
+
+!if $bDisp_ULyraHeroComponent
+		class ULyraHeroComponent {
+!if $bDisp_FMappableConfigPair
+			DefaultInputConfigs : TArray<FMappableConfigPair>
+!endif
+		}
+!if $bDisp_FMappableConfigPair
+		ULyraHeroComponent::DefaultInputConfigs "1" *-- "0..*" FMappableConfigPair
+!endif
+!endif
+
+
+!if $bDisp_InputComponent
+		class ULyraInputComponent extends UE.EnhancedInput.UEnhancedInputComponent
+!endif
+	
+!if $bDisp_ULyraPawnData
+		class ULyraPawnData {
+			PawnClass : TSubclassOf<APawn>
+!if $bDisp_Ability
+			AbilitySets : TArray<ULyraAbilitySet*>
+!endif
+!if $bDisp_ULyraInputConfig
+			InputConfig : ULyraInputConfig*
+!endif
+		}
+		UE.APawn "1" --o "1" ULyraPawnData::PawnClass
+!if $bDisp_Ability
+		ULyraPawnData::AbilitySets *-- Lyra.Ability.ULyraAbilitySet
+!endif
+!if $bDisp_ULyraInputConfig
+		ULyraPawnData::InputConfig o-- ULyraInputConfig
+		note right of ULyraPawnData::InputConfig
+			入力の設定
+		end note
+!endif
+!endif
+
+
+!if $bDisp_ULyraInputConfig
+		class ULyraInputConfig {
+			NativeInputActions : TArray<FLyraInputAction>
+			AbilityInputActions : TArray<FLyraInputAction>
+		}
+		FLyraInputAction --* ULyraInputConfig::NativeInputActions
+		FLyraInputAction --* ULyraInputConfig::AbilityInputActions
+		note right of ULyraInputConfig::NativeInputActions
+			ネイティブ入力の設定
+			(移動やカメラ操作)
+		end note
+		note right of ULyraInputConfig::AbilityInputActions
+			アビリティ入力の設定
+			（ジャンプ等GameplayAbilityを使用する操作）
+		end note
+!endif
+
+!if $bDisp_FLyraInputAction
+		class FLyraInputAction {
+!if $bDisp_UInputAction
+			InputAction : UInputAction*
+!endif
+			InputTag : FGameplayTag
+		}
+!if $bDisp_UInputAction
+		UE.EnhancedInput.UInputAction -o FLyraInputAction::InputAction
+!endif
+		note right of FLyraInputAction::InputAction
+			入力アクション
+		end note
+		note right of FLyraInputAction::InputTag
+			入力アクションと対となる GameplayTag 。
+			ULyraInputConfig::NativeInputActions 参照時はバインドする入力アクションを探す際のキーとして利用されます。
+			ULyraInputConfig::AbilityInputActions 参照時は入力アクションのバインドの際のパラメータとして利用されます。
+		end note
+!endif
+
+!if $bDisp_FMappableConfigPair
+		class FMappableConfigPair {
+!if $bDisp_UPlayerMappableInputConfig
+			Config : TSoftObjectPtr<UPlayerMappableInputConfig>
+!endif
+		}
+!if $bDisp_UPlayerMappableInputConfig
+'		UE.EnhancedInput.UPlayerMappableInputConfig "1" -o "1" FMappableConfigPair::Config
+		FMappableConfigPair::Config  "1" o- "1" UE.EnhancedInput.UPlayerMappableInputConfig
+!endif
+!endif
+	}
+!endif
+
+!if $bDisp_Ability
+	namespace Ability {
+		class ULyraAbilitySet {
+			GrantedGameplayAbilities : TArray<FLyraAbilitySet_GameplayAbility>
+		}
+		ULyraAbilitySet::GrantedGameplayAbilities *-- FLyraAbilitySet_GameplayAbility
+
+		class FLyraAbilitySet_GameplayAbility {
+			Ability : TSubclassOf<ULyraGameplayAbility>
+			InputTag : FGameplayTag
+		}
+		FLyraAbilitySet_GameplayAbility::Ability o-- ULyraGameplayAbility
+
+		class ULyraGameplayAbility extends UE.GameplayAbility.UGameplayAbility
+	}
+!endif
+
+!if $bDisp_Lyra_Character
+	namespace Character {
+		class ULyraCharacter extends UE.APawn
+	}
+!endif
+
+!if $bDisp_Lyra_Common
+	namespace Common {
+!if $bDisp_SimplePawnData
+		class SimplePawnData
+!endif
+	}
+!endif
+
+!if $bDisp_Lyra_Equipment
+	namespace Equipment {
+		class FLyraEquipmentList
+		class ULyraEquipmentDefinition {
+!if $bDisp_Ability
+			AbilitySetsToGrant : TArray<TObjectPtr<const ULyraAbilitySet>>
+!endif
+		}
+!if $bDisp_Ability
+		ULyraEquipmentDefinition::AbilitySetsToGrant *-- Lyra.Ability.ULyraAbilitySet
+!endif
+
+		class ULyraInventoryItemFragment
+
+		class UInventoryFragment_EquippableItem extends ULyraInventoryItemFragment {
+			EquipmentDefinition : TSubclassOf<ULyraEquipmentDefinition>
+		}
+		UInventoryFragment_EquippableItem::EquipmentDefinition *--ULyraEquipmentDefinition
+
+		class ULyraInventoryItemDefinition {
+			Fragments : TArray<TObjectPtr<ULyraInventoryItemFragment>>
+		}
+		ULyraInventoryItemDefinition::Fragments *-- ULyraInventoryItemFragment
+	}
+!endif
+
+!if $bDisp_Lyra_Config
+	namespace Config {
+		class ULyraSettingsLocal {
+			RegisteredInputConfigs : TArray<FLoadedMappableConfigPair>
+		}
+		ULyraSettingsLocal::RegisteredInputConfigs *-- FLoadedMappableConfigPair
+
+		class FLoadedMappableConfigPair {
+!if $bDisp_UPlayerMappableInputConfig
+			Config : UPlayerMappableInputConfig*
+!endif
+		}
+!if $bDisp_UPlayerMappableInputConfig
+		FLoadedMappableConfigPair::Config o-- UE.EnhancedInput.UPlayerMappableInputConfig
+!endif
+
+		class ULyraAbilityTagRelationshipMapping
+	}
+!endif
+
+!if $bDisp_Lyra_GameFeatureAction
+	namespace GameFeatureAction {
+!if $bDisp_Ability
+		class FGameFeatureAbilitiesEntry {
+			GrantedAbilitySets : TArray<TSoftObjectPtr<const ULyraAbilitySet>>
+		}
+		FGameFeatureAbilitiesEntry::GrantedAbilitySets o-- Lyra.Ability.ULyraAbilitySet
+!endif
+
+!if $bDisp_Ability
+		class UGameFeatureAction_AddAbilities extends UE.GameFeature.UGameFeatureAction {
+			AbilitiesList : TArray<FGameFeatureAbilitiesEntry>
+		}
+		UGameFeatureAction_AddAbilities::AbilitiesList *-- FGameFeatureAbilitiesEntry
+!endif
+
+!if $bDisp_UGameFeatureAction_AddInputConfig
+		class UGameFeatureAction_AddInputConfig extends UE.GameFeature.UGameFeatureAction {
+!if $bDisp_FMappableConfigPair
+			InputConfigs : TArray<FMappableConfigPair>
+!endif
+		}
+!if $bDisp_FMappableConfigPair
+		Lyra.Common.FMappableConfigPair --o UGameFeatureAction_AddInputConfig::InputConfigs
+!endif
+!endif
+!if $bDisp_UGameFeatureAction_AddInputBinding
+		class UGameFeatureAction_AddInputBinding extends UE.GameFeature.UGameFeatureAction {
+!if $bDisp_ULyraInputConfig
+			InputConfigs : TArray<TSoftObjectPtr<const ULyraInputConfig>>
+!endif
+		}
+!if $bDisp_ULyraInputConfig
+		UGameFeatureAction_AddInputBinding::InputConfigs o-- Lyra.ULyraInputConfig
+!endif
+!endif
+	}
+!endif
+
+!if $bDisp_Lyra_Experience
+	namespace Experience {
+!if $bDisp_ULyraExperienceActionSet
+		class ULyraExperienceActionSet {
+!if $bDisp_UGameFeatureAction
+			Actions : TArray<UGameFeatureAction*>
+!endif
+		}
+!if $bDisp_UGameFeatureAction
+		ULyraExperienceActionSet::Actions *- UE.GameFeature.UGameFeatureAction
+!endif
+!endif
+		
+		class ULyraExperienceDefinition {
+!if $bDisp_UGameFeatureData
+			GameFeaturesToEnable : TArray<FString>
+!endif
+!if $bDisp_ULyraPawnData
+			DefaultPawnData : TObjectPtr<const ULyraPawnData>
+!endif
+!if $bDisp_UGameFeatureAction
+			Actions : TArray<UGameFeatureAction*>
+!endif
+!if $bDisp_ULyraExperienceActionSet
+			ActionSets : TArray<TObjectPtr<ULyraExperienceActionSet>>
+!endif
+		}
+!if $bDisp_UGameFeatureData
+		ULyraExperienceDefinition::GameFeaturesToEnable "1" *- "1..*" UE.GameFeature.UGameFeatureData
+		note right of ULyraExperienceDefinition::GameFeaturesToEnable
+			このエクスペリエンスを有効にした際に有効にする GameFeature を名前（文字列）で指定
+			例： **ShooterCore** / **TopDownArena**
+		end note
+!endif
+!if $bDisp_ULyraPawnData
+		Lyra.Common.ULyraPawnData --o ULyraExperienceDefinition::DefaultPawnData
+		note right of ULyraExperienceDefinition::DefaultPawnData
+			エクスペリエンス中のプレイヤーのポーン
+		end note
+!endif
+!if $bDisp_UGameFeatureAction
+		ULyraExperienceDefinition::Actions *-- UE.GameFeature.UGameFeatureAction
+!endif
+!if $bDisp_ULyraExperienceActionSet
+		ULyraExperienceDefinition::ActionSets o-- ULyraExperienceActionSet
+!endif
+	}
+!endif
+
+/''/
+
+!if $bDisp_Lyra_IMC
+	namespace IMC {
+		class IMC_Default_Gamepad #pink extends UE.EnhancedInput.UInputMappingContext {
+			デフォルトのキーボードマウス設定
+		}
+		class IMC_Default_KBM #pink extends UE.EnhancedInput.UInputMappingContext {
+			デフォルトのキーボードマウス設定
+		}
+		class IMC_ShooterGame_Gamepad #pink extends UE.EnhancedInput.UInputMappingContext {
+			シューターゲームのゲームパッド設定
+		}
+		class IMC_ShooterGame_KBM #pink extends UE.EnhancedInput.UInputMappingContext {
+			シューターゲームのキーボードマウス設定
+		}
+		class IMC_ADS_Speed #pink extends UE.EnhancedInput.UInputMappingContext {
+			ADS の際のマウスとゲームパッドの入力設定を上書きするための設定
+		}
+		class IMC_InventoryTest #pink extends UE.EnhancedInput.UInputMappingContext {
+			インベントリ操作用の設定？
+		}
+	}
+!endif
+
+!if $bDisp_Lyra_ExperienceActionSet
+	namespace ExperienceActionSet {
+!if $bDisp_ULyraExperienceActionSet
+		class LAS_ShooterGame_SharedInput #pink extends Lyra.Experience.ULyraExperienceActionSet
+		class LAS_ShooterGame_StandardComponents #pink extends Lyra.Experience.ULyraExperienceActionSet
+		class LAS_ShooterGame_StandardHUD #pink extends Lyra.Experience.ULyraExperienceActionSet
+		class LAS_InventoryTest #pink extends Lyra.Experience.ULyraExperienceActionSet
+		class EAS_BasicShooterAcolades #pink extends Lyra.Experience.ULyraExperienceActionSet
+!endif
+	}
+!endif
+
+!if $bDisp_Lyra_Character
+	namespace Character {
+!if $bDisp_B_SimpleHeroPawn
+		class B_SimpleHeroPawn #LightBlue  {
+!if $bDisp_ULyraHeroComponent
+			LyraHero : ULyraHeroComponent
+!endif
+		}
+		Lyra.Character.ULyraCharacter <|-- B_SimpleHeroPawn
+!if $bDisp_ULyraHeroComponent
+		Lyra.Common.ULyraHeroComponent ---- B_SimpleHeroPawn::LyraHero
+!endif
+!endif
+	}
+!endif
+
+!if $bDisp_SimplePawnData
+!if $bDisp_ULyraPawnData
+	namespace Common {
+		class SimplePawnData #pink {
+			PawnClass
+		}
+		Lyra.Common.ULyraPawnData <|-- SimplePawnData
+		SimplePawnData::PawnClass - Lyra.Character.B_SimpleHeroPawn
+	}
+!endif
+!endif
+
+
+}
+
+!endif
+
+!if $bDisp_Objects
+namespace Objects {
+!if $bDisp_PMI_Default_Gamepad
+	map "PMI_Default_Gamepad : UPlayerMappableInputConfig" as PMI_Default_Gamepad #pink {
+	}
+	note bottom : デフォルトのゲームパッド設定
+!endif
+!if $bDisp_PMI_Default_KBM
+	map "PMI_Default_KBM : UPlayerMappableInputConfig" as PMI_Default_KBM #pink {
+	}
+	note bottom : デフォルトのキーボードマウス設定
+!endif
+
+!if $bDisp_PMI_ShooterDefaultConfig_Gamepad
+	map "PMI_ShooterDefaultConfig_Gamepad : UPlayerMappableInputConfig" as PMI_ShooterDefaultConfig_Gamepad #pink {
+	}
+	note top : シューターゲームのデフォルトのゲームパッド設定
+!endif
+!if $bDisp_PMI_ShooterDefaultConfig_KBM
+	map "PMI_ShooterDefaultConfig_KBM : UPlayerMappableInputConfig" as PMI_ShooterDefaultConfig_KBM #pink {
+	}
+	note top : シューターゲームのデフォルトのキーボードマウス設定
+!endif
+
+!if $bDisp_B_SimpleHeroPawn
+	map "B_SimpleHeroPawn : ULyraCharacter" as B_SimpleHeroPawn #pink {
+		LyraHero.DefaultInputConfigs[0] *-> PMI_Default_Gamepad
+		LyraHero.DefaultInputConfigs[1] *--> PMI_Default_KBM
+	}
+	note top : デフォルトマップで使用されているキャラクター
+!endif
+!if $bDisp_SimplePawnData
+	map "SimplePawnData : ULyraPawnData" as SimplePawnData #pink {
+		PawnClass *-> B_SimpleHeroPawn
+	}
+!endif
+
+!if $bDisp_UGameFeatureData
+	map "ShooterCore : UGameFeatureData" as ShooterCore #pink {
+	}
+	map "TopDownArena : UGameFeatureData" as ShooterCore #pink {
+	}
+	map "ShooterMaps : UGameFeatureData" as ShooterCore #pink {
+	}
+!endif
+
+!if $bDisp_B_LyraDefaultExperience
+	map "B_LyraDefaultExperience : ULyraExperienceDefinition" as B_LyraDefaultExperience #pink {
+!if $bDisp_UGameFeatureData
+		GameFeaturesToEnable
+!endif
+		DefaultPawnData *-> SimplePawnData
+	}
+!endif
+!if $nModeCurrent == $nMode_AddInputMapContextByCharacter
+	note top
+		**ALyraWorldSettings::DefaultGameplayExperience** が指定されていない場合、
+		**ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()** から参照される。
+		例： **L_DefaultEditorOverview** 
+	end note
+!endif
+}
+!endif
+
+!if $bDisp_UE
+!if $bDisp_UE_GameFeature && $bDisp_UE_EnhancedInput
+	UE.EnhancedInput -[hidden]-----> UE.GameFeature
+!endif
+!endif
+
+!if $bDisp_Lyra
+!if $bDisp_Lyra_Common && $bDisp_Lyra_Character
+'	Lyra.Common -[hidden] Lyra.Character
+!endif
+!if $bDisp_Lyra_Common && $bDisp_Lyra_GameFeatureAction
+	Lyra.Common -[hidden] Lyra.GameFeatureAction
+!endif
+!if $bDisp_Lyra_GameFeatureAction && $bDisp_Lyra_Experience
+	Lyra.GameFeatureAction -[hidden]- Lyra.Experience 
+!endif
+
+!if $bDisp_ULyraInputConfig && $bDisp_FMappableConfigPair
+	Lyra.Common.ULyraInputConfig -[hidden]- Lyra.Common.FMappableConfigPair
+!endif
+!endif
+
+
+
+@enduml
