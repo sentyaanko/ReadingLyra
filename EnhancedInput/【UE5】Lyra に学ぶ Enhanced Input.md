@@ -287,7 +287,7 @@ Lyra についての大まかな説明は以上です。
 
 ## Lyra における入力マッピング追加方法
 
-入力マッピングの追加には `UInputMappingContext` が必要です。
+入力マッピングの追加には `UInputMappingContext` が必要です。  
 前述のとおり、 `UPlayerMappableInputConfig` / `ULyraExperienceActionSet` などが保持しており、この2つがどのように利用されているかを解説します。
 
 
