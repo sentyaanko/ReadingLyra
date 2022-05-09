@@ -223,7 +223,7 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における UInputAction
 
 `Content Browser の Search` で `Type=InputAction` と記述すると一覧が確認できます。  
-![](images/ContentBrowser-Type%3DInputAction.png)
+![ContentBrowser-Type=DInputAction]
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `UInputMappingContext`
@@ -241,7 +241,7 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における UInputMappingContext
 
 `Content Browser の Search` で `Type=InputMappingContext` と記述すると一覧が確認できます。  
-![](images/ContentBrowser-Type%3DInputMappingContext.png)
+![ContentBrowser-Type=DInputMappingContext]
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `UPlayerMappableInputConfig`
@@ -253,7 +253,7 @@ Lyra についての大まかな説明は以上です。
 		* 解説は割愛します。
 
 図にすると以下のような状況です。  
-![](images/UInputMappingContext-Referencing.png)
+![UInputMappingContext-Referencing]
 
 また、それぞれ以下の `UInputAction` を参照しています。
 
@@ -294,14 +294,14 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由
 
 `Content Browser の Search` で `Type=PlayerMappableInputConfig` と記述すると一覧が確認できます。  
-![](images/ContentBrowser-Type%3DPlayerMappableInputConfig.png)
+![ContentBrowser-Type=DPlayerMappableInputConfig]
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `B_SimpleHeroPawn` ( `ULyraCharacter` 派生BP)
 	* `ShooterCore/TopDownArena` （ `UGameFeatureData` ）
 
 図にすると以下のような状況です。  
-![](images/UPlayerMappableInputConfig-Referencing.png)
+![UPlayerMappableInputConfig-Referencing]
 
 それぞれについて、どのように利用されるかを解説します。
 
@@ -430,7 +430,7 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における入力マッピング追加方法： ULyraExperienceActionSet 経由
 
 `Content Browser の Search` で `LyraExperienceActionSet` と記述すると一覧が確認できます。  
-![](images/ContentBrowser-LyraExperienceActionSet.png)
+![ContentBrowser-LyraExperienceActionSet]
 
 各アセットを開いて確認すると、`Actions To Perform > Actions` にて `Add Input Mapping` を指定しているものがあります。  
 `LAS_InventoryTest` / `LAS_ShooterGame_SharedInput` の 2 つです。  
@@ -518,13 +518,13 @@ Lyra についての大まかな説明は以上です。
 		* こちらのケースも前述のものと同じように、レベルの初期化が起点となっています。
 
 `Reference Viewer` で `UInputAction` の依存関係を追うと以下のようになります。  
-![](images/ULyraInputConfig-Referenced.png)
+![ULyraInputConfig-Referenced]
 
 `Reference Viewer` で `ULyraPawnData` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
-![](images/ULyraInputConfig-Referencing_PawnData.png)
+![ULyraInputConfig-Referencing_PawnData]
 
 `Reference Viewer` で `ULyraExperienceActionSet` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
-![](images/ULyraInputConfig-Referencing_ActionSet.png)
+![ULyraInputConfig-Referencing_ActionSet]
 
 これらの依存関係を見ていくと、どのレベルでどの入力アクションがバインドされているのかがわかります。
 
@@ -636,6 +636,17 @@ Lyra についての大まかな説明は以上です。
 
 <!--- ページ内のリンク --->
 [Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合]: #lyra-における入力マッピング追加方法-uplayermappableinputconfig-経由-shootercore-の場合
+
+<!--- 自前の画像へのリンク --->
+[ContentBrowser-Type=DInputAction]: images/ContentBrowser-Type%3DInputAction.png
+[ContentBrowser-Type=DInputMappingContext]: images/ContentBrowser-Type%3DInputMappingContext.png
+[UInputMappingContext-Referencing]: images/UInputMappingContext-Referencing.png
+[ContentBrowser-Type=DPlayerMappableInputConfig]: images/ContentBrowser-Type%3DPlayerMappableInputConfig.png
+[UPlayerMappableInputConfig-Referencing]: images/UPlayerMappableInputConfig-Referencing.png
+[ContentBrowser-LyraExperienceActionSet]: images/ContentBrowser-LyraExperienceActionSet.png
+[ULyraInputConfig-Referenced]: images/ULyraInputConfig-Referenced.png
+[ULyraInputConfig-Referencing_PawnData]: images/ULyraInputConfig-Referencing_PawnData.png
+[ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
 <!--- 公式：4.27 --->
 [Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]: https://docs.unrealengine.com/4.27/ja/InteractiveExperiences/Input/EnhancedInput/
