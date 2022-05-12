@@ -10,7 +10,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* Gameplay Ability は、キー入力からアクティブ化などを行っています。
 		* ただ、詳細に触れようとするとドキュメントが膨大になるため、解説は割愛します。
 	* ウィジェットに絡む部分
-	* キャラクターのブループリント内の EnhancedInputEvents に関する部分
+	* キャラクターのブループリント内の Enhanced Action Events(EnhancedInputAction ノード) に関する部分
 	* キーコンフィグ関連
 * バージョン
 	* [Lyra Starter Game]
@@ -234,7 +234,7 @@ Lyra についての大まかな説明は以上です。
 		* Widget の操作（ボタンを押す等）から発生させる `UInputAction` を指定するのに利用しています。
 		* 解説は割愛します。
 	* Character クラスの入力イベント（例： `B_HeroShooter_Mannequin` 等）
-		* ブループリント内で EnhancedInputEvents を実装することで `UInputAction` へのバインドを行っています。
+		* ブループリント内で Enhanced Action Events(EnhancedInputAction ノード) を実装することで `UInputAction` へのバインドを行っています。
 		* 解説は割愛します。
 
 
@@ -480,7 +480,7 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における入力アクションのバインド方法
 
 * ここでは C++ で行っているバインドについて述べます。
-	* `B_HeroShooter_Mannequin` 等の EnhancedInputEvents についての解説は割愛します。
+	* `B_HeroShooter_Mannequin` 等の Enhanced Action Events(EnhancedInputAction ノード) についての解説は割愛します。
 * C++ でバインドを行う場合、以下の関数を使用します。
 	*  `UEnhancedInputComponent::BindAction()`
 * 上記の関数は以下の関数から呼び出していることが確認できます。
