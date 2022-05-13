@@ -1,19 +1,3 @@
-<style>
-	.th_v{
-		writing-mode: vertical-rl;
-		transform: rotate(180deg);
-	}
-	.th_h{
-		vertical-align: bottom;
-	}
-	.th_f{
-		text-align: center;
-		writing-mode: vertical-rl;
-		transform: rotate(180deg);
-	}
-</style>
-
-
 # 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag) <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
@@ -21,7 +5,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 基本的に GameplayTag 側から見た他のアセットとの関係としてまとめています。
 
 * 解説しないこと
-	* Gameplay Ability 側から見たものは個々の Gameplay Ability 毎にまとめる必要がありそうなので、ここでは扱いません。
+	* Gameplay Ability 
+		* 仕組みや Gameplay Ability から見た GameplayTag については、ここでは扱いません。
+		* Lyra で実装されている Gameplay Ability について知りたい場合、以下が詳しいです。
+			* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]
 * バージョン
 	* [Lyra Starter Game]
 		* 2022/04/05 版
@@ -40,28 +27,23 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [終わりに](#終わりに)
 
 
-
 # そもそも InputTag とは？
 
-* 特に正式名称というわけではありません。  
+* 正式名称というわけではありません。  
 * このドキュメントでは **GameplayTag のうち、InputTag で始まるもの** をそのように称しています。
-* C++ で定義されているものと ini ファイルで定義されているものがあります。
-	* `LyraGameplayTags.cpp`
-		* `UGameplayTagsManager::AddNativeGameplayTag()` を呼び出すことで定義している。
-		* ここで定義しているものは `Project Settings > Gameplay Tags > Gameplay Tag List` で表示されるが削除できない。
-		* これを利用して定義するのに適しているのは以下のようなもの。
-			* Native に InputAction にバインドするもの。（ C++ 内で GameplayTag が確定している必要がある為。）
-			* 言い方を変えると、 Gameplay Ability とは関連付けないもの。
-				* そのため、 `ULyraAbilitySet` で利用されない。
-	* `Config/DefaultGameplayTags.ini`
-		* ここには GameFeature に属さない共通設定を定義するのが適している。
-	* `Plugins/GameFeatures/ShooterCore/ShooterCoreTags.ini`
-		* ここには GameFeature の ShooterCore に属する設定を定義するのが適している。
+* InputTag は **入力に反応して実行する処理をモジュール式に追加出来るようにするため** に使用されています。
+	* Lyra では上記を実現できるように GameplayTag と Gameplay Ability を組み合わせてセットアップしている、という感じです。
+* 入力から Gameplay Ability へのつながりは以下の様になります。
+	1. 物理的な入力に対し `UInputMappingContext` で関連付けられた `UInputAction` の呼び出す。
+	2. `UInputAction` にバインドされた関数の呼び出し。バインドされた関数は `ULyraInputConfig` で設定されている InputTag を引数で渡す。
+	3. 渡された InputTag を元に `ULyraAbilitySet` で設定されている Gameplay Ability の関数の呼び出す。
 * InputTag は主に以下のアセットで利用されています。
 	* `ULyraInputConfig`
 		* InputTag と InputAction を関連付けるのに使用。
+		* これにより、 Enhanced Input にて InputAction と InputTag をバインドする。
 	* `ULyraAbilitySet`
 		* InputTag と Gameplay Ability を関連付けるのに使用。
+		* これにより、 Lyra の実装にて InputTag を元に Gameplay Ability を制御する。
 	* Gameplay Ability
 		* イベントグラフの `Send Gameplay Event` / `Send Gameplay Event to Actor`
 			* 他の Gameplay Ability に GameplayEvent を送る際の識別子として使用。
@@ -71,6 +53,18 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 			* アクティブ化前の Gameplay Ability にて、外部から GameplayEvent を受け取る際の識別子として使用。
 	* キャラクタークラス
 	* BehaviorTree
+* C++ で定義されているものと ini ファイルで定義されているものがあります。
+	* `LyraGameplayTags.cpp`
+		* `UGameplayTagsManager::AddNativeGameplayTag()` を呼び出すことで定義している。
+		* ここで定義しているものは `Project Settings > Gameplay Tags > Gameplay Tag List` で表示される。が、削除できない。
+		* これを利用して定義するのに適しているのは以下のようなもの。
+			* Native に InputAction にバインドするもの。（ C++ 内で GameplayTag が確定している必要がある為。）
+			* 言い方を変えると、 Gameplay Ability とは関連付けないもの。
+				* そのため、 `ULyraAbilitySet` で利用されない。
+	* `Config/DefaultGameplayTags.ini`
+		* ここには GameFeature に属さない共通設定を定義するのが適している。
+	* `Plugins/GameFeatures/ShooterCore/ShooterCoreTags.ini`
+		* ここには GameFeature の ShooterCore に属する設定を定義するのが適している。
 * 定義されている InputTag は以下の通り。
 	* **LyraGameplayTags.cpp**
 		* InputTag.Move
@@ -103,99 +97,76 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # InputTag と ULyraInputConfig の関係
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_v">InputData_SimplePawn</th>
-			<th class="th_v">InputData_Hero</th>
-			<th class="th_v">InputData_ShooterGame_AddOns</th>
-			<th class="th_v">InputData_Arena</th>
-			<th class="th_v">InputData_InventoryTest</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> LyraGameplayTags.cpp
-		<tr><td> InputTag.Move                                     <td> IA_Move       <td> IA_Move             <td>                   <td> IA_Move        <td>                        </tr>
-		<tr><td> InputTag.Look.Mouse                               <td> IA_Look_Mouse <td> IA_Look_Mouse       <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Look.Stick                               <td> IA_Look_Stick <td> IA_Look_Stick       <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Crouch                                   <td> IA_Crouch     <td> IA_Crouch           <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.AutoRun                                  <td> IA_AutoRun    <td> IA_AutoRun          <td>                   <td>                <td>                        </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Jump                                     <td> IA_Jump       <td> IA_Jump             <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Dash                             <td>               <td> IA_Ability_Dash     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Heal                             <td>               <td> IA_Ability_Heal     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Weapon.Fire                              <td>               <td> IA_Weapon_Fire      <td>                   <td> IA_Weapon_Fire <td>                        </tr>
-		<tr><td> InputTag.Weapon.FireAuto                          <td>               <td> IA_Weapon_Fire_Auto <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Weapon.Reload                            <td>               <td> IA_Weapon_Reload    <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Melee                            <td>               <td>                     <td> IA_Melee          <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot.Drop                   <td>               <td>                     <td> IA_DropWeapon     <td>                <td>                        </tr>
-		<tr><td> InputTag.Weapon.ADS                               <td>               <td>                     <td> IA_ADS            <td>                <td>                        </tr>
-		<tr><td> InputTag.Weapon.Grenade                           <td>               <td>                     <td> IA_Grenade        <td>                <td>                        </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Emote                            <td>               <td>                     <td> IA_Emote          <td>                <td> IA_Emote               </tr>
-		<tr><td> InputTag.Ability.ShowLeaderboard                  <td>               <td>                     <td> IA_ShowScoreboard <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot                        <td>               <td>                     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleBackward          <td>               <td>                     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleForward           <td>               <td>                     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot.SelectSlot             <td>               <td>                     <td>                   <td>                <td>                        </tr>
-		<tr><td> InputTag.Ability.Interact                         <td>               <td>                     <td>                   <td>                <td> IA_Interact            </tr>
-		<tr><td> InputTag.Ability.ToggleInventory                  <td>               <td>                     <td>                   <td>                <td> IA_ToggleInventory     </tr>
-		<tr><td> InputTag.Ability.ToggleMap                        <td>               <td>                     <td>                   <td>                <td> IA_ToggleMap           </tr>
-		<tr><td> InputTag.Ability.ToggleMarkerInWorld              <td>               <td>                     <td>                   <td>                <td> IA_ToggleMarkerInWorld </tr>
-	</tbody>
-</table>
+表の幅を抑えるため `ULyraInputConfig` のプレフィックスの `InputData_` は省略します。
+
+| InputTag                                 | SimplePawn    | Hero                | ShooterGame_AddOns | Arena          | InventoryTest          |
+|------------------------------------------|---------------|---------------------|--------------------|----------------|------------------------|
+| **LyraGameplayTags.cpp**                 |               |                     |                    |                |                        |
+| InputTag.Move                            | IA_Move       | IA_Move             |                    | IA_Move        |                        |
+| InputTag.Look.Mouse                      | IA_Look_Mouse | IA_Look_Mouse       |                    |                |                        |
+| InputTag.Look.Stick                      | IA_Look_Stick | IA_Look_Stick       |                    |                |                        |
+| InputTag.Crouch                          | IA_Crouch     | IA_Crouch           |                    |                |                        |
+| InputTag.AutoRun                         | IA_AutoRun    | IA_AutoRun          |                    |                |                        |
+|                                          |               |                     |                    |                |                        |
+| **DefaultGameplayTags.ini**              |               |                     |                    |                |                        |
+| InputTag.Jump                            | IA_Jump       | IA_Jump             |                    |                |                        |
+| InputTag.Ability.Dash                    |               | IA_Ability_Dash     |                    |                |                        |
+| InputTag.Ability.Heal                    |               | IA_Ability_Heal     |                    |                |                        |
+| InputTag.Weapon.Fire                     |               | IA_Weapon_Fire      |                    | IA_Weapon_Fire |                        |
+| InputTag.Weapon.FireAuto                 |               | IA_Weapon_Fire_Auto |                    |                |                        |
+| InputTag.Weapon.Reload                   |               | IA_Weapon_Reload    |                    |                |                        |
+| InputTag.Ability.Melee                   |               |                     | IA_Melee           |                |                        |
+| InputTag.Ability.Quickslot.Drop          |               |                     | IA_DropWeapon      |                |                        |
+| InputTag.Weapon.ADS                      |               |                     | IA_ADS             |                |                        |
+| InputTag.Weapon.Grenade                  |               |                     | IA_Grenade         |                |                        |
+|                                          |               |                     |                    |                |                        |
+| **ShooterCoreTags.ini**                  |               |                     |                    |                |                        |
+| InputTag.Ability.Emote                   |               |                     | IA_Emote           |                | IA_Emote               |
+| InputTag.Ability.ShowLeaderboard         |               |                     | IA_ShowScoreboard  |                |                        |
+| InputTag.Ability.Quickslot               |               |                     |                    |                |                        |
+| InputTag.Ability.Quickslot.CycleBackward |               |                     |                    |                |                        |
+| InputTag.Ability.Quickslot.CycleForward  |               |                     |                    |                |                        |
+| InputTag.Ability.Quickslot.SelectSlot    |               |                     |                    |                |                        |
+| InputTag.Ability.Interact                |               |                     |                    |                | IA_Interact            |
+| InputTag.Ability.ToggleInventory         |               |                     |                    |                | IA_ToggleInventory     |
+| InputTag.Ability.ToggleMap               |               |                     |                    |                | IA_ToggleMap           |
+| InputTag.Ability.ToggleMarkerInWorld     |               |                     |                    |                | IA_ToggleMarkerInWorld |
 
 異なる `ULyraInputConfig` を使用した際も `InputTag` と `InputAction` の組み合わせは同じになるように作られています。  
 まとめると以下のようになります。
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_h">InputAction</th>
-			<th class="th_h">InputAction が属するGameFeature</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> LyraGameplayTags.cpp
-		<tr><td> InputTag.Move                                     <td> IA_Move                <td>             </tr>
-		<tr><td> InputTag.Look.Mouse                               <td> IA_Look_Mouse          <td>             </tr>
-		<tr><td> InputTag.Look.Stick                               <td> IA_Look_Stick          <td>             </tr>
-		<tr><td> InputTag.Crouch                                   <td> IA_Crouch              <td>             </tr>
-		<tr><td> InputTag.AutoRun                                  <td> IA_AutoRun             <td>             </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Jump                                     <td> IA_Jump                <td>             </tr>
-		<tr><td> InputTag.Ability.Dash                             <td> IA_Ability_Dash        <td>             </tr>
-		<tr><td> InputTag.Ability.Heal                             <td> IA_Ability_Heal        <td>             </tr>
-		<tr><td> InputTag.Weapon.Fire                              <td> IA_Weapon_Fire         <td>             </tr>
-		<tr><td> InputTag.Weapon.FireAuto                          <td> IA_Weapon_Fire_Auto    <td>             </tr>
-		<tr><td> InputTag.Weapon.Reload                            <td> IA_Weapon_Reload       <td>             </tr>
-		<tr><td> InputTag.Ability.Melee                            <td> IA_Melee               <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.Quickslot.Drop                   <td> IA_DropWeapon          <td> ShooterCore </tr>
-		<tr><td> InputTag.Weapon.ADS                               <td> IA_ADS                 <td> ShooterCore </tr>
-		<tr><td> InputTag.Weapon.Grenade                           <td> IA_Grenade             <td> ShooterCore </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Emote                            <td> IA_Emote               <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.ShowLeaderboard                  <td> IA_ShowScoreboard      <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.Quickslot                        <td>                        <td>             </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleBackward          <td>                        <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleForward           <td>                        <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.Quickslot.SelectSlot             <td>                        <td> ShooterCore </tr>
-		<tr><td> InputTag.Ability.Interact                         <td> IA_Interact            <td> ShooterMaps </tr>
-		<tr><td> InputTag.Ability.ToggleInventory                  <td> IA_ToggleInventory     <td> ShooterMaps </tr>
-		<tr><td> InputTag.Ability.ToggleMap                        <td> IA_ToggleMap           <td> ShooterMaps </tr>
-		<tr><td> InputTag.Ability.ToggleMarkerInWorld              <td> IA_ToggleMarkerInWorld <td> ShooterMaps </tr>
-	</tbody>
-</table>
+| InputTag                                 | InputAction            | InputAction が属するGameFeature |
+|------------------------------------------|------------------------|---------------------------------|
+| **LyraGameplayTags.cpp**                 |                        |                                 |
+| InputTag.Move                            | IA_Move                |                                 |
+| InputTag.Look.Mouse                      | IA_Look_Mouse          |                                 |
+| InputTag.Look.Stick                      | IA_Look_Stick          |                                 |
+| InputTag.Crouch                          | IA_Crouch              |                                 |
+| InputTag.AutoRun                         | IA_AutoRun             |                                 |
+|                                          |                        |                                 |
+| **DefaultGameplayTags.ini**              |                        |                                 |
+| InputTag.Jump                            | IA_Jump                |                                 |
+| InputTag.Ability.Dash                    | IA_Ability_Dash        |                                 |
+| InputTag.Ability.Heal                    | IA_Ability_Heal        |                                 |
+| InputTag.Weapon.Fire                     | IA_Weapon_Fire         |                                 |
+| InputTag.Weapon.FireAuto                 | IA_Weapon_Fire_Auto    |                                 |
+| InputTag.Weapon.Reload                   | IA_Weapon_Reload       |                                 |
+| InputTag.Ability.Melee                   | IA_Melee               | ShooterCore                     |
+| InputTag.Ability.Quickslot.Drop          | IA_DropWeapon          | ShooterCore                     |
+| InputTag.Weapon.ADS                      | IA_ADS                 | ShooterCore                     |
+| InputTag.Weapon.Grenade                  | IA_Grenade             | ShooterCore                     |
+|                                          |                        |                                 |
+| **ShooterCoreTags.ini**                  |                        |                                 |
+| InputTag.Ability.Emote                   | IA_Emote               | ShooterCore                     |
+| InputTag.Ability.ShowLeaderboard         | IA_ShowScoreboard      | ShooterCore                     |
+| InputTag.Ability.Quickslot               |                        |                                 |
+| InputTag.Ability.Quickslot.CycleBackward |                        | ShooterCore                     |
+| InputTag.Ability.Quickslot.CycleForward  |                        | ShooterCore                     |
+| InputTag.Ability.Quickslot.SelectSlot    |                        | ShooterCore                     |
+| InputTag.Ability.Interact                | IA_Interact            | ShooterMaps                     |
+| InputTag.Ability.ToggleInventory         | IA_ToggleInventory     | ShooterMaps                     |
+| InputTag.Ability.ToggleMap               | IA_ToggleMap           | ShooterMaps                     |
+| InputTag.Ability.ToggleMarkerInWorld     | IA_ToggleMarkerInWorld | ShooterMaps                     |
 
 * InputTag と InputAction の属する GameFeature の差について
 	* 例１： `IA_Melee` は GameFeature `ShooterCore` に属しているが、 `InputTag.Ability.Melee` は `DefaultGameplayTags.ini` で定義されている。
@@ -249,39 +220,29 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # InputTag と ULyraAbilitySet の関係
 
+表の幅を抑えるため `ULyraAbilitySet` のプレフィックス（サフィックス）の `AbilitySet_(_AbilitySet)` は省略します。
+
 ## ShooterGame 関連
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_v">AbilitySet_ShooterHero</th>
-			<th class="th_v">AbilitySet_ControlPoint</th>
-			<th class="th_v">AbilitySet_Elimination</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Jump                                     <td> GA_Hero_Jump              <td>                       <td>                        </tr>
-		<tr><td> InputTag.Ability.Dash                             <td> GA_Hero_Dash              <td>                       <td>                        </tr>
-		<tr><td> InputTag.Ability.Melee                            <td> GA_Melee                  <td>                       <td>                        </tr>
-		<tr><td> InputTag.Ability.Quickslot.Drop                   <td> GA_DropWeapon             <td>                       <td>                        </tr>
-		<tr><td> InputTag.Weapon.ADS                               <td> GA_ADS                    <td>                       <td>                        </tr>
-		<tr><td> InputTag.Weapon.Grenade                           <td> GA_Grenade                <td>                       <td>                        </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Emote                            <td> GA_Emote                  <td>                       <td>                        </tr>
-		<tr><td> InputTag.Ability.ShowLeaderboard                  <td>                           <td> GA_ShowLeaderboard_CP <td> GA_ShowLeaderboard_TDM </tr>
-		<tr><td> InputTag.Ability.Quickslot                        <td> GA_QuickbarSlots          <td>                       <td>                        </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> None InputTag
-		<tr><td>                                                   <td> GA_Hero_Death             <td> GA_AutoRespawn        <td> GA_AutoRespawn         </tr>
-		<tr><td>                                                   <td> GA_SpawnEffect            <td>                       <td>                        </tr>
-		<tr><td>                                                   <td> LyraGameplayAbility_Reset <td>                       <td>                        </tr>
-	</tbody>
-</table>
+| InputTag                         | ShooterHero               | ControlPoint          | Elimination            |
+|----------------------------------|---------------------------|-----------------------|------------------------|
+| **DefaultGameplayTags.ini**      |                           |                       |                        |
+| InputTag.Jump                    | GA_Hero_Jump              |                       |                        |
+| InputTag.Ability.Dash            | GA_Hero_Dash              |                       |                        |
+| InputTag.Ability.Melee           | GA_Melee                  |                       |                        |
+| InputTag.Ability.Quickslot.Drop  | GA_DropWeapon             |                       |                        |
+| InputTag.Weapon.ADS              | GA_ADS                    |                       |                        |
+| InputTag.Weapon.Grenade          | GA_Grenade                |                       |                        |
+|                                  |                           |                       |                        |
+| **ShooterCoreTags.ini**          |                           |                       |                        |
+| InputTag.Ability.Emote           | GA_Emote                  |                       |                        |
+| InputTag.Ability.ShowLeaderboard |                           | GA_ShowLeaderboard_CP | GA_ShowLeaderboard_TDM |
+| InputTag.Ability.Quickslot       | GA_QuickbarSlots          |                       |                        |
+|                                  |                           |                       |                        |
+| **None InputTag**                |                           |                       |                        |
+|                                  | GA_Hero_Death             | GA_AutoRespawn        | GA_AutoRespawn         |
+|                                  | GA_SpawnEffect            |                       |                        |
+|                                  | LyraGameplayAbility_Reset |                       |                        |
 
 * 以下の様なことがわかります。
 	* ルールによって異なるリーダーボードをルール毎の `ULyraAbilitySet` で指定している。
@@ -301,30 +262,17 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* `GA_Hero_Death`
 			* InputTag ではない、他の GameplayTag(`GameplayEvent.Death`) によりアクティブ化する。
 
-
 ## Weapon 関連
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_v">AbilitySet_ShooterPistol</th>
-			<th class="th_v">AbilitySet_ShooterRifle</th>
-			<th class="th_v">AbilitySet_ShooterShotgun</th>
-			<th class="th_v">AbilitySet_ShooterNetShooter</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Weapon.Fire                              <td> GA_Weapon_Fire_Pistol   <td>                           <td>                          <td>                             </tr>
-		<tr><td> InputTag.Weapon.FireAuto                          <td>                         <td> GA_Weapon_Fire_Rifle_Auto <td> GA_Weapon_Fire_Shotgun   <td> GA_WeaponNetShooter         </tr>
-		<tr><td> InputTag.Weapon.Reload                            <td> GA_Weapon_Reload_Pistol <td> GA_Weapon_Reload_Rifle    <td> GA_Weapon_Reload_Shotgun <td> GA_Weapon_Reload_NetShooter </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> None InputTag
-		<tr><td>                                                   <td> GA_Weapon_AutoReload    <td> GA_Weapon_AutoReload      <td> GA_Weapon_AutoReload     <td>                             </tr>
-	</tbody>
-</table>
+| InputTag                    | ShooterPistol           | ShooterRifle              | ShooterShotgun           | ShooterNetShooter           |
+|-----------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|
+| **DefaultGameplayTags.ini** |                         |                           |                          |                             |
+| InputTag.Weapon.Fire        | GA_Weapon_Fire_Pistol   |                           |                          |                             |
+| InputTag.Weapon.FireAuto    |                         | GA_Weapon_Fire_Rifle_Auto | GA_Weapon_Fire_Shotgun   | GA_WeaponNetShooter         |
+| InputTag.Weapon.Reload      | GA_Weapon_Reload_Pistol | GA_Weapon_Reload_Rifle    | GA_Weapon_Reload_Shotgun | GA_Weapon_Reload_NetShooter |
+|                             |                         |                           |                          |                             |
+| **None InputTag**           |                         |                           |                          |                             |
+|                             | GA_Weapon_AutoReload    | GA_Weapon_AutoReload      | GA_Weapon_AutoReload     |                             |
 
 * 以下の様なことがわかります。
 	* Pistol は `InputTag.Weapon.Fire` でそれ以外は `InputTag.Weapon.FireAuto` を使用している。
@@ -333,32 +281,19 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## その他
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_v">AbilitySet_Arena</th>
-			<th class="th_v">AbilitySet_HealPickup</th>
-			<th class="th_v">AbilitySet_InventoryTest</th>
-			<th class="th_v">ShootingTarget_AbilitySet</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Weapon.Fire                              <td> GA_DropBomb        <td> GA_HealPickup <td>                        <td>    </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Interact                         <td>                    <td>               <td> GA_Interact            <td>    </tr>
-		<tr><td> InputTag.Ability.ToggleInventory                  <td>                    <td>               <td> GA_ToggleInventory     <td>    </tr>
-		<tr><td> InputTag.Ability.ToggleMap                        <td>                    <td>               <td> GA_ToggleMap           <td>    </tr>
-		<tr><td> InputTag.Ability.ToggleMarkerInWorld              <td>                    <td>               <td> GA_ToggleMarkerInWorld <td>    </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> None InputTag
-		<tr><td>                                                   <td> GA_ArenaHero_Death <td>               <td>                        <td>    </tr>
-	</tbody>
-</table>
+| InputTag                             | Arena              | HealPickup    | InventoryTest          | ShootingTarget |
+|--------------------------------------|--------------------|---------------|------------------------|----------------|
+| **DefaultGameplayTags.ini**          |                    |               |                        |                |
+| InputTag.Weapon.Fire                 | GA_DropBomb        | GA_HealPickup |                        |                |
+|                                      |                    |               |                        |                |
+| **ShooterCoreTags.ini**              |                    |               |                        |                |
+| InputTag.Ability.Interact            |                    |               | GA_Interact            |                |
+| InputTag.Ability.ToggleInventory     |                    |               | GA_ToggleInventory     |                |
+| InputTag.Ability.ToggleMap           |                    |               | GA_ToggleMap           |                |
+| InputTag.Ability.ToggleMarkerInWorld |                    |               | GA_ToggleMarkerInWorld |                |
+|                                      |                    |               |                        |                |
+| **None InputTag**                    |                    |               |                        |                |
+|                                      | GA_ArenaHero_Death |               |                        |                |
 
 * 以下の様なことがわかります。
 	* Arena での死亡処理は `GA_ArenaHero_Death` を使用している。（ ShooterGame とは異なる Gameplay Ability を使用している）
@@ -366,35 +301,26 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # InputTag と Gameplay Ability の関係
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_h">Gameplay Ability</th>
-			<th class="th_h">利用箇所</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Jump                                     <td>                                                    <td>                                         </tr>
-		<tr><td> InputTag.Ability.Dash                             <td> GA_Hero_Dash                                       <td> Ability Triggers                        </tr>
-		<tr><td> InputTag.Ability.Heal                             <td> GA_Hero_Heal                                       <td> Ability Triggers                        </tr>
-		<tr><td> InputTag.Weapon.Fire                              <td> GA_Weapon_Fire                                     <td> Ability Triggers                        </tr>
-		<tr><td> InputTag.Weapon.FireAuto                          <td>                                                    <td>                                         </tr>
-		<tr><td> InputTag.Weapon.Reload                            <td> GA_Weapon_ReloadMagazine<br>GA_Weapon_AutoReload   <td> Ability Triggers<br>Send Gameplay Event </tr>
-		<tr><td> InputTag.Ability.Melee                            <td>                                                    <td>                                         </tr>
-		<tr><td> InputTag.Ability.Quickslot.Drop                   <td>                                                    <td>                                         </tr>
-		<tr><td> InputTag.Weapon.ADS                               <td> GA_ADS<br>GA_Melee                                 <td> Ability Triggers<br>Ability Triggers    </tr>
-		<tr><td> InputTag.Weapon.Grenade                           <td> GA_Grenade                                         <td> Ability Triggers                        </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Quickslot.CycleBackward          <td> GA_QuickbarSlots                                  <td> Wait Gameplay Event                      </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleForward           <td> GA_QuickbarSlots                                  <td> Wait Gameplay Event                      </tr>
-		<tr><td> InputTag.Ability.Quickslot.SelectSlot             <td> GA_QuickbarSlots                                  <td> Wait Gameplay Event                      </tr>
-		<tr><td> InputTag.Ability.Interact                         <td> GA_Interact                                       <td> Ability Triggers                         </tr>
-	</tbody>
-</table>
+| InputTag                                 | Gameplay Ability                                 | 利用箇所                                |
+|------------------------------------------|--------------------------------------------------|-----------------------------------------|
+| **DefaultGameplayTags.ini**              |                                                  |                                         |
+| InputTag.Jump                            |                                                  |                                         |
+| InputTag.Ability.Dash                    | GA_Hero_Dash                                     | Ability Triggers                        |
+| InputTag.Ability.Heal                    | GA_Hero_Heal                                     | Ability Triggers                        |
+| InputTag.Weapon.Fire                     | GA_Weapon_Fire                                   | Ability Triggers                        |
+| InputTag.Weapon.FireAuto                 |                                                  |                                         |
+| InputTag.Weapon.Reload                   | GA_Weapon_ReloadMagazine<br>GA_Weapon_AutoReload | Ability Triggers<br>Send Gameplay Event |
+| InputTag.Ability.Melee                   |                                                  |                                         |
+| InputTag.Ability.Quickslot.Drop          |                                                  |                                         |
+| InputTag.Weapon.ADS                      | GA_ADS<br>GA_Melee                               | Ability Triggers<br>Ability Triggers    |
+| InputTag.Weapon.Grenade                  | GA_Grenade                                       | Ability Triggers                        |
+|                                          |                                                  |                                         |
+| **ShooterCoreTags.ini**                  |                                                  |                                         |
+| InputTag.Ability.Quickslot.CycleBackward | GA_QuickbarSlots                                 | Wait Gameplay Event                     |
+| InputTag.Ability.Quickslot.CycleForward  | GA_QuickbarSlots                                 | Wait Gameplay Event                     |
+| InputTag.Ability.Quickslot.SelectSlot    | GA_QuickbarSlots                                 | Wait Gameplay Event                     |
+| InputTag.Ability.Interact                | GA_Interact                                      | Ability Triggers                        |
+
 
 * Ability Triggers
 	* `Detail > Triggers > Ability Triggers > Trigger Tag` の事です。
@@ -412,26 +338,16 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # その他のクラスとの関係
 
-<table rules="all">
-	<thead>
-		<tr>
-			<th class="th_h">File</th>
-			<th class="th_h">InputTag</th>
-			<th class="th_h">キャラクタークラスからの利用</th>
-			<th class="th_h">BehaviorTree からの利用</th>
-	</thead>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> DefaultGameplayTags.ini
-		<tr><td> InputTag.Weapon.Fire                              <td>                         <td> BTS_Shoot        </tr>
-		<tr><td> InputTag.Weapon.FireAuto                          <td>                         <td> BTS_ReloadWeapon </tr>
-	</tbody>
-	<tbody>
-		<tr><th class="th_f" rowspan="0"> ShooterCoreTags.ini
-		<tr><td> InputTag.Ability.Quickslot.CycleBackward          <td> B_Hero_ShooterMannequin <td>                  </tr>
-		<tr><td> InputTag.Ability.Quickslot.CycleForward           <td> B_Hero_ShooterMannequin <td>                  </tr>
-		<tr><td> InputTag.Ability.Quickslot.SelectSlot             <td> B_Hero_ShooterMannequin <td> BTS_Shoot        </tr>
-	</tbody>
-</table>
+| InputTag                                 | キャラクタークラス      | BehaviorTree     |
+|------------------------------------------|-------------------------|------------------|
+| **DefaultGameplayTags.ini**              |                         |                  |
+| InputTag.Weapon.Fire                     |                         | BTS_Shoot        |
+| InputTag.Weapon.FireAuto                 |                         | BTS_ReloadWeapon |
+|                                          |                         |                  |
+| **ShooterCoreTags.ini**                  |                         |                  |
+| InputTag.Ability.Quickslot.CycleBackward | B_Hero_ShooterMannequin |                  |
+| InputTag.Ability.Quickslot.CycleForward  | B_Hero_ShooterMannequin |                  |
+| InputTag.Ability.Quickslot.SelectSlot    | B_Hero_ShooterMannequin | BTS_Shoot        |
 
 * 全て `Send Gameplay Event to Actor` の EventTag として利用されています。
 	* つまり、 Gameplay Ability のアクティブ化や `Wait Gameplay Event` のデリゲートの呼び出しに利用されています。
@@ -441,11 +357,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* BehaviorTree からの利用
 		* ３つの InputTag に紐づいた Gameplay Ability が AI から利用されている。
 
-
 # 終わりに
 
 ここまでで、 InputTag とアセットのつながりが見えてきたと思います。  
-InputTag の関係を把握することで、 Lyra で実装されている Gameplay Ability の全体像が掴めるようになるのではと思い、このドキュメントを作成しました。  
+これを把握することで、 Lyra で実装されている Gameplay Ability の全体像が掴めるようになるのではと思い、このドキュメントを作成しました。  
 大きな表が多く文字ばかり、という読みづらい内容とは思いますが、どなたかの参考になれば幸いです。
 
 -----
@@ -453,3 +368,6 @@ InputTag の関係を把握することで、 Lyra で実装されている Game
 
 <!--- 公式：マーケットプレイス --->
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
+
+<!--- 公式：5.0/Lyra --->
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
