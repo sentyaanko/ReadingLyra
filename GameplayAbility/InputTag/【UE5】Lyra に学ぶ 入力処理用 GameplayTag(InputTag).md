@@ -31,6 +31,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 * 正式名称というわけではありません。  
 * このドキュメントでは **GameplayTag のうち、InputTag で始まるもの** をそのように称しています。
+	* 公式ドキュメントで **入力タグ** 、翻訳元で **Input Tag** という記述もあるので、完全な的外れな呼称というわけではありません。
+		* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 入力タグ アクティベーション サポート]
 * InputTag は **入力に反応して実行する処理をモジュール式に追加出来るようにするため** に使用されています。
 	* Lyra では上記を実現できるように GameplayTag と Gameplay Ability を組み合わせてセットアップしている、という感じです。
 * 入力から Gameplay Ability へのつながりは以下の様になります。
@@ -251,7 +253,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * `InputTag.Ability.Quickslot` と `GA_QuickbarSlots`
 	* `AbilitySet_ShooterHero` で `GA_QuickbarSlots` が設定されているが、 `ULyraInputConfig` での指定がない。
 		* つまりは `ULyraInputConfig` 経由で入力マッピングされていない。
-		* つまり C++ 経由で入力アクションからのアクティブ化されない。
+		* つまり C++ 経由で入力アクションからアクティブ化されない。
 		* ただ、このアビリティは `Activation Policy` が `OnSpawn` に設定されている。
 			* つまりアビリティが付与された時点でアクティブ化するので問題ない。
 * InputTag が指定されていない Gameplay Ability
@@ -324,7 +326,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 * Ability Triggers
 	* `Detail > Triggers > Ability Triggers > Trigger Tag` の事です。
-	* 設定していると GameplayEvent によるアクティブ化ができるようになり、外部からアクティブ化しやすくなります。
+	* 設定していると GameplayEvent によるアクティブ化ができるようになり、外部からアクティブ化がしやすくなります。
 	* Lyra では BehaviorTree から呼び出しています。
 * 個々の設定に関して
 	* `InputTag.Weapon.Reload`
@@ -352,9 +354,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * 全て `Send Gameplay Event to Actor` の EventTag として利用されています。
 	* つまり、 Gameplay Ability のアクティブ化や `Wait Gameplay Event` のデリゲートの呼び出しに利用されています。
 * 各列を見ることで、以下の様なことがわかります。
-	* キャラクタークラスからの利用
-		* ３つの InputTag に紐づいた Gameplay Ability が キャラクタークラスから（ C++ の仕組みを経由せず）直接利用されている。
-	* BehaviorTree からの利用
+	* キャラクタークラス
+		* ３つの InputTag に紐づいた Gameplay Ability が キャラクタークラスから（ C++ の仕組みを経由せず）利用されている。
+	* BehaviorTree
 		* ３つの InputTag に紐づいた Gameplay Ability が AI から利用されている。
 
 # 終わりに
@@ -371,3 +373,4 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 <!--- 公式：5.0/Lyra --->
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 入力タグ アクティベーション サポート]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E5%85%A5%E5%8A%9B%E3%82%BF%E3%82%B0%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88
