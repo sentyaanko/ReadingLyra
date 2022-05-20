@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ Gameplay Ability System(概略) <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ GAS(概略) <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中では、`Gameplay Ability System` （以降 GAS と略します） が利用されています。  
