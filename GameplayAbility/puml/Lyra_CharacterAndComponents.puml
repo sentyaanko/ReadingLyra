@@ -1,0 +1,32 @@
+@startuml Lyra
+
+class ALyraCharacter{
+	PawnExtComponent
+}
+class B_Hero_Default{
+	LyraHero
+}
+class ILyraReadyInterface{
+	bool IsPawnComponentReadyToInitialize()
+}
+class ULyraPawnComponent{
+}
+class ULyraPawnExtensionComponent{
+}
+class ULyraHeroComponent{
+}
+
+ILyraReadyInterface <|-- ULyraPawnComponent
+ULyraPawnComponent <|-- ULyraPawnExtensionComponent
+ULyraPawnComponent <|-- ULyraHeroComponent
+
+
+ALyraCharacter::PawnExtComponent -> ULyraPawnExtensionComponent
+ALyraCharacter <|-- B_Hero_Default
+
+ULyraPawnExtensionComponent <. ULyraHeroComponent
+
+B_Hero_Default::LyraHero -> ULyraHeroComponent
+
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml Lyra
+
+autoactivate on
+
+ULyraPawnExtensionComponent -> ULyraPawnExtensionComponent : CheckPawnReadyToInitialize()
+	note over ULyraPawnExtensionComponent
+		Check the following objects are valid.
+		* Pawn
+		* Controller
+		* PlayerState
+	end note
+	ULyraPawnExtensionComponent -> ULyraHeroComponent : IsPawnComponentReadyToInitialize()
+		note over ULyraHeroComponent
+			Check the following objects are valid.
+			* Pawn
+			* Controller
+			* PlayerState
+			* InputComponent
+		end note
+	return
+	ULyraPawnExtensionComponent -> ULyraHeroComponent : OnPawnReadyToInitialize()
+		ULyraHeroComponent -> ULyraPawnExtensionComponent : InitializeAbilitySystem()
+			note over ULyraPawnExtensionComponent
+				init AbilitySystemComponent
+			end note
+			ULyraPawnExtensionComponent -> ULyraAbilitySystemComponent : InitAbilityActorInfo()
+				note over ULyraAbilitySystemComponent
+					init Owner and Avatar
+				end note
+			return
+			ULyraPawnExtensionComponent -> ULyraAbilitySystemComponent : SetTagRelationshipMapping()
+				note over ULyraAbilitySystemComponent
+					init TagRelationshipMapping
+				end note
+			return
+		return
+	return
+return
+
+@enduml

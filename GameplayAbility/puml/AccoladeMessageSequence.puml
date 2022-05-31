@@ -1,0 +1,94 @@
+@startuml Lyra
+
+title "Accolade 関連のシーケンス"
+
+box "Server"
+participant ULyraHealthComponent as Server_ULyraHealthComponent
+participant UGameplayMessageSubsystem as Server_UGameplayMessageSubsystem
+participant B_ElimStreakProcessor as Server_B_ElimStreakProcessor
+participant B_AccoladeRelay as Server_B_AccoladeRelay
+participant ALyraPlayerState as Server_ALyraPlayerState
+participant ULyraAccoladeHostWidget as Server_ULyraAccoladeHostWidget
+
+endbox
+
+box "Client"
+participant ULyraHealthComponent as Client_ULyraHealthComponent
+participant UGameplayMessageSubsystem as Client_UGameplayMessageSubsystem
+participant " --B_ElimStreakProcessor--" as Client_B_ElimStreakProcessor
+participant B_AccoladeRelay as Client_B_AccoladeRelay
+participant ALyraPlayerState as Client_ALyraPlayerState
+participant ULyraAccoladeHostWidget as Client_ULyraAccoladeHostWidget
+
+endbox
+
+note over Client_B_ElimStreakProcessor
+	B_ElimStreakProcessor added only server
+	by EAS_BasicShooterAccolades
+endnote
+
+
+Server_ULyraHealthComponent -> Server_ULyraHealthComponent ++ : HandleOutOfHealth()
+	Server_ULyraHealthComponent -> Server_UGameplayMessageSubsystem : BroadcastMessage \n<font color=blue>"Lyra.Elimination.Message"</font>
+return
+
+note over Client_ULyraHealthComponent
+	Client dose not call 
+	HandleOutOfHealth() from
+	ULyraHealthSet::PostGameplayEffectExecute().
+	Health is only modified by ExecutionCalculation, 
+	which is run on the server.
+endnote
+
+Server_UGameplayMessageSubsystem -> Server_B_ElimStreakProcessor ++ : OnEliminationMessage \n<font color=blue>"Lyra.Elimination.Message"</font>
+	Server_B_ElimStreakProcessor -> Server_UGameplayMessageSubsystem -- : BroadcastMessage \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+
+Server_UGameplayMessageSubsystem -> Server_B_AccoladeRelay ++ : notify \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+	alt#Gold #LightYellow Server Owning Actor(or standalone)
+		Server_B_AccoladeRelay -> Server_ALyraPlayerState ++ : ClientBroadcastMessage \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+			note over Server_ALyraPlayerState
+				Server dose not call 
+				UGameplayMessageSubsystem
+				BroadcastMessage
+				by 'GetNetMode() == NM_Client' 
+			endnote
+		return
+	else #Khaki Client Owning Actor
+		Server_B_AccoladeRelay -> Client_ALyraPlayerState : RPC ClientBroadcastMessage \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+	end
+
+	alt#Gold #LightBlue Listen Server(or standalone)
+		Server_B_AccoladeRelay -> Server_UGameplayMessageSubsystem : BroadcastMessage \n<font color=red>"Lyra.AddNotification.Message"</font>
+
+	else #SteelBlue Dedicated Server
+		note over Server_B_AccoladeRelay
+			do nothing
+		endnote
+	end
+return
+
+Client_ALyraPlayerState -> Client_ALyraPlayerState ++ : ClientBroadcastMessage \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+	Client_ALyraPlayerState -> Client_UGameplayMessageSubsystem : BroadcastMessage \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+return
+
+Client_UGameplayMessageSubsystem -> Client_B_AccoladeRelay ++ : notify  \n<font color=green>"Lyra.ShooterGame.Accolade.</font>\n<font color=green>EliminationStreak.*"</font>
+	Client_B_AccoladeRelay -> Client_UGameplayMessageSubsystem : BroadcastMessage \n<font color=red>"Lyra.AddNotification.Message"</font>
+return
+
+alt#Gold #LightBlue Listen Server(or standalone)
+	Server_UGameplayMessageSubsystem -> Server_ULyraAccoladeHostWidget ++ : OnNotificationMessage \n<font color=red>"Lyra.AddNotification.Message"</font>
+		note over Server_ULyraAccoladeHostWidget
+			Display Accolade toast
+		endnote
+	return
+end
+
+Client_UGameplayMessageSubsystem -> Client_ULyraAccoladeHostWidget ++ : OnNotificationMessage \n<font color=red>"Lyra.AddNotification.Message"</font>
+	note over Client_ULyraAccoladeHostWidget
+		Display Accolade toast
+	endnote
+return
+
+
+
+@enduml

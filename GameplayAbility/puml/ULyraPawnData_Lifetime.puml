@@ -1,0 +1,45 @@
+@startuml Lyra
+
+autoactivate on
+
+== Load Experience ==
+
+
+ALyraGameMode -> ALyraGameMode : InitGame()
+return
+ALyraGameMode -> ALyraGameMode : HandleMatchAssignmentIfNotExpectingOne()
+	ALyraGameMode -> ALyraGameMode : OnMatchAssignmentGiven()
+		ALyraGameMode -> ULyraExperienceManagerComponent : ServerSetCurrentExperience()
+			ULyraExperienceManagerComponent -> ULyraExperienceManagerComponent : StartExperienceLoad()
+			return
+		return
+	return
+return
+
+note over ULyraExperienceManagerComponent
+	Load ULyraExperienceDefinition
+end note
+
+ULyraExperienceManagerComponent -> ULyraExperienceManagerComponent : OnExperienceLoadComplete
+	ULyraExperienceManagerComponent -> ULyraExperienceManagerComponent : OnExperienceFullLoadCompleted()
+		ULyraExperienceManagerComponent -> ALyraPlayerState : OnExperienceLoaded()
+			note over ALyraPlayerState
+				Set ULyraPawnData
+				to ALyraPlayerState
+			end note
+		return
+	return
+return
+
+== Spawn Player Pawn ==
+
+ALyraGameMode -> ALyraGameMode :SpawnDefaultPawnAtTransform_Implementation()
+	ALyraGameMode -> ULyraPawnExtensionComponent : SetPawnData()
+		note over ULyraPawnExtensionComponent
+			Set ULyraPawnData
+			to ULyraPawnExtensionComponent
+		end note
+	return
+return
+
+@enduml
