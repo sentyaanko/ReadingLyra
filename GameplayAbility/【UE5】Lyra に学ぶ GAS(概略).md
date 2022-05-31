@@ -282,6 +282,8 @@ Lyra でどうなったかのみ述べ、以前の方法については触れま
 [マーケットプレイス > Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [マーケットプレイス > 古代の谷]: https://www.unrealengine.com/marketplace/en-US/product/ancient-game-01
 
+[Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
+
 <!--- 公式：blog --->
 [Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
