@@ -338,7 +338,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 
 * 概要
 	* Lyra ではエクスペリエンスという独自の単位で GameFeature の適用を行う仕組みを実装しています。
-	* 各レベルの WprldSettings で [ULyraExperienceDefinition] を指定することで、そのレベルで適用するエクスペリエンスを指定しています。
+	* 各レベルの WorldSettings で [ULyraExperienceDefinition] を指定することで、そのレベルで適用するエクスペリエンスを指定しています。
 	* エクスペリエンスでは以下を指定できます。
 		* 有効にする GameFeatrure
 		* 実行する GameFeatureAction
@@ -357,7 +357,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 	* [ULyraExperienceDefinition]
 		* エクスペリエンスの定義。
 	* [ALyraWorldSettings]
-		* マップの `WorldSettings` で [ULyraExperienceDefinition] を指定できるように拡張した `AWorldSettings` 派生クラス。
+		* マップの WorldSettings で [ULyraExperienceDefinition] を指定できるように拡張した `AWorldSettings` 派生クラス。
 		* この値は [ALyraGameMode] で参照される。詳しくは以下の関数を参照。
 			* [ALyraGameMode::InitGame()]
 			* [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]
@@ -406,14 +406,14 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 				* サーバー、クライアント両方に追加されるコンポーネント。
 				* サーバー側が受け取った際は同じメッセージを **Client RPC** する。
 				* コスメティック処理が可能な場合（リッスンサーバー or クライアント or スタンドアロン）は別のメッセージを送信する。
-					* （そのメッセージは表示クラスが監視し、受診時に表示を行う）
+					* （そのメッセージは表示クラスが監視し、受信時に表示を行う）
 				* 特に基底クラスの機能は利用していない。
 			* `B_EliminationFeedRelay` ([UGameplayMessageProcessor])
 				* **ヘルスがなくなった事**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラス。
 				* サーバー、クライアント両方に追加されるコンポーネント。
 				* サーバー側が受け取った際は同じメッセージを **Multicast RPC** する。
 				* コスメティック処理が可能な場合（リッスンサーバー or クライアント or スタンドアロン）は別のメッセージを送信する。
-					* （そのメッセージは表示クラスが監視し、受診時に表示を行う）
+					* （そのメッセージは表示クラスが監視し、受信時に表示を行う）
 				* 特に基底クラスの機能は利用していない。
 	* 送信データ
 		* 以下のような構造体を送信している。
