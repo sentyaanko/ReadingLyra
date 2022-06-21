@@ -22,8 +22,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [Enhanced Input と GameFeature](#enhanced-input-と-gamefeature)
 	- [エクスペリエンス と GameFeature](#エクスペリエンス-と-gamefeature)
 	- [UGameplayMessageSubsystem について](#ugameplaymessagesubsystem-について)
-	- [ULyraHeroComponent で実装設定できる FMappableConfigPair に関しての簡単な説明を書くよ](#ulyraherocomponent-で実装設定できる-fmappableconfigpair-に関しての簡単な説明を書くよ)
-	- [GameplayAbility の一覧を継承ツリーベースで書くよ](#gameplayability-の一覧を継承ツリーベースで書くよ)
+	- [ULyraHeroComponent で設定できる FMappableConfigPair に関して](#ulyraherocomponent-で設定できる-fmappableconfigpair-に関して)
+	- [GameplayAbility の一覧](#gameplayability-の一覧)
 	- [ヘルスの管理方法と関連クラスについて簡単な説明を書くよ](#ヘルスの管理方法と関連クラスについて簡単な説明を書くよ)
 	- [キャラクター設定関連について簡単な説明を書くよ](#キャラクター設定関連について簡単な説明を書くよ)
 	- [ULyraPawnExtensionComponent と ULyraHeroComponent の関係](#ulyrapawnextensioncomponent-と-ulyraherocomponent-の関係)
@@ -124,6 +124,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [ULyraGameplayAbility_FromEquipment](#ulyragameplayability_fromequipment)
 	- [ULyraGameplayAbility_RangedWeapon](#ulyragameplayability_rangedweapon)
 	- [ULyraGameplayAbility_Reset](#ulyragameplayability_reset)
+	- [ULyraGameplayAbility_Death](#ulyragameplayability_death)
+	- [ULyraGameplayAbility_Interact](#ulyragameplayability_interact)
+	- [ULyraGameplayAbility_Jump](#ulyragameplayability_jump)
 	- [ULyraGamePhaseAbility](#ulyragamephaseability)
 	- [ULyraAttributeSet](#ulyraattributeset)
 	- [ULyraHealthSet](#ulyrahealthset)
@@ -135,6 +138,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [GameplayMessage 関連（ Lyra 側）](#gameplaymessage-関連-lyra-側)
 	- [UGameplayMessageSubsystem](#ugameplaymessagesubsystem)
 		- [UGameplayMessageSubsystem::BroadcastMessage()](#ugameplaymessagesubsystembroadcastmessage)
+	- [UAsyncAction_ListenForGameplayMessage](#uasyncaction_listenforgameplaymessage)
 - [GameplayMessage Processor 関連（ Lyra 側）](#gameplaymessage-processor-関連-lyra-側)
 	- [UGameplayMessageProcessor](#ugameplaymessageprocessor)
 	- [UElimChainProcessor](#uelimchainprocessor)
@@ -156,7 +160,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [GameplayMessage Accolade 関連（ Lyra 側）](#gameplaymessage-accolade-関連-lyra-側)
 	- [FLyraAccoladeDefinitionRow](#flyraaccoladedefinitionrow)
 	- [ULyraAccoladeHostWidget](#ulyraaccoladehostwidget)
-	- [ULyraAccoladeHostWidget::OnNotificationMessage()](#ulyraaccoladehostwidgetonnotificationmessage)
+		- [ULyraAccoladeHostWidget::OnNotificationMessage()](#ulyraaccoladehostwidgetonnotificationmessage)
 - [Lyra インベントリ関連](#lyra-インベントリ関連)
 	- [FLyraInventoryList](#flyrainventorylist)
 	- [ULyraInventoryManagerComponent](#ulyrainventorymanagercomponent)
@@ -297,6 +301,8 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 
 ## DataRegistry に関して
 
+アセットを読み込むための仕組みで、 GameFeature のアセット読み込みでも使用しています。
+
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
 		* データレジストリの概念について学べます。
@@ -322,11 +328,13 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 
 ## Enhanced Input と GameFeature
 
+Lyra では、入力をモジュール式に扱うために、 Enhanced Input と GameFeature を組み合わせて利用しています。
+
 * 既存のドキュメント
 	* [【UE5】Lyra に学ぶ Enhanced Input]
 		* Enhanced Input 自体についてはこちらを参照してください。
 * 概要
-	* Lyra では、 GameFeatureAction を利用し、入力バインディングと入力マッピングコンテキストの追加をフィーチャーの適用事に行えるようにしています。
+	* GameFeatureAction を利用し、入力バインディングと入力マッピングコンテキストの追加をフィーチャーの適用時に行えるようにしています。
 * Lyra で実装しているクラス
 	* [UGameFeatureAction_AddInputBinding]
 		* 入力バインディングの追加を行う GameFeatureAction
@@ -336,8 +344,9 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 
 ## エクスペリエンス と GameFeature
 
+Lyra ではエクスペリエンスという独自の単位で GameFeature の適用を行う仕組みを実装しています。
+
 * 概要
-	* Lyra ではエクスペリエンスという独自の単位で GameFeature の適用を行う仕組みを実装しています。
 	* 各レベルの WorldSettings で [ULyraExperienceDefinition] を指定することで、そのレベルで適用するエクスペリエンスを指定しています。
 	* エクスペリエンスでは以下を指定できます。
 		* 有効にする GameFeatrure
@@ -374,21 +383,26 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 
 ## UGameplayMessageSubsystem について
 
+Lyra では任意の構造体を使用してメッセージの送受信を行う仕組を実装し、送信者と受信者が互いに直接知らなくてもやり取り可能にしています。
+
+[GASDocumentation(和訳) > 11.1.2 Community Questions] の第 4 項目より
+> Q:  
+> Main では、しばらくの間、 Gameplay Messages を送信するためのプラグイン（Event/Message Bus のようなもの）がありましたが、削除されてしまいました。  
+> 復活させる予定はありますか？  
+> Game Features/Modular Gameplay プラグインでは、汎用の Event Bus Dispatcher があると非常に便利です。  
+> A:  
+> GameplayMessages プラグインのことを言っているのだと思います。  
+> これはおそらく、いつかは戻ってくるでしょう - API がまだ完成しておらず、作者もまだ公開するつもりはなかったようです。  
+> Modular Gameplay デザインに有用であることには同意します。  
+> しかし、これは私の分野ではないので、これ以上の情報はありません。  
+
+上記はおそらくこの仕組のことだと思います。
+
 * 概要
-	* Lyra で実装されています。
-	* 任意の構造体を使用してメッセージの送受信を行う仕組みです。
-	* これを介することで、送受信に利用する構造体を知っているだけで送信者と受信者が互いに直接知らなくてもやり取り可能になります。
-	* [GASDocumentation(和訳) > 11.1.2 Community Questions] の第 4 項目より
-		> Q:  
-		> Main では、しばらくの間、 Gameplay Messages を送信するためのプラグイン（Event/Message Bus のようなもの）がありましたが、削除されてしまいました。  
-		> 復活させる予定はありますか？  
-		> Game Features/Modular Gameplay プラグインでは、汎用の Event Bus Dispatcher があると非常に便利です。  
-		> A:  
-		> GameplayMessages プラグインのことを言っているのだと思います。  
-		> これはおそらく、いつかは戻ってくるでしょう - API がまだ完成しておらず、作者もまだ公開するつもりはなかったようです。  
-		> Modular Gameplay デザインに有用であることには同意します。  
-		> しかし、これは私の分野ではないので、これ以上の情報はありません。  
-	* 上記はおそらくこの仕組のことだと思います。
+	* 管理クラスである [UGameplayMessageSubsystem] とリスナー用の基底クラス [UGameplayMessageProcessor] からなります。
+		* 主たる目的がリスナーのアクターでは [UGameplayMessageProcessor] を派生しています。
+		* wedget など、リスナーが主目的でないのであれば、派生せずともリスナーになることは可能です。
+		* 結局のところ、リスナーになるというのは単に [UGameplayMessageSubsystem] にレジストするだけのことだからです。
 * Lyra で実装しているクラス
 	* [UGameplayMessageSubsystem]
 		* 送信者から渡されたメッセージを、保持している受信者に配信するクラス。
@@ -415,34 +429,113 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 				* コスメティック処理が可能な場合（リッスンサーバー or クライアント or スタンドアロン）は別のメッセージを送信する。
 					* （そのメッセージは表示クラスが監視し、受信時に表示を行う）
 				* 特に基底クラスの機能は利用していない。
-	* 送信データ
-		* 以下のような構造体を送信している。
-			* [FLyraControlPointStatusMessage]
-			* [FLyraInteractionDurationMessage]
-			* [FLyraNotificationMessage]
-			* [FLyraQuickBarActiveIndexChangedMessage]
-			* [FLyraQuickBarSlotsChangedMessage]
-			* [FLyraInventoryChangeMessage]
-			* [FLyraPlayerResetMessage]
-			* [FLyraAbilitySimpleFailureMessage]
-			* [FLyraAbilityMontageFailureMessage]
-			* [FLyraVerbMessage]
-			* `Struct_UIMessaging`
-			* `Message_NameplateInfo`
-			* `Message_NameplateRequest`
-			* `EliminationFeedMessage`
+	* メッセージの送受信関連の情報
 		* 詳しくは [UGameplayMessageSubsystem] の利用状況の表を参照。
-	* [FLyraVerbMessageReplication]
-		* [FLyraVerbMessage] をまとめて処理するためのクラス。
+		* メッセージをリッスンしているその他のクラス
+			* [ULyraAccoladeHostWidget]
+				* 称賛情報をリッスンする widget クラス。
+			* [ULyraDamageLogDebuggerComponent]
+				* ダメージ情報をリッスンするデバッグログクラス。
+			* [UAsyncAction_ListenForGameplayMessage]
+				* 任意のメッセージをリッスン可能な、ブループリント用の Async ノード。
+		* 送信データ
+			* 以下のような構造体を送信している。
+				* [FLyraControlPointStatusMessage]
+				* [FLyraInteractionDurationMessage]
+				* [FLyraNotificationMessage]
+				* [FLyraQuickBarActiveIndexChangedMessage]
+				* [FLyraQuickBarSlotsChangedMessage]
+				* [FLyraInventoryChangeMessage]
+				* [FLyraPlayerResetMessage]
+				* [FLyraAbilitySimpleFailureMessage]
+				* [FLyraAbilityMontageFailureMessage]
+				* [FLyraVerbMessage]
+				* `Struct_UIMessaging`
+				* `Message_NameplateInfo`
+				* `Message_NameplateRequest`
+				* `EliminationFeedMessage`
+		* [FLyraVerbMessageReplication]
+			* [FLyraVerbMessage] をまとめて処理するためのクラス。
 
-## ULyraHeroComponent で実装設定できる FMappableConfigPair に関しての簡単な説明を書くよ
+## ULyraHeroComponent で設定できる FMappableConfigPair に関して
 
-* [ULyraHeroComponent]
-* [FMappableConfigPair]
+[ULyraHeroComponent] は [FMappableConfigPair] をメンバとして持っており、入力設定の初期情報を設定可能です。  
+ただし、使われ方が限定的となっています。
 
-TODO： このへんから。
+* 概要
+	* [ULyraHeroComponent::DefaultInputConfigs] は GameFeature を使用できない場合に変わりに使用する項目。
+	* 使用可能であるならば [UGameFeatureAction_AddInputConfig] 経由で設定したほうがモジュール式で扱える為好ましい。
+	* 詳しくは [ULyraHeroComponent::DefaultInputConfigs] を参照。
+* 実際の利用状況は以下のみ。
+	* `B_SimpleHeroPawn` ([ALyraCharacter])
+		* 以下が設定されている。
+			* `PMI_Default_Gamepad` ([UPlayerMappableInputConfig])
+			* `PMI_Default_KBM` ([UPlayerMappableInputConfig])
+		* このクラスは `L_DefaultEditorOverview` のプレイヤーポーンとして設定されている。
+		* 開発用のマップであるため、 GameFeature を使用せずに [ULyraHeroComponent::DefaultInputConfigs] を使用しているものと思われる。
 
-## GameplayAbility の一覧を継承ツリーベースで書くよ
+
+## GameplayAbility の一覧
+
+Lyra で実装されている GameplayAbility は以下の通り。
+
+* [ULyraGameplayAbility]
+	* [ULyraGameplayAbility_Death]
+		* `GA_ArenaHero_Death`
+		* `GA_Hero_Death`
+	* [ULyraGameplayAbility_FromEquipment]
+		* `GA_Weapon_AutoReload`
+		* `GA_Weapon_ReloadMagazine`
+			* `GA_Weapon_Reload_Pistol`
+			* `GA_Weapon_Reload_Rifle`
+			* `GA_Weapon_Reload_Shotgun`
+			* `GA_Weapon_Reload_NetShooter`
+		* [ULyraGameplayAbility_RangedWeapon]
+			* `GA_HealPickup`
+			* `GA_Weapon_Fire`
+				* `GA_Weapon_Fire_Pistol`
+				* `GA_Weapon_Fire_Rifle`
+				* `GA_Weapon_Fire_Shotgun`
+				* `GA_WeaponNetShooter`
+	* [ULyraGameplayAbility_Interact]
+		* `GA_Interact`
+	* [ULyraGameplayAbility_Jump]
+		* `GA_Hero_Jump`
+	* [ULyraGameplayAbility_Reset]
+	* [ULyraGamePhaseAbility]
+		* `Phase_Playing` (ShooterCore/TopDownArena の 2 種)
+		* `Phase_PostGame` (ShooterCore/TopDownArena の 2 種)
+		* `Phase_Warmup` (ShooterCore/TopDownArena の 2 種)
+	* `GA_AbilityWithWidget`
+		* `GA_ADS`
+		* `GA_Emoto`
+		* `GA_Hero_Dash`
+		* `GA_Melee`
+	* `GAB_ShowWidget_WhenInputPressed`
+		* `GA_ToggleInventory`
+		* `GA_ToggleMap`
+	* `GAB_ShowWidget_WhileInputHeld`
+		* `GA_ShowLeaderboard_CP`
+		* `GA_ShowLeaderboard_TDM`
+	* `GA_AutoRespawn`
+	* `GA_DropBomb`
+	* `GA_Grenade`
+	* `GA_Hero_Heal`
+	* `GA_Interaction_Collect`
+	* `GA_QuickbarSlots`
+	* `GA_SpawnEffect`
+	* `GA_ToggleMarkerInWorld`
+
+階層とクラス名を見ることで、どのような仕組みになっているのかなんとなく想像できると思います。  
+詳細は別途まとめる予定です。
+
+* 備考
+	* `GA_AbilityWithWidget` と `GAB_ShowWidget_WhenInputPressed` / `GAB_ShowWidget_WhileInputHeld` の違い
+		* 前者は派生クラスでもロジックの実装を行っている。
+		* 後者は派生クラスはデータ専用ブループリントになっている。
+		* プレフィックスの差はそのあたりが理由なのかもしれない。
+	* Phase アビリティに関して
+		* 前述のとおり、 ShooterCore/TopDownArena で別のアセットが同名で用意されています。
 
 
 ## ヘルスの管理方法と関連クラスについて簡単な説明を書くよ
@@ -636,6 +729,9 @@ TODO： このへんから。
 			* `ACharacter`
 				* `AModularCharacter`
 					* [ALyraCharacter]
+						* `Character_Default`
+							* `B_HeroDefault`
+								* `B_SimpleHeroPawn`
 		* `AController`
 			* `APlayerController`
 				* `AModularPlayerController`
@@ -660,6 +756,8 @@ TODO： このへんから。
 						* [ULyraJoystickWidget]
 						* [ULyraTouchRegion]
 	* `UBlueprintAsyncActionBase`
+		* `UCancellableAsyncAction`
+			* [UAsyncAction_ListenForGameplayMessage]
 		* [UAsyncAction_ExperienceReady]
 	* [UGameFeatureAction]
 		* [UGameFeatureAction_AddGameplayCuePath]
@@ -686,6 +784,7 @@ TODO： このへんから。
 				* [ULyraGameplayAbility_RangedWeapon]
 			* [ULyraGameplayAbility_Reset]
 			* [ULyraGamePhaseAbility]
+			* [ULyraGameplayAbility_Death]
 	* `UAttributeSet`
 		* [ULyraAttributeSet]
 			* [ULyraHealthSet]
@@ -1719,7 +1818,7 @@ TODO： このへんから。
 > If you do, then use the GameFeatureAction_AddInputConfig instead.  
 > 
 > ----
-> 入力 入力時にこのプレーヤーに追加されるべきコンフィグ。  
+> 入力を初期化するときに、このプレーヤに追加されるべき入力コンフィグ。  
 > 注：この設定は、 GameFeature プラグインにアクセスできない場合にのみ追加する必要があります。  
 > もしあるならば、代わりに GameFeatureAction_AddInputConfig を使用してください。  
 
@@ -1798,6 +1897,27 @@ TODO： このへんから。
 > 
 > ----
 
+
+## ULyraGameplayAbility_Death
+
+> Gameplay ability used for handling death.
+> Ability is activated automatically via the "GameplayEvent.Death" ability trigger tag.
+> 
+> ----
+
+
+## ULyraGameplayAbility_Interact
+
+> Gameplay ability used for character interacting
+> 
+> ----
+
+
+## ULyraGameplayAbility_Jump
+
+> Gameplay ability used for character jumping.
+> 
+> ----
 
 ## ULyraGamePhaseAbility
 
@@ -1900,7 +2020,8 @@ TODO： このへんから。
 > 時間の経過とともに変化する可能性があることに注意してください。  
 
 * 概要
-	* 送信者から渡されたメッセージを、保持している受信者に配信するクラス。
+	* 受信者はこのクラスにリスナー関数を登録する。
+	* 送信者はメッセージを渡し、このクラスは保持している受信者のリスナー関数を呼び出す。
 
 利用状況は概ね以下の通り。
 
@@ -1938,13 +2059,15 @@ TODO： このへんから。
 
 ### UGameplayMessageSubsystem::BroadcastMessage()
 
-* 指定されたチャンネルでメッセージをブロードキャストで送る。
-* 以下の RPC 関数経由でも呼び出されている。
-	* [ALyraGameState::MulticastMessageToClients()]
-	* [ALyraGameState::MulticastReliableMessageToClients()]
-	* [ALyraPlayerState::ClientBroadcastMessage()]
-* [FLyraVerbMessageReplication] からも呼び出されている。
+* 概要
+	* 指定されたチャンネルでメッセージをブロードキャストで送る。
+	* 以下の RPC 関数経由でも呼び出されている。
+		* [ALyraGameState::MulticastMessageToClients()]
+		* [ALyraGameState::MulticastReliableMessageToClients()]
+		* [ALyraPlayerState::ClientBroadcastMessage()]
+	* [FLyraVerbMessageReplication] からも呼び出されている。
 
+## UAsyncAction_ListenForGameplayMessage
 
 # GameplayMessage Processor 関連（ Lyra 側）
 
@@ -2139,7 +2262,9 @@ TODO： このへんから。
 	[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
 
 
-## ULyraAccoladeHostWidget::OnNotificationMessage()
+### ULyraAccoladeHostWidget::OnNotificationMessage()
+
+
 
 
 
@@ -2693,6 +2818,9 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraGameplayAbility_FromEquipment]: #ulyragameplayability_fromequipment
 [ULyraGameplayAbility_RangedWeapon]: #ulyragameplayability_rangedweapon
 [ULyraGameplayAbility_Reset]: #ulyragameplayability_reset
+[ULyraGameplayAbility_Death]: #ulyragameplayability_death
+[ULyraGameplayAbility_Interact]: #ulyragameplayability_interact
+[ULyraGameplayAbility_Jump]: #ulyragameplayability_jump
 [ULyraGamePhaseAbility]: #ulyragamephaseability
 [ULyraAttributeSet]: #ulyraattributeset
 [ULyraHealthSet]: #ulyrahealthset
@@ -2703,6 +2831,7 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraHealthComponent]: #ulyrahealthcomponent
 [UGameplayMessageSubsystem]: #ugameplaymessagesubsystem
 [UGameplayMessageSubsystem::BroadcastMessage()]: #ugameplaymessagesubsystembroadcastmessage
+[UAsyncAction_ListenForGameplayMessage]: #uasyncaction_listenforgameplaymessage
 [UGameplayMessageProcessor]: #ugameplaymessageprocessor
 [UElimChainProcessor]: #uelimchainprocessor
 [UElimStreakProcessor]: #uelimstreakprocessor
