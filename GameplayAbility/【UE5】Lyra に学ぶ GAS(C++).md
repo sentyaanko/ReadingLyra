@@ -400,9 +400,8 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 
 * 概要
 	* 管理クラスである [UGameplayMessageSubsystem] とリスナー用の基底クラス [UGameplayMessageProcessor] からなります。
-		* 主たる目的がリスナーのアクターでは [UGameplayMessageProcessor] を派生しています。
-		* wedget など、リスナーが主目的でないのであれば、派生せずともリスナーになることは可能です。
-		* 結局のところ、リスナーになるというのは単に [UGameplayMessageSubsystem] にレジストするだけのことだからです。
+		* [UGameplayMessageProcessor] は ActorComponent であり、 Lyra では GameState 派生クラスに追加しています。
+		* widget などは [UGameplayMessageSubsystem] の機能を直接利用してリスナー登録しています。
 * Lyra で実装しているクラス
 	* [UGameplayMessageSubsystem]
 		* 送信者から渡されたメッセージを、保持している受信者に配信するクラス。
@@ -421,14 +420,14 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 				* サーバー側が受け取った際は同じメッセージを **Client RPC** する。
 				* コスメティック処理が可能な場合（リッスンサーバー or クライアント or スタンドアロン）は別のメッセージを送信する。
 					* （そのメッセージは表示クラスが監視し、受信時に表示を行う）
-				* 特に基底クラスの機能は利用していない。
+				* 基底クラスの機能は利用していない。
 			* `B_EliminationFeedRelay` ([UGameplayMessageProcessor])
 				* **ヘルスがなくなった事**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラス。
 				* サーバー、クライアント両方に追加されるコンポーネント。
 				* サーバー側が受け取った際は同じメッセージを **Multicast RPC** する。
 				* コスメティック処理が可能な場合（リッスンサーバー or クライアント or スタンドアロン）は別のメッセージを送信する。
 					* （そのメッセージは表示クラスが監視し、受信時に表示を行う）
-				* 特に基底クラスの機能は利用していない。
+				* 基底クラスの機能は利用していない。
 	* メッセージの送受信関連の情報
 		* 詳しくは [UGameplayMessageSubsystem] の利用状況の表を参照。
 		* メッセージをリッスンしているその他のクラス
@@ -539,6 +538,8 @@ Lyra で実装されている GameplayAbility は以下の通り。
 
 
 ## ヘルスの管理方法と関連クラスについて簡単な説明を書くよ
+
+TODO: このへんから
 
 * [ULyraHealthComponent]
 * [ULyraHealthSet]
@@ -2087,7 +2088,7 @@ Lyra で実装されている GameplayAbility は以下の通り。
 > 一部のプレイヤーにのみ関連する場合は、独自の内部フィルタリングを行うべきであることに注意してください。 
 
 * 概要
-	* [UGameplayMessageSubsystem] への登録・解除のための機能を実装した、 [UGameplayMessageSubsystem] を利用舌メッセージのリッスンを行うための基底クラス。
+	* [UGameplayMessageSubsystem] への登録・解除のための機能を実装した、 [UGameplayMessageSubsystem] を利用したメッセージのリッスンを行うための基底クラス。
 		* あくまで [UGameplayMessageSubsystem] の機能を利用しているだけなので、このクラスを派生することは必須ではない。
 		* たとえば [ULyraAccoladeHostWidget] 等の widget は自前で [UGameplayMessageSubsystem] の機能を利用してメッセージをリッスンしている。
 	* `EAS_BasicShooterAcolades` ([ULyraExperienceActionSet]) などから `AGameStateBase` 派生クラスに追加される。
@@ -2243,7 +2244,7 @@ Lyra で実装されている GameplayAbility は以下の通り。
 
 ## ULyraAccoladeHostWidget
 
-* 称賛情報を表示するための wedget 。
+* 称賛情報を表示するための widget 。
 * [UGameplayMessageSubsystem] を利用し、称賛情報を含んだメッセージ ([FLyraNotificationMessage]) の受信を待つ。
 * 受信をしたら、関連付けられたデータをロードし、称賛の通知するアイコンの表示やサウンドの再生等をする。
 	* データのロードは [UDataRegistrySubsystem] を利用する。
