@@ -1,0 +1,6 @@
+## ULyraTeamCreationComponent
+
+* UGameStateComponent
+	* ULyraTeamCreationComponent
+
+

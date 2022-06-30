@@ -1,0 +1,19 @@
+## ULyraGameFeaturePolicy
+
+> Manager to keep track of the state machines that bring a game feature plugin into memory and active  
+> This class discovers plugins either that are built-in and distributed with the game or are reported externally (i.e. by a web service or other endpoint)  
+> 
+> ----
+> GameFeature プラグインをメモリに取り込み、アクティブにするためのステートマシンを追跡するためのマネージャです。  
+> このクラスは、ゲームに組み込まれて配布されるプラグイン、または外部（ウェブサービスや他のエンドポイント）から通知されるプラグインを検出します。 
+
+* 概要
+	* [UDefaultGameFeaturesProjectPolicies] の派生クラス。
+	* いくつか関数をオーバーライドしているが、実装は親クラスと同じ。
+* Lyra での使われ方
+	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録している。
+		* [ULyraGameFeature_HotfixManager]
+		* [ULyraGameFeature_AddGameplayCuePaths]
+	* `Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` で指定している。
+
+

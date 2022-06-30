@@ -1,0 +1,6 @@
+## ULyraPlayerSpawningManagerComponent
+
+* UGameStateComponent
+	* ULyraPlayerSpawningManagerComponent
+
+
