@@ -24,9 +24,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [UGameplayMessageSubsystem について](#ugameplaymessagesubsystem-について)
 	- [ULyraHeroComponent で設定できる FMappableConfigPair に関して](#ulyraherocomponent-で設定できる-fmappableconfigpair-に関して)
 	- [GameplayAbility の一覧](#gameplayability-の一覧)
-	- [ヘルスの管理方法と関連クラスについて簡単な説明を書くよ](#ヘルスの管理方法と関連クラスについて簡単な説明を書くよ)
-	- [キャラクター設定関連について簡単な説明を書くよ](#キャラクター設定関連について簡単な説明を書くよ)
-	- [ULyraPawnExtensionComponent と ULyraHeroComponent の関係](#ulyrapawnextensioncomponent-と-ulyraherocomponent-の関係)
+	- [ヘルスの管理方法](#ヘルスの管理方法)
+	- [プレイヤーが操作するアクターのについて](#プレイヤーが操作するアクターのについて)
+	- [タグリレーションマッピングについて](#タグリレーションマッピングについて)
+	- [ULyraPawnExtensionComponent と ULyraHeroComponent と GAS](#ulyrapawnextensioncomponent-と-ulyraherocomponent-と-gas)
 - [Inheritance Hierarchy](#inheritance-hierarchy)
 - [HotfixManager 関連（エンジン側）](#hotfixmanager-関連エンジン側)
 	- [UOnlineHotfixManager](#uonlinehotfixmanager)
@@ -52,12 +53,18 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [GameFeature 関連（ Lyra 側）](#gamefeature-関連-lyra-側)
 	- [ULyraGameFeaturePolicy](#ulyragamefeaturepolicy)
 	- [FMappableConfigPair](#fmappableconfigpair)
+		- [FMappableConfigPair::Config](#fmappableconfigpairconfig)
+		- [FMappableConfigPair::Type](#fmappableconfigpairtype)
+		- [FMappableConfigPair::DependentPlatformTraits](#fmappableconfigpairdependentplatformtraits)
+		- [FMappableConfigPair::ExcludedPlatformTraits](#fmappableconfigpairexcludedplatformtraits)
+		- [FMappableConfigPair::bShouldActivateAutomatically](#fmappableconfigpairbshouldactivateautomatically)
 	- [UGameFeatureAction_WorldActionBase](#ugamefeatureaction_worldactionbase)
 	- [UGameFeatureAction_AddInputBinding](#ugamefeatureaction_addinputbinding)
 	- [UGameFeatureAction_AddInputContextMapping](#ugamefeatureaction_addinputcontextmapping)
 	- [UGameFeatureAction_SplitscreenConfig](#ugamefeatureaction_splitscreenconfig)
 	- [UGameFeatureAction_AddAbilities](#ugamefeatureaction_addabilities)
 	- [UGameFeatureAction_AddInputConfig](#ugamefeatureaction_addinputconfig)
+		- [UGameFeatureAction_AddInputConfig::InputConfigs](#ugamefeatureaction_addinputconfiginputconfigs)
 	- [UGameFeatureAction_AddWidgets](#ugamefeatureaction_addwidgets)
 	- [UGameFeatureAction_AddGameplayCuePath](#ugamefeatureaction_addgameplaycuepath)
 	- [UApplyFrontendPerfSettingsAction](#uapplyfrontendperfsettingsaction)
@@ -68,8 +75,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [ULyraExperienceActionSet](#ulyraexperienceactionset)
 		- [ULyraExperienceActionSet::Actions](#ulyraexperienceactionsetactions)
 	- [ULyraExperienceDefinition](#ulyraexperiencedefinition)
+		- [ULyraExperienceDefinition::DefaultPawnData](#ulyraexperiencedefinitiondefaultpawndata)
 		- [ULyraExperienceDefinition::Actions](#ulyraexperiencedefinitionactions)
 		- [ULyraExperienceDefinition::ActionSets](#ulyraexperiencedefinitionactionsets)
+	- [ULyraUserFacingExperienceDefinition](#ulyrauserfacingexperiencedefinition)
 	- [ULyraExperienceManagerComponent](#ulyraexperiencemanagercomponent)
 		- [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()](#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_highpriority)
 		- [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded()](#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded)
@@ -77,8 +86,16 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [UAsyncAction_ExperienceReady](#uasyncaction_experienceready)
 		- [UAsyncAction_ExperienceReady::OnReady](#uasyncaction_experiencereadyonready)
 - [Input 関連（エンジン側）](#input-関連エンジン側)
+	- [IEnhancedInputSubsystemInterface](#ienhancedinputsubsysteminterface)
+	- [UEnhancedInputLocalPlayerSubsystem](#uenhancedinputlocalplayersubsystem)
+	- [UInputAction](#uinputaction)
 	- [UInputMappingContext](#uinputmappingcontext)
+		- [UInputMappingContext::Mappings](#uinputmappingcontextmappings)
+	- [FEnhancedActionKeyMapping](#fenhancedactionkeymapping)
+		- [FEnhancedActionKeyMapping::Action](#fenhancedactionkeymappingaction)
+		- [FEnhancedActionKeyMapping::Key](#fenhancedactionkeymappingkey)
 	- [UPlayerMappableInputConfig](#uplayermappableinputconfig)
+	- [UPlayerMappableInputConfig::Contexts](#uplayermappableinputconfigcontexts)
 - [Input 関連（ Lyra 側）](#input-関連-lyra-側)
 	- [ULyraInputConfig](#ulyrainputconfig)
 - [GameplayCue 関連 （エンジン側）](#gameplaycue-関連-エンジン側)
@@ -120,6 +137,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		- [ULyraHeroComponent::DetermineCameraMode()](#ulyraherocomponentdeterminecameramode)
 	- [ULyraAbilitySet](#ulyraabilityset)
 		- [ULyraAbilitySet::GiveToAbilitySystem()](#ulyraabilitysetgivetoabilitysystem)
+	- [FLyraAbilityTagRelationship](#flyraabilitytagrelationship)
 	- [ULyraAbilityTagRelationshipMapping](#ulyraabilitytagrelationshipmapping)
 	- [ULyraGameplayAbility_FromEquipment](#ulyragameplayability_fromequipment)
 	- [ULyraGameplayAbility_RangedWeapon](#ulyragameplayability_rangedweapon)
@@ -135,6 +153,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		- [ULyraHealthSet::Healing](#ulyrahealthsethealing)
 		- [ULyraHealthSet::Damage](#ulyrahealthsetdamage)
 	- [ULyraHealthComponent](#ulyrahealthcomponent)
+	- [ULyraHealExecution](#ulyrahealexecution)
+	- [ULyraDamageExecution](#ulyradamageexecution)
+	- [ALyraCharacterWithAbilities](#alyracharacterwithabilities)
 - [GameplayMessage 関連（ Lyra 側）](#gameplaymessage-関連-lyra-側)
 	- [UGameplayMessageSubsystem](#ugameplaymessagesubsystem)
 		- [UGameplayMessageSubsystem::BroadcastMessage()](#ugameplaymessagesubsystembroadcastmessage)
@@ -168,6 +189,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [ULyraWeaponStateComponent](#ulyraweaponstatecomponent)
 - [Lyra キャラクター設定関連](#lyra-キャラクター設定関連)
 	- [ULyraPawnData](#ulyrapawndata)
+		- [ULyraPawnData::PawnClass](#ulyrapawndatapawnclass)
 		- [ULyraPawnData::InputConfig](#ulyrapawndatainputconfig)
 		- [ULyraPawnData::TagRelationshipMapping](#ulyrapawndatatagrelationshipmapping)
 		- [ULyraPawnData::DefaultCameraMode](#ulyrapawndatadefaultcameramode)
@@ -218,7 +240,6 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [終わりに](#終わりに)
 
 
-* 既存のドキュメント
 
 
 
@@ -273,7 +294,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 * UE で用意されているクラス
 	| Class                                 | 概要                                                                                                                                                                                                                        | Lyra                                                                                                                  |
 	| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-	| [IGameFeatureStateChangeObserver]     | GameFeature 切り替えなどの際の処理をオーバーライドするための基底クラス。                                                                                                                                                    |                                                                                                                       |
+	| [IGameFeatureStateChangeObserver]     | GameFeature 切り替えなどの際の処理をオーバーライドするためのインターフェイス                                                                                                                                                |                                                                                                                       |
 	| [UGameFeaturesProjectPolicies]        | GameFeature 挙動を定義するための基底クラス。<br>`Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` でこの派生クラスを指定する。                                                | [ULyraGameFeaturePolicy] を指定している。                                                                             |
 	| [UDefaultGameFeaturesProjectPolicies] | [UGameFeaturesProjectPolicies] 派生クラス。<br>GameFeature のロード時等の挙動のデフォルト実装を定義している。                                                                                                               |                                                                                                                       |
 	| [UGameFeatureAction]                  | GameFeature のアクティブ時等に実行されるアクションを定義するための基底クラス。                                                                                                                                              |                                                                                                                       |
@@ -396,7 +417,8 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 > Modular Gameplay デザインに有用であることには同意します。  
 > しかし、これは私の分野ではないので、これ以上の情報はありません。  
 
-上記はおそらくこの仕組のことだと思います。
+上記はおそらくこの仕組みに類するものだと思います。  
+（ UnrealEngine のリポジトリを検索しても見つけることができなかったので、これがそのままそれというわけではないようです。）
 
 * 概要
 	* 管理クラスである [UGameplayMessageSubsystem] とリスナー用の基底クラス [UGameplayMessageProcessor] からなります。
@@ -537,26 +559,105 @@ Lyra で実装されている GameplayAbility は以下の通り。
 		* 前述のとおり、 ShooterCore/TopDownArena で別のアセットが同名で用意されています。
 
 
-## ヘルスの管理方法と関連クラスについて簡単な説明を書くよ
+## ヘルスの管理方法
 
-TODO: このへんから
+Lyra のプレイヤーキャラクターはヘルスの値を持っており、 0 になると死亡扱いとなりその後リスポーンが行われたりします。  
 
-* [ULyraHealthComponent]
-* [ULyraHealthSet]
+* 概要
+	* ヘルスの値は AttributeSet で保持しています。
+		* AttributeSet に関して、詳しくは GameplayAbility のドキュメントを参照してください。
+	* Player の場合は PlayerState に AttributeSet を追加しています。
+	* Player 以外の場合は [ALyraCharacterWithAbilities] に AttributeSet を追加しています。
+		> MEMO: このクラスはレベルに配置はされていないようです。
+	* AttributeSet を直接参照することは殆どなく、 [ULyraHealthComponent] を介して値の参照等を行います。
+		* ExecutionCalculation である [ULyraHealExecution] と [ULyraDamageExecution] が例外的に直接アクセスします。
+	* リスポーンに関して
+		* `ControlPoint` / `Elimination` ではエクスペリエンスの設定により付与された `GA_AutoRespawn` によって行われています。
+		* `TopDownArena` ではこのアビリティが付与されていないため、リスポーンが行われません。
+		* `TopDownArena` では爆風で一撃死しますが、特別なことはしておらず、ヘルスの値により死亡判定が行われています。
+* Lyra で実装しているクラス
+	* [ULyraAttributeSet]
+		* `UAttributeSet` の派生クラスで、 Lyra のアトリビュートセットの基底クラスです。
+	* [ULyraHealthSet]
+		* [ULyraAttributeSet] の派生クラスで、ヘルスアトリビュートセットです。
+	* [ALyraPlayerState]
+		* プレイヤーは PlayerState クラスに [ULyraHealthSet] を追加しています。
+	* [ALyraCharacterWithAbilities]
+		* プレイヤー以外のヘルスを持つキャラクターの基底クラスで、 [ULyraHealthSet] を追加しています。
+		* 派生クラスに `B_ShootingTarget` があります。
+	* [ULyraHealthComponent]
+		* プレイヤーのヘルスを制御するためのコンポーネントで、 [ULyraHealthSet] を参照しています。
+		* ブループリントでヘルスに関する情報は基本的にここを経由します。
+	* [ALyraCharacter]
+		* プレイヤー用のキャラクター基底クラスで、 [ULyraHealthComponent] を追加しています。
+	* [ULyraHealExecution]
+		* ヘルスを回復させる ExecutionCalculation 。
+	* [ULyraDamageExecution]
+		* ヘルスを減少させる ExecutionCalculation 。
 
 
-## キャラクター設定関連について簡単な説明を書くよ
+## プレイヤーが操作するアクターのについて
 
-* [ULyraPawnData]
+Lyra ではプレイヤーが操作するアクターはエクスペリエンスの設定に従うようにように実装されており、レベル毎に異なるアクターが利用可能です。
 
-## ULyraPawnExtensionComponent と ULyraHeroComponent の関係
+* 概要
+	* プレイヤーが操作するポーンの情報として、ポーンクラス以外に、キャラクターに付与するアビリティ、入力設定などが含まれています。
+	* その結果、モジュール式にアビリティや入力設定を割り当てられるようになっています。
+* Lyra で実装しているクラス
+	* [ULyraPawnData]
+		* プレイヤーのポーンに関する設定を保持するデータアセット。
+		* 具体的にはポーンクラスと、以下の4つのクラスを保持します。
+			* [ULyraAbilitySet]
+				* アビリティに関する情報を保持するデータアセット。
+				* 具体的には GameplayAbility 、 GameplayEffect 、 AttributeSet を保持します。
+			* [ULyraAbilityTagRelationshipMapping]
+				* タグリレーションマッピングを保持するデータアセット。
+				* 詳しくは後述します。
+			* [ULyraInputConfig]
+				* InputAction と InputTag を紐づけるためのデータアセット。
+				* 詳しくは [【UE5】Lyra に学ぶ Enhanced Input] / [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)] を参照してください。
+			* [ULyraCameraMode]
+				* カメラの設定用のデータ専用ブループリント。
+	* [ULyraExperienceDefinition]
+		* エクスペリエンスの定義を保持するデータアセット。
+		* 利用する [ULyraPawnData] を保持しています。
 
-* 主に ShooterGmae でのキャラクターの GAS の制御は、 [ULyraPawnExtensionComponent] と [ULyraHeroComponent] が連携して動いています。
-* その他、以下のクラスの関連しています。
+
+## タグリレーションマッピングについて
+
+Lyra では GameplayAbility のブロックやキャンセルを独自のデータアセットをもとに定義、制御しています。  
+
+* 既存のドキュメント
+	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 拡張されたタグ関係システム]
+		* 公式ドキュメントにも簡潔に説明があります。
+* Lyra で実装しているクラス
+	* [FLyraAbilityTagRelationship]
+		* アビリティの関係を定義するための構造体。
+	* [ULyraAbilityTagRelationshipMapping]
+		* [FLyraAbilityTagRelationship] の配列を保持するデータアセット。
+	* [ULyraPawnData]
+		* [ULyraAbilityTagRelationshipMapping] を保持するデータアセット。
+	* [ULyraAbilitySystemComponent]
+		* [ULyraAbilityTagRelationshipMapping] のキャッシュを保持しています。
+			* これはプレイヤーのポーン初期化時に [ULyraPawnData] の内容が設定されています
+		* アビリティの有効化判定の処理をオーバーライドし、 [ULyraAbilityTagRelationshipMapping] のチェック関数を利用する拡張をしています。
+
+
+## ULyraPawnExtensionComponent と ULyraHeroComponent と GAS
+
+Lyra では、 GAS の制御をコンポーネントを利用して行っています。
+
+* 概要
+	* GAS の制御は、 [ULyraPawnExtensionComponent] と [ULyraHeroComponent] が連携して動いています。
+* Lyra で実装しているクラス
 	* [ILyraReadyInterface]
+		* コンポーネントの準備状態を判定するための関数を定義したインターフェイス。
 	* [ULyraPawnComponent]
+		* [ILyraReadyInterface] のインターフェイスを持つ、ポーン用のコンポーネント基底クラス。
 	* [ULyraPawnExtensionComponent]
+		* ASC の初期化と、他のコンポーネントの初期化状態を管理するコンポーネント。
 	* [ULyraHeroComponent]
+		* ASC の各種機能の利用、入力制御などを行うコンポーネント。
 
 関係は以下のような形。
 
@@ -579,7 +680,7 @@ TODO: このへんから
 | 追加する Pawn                 | [ALyraCharacter]                             | `B_Hero_Default`                                     |
 | コンポーネントの動作          | 追加だけでは影響を与えない                   | 追加だけで動作する                                   |
 | Pawn からの利用方法           | 必要に応じてメンバ関数を呼び出す             | メンバ関数の呼び出しはしていない                     |
-| 参照するクラス                | [ALyraCharacter]                             | [ULyraGameplayAbility]                               |
+| 参照元クラス                  | [ALyraCharacter]                             | [ULyraGameplayAbility]                               |
 |                               | [ULyraHeroComponent]                         | [UGameFeatureAction_AddInputBinding]                 |
 |                               | [ALyraGameMode]                              | [UGameFeatureAction_AddInputContextMapping]          |
 |                               | [ALyraPlayerState]                           |                                                      |
@@ -597,55 +698,6 @@ TODO: このへんから
 > * `B_Hero_Default` のような [ALyraCharacter] 派生 BP クラスを別途作り、上記のコンポーネントを追加する
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ----
 
 
@@ -659,6 +711,7 @@ TODO: このへんから
 		* [UGameFeatureData]
 		* [ULyraExperienceActionSet]
 		* [ULyraExperienceDefinition]
+		* [ULyraUserFacingExperienceDefinition]
 		* [UPlayerMappableInputConfig]
 		* [ULyraAbilitySet]
 		* [ULyraPawnData]
@@ -733,6 +786,7 @@ TODO: このへんから
 						* `Character_Default`
 							* `B_HeroDefault`
 								* `B_SimpleHeroPawn`
+					* [ALyraCharacterWithAbilities]
 		* `AController`
 			* `APlayerController`
 				* `AModularPlayerController`
@@ -789,6 +843,10 @@ TODO: このへんから
 	* `UAttributeSet`
 		* [ULyraAttributeSet]
 			* [ULyraHealthSet]
+	* `UGameplayEffectCalculation`
+		* `UGameplayEffectExecutionCalculation`
+			* [ULyraHealExecution]
+			* [ULyraDamageExecution]
 * `FTableRowBase`
 	* [FLyraAccoladeDefinitionRow]
 * `FFastArraySerializer`
@@ -829,6 +887,8 @@ TODO: このへんから
 > 基本的な実装は、 INI 、 PAK 、および Locres ファイルの処理方法を知っています。  
 > 注意：各 INI/PAK ファイルには、対象となるプラットフォーム名を先頭に付ける必要があります。  
 
+* 概要
+	* 詳細未確認。
 * Lyra での使われ方
 	* [ULyraHotfixManager] の基底クラスとして利用。
 
@@ -838,10 +898,9 @@ TODO: このへんから
 ## ULyraHotfixManager
 
 * 概要
-	* Lyra 用の拡張。詳細未確認。
-* 参照元
+	* [UOnlineHotfixManager] の Lyra 用の拡張。詳細未確認。
+* Lyra での使われ方
 	* [ULyraGameFeature_HotfixManager]
-
 
 
 # DataRegistry 関連（エンジン側）
@@ -853,10 +912,16 @@ TODO: このへんから
 > ----
 > データレジストリへの同期・非同期アクセスを提供するシングルトンマネージャ  
 
+* Lyra での使われ方
+	* 称賛関連で、 `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) のデータ参照で利用。
+
+
 ### UDataRegistrySubsystem::AcquireItem()
 
 > Start an async load of an item, delegate will be called on success or failure of acquire. Returns false if delegate could not be scheduled
-
+> 
+> ----
+> アイテムの非同期ロードを開始し、デリゲートは取得の成功または失敗時に呼び出されます。デリゲートのスケジュールができなかった場合は false を返します。
 
 
 # AssetManager 関連（エンジン側）
@@ -870,9 +935,44 @@ TODO: このへんから
 
 * 概要
 	* AssetManager が使用する設定情報。
-* 参照元
+* Lyra での使われ方
 	* `Project Settings > Game - Asset Manager`
+		* プロジェクト設定が可能。以下が設定されている。
+			| Primary Asset Type                 | Asset Base Class                      | 備考                                                            |
+			|------------------------------------|---------------------------------------|-----------------------------------------------------------------|
+			| Map                                | `UWorld`                              |                                                                 |
+			| LyraGameData                       | [ULyraGameData]                       | `DefaultGameData` のみが該当する。                              |
+			| PrimaryAssetLabel                  | `UPrimaryAssetLabel`                  |                                                                 |
+			| GameFeatureData                    | [UGameFeatureData]                    |                                                                 |
+			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |                                                                 |
+			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] | `L_DefaultEditorOverview` のポータルとしても利用。              |
+			| LyraLobbyBackground                | [ULyraLobbyBackground]                | `ShooterGameLobbyBG` 飲みが該当する。ロビーの背景用レベル情報。 |
+			| LyraExperienceActionSet            | [ULyraExperienceActionSet]            |                                                                 |
 	* [UGameFeatureData::PrimaryAssetTypesToScan]
+		* GameFeature の設定も可能。
+		* `ShooterCore` ([UGameFeatureData]) では以下が設定されている。
+			| Primary Asset Type                 | Asset Base Class                      |
+			|------------------------------------|---------------------------------------|
+			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
+			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
+			| LyraExperienceActionSet            | [ULyraExperienceActionSet]            |
+			| Map                                | `UWorld`                              |
+			| PlayerMappableInputConfig          | [UPlayerMappableInputConfig]          |
+		* `ShooterMaps` ([UGameFeatureData]) では以下が設定されている。
+			| Primary Asset Type                 | Asset Base Class                      |
+			|------------------------------------|---------------------------------------|
+			| Map                                | `UWorld`                              |
+			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
+			| LyraLobbyBackground                | [ULyraLobbyBackground]                |
+			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
+		* `TopDownArena` ([UGameFeatureData]) では以下が設定されている。
+			| Primary Asset Type                 | Asset Base Class                      |
+			|------------------------------------|---------------------------------------|
+			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
+			| Map                                | `UWorld`                              |
+			| PlayerMappableInputConfig          | [UPlayerMappableInputConfig]          |
+			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
+		* それぞれの GameFeature のパスを設定している。
 
 
 # GameFeature 関連（エンジン側）
@@ -894,10 +994,15 @@ TODO: このへんから
 > 
 > もし、これを使う場合は、UGameFeaturesProjectPolicies のサブクラスで作成し、UGameFeaturesSubsystem の AddObserver / RemoveObserver で登録します。  
 
+TODO: この辺から
+
 * 概要
-	* [UGameFeaturesSubsystem] で利用するインターフェイス。
+	* [UGameFeaturesSubsystem] が利用するインターフェイス。
+	* [UGameFeaturesSubsystem::AddObserver()] でこのインターフェイスを持つ `UObject` 派生クラスを登録する。
+	* そうすることで、 GameFeature のマウント等が発生した際にオブザーバの関数が呼び出される。
+	* これを利用し、プロジェクトごとの処理を実装可能にしている。
 * Lyra での使われ方
-	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] の基底クラスとして利用。
+	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] でインターフェイスとして利用。
 
 
 ## UGameFeaturesProjectPolicies
@@ -910,7 +1015,10 @@ TODO: このへんから
 > サブクラスを作成し、 Project Settings .. Game Features で選択します。  
 
 * 概要
+	* GameFeature の設定を行うクラス。
 	* `Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` でこの派生クラスを指定する。
+* Lyra での使われ方
+	* `Project Settings` で派生クラスである [ULyraGameFeaturePolicy] を指定している。
 
 
 ## UDefaultGameFeaturesProjectPolicies
@@ -940,7 +1048,7 @@ TODO: このへんから
 > GameFeature がアクティブになったときに実行されるアクションを表します。
 
 * 概要
-	* GameFeature がアクティブになったときに実行されるアクションを定義するための基底クラス。
+	* GameFeature がアクティブになったとき等に実行されるアクションを定義するための基底クラス。
 * Lyra での使われ方
 	* 以下の基底クラスとして利用。
 		* [UApplyFrontendPerfSettingsAction]
@@ -995,11 +1103,13 @@ TODO: このへんから
 		|                                                                    | [UGameFeatureAction_SplitscreenConfig]      |
 		|                                                                    | [UGameFeatureAction_AddComponents]          |
 
+
 ## UGameFeatureAction_DataRegistry
 
 > Specifies a list of Data Registries to load and initialize with this feature  
 > 
 > ----
+> この Feature で読み込み、初期化するデータレジストリのリストを指定する。
 
 * 概要
 	* [データ レジストリ] にデータを追加するアクションを定義している。
@@ -1009,8 +1119,6 @@ TODO: このへんから
 	| `ShooterCore`<br>([UGameFeatureData]) | `AccoladeDataRegistry`<br>([FLyraAccoladeDefinitionRow]) |
 
 
-
-
 ## UGameFeatureAction_AddComponents
 
 > Adds actor<->component spawn requests to the component manager  
@@ -1018,9 +1126,13 @@ TODO: このへんから
 > @see UGameFrameworkComponentManager  
 > 
 > ----
+> actor<->component のスポーン要求をコンポーネントマネージャに追加する。
+>  
+> @UGameFrameworkComponentManager  を参照。
 
 * 概要
-	* 任意の対象にコンポーネントを追加するアクションを定義している。
+	* 任意のアクターに任意のコンポーネントを追加するアクションを定義している。
+	* サーバー、クライアントを追加の条件に指定可能。
 * Lyra での使われ方
 	| Asset                                                              | ActorClass                                      | ComponentClass                                                           | bClientComponent | bServerComponent |
 	| ------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------ | ---------------- | ---------------- |
@@ -1061,50 +1173,6 @@ TODO: このへんから
 	|                                                                    | `AController`                                   | `B_PickRandomCharacter`<br>([ULyraControllerComponent_CharacterParts])   |                  | ✔               |
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## UGameFeatureData
 
 > Data related to a game feature, a collection of code and content that adds a separable discrete feature to the game  
@@ -1113,9 +1181,9 @@ TODO: このへんから
 > GameFeature に関連するデータ。これは、ゲームに分離可能な個別の機能を追加するコードとコンテンツの集合体です。  
 
 * 概要
-	* GameFeature を設定するためのクラス。
+	* GameFeature を設定するためのデータアセット。
 * Lyra での使われ方
-	* 以下の 3 種類を使用している。
+	* 以下の 3 つのアセットが存在する。
 		* `ShooterCore` ([UGameFeatureData])
 		* `TopDownArena` ([UGameFeatureData])
 		* `ShooterMaps` ([UGameFeatureData])
@@ -1143,6 +1211,8 @@ TODO: このへんから
 * 概要
 	* [FPrimaryAssetTypeInfo] の配列。
 	* この GameFeature で使用したい AssetManager への設定項目を設定する。
+* Lyra での使われ方
+	* [FPrimaryAssetTypeInfo] の表を参照。
 
 ## UGameFeaturesSubsystem
 
@@ -1152,13 +1222,21 @@ TODO: このへんから
 > GameFeature の管理を行うサブシステム。
 
 * 概要
+	* GameFeature の管理クラス。
 * Lyra での使われ方
 	* [ULyraGameFeaturePolicy]
+		* GameFeature の Policy 実装のため、オブザーバ関連とアセットのパス関連の機能を利用している。
 	* [ULyraExperienceManagerComponent]
-	* [UGameFeatureAction_WorldActionBase]
-	* [UGameFeatureAction_AddWidgets]
+		* エクスペリエンスの実装方法として利用している。
+		* GameFeature のロードやアクティブ化などの機能を利用している。
 
 ### UGameFeaturesSubsystem::AddObserver()
+
+* 概要
+	* [IGameFeatureStateChangeObserver] インターフェイスを持つ `UObject` 派生クラスを受け取り、保持する。
+	* GameFeature のアクティブ化などが発生した際は保持しているクラスの対応した関数を呼び出す。
+* Lyra での使われ方
+	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] を登録している。
 
 
 # GameFeature 関連（ Lyra 側）
@@ -1174,16 +1252,67 @@ TODO: このへんから
 
 * 概要
 	* [UDefaultGameFeaturesProjectPolicies] の派生クラス。
+	* いくつか関数をオーバーライドしているが、実装は親クラスと同じ。
+* Lyra での使われ方
 	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録している。
 		* [ULyraGameFeature_HotfixManager]
 		* [ULyraGameFeature_AddGameplayCuePaths]
-	* いくつか関数をオーバーライドしているが、実装は親クラスと同じ。
 	* `Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` で指定している。
 
 
 ## FMappableConfigPair
 
 > A container to organize potentially unloaded player mappable configs to their CommonUI input type  
+> 
+> ----
+> アンロードされる可能性のあるプレイヤーのマッピング可能な構成を CommonUI 入力タイプに整理するためのコンテナー
+
+* 概要
+	* [UPlayerMappableInputConfig] など、入力設定に関するをメンバに持つ。
+* Lyra での使われ方
+	* [UGameFeatureAction_AddInputConfig::InputConfigs] 
+		* GameFeature 経由で InputMappingContext を設定する際に使用する。
+	* [ULyraHeroComponent::DefaultInputConfigs]
+		* GameFeature を使わないで InputMappingContext を設定する際に使用する。
+
+### FMappableConfigPair::Config
+
+* 概要
+	* [UPlayerMappableInputConfig] 型の変数。
+	* いわゆる Input Mapping Context.
+
+### FMappableConfigPair::Type
+
+> The type of config that this is. 
+> Useful for filtering out configs by the current input device for things like the settings screen, 
+> or if you only want to apply this config when a certain input type is being used.
+> 
+> ----
+> 構成のタイプ。  
+> 設定画面などの現在の入力デバイスで構成を除外する場合や、  
+> 特定の入力タイプが使用されている場合にのみこの構成を適用する場合に便利です。
+
+* 概要
+	* `ECommonInputType` の変数。
+		* `MouseAndKeyboard` / `Gamepad` / `Touch` からなる enum で、入力デバイスの種類を示す。
+
+
+### FMappableConfigPair::DependentPlatformTraits
+> Container of platform traits that must be set in order for this input to be activated.  
+> If the platform does not have one of the traits specified it can still be registered, but cannot be activated.   
+> 
+> ----
+
+
+### FMappableConfigPair::ExcludedPlatformTraits
+
+> If the current platform has any of these traits, then this config will not be actived.  
+> 
+> ----
+
+### FMappableConfigPair::bShouldActivateAutomatically
+> If true, then this input config will be activated when it's associated Game Feature is activated.  
+> This is normally the desirable behavior
 > 
 > ----
 
@@ -1265,6 +1394,8 @@ TODO: このへんから
 > Registers a Player Mappable Input config to the Game User Settings  
 >  
 > Expects that local players are set up to use the EnhancedInput system.  
+> 
+> ----
 
 * Lyra での使い方
 	| Asset                                  | Config<br>([UPlayerMappableInputConfig]) | Type             | DependentPlatformTraits                         |
@@ -1275,6 +1406,15 @@ TODO: このへんから
 	|                                        | `PMI_ShooterDefaultConfig_Gamepad`       | Gamepad          |                                                 |
 	| `TopDownArena`<br>([UGameFeatureData]) | `PMI_Default_KBM`                        | MouseAndKeyboard |                                                 |
 	|                                        | `PMI_Default_Gamepad`                    | Gamepad          |                                                 |
+
+
+### UGameFeatureAction_AddInputConfig::InputConfigs
+
+> The player mappable configs to register for user with this config  
+> 
+
+
+> ----
 
 ## UGameFeatureAction_AddWidgets
 
@@ -1404,6 +1544,14 @@ TODO: このへんから
 	* `B_TestInventoryExperience` ([ULyraExperienceDefinition])
 	* `B_TopDownArenaExperience` ([ULyraExperienceDefinition])
 
+
+### ULyraExperienceDefinition::DefaultPawnData
+
+> The default pawn class to spawn for players
+> 
+> ----
+
+
 ### ULyraExperienceDefinition::Actions
 
 > List of actions to perform as this experience is loaded/activated/deactivated/unloaded  
@@ -1421,6 +1569,12 @@ TODO: このへんから
 > ----
 
 * [ULyraExperienceActionSet] の配列。
+
+## ULyraUserFacingExperienceDefinition
+
+> Description of settings used to display experiences in the UI and start a new session
+> 
+> ----
 
 
 ## ULyraExperienceManagerComponent
@@ -1472,6 +1626,85 @@ TODO: このへんから
 
 # Input 関連（エンジン側）
 
+## IEnhancedInputSubsystemInterface
+
+> Includes native functionality shared between all subsystems  
+> 
+> ----
+> 全サブシステムで共有されるネイティブ機能を含む
+
+* 概要
+	* EnhancedInput を利用するためのサブシステムのための実装クラス。
+	* [UEnhancedInputLocalPlayerSubsystem] に持たれる。
+
+
+## IEnhancedInputSubsystemInterface::GetPlayerInput()
+
+* 概要
+	* [UEnhancedPlayerInput] を取得するための純粋仮想関数。
+
+## IEnhancedInputSubsystemInterface::InjectInputForAction()
+## IEnhancedInputSubsystemInterface::InjectInputVectorForAction()
+
+> Input simulation via injection. 
+> Runs modifiers and triggers delegates as if the input had come through the underlying input system as FKeys.
+> Applies action modifiers and triggers on top.
+> 
+> @param Action			The Input Action to set inject input for
+> @param RawValue		The value to set the action to
+> @param Modifiers		The modifiers to apply to the injected input.
+> @param Triggers		The triggers to apply to the injected input.
+> 
+> ----
+> インジェクションによる入力シミュレーション。
+> あたかも入力が FKey として基礎となる入力システムを通ってきたかのように、モディファイアとトリガーのデリゲートを実行します。
+> アクションモディファイアとトリガーを上位に適用します。
+> 
+> @param Action			インジェクション入力に設定する入力アクション。
+> @param RawValue		アクションを設定する値。
+> @param Modifiers		インジェクションされた入力に適用されるモディファイア。
+> @param Triggers		インジェクションされた入力に適用するトリガー。
+
+* 概要
+	* キー入力があったかのように入力アクションを発生させる関数。
+* Lyra での使われ方
+	* `W_QuickBarSlot` ([ULyraTaggedWidget]) で、ボタンをクリックされた際などに利用。
+
+
+
+
+## UEnhancedInputLocalPlayerSubsystem
+
+> Per local player input subsystem  
+> 
+> ----
+> ローカルプレーヤー毎の入力サブシステム
+
+* 概要
+	* [IEnhancedInputSubsystemInterface] のインターフェイスを持つ。
+	* このクラスの実装は [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()] のみ。
+
+## UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()
+
+
+* 概要
+	* LocalPlayer から PlayerController を取得し UEnhancedPlayerInput にキャストして返す。
+
+## UInputAction
+
+> Input action definition. These are instanced per player (via FInputActionInstance)
+> 
+> ----
+> 入力アクションの定義。これらはプレーヤーごとにインスタンス化されます (FInputActionInstance 経由)。
+
+* 概要
+	* 物理的な入力に直接は紐付かない、入力の結果発生する事象を仮想的に表現するデータアセット。
+	* widget がクリックされた際に、 [UEnhancedInputLocalPlayerSubsystem]
+* Lyra での使われ方
+	* `IA_` のプレフィックスを持つ。
+	* 26 種類ある。 `IA_Jump` / `IA_ADS` 等々。
+
+
 ## UInputMappingContext
 
 > UInputMappingContext : A collection of key to action mappings for a specific input context
@@ -1480,14 +1713,88 @@ TODO: このへんから
 >	Define per-vehicle control mappings
 >	Define context specific mappings (e.g. I switch from a gun (shoot action) to a grappling hook (reel in, reel out, disconnect actions).
 >	Define overlay mappings to be applied on top of existing control mappings (e.g. Hero specific action mappings in a MOBA)
+> 
+> ----
+> UInputMappingContext : 特定の入力コンテキストに対する、キーとアクションのマッピングのコレクション
+> 以下のような用途に使用できます。
+> 	定義済みのコントローラマッピングを保存する (コントローラ設定のバリエーションを切り替えることができる)。 TODO: UInputMappingContexts のリダイレクトを可能にするシステムを構築して、これを処理する。
+> 	車両ごとの制御マッピングを定義する。
+> 	コンテキスト固有のマッピングを定義する（例：銃（撃つアクション）から鉤（巻き取る、巻き戻す、切断するアクション）に切り替える）。
+> 	既存のコントロールマッピングの上に適用するオーバーレイマッピングの定義（例：MOBAのヒーロー固有のアクションマッピングなど）
+
+### UInputMappingContext::Mappings
+
+> List of key to action mappings.
+> 
+> ----
+> キーからアクションへのマッピングのリスト。
+
+* 概要
+	* [FEnhancedActionKeyMapping] の配列です。
+
+
+## FEnhancedActionKeyMapping
+
+> Defines a mapping between a key activation and the resulting enhanced action  
+> An key could be a button press, joystick axis movement, etc.  
+> An enhanced action could be MoveForward, Jump, Fire, etc.
+> 
+> ----
+> キー操作とその結果の拡張アクションの間のマッピングを定義します。  
+> キーは、ボタン操作、ジョイスティック軸の移動などが考えられます。  
+> 拡張アクションは、MoveForward、Jump、Fireなどです。
+
+* 概要
+	* 物理的なキー [FEnhancedActionKeyMapping::Key] と仮想的な入力アクション [FEnhancedActionKeyMapping::Action] の関連付けを設定するための構造体です。
+
+
+### FEnhancedActionKeyMapping::Action
+
+> Action to be affected by the key
+> 
+> ----
+> キーによって影響を受けるアクション
+
+### FEnhancedActionKeyMapping::Key
+
+> Key that affect the action.
+> 
+> ----
+> アクションに影響を与えるキー。
+
 
 ## UPlayerMappableInputConfig
 
-> This represents one set of Player Mappable controller/keymappings. You can use this input config to create
-> the default mappings for your player to start with in your game. It provides an easy way to get only the player
-> mappable key actions, and it can be used to add multiple UInputMappingContext's at once to the player.
+> This represents one set of Player Mappable controller/keymappings.   
+> You can use this input config to create the default mappings for your player to start with in your game.  
+> It provides an easy way to get only the player mappable key actions, 
+> and it can be used to add multiple UInputMappingContext's at once to the player.
 > 
-> Populate this data asset with Input Mapping Contexts that have player bindable actions in them. 
+> Populate this data asset with Input Mapping Contexts that have player bindable actions in them.   
+> 
+> ----
+> これは、プレイヤーのマッピング可能なコントローラー/キーマッピングの1つのセットを表します。  
+> この入力構成を使用して、プレイヤーがゲームを開始するためのデフォルトのマッピングを作成できます。  
+> プレイヤーのマッピング可能なキーアクションのみを取得する簡単な方法を提供し、  
+> 複数の UInputMappingContext をプレイヤーに一度に追加するために使用できます。  
+> 
+> このデータアセットに、プレイヤーのバインド可能なアクションを含む入力マッピングコンテキストを入力します。
+
+* 概要
+	* [UInputMappingContext] を保持する、
+
+## UPlayerMappableInputConfig::Contexts
+
+* 概要
+	* [UInputMappingContext] と Priority の連想配列で、 EnhancedInput に登録する際などに利用される。
+	* Priority は `IEnhancedInputSubsystemInterface::RebuildControlMappings()` にて参照され、値が大きいほど優先的に登録される。
+	* 登録の際、指定された `Key` ([UInputMappingContext::Mappings] の [FEnhancedActionKeyMapping::Key]) が既に使われている場合は登録が行われない。
+	* 以下は ADS の際のカメラ操作がどの様に優先されるのかの大まかな流れ。
+		* `PMI_ShooterDefaultConfig_Gamepad` ([UPlayerMappableInputConfig]) では `IMC_ShooterGame_Gamepad` ([UInputMappingContext]) が Priority 10 で設定している。
+		* `GA_ADS` では `IMC_ADS_Speed` ([UInputMappingContext]) を Priority 11 で設定している。
+		* `IMC_ShooterGame_Gamepad` / `IMC_ADS_Speed` はどちらも `IA_Look_Stick` ([UInputAction]) に関連付ける `key` に  `Gamepad Right Thumbstick 2D-Axis` を指定している。
+		* Priority は `GA_ADS` のほうが大きいため、 `GA_ADS` がアクティブの間は `IMC_ADS_Speed` の設定が有効となる。
+		* 要は、 `IA_Look_Stick` の挙動を Priority を利用して一時的に変更している。
 
 
 # Input 関連（ Lyra 側）
@@ -1868,10 +2175,17 @@ TODO: このへんから
 		* この値は、入力があった際に **InputTag** から [FGameplayAbilitySpec] を見つけるのに利用される。
 		* 詳しくは [ULyraAbilitySystemComponent] 参照。
 
+## FLyraAbilityTagRelationship
+
+> Struct that defines the relationship between different ability tags  
+> 
+> ----
 
 ## ULyraAbilityTagRelationshipMapping
 
 > Mapping of how ability tags block or cancel other abilities  
+> 
+> ----
 
 * GameplayAbility の GameplayTag によるブロックやキャンセルの定義をまとめた構造体。
 * [ULyraAbilitySystemComponent] から利用される。
@@ -1986,8 +2300,11 @@ TODO: このへんから
 
 ## ULyraHealthComponent
 
+## ULyraHealExecution
+## ULyraDamageExecution
 
 
+## ALyraCharacterWithAbilities
 
 
 
@@ -2338,10 +2655,41 @@ TODO: このへんから
 ![](images/ULyraPawnData_Lifetime.png)
 
 
+### ULyraPawnData::PawnClass
+
+> Class to instantiate for this pawn (should usually derive from ALyraPawn or ALyraCharacter).
+> 
+> ----
+
+
 ### ULyraPawnData::InputConfig
+
+> Input configuration used by player controlled pawns to create input mappings and bind input actions.
+> 
+> ----
+
+
 ### ULyraPawnData::TagRelationshipMapping
+
+> What mapping of ability tags to use for actions taking by this pawn
+> 
+> ----
+
+
 ### ULyraPawnData::DefaultCameraMode
+
+> Default camera mode used by player controlled pawns.
+> 
+> ----
+
+
 ### ULyraPawnData::AbilitySets
+
+> Ability sets to grant to this pawn's ability system.
+> 
+> ----
+
+
 
 
 # Lyra widget 関連
@@ -2366,7 +2714,7 @@ TODO: このへんから
 > An widget in a layout that has been tagged (can be hidden or shown via tags on the owning player)  
 > 
 > ----
-> タグ付けされたレイアウトのウィジェット（所有するプレーヤーのタグで非表示または表示可能）。  
+> タグ付けされたレイアウトのウィジェット（所有するプレイヤーのタグで非表示または表示可能）。  
 
 > @TODO: The other TODOs in this file are all related to tag-based showing/hiding of widgets, see UE-142237  
 > @TODO: このファイルの他の TODO は、すべてタグベースのウィジェットの表示/非表示に関連するもので、UE-142237 を参照してください。  
@@ -2558,11 +2906,11 @@ TODO: このへんから
 > Base player state class used by this project.  
 > 
 > ----
-> このプロジェクトで使用されるベースプレーヤーステートクラス。  
+> このプロジェクトで使用されるベースプレイヤーステートクラス。  
 
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ フレームワークのクイック リファレンス] より
 
-> PlayerState は、人プレーヤーやプレイヤーをシミュレートしているボットなどの、ゲームの参加者のステートです。  
+> PlayerState は、人プレイヤーやプレイヤーをシミュレートしているボットなどの、ゲームの参加者のステートです。  
 > ゲームの一部として存在する非プレイヤーの AI は PlayerState を持ちません。  
 
 ShooterGame での敵は上記における「プレイヤーをシミュレートしているボット」扱いです。  
@@ -2755,12 +3103,18 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [UGameFeaturesSubsystem::AddObserver()]: #ugamefeaturessubsystemaddobserver
 [ULyraGameFeaturePolicy]: #ulyragamefeaturepolicy
 [FMappableConfigPair]: #fmappableconfigpair
+[FMappableConfigPair::Config]: #fmappableconfigpairconfig
+[FMappableConfigPair::Type]: #fmappableconfigpairtype
+[FMappableConfigPair::DependentPlatformTraits]: #fmappableconfigpairdependentplatformtraits
+[FMappableConfigPair::ExcludedPlatformTraits]: #fmappableconfigpairexcludedplatformtraits
+[FMappableConfigPair::bShouldActivateAutomatically]: #fmappableconfigpairbshouldactivateautomatically
 [UGameFeatureAction_WorldActionBase]: #ugamefeatureaction_worldactionbase
 [UGameFeatureAction_AddInputBinding]: #ugamefeatureaction_addinputbinding
 [UGameFeatureAction_AddInputContextMapping]: #ugamefeatureaction_addinputcontextmapping
 [UGameFeatureAction_SplitscreenConfig]: #ugamefeatureaction_splitscreenconfig
 [UGameFeatureAction_AddAbilities]: #ugamefeatureaction_addabilities
 [UGameFeatureAction_AddInputConfig]: #ugamefeatureaction_addinputconfig
+[UGameFeatureAction_AddInputConfig::InputConfigs]: #ugamefeatureaction_addinputconfiginputconfigs
 [UGameFeatureAction_AddWidgets]: #ugamefeatureaction_addwidgets
 [UGameFeatureAction_AddGameplayCuePath]: #ugamefeatureaction_addgameplaycuepath
 [UApplyFrontendPerfSettingsAction]: #uapplyfrontendperfsettingsaction
@@ -2770,15 +3124,24 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraExperienceActionSet]: #ulyraexperienceactionset
 [ULyraExperienceActionSet::Actions]: #ulyraexperienceactionsetactions
 [ULyraExperienceDefinition]: #ulyraexperiencedefinition
+[ULyraExperienceDefinition::DefaultPawnData]: #ulyraexperiencedefinitiondefaultpawndata
 [ULyraExperienceDefinition::Actions]: #ulyraexperiencedefinitionactions
 [ULyraExperienceDefinition::ActionSets]: #ulyraexperiencedefinitionactionsets
+[ULyraUserFacingExperienceDefinition]: #ulyrauserfacingexperiencedefinition
 [ULyraExperienceManagerComponent]: #ulyraexperiencemanagercomponent
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()]: #ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_highpriority
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded()]: #ulyraexperiencemanagercomponentcallorregister_onexperienceloaded
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_LowPriority()]: #ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_lowpriority
 [UAsyncAction_ExperienceReady]: #uasyncaction_experienceready
+[UAsyncAction_ExperienceReady::OnReady]: #uasyncaction_experiencereadyonready
+[UInputAction]: #uinputaction
 [UInputMappingContext]: #uinputmappingcontext
+[UInputMappingContext::Mappings]: #uinputmappingcontextmappings
+[FEnhancedActionKeyMapping]: #fenhancedactionkeymapping
+[FEnhancedActionKeyMapping::Action]: #fenhancedactionkeymappingaction
+[FEnhancedActionKeyMapping::Key]: #fenhancedactionkeymappingkey
 [UPlayerMappableInputConfig]: #uplayermappableinputconfig
+[UPlayerMappableInputConfig::Contexts]: #uplayermappableinputconfigcontexts
 [ULyraInputConfig]: #ulyrainputconfig
 [UGameplayCueManager]: #ugameplaycuemanager
 [ULyraGameplayCueManager]: #ulyragameplaycuemanager
@@ -2815,6 +3178,7 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraHeroComponent::DetermineCameraMode()]: #ulyraherocomponentdeterminecameramode
 [ULyraAbilitySet]: #ulyraabilityset
 [ULyraAbilitySet::GiveToAbilitySystem()]: #ulyraabilitysetgivetoabilitysystem
+[FLyraAbilityTagRelationship]: #flyraabilitytagrelationship
 [ULyraAbilityTagRelationshipMapping]: #ulyraabilitytagrelationshipmapping
 [ULyraGameplayAbility_FromEquipment]: #ulyragameplayability_fromequipment
 [ULyraGameplayAbility_RangedWeapon]: #ulyragameplayability_rangedweapon
@@ -2830,6 +3194,9 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraHealthSet::Healing]: #ulyrahealthsethealing
 [ULyraHealthSet::Damage]: #ulyrahealthsetdamage
 [ULyraHealthComponent]: #ulyrahealthcomponent
+[ULyraHealExecution]: #ulyrahealexecution
+[ULyraDamageExecution]: #ulyradamageexecution
+[ALyraCharacterWithAbilities]: #alyracharacterwithabilities
 [UGameplayMessageSubsystem]: #ugameplaymessagesubsystem
 [UGameplayMessageSubsystem::BroadcastMessage()]: #ugameplaymessagesubsystembroadcastmessage
 [UAsyncAction_ListenForGameplayMessage]: #uasyncaction_listenforgameplaymessage
@@ -2856,6 +3223,7 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [ULyraInventoryManagerComponent]: #ulyrainventorymanagercomponent
 [ULyraWeaponStateComponent]: #ulyraweaponstatecomponent
 [ULyraPawnData]: #ulyrapawndata
+[ULyraPawnData::PawnClass]: #ulyrapawndatapawnclass
 [ULyraPawnData::InputConfig]: #ulyrapawndatainputconfig
 [ULyraPawnData::TagRelationshipMapping]: #ulyrapawndatatagrelationshipmapping
 [ULyraPawnData::DefaultCameraMode]: #ulyrapawndatadefaultcameramode
@@ -2905,9 +3273,12 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 <!--- 関連ドキュメント --->
 <!--- qiita
 [【UE5】Lyra に学ぶ Enhanced Input]: https://qiita.com/sentyaanko/items/dd4990d4aa0e84478b59
+[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://qiita.com/sentyaanko/items/f78b13a0db0f3c139a88
+
 --->
 <!--- github --->
-[【UE5】Lyra に学ぶ Enhanced Input]: https://github.com/sentyaanko/ReadingLyra/blob/main/InputTag/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20%E5%85%A5%E5%8A%9B%E5%87%A6%E7%90%86%E7%94%A8%20GameplayTag(InputTag).md
+[【UE5】Lyra に学ぶ Enhanced Input]: https://github.com/sentyaanko/ReadingLyra/blob/main/EnhancedInput/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20Enhanced%20Input.md
+[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://github.com/sentyaanko/ReadingLyra/blob/main/InputTag/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20%E5%85%A5%E5%8A%9B%E5%87%A6%E7%90%86%E7%94%A8%20GameplayTag(InputTag).md
 
 <!--- qiita --->
 [【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
@@ -2936,10 +3307,11 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > アビリティ タスク]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-tasks-in-unreal-engine/
 
 <!--- 公式：5.0/Lyra --->
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中)]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアニメーション > ゲームプレイ タグ バインディング]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AC%E3%82%A4%E3%82%BF%E3%82%B0%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra インタラクション システム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-interaction-system-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 拡張されたタグ関係システム]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E6%8B%A1%E5%BC%B5%E3%81%95%E3%82%8C%E3%81%9F%E3%82%BF%E3%82%B0%E9%96%A2%E4%BF%82%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ゲームプレイ タグ バインディング]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AC%E3%82%A4%E3%82%BF%E3%82%B0%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra インタラクション システム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-interaction-system-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > Game Features と Modular Gameplay]: https://docs.unrealengine.com/5.0/ja/game-features-and-modular-gameplay/
 [Unreal Engine 5.0 Documentation > プロダクション パイプラインをセットアップする > アセット管理]: https://docs.unrealengine.com/5.0/ja/asset-management-in-unreal-engine/
 
@@ -2985,5 +3357,5 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 <!--- historia --->
 [(2021/06/18) 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]: https://historia.co.jp/archives/21145/
 
-
-https://argonauts.hatenablog.jp/entry/2021/12/23/083634
+<!--- アルゴンUE4/UE5＆アプリ開発日記 --->
+[(2021/12/23) 【UE4/UE5】標準プラグインについて調べてみた]: https://argonauts.hatenablog.jp/entry/2021/12/23/083634
