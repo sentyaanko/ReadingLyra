@@ -114,16 +114,16 @@ UE4 の頃からあるドキュメントです。
 UE5 の機能を使った、新しいサンプルプロジェクトです。  
 ドキュメント上では 「Lyra サンプル ゲーム」と称され、マーケットプレイス上では「Lyra Starter Game」と称されています。  
 
-* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中)]
+* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム]
 	* プロジェクトの概要と取扱説明書のような内容です。
 	* 子階層には 8 ページほど詳細なドキュメントがあります。  
-	* ページ名に **(一部日本語準備中)** とあるとおり、英文のままで翻訳されていない部分、訳が怪しい部分があることを念頭に読む必要があります。
-* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアニメーション > ゲームプレイ タグ バインディング]
+	* ~~ページ名に **(一部日本語準備中)** とあるとおり、英文のままで翻訳されていない部分、訳が怪しい部分があることを念頭に読む必要があります。~~ 準備中の記述はなくなりました。
+* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ゲームプレイ タグ バインディング]
 	* アニメーションと GameplayTag の設定について書かれています。
 	* ソースコードの ULyraAnimInstance の GameplayTagPropertyMap やその使われ方なども合わせてみておくと良いと思います。
-* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra インタラクション システム]
+* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra インタラクション システム]
 	* GAS を使用したインタラクションシステムの説明です。
-* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアビリティ]
+* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]
 	* ~~まだ翻訳されていません。（2022/04/11 現在）~~ 翻訳されました。（2022/04/14 現在）
 	* **Lyra のアビリティの概要を知るのに一番良いドキュメント** だと思います。
 	* 詳しくは [Lyra のアビリティ 補足] を参照してください。
@@ -267,10 +267,10 @@ Lyra でどうなったかのみ述べ、以前の方法については触れま
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > アビリティ タスク]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-tasks-in-unreal-engine/
 
 <!--- 公式：5.0/Lyra --->
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中)]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra のアニメーション > ゲームプレイ タグ バインディング]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AC%E3%82%A4%E3%82%BF%E3%82%B0%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム (一部日本語準備中) > Lyra インタラクション システム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-interaction-system-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ゲームプレイ タグ バインディング]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AC%E3%82%A4%E3%82%BF%E3%82%B0%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra インタラクション システム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-interaction-system-in-unreal-engine/
 
 [Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
 
