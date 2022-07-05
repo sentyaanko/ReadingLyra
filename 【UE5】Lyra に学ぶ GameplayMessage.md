@@ -32,9 +32,6 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 上記はおそらくこの仕組みに類するものだと思います。  
 (UnrealEngine のリポジトリを検索しても見つけることができなかったので、これがそのままそれというわけではないようです。)
 
-
-* 既存のドキュメント
-	* 
 * 概要
 	* 管理クラスである [UGameplayMessageSubsystem] とリスナー用の基底クラス [UGameplayMessageProcessor] からなります。
 		* [UGameplayMessageProcessor] は ActorComponent であり、 Lyra では GameState 派生クラスに追加しています。
