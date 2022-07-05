@@ -1,5 +1,7 @@
 ## UGameFeatureAction_AddComponents
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeatureAction_AddComponents](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeatureAction_AddComponents/)
+
 > Adds actor<->component spawn requests to the component manager  
 >  
 > @see UGameFrameworkComponentManager  

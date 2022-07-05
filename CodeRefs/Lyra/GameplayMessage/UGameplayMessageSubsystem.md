@@ -58,7 +58,7 @@
 | `ShooterGame.ControlPoint.Captured.Message`                                                                                                                                                                 | `B_ControlPointVolume` (`AActor`)                                                                                                                      | `B_MusicManagerComponent_ControlPoint` (`B_MusicManagerComponent_Base`)                                                                                                                                                                                                                                                                                                                                                                                                                       | [FLyraControlPointStatusMessage]         | キャプチャーしたチーム情報                                                         |
 
 `Lyra.ShooterGame.Accolade.*` の処理の流れは大まかに以下のような形。  
-![](images/AccoladeMessageSequence.png)
+![](../../../GameplayAbility/images/AccoladeMessageSequence.png)
 
 ### UGameplayMessageSubsystem::BroadcastMessage()
 

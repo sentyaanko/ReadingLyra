@@ -2,6 +2,8 @@
 主にドキュメント作成時の一時的な情報が置かれています。
 
 
+Get-ChildItem -Recurse -include *.md | Select-String '^#'
+
 
 
 

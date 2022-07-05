@@ -1,5 +1,7 @@
 ## UDefaultGameFeaturesProjectPolicies
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UDefaultGameFeaturesProjectPolicies](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UDefaultGameFeaturesProjectPolic-/)
+
 > This is a default implementation that immediately processes all game feature plugins the based on their BuiltInAutoRegister, 
 > BuiltInAutoLoad, and BuiltInAutoActivate settings.  
 >  

@@ -1,5 +1,7 @@
 ## UGameFeaturesSubsystem
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeaturesSubsystem](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeaturesSubsystem/)
+
 > The manager subsystem for game features  
 > 
 > ----

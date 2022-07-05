@@ -1,5 +1,7 @@
 ## IGameFeatureStateChangeObserver
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > IGameFeatureStateChangeObserver](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/IGameFeatureStateChangeObserver/)
+
 > This class is meant to be overridden in your game to handle game-specific reactions to game feature plugins being mounted or unmounted  
 >  
 > Generally you should prefer to use UGameFeatureAction instances on your game feature data asset instead of this,  

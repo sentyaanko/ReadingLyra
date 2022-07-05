@@ -1,5 +1,7 @@
 ## UInputMappingContext
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > UInputMappingContext](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/UInputMappingContext/)
+
 > UInputMappingContext : A collection of key to action mappings for a specific input context
 > Could be used to:
 >	Store predefined controller mappings (allow switching between controller config variants). TODO: Build a system allowing redirects of UInputMappingContexts to handle this.

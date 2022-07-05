@@ -1,5 +1,7 @@
 ## UGameFeaturesProjectPolicies
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeaturesProjectPolicies](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeaturesProjectPolicies/)
+
 > This class allows project-specific rules to be implemented for game feature plugins.  
 > Create a subclass and choose it in Project Settings .. Game Features  
 > 

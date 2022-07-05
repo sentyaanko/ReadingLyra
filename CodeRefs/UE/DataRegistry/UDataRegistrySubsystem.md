@@ -1,5 +1,8 @@
 ## UDataRegistrySubsystem
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > DataRegistry > UDataRegistrySubsystem](https://docs.unrealengine.com/5.0/en-US/API/Plugins/DataRegistry/UDataRegistrySubsystem/)
+
+
 > Singleton manager that provides synchronous and asynchronous access to data registries  
 > 
 > ----

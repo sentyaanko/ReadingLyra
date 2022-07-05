@@ -1,5 +1,7 @@
 ## UEnhancedInputLocalPlayerSubsystem
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > UEnhancedInputLocalPlayerSubsystem](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/UEnhancedInputLocalPlayerSubsyst-/)
+
 > Per local player input subsystem  
 > 
 > ----

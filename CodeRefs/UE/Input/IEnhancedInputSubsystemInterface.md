@@ -1,5 +1,7 @@
 ## IEnhancedInputSubsystemInterface
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > IEnhancedInputSubsystemInterface](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/IEnhancedInputSubsystemInterface/)
+
 > Includes native functionality shared between all subsystems  
 > 
 > ----

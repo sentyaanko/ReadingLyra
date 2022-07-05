@@ -1,5 +1,8 @@
 ## UPlayerMappableInputConfig
 
+> note: 時期的な問題か、リファレンスが存在しない。
+> [Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > UInputMappingContext](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/UPlayerMappableInputConfig/)
+
 > This represents one set of Player Mappable controller/keymappings.   
 > You can use this input config to create the default mappings for your player to start with in your game.  
 > It provides an easy way to get only the player mappable key actions, 

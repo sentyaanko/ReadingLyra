@@ -1,5 +1,7 @@
 ## UGameplayAbility
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameplayAbilities > Abilities > UGameplayAbility](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameplayAbilities/Abilities/UGameplayAbility/)
+
 ### UGameplayAbility::MakeOutgoingGameplayEffectSpec()
 
 > Convenience method for abilities to get outgoing gameplay effect specs  

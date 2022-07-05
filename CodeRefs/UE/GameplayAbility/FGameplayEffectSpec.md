@@ -1,5 +1,7 @@
 ## FGameplayEffectSpec
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameplayAbilities > FGameplayEffectSpec](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameplayAbilities/FGameplayEffectSpec/)
+
 > GameplayEffect Specification. Tells us:  
 > - What UGameplayEffect (const data)
 > - What Level

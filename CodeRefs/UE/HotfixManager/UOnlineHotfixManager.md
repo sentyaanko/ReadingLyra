@@ -1,5 +1,7 @@
 ## UOnlineHotfixManager
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > Hotfix > UOnlineHotfixManager](https://docs.unrealengine.com/5.0/en-US/API/Plugins/Hotfix/UOnlineHotfixManager/)
+
 > This class manages the downloading and application of hotfix data  
 > Hotfix data is a set of non-executable files downloaded and applied to the game.  
 > The base implementation knows how to handle INI, PAK, and locres files.  

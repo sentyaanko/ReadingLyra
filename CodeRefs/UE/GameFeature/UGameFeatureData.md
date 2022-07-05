@@ -1,5 +1,7 @@
 ## UGameFeatureData
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeatureData](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeatureData/)
+
 > Data related to a game feature, a collection of code and content that adds a separable discrete feature to the game  
 > 
 > ----

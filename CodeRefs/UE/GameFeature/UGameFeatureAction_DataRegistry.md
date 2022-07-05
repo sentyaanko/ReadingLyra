@@ -1,5 +1,7 @@
 ## UGameFeatureAction_DataRegistry
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeatureAction_DataRegistry](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeatureAction_DataRegistry/)
+
 > Specifies a list of Data Registries to load and initialize with this feature  
 > 
 > ----

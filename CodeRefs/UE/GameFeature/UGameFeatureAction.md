@@ -1,5 +1,7 @@
 ## UGameFeatureAction
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameFeatures > UGameFeatureAction](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameFeatures/UGameFeatureAction/)
+
 > Represents an action to be taken when a game feature is activated  
 > 
 > ----

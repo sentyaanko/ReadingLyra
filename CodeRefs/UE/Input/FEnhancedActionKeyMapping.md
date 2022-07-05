@@ -1,5 +1,8 @@
 ## FEnhancedActionKeyMapping
 
+
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > FEnhancedActionKeyMapping](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/FEnhancedActionKeyMapping/)
+
 > Defines a mapping between a key activation and the resulting enhanced action  
 > An key could be a button press, joystick axis movement, etc.  
 > An enhanced action could be MoveForward, Jump, Fire, etc.

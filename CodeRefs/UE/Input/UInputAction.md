@@ -1,5 +1,7 @@
 ## UInputAction
 
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > EnhancedInput > UInputAction](https://docs.unrealengine.com/5.0/en-US/API/Plugins/EnhancedInput/UInputAction/)
+
 > Input action definition. These are instanced per player (via FInputActionInstance)
 > 
 > ----

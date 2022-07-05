@@ -13,7 +13,7 @@
 
 処理の流れは大まかに以下のようになっている。
 
-![](images/ULyraPawnData_Lifetime.png)
+![](../../../GameplayAbility/images/ULyraPawnData_Lifetime.png)
 
 
 ### ULyraPawnData::PawnClass

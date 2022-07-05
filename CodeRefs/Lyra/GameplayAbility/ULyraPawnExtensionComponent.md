@@ -30,7 +30,8 @@
 
 処理の流れは大まかに以下のような形。
 
-![](images/ULyraPawnExtensionComponent_InitializeAbilitySystem.png)
+<!--- 自前の画像へのリンク --->
+![](../../../GameplayAbility/images/ULyraPawnExtensionComponent_InitializeAbilitySystem.png)
 
 * このコンポーネントが追加された Pawn の初期化のチェックを行う
 * Pawn に追加されたコンポーネントを走査して、 [ILyraReadyInterface] を持つものを探す。
