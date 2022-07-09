@@ -152,6 +152,7 @@
 [ULyraTouchRegion]: ../../Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: ../../Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
+[FPrimaryAssetTypeInfo]: ../../UE/AssetManager/test.md#fprimaryassettypeinfo
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem
 [IGameFeatureStateChangeObserver]: ../../UE/GameFeature/IGameFeatureStateChangeObserver.md#igamefeaturestatechangeobserver
