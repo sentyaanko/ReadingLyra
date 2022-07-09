@@ -671,8 +671,9 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 
 --->
 <!--- github --->
-[【UE5】Lyra に学ぶ Enhanced Input]: https://github.com/sentyaanko/ReadingLyra/blob/main/EnhancedInput/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20Enhanced%20Input.md
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://github.com/sentyaanko/ReadingLyra/blob/main/InputTag/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20%E5%85%A5%E5%8A%9B%E5%87%A6%E7%90%86%E7%94%A8%20GameplayTag(InputTag).md
+
+[【UE5】Lyra に学ぶ Enhanced Input]: EnhancedInput.md
+[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: InputTag.md
 
 <!--- qiita --->
 [【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885

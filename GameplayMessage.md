@@ -104,16 +104,6 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 <!--- 自前の画像へのリンク --->
 [images/Lyra_CharacterAndComponents]: GameplayAbility/images/Lyra_CharacterAndComponents.png
 
-<!--- 関連ドキュメント --->
-<!--- qiita
-[【UE5】Lyra に学ぶ Enhanced Input]: https://qiita.com/sentyaanko/items/dd4990d4aa0e84478b59
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://qiita.com/sentyaanko/items/f78b13a0db0f3c139a88
-
---->
-<!--- github --->
-[【UE5】Lyra に学ぶ Enhanced Input]: https://github.com/sentyaanko/ReadingLyra/blob/main/EnhancedInput/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20Enhanced%20Input.md
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://github.com/sentyaanko/ReadingLyra/blob/main/InputTag/%E3%80%90UE5%E3%80%91Lyra%20%E3%81%AB%E5%AD%A6%E3%81%B6%20%E5%85%A5%E5%8A%9B%E5%87%A6%E7%90%86%E7%94%A8%20GameplayTag(InputTag).md
-
 <!--- qiita --->
 [【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
 
