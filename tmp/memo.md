@@ -2,8 +2,42 @@
 主にドキュメント作成時の一時的な情報が置かれています。
 
 
-Get-ChildItem -Recurse -include *.md | Select-String '^#'
+```.powershell
+# 以下のコマンドは CodeRefs 以下で実行すること。
 
+# CodeRefs 以下の md ファイルから見出しを取得し、 HeadingID をファイルに出力する。
+# HeadingIDsForCodeRefs.md は CodeRefs 以下のファイルで使用するためのもの。
+# HeadingIDsForTops.md は リポジトリのルート(CodeRefs フォルダが置かれているパス)で使用するためのもの。
+Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: ../../$RelativePath#$Anchor" } | Out-File ..\tmp\HeadingIDsForCodeRefs.md -Encoding utf8
+Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: CodeRefs/$RelativePath#$Anchor" } | Out-File ..\tmp\HeadingIDsForTops.md -Encoding utf8
+
+# CodeRefs 以下の .md ファイルの HeadingID の更新処理(2 steps)
+
+# step1: md ファイルから <!--- CodeRefs ---> という文字列を探し、それより前の行までを .md.tmp ファイルに出力する
+$myHeadingIDs=Get-Content ..\tmp\HeadingIDsForCodeRefs.md -Encoding UTF8;Get-ChildItem -Recurse -include *.md | Select-String '<!--- CodeRefs --->' | ForEach-Object {$myEndLine=$_.LineNumber-1;$myMdFilename=$_.RelativePath($PWD);$myContent=(Get-Content $myMdFilename -Encoding UTF8)[0..$myEndLine];$myTmpFile=$myMdFilename + '.tmp';Set-Content $myTmpFile $myContent,$myHeadingIDs -Encoding UTF8} 
+
+# step2: step1 で出力した .md.tmp ファイルを .md ファイルに上書きする(実際は .md ファイルを削除後にリネームしている)
+Get-ChildItem -Recurse -include *.md.tmp | ForEach-Object{ $myDstFilename=$_.FullName.TrimEnd('.tmp');Remove-Item $myDstFilename;$_.MoveTo($myDstFilename) }
+
+
+```
+
+
+   TypeName: Microsoft.PowerShell.Commands.MatchInfo
+Name         MemberType Definition
+----         ---------- ----------
+Equals       Method     bool Equals(System.Object obj)
+GetHashCode  Method     int GetHashCode()
+GetType      Method     type GetType()
+RelativePath Method     string RelativePath(string directory)
+ToString     Method     string ToString(), string ToString(string directory)
+Filename     Property   string Filename {get;}
+IgnoreCase   Property   bool IgnoreCase {get;set;}
+Line         Property   string Line {get;set;}
+LineNumber   Property   int LineNumber {get;set;}
+Matches      Property   System.Text.RegularExpressions.Match[] Matches {get;set;}
+Path         Property   string Path {get;set;}
+Pattern      Property   string Pattern {get;set;}
 
 
 
