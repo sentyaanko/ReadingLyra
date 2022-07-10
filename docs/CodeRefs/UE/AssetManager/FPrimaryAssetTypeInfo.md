@@ -1,4 +1,4 @@
-﻿## FPrimaryAssetTypeInfo
+## FPrimaryAssetTypeInfo
 
 [Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Runtime > Engine > Engine > FPrimaryAssetTypeInfo](https://docs.unrealengine.com/5.0/en-US/API/Runtime/Engine/Engine/FPrimaryAssetTypeInfo/)
 
