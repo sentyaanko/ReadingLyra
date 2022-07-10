@@ -30,8 +30,7 @@
 
 処理の流れは大まかに以下のような形。
 
-<!--- 自前の画像へのリンク --->
-![](../../../GameplayAbility/images/ULyraPawnExtensionComponent_InitializeAbilitySystem.png)
+![ULyraPawnExtensionComponent_InitializeAbilitySystem]
 
 * このコンポーネントが追加された Pawn の初期化のチェックを行う
 * Pawn に追加されたコンポーネントを走査して、 [ILyraReadyInterface] を持つものを探す。
@@ -103,3 +102,7 @@
 > ----
 > ポーンのコントローラーが変わった時に、所有するポーンから呼び出される必要があります。  
 
+
+----
+<!--- 自前の画像へのリンク --->
+[ULyraPawnExtensionComponent_InitializeAbilitySystem]: ../../../images/ULyraPawnExtensionComponent_InitializeAbilitySystem.png

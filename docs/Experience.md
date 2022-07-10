@@ -661,9 +661,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 
 <!--- ページ内のリンク --->
 
-<!--- 自前の画像へのリンク --->
-[images/Lyra_CharacterAndComponents]: GameplayAbility/images/Lyra_CharacterAndComponents.png
-
 <!--- 関連ドキュメント --->
 <!--- qiita
 [【UE5】Lyra に学ぶ Enhanced Input]: https://qiita.com/sentyaanko/items/dd4990d4aa0e84478b59

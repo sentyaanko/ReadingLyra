@@ -13,7 +13,7 @@
 
 処理の流れは大まかに以下のようになっている。
 
-![](../../../GameplayAbility/images/ULyraPawnData_Lifetime.png)
+![ULyraPawnData_Lifetime]
 
 
 ### ULyraPawnData::PawnClass
@@ -50,3 +50,6 @@
 > 
 > ----
 
+----
+<!--- 自前の画像へのリンク --->
+[ULyraPawnData_Lifetime]: ../../../images/ULyraPawnData_Lifetime.png

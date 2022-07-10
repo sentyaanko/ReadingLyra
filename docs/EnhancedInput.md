@@ -638,15 +638,15 @@ Lyra についての大まかな説明は以上です。
 [Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合]: #lyra-における入力マッピング追加方法-uplayermappableinputconfig-経由-shootercore-の場合
 
 <!--- 自前の画像へのリンク --->
-[ContentBrowser-Type=DInputAction]: EnhancedInput/images/ContentBrowser-Type%3DInputAction.png
-[ContentBrowser-Type=DInputMappingContext]: EnhancedInput/images/ContentBrowser-Type%3DInputMappingContext.png
-[UInputMappingContext-Referencing]: EnhancedInput/images/UInputMappingContext-Referencing.png
-[ContentBrowser-Type=DPlayerMappableInputConfig]: EnhancedInput/images/ContentBrowser-Type%3DPlayerMappableInputConfig.png
-[UPlayerMappableInputConfig-Referencing]: EnhancedInput/images/UPlayerMappableInputConfig-Referencing.png
-[ContentBrowser-LyraExperienceActionSet]: EnhancedInput/images/ContentBrowser-LyraExperienceActionSet.png
-[ULyraInputConfig-Referenced]: EnhancedInput/images/ULyraInputConfig-Referenced.png
-[ULyraInputConfig-Referencing_PawnData]: EnhancedInput/images/ULyraInputConfig-Referencing_PawnData.png
-[ULyraInputConfig-Referencing_ActionSet]: EnhancedInput/images/ULyraInputConfig-Referencing_ActionSet.png
+[ContentBrowser-Type=DInputAction]: images/ContentBrowser-Type%3DInputAction.png
+[ContentBrowser-Type=DInputMappingContext]: images/ContentBrowser-Type%3DInputMappingContext.png
+[UInputMappingContext-Referencing]: images/UInputMappingContext-Referencing.png
+[ContentBrowser-Type=DPlayerMappableInputConfig]: images/ContentBrowser-Type%3DPlayerMappableInputConfig.png
+[UPlayerMappableInputConfig-Referencing]: images/UPlayerMappableInputConfig-Referencing.png
+[ContentBrowser-LyraExperienceActionSet]: images/ContentBrowser-LyraExperienceActionSet.png
+[ULyraInputConfig-Referenced]: images/ULyraInputConfig-Referenced.png
+[ULyraInputConfig-Referencing_PawnData]: images/ULyraInputConfig-Referencing_PawnData.png
+[ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
 <!--- 公式：4.27 --->
 [Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]: https://docs.unrealengine.com/4.27/ja/InteractiveExperiences/Input/EnhancedInput/

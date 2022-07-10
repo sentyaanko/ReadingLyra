@@ -101,9 +101,6 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 
 <!--- ページ内のリンク --->
 
-<!--- 自前の画像へのリンク --->
-[images/Lyra_CharacterAndComponents]: GameplayAbility/images/Lyra_CharacterAndComponents.png
-
 <!--- qiita --->
 [【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
 

@@ -170,7 +170,7 @@ Lyra では、 GAS の制御をコンポーネントを利用して行ってい�
 
 関係は以下のような形。
 
-![images/Lyra_CharacterAndComponents]
+![Lyra_CharacterAndComponents]
 
 [ULyraPawnExtensionComponent] / [ULyraHeroComponent] に関しては [Lyra のアビリティ > ALyraPlayerState] にて以下の記述があります。
 
@@ -217,7 +217,7 @@ Lyra では、 GAS の制御をコンポーネントを利用して行ってい�
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->
-[images/Lyra_CharacterAndComponents]: GameplayAbility/images/Lyra_CharacterAndComponents.png
+[Lyra_CharacterAndComponents]: images/Lyra_CharacterAndComponents.png
 
 <!--- qiita --->
 [【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
