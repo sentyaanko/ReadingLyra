@@ -6,15 +6,16 @@
 # HeadingIDsForCodeRefs.md は /docs/CodeRefs 以下に置かれたファイルで使用するためのもの。
 # HeadingIDsForRoot.md は /docs に置かれたファイルで使用するためのもの。
 function Set-SaAllHeadingIDs{
-	$myTargets = @{"HeadingIDsForCodeRefs.md" = "../..";"HeadingIDsForRoot.md" = "CodeRefs"}
+	$Targets = @(
+		@{Filename ="HeadingIDsForCodeRefs.md"; AnchorPath="../.."},
+		@{Filename ="HeadingIDsForRoot.md"; AnchorPath="CodeRefs"}
+	)
 
-	$myArray = Get-ChildItem -Recurse -Include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$RelativePath=$_.RelativePath($PWD) -replace '\\','/';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();@{"LinkName"=$LinkName; "RelativePath"=$RelativePath; "Anchor"=$Anchor} }
+	$MdFiles = Get-ChildItem -Recurse -Include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$RelativePath=$_.RelativePath($PWD) -replace '\\','/';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();@{LinkName=$LinkName; RelativePath=$RelativePath; Anchor=$Anchor} }
 
-	foreach($myTarget in $myTargets.GetEnumerator()){
-		$myOutputFilename=$myTarget.Key
-		$myAnchorPath=$myTarget.Value
-		$myOut = (($myArray | ForEach-Object{$LinkName=$_['LinkName'];$RelativePath=$_['RelativePath'];$Anchor=$_['Anchor'];"[$LinkName]: $myAnchorPath/$RelativePath#$Anchor"}) -join "`n") + "`n"
-		$myOutputFullName = "$PSScriptRoot\..\tmp\$myOutputFilename"
+	foreach($Target in $Targets.GetEnumerator()){
+		$myOut = (($MdFiles | ForEach-Object{"[$($_.LinkName)]: $($Target.AnchorPath)/$($_.RelativePath)#$($_.Anchor)"}) -join "`n") + "`n"
+		$myOutputFullName = "$PSScriptRoot\..\tmp\$($Target.Filename)"
 		[System.IO.File]::WriteAllText($myOutputFullName, $myOut)
 	}
 }

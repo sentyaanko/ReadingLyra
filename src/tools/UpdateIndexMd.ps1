@@ -56,13 +56,13 @@ function Get-SaMarkdownLists{
 # index.md の更新を行う。
 function Update-SaIndexMd{
 	# Root の md ファイル名と見出しの一覧を作成
-	$RootMdFiles = Get-ChildItem *.md -Exclude index.md | ForEach-Object {$Heading=(Get-Content $_.FullName -TotalCount 1 -Encoding utf8) -replace '^# (.+) \<\!-- omit in toc --\>', '$1';$RelativePath=(Resolve-Path $_ -Relative) -replace '\\','/';@{"Heading"=$Heading; "RelativePath"=$RelativePath}}
+	$RootMdFiles = Get-ChildItem *.md -Exclude index.md | ForEach-Object {$Heading=(Get-Content $_.FullName -TotalCount 1 -Encoding utf8) -replace '^# (.+) \<\!-- omit in toc --\>', '$1';$RelativePath=(Resolve-Path $_ -Relative) -replace '\\','/';@{Heading=$Heading; RelativePath=$RelativePath}}
 
 	# Root の md ファイル名と見出しの一覧 を元に見出しのリストの作成
-	$RootLists = ($RootMdFiles | ForEach-Object{$Heading=$_['Heading'];"`t- [$Heading]"}) -join "`n"
+	$RootLists = ($RootMdFiles | ForEach-Object{"`t- [$($_.Heading)]"}) -join "`n"
 	
 	# Root の md ファイル名と見出しの一覧 を元に HeadingIDs の作成
-	$RootHeadingIDs = ($RootMdFiles | ForEach-Object{$Heading=$_['Heading'];$RelativePath=$_['RelativePath'];"[$Heading]: $RelativePath"}) -join "`n"
+	$RootHeadingIDs = ($RootMdFiles | ForEach-Object{"[$($_.Heading)]: $($_.RelativePath)"}) -join "`n"
 
 	# CodeRefs 以下の md ファイル名の一覧を作成
 	$CodeRefsMdFilenames = Get-ChildItem CodeRefs -Include *.md -Recurse | ForEach-Object{((Resolve-Path $_ -Relative) -replace '\\','/')}
