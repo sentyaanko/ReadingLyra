@@ -1,0 +1,288 @@
+# ReadingLyra
+
+<!--- generatede --->
+- 実装解説
+	- [【UE5】Lyra に学ぶ Enhanced Input]
+	- [【UE5】Lyra に学ぶ基礎]
+	- [【UE5】Lyra に学ぶ GAS(C++)]
+	- [【UE5】Lyra に学ぶ GAS(概略)]
+	- [【UE5】Lyra に学ぶ GameplayMessage]
+	- [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]
+- クラス解説
+	- Lyra
+		- Etc
+			- [ALyraWeaponSpawner]
+			- [UAimAssistTargetManagerComponent]
+			- [ULyraBotCreationComponent]
+			- [ULyraCameraMode]
+			- [ULyraCheatManager]
+			- [ULyraControllerComponent_CharacterParts]
+			- [ULyraDamageLogDebuggerComponent]
+			- [ULyraEquipmentManagerComponent]
+			- [ULyraFrontendStateComponent]
+			- [ULyraIndicatorManagerComponent]
+			- [ULyraNumberPopComponent]
+			- [ULyraNumberPopComponent_NiagaraText]
+			- [ULyraPlayerSpawningManagerComponent]
+			- [ULyraQuickBarComponent]
+			- [ULyraSettingsLocal]
+			- [ULyraTeamCreationComponent]
+			- [UTDM_PlayerSpawningManagmentComponent]
+		- Experience
+			- [ALyraWorldSettings]
+			- [UAsyncAction_ExperienceReady]
+			- [ULyraExperienceActionSet]
+			- [ULyraExperienceDefinition]
+			- [ULyraExperienceManagerComponent]
+			- [ULyraUserFacingExperienceDefinition]
+		- GameFeature
+			- [FMappableConfigPair]
+			- [UApplyFrontendPerfSettingsAction]
+			- [UGameFeatureAction_AddAbilities]
+			- [UGameFeatureAction_AddGameplayCuePath]
+			- [UGameFeatureAction_AddInputBinding]
+			- [UGameFeatureAction_AddInputConfig]
+			- [UGameFeatureAction_AddInputContextMapping]
+			- [UGameFeatureAction_AddWidgets]
+			- [UGameFeatureAction_SplitscreenConfig]
+			- [UGameFeatureAction_WorldActionBase]
+			- [ULyraGameFeaturePolicy]
+			- [ULyraGameFeature_AddGameplayCuePaths]
+			- [ULyraGameFeature_HotfixManager]
+		- GameplayAbility
+			- [ALyraCharacterWithAbilities]
+			- [FLyraAbilityTagRelationship]
+			- [ILyraReadyInterface]
+			- [ULyraAbilitySet]
+			- [ULyraAbilitySystemComponent]
+			- [ULyraAbilityTagRelationshipMapping]
+			- [ULyraAttributeSet]
+			- [ULyraDamageExecution]
+			- [ULyraGamePhaseAbility]
+			- [ULyraGameplayAbility]
+			- [ULyraGameplayAbility_Death]
+			- [ULyraGameplayAbility_FromEquipment]
+			- [ULyraGameplayAbility_Interact]
+			- [ULyraGameplayAbility_Jump]
+			- [ULyraGameplayAbility_RangedWeapon]
+			- [ULyraGameplayAbility_Reset]
+			- [ULyraGlobalAbilitySystem]
+			- [ULyraHealExecution]
+			- [ULyraHealthComponent]
+			- [ULyraHealthSet]
+			- [ULyraHeroComponent]
+			- [ULyraPawnComponent]
+			- [ULyraPawnExtensionComponent]
+		- GameplayCue
+			- [AGameplayCueNotify_BurstLatent]
+			- [ULyraGameplayCueManager]
+		- GameplayFramework
+			- [ALyraCharacter]
+			- [ALyraGameMode]
+			- [ALyraGameState]
+			- [ALyraPlayerController]
+			- [ALyraPlayerState]
+		- GameplayMessage
+			- [UAsyncAction_ListenForGameplayMessage]
+			- [UGameplayMessageSubsystem]
+		- GameplayMessageAccolade
+			- [FLyraAccoladeDefinitionRow]
+			- [ULyraAccoladeHostWidget]
+		- GameplayMessageProcessor
+			- [UAssistProcessor]
+			- [UElimChainProcessor]
+			- [UElimStreakProcessor]
+			- [UGameplayMessageProcessor]
+		- GameplayMessageProcessorStruct
+			- [FLyraAbilityMontageFailureMessage]
+			- [FLyraAbilitySimpleFailureMessage]
+			- [FLyraControlPointStatusMessage]
+			- [FLyraInteractionDurationMessage]
+			- [FLyraInventoryChangeMessage]
+			- [FLyraNotificationMessage]
+			- [FLyraPlayerResetMessage]
+			- [FLyraQuickBarActiveIndexChangedMessage]
+			- [FLyraQuickBarSlotsChangedMessage]
+			- [FLyraVerbMessage]
+			- [FLyraVerbMessageReplication]
+		- HotfixManager
+			- [ULyraHotfixManager]
+		- Input
+			- [ULyraInputConfig]
+		- Inventory
+			- [FLyraInventoryList]
+			- [ULyraInventoryManagerComponent]
+		- PawnSetting
+			- [ULyraPawnData]
+		- Weapon
+			- [ULyraWeaponStateComponent]
+		- Widget
+			- [UCommonActivatableWidget]
+			- [ULyraActivatableWidget]
+			- [ULyraHUDLayout]
+			- [ULyraJoystickWidget]
+			- [ULyraPerfStatContainerBase]
+			- [ULyraReticleWidgetBase]
+			- [ULyraSimulatedInputWidget]
+			- [ULyraTaggedWidget]
+			- [ULyraTouchRegion]
+			- [ULyraWeaponUserInterface]
+	- UE
+		- AssetManager
+			- [FPrimaryAssetTypeInfo]
+		- DataRegistry
+			- [UDataRegistrySubsystem]
+		- GameFeature
+			- [IGameFeatureStateChangeObserver]
+			- [UDefaultGameFeaturesProjectPolicies]
+			- [UGameFeatureAction]
+			- [UGameFeatureAction_AddComponents]
+			- [UGameFeatureAction_DataRegistry]
+			- [UGameFeatureData]
+			- [UGameFeaturesProjectPolicies]
+			- [UGameFeaturesSubsystem]
+		- GameplayAbility
+			- [FGameplayAbilitySpec]
+			- [FGameplayEffectSpec]
+			- [UGameplayAbility]
+		- GameplayCue
+			- [UGameplayCueManager]
+		- HotfixManager
+			- [UOnlineHotfixManager]
+		- Input
+			- [FEnhancedActionKeyMapping]
+			- [IEnhancedInputSubsystemInterface]
+			- [UEnhancedInputLocalPlayerSubsystem]
+			- [UInputAction]
+			- [UInputMappingContext]
+			- [UPlayerMappableInputConfig]
+
+<!--- HedaingIDs --->
+[【UE5】Lyra に学ぶ Enhanced Input]: ./EnhancedInput.md
+[【UE5】Lyra に学ぶ基礎]: ./Experience.md
+[【UE5】Lyra に学ぶ GAS(C++)]: ./GameplayAbilityNative.md
+[【UE5】Lyra に学ぶ GAS(概略)]: ./GameplayAbilityOverview.md
+[【UE5】Lyra に学ぶ GameplayMessage]: ./GameplayMessage.md
+[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[ALyraWeaponSpawner]: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md
+[UAimAssistTargetManagerComponent]: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent.md
+[ULyraBotCreationComponent]: ./CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md
+[ULyraCameraMode]: ./CodeRefs/Lyra/Etc/ULyraCameraMode.md
+[ULyraCheatManager]: ./CodeRefs/Lyra/Etc/ULyraCheatManager.md
+[ULyraControllerComponent_CharacterParts]: ./CodeRefs/Lyra/Etc/ULyraControllerComponent_CharacterParts.md
+[ULyraDamageLogDebuggerComponent]: ./CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent.md
+[ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Etc/ULyraEquipmentManagerComponent.md
+[ULyraFrontendStateComponent]: ./CodeRefs/Lyra/Etc/ULyraFrontendStateComponent.md
+[ULyraIndicatorManagerComponent]: ./CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent.md
+[ULyraNumberPopComponent]: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent.md
+[ULyraNumberPopComponent_NiagaraText]: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md
+[ULyraPlayerSpawningManagerComponent]: ./CodeRefs/Lyra/Etc/ULyraPlayerSpawningManagerComponent.md
+[ULyraQuickBarComponent]: ./CodeRefs/Lyra/Etc/ULyraQuickBarComponent.md
+[ULyraSettingsLocal]: ./CodeRefs/Lyra/Etc/ULyraSettingsLocal.md
+[ULyraTeamCreationComponent]: ./CodeRefs/Lyra/Etc/ULyraTeamCreationComponent.md
+[UTDM_PlayerSpawningManagmentComponent]: ./CodeRefs/Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md
+[ALyraWorldSettings]: ./CodeRefs/Lyra/Experience/ALyraWorldSettings.md
+[UAsyncAction_ExperienceReady]: ./CodeRefs/Lyra/Experience/UAsyncAction_ExperienceReady.md
+[ULyraExperienceActionSet]: ./CodeRefs/Lyra/Experience/ULyraExperienceActionSet.md
+[ULyraExperienceDefinition]: ./CodeRefs/Lyra/Experience/ULyraExperienceDefinition.md
+[ULyraExperienceManagerComponent]: ./CodeRefs/Lyra/Experience/ULyraExperienceManagerComponent.md
+[ULyraUserFacingExperienceDefinition]: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition.md
+[FMappableConfigPair]: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair.md
+[UApplyFrontendPerfSettingsAction]: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction.md
+[UGameFeatureAction_AddAbilities]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities.md
+[UGameFeatureAction_AddGameplayCuePath]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddGameplayCuePath.md
+[UGameFeatureAction_AddInputBinding]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputBinding.md
+[UGameFeatureAction_AddInputConfig]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md
+[UGameFeatureAction_AddInputContextMapping]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md
+[UGameFeatureAction_AddWidgets]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddWidgets.md
+[UGameFeatureAction_SplitscreenConfig]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_SplitscreenConfig.md
+[UGameFeatureAction_WorldActionBase]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md
+[ULyraGameFeaturePolicy]: ./CodeRefs/Lyra/GameFeature/ULyraGameFeaturePolicy.md
+[ULyraGameFeature_AddGameplayCuePaths]: ./CodeRefs/Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md
+[ULyraGameFeature_HotfixManager]: ./CodeRefs/Lyra/GameFeature/ULyraGameFeature_HotfixManager.md
+[ALyraCharacterWithAbilities]: ./CodeRefs/Lyra/GameplayAbility/ALyraCharacterWithAbilities.md
+[FLyraAbilityTagRelationship]: ./CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md
+[ILyraReadyInterface]: ./CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface.md
+[ULyraAbilitySet]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySet.md
+[ULyraAbilitySystemComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemComponent.md
+[ULyraAbilityTagRelationshipMapping]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md
+[ULyraAttributeSet]: ./CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md
+[ULyraDamageExecution]: ./CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution.md
+[ULyraGamePhaseAbility]: ./CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseAbility.md
+[ULyraGameplayAbility]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility.md
+[ULyraGameplayAbility_Death]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Death.md
+[ULyraGameplayAbility_FromEquipment]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_FromEquipment.md
+[ULyraGameplayAbility_Interact]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md
+[ULyraGameplayAbility_Jump]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Jump.md
+[ULyraGameplayAbility_RangedWeapon]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md
+[ULyraGameplayAbility_Reset]: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md
+[ULyraGlobalAbilitySystem]: ./CodeRefs/Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md
+[ULyraHealExecution]: ./CodeRefs/Lyra/GameplayAbility/ULyraHealExecution.md
+[ULyraHealthComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraHealthComponent.md
+[ULyraHealthSet]: ./CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md
+[ULyraHeroComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraHeroComponent.md
+[ULyraPawnComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraPawnComponent.md
+[ULyraPawnExtensionComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraPawnExtensionComponent.md
+[AGameplayCueNotify_BurstLatent]: ./CodeRefs/Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md
+[ULyraGameplayCueManager]: ./CodeRefs/Lyra/GameplayCue/ULyraGameplayCueManager.md
+[ALyraCharacter]: ./CodeRefs/Lyra/GameplayFramework/ALyraCharacter.md
+[ALyraGameMode]: ./CodeRefs/Lyra/GameplayFramework/ALyraGameMode.md
+[ALyraGameState]: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState.md
+[ALyraPlayerController]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController.md
+[ALyraPlayerState]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md
+[UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage.md
+[UGameplayMessageSubsystem]: ./CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem.md
+[FLyraAccoladeDefinitionRow]: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md
+[ULyraAccoladeHostWidget]: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md
+[UAssistProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md
+[UElimChainProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor.md
+[UElimStreakProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimStreakProcessor.md
+[UGameplayMessageProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md
+[FLyraAbilityMontageFailureMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md
+[FLyraAbilitySimpleFailureMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md
+[FLyraControlPointStatusMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage.md
+[FLyraInteractionDurationMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraInteractionDurationMessage.md
+[FLyraInventoryChangeMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraInventoryChangeMessage.md
+[FLyraNotificationMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md
+[FLyraPlayerResetMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraPlayerResetMessage.md
+[FLyraQuickBarActiveIndexChangedMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraQuickBarActiveIndexChangedMessage.md
+[FLyraQuickBarSlotsChangedMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraQuickBarSlotsChangedMessage.md
+[FLyraVerbMessage]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage.md
+[FLyraVerbMessageReplication]: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessageReplication.md
+[ULyraHotfixManager]: ./CodeRefs/Lyra/HotfixManager/ULyraHotfixManager.md
+[ULyraInputConfig]: ./CodeRefs/Lyra/Input/ULyraInputConfig.md
+[FLyraInventoryList]: ./CodeRefs/Lyra/Inventory/FLyraInventoryList.md
+[ULyraInventoryManagerComponent]: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md
+[ULyraPawnData]: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData.md
+[ULyraWeaponStateComponent]: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md
+[UCommonActivatableWidget]: ./CodeRefs/Lyra/Widget/UCommonActivatableWidget.md
+[ULyraActivatableWidget]: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget.md
+[ULyraHUDLayout]: ./CodeRefs/Lyra/Widget/ULyraHUDLayout.md
+[ULyraJoystickWidget]: ./CodeRefs/Lyra/Widget/ULyraJoystickWidget.md
+[ULyraPerfStatContainerBase]: ./CodeRefs/Lyra/Widget/ULyraPerfStatContainerBase.md
+[ULyraReticleWidgetBase]: ./CodeRefs/Lyra/Widget/ULyraReticleWidgetBase.md
+[ULyraSimulatedInputWidget]: ./CodeRefs/Lyra/Widget/ULyraSimulatedInputWidget.md
+[ULyraTaggedWidget]: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget.md
+[ULyraTouchRegion]: ./CodeRefs/Lyra/Widget/ULyraTouchRegion.md
+[ULyraWeaponUserInterface]: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md
+[FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
+[UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
+[IGameFeatureStateChangeObserver]: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md
+[UDefaultGameFeaturesProjectPolicies]: ./CodeRefs/UE/GameFeature/UDefaultGameFeaturesProjectPolicies.md
+[UGameFeatureAction]: ./CodeRefs/UE/GameFeature/UGameFeatureAction.md
+[UGameFeatureAction_AddComponents]: ./CodeRefs/UE/GameFeature/UGameFeatureAction_AddComponents.md
+[UGameFeatureAction_DataRegistry]: ./CodeRefs/UE/GameFeature/UGameFeatureAction_DataRegistry.md
+[UGameFeatureData]: ./CodeRefs/UE/GameFeature/UGameFeatureData.md
+[UGameFeaturesProjectPolicies]: ./CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies.md
+[UGameFeaturesSubsystem]: ./CodeRefs/UE/GameFeature/UGameFeaturesSubsystem.md
+[FGameplayAbilitySpec]: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md
+[FGameplayEffectSpec]: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md
+[UGameplayAbility]: ./CodeRefs/UE/GameplayAbility/UGameplayAbility.md
+[UGameplayCueManager]: ./CodeRefs/UE/GameplayCue/UGameplayCueManager.md
+[UOnlineHotfixManager]: ./CodeRefs/UE/HotfixManager/UOnlineHotfixManager.md
+[FEnhancedActionKeyMapping]: ./CodeRefs/UE/Input/FEnhancedActionKeyMapping.md
+[IEnhancedInputSubsystemInterface]: ./CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md
+[UEnhancedInputLocalPlayerSubsystem]: ./CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem.md
+[UInputAction]: ./CodeRefs/UE/Input/UInputAction.md
+[UInputMappingContext]: ./CodeRefs/UE/Input/UInputMappingContext.md
+[UPlayerMappableInputConfig]: ./CodeRefs/UE/Input/UPlayerMappableInputConfig.md

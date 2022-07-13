@@ -7,9 +7,9 @@
 
 # CodeRefs 以下の md ファイルから見出しを取得し、 HeadingID をファイルに出力する。
 # HeadingIDsForCodeRefs.md は CodeRefs 以下のファイルで使用するためのもの。
-# HeadingIDsForTops.md は リポジトリのルート(CodeRefs フォルダが置かれているパス)で使用するためのもの。
+# HeadingIDsForRoot.md は リポジトリのルート(CodeRefs フォルダが置かれているパス)で使用するためのもの。
 Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: ../../$RelativePath#$Anchor" } | Out-File ..\tmp\HeadingIDsForCodeRefs.md -Encoding utf8
-Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: CodeRefs/$RelativePath#$Anchor" } | Out-File ..\tmp\HeadingIDsForTops.md -Encoding utf8
+Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: CodeRefs/$RelativePath#$Anchor" } | Out-File ..\tmp\HeadingIDsForRoot.md -Encoding utf8
 
 # CodeRefs 以下の .md ファイルの HeadingID の更新処理(2 steps)
 
@@ -20,6 +20,68 @@ $myHeadingIDs=Get-Content ..\tmp\HeadingIDsForCodeRefs.md -Encoding UTF8;Get-Chi
 Get-ChildItem -Recurse -include *.md.tmp | ForEach-Object{ $myDstFilename=$_.FullName.TrimEnd('.tmp');Remove-Item $myDstFilename;$_.MoveTo($myDstFilename) }
 
 
+
+
+
+
+# /docs の md ファイルの h1 を検索して、出力する
+#Get-ChildItem -include *.md -Exclude index.md | Select-String '^# ' -Encoding utf8 | ForEach-Object {$LinkName=$_.Line -replace '^# ','';$RelativePath=$_.RelativePath($PWD) -replace '\\','/';"[$LinkName]: $RelativePath"}
+
+#Get-ChildItem *.md -Exclude index.md | Select-String '^# ' -Encoding utf8 | ForEach-Object {$LinkName=$_.Line -replace '^# ','';$RelativePath=$_.RelativePath($PWD) -replace '\\','/';"[$LinkName]: $RelativePath"}
+#Get-ChildItem *.md -Exclude index.md | Get-Content -TotalCount 1 -Encoding utf8
+#Get-ChildItem *.md -Exclude index.md | Get-Member
+#Get-ChildItem *.md -Exclude index.md | ForEach-Object {$myHeading=Get-Content $_.FullName -TotalCount 1 -Encoding utf8;$myRelativePath=(Resolve-Path $_ -Relative) -replace '\\','/';"[$myHeading]: $myRelativePath"}
+
+#'CONTOSO\Administrator' -replace '\w+\\(?<user>\w+)', 'FABRIKAM\${user}'
+#'# 【UE5】Lyra に学ぶ Enhanced Input <!-- omit in toc -->' -replace '^# (?<header>.+) \<\!-- omit in toc --\>', '${header}'
+#'# 【UE5】Lyra に学ぶ Enhanced Input <!-- omit in toc -->' -replace '^# (.+) \<\!-- omit in toc --\>', '$1'
+
+
+
+	$myHeadingIDsFilename = "HeadingIDsForRoot.md"
+	$myHeadingIDsFullName = "$PSScriptRoot\..\tmp\$myHeadingIDsFilename"
+	$myHeadingIDsCodeRefs = [System.IO.File]::ReadAllText($myHeadingIDsFullName)
+	$Lines=$myHeadingIDsCodeRefs -split "`n"
+	foreach($Line in $Lines){
+		if(($Line.Length -gt 0) -and !($Line.Contains("::"))){
+			$HeadAndAnchor=$Line -split ': '
+			$myHeading=$HeadAndAnchor[0]
+			$myLists += "`t- $myHeading`n"
+		}
+	}
+
+
+
+#$myArray = @()
+#Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';$myArray += "[$LinkName]: ../../$RelativePath#$Anchor" }
+#$myOut = $myArray -join "`n"
+#[System.IO.File]::WriteAllLines("${PSScriptRoot}\..\tmp\HeadingIDsForCodeRefs.md", $myOut)
+
+#Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: ../../$RelativePath#$Anchor`n" } | Out-File ..\..\src\tmp\HeadingIDsForCodeRefs.md -Encoding utf8 -NoNewline
+#Get-ChildItem -Recurse -include *.md | Select-String '^#' | ForEach-Object {$LinkName=$_.Line -replace '^#+\s','';$Anchor=($LinkName -replace '[:\(\)]','').ToLower();$RelativePath=$_.RelativePath($PWD) -replace '\\','/';Write-Output "[$LinkName]: CodeRefs/$RelativePath#$Anchor`n" } | Out-File ..\..\src\tmp\HeadingIDsForRoot.md -Encoding utf8 -NoNewline
+
+# 改行コードを LF に
+#Get-ChildItem -Recurse -include *.md | ForEach-Object {$myMd=((Get-Content $_.FullName -Encoding UTF8) -join "`n")+"`n";[System.IO.File]::WriteAllText($_.FullName,$myMd)}
+
+
+
+# step1: md ファイルから <!--- CodeRefs ---> という文字列を探し、それより前の行までを .md.tmp ファイルに出力する
+# $HeadingIDs=Get-Content ..\..\src\tmp\HeadingIDsForCodeRefs.md -Encoding UTF8;Get-ChildItem -Recurse -include *.md | Select-String '<!--- CodeRefs --->' | ForEach-Object {$myEndLine=$_.LineNumber-1;$myMdFilename=$_.RelativePath($PWD);$myContent=(Get-Content $myMdFilename -Encoding UTF8)[0..$myEndLine];$myTmpFile=$myMdFilename + '.tmp';Set-Content $myTmpFile $myContent,$HeadingIDs -Encoding UTF8} 
+
+# step2: step1 で出力した .md.tmp ファイルを .md ファイルに上書きする(実際は .md ファイルを削除後にリネームしている)
+# Get-ChildItem -Recurse -include *.md.tmp | ForEach-Object{ $myDstFilename=$_.FullName.TrimEnd('.tmp');Remove-Item $myDstFilename;$_.MoveTo($myDstFilename) }
+
+#Get-ChildItem -Recurse -include *.md | $myMd=Get-Content; Select-String -InputObject $myMd -Pattern '<!--- CodeRefs --->'
+#Get-ChildItem -Recurse -include *.md | ForEach-Object{$myMdName=$_.FullName;$myMd=Get-Content $myMdName;$mySelect=Select-String -InputObject $myMd -Pattern '<!--- CodeRefs --->';ForEach-Object{$myEndLine=$_.LineNumber-1;$myContent=$myMd[0..$myEndLine];} -InputObject $mySelect}
+#Get-ChildItem -Recurse -include *.md | ForEach-Object{$myMdName=$_.FullName;$myMd=Get-Content $myMdName;$mySelect=Select-String -InputObject $myMd -Pattern '<!--- CodeRefs --->';if($mySelect){Get-Member -InputObject $mySelect}}
+#Get-ChildItem -Recurse -include *.md | ForEach-Object{$myMdName=$_.FullName;$myMd=Get-Content $myMdName;$mySelect=Select-String -InputObject $myMd -Pattern '<!--- CodeRefs --->';if($mySelect){$mySelect.Matches[-1].Index}}
+#Get-ChildItem -Recurse -include *.md | ForEach-Object{$myMdName=$_.FullName;$myMd=Get-Content $myMdName;$mySelect=Select-String -InputObject $myMd -Pattern '<!--- CodeRefs --->';if($mySelect){Get-Member -InputObject $mySelect.Matches[-1]}}
+#Get-ChildItem -Recurse -include *.md | ForEach-Object{$myMdName=$_.FullName;$myMd=Get-Content $myMdName -;$mySelect=Select-String -InputObject $myMd. -Pattern '<!--- CodeRefs --->';if($mySelect){$mySelect.LineNumber}}
+##Get-ChildItem -Recurse -include *.md | Select-String '<!--- CodeRefs --->' | ForEach-Object {$myEndLine=$_.LineNumber-1;$myMdFilename=$_.RelativePath($PWD);$myContent=(Get-Content $myMdFilename -Encoding UTF8)[0..$myEndLine];$myTmpFile="${PWD}\${myMdFilename}.tmp";$myAllContent= $myContent,$HeadingIDs;[System.IO.File]::WriteAllText($myTmpFile, $myAllContent);Get-Member -InputObject $myAllContent;Get-Member -InputObject $myContent;Get-Member -InputObject $HeadingIDs}
+#$HeadingIDs=Get-Content ..\..\src\tmp\HeadingIDsForCodeRefs.md -Encoding UTF8;Get-ChildItem -Recurse -include *.md | Select-String '<!--- CodeRefs --->' | ForEach-Object {$myEndLine=$_.LineNumber-1;$myMdFilename=$_.RelativePath($PWD);$myContent=(Get-Content $myMdFilename -Encoding UTF8)[0..$myEndLine];$myTmpFile=$myMdFilename + '.tmp';$myAllContent= $myContent,$HeadingIDs;$PWD;$myTmpFile}
+
+#Get-ChildItem -Recurse -include *.md | Select-String '<!--- CodeRefs --->' | ForEach-Object {$myEndLine=$_.LineNumber-1;$myMdFilename=$_.RelativePath($PWD);$myContent=(Get-Content $myMdFilename -Encoding UTF8)[0..$myEndLine];$myTmpFile="${PWD}\${myMdFilename}.tmp";$myAllContent= $myContent,$HeadingIDs;[System.IO.File]::WriteAllText($myTmpFile, $myAllContent);Get-Member -InputObject $myAllContent;Get-Member -InputObject $myContent;Get-Member -InputObject $HeadingIDs}
+#Get-ChildItem -Recurse -include *.md.tmp2 | ForEach-Object {$myMd=Get-Content $_.FullName; }
 ```
 
 
