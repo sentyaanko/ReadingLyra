@@ -96,7 +96,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* 古代の谷のドキュメント内での説明。
 * [(2020/11/28)Let's Enjoy Unreal Engine > UE4.26 Enhanced Inputについて]
 	* 4.26 時点での解説ですが殆ど変わっていないはずです。こちらを見れば基本的な使い方はだいたい分かると思います。
-* [(2022/05/02)historia > \[UE5\]\[C++\]EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
+* [(2022/05/02)historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
 	* 独自の `UInputTrigger`　派生クラスを自作する解説です。
 
 ## Enhanced Input のコアクラス
@@ -720,4 +720,4 @@ Lyra についての大まかな説明は以上です。
 
 [(2020/11/28)Let's Enjoy Unreal Engine > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
 
-[(2022/05/02)historia > \[UE5\]\[C++\]EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
+[(2022/05/02)historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/

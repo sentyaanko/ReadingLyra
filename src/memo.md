@@ -1338,7 +1338,7 @@ UWorldSubsystem のサブクラス。
 	* 新しいアビリティの追加手順の解説
 	* 既存の GameplayAbility 派生クラスを派生しているだけなので、 GAS 知っているのであれば難しいことはしていない。
 
-[historia > \[UE5\]\[C++\]EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
+[historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
 
 
 
