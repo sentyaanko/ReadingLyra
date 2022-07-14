@@ -277,11 +277,11 @@ Lyra では、 GAS の制御をコンポーネントを利用して行ってい�
 [Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
 <!--- 公式：youtube --->
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 8:10]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=490
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 40:56]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=2456
-[Youtube > Unreal Engine > Programming Subsystems | Live from HQ | Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=490
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=2456
+[Youtube > Unreal Engine > Programming Subsystems ｜ Live from HQ ｜ Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
 [Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]: https://www.youtube.com/watch?v=3PBnqC7TxvM
-[Youtube > Unreal Engine > Developing in UE5 | Inside Unreal]: https://www.youtube.com/watch?v=5jb5ZMul94Q
+[Youtube > Unreal Engine > Developing in UE5 ｜ Inside Unreal]: https://www.youtube.com/watch?v=5jb5ZMul94Q
 
 <!--- docswell --->
 [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2

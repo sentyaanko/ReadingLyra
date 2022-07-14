@@ -43,7 +43,7 @@ Lyra では以下の機能を使っています。
 
 * [Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]
 	* Inside Unreal （動画）の紹介記事。
-	* [Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 8:10]
+	* [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]
 		*  本編開始。
 		* 「古代の谷」を使った説明があります。
 		* プレビュー版の頃の解説です。
@@ -57,7 +57,7 @@ Lyra では以下の機能を使っています。
 
 * [Unreal Engine 5.0 Documentation > プログラミング サブシステム]
 	* 公式ドキュメント。
-* [Youtube > Unreal Engine > Programming Subsystems | Live from HQ | Inside Unreal]
+* [Youtube > Unreal Engine > Programming Subsystems ｜ Live from HQ ｜ Inside Unreal]
 	* 2019/10/18 の動画なので古いですが、 Subsystem の解説です。
 * [ドクセル > 2021/10/2 > 出張ヒストリア！ ゲーム開発勉強会2021 > 目指せ脱UE4初心者！？知ってると開発が楽になる便利機能を紹介 - DataAsset, Subsystem, GameplayAbility編 - > p46]
 	* おかずさんのわかりやすい説明で安心です。
@@ -65,7 +65,7 @@ Lyra では以下の機能を使っています。
 ## 「 Modular Game Features 」に関して
 
 * Mod のようにゲームの仕組みを追加するシステム。
-* [Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 40:56]
+* [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]
 	* Game Feature Module でアビリティの追加を行っている説明
 * [Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]
 	* Game Feature Module に関する説明。
@@ -288,9 +288,9 @@ Lyra でどうなったかのみ述べ、以前の方法については触れま
 [Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
 <!--- 公式：youtube --->
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 8:10]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=490
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 40:56]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=2456
-[Youtube > Unreal Engine > Programming Subsystems | Live from HQ | Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=490
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=2456
+[Youtube > Unreal Engine > Programming Subsystems ｜ Live from HQ ｜ Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
 [Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]: https://www.youtube.com/watch?v=3PBnqC7TxvM
 
 <!--- docswell --->

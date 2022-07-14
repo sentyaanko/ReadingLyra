@@ -1298,43 +1298,43 @@ UWorldSubsystem のサブクラス。
 
 # その他
 
-* [Youtube > Unreal Engine > Developing a C++ Gameplay Framework with Tom Looman | Inside Unreal]
+* [Youtube > Unreal Engine > Developing a C++ Gameplay Framework with Tom Looman ｜ Inside Unreal]
 	* GAS のようなフレームワークを作成した際の解説です。
 	* ライトな GAS ライクなシステムを自作したい場合に参考になるかもしれません。
 
 
 
 
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022]: https://youtu.be/Fj1zCsYydD8
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 23:47]: https://youtu.be/Fj1zCsYydD8?t=1427
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 24:22]: https://youtu.be/Fj1zCsYydD8?t=1462
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 32:47]: https://youtu.be/Fj1zCsYydD8?t=1967
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 34:01]: https://youtu.be/Fj1zCsYydD8?t=2041
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 36:18]: https://youtu.be/Fj1zCsYydD8?t=2178
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 44:11]: https://youtu.be/Fj1zCsYydD8?t=2651
-[Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 57:01]: https://youtu.be/Fj1zCsYydD8?t=3421
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://youtu.be/Fj1zCsYydD8
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]: https://youtu.be/Fj1zCsYydD8?t=1427
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]: https://youtu.be/Fj1zCsYydD8?t=1462
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 32:47]: https://youtu.be/Fj1zCsYydD8?t=1967
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 34:01]: https://youtu.be/Fj1zCsYydD8?t=2041
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 36:18]: https://youtu.be/Fj1zCsYydD8?t=2178
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 44:11]: https://youtu.be/Fj1zCsYydD8?t=2651
+[Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 57:01]: https://youtu.be/Fj1zCsYydD8?t=3421
 
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022]
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 23:47]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]
 	* Input
 	* 入力関連についての解説
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 24:22]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]
 	* Input asset web
 	* 入力関連のアセットの依存関係についての解説
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 32:47]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 32:47]
 	* アビリティと Input Tag の連携についての解説
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 34:01]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 34:01]
 	* Gameplay experience - input mapping and binds
 	* 図で `Dash` の例が解説されている。
 		* `GA_HeroDash` は `InputTag.Ability.Dash` にバインドされている
 		* InputMapping により `LShhif` は `IA_Dash` にマッピングされている
 		* InputConfig により `InputTag.Ability.Dash` は `IA_Dash` によってトリガーされる
 		* その結果、`LShhif` は (`InputTag.Ability.Dash` をトリガーし、それにバインドされた) `GA_HeroDash` をアクティブ化する
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 36:18]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 36:18]
 	* 拳銃をピックアップした際のアビリティ付与に関するフローの解説
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 44:11]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 44:11]
 	* 武器を実際に追加することで各アセットがどのように関係しているかの解説
-* [Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 57:01]
+* [Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 57:01]
 	* 新しいアビリティの追加手順の解説
 	* 既存の GameplayAbility 派生クラスを派生しているだけなので、 GAS 知っているのであれば難しいことはしていない。
 

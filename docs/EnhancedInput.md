@@ -87,7 +87,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * [Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]
 	* 4.27 でもβとしてして公開されています。
 * [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p65]
-* [Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 1:00:00]
+* [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 1:00:00]
 	*  Enhanced Input の説明です。
 * [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]
 	* 非公式の動画です。
@@ -154,9 +154,9 @@ UE5 の機能を使った、新しいサンプルプロジェクトです。
 	* 割と事細かに書かれているので、先ずはざっと目を通すことをおすすめします。
 	* 子階層には 7 ページほどドキュメントがあります。  
 	* UE5 の新常識的な内容なので、慣れていないのであればそちらも目を通したほうが良いと思います。  
-* [Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022]
+* [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]
 	* Overview とは言っていますが、かなり限定的な話題しか挙がりません。
-* [Youtube > Unreal Engine > Lyra Walkthrough Q&A | Inside Unreal]
+* [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal]
 	* Lyra を利用する場合の考え方が主な話です。
 * [(2022/04/24)Let's Enjoy Unreal Engine > UE5 Lyraサンプルゲームの設計を解説してみる]
 	* alwei 氏の Lyra の解説。
@@ -195,19 +195,19 @@ Lyra についての大まかな説明は以上です。
 
 * [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra 入力設定]
 	* 特に入力に関する情報がまとまっています。
-* [Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 23:47]
+* [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]
 	* 入力関連についての解説です。
-* [Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 24:22]
+* [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]
 	* 入力関連のアセットの依存関係についての解説です。
-* [Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 32:47]
+* [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 32:47]
 	* アビリティと Input Tag の連携についての解説です。
-* [Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 34:01]
+* [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 34:01]
 	* 図で `Dash` の例が解説されています。
 		* `GA_HeroDash` は `InputTag.Ability.Dash` にバインドされている
 		* InputMapping により `LShift` は `IA_Dash` にマッピングされている
 		* InputConfig により `InputTag.Ability.Dash` は `IA_Dash` によってトリガーされる
 		* その結果、`LShift` は (`InputTag.Ability.Dash` をトリガーし、それにバインドされた) `GA_HeroDash` をアクティブ化する
-* [Youtube > Unreal Engine > Lyra Walkthrough Q&A | Inside Unreal > 1:30:51]
+* [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal > 1:30:51]
 	* Enhanced Input と Ability System を組み合わせることによるメリットとして、アビリティや武器単位で並行作業できることを挙げています。
 
 
@@ -685,21 +685,21 @@ Lyra についての大まかな説明は以上です。
 [Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
 <!--- 公式：youtube --->
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 8:10]: https://www.youtube.com/watch?v=7F28p564kuY&t=490
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 40:56]: https://www.youtube.com/watch?v=7F28p564kuY&t=2456
-[Youtube > Unreal Engine > Modular Game Features | Inside Unreal > 1:00:00]: https://www.youtube.com/watch?v=7F28p564kuY&t=3600
-[Youtube > Unreal Engine > Programming Subsystems | Live from HQ | Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://www.youtube.com/watch?v=7F28p564kuY&t=490
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]: https://www.youtube.com/watch?v=7F28p564kuY&t=2456
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 1:00:00]: https://www.youtube.com/watch?v=7F28p564kuY&t=3600
+[Youtube > Unreal Engine > Programming Subsystems ｜ Live from HQ ｜ Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
 [Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]: https://www.youtube.com/watch?v=3PBnqC7TxvM
-[Youtube > Unreal Engine > Developing a C++ Gameplay Framework with Tom Looman | Inside Unreal]: https://www.youtube.com/watch?v=YKhcN8NkIYY
+[Youtube > Unreal Engine > Developing a C++ Gameplay Framework with Tom Looman ｜ Inside Unreal]: https://www.youtube.com/watch?v=YKhcN8NkIYY
 
-[Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
-[Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 23:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1427
-[Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 24:22]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1462
-[Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 32:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1967
-[Youtube > Unreal Engine > Lyra Starter Game Overview | Tech Talk | State of Unreal 2022 > 34:01]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=2041
+[Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
+[Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1427
+[Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1462
+[Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 32:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1967
+[Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 34:01]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=2041
 
-[Youtube > Unreal Engine > Lyra Walkthrough Q&A | Inside Unreal]: https://www.youtube.com/watch?v=m80NJzUWq8A
-[Youtube > Unreal Engine > Lyra Walkthrough Q&A | Inside Unreal > 1:30:51]: https://www.youtube.com/watch?v=m80NJzUWq8A&t=5451
+[Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal]: https://www.youtube.com/watch?v=m80NJzUWq8A
+[Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal > 1:30:51]: https://www.youtube.com/watch?v=m80NJzUWq8A&t=5451
 
 
 <!--- docswell --->
