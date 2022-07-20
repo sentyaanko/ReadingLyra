@@ -1,0 +1,3 @@
+{% assign url = include.url | append: '.html' | relative_url %}
+{% assign page_url = page.url | relative_url %}
+<div class="sa_navigation"><a class="sa_anchor {% if url == page_url %}sa_selected{% endif %}" href="{{ url }}">{{ include.title }}</a><br/></div>

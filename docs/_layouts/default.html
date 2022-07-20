@@ -12,6 +12,7 @@
     <![endif]-->
     {% include head-custom.html %}
   </head>
+<!--
   <body>
     <div class="wrapper">
       <header>
@@ -50,6 +51,16 @@
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  </body>
+-->
+  <body class="sa_body">
+    <div class="sa_container">
+      {% include navigation.html open=true %}
+      <main class="sa_main">
+          {{ content }}
+      </main>
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
   </body>

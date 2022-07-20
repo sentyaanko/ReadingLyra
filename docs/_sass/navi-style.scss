@@ -1,0 +1,39 @@
+// for navi styles
+
+.sa_body {
+	margin: 0px;
+	padding: 0px;
+}
+
+.sa_container{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.sa_main {
+  width: 80%;
+  padding: 8px;
+  resize: horizontal;
+  overflow-y: scroll;
+}
+
+.sa_sidebar {
+  width: 20%;
+  padding: 8px;
+  resize: horizontal;
+  overflow-y: scroll;
+}
+
+.sa_anchor {
+	margin: 0px;
+}
+
+.sa_selected {
+  font-weight: bold;
+}
+
+.sa_navigation > .sa_navigation {
+	padding-left: 16px;
+}
+
