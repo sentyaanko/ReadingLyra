@@ -72,7 +72,7 @@ function Update-SaNavisYml{
 	$MdListItems = $CodeRefsMdFilenames | ForEach-Object{($_ -replace './CodeRefs/', '') -replace '/(\w+)\.md', '/$1'}
 	$CodeRefsYml = Get-SaYml -ListItems $MdListItems -Indent 2 -IndentString "  " -Path './CodeRefs/'
 
-	$myContent="nav:`n  - 実装解説`n"+$RootYml+"`n  - クラス解説`n"+$CodeRefsYml+"`n"
+	$myContent="nav:`n  - 実装解説:`n"+$RootYml+"`n  - クラス解説:`n"+$CodeRefsYml+"`n"
 	Update-SaFile -Filename "$PSScriptRoot\..\..\docs\_data\navis.yml" -Keyword '# generated' -Content $myContent
 }
 

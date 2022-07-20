@@ -1,14 +1,14 @@
 # 以下は自動生成
 # generated
 nav:
-  - 実装解説
+  - 実装解説:
     - 【UE5】Lyra に学ぶ Enhanced Input: ./EnhancedInput.md
     - 【UE5】Lyra に学ぶ基礎: ./Experience.md
     - 【UE5】Lyra に学ぶ GAS(C++): ./GameplayAbilityNative.md
     - 【UE5】Lyra に学ぶ GAS(概略): ./GameplayAbilityOverview.md
     - 【UE5】Lyra に学ぶ GameplayMessage: ./GameplayMessage.md
     - 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag): ./InputTag.md
-  - クラス解説
+  - クラス解説:
     - Lyra: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
       - Etc: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
         - ALyraWeaponSpawner: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
