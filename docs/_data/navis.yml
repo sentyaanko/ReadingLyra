@@ -2,15 +2,15 @@
 # generated
 nav:
   - 実装解説:
-    - 【UE5】Lyra に学ぶ Enhanced Input: ./EnhancedInput.md
-    - 【UE5】Lyra に学ぶ基礎: ./Experience.md
-    - 【UE5】Lyra に学ぶ GAS(C++): ./GameplayAbilityNative.md
-    - 【UE5】Lyra に学ぶ GAS(概略): ./GameplayAbilityOverview.md
-    - 【UE5】Lyra に学ぶ GameplayMessage: ./GameplayMessage.md
-    - 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag): ./InputTag.md
+    - 【UE5】Lyra に学ぶ Enhanced Input: ./EnhancedInput
+    - 【UE5】Lyra に学ぶ基礎: ./Experience
+    - 【UE5】Lyra に学ぶ GAS(C++): ./GameplayAbilityNative
+    - 【UE5】Lyra に学ぶ GAS(概略): ./GameplayAbilityOverview
+    - 【UE5】Lyra に学ぶ GameplayMessage: ./GameplayMessage
+    - 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag): ./InputTag
   - クラス解説:
-    - Lyra: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
-      - Etc: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
+    - Lyra:
+      - Etc:
         - ALyraWeaponSpawner: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
         - UAimAssistTargetManagerComponent: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent
         - ULyraBotCreationComponent: ./CodeRefs/Lyra/Etc/ULyraBotCreationComponent
@@ -28,14 +28,14 @@ nav:
         - ULyraSettingsLocal: ./CodeRefs/Lyra/Etc/ULyraSettingsLocal
         - ULyraTeamCreationComponent: ./CodeRefs/Lyra/Etc/ULyraTeamCreationComponent
         - UTDM_PlayerSpawningManagmentComponent: ./CodeRefs/Lyra/Etc/UTDM_PlayerSpawningManagmentComponent
-      - Experience: ./CodeRefs/Lyra/Experience/ALyraWorldSettings
+      - Experience:
         - ALyraWorldSettings: ./CodeRefs/Lyra/Experience/ALyraWorldSettings
         - UAsyncAction_ExperienceReady: ./CodeRefs/Lyra/Experience/UAsyncAction_ExperienceReady
         - ULyraExperienceActionSet: ./CodeRefs/Lyra/Experience/ULyraExperienceActionSet
         - ULyraExperienceDefinition: ./CodeRefs/Lyra/Experience/ULyraExperienceDefinition
         - ULyraExperienceManagerComponent: ./CodeRefs/Lyra/Experience/ULyraExperienceManagerComponent
         - ULyraUserFacingExperienceDefinition: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition
-      - GameFeature: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair
+      - GameFeature:
         - FMappableConfigPair: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair
         - UApplyFrontendPerfSettingsAction: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction
         - UGameFeatureAction_AddAbilities: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities
@@ -49,7 +49,7 @@ nav:
         - ULyraGameFeaturePolicy: ./CodeRefs/Lyra/GameFeature/ULyraGameFeaturePolicy
         - ULyraGameFeature_AddGameplayCuePaths: ./CodeRefs/Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths
         - ULyraGameFeature_HotfixManager: ./CodeRefs/Lyra/GameFeature/ULyraGameFeature_HotfixManager
-      - GameplayAbility: ./CodeRefs/Lyra/GameplayAbility/ALyraCharacterWithAbilities
+      - GameplayAbility:
         - ALyraCharacterWithAbilities: ./CodeRefs/Lyra/GameplayAbility/ALyraCharacterWithAbilities
         - FLyraAbilityTagRelationship: ./CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship
         - ILyraReadyInterface: ./CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface
@@ -73,27 +73,27 @@ nav:
         - ULyraHeroComponent: ./CodeRefs/Lyra/GameplayAbility/ULyraHeroComponent
         - ULyraPawnComponent: ./CodeRefs/Lyra/GameplayAbility/ULyraPawnComponent
         - ULyraPawnExtensionComponent: ./CodeRefs/Lyra/GameplayAbility/ULyraPawnExtensionComponent
-      - GameplayCue: ./CodeRefs/Lyra/GameplayCue/AGameplayCueNotify_BurstLatent
+      - GameplayCue:
         - AGameplayCueNotify_BurstLatent: ./CodeRefs/Lyra/GameplayCue/AGameplayCueNotify_BurstLatent
         - ULyraGameplayCueManager: ./CodeRefs/Lyra/GameplayCue/ULyraGameplayCueManager
-      - GameplayFramework: ./CodeRefs/Lyra/GameplayFramework/ALyraCharacter
+      - GameplayFramework:
         - ALyraCharacter: ./CodeRefs/Lyra/GameplayFramework/ALyraCharacter
         - ALyraGameMode: ./CodeRefs/Lyra/GameplayFramework/ALyraGameMode
         - ALyraGameState: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState
         - ALyraPlayerController: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController
         - ALyraPlayerState: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState
-      - GameplayMessage: ./CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage
+      - GameplayMessage:
         - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage
         - UGameplayMessageSubsystem: ./CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem
-      - GameplayMessageAccolade: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow
+      - GameplayMessageAccolade:
         - FLyraAccoladeDefinitionRow: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow
         - ULyraAccoladeHostWidget: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget
-      - GameplayMessageProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor
+      - GameplayMessageProcessor:
         - UAssistProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor
         - UElimChainProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor
         - UElimStreakProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimStreakProcessor
         - UGameplayMessageProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UGameplayMessageProcessor
-      - GameplayMessageProcessorStruct: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage
+      - GameplayMessageProcessorStruct:
         - FLyraAbilityMontageFailureMessage: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage
         - FLyraAbilitySimpleFailureMessage: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage
         - FLyraControlPointStatusMessage: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage
@@ -105,18 +105,18 @@ nav:
         - FLyraQuickBarSlotsChangedMessage: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraQuickBarSlotsChangedMessage
         - FLyraVerbMessage: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage
         - FLyraVerbMessageReplication: ./CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessageReplication
-      - HotfixManager: ./CodeRefs/Lyra/HotfixManager/ULyraHotfixManager
+      - HotfixManager:
         - ULyraHotfixManager: ./CodeRefs/Lyra/HotfixManager/ULyraHotfixManager
-      - Input: ./CodeRefs/Lyra/Input/ULyraInputConfig
+      - Input:
         - ULyraInputConfig: ./CodeRefs/Lyra/Input/ULyraInputConfig
-      - Inventory: ./CodeRefs/Lyra/Inventory/FLyraInventoryList
+      - Inventory:
         - FLyraInventoryList: ./CodeRefs/Lyra/Inventory/FLyraInventoryList
         - ULyraInventoryManagerComponent: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent
-      - PawnSetting: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData
+      - PawnSetting:
         - ULyraPawnData: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData
-      - Weapon: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent
+      - Weapon:
         - ULyraWeaponStateComponent: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent
-      - Widget: ./CodeRefs/Lyra/Widget/UCommonActivatableWidget
+      - Widget:
         - UCommonActivatableWidget: ./CodeRefs/Lyra/Widget/UCommonActivatableWidget
         - ULyraActivatableWidget: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget
         - ULyraHUDLayout: ./CodeRefs/Lyra/Widget/ULyraHUDLayout
@@ -127,12 +127,12 @@ nav:
         - ULyraTaggedWidget: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget
         - ULyraTouchRegion: ./CodeRefs/Lyra/Widget/ULyraTouchRegion
         - ULyraWeaponUserInterface: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface
-    - UE: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
-      - AssetManager: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
+    - UE:
+      - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
-      - DataRegistry: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem
+      - DataRegistry:
         - UDataRegistrySubsystem: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem
-      - GameFeature: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver
+      - GameFeature:
         - IGameFeatureStateChangeObserver: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver
         - UDefaultGameFeaturesProjectPolicies: ./CodeRefs/UE/GameFeature/UDefaultGameFeaturesProjectPolicies
         - UGameFeatureAction: ./CodeRefs/UE/GameFeature/UGameFeatureAction
@@ -141,15 +141,15 @@ nav:
         - UGameFeatureData: ./CodeRefs/UE/GameFeature/UGameFeatureData
         - UGameFeaturesProjectPolicies: ./CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies
         - UGameFeaturesSubsystem: ./CodeRefs/UE/GameFeature/UGameFeaturesSubsystem
-      - GameplayAbility: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
+      - GameplayAbility:
         - FGameplayAbilitySpec: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
         - FGameplayEffectSpec: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec
         - UGameplayAbility: ./CodeRefs/UE/GameplayAbility/UGameplayAbility
-      - GameplayCue: ./CodeRefs/UE/GameplayCue/UGameplayCueManager
+      - GameplayCue:
         - UGameplayCueManager: ./CodeRefs/UE/GameplayCue/UGameplayCueManager
-      - HotfixManager: ./CodeRefs/UE/HotfixManager/UOnlineHotfixManager
+      - HotfixManager:
         - UOnlineHotfixManager: ./CodeRefs/UE/HotfixManager/UOnlineHotfixManager
-      - Input: ./CodeRefs/UE/Input/FEnhancedActionKeyMapping
+      - Input:
         - FEnhancedActionKeyMapping: ./CodeRefs/UE/Input/FEnhancedActionKeyMapping
         - IEnhancedInputSubsystemInterface: ./CodeRefs/UE/Input/IEnhancedInputSubsystemInterface
         - UEnhancedInputLocalPlayerSubsystem: ./CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem

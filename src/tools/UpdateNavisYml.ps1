@@ -47,10 +47,11 @@ function Get-SaYml{
 				}
 			}
 			if($IsOutput){
-				$CurrentOutputString+=($IndentString * ($counter + $Indent)) +  "- ${myMdPath}: $Path$ListItem`n"
+				$CurrentOutputString+=($IndentString * ($counter + $Indent)) +  "- ${myMdPath}:`n"
 			}
 		}
-		$OutputString+=$CurrentOutputString
+		
+		$OutputString+=$CurrentOutputString.TrimEnd("`n")+" $Path$ListItem`n"
 		$PreIndentedListItems=$CurrentIndentedListItems
 		$IsOutput=$false
 	}
@@ -60,7 +61,7 @@ function Get-SaYml{
 # navis.yml の更新を行う。
 function Update-SaNavisYml{
 	# Root の md ファイル名と見出しの一覧を作成
-	$RootMdFiles = Get-ChildItem *.md -Exclude index.md | ForEach-Object {$Heading=(Get-Content $_.FullName -TotalCount 1 -Encoding utf8) -replace '^# (.+) \<\!-- omit in toc --\>', '$1';$RelativePath=(Resolve-Path $_ -Relative) -replace '\\','/';@{Heading=$Heading; RelativePath=$RelativePath}}
+	$RootMdFiles = Get-ChildItem *.md -Exclude index.md | ForEach-Object {$Heading=(Get-Content $_.FullName -TotalCount 1 -Encoding utf8) -replace '^# (.+) \<\!-- omit in toc --\>', '$1';$RelativePath=((Resolve-Path $_ -Relative) -replace '\\','/') -replace '/(\w+)\.md', '/$1';@{Heading=$Heading; RelativePath=$RelativePath}}
 
 	# Root の md ファイル名と見出しの一覧 を元に yml 配列の作成
 	$RootYml = ($RootMdFiles | ForEach-Object{"    - $($_.Heading): $($_.RelativePath)"}) -join "`n"
