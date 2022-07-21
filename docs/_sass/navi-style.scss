@@ -63,3 +63,16 @@
   padding-left: 16px;
 }
 
+code{
+  background-color: #f8f8f8;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
+  border: 1px solid #e5e5e5;
+}
+
+pre > code{
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0;
+  border: 0;
+}
