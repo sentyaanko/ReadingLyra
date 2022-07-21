@@ -1,39 +1,61 @@
 // for navi styles
 
 .sa_body {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .sa_container{
   display: flex;
-  width: 100%;
-  height: 100vh;
+  flex-direction: row;
 }
 
-.sa_main {
-  width: 80%;
-  padding: 8px;
+.sa_container_child{
+  padding: 16px;
+  height: calc(100vh - 16px * 2);
   resize: horizontal;
   overflow-y: scroll;
 }
 
-.sa_sidebar {
-  width: 20%;
-  padding: 8px;
-  resize: horizontal;
+.sa_container_child.sa_main {
+  flex: auto;
+}
+
+.sa_container_child.sa_sidebar {
+  flex: initial;
+}
+
+.sa_sidebar_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sa_sidebar_header{
+  flex: initial;
+}
+
+.sa_sidebar_body{
+  flex: auto;
+}
+.sa_sidebar_footer{
+  flex: initial;
+}
+
+.sa_navigation_box{
+  min-height: 4em;
+  max-height: calc(100vh - 16px * 2 - 8em);
   overflow-y: scroll;
 }
 
 .sa_anchor {
-	margin: 0px;
+  margin: 0px;
 }
 
 .sa_selected {
   font-weight: bold;
 }
 
-.sa_navigation > .sa_navigation {
-	padding-left: 16px;
+.sa_navigation .sa_navigation {
+  padding-left: 16px;
 }
 
