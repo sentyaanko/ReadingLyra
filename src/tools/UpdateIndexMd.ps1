@@ -1,8 +1,4 @@
-﻿# ps1 の実行の際は事前に以下のようなコマンドで、 ps1ファイルのブロック解除と powershell の実行ポリシーを変更しておく必要があります。
-# Unblock-File UpdateIndexMd.ps1
-# Set-ExecutionPolicy RemoteSigned -Scope Process
-
-# 指定されたファイルの指定されたキーワード移行を指定されたコンテンツに書き換える
+﻿# 指定されたファイルの指定されたキーワード移行を指定されたコンテンツに書き換える
 # @param $Filename 更新するファイル名
 # @param $Keyword 検索するキーワード。見つからない場合は更新しない。
 # @param $Content 置き換えるコンテンツ。
@@ -62,7 +58,12 @@ function Update-SaIndexMd{
 	$RootLists = ($RootMdFiles | ForEach-Object{"`t- [$($_.Heading)]"}) -join "`n"
 	
 	# Root の md ファイル名と見出しの一覧 を元に HeadingIDs の作成
-	$RootHeadingIDs = ($RootMdFiles | ForEach-Object{"[$($_.Heading)]: $($_.RelativePath)"}) -join "`n"
+	$HeadingIDsForRoot = ($RootMdFiles | ForEach-Object{"[$($_.Heading)]: $($_.RelativePath)"}) -join "`n"
+
+	#これを変更してtmp/HeadingIDsForRoot2.md を作る
+	# Root の md ファイル名と見出しの一覧 を元に HeadingIDs の作成
+	$HeadingIDsForRootToRoot = (($RootMdFiles | ForEach-Object{"[ReadingLyra > $($_.Heading)]: $($_.RelativePath)"}) -join "`n")+"`n"
+	[System.IO.File]::WriteAllText("$PSScriptRoot\..\tmp\HeadingIDsForRootToRoot.md", $HeadingIDsForRootToRoot)
 
 	# CodeRefs 以下の md ファイル名の一覧を作成
 	$CodeRefsMdFilenames = Get-ChildItem CodeRefs -Include *.md -Recurse | ForEach-Object{((Resolve-Path $_ -Relative) -replace '\\','/')}
@@ -72,9 +73,9 @@ function Update-SaIndexMd{
 	$CodeRefsLists = Get-SaMarkdownLists -ListItems $MdListItems -Indent 1
 
 	# CodeRefs 以下の md ファイル名の一覧 を元に HeadingIDs の作成
-	$CodeRefsHeadingIDs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/(\w+)\.md', '[$2]: $1/$2.md'}) -join "`n"
+	$HeadingIDsForCodeRefs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/(\w+)\.md', '[$2]: $1/$2.md'}) -join "`n"
 
-	$myContent="- 実装解説`n"+$RootLists+"`n- クラス解説`n"+$CodeRefsLists+"`n<!--- HedaingIDs --->`n"+$RootHeadingIDs+"`n"+$CodeRefsHeadingIDs+"`n"
+	$myContent="- 実装解説`n"+$RootLists+"`n- クラス解説`n"+$CodeRefsLists+"`n<!--- HedaingIDs --->`n"+$HeadingIDsForRoot+"`n"+$HeadingIDsForCodeRefs+"`n"
 	Update-SaFile -Filename "$PSScriptRoot\..\..\docs\index.md" -Keyword '<!--- generatede --->' -Content $myContent
 }
 

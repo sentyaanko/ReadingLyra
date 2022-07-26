@@ -1,8 +1,4 @@
-﻿# ps1 の実行の際は事前に以下のようなコマンドで、 ps1ファイルのブロック解除と powershell の実行ポリシーを変更しておく必要があります。
-# Unblock-File UpdateIndexMd.ps1
-# Set-ExecutionPolicy RemoteSigned -Scope Process
-
-# 指定されたファイルの指定されたキーワード移行を指定されたコンテンツに書き換える
+﻿# 指定されたファイルの指定されたキーワード移行を指定されたコンテンツに書き換える
 # @param $Filename 更新するファイル名
 # @param $Keyword 検索するキーワード。見つからない場合は更新しない。
 # @param $Content 置き換えるコンテンツ。

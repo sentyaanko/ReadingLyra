@@ -1,7 +1,68 @@
-﻿# ps1 の実行の際は事前に以下のようなコマンドで、 ps1ファイルのブロック解除と powershell の実行ポリシーを変更しておく必要があります。
-# Unblock-File UpdateMdHeadingIDs.ps1
-# Set-ExecutionPolicy RemoteSigned -Scope Process
+﻿# キーが検索パターンにマッチした文字列で値がマッチしたインデックスの連想配列を取得する
+# @param $SplitedContent 入力オブジェクト
+# @param $Pattern 検索パターン
+function Select-SaString{
+	param(
+		[string[]]$SplitedContent,
+		[string[]]$Pattern
+	)
+	$DataSet=@{}
+	$Index=0
+	$SplitedContent | Select-String -AllMatches -Pattern $Pattern | ForEach-Object{$DataSet[$_.Matches.Groups[1].Value]=$Index;$Index++}
+	$DataSet
+}
 
+# 使用中の HeadingID の Index 配列の取得
+# @param $HeadingIDs HeadingID が記述されたファイル名
+# @param $UsingIDs 使用されている HeadingID
+# @param $HeadingIDsLocal ローカルで指定されている HeadingIDs
+# @param $SplitedHeadingIDs 入力オブジェクト
+function Get-SaUsingHeadingIDsIndexes{
+	param(
+		[string]$HeadingIDs,
+		[string[]]$UsingIDs,
+		[hashtable]$HeadingIDsLocal,
+		[string[]]$SplitedHeadingIDs
+	)
+	$dic=Select-SaString -SplitedContent $SplitedHeadingIDs -Pattern '^(\[[^\]]+\]): +(.+)$'
+	$UsingIDs | ForEach-Object{if($dic.ContainsKey($_)){$dic[$_]}else{if($HeadingIDsLocal.ContainsKey($_)){}else{Write-Warning -Message "$_ is not found."}}}
+}
+
+# 使用中の HeadingID の取得
+# @param $HeadingIDs HeadingID が記述されたファイル名
+# @param $UsingIDs 使用されている HeadingID
+# @param $HeadingIDsLocal ローカルで指定されている HeadingIDs
+function Get-SaUsingHeadingIDs{
+	param(
+		[string]$HeadingIDs,
+		[string[]]$UsingIDs,
+		[hashtable]$HeadingIDsLocal
+	)
+	$SplitedHeadingIDs=$HeadingIDs -split "`n"
+	$UsingHeadingIDsIndexes=Get-SaUsingHeadingIDsIndexes -HeadingIDs $HeadingIDs -UsingIDs $UsingIDs -HeadingIDsLocal $HeadingIDsLocal -SplitedHeadingIDs $SplitedHeadingIDs
+	(($UsingHeadingIDsIndexes | Sort-Object | ForEach-Object{$SplitedHeadingIDs[$_]}) -join "`n")+"`n"
+}
+
+# 更新後のコンテンツの取得
+# @param $HeadingIDs HeadingID が記述されたファイル名
+# @param $Content 元となるコンテンツ
+function Get-SaUpdatedContent{
+	param(
+		[string]$HeadingIDs,
+		[string]$Content
+	)
+	$UsingIDs=@()
+	$HeadingIDsLocal=@{}
+	if($true){
+		$SplitedContent=$Content -split "`n"
+		$UsingIDsSet=Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]+\])([^:(]|$)'
+		$HeadingIDsLocal=Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]+\]): +(.+)$'
+		$UsingIDs=$UsingIDsSet.Keys
+	}
+
+	$UsingHeadingIDs=Get-SaUsingHeadingIDs -HeadingIDs $HeadingIDs -UsingIDs $UsingIDs -HeadingIDsLocal $HeadingIDsLocal
+	$Content+$UsingHeadingIDs
+}
 # .md ファイルの HeadingID の更新処理
 # @param $HeadingIDsFullName 利用する HeadingIDs のファイル名
 # @param $Keyword 書き換えを行う目印
@@ -11,7 +72,7 @@
 # @param $Exclude Get-ChildItem 用
 function Set-SaMdHeadingIDs{
 	param(
-		$HeadingIDsFullName,
+		[string[]]$HeadingIDsFullNames,
 		$Keyword,
 		[string[]]$Path,
 		[string[]]$Include,
@@ -19,19 +80,20 @@ function Set-SaMdHeadingIDs{
 		[switch]$Recurse
 	)
 	# HeadingID の内容を取得しておく
-	$HeadingIDs = [System.IO.File]::ReadAllText($HeadingIDsFullName)
+	$HeadingIDs=($HeadingIDsFullNames | ForEach-Object{[System.IO.File]::ReadAllText($_)}) -join ""
 
 	# Keyword 以降を $HeadingIDs の内容で上書き
-	Get-ChildItem -Path:$Path -Include:$Include -Exclude:$Exclude -Recurse:$Recurse | ForEach-Object {$OriginalContent=((Get-Content $_.FullName -Encoding UTF8) -join "`n")+"`n";$KeywordIndex=$OriginalContent.IndexOf($Keyword);if($KeywordIndex -ge 0){$OutputContent=$OriginalContent.Substring(0,$KeywordIndex+$Keyword.Length+1)+$HeadingIDs;[System.IO.File]::WriteAllText($_.FullName,$OutputContent)}}
+	Get-ChildItem -Path:$Path -Include:$Include -Exclude:$Exclude -Recurse:$Recurse | ForEach-Object {$OriginalContent=((Get-Content $_.FullName -Encoding UTF8) -join "`n")+"`n";$KeywordIndex=$OriginalContent.IndexOf($Keyword);if($KeywordIndex -ge 0){$OutputContent=Get-SaUpdatedContent -HeadingIDs $HeadingIDs -Content $OriginalContent.Substring(0,$KeywordIndex+$Keyword.Length+1);[System.IO.File]::WriteAllText($_.FullName,$OutputContent)}}
+#	Get-ChildItem -Path:$Path -Include:$Include -Exclude:$Exclude -Recurse:$Recurse | ForEach-Object {$OriginalContent=((Get-Content $_.FullName -Encoding UTF8) -join "`n")+"`n";$KeywordIndex=$OriginalContent.IndexOf($Keyword);if($KeywordIndex -ge 0){Get-SaUpdatedContent -HeadingIDs $HeadingIDs -Content $OriginalContent.Substring(0,$KeywordIndex+$Keyword.Length+1)}}
 }
 
 # .md ファイルの HeadingID の更新処理
 function Set-SaAllMdHeadingIDs{
 	# /docs/CodeRefs 以下の .md ファイルの HeadingID の更新処理
-	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\CodeRefs\*" -Include:*.md -Recurse -HeadingIDsFullName:"$PSScriptRoot\..\tmp\HeadingIDsForCodeRefs.md" -Keyword:'<!--- CodeRefs --->'
+	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\CodeRefs\*" -Include:*.md -Recurse -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsForCodeRefs.md","$PSScriptRoot\..\tmp\HeadingIDsExternal.md" -Keyword:'<!--- generated --->'
 	
 	# /docs の .md ファイルの HeadingID の更新処理
-	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\*" -Include:*.md -Exclude:index.md -HeadingIDsFullName:"$PSScriptRoot\..\tmp\HeadingIDsForRoot.md" -Keyword:'<!--- CodeRefs --->'
+	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\*" -Include:*.md -Exclude:index.md -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsForRootToRoot.md","$PSScriptRoot\..\tmp\HeadingIDsForRoot.md","$PSScriptRoot\..\tmp\HeadingIDsExternal.md" -Keyword:'<!--- generated --->'
 }
 
 Set-SaAllMdHeadingIDs

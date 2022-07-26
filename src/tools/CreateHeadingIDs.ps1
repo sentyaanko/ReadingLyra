@@ -1,8 +1,4 @@
-﻿# ps1 の実行の際は事前に以下のようなコマンドで、 ps1ファイルのブロック解除と powershell の実行ポリシーを変更しておく必要があります。
-# Unblock-File CreateHeadingIDs.ps1
-# Set-ExecutionPolicy RemoteSigned -Scope Process
-
-# /docs/CodeRefs 以下の md ファイルから見出しを取得し、 HeadingID をファイルに出力する。
+﻿# /docs/CodeRefs 以下の md ファイルから見出しを取得し、 HeadingID をファイルに出力する。
 # HeadingIDsForCodeRefs.md は /docs/CodeRefs 以下に置かれたファイルで使用するためのもの。
 # HeadingIDsForRoot.md は /docs に置かれたファイルで使用するためのもの。
 function Set-SaAllHeadingIDs{

@@ -1,7 +1,7 @@
 # 【UE5】Lyra に学ぶ Enhanced Input <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
-その中で [Enhanced Input プラグイン] が、どのように利用されているかを読み解いていきます。  
+その中で Enhanced Input プラグインが、どのように利用されているかを読み解いていきます。  
 まず始めに Enhanced Input のみについての情報、続いて Lyra の基本的な情報、最後に Lyra での Enhanced Input の情報、という順番で記述していきます。
 
 * 解説しないこと
@@ -83,7 +83,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * [Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]
 	* URL を見ると Enhanced Input のページのように見えますが、 RawInput Plugin の説明になっています。
 		* （ページ左部のドキュメントツリーからのリンクもないです。）
-		* （昔から存在した RawInput Plugin の解説ページと [Enhanced Input プラグイン] の名前が衝突してしまっているのだと思います。）
+		* （昔から存在した RawInput Plugin の解説ページと Enhanced Input プラグインの名前が衝突してしまっているのだと思います。）
 * [Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]
 	* 4.27 でもβとしてして公開されています。
 * [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p65]
@@ -94,9 +94,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* 公式ドキュメントにある Enhanced Input のセットアップの手順を動画で確認できます。
 * [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Enhanced Input System を使用した柔軟なコントロール]
 	* 古代の谷のドキュメント内での説明。
-* [(2020/11/28)Let's Enjoy Unreal Engine > UE4.26 Enhanced Inputについて]
+* [Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]
 	* 4.26 時点での解説ですが殆ど変わっていないはずです。こちらを見れば基本的な使い方はだいたい分かると思います。
-* [(2022/05/02)historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
+* [historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
 	* 独自の `UInputTrigger`　派生クラスを自作する解説です。
 
 ## Enhanced Input のコアクラス
@@ -158,7 +158,7 @@ UE5 の機能を使った、新しいサンプルプロジェクトです。
 	* Overview とは言っていますが、かなり限定的な話題しか挙がりません。
 * [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal]
 	* Lyra を利用する場合の考え方が主な話です。
-* [(2022/04/24)Let's Enjoy Unreal Engine > UE5 Lyraサンプルゲームの設計を解説してみる]
+* [Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]
 	* alwei 氏の Lyra の解説。
 	* 主に以下の項目を大まかに解説されています	。
 		* Game Feature
@@ -668,7 +668,6 @@ Lyra についての大まかな説明は以上です。
 
 
 <!--- 公式：5.0/EnhancedInput --->
-[Enhanced Input プラグイン]: https://docs.unrealengine.com/5.0/ja/input/#enhancedinput%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3
 [Unreal Engine 5.0 Documentation > Enhanced Input プラグイン]: https://docs.unrealengine.com/5.0/ja/input/#enhancedinput%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3
 [Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]: https://docs.unrealengine.com/5.0/ja/enhanced-input-in-unreal-engine/
 
@@ -680,9 +679,6 @@ Lyra についての大まかな説明は以上です。
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [マーケットプレイス > Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [マーケットプレイス > 古代の谷]: https://www.unrealengine.com/marketplace/en-US/product/ancient-game-01
-
-<!--- 公式：blog --->
-[Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
 <!--- 公式：youtube --->
 [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://www.youtube.com/watch?v=7F28p564kuY&t=490
@@ -712,12 +708,8 @@ Lyra についての大まかな説明は以上です。
 <!--- 非公式：youtube --->
 [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
 
-<!--- qiita --->
-[【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
-
 <!--- その他 --->
-[(2022/04/24)Let's Enjoy Unreal Engine > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000
+[Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000
+[Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
 
-[(2020/11/28)Let's Enjoy Unreal Engine > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
-
-[(2022/05/02)historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
+[historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/

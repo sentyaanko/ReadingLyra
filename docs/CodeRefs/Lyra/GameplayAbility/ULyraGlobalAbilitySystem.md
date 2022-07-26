@@ -1,6 +1,6 @@
 ## ULyraGlobalAbilitySystem
 
-[Lyra のアビリティ > ULyraGlobalAbilitySystem] より  
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ULyraGlobalAbilitySystem] より  
 > たとえば、Lyra の Elimination モードは、マッチのウォームアップ フェーズで、  
 > グローバルに Gameplay Effect (GE_PregameLobby) を適用します。  
 > これはすべてのプレイヤーに対するダメージ無効化タグを付与し、  

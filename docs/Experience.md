@@ -38,10 +38,10 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 		* 設定方法についてわかりやすい解説
 	* [Unreal Engine 5.0 Documentation > プロダクション パイプラインをセットアップする > アセット管理]
 		* 公式ドキュメント。
-	* [(2019/08/15) Qiita > 【UE4】 Asset Managerのアセットの非同期ロード機能について その1 ( 非同期ロードの解説 & レベルの裏読み編 )]
-	* [(2019/12/21) Qiita > 【UE4】 Asset Managerのアセットの非同期ロード機能について その2 ( レベルアセット以外の裏読み編 )]
+	* [Qiita > (2019/08/15) > 【UE4】 Asset Managerのアセットの非同期ロード機能について その1 ( 非同期ロードの解説 & レベルの裏読み編 )]
+	* [Qiita > (2019/12/21) > 【UE4】 Asset Managerのアセットの非同期ロード機能について その2 ( レベルアセット以外の裏読み編 )]
 		* AssetManager に関するおかずさんの記事。主な話題は非同期ロードに関してなので、参考までに。
-	* [(2021/06/18) 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]
+	* [historia > (2021/06/18) > 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]
 		* **古代の谷** での解説ですが、 GameFeature に関する大まかな説明があります。
 * 概要
 	* アセットを非同期で読むための仕組みです。
@@ -61,7 +61,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 		> これらのプラグインを使用した機能を作成すると、プロジェクトのコードベースを明確で読み取りやすい状態に維持し、  
 		> さらに無関係の機能同士の予期しないインタラクションや依存関係を回避するなど、複数のメリットがあります。  
 		> これは、時間の経過とともに機能セットが変化するライブ製品を開発する場合に特に重要です。  
-	* [(2021/11/28) Let's Enjoy Unreal Engine > UE5 Game Featuresで簡単に依存関係なしのコンポーネントを作ってみる]
+	* [Let's Enjoy Unreal Engine > (2021/11/28) > UE5 Game Featuresで簡単に依存関係なしのコンポーネントを作ってみる]
 		* 使用する際の手順やサンプルがまとめられています。
 	* [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]
 		* Game Feature Module でアビリティの追加を行っている説明
@@ -82,7 +82,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 	| [UGameFeaturesProjectPolicies]        | GameFeature 挙動を定義するための基底クラス。<br>`Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` でこの派生クラスを指定する。                                                | [ULyraGameFeaturePolicy] を指定している。                                                                             |
 	| [UDefaultGameFeaturesProjectPolicies] | [UGameFeaturesProjectPolicies] 派生クラス。<br>GameFeature のロード時等の挙動のデフォルト実装を定義している。                                                                                                               |                                                                                                                       |
 	| [UGameFeatureAction]                  | GameFeature のアクティブ時等に実行されるアクションを定義するための基底クラス。                                                                                                                                              |                                                                                                                       |
-	| [UGameFeatureAction_DataRegistry]     | [UGameFeatureAction] 派生クラス。<br>[データ レジストリ] にデータを追加するアクションを定義している。<br>                                                                                                                   |                                                                                                                       |
+	| [UGameFeatureAction_DataRegistry]     | [UGameFeatureAction] 派生クラス。<br>データ レジストリにデータを追加するアクションを定義している。                                                                                                                          |                                                                                                                       |
 	| [UGameFeatureAction_AddComponents]    | [UGameFeatureAction] 派生クラス。<br>任意の対象にコンポーネントを追加するアクションを定義している。                                                                                                                         |                                                                                                                       |
 	| [UGameFeatureData]                    | GameFeature に関する設定。<br>[UGameFeatureAction] の配列などを保持する。                                                                                                                                                   | * `ShooterCore` ([UGameFeatureData])<br>* `TopDownArena` ([UGameFeatureData])<br>* `ShooterMaps` ([UGameFeatureData]) |
 	| [UGameFeaturesSubsystem]              | GameFeature を管理するクラス。<br>[UGameFeatureData] を元に [UGameFeatureAction] の関数を呼び出す。<br>`Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` に基づいて動作する。 |                                                                                                                       |
@@ -136,7 +136,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 Lyra では、入力をモジュール式に扱うために、 Enhanced Input と GameFeature を組み合わせて利用しています。
 
 * 既存のドキュメント
-	* [【UE5】Lyra に学ぶ Enhanced Input]
+	* [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]
 		* Enhanced Input 自体についてはこちらを参照してください。
 * 概要
 	* GameFeatureAction を利用し、入力バインディングと入力マッピングコンテキストの追加をフィーチャーの適用時に行えるようにしています。
@@ -226,7 +226,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 				* 詳しくは後述します。
 			* [ULyraInputConfig]
 				* InputAction と InputTag を紐づけるためのデータアセット。
-				* 詳しくは [【UE5】Lyra に学ぶ Enhanced Input] / [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)] を参照してください。
+				* 詳しくは [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input] / [ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)] を参照してください。
 			* [ULyraCameraMode]
 				* カメラの設定用のデータ専用ブループリント。
 	* [ULyraExperienceDefinition]
@@ -662,19 +662,10 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 <!--- ページ内のリンク --->
 
 <!--- 関連ドキュメント --->
-<!--- qiita
-[【UE5】Lyra に学ぶ Enhanced Input]: https://qiita.com/sentyaanko/items/dd4990d4aa0e84478b59
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: https://qiita.com/sentyaanko/items/f78b13a0db0f3c139a88
+[ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]: EnhancedInput.md
+[ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: InputTag.md
 
---->
 <!--- github --->
-
-[【UE5】Lyra に学ぶ Enhanced Input]: EnhancedInput.md
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: InputTag.md
-
-<!--- qiita --->
-[【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
-
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 
 <!--- 公式：Unreal Engine Issues --->
@@ -686,7 +677,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 <!--- 公式：5.0/データ レジストリ --->
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ >  データ レジストリのクイック スタート ガイド]: https://docs.unrealengine.com/5.0/ja/quick-start-guide-for-unreal-engine-data-registries/
-[データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/
 
 <!--- 公式：5.0/ゲームプレイフレームワーク --->
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ フレームワークのクイック リファレンス]: https://docs.unrealengine.com/5.0/ja/unreal-engine-gameplay-framework-quick-reference/
@@ -708,10 +698,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [Unreal Engine 5.0 Documentation > Game Features と Modular Gameplay]: https://docs.unrealengine.com/5.0/ja/game-features-and-modular-gameplay/
 [Unreal Engine 5.0 Documentation > プロダクション パイプラインをセットアップする > アセット管理]: https://docs.unrealengine.com/5.0/ja/asset-management-in-unreal-engine/
 
-[Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
-[Lyra のアビリティ > ALyraPlayerState]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#alyraplayerstate
-[Lyra のアビリティ > ULyraGlobalAbilitySystem]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#ulyraglobalabilitysystem
-
 
 
 
@@ -723,9 +709,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [マーケットプレイス > 古代の谷]: https://www.unrealengine.com/marketplace/en-US/product/ancient-game-01
 
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
-
-<!--- 公式：blog --->
-[Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way
 
 <!--- 公式：youtube --->
 [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=490
@@ -742,19 +725,16 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [ドクセル > 2017/11/25 > UE4のモバイル開発におけるコンテンツアップデートの話　- Chunk IDとの激闘編 - > p34]: https://www.docswell.com/s/EpicGamesJapan/5RQMEK-ue4-chunk-id#p34
 
 <!--- Let's Enjoy Unreal Engine --->
-[(2021/11/28) Let's Enjoy Unreal Engine > UE5 Game Featuresで簡単に依存関係なしのコンポーネントを作ってみる]: https://unrealengine.hatenablog.com/entry/2021/11/28/111821
+[Let's Enjoy Unreal Engine > (2021/11/28) > UE5 Game Featuresで簡単に依存関係なしのコンポーネントを作ってみる]: https://unrealengine.hatenablog.com/entry/2021/11/28/111821
 
-<!--- qiita --->
-[(2019/08/15) Qiita > 【UE4】 Asset Managerのアセットの非同期ロード機能について その1 ( 非同期ロードの解説 & レベルの裏読み編 )]: https://qiita.com/EGJ-Kaz_Okada/items/f18bca3fb5c8fc1aea9c
-[(2019/12/21) Qiita > 【UE4】 Asset Managerのアセットの非同期ロード機能について その2 ( レベルアセット以外の裏読み編 )]: https://qiita.com/EGJ-Kaz_Okada/items/7dba130c3641aa456b73
+<!--- Qiita --->
+[Qiita > (2019/08/15) > 【UE4】 Asset Managerのアセットの非同期ロード機能について その1 ( 非同期ロードの解説 & レベルの裏読み編 )]: https://qiita.com/EGJ-Kaz_Okada/items/f18bca3fb5c8fc1aea9c
+[Qiita > (2019/12/21) > 【UE4】 Asset Managerのアセットの非同期ロード機能について その2 ( レベルアセット以外の裏読み編 )]: https://qiita.com/EGJ-Kaz_Okada/items/7dba130c3641aa456b73
 
 <!--- historia --->
-[(2021/06/18) 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]: https://historia.co.jp/archives/21145/
+[historia > (2021/06/18) > 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]: https://historia.co.jp/archives/21145/
 
-<!--- アルゴンUE4/UE5＆アプリ開発日記 --->
-[(2021/12/23) 【UE4/UE5】標準プラグインについて調べてみた]: https://argonauts.hatenablog.jp/entry/2021/12/23/083634
-
-<!--- CodeRefs --->
+<!--- generated --->
 [ALyraWeaponSpawner]: CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
 [UAimAssistTargetManagerComponent]: CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
@@ -935,13 +915,21 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [FEnhancedActionKeyMapping::Action]: CodeRefs/UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingaction
 [FEnhancedActionKeyMapping::Key]: CodeRefs/UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingkey
 [IEnhancedInputSubsystemInterface]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterface
-[IEnhancedInputSubsystemInterface::GetPlayerInput()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacegetplayerinput
-[IEnhancedInputSubsystemInterface::InjectInputForAction()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceinjectinputforaction
-[IEnhancedInputSubsystemInterface::InjectInputVectorForAction()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceinjectinputvectorforaction
 [UEnhancedInputLocalPlayerSubsystem]: CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem
-[UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()]: CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystemgetplayerinput
 [UInputAction]: CodeRefs/UE/Input/UInputAction.md#uinputaction
 [UInputMappingContext]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontext
 [UInputMappingContext::Mappings]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontextmappings
 [UPlayerMappableInputConfig]: CodeRefs/UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig
 [UPlayerMappableInputConfig::Contexts]: CodeRefs/UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfigcontexts
+[Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
+[Unreal Engine 5.0 Documentation > Game Features と Modular Gameplay]: https://docs.unrealengine.com/5.0/ja/game-features-and-modular-gameplay/
+[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ >  データ レジストリのクイック スタート ガイド]: https://docs.unrealengine.com/5.0/ja/quick-start-guide-for-unreal-engine-data-registries/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Modular Gameplay を作成する]: https://docs.unrealengine.com/5.0/ja/valley-of-the-ancient-sample-game-for-unreal-engine/#modulargameplay%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > Lyra キャラクターを初期化する方法]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#lyra%E3%82%AD%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%BF%E3%83%BC%E3%82%92%E5%88%9D%E6%9C%9F%E5%8C%96%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95
+[Unreal Engine 5.0 Documentation > プロダクション パイプラインをセットアップする > アセット管理]: https://docs.unrealengine.com/5.0/ja/asset-management-in-unreal-engine/
+[Youtube > Unreal Engine > Developing in UE5 ｜ Inside Unreal]: https://www.youtube.com/watch?v=5jb5ZMul94Q
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]: https://youtu.be/7F28p564kuY?list=PLZlv_N0_O1gbggHiwNP2JBXGeD2h12tbB&t=2456
+[Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]: https://www.youtube.com/watch?v=3PBnqC7TxvM
+[ドクセル > 2017/11/25 > UE4のモバイル開発におけるコンテンツアップデートの話　- Chunk IDとの激闘編 - > p34]: https://www.docswell.com/s/EpicGamesJapan/5RQMEK-ue4-chunk-id#p34
+[ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p54]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2#p54

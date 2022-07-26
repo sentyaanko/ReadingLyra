@@ -108,7 +108,7 @@ Pattern      Property   string Pattern {get;set;}
 		* GAS の基本的な部分は 4.27 の頃から変わっていない（はず）です。（2022/04/11 現在）
 			* 多くのファイルに更新が入っているので全く同じというわけではないです。
 		* もし GAS のことをよく知らないならば、以下を参照してください。
-			* [【UE4】Gameplay Ability System を使い始めたい人向けの情報]
+			* [Qiita > (2021/11/26) > 【UE4】Gameplay Ability System を使い始めたい人向けの情報]
 	* 個々のアビリティの実装詳細
 
 
@@ -1338,7 +1338,7 @@ UWorldSubsystem のサブクラス。
 	* 新しいアビリティの追加手順の解説
 	* 既存の GameplayAbility 派生クラスを派生しているだけなので、 GAS 知っているのであれば難しいことはしていない。
 
-[historia > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
+[historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
 
 
 
