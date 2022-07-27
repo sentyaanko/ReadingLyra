@@ -10,6 +10,9 @@ nav:
     - 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag): ./InputTag
   - クラス解説:
     - Lyra:
+      - Equipment:
+        - FLyraInventoryList: ./CodeRefs/Lyra/Equipment/FLyraInventoryList
+        - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
       - Etc:
         - ALyraWeaponSpawner: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
         - UAimAssistTargetManagerComponent: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent
@@ -20,9 +23,12 @@ nav:
         - ULyraDamageLogDebuggerComponent: ./CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent
         - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Etc/ULyraEquipmentManagerComponent
         - ULyraFrontendStateComponent: ./CodeRefs/Lyra/Etc/ULyraFrontendStateComponent
+        - ULyraGameData: ./CodeRefs/Lyra/Etc/ULyraGameData
         - ULyraIndicatorManagerComponent: ./CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent
+        - ULyraLobbyBackground: ./CodeRefs/Lyra/Etc/ULyraLobbyBackground
         - ULyraNumberPopComponent: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent
         - ULyraNumberPopComponent_NiagaraText: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent_NiagaraText
+        - ULyraPawnComponent_CharacterParts: ./CodeRefs/Lyra/Etc/ULyraPawnComponent_CharacterParts
         - ULyraPlayerSpawningManagerComponent: ./CodeRefs/Lyra/Etc/ULyraPlayerSpawningManagerComponent
         - ULyraQuickBarComponent: ./CodeRefs/Lyra/Etc/ULyraQuickBarComponent
         - ULyraSettingsLocal: ./CodeRefs/Lyra/Etc/ULyraSettingsLocal
@@ -36,6 +42,7 @@ nav:
         - ULyraExperienceManagerComponent: ./CodeRefs/Lyra/Experience/ULyraExperienceManagerComponent
         - ULyraUserFacingExperienceDefinition: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition
       - GameFeature:
+        - FGameFeatureAbilitiesEntry: ./CodeRefs/Lyra/GameFeature/FGameFeatureAbilitiesEntry
         - FMappableConfigPair: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair
         - UApplyFrontendPerfSettingsAction: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction
         - UGameFeatureAction_AddAbilities: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities
@@ -51,6 +58,7 @@ nav:
         - ULyraGameFeature_HotfixManager: ./CodeRefs/Lyra/GameFeature/ULyraGameFeature_HotfixManager
       - GameplayAbility:
         - ALyraCharacterWithAbilities: ./CodeRefs/Lyra/GameplayAbility/ALyraCharacterWithAbilities
+        - FLyraAbilitySet_GameplayAbility: ./CodeRefs/Lyra/GameplayAbility/FLyraAbilitySet_GameplayAbility
         - FLyraAbilityTagRelationship: ./CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship
         - ILyraReadyInterface: ./CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface
         - ULyraAbilitySet: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySet
@@ -59,6 +67,7 @@ nav:
         - ULyraAttributeSet: ./CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet
         - ULyraDamageExecution: ./CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution
         - ULyraGamePhaseAbility: ./CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseAbility
+        - ULyraGamePhaseSubsystem: ./CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseSubsystem
         - ULyraGameplayAbility: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility
         - ULyraGameplayAbility_Death: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Death
         - ULyraGameplayAbility_FromEquipment: ./CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_FromEquipment
@@ -108,9 +117,15 @@ nav:
       - HotfixManager:
         - ULyraHotfixManager: ./CodeRefs/Lyra/HotfixManager/ULyraHotfixManager
       - Input:
+        - FLoadedMappableConfigPair: ./CodeRefs/Lyra/Input/FLoadedMappableConfigPair
+        - FLyraInputAction: ./CodeRefs/Lyra/Input/FLyraInputAction
+        - ULyraInputComponent: ./CodeRefs/Lyra/Input/ULyraInputComponent
         - ULyraInputConfig: ./CodeRefs/Lyra/Input/ULyraInputConfig
       - Inventory:
         - FLyraInventoryList: ./CodeRefs/Lyra/Inventory/FLyraInventoryList
+        - UInventoryFragment_EquippableItem: ./CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem
+        - ULyraInventoryItemDefinition: ./CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition
+        - ULyraInventoryItemFragment: ./CodeRefs/Lyra/Inventory/ULyraInventoryItemFragment
         - ULyraInventoryManagerComponent: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent
       - PawnSetting:
         - ULyraPawnData: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData
@@ -141,10 +156,13 @@ nav:
         - UGameFeatureData: ./CodeRefs/UE/GameFeature/UGameFeatureData
         - UGameFeaturesProjectPolicies: ./CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies
         - UGameFeaturesSubsystem: ./CodeRefs/UE/GameFeature/UGameFeaturesSubsystem
+      - GameFramework:
+        - UGameUserSettings: ./CodeRefs/UE/GameFramework/UGameUserSettings
       - GameplayAbility:
         - FGameplayAbilitySpec: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
         - FGameplayEffectSpec: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec
         - UGameplayAbility: ./CodeRefs/UE/GameplayAbility/UGameplayAbility
+        - UGameplayAbilitySet: ./CodeRefs/UE/GameplayAbility/UGameplayAbilitySet
       - GameplayCue:
         - UGameplayCueManager: ./CodeRefs/UE/GameplayCue/UGameplayCueManager
       - HotfixManager:
@@ -152,8 +170,12 @@ nav:
       - Input:
         - FEnhancedActionKeyMapping: ./CodeRefs/UE/Input/FEnhancedActionKeyMapping
         - IEnhancedInputSubsystemInterface: ./CodeRefs/UE/Input/IEnhancedInputSubsystemInterface
+        - UEnhancedInputComponent: ./CodeRefs/UE/Input/UEnhancedInputComponent
         - UEnhancedInputLocalPlayerSubsystem: ./CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem
+        - UEnhancedPlayerInput: ./CodeRefs/UE/Input/UEnhancedPlayerInput
         - UInputAction: ./CodeRefs/UE/Input/UInputAction
         - UInputMappingContext: ./CodeRefs/UE/Input/UInputMappingContext
+        - UInputModifier: ./CodeRefs/UE/Input/UInputModifier
+        - UInputTrigger: ./CodeRefs/UE/Input/UInputTrigger
         - UPlayerMappableInputConfig: ./CodeRefs/UE/Input/UPlayerMappableInputConfig
 
