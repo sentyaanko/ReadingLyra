@@ -49,6 +49,7 @@ function Get-SaMarkdownLists{
 	$OutputString
 }
 
+# HeadingIDsToRoot.md の更新を行う。
 # index.md の更新を行う。
 function Update-SaIndexMd{
 	# Root の md ファイル名と見出しの一覧を作成
@@ -58,12 +59,11 @@ function Update-SaIndexMd{
 	$RootLists = ($RootMdFiles | ForEach-Object{"`t- [$($_.Heading)]"}) -join "`n"
 	
 	# Root の md ファイル名と見出しの一覧 を元に HeadingIDs の作成
-	$HeadingIDsForRoot = ($RootMdFiles | ForEach-Object{"[$($_.Heading)]: $($_.RelativePath)"}) -join "`n"
+	$HeadingIDsToCodeRefsForRoot = ($RootMdFiles | ForEach-Object{"[$($_.Heading)]: $($_.RelativePath)"}) -join "`n"
 
-	#これを変更してtmp/HeadingIDsForRoot2.md を作る
 	# Root の md ファイル名と見出しの一覧 を元に HeadingIDs の作成
-	$HeadingIDsForRootToRoot = (($RootMdFiles | ForEach-Object{"[ReadingLyra > $($_.Heading)]: $($_.RelativePath)"}) -join "`n")+"`n"
-	[System.IO.File]::WriteAllText("$PSScriptRoot\..\tmp\HeadingIDsForRootToRoot.md", $HeadingIDsForRootToRoot)
+	$HeadingIDsToRoot = (($RootMdFiles | ForEach-Object{"[ReadingLyra > $($_.Heading)]: $($_.RelativePath)"}) -join "`n")+"`n"
+	[System.IO.File]::WriteAllText("$PSScriptRoot\..\tmp\HeadingIDsToRoot.md", $HeadingIDsToRoot)
 
 	# CodeRefs 以下の md ファイル名の一覧を作成
 	$CodeRefsMdFilenames = Get-ChildItem CodeRefs -Include *.md -Recurse | ForEach-Object{((Resolve-Path $_ -Relative) -replace '\\','/')}
@@ -73,9 +73,9 @@ function Update-SaIndexMd{
 	$CodeRefsLists = Get-SaMarkdownLists -ListItems $MdListItems -Indent 1
 
 	# CodeRefs 以下の md ファイル名の一覧 を元に HeadingIDs の作成
-	$HeadingIDsForCodeRefs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/(\w+)\.md', '[$2]: $1/$2.md'}) -join "`n"
+	$HeadingIDsToCodeRefsForCodeRefs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/(\w+)\.md', '[$2]: $1/$2.md'}) -join "`n"
 
-	$myContent="- 実装解説`n"+$RootLists+"`n- クラス解説`n"+$CodeRefsLists+"`n<!--- HedaingIDs --->`n"+$HeadingIDsForRoot+"`n"+$HeadingIDsForCodeRefs+"`n"
+	$myContent="- 実装解説`n"+$RootLists+"`n- クラス解説`n"+$CodeRefsLists+"`n<!--- HedaingIDs --->`n"+$HeadingIDsToCodeRefsForRoot+"`n"+$HeadingIDsToCodeRefsForCodeRefs+"`n"
 	Update-SaFile -Filename "$PSScriptRoot\..\..\docs\index.md" -Keyword '<!--- generatede --->' -Content $myContent
 }
 

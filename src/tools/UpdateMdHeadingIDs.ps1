@@ -90,10 +90,10 @@ function Set-SaMdHeadingIDs{
 # .md ファイルの HeadingID の更新処理
 function Set-SaAllMdHeadingIDs{
 	# /docs/CodeRefs 以下の .md ファイルの HeadingID の更新処理
-	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\CodeRefs\*" -Include:*.md -Recurse -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsForCodeRefs.md","$PSScriptRoot\..\tmp\HeadingIDsExternal.md" -Keyword:'<!--- generated --->'
+	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\CodeRefs\*" -Include:*.md -Recurse -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsToCodeRefsForCodeRefs.md","$PSScriptRoot\..\tmp\HeadingIDsToExternal.md" -Keyword:'<!--- generated --->'
 	
 	# /docs の .md ファイルの HeadingID の更新処理
-	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\*" -Include:*.md -Exclude:index.md -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsForRootToRoot.md","$PSScriptRoot\..\tmp\HeadingIDsForRoot.md","$PSScriptRoot\..\tmp\HeadingIDsExternal.md" -Keyword:'<!--- generated --->'
+	Set-SaMdHeadingIDs -Path:"$PSScriptRoot\..\..\docs\*" -Include:*.md -Exclude:index.md -HeadingIDsFullNames:"$PSScriptRoot\..\tmp\HeadingIDsToRoot.md","$PSScriptRoot\..\tmp\HeadingIDsToCodeRefsForRoot.md","$PSScriptRoot\..\tmp\HeadingIDsToExternal.md" -Keyword:'<!--- generated --->'
 }
 
 Set-SaAllMdHeadingIDs
