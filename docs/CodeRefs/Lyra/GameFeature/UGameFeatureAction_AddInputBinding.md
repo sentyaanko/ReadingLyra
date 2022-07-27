@@ -4,6 +4,8 @@
 > Expects that local players are set up to use the EnhancedInput system.  
 > 
 > ----
+> ローカル プレイヤーの EnhancedInput システムに InputMappingContext を追加します。
+> ローカル プレーヤーが EnhancedInput システムを使用するように設定されていることが期待されます。
 
 * Lyra での使い方
 	| Asset                                                         | InputMapping<br>([ULyraInputConfig]) |

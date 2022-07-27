@@ -1,3 +1,5 @@
+[FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
+[ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ALyraWeaponSpawner]: ../../Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
 [UAimAssistTargetManagerComponent]: ../../Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
@@ -7,9 +9,12 @@
 [ULyraDamageLogDebuggerComponent]: ../../Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
 [ULyraEquipmentManagerComponent]: ../../Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
 [ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
+[ULyraGameData]: ../../Lyra/Etc/ULyraGameData.md#ulyragamedata
 [ULyraIndicatorManagerComponent]: ../../Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
+[ULyraLobbyBackground]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground
 [ULyraNumberPopComponent]: ../../Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent
 [ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
+[ULyraPawnComponent_CharacterParts]: ../../Lyra/Etc/ULyraPawnComponent_CharacterParts.md#ulyrapawncomponent_characterparts
 [ULyraPlayerSpawningManagerComponent]: ../../Lyra/Etc/ULyraPlayerSpawningManagerComponent.md#ulyraplayerspawningmanagercomponent
 [ULyraQuickBarComponent]: ../../Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
 [ULyraSettingsLocal]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocal
@@ -29,6 +34,7 @@
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_LowPriority()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_lowpriority
 [ULyraUserFacingExperienceDefinition]: ../../Lyra/Experience/ULyraUserFacingExperienceDefinition.md#ulyrauserfacingexperiencedefinition
+[FGameFeatureAbilitiesEntry]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentry
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [FMappableConfigPair::Config]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairconfig
 [FMappableConfigPair::Type]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairtype
@@ -49,6 +55,7 @@
 [ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeature_addgameplaycuepaths
 [ULyraGameFeature_HotfixManager]: ../../Lyra/GameFeature/ULyraGameFeature_HotfixManager.md#ulyragamefeature_hotfixmanager
 [ALyraCharacterWithAbilities]: ../../Lyra/GameplayAbility/ALyraCharacterWithAbilities.md#alyracharacterwithabilities
+[FLyraAbilitySet_GameplayAbility]: ../../Lyra/GameplayAbility/FLyraAbilitySet_GameplayAbility.md#flyraabilityset_gameplayability
 [FLyraAbilityTagRelationship]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationship
 [ILyraReadyInterface]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterface
 [ILyraReadyInterface::IsPawnComponentReadyToInitialize()]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterfaceispawncomponentreadytoinitialize
@@ -58,8 +65,10 @@
 [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentsettagrelationshipmapping
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
 [ULyraAttributeSet]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
+[ULyraAttributeSet::Health]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesethealth
 [ULyraDamageExecution]: ../../Lyra/GameplayAbility/ULyraDamageExecution.md#ulyradamageexecution
 [ULyraGamePhaseAbility]: ../../Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseability
+[ULyraGamePhaseSubsystem]: ../../Lyra/GameplayAbility/ULyraGamePhaseSubsystem.md#ulyragamephasesubsystem
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ULyraGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityapplyabilitytagstogameplayeffectspec
 [ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
@@ -95,6 +104,7 @@
 [AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotify_burstlatent
 [ULyraGameplayCueManager]: ../../Lyra/GameplayCue/ULyraGameplayCueManager.md#ulyragameplaycuemanager
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter
+[ALyraCharacter::ToggleCrouch()]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharactertogglecrouch
 [ALyraGameMode]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemode
 [ALyraGameMode::InitGame()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodeinitgame
 [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodehandlematchassignmentifnotexpectingone
@@ -131,8 +141,15 @@
 [FLyraVerbMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage.md#flyraverbmessage
 [FLyraVerbMessageReplication]: ../../Lyra/GameplayMessageProcessorStruct/FLyraVerbMessageReplication.md#flyraverbmessagereplication
 [ULyraHotfixManager]: ../../Lyra/HotfixManager/ULyraHotfixManager.md#ulyrahotfixmanager
+[FLoadedMappableConfigPair]: ../../Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair
+[FLyraInputAction]: ../../Lyra/Input/FLyraInputAction.md#flyrainputaction
+[ULyraInputComponent]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
+[ULyraInputComponent::AddInputMappings()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentaddinputmappings
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [FLyraInventoryList]: ../../Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
+[UInventoryFragment_EquippableItem]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
+[ULyraInventoryItemDefinition]: ../../Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinition
+[ULyraInventoryItemFragment]: ../../Lyra/Inventory/ULyraInventoryItemFragment.md#ulyrainventoryitemfragment
 [ULyraInventoryManagerComponent]: ../../Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponent
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
 [ULyraPawnData::PawnClass]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatapawnclass
@@ -165,6 +182,7 @@
 [UGameFeaturesProjectPolicies]: ../../UE/GameFeature/UGameFeaturesProjectPolicies.md#ugamefeaturesprojectpolicies
 [UGameFeaturesSubsystem]: ../../UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystem
 [UGameFeaturesSubsystem::AddObserver()]: ../../UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystemaddobserver
+[UGameUserSettings]: ../../UE/GameFramework/UGameUserSettings.md#ugameusersettings
 [FGameplayAbilitySpec]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspec
 [FGameplayAbilitySpec::DynamicAbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags
 [FGameplayEffectSpec]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspec
@@ -172,6 +190,7 @@
 [UGameplayAbility]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
 [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec
+[UGameplayAbilitySet]: ../../UE/GameplayAbility/UGameplayAbilitySet.md#ugameplayabilityset
 [UGameplayCueManager]: ../../UE/GameplayCue/UGameplayCueManager.md#ugameplaycuemanager
 [UOnlineHotfixManager]: ../../UE/HotfixManager/UOnlineHotfixManager.md#uonlinehotfixmanager
 [FEnhancedActionKeyMapping]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymapping
@@ -181,10 +200,14 @@
 [IEnhancedInputSubsystemInterface::GetPlayerInput()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacegetplayerinput
 [IEnhancedInputSubsystemInterface::InjectInputForAction()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceinjectinputforaction
 [IEnhancedInputSubsystemInterface::InjectInputVectorForAction()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceinjectinputvectorforaction
+[UEnhancedInputComponent]: ../../UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
 [UEnhancedInputLocalPlayerSubsystem]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem
 [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystemgetplayerinput
+[UEnhancedPlayerInput]: ../../UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinput
 [UInputAction]: ../../UE/Input/UInputAction.md#uinputaction
 [UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext
 [UInputMappingContext::Mappings]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontextmappings
+[UInputModifier]: ../../UE/Input/UInputModifier.md#uinputmodifier
+[UInputTrigger]: ../../UE/Input/UInputTrigger.md#uinputtrigger
 [UPlayerMappableInputConfig]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig
 [UPlayerMappableInputConfig::Contexts]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfigcontexts

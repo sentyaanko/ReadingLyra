@@ -6,6 +6,10 @@
 > 
 > ----
 
+* Game Feature がアクティブになった際に付与する入力マッピング情報を保持する。
+* ```InputConfigs``` に [FMappableConfigPair] の配列を保持しています。
+
+
 * Lyra での使い方
 	| Asset                                  | Config<br>([UPlayerMappableInputConfig]) | Type             | DependentPlatformTraits                         |
 	| ---------------------------------------| -----------------------------------------|------------------|-------------------------------------------------|
@@ -30,5 +34,6 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [UPlayerMappableInputConfig]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig

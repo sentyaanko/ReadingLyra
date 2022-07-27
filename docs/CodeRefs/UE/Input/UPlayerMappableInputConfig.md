@@ -20,6 +20,15 @@
 
 * 概要
 	* [UInputMappingContext] を保持する、
+	* 操作方法単位で用意している。
+	* 命名規則は ```PMI_``` で始まる。
+
+| アセット名                       | 用途                                               |
+|----------------------------------|----------------------------------------------------|
+| PMI_Default_Gamepad              | デフォルトのゲームパッド設定                       |
+| PMI_Default_KBM                  | デフォルトのキーボードマウス設定                   |
+| PMI_ShooterDefaultConfig_Gamepad | シューターゲームのデフォルトのゲームパッド設定     |
+| PMI_ShooterDefaultConfig_KBM     | シューターゲームのデフォルトのキーボードマウス設定 |
 
 ## UPlayerMappableInputConfig::Contexts
 

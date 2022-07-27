@@ -3,6 +3,9 @@
 > The base game mode class used by this project.  
 > 
 > ----
+> このプロジェクトで使用される基本ゲームモードクラス。
+
+* ```AModularGameModeBase``` の派生クラス。
 
 ### ALyraGameMode::InitGame()
 

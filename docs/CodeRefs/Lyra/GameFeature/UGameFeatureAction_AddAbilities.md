@@ -3,6 +3,13 @@
 > GameFeatureAction responsible for granting abilities (and attributes) to actors of a specified type.  
 > 
 > ----
+> 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction 。
+
+* Game Feature がアクティブになった際に付与するアビリティ情報を保持する。
+* [UGameFeatureAction] の派生クラス。
+* FGameFeatureAbilitiesEntry の配列を保持する。
+* Game Feature がアクティブになった際に付与するアビリティはここの設定を利用する。
+
 
 * Lyra での使い方
 	| Asset                                                               | ActorClass         | GrantedAbilities  | GrantedAttributes | GrantedAbilitySets<br>([ULyraAbilitySet]) |
@@ -24,3 +31,4 @@
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
