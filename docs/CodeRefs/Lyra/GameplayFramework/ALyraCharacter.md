@@ -15,3 +15,11 @@
 	* アビリティシステムに関するアクセサと、コンポーネントの初期化周りの関数を呼び出している。
 
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent

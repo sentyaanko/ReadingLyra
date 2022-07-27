@@ -21,3 +21,12 @@
 >> ----
 >> ゲームコードで splitscreen を無効化を可能にします（メニューの時に便利）
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
+[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilities

@@ -12,3 +12,11 @@
 
 * TODO: 必要に応じて追記。
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ULyraGlobalAbilitySystem]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#ulyraglobalabilitysystem

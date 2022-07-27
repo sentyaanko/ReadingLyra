@@ -18,3 +18,11 @@
 > ----
 > アイテムの非同期ロードを開始し、デリゲートは取得の成功または失敗時に呼び出されます。デリゲートのスケジュールができなかった場合は false を返します。
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow

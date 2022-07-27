@@ -64,3 +64,21 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 	* `B_AccoladeRelay` ([UGameplayMessageProcessor])
 * この呼び出しは `HasAuthority` により、サーバーのみで呼び出す様にしている。
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
+[ULyraAbilitySet::GiveToAbilitySystem()]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilitysetgivetoabilitysystem
+[ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent
+[ULyraPawnExtensionComponent::CheckPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponentcheckpawnreadytoinitialize
+[ALyraGameMode::GetPawnDataForController()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodegetpawndataforcontroller
+[ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
+[ALyraPlayerState::SetPawnData()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatesetpawndata
+[UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
+[ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
+[ULyraPawnData::AbilitySets]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndataabilitysets
+[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ フレームワークのクイック リファレンス]: https://docs.unrealengine.com/5.0/ja/unreal-engine-gameplay-framework-quick-reference/

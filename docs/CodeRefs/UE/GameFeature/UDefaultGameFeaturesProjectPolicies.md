@@ -17,3 +17,11 @@
 	* GameFeature のロード時などの挙動のデフォルト実装を定義している。
 * Lyra での使われ方
 	* [ULyraGameFeaturePolicy] の基底クラスとして利用。
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraGameFeaturePolicy]: ../../Lyra/GameFeature/ULyraGameFeaturePolicy.md#ulyragamefeaturepolicy

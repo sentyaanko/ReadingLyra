@@ -4,3 +4,11 @@
 
 > Singleton manager object that handles dispatching gameplay cues and spawning GameplayCueNotify actors as needed
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+

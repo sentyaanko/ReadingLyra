@@ -17,3 +17,11 @@
 	* 詳細未確認。
 * Lyra での使われ方
 	* [ULyraHotfixManager] の基底クラスとして利用。
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraHotfixManager]: ../../Lyra/HotfixManager/ULyraHotfixManager.md#ulyrahotfixmanager

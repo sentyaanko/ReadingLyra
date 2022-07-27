@@ -40,3 +40,13 @@
 	* この GameFeature で使用したい AssetManager への設定項目を設定する。
 * Lyra での使われ方
 	* [FPrimaryAssetTypeInfo] の表を参照。
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
+[UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

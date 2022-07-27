@@ -16,3 +16,13 @@
 	| `ShooterCore`<br>([UGameFeatureData]) | `AccoladeDataRegistry`<br>([FLyraAccoladeDefinitionRow]) |
 
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
+[UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
+[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/

@@ -16,3 +16,11 @@
 	* `Project Settings` で派生クラスである [ULyraGameFeaturePolicy] を指定している。
 
 
+
+
+<!--- ページ内のリンク --->
+
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[ULyraGameFeaturePolicy]: ../../Lyra/GameFeature/ULyraGameFeaturePolicy.md#ulyragamefeaturepolicy
