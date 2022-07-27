@@ -1,2 +1,2 @@
 # ReadingLyra
-for Lyra documentation.
+for Lyra documentation repository.
