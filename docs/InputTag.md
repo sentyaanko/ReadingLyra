@@ -368,9 +368,11 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 -----
 おしまい。
 
-<!--- 公式：マーケットプレイス --->
-[Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
+<!--- ページ内のリンク --->
 
-<!--- 公式：5.0/Lyra --->
+<!--- 自前の画像へのリンク --->
+
+<!--- generated --->
+[Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 入力タグ アクティベーション サポート]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E5%85%A5%E5%8A%9B%E3%82%BF%E3%82%B0%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88

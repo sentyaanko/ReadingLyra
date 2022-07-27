@@ -8,7 +8,7 @@ function Select-SaString{
 	)
 	$DataSet=@{}
 	$Index=0
-	$SplitedContent | Select-String -AllMatches -Pattern $Pattern | ForEach-Object{$DataSet[$_.Matches.Groups[1].Value]=$Index;$Index++}
+	$SplitedContent | Select-String -AllMatches -Pattern $Pattern | ForEach-Object{$_.Matches} | ForEach-Object{$DataSet[$_.Groups[1].Value]=$Index;$Index++}
 	$DataSet
 }
 

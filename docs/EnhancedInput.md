@@ -648,68 +648,25 @@ Lyra についての大まかな説明は以上です。
 [ULyraInputConfig-Referencing_PawnData]: images/ULyraInputConfig-Referencing_PawnData.png
 [ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
-<!--- 公式：4.27 --->
-[Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]: https://docs.unrealengine.com/4.27/ja/InteractiveExperiences/Input/EnhancedInput/
-
-<!--- 公式：5.0/GAS --->
-[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-system-for-unreal-engine/
-[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > ゲームプレイ アビリティ]: https://docs.unrealengine.com/5.0/ja/using-gameplay-abilities-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > ゲームプレイ アトリビュートとゲームプレイ エフェクト]: https://docs.unrealengine.com/5.0/ja/gameplay-attributes-and-gameplay-effects-for-the-gameplay-ability-system-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > アビリティ タスク]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-tasks-in-unreal-engine/
-
-<!--- 公式：5.0/Lyra --->
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 拡張されたタグ関係システム]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E6%8B%A1%E5%BC%B5%E3%81%95%E3%82%8C%E3%81%9F%E3%82%BF%E3%82%B0%E9%96%A2%E4%BF%82%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ゲームプレイ タグ バインディング]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%82%B2%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AC%E3%82%A4%E3%82%BF%E3%82%B0%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra インタラクション システム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-interaction-system-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra 入力設定]: https://docs.unrealengine.com/5.0/ja/lyra-input-settings-in-unreal-engine/
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra ゲーム設定]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-settings-in-unreal-engine/
-
-
-<!--- 公式：5.0/EnhancedInput --->
-[Unreal Engine 5.0 Documentation > Enhanced Input プラグイン]: https://docs.unrealengine.com/5.0/ja/input/#enhancedinput%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3
-[Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]: https://docs.unrealengine.com/5.0/ja/enhanced-input-in-unreal-engine/
-
-<!--- 公式：5.0/古代の谷 --->
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Modular Gameplay を作成する]: https://docs.unrealengine.com/5.0/ja/valley-of-the-ancient-sample-game-for-unreal-engine/#modulargameplay%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B
-[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Enhanced Input System を使用した柔軟なコントロール]: https://docs.unrealengine.com/5.0/ja/valley-of-the-ancient-sample-game-for-unreal-engine/#enhancedinputsystem%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%9F%94%E8%BB%9F%E3%81%AA%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB
-
-<!--- 公式：マーケットプレイス --->
+<!--- generated --->
+[historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
+[Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
+[Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
-[マーケットプレイス > Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
-[マーケットプレイス > 古代の谷]: https://www.unrealengine.com/marketplace/en-US/product/ancient-game-01
-
-<!--- 公式：youtube --->
-[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 8:10]: https://www.youtube.com/watch?v=7F28p564kuY&t=490
-[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 40:56]: https://www.youtube.com/watch?v=7F28p564kuY&t=2456
-[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 1:00:00]: https://www.youtube.com/watch?v=7F28p564kuY&t=3600
-[Youtube > Unreal Engine > Programming Subsystems ｜ Live from HQ ｜ Inside Unreal]: https://www.youtube.com/watch?v=v5b1FvKBYzc
-[Youtube > Unreal Engine > Modular Game Features in UE5: plug ‘n play, the Unreal way]: https://www.youtube.com/watch?v=3PBnqC7TxvM
-[Youtube > Unreal Engine > Developing a C++ Gameplay Framework with Tom Looman ｜ Inside Unreal]: https://www.youtube.com/watch?v=YKhcN8NkIYY
-
+[Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]: https://docs.unrealengine.com/4.27/ja/InteractiveExperiences/Input/EnhancedInput/
+[Unreal Engine 5.0 Documentation > Enhanced Input プラグイン]: https://docs.unrealengine.com/5.0/ja/input/#enhancedinput%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Enhanced Input System を使用した柔軟なコントロール]: https://docs.unrealengine.com/5.0/ja/valley-of-the-ancient-sample-game-for-unreal-engine/#enhancedinputsystem%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%9F%94%E8%BB%9F%E3%81%AA%E3%82%B3%E3%83%B3%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム]: https://docs.unrealengine.com/5.0/ja/lyra-sample-game-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra 入力設定]: https://docs.unrealengine.com/5.0/ja/lyra-input-settings-in-unreal-engine/
+[Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]: https://docs.unrealengine.com/5.0/ja/enhanced-input-in-unreal-engine/
+[Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1427
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1462
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 32:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1967
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 34:01]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=2041
-
 [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal]: https://www.youtube.com/watch?v=m80NJzUWq8A
 [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal > 1:30:51]: https://www.youtube.com/watch?v=m80NJzUWq8A&t=5451
-
-
-<!--- docswell --->
-[ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2
-[ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p54]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2#p54
+[Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 1:00:00]: https://www.youtube.com/watch?v=7F28p564kuY&t=3600
 [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p65]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2#p65
-[ドクセル > 2021/10/2 > 出張ヒストリア！ ゲーム開発勉強会2021 > 目指せ脱UE4初心者！？知ってると開発が楽になる便利機能を紹介 - DataAsset, Subsystem, GameplayAbility編 -]: https://www.docswell.com/s/historia_Inc/5WVYJK-ue4-dataasset-subsystem-gameplayability
-[ドクセル > 2021/10/2 > 出張ヒストリア！ ゲーム開発勉強会2021 > 目指せ脱UE4初心者！？知ってると開発が楽になる便利機能を紹介 - DataAsset, Subsystem, GameplayAbility編 - > p46]: https://www.docswell.com/s/historia_Inc/5WVYJK-ue4-dataasset-subsystem-gameplayability#p46
-
-<!--- 非公式：youtube --->
-[Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
-
-<!--- その他 --->
-[Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000
-[Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
-
-[historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
+[マーケットプレイス > Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
