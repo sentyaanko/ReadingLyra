@@ -16,9 +16,9 @@
 
 
 * エクスペリエンスを定義するデータアセット。
-* ```GameFeaturesToEnable``` にて使用する [UGameFeatureData] を ```Plugins/GameFeatures``` 内のプラグイン名で指定。
-* ```WolrdSettings > Game Mode > Default Gameplay Experience``` で指定される。
-* [ALyraGameMode]```::HandleMatchAssignmentIfNotExpectingOne()``` でアセットがロードされ、設定された内容はその後に利用される。
+* `GameFeaturesToEnable` にて使用する [UGameFeatureData] を `Plugins/GameFeatures` 内のプラグイン名で指定。
+* `WolrdSettings > Game Mode > Default Gameplay Experience` で指定される。
+* [ALyraGameMode]`::HandleMatchAssignmentIfNotExpectingOne()` でアセットがロードされ、設定された内容はその後に利用される。
 
 各エクスペリエンスで指定している [UGameFeatureData]
 

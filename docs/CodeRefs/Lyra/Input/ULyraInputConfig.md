@@ -3,16 +3,16 @@
 > Non-mutable data asset that contains input configuration properties.
 
 * 適用単位ごとに用意する、入力アクションの設定を定義するクラス。
-* ```NativeInputActions```/```AbilityInputActions``` に [FLyraInputAction] の配列を保持しています。
-	* ```NativeInputActions```
+* `NativeInputActions`/`AbilityInputActions` に [FLyraInputAction] の配列を保持しています。
+	* `NativeInputActions`
 		* 固定の処理が実装されているアクション。
 			* Move/Look_Mouse/Look_Stick/Crouch/AutoRun
 		* それぞれの専用関数に直接バインドされ、それぞれの処理を行っている。
-	* ```AbilityInputActions```
+	* `AbilityInputActions`
 		* Gameplay Ability として実装されているアクション。
 			* Jump 、その他のアクション。
-		* アビリティ用の汎用関数にバインドされ、 ```InputTag``` を元に付与されている Gameplay Ability を検索してアクティブ化する。
-* 適用単位毎に ```InputData_``` で始まるデータアセットを作成する。
+		* アビリティ用の汎用関数にバインドされ、 `InputTag` を元に付与されている Gameplay Ability を検索してアクティブ化する。
+* 適用単位毎に `InputData_` で始まるデータアセットを作成する。
 
 | アセット名                       | 用途                                                          |
 |----------------------------------|---------------------------------------------------------------|

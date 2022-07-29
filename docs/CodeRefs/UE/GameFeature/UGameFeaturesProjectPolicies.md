@@ -11,11 +11,9 @@
 
 * 概要
 	* GameFeature の設定を行うクラス。
-	* `Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` でこの派生クラスを指定する。
+	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* でこの派生クラスを指定する。
 * Lyra での使われ方
-	* `Project Settings` で派生クラスである [ULyraGameFeaturePolicy] を指定している。
-
-
+	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* で派生クラス [UDefaultGameFeaturesProjectPolicies] の派生クラス [ULyraGameFeaturePolicy] を指定している。
 
 
 <!--- ページ内のリンク --->
@@ -24,3 +22,4 @@
 
 <!--- generated --->
 [ULyraGameFeaturePolicy]: ../../Lyra/GameFeature/ULyraGameFeaturePolicy.md#ulyragamefeaturepolicy
+[UDefaultGameFeaturesProjectPolicies]: ../../UE/GameFeature/UDefaultGameFeaturesProjectPolicies.md#udefaultgamefeaturesprojectpolicies

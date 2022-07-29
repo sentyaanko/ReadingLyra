@@ -118,7 +118,7 @@ Pattern      Property   string Pattern {get;set;}
 
 * InitializePlayerInput にて、アビリティ用の入力のバインドを行っている。
 	* 具体的には LyraIC->BindAbilityActions の中で EnhancedInputComponent::BindAction の呼び出しを行っている。
-	* [ULyraHeroComponent]```::Input_AbilityInputTagPressed``` / [ULyraHeroComponent]```::Input_AbilityInputTagReleased``` をバインドしている。
+	* [ULyraHeroComponent]`::Input_AbilityInputTagPressed` / [ULyraHeroComponent]`::Input_AbilityInputTagReleased` をバインドしている。
 	* 関数内では ULyraAbilitySystemComponent::AbilityInputTagPressed / ULyraAbilitySystemComponent::AbilityInputTagReleased を呼び出している。
 	* 関数内では ULyraAbilitySystemComponent::InputPressedSpecHandles / ULyraAbilitySystemComponent::InputReleasedSpecHandles に一旦バッファリングされる。
 	* その後、 ALyraPlayerController::PostProcessInput から ULyraAbilitySystemComponent::ProcessAbilityInput が呼び出される。
@@ -251,8 +251,8 @@ Pattern      Property   string Pattern {get;set;}
 
 関連部分を抽出した疑似コードです。  
 
-* ```#Tick``` で Tick 処理の関数の呼び出し階層を追いかけられます。
-* ```#InitializeInputAction``` で [UInputAction] の初期化処理の関数の呼び出し階層を追いかけられます。
+* `#Tick` で Tick 処理の関数の呼び出し階層を追いかけられます。
+* `#InitializeInputAction` で [UInputAction] の初期化処理の関数の呼び出し階層を追いかけられます。
 
 ```c++
 // Engine Core 関連 begin{
@@ -582,9 +582,9 @@ class ULyraHeroComponent : public ULyraPawnComponent
 
 ## Lyra における入力アクションにバインドされるた関数から Gameplay Ability の呼び出し
 
-* 以下の関数内で、自身に付与されている Gameplay Ability から引数で渡された ```InputTag``` を持つアビリティを探し出してアクティブ化を行います。
-	* ```ULyraHeroComponent::Input_AbilityInputTagPressed()```
-	* ```ULyraHeroComponent::Input_AbilityInputTagReleased()``` 
+* 以下の関数内で、自身に付与されている Gameplay Ability から引数で渡された `InputTag` を持つアビリティを探し出してアクティブ化を行います。
+	* `ULyraHeroComponent::Input_AbilityInputTagPressed()`
+	* `ULyraHeroComponent::Input_AbilityInputTagReleased()` 
 * アビリティの付与方法についての解説はこのドキュメントでは割愛します。
 
 
@@ -593,15 +593,15 @@ class ULyraHeroComponent : public ULyraPawnComponent
 
 * アビリティを付与する方法は３種類。
 	* [ULyraPawnData] の [ULyraAbilitySet] の配列 の設定することで、 [ULyraPawnData] からポーンを構築する際に付与する。
-		* [ALyraPlayerState]```::SetPawnData()``` 内で [ULyraAbilitySet]```::GiveToAbilitySystem()``` を呼び出している。
+		* [ALyraPlayerState]`::SetPawnData()` 内で [ULyraAbilitySet]`::GiveToAbilitySystem()` を呼び出している。
 	* [ULyraEquipmentDefinition] の [ULyraAbilitySet] の配列 の設定することで、 [ULyraEquipmentDefinition] に関連付けられた武器を装備した際に付与する。
-		* [FLyraEquipmentList]```::AddEntry()``` 内で [ULyraAbilitySet]```::GiveToAbilitySystem()``` を呼び出している。
+		* [FLyraEquipmentList]`::AddEntry()` 内で [ULyraAbilitySet]`::GiveToAbilitySystem()` を呼び出している。
 	* [UGameFeatureData] の [UGameFeatureAction] の配列を設定することで、 Game Feature がアクティブになった際に付与する。
-		* [UGameFeatureAction_AddAbilities]```::AddActorAbilities()``` 内で [ULyraAbilitySet]```::GiveToAbilitySystem()``` を呼び出している。
+		* [UGameFeatureAction_AddAbilities]`::AddActorAbilities()` 内で [ULyraAbilitySet]`::GiveToAbilitySystem()` を呼び出している。
 
-* [ULyraAbilitySet]```::GiveToAbilitySystem()``` で ```UAbilitySystemComponent::GiveAbility()``` を呼び出すことで行う。
-* ```FGameplayAbilitySpec``` を構築時、 ```FGameplayAbilitySpec::DynamicAbilityTags``` に ```FLyraAbilitySet_GameplayAbility::InputTag``` を ```AddTag()``` している。
-	* そうすることで、入力アクションの際には ```InputTag``` が渡されるので、自身に付与されている Gameplay Ability の配列の内で ```DynamicAbilityTags.HasTagExact(InputTag)``` が true を返す物を探すことで関連付けている。
+* [ULyraAbilitySet]`::GiveToAbilitySystem()` で `UAbilitySystemComponent::GiveAbility()` を呼び出すことで行う。
+* `FGameplayAbilitySpec` を構築時、 `FGameplayAbilitySpec::DynamicAbilityTags` に `FLyraAbilitySet_GameplayAbility::InputTag` を `AddTag()` している。
+	* そうすることで、入力アクションの際には `InputTag` が渡されるので、自身に付与されている Gameplay Ability の配列の内で `DynamicAbilityTags.HasTagExact(InputTag)` が true を返す物を探すことで関連付けている。
 
 TODO: 見直してまとめる。
 TODO:2022/5/6 このへんから

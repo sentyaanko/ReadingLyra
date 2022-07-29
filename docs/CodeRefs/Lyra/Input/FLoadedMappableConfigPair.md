@@ -6,7 +6,7 @@
 > 読み込まれたプレーヤーにマップ可能な設定を、CommonUI入力タイプに整理するためのコンテナです。
 
 * ロード済みの入力マッピング情報を保持します。
-* ```Config``` に [UPlayerMappableInputConfig] を保持しています。
+* `Config` に [UPlayerMappableInputConfig] を保持しています。
 
 <!--- ページ内のリンク --->
 

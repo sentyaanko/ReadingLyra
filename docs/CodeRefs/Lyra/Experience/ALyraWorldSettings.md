@@ -7,7 +7,7 @@
 
 * 概要
 	* マップにエクスペリエンスを設定できるように `AWorldSettings` を拡張したクラス。
-	* `Project Settings > Engine - General Settings > Default Classes > World Settings Class` でこのクラスを指定しています。
+	* *Project Settings > Engine - General Settings > Default Classes > World Settings Class* でこのクラスを指定しています。
 
 
 

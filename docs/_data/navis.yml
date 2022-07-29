@@ -119,6 +119,7 @@ nav:
       - Input:
         - FLoadedMappableConfigPair: ./CodeRefs/Lyra/Input/FLoadedMappableConfigPair
         - FLyraInputAction: ./CodeRefs/Lyra/Input/FLyraInputAction
+        - ULyraInputComboComponent: ./CodeRefs/Lyra/Input/ULyraInputComboComponent
         - ULyraInputComponent: ./CodeRefs/Lyra/Input/ULyraInputComponent
         - ULyraInputConfig: ./CodeRefs/Lyra/Input/ULyraInputConfig
       - Inventory:

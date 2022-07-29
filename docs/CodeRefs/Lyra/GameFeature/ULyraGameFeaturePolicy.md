@@ -14,7 +14,7 @@
 	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録している。
 		* [ULyraGameFeature_HotfixManager]
 		* [ULyraGameFeature_AddGameplayCuePaths]
-	* `Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` で指定している。
+	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* で指定している。
 
 
 

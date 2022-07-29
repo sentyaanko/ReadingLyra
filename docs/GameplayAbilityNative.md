@@ -160,9 +160,9 @@ Lyra では、 GAS の制御をコンポーネントを利用して行ってい�
 	* GAS の制御は、 [ULyraPawnExtensionComponent] と [ULyraHeroComponent] が連携して動いています。
 * Lyra で実装しているクラス
 	* [ILyraReadyInterface]
-		* コンポーネントの準備状態を判定するための関数を定義したインターフェイス。
+		* コンポーネントの準備状態を判定するための関数を定義した基底クラス。
 	* [ULyraPawnComponent]
-		* [ILyraReadyInterface] のインターフェイスを持つ、ポーン用のコンポーネント基底クラス。
+		* [ILyraReadyInterface] の基底クラスを持つ、ポーン用のコンポーネント基底クラス。
 	* [ULyraPawnExtensionComponent]
 		* ASC の初期化と、他のコンポーネントの初期化状態を管理するコンポーネント。
 	* [ULyraHeroComponent]

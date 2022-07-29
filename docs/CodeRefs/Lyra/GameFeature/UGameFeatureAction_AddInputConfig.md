@@ -7,7 +7,7 @@
 > ----
 
 * Game Feature がアクティブになった際に付与する入力マッピング情報を保持する。
-* ```InputConfigs``` に [FMappableConfigPair] の配列を保持しています。
+* `InputConfigs` に [FMappableConfigPair] の配列を保持しています。
 
 
 * Lyra での使い方

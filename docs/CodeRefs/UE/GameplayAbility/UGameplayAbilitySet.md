@@ -1,6 +1,6 @@
 ## UGameplayAbilitySet
 
-[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameplayAbilities > FGameplayAbilitySpec](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameplayAbilities/UGameplayAbilitySet/)
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Plugins > GameplayAbilities > UGameplayAbilitySet](https://docs.unrealengine.com/5.0/en-US/API/Plugins/GameplayAbilities/UGameplayAbilitySet/)
 
 > This is an example input binding enum for GameplayAbilities. 
 > Your project may want to create its own.
@@ -19,10 +19,10 @@
 > 例："Ability1 "はAbilitySystemComponent::ActivateAbility(1)に束縛されるコマンド文字列です。
 > メタデータは、プロジェクトの DefaultInput.ini で、デフォルトで LMB に "Ability1" をバインドしていることを示唆しているにすぎません*。
 
-
-* ドキュメントでは使用しているように書いていますが、特に使っていないように思われます。
-	* そもそも、 UGameplayAbilitySet 自体、サンプルのようなもので、汎用的に使える仕組みではないように思われます。
-	* 代わりに、 ULyraAbilitySet を使用しているように思われます。
+* 概要
+	* ドキュメントでは使用しているように書いていますが、特に使っていないように思われます。
+		* そもそも、 UGameplayAbilitySet 自体、サンプルのようなもので、汎用的に使える仕組みではないように思われます。
+		* 代わりに、 [ULyraAbilitySet] を使用しているように思われます。
 
 
 <!--- ページ内のリンク --->
@@ -30,4 +30,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset

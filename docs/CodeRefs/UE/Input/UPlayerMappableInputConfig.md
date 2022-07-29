@@ -20,21 +20,22 @@
 
 * 概要
 	* [UInputMappingContext] を保持する、
+* Lyra での使われ方
 	* 操作方法単位で用意している。
-	* 命名規則は ```PMI_``` で始まる。
-
-| アセット名                       | 用途                                               |
-|----------------------------------|----------------------------------------------------|
-| PMI_Default_Gamepad              | デフォルトのゲームパッド設定                       |
-| PMI_Default_KBM                  | デフォルトのキーボードマウス設定                   |
-| PMI_ShooterDefaultConfig_Gamepad | シューターゲームのデフォルトのゲームパッド設定     |
-| PMI_ShooterDefaultConfig_KBM     | シューターゲームのデフォルトのキーボードマウス設定 |
+	* 命名規則は `PMI_` で始まる。
+	* アセット一覧と用途
+		| アセット名                       | 用途                                               |
+		|----------------------------------|----------------------------------------------------|
+		| PMI_Default_Gamepad              | デフォルトのゲームパッド設定                       |
+		| PMI_Default_KBM                  | デフォルトのキーボードマウス設定                   |
+		| PMI_ShooterDefaultConfig_Gamepad | シューターゲームのデフォルトのゲームパッド設定     |
+		| PMI_ShooterDefaultConfig_KBM     | シューターゲームのデフォルトのキーボードマウス設定 |
 
 ## UPlayerMappableInputConfig::Contexts
 
 * 概要
 	* [UInputMappingContext] と Priority の連想配列で、 EnhancedInput に登録する際などに利用される。
-	* Priority は `IEnhancedInputSubsystemInterface::RebuildControlMappings()` にて参照され、値が大きいほど優先的に登録される。
+	* Priority は [IEnhancedInputSubsystemInterface::RebuildControlMappings()] にて参照され、値が大きいほど優先的に登録される。
 	* 登録の際、指定された `Key` ([UInputMappingContext::Mappings] の [FEnhancedActionKeyMapping::Key]) が既に使われている場合は登録が行われない。
 	* 以下は ADS の際のカメラ操作がどの様に優先されるのかの大まかな流れ。
 		* `PMI_ShooterDefaultConfig_Gamepad` ([UPlayerMappableInputConfig]) では `IMC_ShooterGame_Gamepad` ([UInputMappingContext]) が Priority 10 で設定している。
@@ -52,6 +53,7 @@
 
 <!--- generated --->
 [FEnhancedActionKeyMapping::Key]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingkey
+[IEnhancedInputSubsystemInterface::RebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerebuildcontrolmappings
 [UInputAction]: ../../UE/Input/UInputAction.md#uinputaction
 [UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext
 [UInputMappingContext::Mappings]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontextmappings

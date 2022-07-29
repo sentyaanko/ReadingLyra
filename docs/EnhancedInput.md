@@ -58,20 +58,20 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* `EnhancedPlayerInput` （もしくはその派生クラス）に変更する
 	* *Project Settings > Engine - Input > Default Classes > Default Input Component Class*
 		* `EnhancedInputComponent` （もしくはその派生クラス）に変更する
-1. `UInputAction` データアセットを用意する。
+1. [UInputAction] データアセットを用意する。
 	* 例：移動用、ジャンプ用等
-1. `UInputMappingContext` データアセットを用意する。
+1. [UInputMappingContext] データアセットを用意する。
    * 例：デフォルトのキーボードマウス用、シューターゲームのパッド用
-1. `UInputMappingContext` をローカルプレイヤーに追加する。
+1. [UInputMappingContext] をローカルプレイヤーに追加する。
    * C++:
 	   * `LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()->AddMappingContext(inputMappingContext,priority)`
    * ブループリント:
-	   * `GetLocalController->EnhancedInputLocalPlayerSubsystem->AddMappingContext` に `UInputMappingContext` を渡す
-1. `UInputAction` に関数をバインドする。
+	   * `GetLocalController->EnhancedInputLocalPlayerSubsystem->AddMappingContext` に [UInputMappingContext] を渡す
+1. [UInputAction] に関数をバインドする。
    * C++:
 	   * `PlayerEnhancedInputComponent->BindAction(inputAction, ETriggerEvent::Started, this, &AMyPawn::MyInputHandlerFunction)`
    * ブループリント:
-	   * 作成した `UInputAction` に対応したイベントノードが使用できるようになっているので、任意の処理につなげる
+	   * 作成した [UInputAction] に対応したイベントノードが使用できるようになっているので、任意の処理につなげる
 	   * ただし、これを使うとハード参照が作られる。モジュール式に行うなら別の方法を取る必要がある。
 
 ## Enhanced Input の参考リンク
@@ -97,45 +97,45 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * [Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]
 	* 4.26 時点での解説ですが殆ど変わっていないはずです。こちらを見れば基本的な使い方はだいたい分かると思います。
 * [historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]
-	* 独自の `UInputTrigger`　派生クラスを自作する解説です。
+	* 独自の [UInputTrigger]　派生クラスを自作する解説です。
 
 ## Enhanced Input のコアクラス
 
-| クラス名                                 | 役割                                                                                |
-|------------------------------------------|-------------------------------------------------------------------------------------|
-| `UInputAction`                       | 入力を行った時に発生しうるアクションの種類を定義するデータアセット。                    |
-| `UInputMappingContext`               | `UInputAction` に対して物理的な入力のマッピングをまとめて定義するためのデータアセット。 |
-| `UInputTrigger`                      | `UInputAction::Triggers` で指定する、入力がなされたかを判定するためのクラス。           |
-| `UInputModifier`                     | `UInputAction::Modifiers` で指定する、 Trigger に渡す前に入力値を加工するためのクラス。 |
-| `UEnhancedInputComponent`            | Enhanced Input 用の `UInputComponent` 派生クラス。                                      |
-| `UEnhancedPlayerInput`               | Enhanced Input 用の `UPlayerInput` 派生クラス。                                         |
-| `UEnhancedInputLocalPlayerSubsystem` | `ULocalPlayer` が所持する Subsystem 。                                                  |
+| クラス名                             | 役割                                                                                    |
+|--------------------------------------|-----------------------------------------------------------------------------------------|
+| [UInputAction]                       | 入力を行った時に発生しうるアクションの種類を定義するデータアセット。                    |
+| [UInputMappingContext]               | [UInputAction] に対して物理的な入力のマッピングをまとめて定義するためのデータアセット。 |
+| [UInputTrigger]                      | [UInputAction::Triggers] で指定する、入力がなされたかを判定するためのクラス。           |
+| [UInputModifier]                     | [UInputAction::Modifiers] で指定する、 Trigger に渡す前に入力値を加工するためのクラス。 |
+| [UEnhancedInputComponent]            | Enhanced Input 用の `UInputComponent` 派生クラス。                                      |
+| [UEnhancedPlayerInput]               | Enhanced Input 用の `UPlayerInput` 派生クラス。                                         |
+| [UEnhancedInputLocalPlayerSubsystem] | `ULocalPlayer` が所持する Subsystem 。                                                  |
 
 * 詳しくは [Unreal Engine 5.0 Documentation > Enhanced Input プラグイン] 参照。
-* `UInputAction` / `UInputMappingContext` / `UInputTrigger` / `UInputModifier` について
+* [UInputAction] / [UInputMappingContext] / [UInputTrigger] / [UInputModifier] について
 	* 入力に関する定義を行うデータアセット/クラス。
-	* `UInputAction` と `UInputMappingContext` は別々に登録します。
-		* `UInputAction`
-			* 入力アクションが発生した際に呼び出す関数を `UEnhancedInputComponent::BindAction()` 等でバインドします。
+	* [UInputAction] と [UInputMappingContext] は別々に登録します。
+		* [UInputAction]
+			* 入力アクションが発生した際に呼び出す関数を [UEnhancedInputComponent::BindAction()] 等でバインドします。
 			* つまり、１つの入力アクションに対して、１つの関数をバインドする、ということであり、これにより入力アクションに対応する動作を実装することができます。
-		* `UInputMappingContext`
-			* 物理的な入力が発生した際に入力アクションが発生するように `UEnhancedInputLocalPlayerSubsystem::AddMappingContext()` 等で追加します。
+		* [UInputMappingContext]
+			* 物理的な入力が発生した際に入力アクションが発生するように [IEnhancedInputSubsystemInterface::AddMappingContext()] 等で追加します。
 		* つまり、物理的な入力に対して直接関数をバインドせず、入力アクションを経由して目的の動作に処理を流しているということです。
 	* 別々というのはどういうことか？
-		* `UInputAction` が登録済み、 `UInputMappingContext` が未登録の場合
-			* 物理的な入力に `UInputMappingContext` が追加されていないため、 `UInputAction` が発生しない。
+		* [UInputAction] が登録済み、 [UInputMappingContext] が未登録の場合
+			* 物理的な入力に [UInputMappingContext] が追加されていないため、 [UInputAction] が発生しない。
 			* 結果、バインドされた関数が呼び出されない状態となる。
-		* `UInputAction` が未登録、 `UInputMappingContext` が登録済みの場合
-			* 物理的な入力に `UInputMappingContext` が追加されているため、 `UInputAction` が発生する。
-			* だが、 `UInputAction` に対して何もバインドされていないため何も起きない状態となる。
-* `UEnhancedInputComponent` / `UEnhancedPlayerInput` / `UEnhancedInputLocalPlayerSubsystem` について
+		* [UInputAction] が未登録、 [UInputMappingContext] が登録済みの場合
+			* 物理的な入力に [UInputMappingContext] が追加されているため、 [UInputAction] が発生する。
+			* だが、 [UInputAction] に対して何もバインドされていないため何も起きない状態となる。
+* [UEnhancedInputComponent] / [UEnhancedPlayerInput] / [UEnhancedInputLocalPlayerSubsystem] について
 	* 入力制御を行うクラス。
 	* 利用する場合は *Project Settings* の設定を変更する
 		* *Project Settings > Engine - Input > Default Classes > Default Player Input Class*
-			* `UEnhancedPlayerInput` 派生クラスにする。
+			* [UEnhancedPlayerInput] 派生クラスにする。
 			* PlayerController が所持する PlayerInput クラスはここで指定されたクラスになる。
 		* *Project Settings > Engine - Input > Default Classes > Default Input Component Class*
-			* `UEnhancedInputComponent` 派生クラスにする。
+			* [UEnhancedInputComponent] 派生クラスにする。
 			* Actor が所持する InputComponent クラスはここで指定されたクラスになる。
 
 Enhanced Input についての大まかな説明は以上です。
@@ -215,8 +215,8 @@ Lyra についての大まかな説明は以上です。
 
 | 項目                                                                                    | 値                     | 補足                  | 
 |-----------------------------------------------------------------------------------------|------------------------|-----------------------|
-| *Project Settings > Engine - Input > Default Classes > Default Player Input Class*      | `UEnhancedPlayerInput` | Enhanced Input 用     |
-| *Project Settings > Engine - Input > Default Classes > Default Input Component Class*   | `ULyraInputComponent`  | Enhanced Input 用     |
+| *Project Settings > Engine - Input > Default Classes > Default Player Input Class*      | [UEnhancedPlayerInput] | Enhanced Input 用     |
+| *Project Settings > Engine - Input > Default Classes > Default Input Component Class*   | [ULyraInputComponent]  | Enhanced Input 用     |
 | *Project Settings > Engine - General Settings > Default Classes > World Settings Class* | `ULyraWorldSettings`   | Game Feature の指定用 |
 
 
@@ -226,15 +226,15 @@ Lyra についての大まかな説明は以上です。
 ![ContentBrowser-Type=DInputAction]
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
-	* `UInputMappingContext`
-		* `UInputAction` に対して物理的な入力を指定しています。
-	* `ULyraInputConfig`
-		* `UInputAction` と対になる GameplayTag を設定し、 C++ でバインドの際に利用しています。詳しくは後述します。
+	* [UInputMappingContext]
+		* [UInputAction] に対して物理的な入力を指定しています。
+	* [ULyraInputConfig]
+		* [UInputAction] と対になる GameplayTag を設定し、 C++ でバインドの際に利用しています。詳しくは後述します。
 	* `UUserWidget` 及びその派生クラス（例： `ULyraJoystickWidget` 等）
-		* Widget の操作（ボタンを押す等）から発生させる `UInputAction` を指定するのに利用しています。
+		* Widget の操作（ボタンを押す等）から発生させる [UInputAction] を指定するのに利用しています。
 		* 解説は割愛します。
 	* Character クラスの入力イベント（例： `B_HeroShooter_Mannequin` 等）
-		* ブループリント内で Enhanced Action Events(EnhancedInputAction ノード) を実装することで `UInputAction` へのバインドを行っています。
+		* ブループリント内で Enhanced Action Events(EnhancedInputAction ノード) を実装することで [UInputAction] へのバインドを行っています。
 		* 解説は割愛します。
 
 
@@ -245,9 +245,9 @@ Lyra についての大まかな説明は以上です。
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `UPlayerMappableInputConfig`
-		* プレイヤーに追加する `UInputMappingContext` を指定しています。詳しくは後述します。
+		* プレイヤーに追加する [UInputMappingContext] を指定しています。詳しくは後述します。
 	* `ULyraExperienceActionSet`
-		* エクスペリエンスに紐づく入力マッピング追加のパラメータとして `UInputMappingContext` を指定しています。詳しくは後述します。
+		* エクスペリエンスに紐づく入力マッピング追加のパラメータとして [UInputMappingContext] を指定しています。詳しくは後述します。
 	* Gameplay Ability
 		* `GA_ADS` 内で ADS 用の操作 `IMC_ADS_Speed` を一時的にマッピングするのに利用しています。
 		* 解説は割愛します。
@@ -255,7 +255,7 @@ Lyra についての大まかな説明は以上です。
 図にすると以下のような状況です。  
 ![UInputMappingContext-Referencing]
 
-また、それぞれ以下の `UInputAction` を参照しています。
+また、それぞれ以下の [UInputAction] を参照しています。
 
 | UInputAction               | IMC_Default_<br>Gamepad |<br>KBM | IMC_ShooterGame_<br>Gamepad |<br>KBM | IMC_InventoryTest | IMC_ADS_Speed |
 |----------------------------|-------------------------|--------|-----------------------------|--------|-------------------|---------------|
@@ -287,7 +287,7 @@ Lyra についての大まかな説明は以上です。
 
 ## Lyra における入力マッピング追加方法
 
-入力マッピングの追加には `UInputMappingContext` が必要です。  
+入力マッピングの追加には [UInputMappingContext] が必要です。  
 前述のとおり、 `UPlayerMappableInputConfig` / `ULyraExperienceActionSet` などが保持しており、この2つがどのように利用されているかを解説します。
 
 
@@ -329,7 +329,7 @@ Lyra についての大まかな説明は以上です。
 	1. エクスペリエンス `B_LyraDefaultExperience` を適用する。
 	1. プレイヤー用のポーンとして `B_SimpleHeroPawn` が使用される。
 	1. ポーンの初期化の際、 `PMI_Default_Gamepad` / `PMI_Default_KBM` が適用される。
-	1. その結果、上記で指定されている `IMC_Default_Gamepad` / `IMC_Default_KBM` （ `UInputMappingContext` ）が追加される。
+	1. その結果、上記で指定されている `IMC_Default_Gamepad` / `IMC_Default_KBM` （ [UInputMappingContext] ）が追加される。
 
 
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合
@@ -391,7 +391,7 @@ Lyra についての大まかな説明は以上です。
 		* `PMI_Default_Gamepad`
 		* `PMI_ShooterDefaultConfig_KBM`
 		* `PMI_ShooterDefaultConfig_Gamepad`
-	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の `UInputMappingContext` が追加される。
+	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_Default_KBM`
 		* `IMC_Default_Gamepad`
 		* `IMC_ShooterGame_KBM`
@@ -422,7 +422,7 @@ Lyra についての大まかな説明は以上です。
 	1. Game Feature `TopDownArena` で指定された以下の `UPlayerMappableInputConfig` が適用される
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
-	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の `UInputMappingContext` が追加される。
+	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_Default_KBM`
 		* `IMC_Default_Gamepad`
 
@@ -444,7 +444,7 @@ Lyra についての大まかな説明は以上です。
 	1. レベルで指定された以下のエクスペリエンスを適用する。
 		* `B_TestInventoryExperience`
 	1. エクスペリエンスで指定された `LAS_InventoryTest` （ `ULyraExperienceActionSet` ） のロードとアクティブ化が実行される。
-	1. `LAS_InventoryTest` （ `ULyraExperienceActionSet` ） で指定された以下の `UInputMappingContext` が追加される。
+	1. `LAS_InventoryTest` （ `ULyraExperienceActionSet` ） で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_InventoryTest`
 
 
@@ -463,7 +463,7 @@ Lyra についての大まかな説明は以上です。
 		* `B_ShooterGame_Elimination`
 		* `B_TestInventoryExperience`
 	1. エクスペリエンスで指定された `LAS_ShooterGame_SharedInput` （ `ULyraExperienceActionSet`） のロードとアクティブ化が実行される。
-	1. `LAS_ShooterGame_SharedInput` （ `ULyraExperienceActionSet` ） で指定された以下の `UInputMappingContext` が追加される。
+	1. `LAS_ShooterGame_SharedInput` （ `ULyraExperienceActionSet` ） で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_ShooterGame_KBM`
 
 > note:  
@@ -482,7 +482,7 @@ Lyra についての大まかな説明は以上です。
 * ここでは C++ で行っているバインドについて述べます。
 	* `B_HeroShooter_Mannequin` 等の Enhanced Action Events(EnhancedInputAction ノード) についての解説は割愛します。
 * C++ でバインドを行う場合、以下の関数を使用します。
-	*  `UEnhancedInputComponent::BindAction()`
+	*  [UEnhancedInputComponent::BindAction()]
 * 上記の関数は以下の関数から呼び出していることが確認できます。
 	* `ULyraInputComponent::BindNativeAction()`
 	* `ULyraInputComponent::BindAbilityActions()`
@@ -490,12 +490,12 @@ Lyra についての大まかな説明は以上です。
 	* `ULyraHeroComponent::InitializePlayerInput()`
 		* ポーンの初期化の際に呼び出される関数です。
 		* 関数の実装を更に読み解いていくと以下のことがわかります。
-			* バインドに使用している `UInputAction` は以下で指定している。
+			* バインドに使用している [UInputAction] は以下で指定している。
 				*  `FLyraInputAction:::InputAction`
 			* `FLyraInputAction` は以下のいずれかで指定している。
 				* `ULyraInputConfig::NativeInputActions`
 				* `ULyraInputConfig::AbilityInputActions`
-			* `ULyraInputConfig` は以下で指定している。
+			* [ULyraInputConfig] は以下で指定している。
 				* `ULyraPawnData::InputConfig`
 			* `ULyraPawnData` は以下で指定している。
 				* `ULyraExperienceDefinition::DefaultPawnData`
@@ -505,7 +505,7 @@ Lyra についての大まかな説明は以上です。
 	* `ULyraHeroComponent::AddAdditionalInputConfig()`
 		* Game Feature によるバインドの追加の際に呼び出される関数です。
 		* 関数の実装を更に読み解いていくと以下のことがわかります。
-			* バインドに使用している `UInputAction` は以下で指定している。
+			* バインドに使用している [UInputAction] は以下で指定している。
 				*  `FLyraInputAction:::InputAction`
 			* `FLyraInputAction` は以下で指定している。
 				*  `UGameFeatureAction_AddInputBinding:::InputConfigs`
@@ -517,13 +517,13 @@ Lyra についての大まかな説明は以上です。
 				* `World Settings > Game Mode > Default Gameplay Experience`
 		* こちらのケースも前述のものと同じように、レベルの初期化が起点となっています。
 
-`Reference Viewer` で `UInputAction` の依存関係を追うと以下のようになります。  
+`Reference Viewer` で [UInputAction] の依存関係を追うと以下のようになります。  
 ![ULyraInputConfig-Referenced]
 
-`Reference Viewer` で `ULyraPawnData` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
+`Reference Viewer` で `ULyraPawnData` 経由の [UInputAction] の依存関係を追うと以下のようになります。  
 ![ULyraInputConfig-Referencing_PawnData]
 
-`Reference Viewer` で `ULyraExperienceActionSet` 経由の `UInputAction` の依存関係を追うと以下のようになります。  
+`Reference Viewer` で `ULyraExperienceActionSet` 経由の [UInputAction] の依存関係を追うと以下のようになります。  
 ![ULyraInputConfig-Referencing_ActionSet]
 
 これらの依存関係を見ていくと、どのレベルでどの入力アクションがバインドされているのかがわかります。
@@ -560,9 +560,9 @@ Lyra についての大まかな説明は以上です。
 	* あった場合はペアとなる入力アクションに第五引数で渡された関数をバインドします。
 	* ない場合はバインドしません。
 * つまり、固定の処理を行う関数に直接バインドされています。
-* 具体的に行う内容はは各関数をご参照ください。
+* 具体的に行う内容は各関数をご参照ください。
 
-前述の `UInputAction` の依存関係の例でいうと以下のようになります。
+前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 
 * 例：`TopDownArena` をプレイしようとする場合
 	* ポーンの情報として `InputData_Arena` が使用される。
@@ -596,7 +596,7 @@ Lyra についての大まかな説明は以上です。
 	* Gameplay Ability についての解説はこのドキュメントでは割愛します。
 	* （付与方法、 InputTag から Gameplay Ability の特定方法等々の解説が必要となり、さらにドキュメントが長くなってしまう為。）
 
-前述の `UInputAction` の依存関係の例でいうと以下のようになります。
+前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 
 * 例：`TopDownArena` をプレイしようとする場合
 	* ポーンの情報として `InputData_Arena` が使用される。
@@ -649,6 +649,19 @@ Lyra についての大まかな説明は以上です。
 [ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
 <!--- generated --->
+[ULyraInputComponent]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
+[ULyraInputConfig]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
+[IEnhancedInputSubsystemInterface::AddMappingContext()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddmappingcontext
+[UEnhancedInputComponent]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
+[UEnhancedInputComponent::BindAction()]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponentbindaction
+[UEnhancedInputLocalPlayerSubsystem]: CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem
+[UEnhancedPlayerInput]: CodeRefs/UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinput
+[UInputAction]: CodeRefs/UE/Input/UInputAction.md#uinputaction
+[UInputAction::Triggers]: CodeRefs/UE/Input/UInputAction.md#uinputactiontriggers
+[UInputAction::Modifiers]: CodeRefs/UE/Input/UInputAction.md#uinputactionmodifiers
+[UInputMappingContext]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontext
+[UInputModifier]: CodeRefs/UE/Input/UInputModifier.md#uinputmodifier
+[UInputTrigger]: CodeRefs/UE/Input/UInputTrigger.md#uinputtrigger
 [historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
 [Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
 [Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000

@@ -72,7 +72,7 @@ Lyra では以下の機能を使っています。
 * [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p54]
 	* Game Features & Modular Gameplay という題で説明があります。
 	* 時間が経っている（2022/04/11 現在）ので、ドクセル内のプレゼン資料から公式ドキュメントへのリンクは無くなっているものが多いので注意です。
-		* ```https://docs.unrealengine.com/5.0/ja/GameplayFeatures/``` 以下はまるごと無いですし、「Game Features」等でドキュメントを検索してもほとんどデッドリンクです。
+		* `https://docs.unrealengine.com/5.0/ja/GameplayFeatures/` 以下はまるごと無いですし、「Game Features」等でドキュメントを検索してもほとんどデッドリンクです。
 * [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Modular Gameplay を作成する]
 	* 古代の谷のドキュメント内での説明。
 

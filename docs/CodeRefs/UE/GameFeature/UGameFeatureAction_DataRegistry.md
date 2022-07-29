@@ -9,13 +9,12 @@
 
 * 概要
 	* データ レジストリにデータを追加するアクションを定義している。
-		* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ] を参照。
+* 既存のドキュメント
+	* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
 * Lyra での使われ方
 	| Asset                                 | RegistriesToAdd                                          |
 	| ------------------------------------- | ---------------------------------------------------------|
 	| `ShooterCore`<br>([UGameFeatureData]) | `AccoladeDataRegistry`<br>([FLyraAccoladeDefinitionRow]) |
-
-
 
 
 <!--- ページ内のリンク --->

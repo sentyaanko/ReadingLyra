@@ -58,7 +58,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * C++ で定義されているものと ini ファイルで定義されているものがあります。
 	* `LyraGameplayTags.cpp`
 		* `UGameplayTagsManager::AddNativeGameplayTag()` を呼び出すことで定義している。
-		* ここで定義しているものは `Project Settings > Gameplay Tags > Gameplay Tag List` で表示される。が、削除できない。
+		* ここで定義しているものは *Project Settings > Gameplay Tags > Gameplay Tag List* で表示される。が、削除できない。
 		* これを利用して定義するのに適しているのは以下のようなもの。
 			* Native に InputAction にバインドするもの。（ C++ 内で GameplayTag が確定している必要がある為。）
 			* 言い方を変えると、 Gameplay Ability とは関連付けないもの。

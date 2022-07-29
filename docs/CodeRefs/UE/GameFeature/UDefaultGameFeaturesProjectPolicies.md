@@ -12,11 +12,11 @@
 > 
 > Project Settings ... Game Features でプロジェクト固有のポリシーが設定されていない場合に使用されます。 
 
-
 * 概要
+	* [UGameFeaturesProjectPolicies] の派生クラス。
 	* GameFeature のロード時などの挙動のデフォルト実装を定義している。
 * Lyra での使われ方
-	* [ULyraGameFeaturePolicy] の基底クラスとして利用。
+	* [ULyraGameFeaturePolicy] の基底クラス。
 
 
 <!--- ページ内のリンク --->
@@ -25,3 +25,4 @@
 
 <!--- generated --->
 [ULyraGameFeaturePolicy]: ../../Lyra/GameFeature/ULyraGameFeaturePolicy.md#ulyragamefeaturepolicy
+[UGameFeaturesProjectPolicies]: ../../UE/GameFeature/UGameFeaturesProjectPolicies.md#ugamefeaturesprojectpolicies

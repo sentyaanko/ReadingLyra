@@ -1,6 +1,6 @@
 ## FLyraInputAction
 
-* [UInputAction] と ```InputTag``` (```FGameplayTag```) のペアを持ちます。
+* [UInputAction] と `InputTag` (`FGameplayTag`) のペアを持ちます。
 * [ULyraInputConfig] のメンバ用の構造体であり、実体は [ULyraInputConfig] のデータアセットで定義する。
 
 <!--- ページ内のリンク --->

@@ -45,10 +45,10 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 		* **古代の谷** での解説ですが、 GameFeature に関する大まかな説明があります。
 * 概要
 	* アセットを非同期で読むための仕組みです。
-	* `Project Settings > Game - Asset Manager` にて設定を行います。
+	* *Project Settings > Game - Asset Manager* にて設定を行います。
 * GameFeature との関係
 	* アセットのロードで使用されます。
-	* [UGameFeatureData::PrimaryAssetTypesToScan] にて `Project Settings > Game - Asset Manager` と同様の設定を行います。
+	* [UGameFeatureData::PrimaryAssetTypesToScan] にて *Project Settings > Game - Asset Manager* と同様の設定を行います。
 
 ## GameFeature に関して
 
@@ -70,7 +70,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 	* [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p54]
 		* Game Features & Modular Gameplay という題で説明があります。
 		* 時間が経っている(2022/04/11 現在)ので、ドクセル内のプレゼン資料から公式ドキュメントへのリンクは無くなっているものが多いので注意です。
-			* ```https://docs.unrealengine.com/5.0/ja/GameplayFeatures/``` 以下はまるごと無いですし、「Game Features」等でドキュメントを検索してもほとんどデッドリンクです。
+			* `https://docs.unrealengine.com/5.0/ja/GameplayFeatures/` 以下はまるごと無いですし、「Game Features」等でドキュメントを検索してもほとんどデッドリンクです。
 	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > 「古代の谷」サンプル > Modular Gameplay を作成する]
 		* 古代の谷のドキュメント内での説明。
 * 概要
@@ -78,14 +78,14 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 * UE で用意されているクラス
 	| Class                                 | 概要                                                                                                                                                                                                                        | Lyra                                                                                                                  |
 	| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-	| [IGameFeatureStateChangeObserver]     | GameFeature 切り替えなどの際の処理をオーバーライドするためのインターフェイス                                                                                                                                                |                                                                                                                       |
-	| [UGameFeaturesProjectPolicies]        | GameFeature 挙動を定義するための基底クラス。<br>`Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` でこの派生クラスを指定する。                                                | [ULyraGameFeaturePolicy] を指定している。                                                                             |
+	| [IGameFeatureStateChangeObserver]     | GameFeature 切り替えなどの際の処理をオーバーライドするための基底クラス。                                                                                                                                                    |                                                                                                                       |
+	| [UGameFeaturesProjectPolicies]        | GameFeature 挙動を定義するための基底クラス。<br>*Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* でこの派生クラスを指定する。                                                | [ULyraGameFeaturePolicy] を指定している。                                                                             |
 	| [UDefaultGameFeaturesProjectPolicies] | [UGameFeaturesProjectPolicies] 派生クラス。<br>GameFeature のロード時等の挙動のデフォルト実装を定義している。                                                                                                               |                                                                                                                       |
 	| [UGameFeatureAction]                  | GameFeature のアクティブ時等に実行されるアクションを定義するための基底クラス。                                                                                                                                              |                                                                                                                       |
 	| [UGameFeatureAction_DataRegistry]     | [UGameFeatureAction] 派生クラス。<br>データ レジストリにデータを追加するアクションを定義している。                                                                                                                          |                                                                                                                       |
 	| [UGameFeatureAction_AddComponents]    | [UGameFeatureAction] 派生クラス。<br>任意の対象にコンポーネントを追加するアクションを定義している。                                                                                                                         |                                                                                                                       |
 	| [UGameFeatureData]                    | GameFeature に関する設定。<br>[UGameFeatureAction] の配列などを保持する。                                                                                                                                                   | * `ShooterCore` ([UGameFeatureData])<br>* `TopDownArena` ([UGameFeatureData])<br>* `ShooterMaps` ([UGameFeatureData]) |
-	| [UGameFeaturesSubsystem]              | GameFeature を管理するクラス。<br>[UGameFeatureData] を元に [UGameFeatureAction] の関数を呼び出す。<br>`Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class` に基づいて動作する。 |                                                                                                                       |
+	| [UGameFeaturesSubsystem]              | GameFeature を管理するクラス。<br>[UGameFeatureData] を元に [UGameFeatureAction] の関数を呼び出す。<br>*Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* に基づいて動作する。 |                                                                                                                       |
 * Lyra で実装しているクラス
 	| Class                                       | 概要                                                                                                                                                                               |
 	| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -182,7 +182,7 @@ Lyra ではエクスペリエンスという独自の単位で GameFeature の�
 	* [ULyraGameFeaturePolicy]
 		* GameFeature のロード時などの挙動を扱う。
 			* HotFix に関する処理と、 GameplayCue のパスに関する処理を行うクラスをオブザーバとして登録・解除している。
-		* `Project Settings` で指定されている。
+		* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* でこのクラスを指定している。
 		* [UGameFeaturesSubsystem] の機能を利用している。
 
 

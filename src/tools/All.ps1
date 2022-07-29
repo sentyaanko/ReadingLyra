@@ -1,5 +1,6 @@
 ﻿Push-Location "$PSScriptRoot"
 .\CreateHeadingIDsToExternal.ps1
+.\CreateHeadingIDsToCodeRefs.ps1
 .\UpdateMdHeadingIDs.ps1
 .\UpdateIndexMd.ps1
 .\UpdateNavisYml.ps1

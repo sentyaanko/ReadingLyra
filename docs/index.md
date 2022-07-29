@@ -119,6 +119,7 @@
 		- Input
 			- [FLoadedMappableConfigPair]
 			- [FLyraInputAction]
+			- [ULyraInputComboComponent]
 			- [ULyraInputComponent]
 			- [ULyraInputConfig]
 		- Inventory
@@ -282,6 +283,7 @@
 [ULyraHotfixManager]: ./CodeRefs/Lyra/HotfixManager/ULyraHotfixManager.md
 [FLoadedMappableConfigPair]: ./CodeRefs/Lyra/Input/FLoadedMappableConfigPair.md
 [FLyraInputAction]: ./CodeRefs/Lyra/Input/FLyraInputAction.md
+[ULyraInputComboComponent]: ./CodeRefs/Lyra/Input/ULyraInputComboComponent.md
 [ULyraInputComponent]: ./CodeRefs/Lyra/Input/ULyraInputComponent.md
 [ULyraInputConfig]: ./CodeRefs/Lyra/Input/ULyraInputConfig.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Inventory/FLyraInventoryList.md

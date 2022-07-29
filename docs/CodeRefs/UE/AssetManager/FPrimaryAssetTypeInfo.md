@@ -10,7 +10,7 @@
 * 概要
 	* AssetManager が使用する設定情報。
 * Lyra での使われ方
-	* `Project Settings > Game - Asset Manager`
+	* *Project Settings > Game - Asset Manager*
 		* プロジェクト設定が可能。以下が設定されている。
 			| Primary Asset Type                 | Asset Base Class                      | 備考                                                            |
 			|------------------------------------|---------------------------------------|-----------------------------------------------------------------|
@@ -47,9 +47,6 @@
 			| PlayerMappableInputConfig          | [UPlayerMappableInputConfig]          |
 			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
 		* それぞれの GameFeature のパスを設定している。
-
------
-おしまい。
 
 
 <!--- ページ内のリンク --->

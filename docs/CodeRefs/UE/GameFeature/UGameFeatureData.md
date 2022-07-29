@@ -26,6 +26,8 @@
 * 概要
 	* [UGameFeatureAction] の配列。
 	* この GameFeature で使用したいアクションを設定する。
+* Lyra での使われ方
+	* [UGameFeatureAction] の表を参照。
 
 
 ### UGameFeatureData::PrimaryAssetTypesToScan

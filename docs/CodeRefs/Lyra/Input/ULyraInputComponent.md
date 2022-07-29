@@ -12,6 +12,20 @@
 ### ULyraInputComponent::AddInputMappings()
 
 
+### ULyraInputComponent::BindNativeAction()
+
+* 概要
+	* アビリティで実装されない入力のバインドを行います。
+	* 具体的には移動や視点操作等がそれにあたります。
+
+### ULyraInputComponent::BindAbilityActions()
+
+* 概要
+	* アビリティで実装されている入力のバインドを行います。
+	* 具体的にはジャンプや射撃等がそれにあたります。
+
+
+
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->
