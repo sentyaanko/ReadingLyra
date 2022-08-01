@@ -19,11 +19,12 @@
 > このデータアセットに、プレイヤーのバインド可能なアクションを含む入力マッピングコンテキストを入力します。
 
 * 概要
-	* [UInputMappingContext] を保持する、
+	* 入力マッピングのセットを作成するためのデータアセットです。。
+	* [UInputMappingContext] を保持します。
 * Lyra での使われ方
-	* 操作方法単位で用意している。
-	* 命名規則は `PMI_` で始まる。
-	* アセット一覧と用途
+	* 操作方法単位で用意しています。
+	* 命名規則は `PMI_` で始まります。
+	* アセット一覧と用途は以下の通りです。
 		| アセット名                       | 用途                                               |
 		|----------------------------------|----------------------------------------------------|
 		| PMI_Default_Gamepad              | デフォルトのゲームパッド設定                       |
@@ -34,17 +35,15 @@
 ## UPlayerMappableInputConfig::Contexts
 
 * 概要
-	* [UInputMappingContext] と Priority の連想配列で、 EnhancedInput に登録する際などに利用される。
-	* Priority は [IEnhancedInputSubsystemInterface::RebuildControlMappings()] にて参照され、値が大きいほど優先的に登録される。
-	* 登録の際、指定された `Key` ([UInputMappingContext::Mappings] の [FEnhancedActionKeyMapping::Key]) が既に使われている場合は登録が行われない。
-	* 以下は ADS の際のカメラ操作がどの様に優先されるのかの大まかな流れ。
+	* [UInputMappingContext] と Priority の連想配列で、 EnhancedInput に登録する際などに利用されます。
+	* Priority は [IEnhancedInputSubsystemInterface::RebuildControlMappings()] にて参照され、値が大きいほど優先的に登録されます。
+	* 登録の際、指定された `Key` ([UInputMappingContext::Mappings] の [FEnhancedActionKeyMapping::Key]) が既に使われている場合は登録されません。
+	* 以下は ADS の際のカメラ操作がどの様に優先されるのかの大まかな流れは以下の通りです。
 		* `PMI_ShooterDefaultConfig_Gamepad` ([UPlayerMappableInputConfig]) では `IMC_ShooterGame_Gamepad` ([UInputMappingContext]) が Priority 10 で設定している。
 		* `GA_ADS` では `IMC_ADS_Speed` ([UInputMappingContext]) を Priority 11 で設定している。
 		* `IMC_ShooterGame_Gamepad` / `IMC_ADS_Speed` はどちらも `IA_Look_Stick` ([UInputAction]) に関連付ける `key` に  `Gamepad Right Thumbstick 2D-Axis` を指定している。
 		* Priority は `GA_ADS` のほうが大きいため、 `GA_ADS` がアクティブの間は `IMC_ADS_Speed` の設定が有効となる。
 		* 要は、 `IA_Look_Stick` の挙動を Priority を利用して一時的に変更している。
-
-
 
 
 <!--- ページ内のリンク --->

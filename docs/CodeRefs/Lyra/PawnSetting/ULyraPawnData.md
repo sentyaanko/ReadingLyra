@@ -10,12 +10,11 @@
 * キャッシュ
 	* エクスペリエンスのロード後、 [ALyraPlayerState] に渡し、キャッシュをもたせる。
 	* ポーンのスポーン時に [ALyraGameMode] にて [ULyraPawnExtensionComponent] に渡し、キャッシュをもたせる。
-* プレイヤー用ポーンの設定を定義するデータアセット。
+* プレイヤー用ポーンの設定を作成するためのデータアセットです。
 * `AbilitySets` に [ULyraAbilitySet] の配列を保持する。
 	* ポーンにデフォルトのアビリティを付与したい場合はここの設定を利用する。
 * `InputConfig` に [ULyraInputConfig] を保持する。
 	* ポーンにデフォルトの [UInputAction] と `InputTag` の設定を追加したい場合はここの設定を利用する。
-* プレイヤー用ポーンの設定が記述されているデータアセットです。
 * 利用するポーンクラス/[ULyraAbilityTagRelationshipMapping]/[ULyraInputConfig]/ULyraCameraMode 等を設定できます。
 
 | アセット名                         | 用途                                                          |

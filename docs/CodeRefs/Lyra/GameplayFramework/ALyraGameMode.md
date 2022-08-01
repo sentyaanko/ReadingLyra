@@ -3,9 +3,9 @@
 > The base game mode class used by this project.  
 > 
 > ----
-> このプロジェクトで使用される基本ゲームモードクラス。
+> このプロジェクトで使用される基本ゲームモードクラスです。
 
-* `AModularGameModeBase` の派生クラス。
+* `AModularGameModeBase` の派生クラスです。
 
 ### ALyraGameMode::InitGame()
 
@@ -22,7 +22,7 @@
 
 * 概要
 	* マップのロード時などに呼び出される。
-	* `SetTimerForNextTick()` に [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()] を登録し、次のフレームに呼び出している。
+	* `SetTimerForNextTick()` に [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()] を登録し、次のフレームに呼び出しています。
 		* 以下のようなコメントがあるので、`SetTimerForNextTick()` を経由しているのは PIE で動作させるためらしい。
 			> Eventually only do this for PIE/auto
 			> 

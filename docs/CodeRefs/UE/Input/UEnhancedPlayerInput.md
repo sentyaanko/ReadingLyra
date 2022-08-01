@@ -8,9 +8,9 @@
 > 拡張プレイヤー入力システムのための UPlayerInput の拡張です。
 
 * 概要
-	* `UPlayerInput` の派生クラス。
-	* EnhancedInput を使う際に使用する。
-		* その場合、 *Project Settings > Engine - Input > Default Classes > Default Player Input Class* にこの派生クラスを指定する。
+	* `UPlayerInput` の派生クラスです。
+	* EnhancedInput を使う際に使用します。
+		* その場合、 *Project Settings > Engine - Input > Default Classes > Default Player Input Class* にこの派生クラスを指定します。
 
 
 <!--- ページ内のリンク --->

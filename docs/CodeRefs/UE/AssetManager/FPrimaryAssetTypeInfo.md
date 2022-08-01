@@ -2,20 +2,22 @@
 
 [Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Runtime > Engine > Engine > FPrimaryAssetTypeInfo](https://docs.unrealengine.com/5.0/en-US/API/Runtime/Engine/Engine/FPrimaryAssetTypeInfo/)
 
-> Structure with publicly exposed information about an asset type. These can be loaded out of a config file.  
+> Structure with publicly exposed information about an asset type.  
+> These can be loaded out of a config file.  
 > 
 > ----
-> アセットタイプに関する一般に公開された情報を持つ構造体。これらは設定ファイルから読み込むことができます。  
+> アセットタイプに関する一般に公開された情報を持つ構造体。  
+> これらは設定ファイルから読み込むことができます。  
 
 * 概要
-	* AssetManager が使用する設定情報。
+	* AssetManager が使用する設定情報です。
 * Lyra での使われ方
 	* *Project Settings > Game - Asset Manager*
-		* プロジェクト設定が可能。以下が設定されている。
+		* プロジェクト設定は以下の通りです。
 			| Primary Asset Type                 | Asset Base Class                      | 備考                                                            |
 			|------------------------------------|---------------------------------------|-----------------------------------------------------------------|
 			| Map                                | `UWorld`                              |                                                                 |
-			| LyraGameData                       | [ULyraGameData]                       | `DefaultGameData` のみが該当する。                              |
+			| LyraGameData                       | [ULyraGameData]                       | `DefaultGameData` のみが該当。                                  |
 			| PrimaryAssetLabel                  | `UPrimaryAssetLabel`                  |                                                                 |
 			| GameFeatureData                    | [UGameFeatureData]                    |                                                                 |
 			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |                                                                 |
@@ -23,8 +25,8 @@
 			| LyraLobbyBackground                | [ULyraLobbyBackground]                | `ShooterGameLobbyBG` 飲みが該当する。ロビーの背景用レベル情報。 |
 			| LyraExperienceActionSet            | [ULyraExperienceActionSet]            |                                                                 |
 	* [UGameFeatureData::PrimaryAssetTypesToScan]
-		* GameFeature の設定も可能。
-		* `ShooterCore` ([UGameFeatureData]) では以下が設定されている。
+		* GameFeature での設定も可能です。
+		* `ShooterCore` ([UGameFeatureData]) では設定は以下の通りです。
 			| Primary Asset Type                 | Asset Base Class                      |
 			|------------------------------------|---------------------------------------|
 			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
@@ -32,21 +34,21 @@
 			| LyraExperienceActionSet            | [ULyraExperienceActionSet]            |
 			| Map                                | `UWorld`                              |
 			| PlayerMappableInputConfig          | [UPlayerMappableInputConfig]          |
-		* `ShooterMaps` ([UGameFeatureData]) では以下が設定されている。
+		* `ShooterMaps` ([UGameFeatureData]) では設定は以下の通りです。
 			| Primary Asset Type                 | Asset Base Class                      |
 			|------------------------------------|---------------------------------------|
 			| Map                                | `UWorld`                              |
 			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
 			| LyraLobbyBackground                | [ULyraLobbyBackground]                |
 			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
-		* `TopDownArena` ([UGameFeatureData]) では以下が設定されている。
+		* `TopDownArena` ([UGameFeatureData]) では設定は以下の通りです。
 			| Primary Asset Type                 | Asset Base Class                      |
 			|------------------------------------|---------------------------------------|
 			| LyraExperienceDefinition           | [ULyraExperienceDefinition]           |
 			| Map                                | `UWorld`                              |
 			| PlayerMappableInputConfig          | [UPlayerMappableInputConfig]          |
 			| LyraUserFacingExperienceDefinition | [ULyraUserFacingExperienceDefinition] |
-		* それぞれの GameFeature のパスを設定している。
+		* それぞれの GameFeature のパスを設定しています。
 
 
 <!--- ページ内のリンク --->

@@ -8,10 +8,10 @@
 > GameplayCue のディスパッチと、必要に応じて GameplayCueNotify アクターの生成を行うシングルトンマネージャーオブジェクトです。
 
 * 概要
-	* `UAbilitySystemGlobals::Get().GetGameplayCueManager()` で取得可能。
+	* `UAbilitySystemGlobals::Get().GetGameplayCueManager()` で取得可能です。
 * Lyra での使われ方
-	* [ULyraGameplayCueManager] の基底クラス。
-	* [ULyraGameFeature_AddGameplayCuePaths] にてモジュール式に GameplayCue のパスの追加/削除を行うために利用されている。
+	* [ULyraGameplayCueManager] の基底クラスです。
+	* [ULyraGameFeature_AddGameplayCuePaths] にてモジュール式に GameplayCue のパスの追加/削除を行うために利用されています。
 
 
 <!--- ページ内のリンク --->

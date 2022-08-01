@@ -113,7 +113,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 * 詳しくは [Unreal Engine 5.0 Documentation > Enhanced Input プラグイン] 参照。
 * [UInputAction] / [UInputMappingContext] / [UInputTrigger] / [UInputModifier] について
-	* 入力に関する定義を行うデータアセット/クラス。
+	* 入力に関する定義を行うデータアセット/クラスです。
 	* [UInputAction] と [UInputMappingContext] は別々に登録します。
 		* [UInputAction]
 			* 入力アクションが発生した際に呼び出す関数を [UEnhancedInputComponent::BindAction()] 等でバインドします。
@@ -129,7 +129,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 			* 物理的な入力に [UInputMappingContext] が追加されているため、 [UInputAction] が発生する。
 			* だが、 [UInputAction] に対して何もバインドされていないため何も起きない状態となる。
 * [UEnhancedInputComponent] / [UEnhancedPlayerInput] / [UEnhancedInputLocalPlayerSubsystem] について
-	* 入力制御を行うクラス。
+	* 入力制御を行うクラスです。
 	* 利用する場合は *Project Settings* の設定を変更する
 		* *Project Settings > Engine - Input > Default Classes > Default Player Input Class*
 			* [UEnhancedPlayerInput] 派生クラスにする。
@@ -560,7 +560,7 @@ Lyra についての大まかな説明は以上です。
 	* あった場合はペアとなる入力アクションに第五引数で渡された関数をバインドします。
 	* ない場合はバインドしません。
 * つまり、固定の処理を行う関数に直接バインドされています。
-* 具体的に行う内容は各関数をご参照ください。
+* 具体的に行う内容は各関数を参照してください。
 
 前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 

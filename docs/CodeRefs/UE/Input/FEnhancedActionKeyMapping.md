@@ -20,7 +20,7 @@
 > Action to be affected by the key
 > 
 > ----
-> キーによって影響を受けるアクション
+> キーによって影響を受けるアクションです。
 
 * 概要
 	* [UInputAction] です。
@@ -31,7 +31,7 @@
 > Key that affect the action.
 > 
 > ----
-> アクションに影響を与えるキー。
+> アクションに影響を与えるキーです。
 
 ### FEnhancedActionKeyMapping::bIsPlayerMappable
 > If true than this ActionKeyMapping will be exposed as a player bindable key
@@ -43,7 +43,7 @@
 > Options for making this a player mappable keymapping
 > 
 > ----
-> プレーヤーがマッピング可能なキーマッピングにするためのオプション
+> プレーヤーがマッピング可能なキーマッピングにするためのオプションです。
 
 * 概要
 	* 名前やカテゴリなどが指定でき、オプション画面等で任意に利用可能です。
@@ -55,7 +55,7 @@
 > @see IEnhancedInputSubsystemInterface::RebuildControlMappings
 > 
 > ----
-> true の場合、このKey Mappingは無視される。
+> true の場合、このKey Mappingは無視されます。
 > これは、所有している PlayerInput ControlMappings の再構築中にキーがダウンした場合に true に設定されます。
 > [IEnhancedInputSubsystemInterface::RebuildControlMappings()] を参照してください。
 

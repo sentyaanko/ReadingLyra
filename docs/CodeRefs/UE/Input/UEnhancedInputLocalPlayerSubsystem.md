@@ -5,18 +5,18 @@
 > Per local player input subsystem  
 > 
 > ----
-> ローカルプレーヤー毎の入力サブシステム
+> ローカルプレーヤー毎の入力サブシステムです。
 
 * 概要
-	* [IEnhancedInputSubsystemInterface] の派生クラス。
-	* このクラスの実装は [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()] のみ。
-	* `ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()` によって取得可能。
-	* [UInputMappingContext] の登録の際にも利用する。
+	* [IEnhancedInputSubsystemInterface] の派生クラスです。
+	* このクラスの実装は [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()] のみです。
+	* `ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()` によって取得可能です。
+	* [UInputMappingContext] の登録の際にも利用します。
 
 ### UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()
 
 * 概要
-	* LocalPlayer から PlayerController を取得し [UEnhancedPlayerInput] にキャストして返す。
+	* LocalPlayer から PlayerController を取得し [UEnhancedPlayerInput] にキャストして返します。
 
 
 

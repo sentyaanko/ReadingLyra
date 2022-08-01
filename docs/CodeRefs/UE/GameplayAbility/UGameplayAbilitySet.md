@@ -11,12 +11,12 @@
 > The Meta data only *suggests* that you are binding "Ability1" to LMB by default in your projects DefaultInput.ini.
 > 
 > ----
-> GameplayAbilities の入力バインディングenumの例です。
+> GameplayAbilities の入力バインディング enum の例です。
 > プロジェクトによっては、独自に作成することも可能です。
 > MetaData のデフォルト バインド キー (LMB, RMB, Q, E など) は、デザイナーがアビリティ セットやその他のデータを設定して、アビリティにデフォルトキーバインドを設定する際に便利なものです。
 > 実際のキーバインディングは DefaultInput.ini によって決定されます。
 > 
-> 例："Ability1 "はAbilitySystemComponent::ActivateAbility(1)に束縛されるコマンド文字列です。
+> 例："Ability1 "はAbilitySystemComponent::ActivateAbility(1) に束縛されるコマンド文字列です。
 > メタデータは、プロジェクトの DefaultInput.ini で、デフォルトで LMB に "Ability1" をバインドしていることを示唆しているにすぎません*。
 
 * 概要

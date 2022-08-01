@@ -36,7 +36,7 @@
 > 
 > ----
 
-* [UGameFeatureAction] の配列。
+* [UGameFeatureAction] の配列です。
 
 
 

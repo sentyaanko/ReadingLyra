@@ -3,7 +3,7 @@
 * ゲームオプションの設定内容を保持する。
 * キーバインドなどもここから参照される。
 
-* [UGameUserSettings] 派生クラス。
+* [UGameUserSettings] 派生クラスです。
 * キーコンフィグの内容等を保持する。
 * `RegisteredInputConfigs` に [FLoadedMappableConfigPair] の配列を保持しています。
 

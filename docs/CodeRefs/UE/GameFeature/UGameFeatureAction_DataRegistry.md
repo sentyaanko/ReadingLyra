@@ -5,10 +5,10 @@
 > Specifies a list of Data Registries to load and initialize with this feature  
 > 
 > ----
-> この Feature で読み込み、初期化するデータレジストリのリストを指定する。
+> この Feature で読み込み、初期化するデータレジストリのリストを指定します。
 
 * 概要
-	* データ レジストリにデータを追加するアクションを定義している。
+	* データレジストリにデータを追加するアクションです。
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
 * Lyra での使われ方

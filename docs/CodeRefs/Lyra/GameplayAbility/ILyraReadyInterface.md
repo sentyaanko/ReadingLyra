@@ -1,7 +1,7 @@
 ## ILyraReadyInterface
 
 * 概要
-	* コンポーネントの準備状態を判定するための関数を定義した基底クラス。
+	* コンポーネントの準備状態を判定するための関数を定義した基底クラスです。
 * Lyra での使われ方
 	* [ULyraPawnComponent] のみが継承している。
 	* この機能を利用する他のクラスは [ULyraPawnComponent] を継承している。

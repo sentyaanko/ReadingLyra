@@ -3,7 +3,7 @@
 > Base player state class used by this project.  
 > 
 > ----
-> このプロジェクトで使用されるベースプレイヤーステートクラス。  
+> このプロジェクトで使用されるベースプレイヤーステートクラスです。  
 
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ フレームワークのクイック リファレンス] より
 
@@ -30,18 +30,18 @@ ShooterGame での敵は上記における「プレイヤーをシミュレー�
 
 * ASC ではなく、このクラスが保持する GameplayTag 。
 * プレイヤーに紐づく任意の情報を保持する。
-* スコア関連で利用している。例えば以下。
+* スコア関連で利用しています。例えば以下。
 	* `ShooterGame.Score.Eliminations`
 	* `ShooterGame.Score.Assists`
 	* `ShooterGame.Score.Deaths`
 	* `ShooterGame.Score.ControlPointCapture`
 * サーバー側で更新し、クライアントにレプリケーションされる。
 * 現状ではイベントドリブンでの実装になっておらず、タイマーで表示に反映させている。
-	* 詳しくは **W_SB_PlayerState** の実装を参照。
+	* 詳しくは **W_SB_PlayerState** の実装を参照してください。
 
 ### ALyraPlayerState::OnExperienceLoaded()
 
-* [ULyraExperienceManagerComponent] に登録しているデリゲート用の関数。
+* [ULyraExperienceManagerComponent] に登録しているデリゲート用の関数です。
 * エクスペリエンスのロードが完了した際に呼び出される。
 * [ALyraGameMode::GetPawnDataForController()] で [ULyraPawnData] を取得し、 [ALyraPlayerState::SetPawnData()] に渡す。
 

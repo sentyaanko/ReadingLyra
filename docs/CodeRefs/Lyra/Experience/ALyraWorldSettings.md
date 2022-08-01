@@ -6,7 +6,7 @@
 > デフォルトの world settings object で、主にこのマップをプレイする際に使用するデフォルトのゲームプレイエクスペリエンスを設定するために使用されます。
 
 * 概要
-	* マップにエクスペリエンスを設定できるように `AWorldSettings` を拡張したクラス。
+	* マップにエクスペリエンスを設定できるように `AWorldSettings` を拡張したクラスです。
 	* *Project Settings > Engine - General Settings > Default Classes > World Settings Class* でこのクラスを指定しています。
 
 

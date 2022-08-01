@@ -3,8 +3,8 @@
 > Component used to manage input mappings and bindings using an input config data asset.  
 > 入力設定データアセットを使用して、入力マッピングおよびバインディングを管理するために使用されるコンポーネントです。
 
-* [UEnhancedInputComponent] の派生クラス。
-* 仮想関数のオーバーライドなどは行っておらず、 [FLoadedMappableConfigPair] や [ULyraInputConfig] の情報を基底クラス側に設定するためのクラス。
+* [UEnhancedInputComponent] の派生クラスです。
+* 仮想関数のオーバーライドなどは行っておらず、 [FLoadedMappableConfigPair] や [ULyraInputConfig] の情報を基底クラス側に設定するためのクラスです。
 
 > note:
 > ULyraInputComponent::RemoveInputConfig での AddPlayerMappableConfig の呼び出しは RemovePlayerMappableConfig の間違いのように見える。

@@ -10,7 +10,7 @@
 
 [Unreal Engine Issues > UE-142237] が見つからないため、詳細は不明ですが、この機能は実装されていません。
 
-* 派生クラスは以下の通り。
+* 派生クラスは以下の通りです。
 	* `W_AbilityFailureFeedback`
 	* `W_AbilityProgress`
 	* `W_ControlPointStatusWidget`

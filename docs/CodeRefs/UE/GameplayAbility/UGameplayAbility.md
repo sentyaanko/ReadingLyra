@@ -62,9 +62,9 @@
 > ステートやイベントのレプリケーションをサポートするには、アビリティをインスタンス化する必要があります。これは、 InstancingPolicy プロパティで行うことができます。
 
 * 概要
-	* アビリティを定義するためのブループリント化可能なクラス。
+	* アビリティを定義するためのブループリント化可能なクラスです。
 * Lyra での使われ方
-	* [ULyraGameplayAbility] の基底クラス。
+	* [ULyraGameplayAbility] の基底クラスです。
 
 ### UGameplayAbility::MakeOutgoingGameplayEffectSpec()
 
@@ -72,25 +72,27 @@
 > (for example, to pass on to projectiles to apply to whoever they hit)  
 > 
 > ----
-> アビリティがゲームプレイエフェクト Spec を外部に出すための便利な方法  
+> アビリティが GameplayEffectSpec を外部に出すための便利な方法です。  
 > （例えば、投射物に渡して、当たった人に適用させるなど）。  
 
 * 概要
-	* `GameplayEffectSpec` を作るための関数で、ブループリントにも公開されている。
-	* [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()] を呼び出す。
+	* `GameplayEffectSpec` を作るための関数で、ブループリントにも公開されています。
+	* [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()] を呼び出します。
 
 
 ### UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()
 
-> Add the Ability's tags to the given GameplayEffectSpec. This is likely to be overridden per project.  
+> Add the Ability's tags to the given GameplayEffectSpec.  
+> This is likely to be overridden per project.  
 > 
 > ----
-> 与えられたGameplayEffectSpecに、Abilityのタグを追加します。これは、プロジェクトごとにオーバーライドされる可能性が高いです。  
+> 与えられた GameplayEffectSpec に、 Ability のタグを追加します。  
+> これは、プロジェクトごとにオーバーライドされる可能性が高いです。  
 
 * 概要
-	* 仮想関数。
-	* [UGameplayAbility::MakeOutgoingGameplayEffectSpec()] から呼ばれる。
-	* 渡された [FGameplayEffectSpec::CapturedSourceTags] に [FGameplayAbilitySpec::DynamicAbilityTags] を追加する。
+	* 仮想関数です。
+	* [UGameplayAbility::MakeOutgoingGameplayEffectSpec()] から呼ばれます。
+	* 渡された [FGameplayEffectSpec::CapturedSourceTags] に [FGameplayAbilitySpec::DynamicAbilityTags] を追加します。
 * Lyra での使われ方
 	* [ULyraGameplayAbility] でオーバーライドしている。
 

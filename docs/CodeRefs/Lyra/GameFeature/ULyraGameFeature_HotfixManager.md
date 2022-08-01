@@ -3,7 +3,7 @@
 * 概要
 	* HotFix に関する処理を行う。
 	* [ULyraHotfixManager] を利用する。
-	* [IGameFeatureStateChangeObserver] の派生クラス。
+	* [IGameFeatureStateChangeObserver] の派生クラスです。
 
 
 

@@ -15,7 +15,7 @@
 
 
 
-* エクスペリエンスを定義するデータアセット。
+* エクスペリエンスを作成するためのデータアセットです。
 * `GameFeaturesToEnable` にて使用する [UGameFeatureData] を `Plugins/GameFeatures` 内のプラグイン名で指定。
 * `WolrdSettings > Game Mode > Default Gameplay Experience` で指定される。
 * [ALyraGameMode]`::HandleMatchAssignmentIfNotExpectingOne()` でアセットがロードされ、設定された内容はその後に利用される。
@@ -64,7 +64,7 @@ C++ の [ALyraGameMode] で直接指定されている。
 > 
 > ----
 
-* [UGameFeatureAction] の配列。
+* [UGameFeatureAction] の配列です。
 
 
 
@@ -74,7 +74,7 @@ C++ の [ALyraGameMode] で直接指定されている。
 > 
 > ----
 
-* [ULyraExperienceActionSet] の配列。
+* [ULyraExperienceActionSet] の配列です。
 
 
 

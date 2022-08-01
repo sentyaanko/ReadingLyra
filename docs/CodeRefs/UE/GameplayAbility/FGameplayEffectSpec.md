@@ -16,22 +16,22 @@
 > - どのようなレベルか
 > - 誰が実行したか
 >  
-> FGameplayEffectSpec は変更可能である。初期状態から始まり、修正が適用される。  
-> この意味で、ステートフル／ミュータブルですが、FGameplayEffectSpec を適用したインスタンスである FActiveGameplayEffect とは区別される。  
+> FGameplayEffectSpec は変更可能である。初期状態から始まり、修正が適用されます。  
+> この意味で、ステートフル／ミュータブルですが、FGameplayEffectSpec を適用したインスタンスである FActiveGameplayEffect とは区別されます。  
 
 * 概要
-	* GameplayEffect の詳細情報で、実行時に決定される情報が含まれたもの。
+	* GameplayEffect の詳細情報で、実行時に決定される情報が含まれたものです。
 
 ### FGameplayEffectSpec::CapturedSourceTags
 
 > Captured Source Tags on GameplayEffectSpec creation  
 > 
 > ----
-> GameplayEffectSpec 作成時にキャプチャされたソースタグ。  
+> GameplayEffectSpec 作成時にキャプチャされたソースタグです。  
 
 * Lyra での使われ方
-	* [FGameplayAbilitySpec::DynamicAbilityTags] に **InputTag** が設定される都合上、ここにも **InputTag** がキャプチャされる。
-	* **InputTag** としては利用されているコードは見当たらない。おそらく利用されていない。
+	* [FGameplayAbilitySpec::DynamicAbilityTags] に **InputTag** が設定される都合上、ここにも **InputTag** がキャプチャされます。
+	* **InputTag** としては利用されているコードは見当たりません。おそらく利用されていません。
 
 
 <!--- ページ内のリンク --->

@@ -117,9 +117,9 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 	* データレジストリアセットの非同期読み込みを行うための仕組み。
 * UE で用意されているクラス
 	* [UDataRegistrySubsystem]
-		* データレジストリを扱うマネージャクラス。
+		* データレジストリを扱うマネージャクラスです。
 	* [UGameFeatureAction_DataRegistry]
-		* GameFeature と連動してデータレジストリにデータを追加するクラス。
+		* GameFeature と連動してデータレジストリにデータを追加するクラスです。
 		* 内部で [UDataRegistrySubsystem] を使用している。
 * Lyra での使われ方
 	* [UGameFeatureAction_DataRegistry] の使用
@@ -159,7 +159,7 @@ Lyra ではエクスペリエンスという独自の単位で GameFeature の�
 		* Player に使用するポーン情報
 * UE で用意されているクラス
 	* [UGameFeatureAction]
-		* GameFeature のアクティブ時等に実行されるアクションを定義するための基底クラス。
+		* GameFeature のアクティブ時等に実行されるアクションを定義するための基底クラスです。
 	* [UGameFeatureData]
 		* GameFeature に関する設定。
 	* [UGameFeaturesSubsystem]
@@ -171,7 +171,7 @@ Lyra ではエクスペリエンスという独自の単位で GameFeature の�
 	* [ULyraExperienceDefinition]
 		* エクスペリエンスの定義。
 	* [ALyraWorldSettings]
-		* マップの WorldSettings で [ULyraExperienceDefinition] を指定できるように拡張した `AWorldSettings` 派生クラス。
+		* マップの WorldSettings で [ULyraExperienceDefinition] を指定できるように拡張した `AWorldSettings` 派生クラスです。
 		* この値は [ALyraGameMode] で参照される。詳しくは以下の関数を参照。
 			* [ALyraGameMode::InitGame()]
 			* [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]

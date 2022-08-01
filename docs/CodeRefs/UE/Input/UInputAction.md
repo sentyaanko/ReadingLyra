@@ -8,12 +8,12 @@
 > 入力アクションの定義。これらはプレーヤーごとにインスタンス化されます (FInputActionInstance 経由)。
 
 * 概要
-	* 物理的な入力に直接は紐付かない、入力の結果発生する事象を仮想的に表現するデータアセット。
+	* 物理的な入力に直接は紐付かない、入力の結果発生する事象を仮想的に表現するデータアセットです。
 * Lyra での使われ方
-	* `IA_` のプレフィックスを持つ。
-	* 26 種類ある。 `IA_Jump` / `IA_ADS` 等々。
-	* widget ではクリックされた際に、 [IEnhancedInputSubsystemInterface::InjectInputForAction()] 等にこのクラスを渡している。
-		* これにより仮想的なボタンを物理ボタンと同じように扱っている。
+	* `IA_` のプレフィックスを持ちます。
+	* 26 種類あります。 `IA_Jump` / `IA_ADS` 等々です。
+	* widget ではクリックされた際に、 [IEnhancedInputSubsystemInterface::InjectInputForAction()] 等にこのクラスを渡しています。
+		* これにより仮想的なボタンを物理ボタンと同じように扱っています。
 
 ## UInputAction::Triggers
 
@@ -22,12 +22,12 @@
 > - All Implicit triggers in this list are met.
 > 
 > ----
-> トリガー条件。いずれかのトリガー修飾子が存在する場合、アクションは以下の場合を除きトリガーされません。
+> トリガー条件です。いずれかのトリガー修飾子が存在する場合、アクションは以下の場合を除きトリガーされません。
 > - このリストにある少なくとも1つの明示的なトリガーが満たされている。
 > - このリストのすべての暗黙的トリガが満たされている。
 
 * 概要
-	* [UInputTrigger] の配列。
+	* [UInputTrigger] の配列です。
 
 ## UInputAction::Modifiers
 
@@ -41,7 +41,7 @@
 > これらは、最初の入力を駆動したすべての [FEnhancedActionKeyMapping] モディファイアの上に適用されます。
 
 * 概要
-	* [UInputModifier] の配列。
+	* [UInputModifier] の配列です。
 
 
 <!--- ページ内のリンク --->

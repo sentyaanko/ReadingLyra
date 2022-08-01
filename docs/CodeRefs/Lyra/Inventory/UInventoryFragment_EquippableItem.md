@@ -1,7 +1,7 @@
 ## UInventoryFragment_EquippableItem
 
 * 装備可能な武器の部品
-* [ULyraInventoryItemFragment] の派生クラス。
+* [ULyraInventoryItemFragment] の派生クラスです。
 * [ULyraEquipmentDefinition] を保持する。
 
 

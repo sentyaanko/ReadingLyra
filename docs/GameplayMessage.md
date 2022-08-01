@@ -38,25 +38,25 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 		* widget などは [UGameplayMessageSubsystem] の機能を直接利用してリスナー登録しています。
 * Lyra で実装しているクラス
 	* [UGameplayMessageSubsystem]
-		* 送信者から渡されたメッセージを、保持している受信者に配信するクラス。
+		* 送信者から渡されたメッセージを、保持している受信者に配信するクラスです。
 	* [UGameplayMessageProcessor]
-		* メッセージをリッスンする基底クラス。
+		* メッセージをリッスンする基底クラスです。
 		* 派生クラスは以下の通り
 			* [UElimChainProcessor]
-				* 敵の連鎖撃破を追跡するクラス。
+				* 敵の連鎖撃破を追跡するクラスです。
 			* [UElimStreakProcessor]
-				* 敵の連続撃破を追跡するクラス。
+				* 敵の連続撃破を追跡するクラスです。
 			* [UAssistProcessor]
-				* 撃破のアシストを追跡するクラス。
+				* 撃破のアシストを追跡するクラスです。
 			* `B_AccoladeRelay` ([UGameplayMessageProcessor])
-				* **称賛情報**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラス。
+				* **称賛情報**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラスです。
 				* サーバー、クライアント両方に追加されるコンポーネント。
 				* サーバー側が受け取った際は同じメッセージを **Client RPC** する。
 				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信する。
 					* (そのメッセージは表示クラスが監視し、受信時に表示を行う)
 				* 基底クラスの機能は利用していない。
 			* `B_EliminationFeedRelay` ([UGameplayMessageProcessor])
-				* **ヘルスがなくなった事**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラス。
+				* **ヘルスがなくなった事**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラスです。
 				* サーバー、クライアント両方に追加されるコンポーネント。
 				* サーバー側が受け取った際は同じメッセージを **Multicast RPC** する。
 				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信する。
@@ -66,9 +66,9 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 		* 詳しくは [UGameplayMessageSubsystem] の利用状況の表を参照。
 		* メッセージをリッスンしているその他のクラス
 			* [ULyraAccoladeHostWidget]
-				* 称賛情報をリッスンする widget クラス。
+				* 称賛情報をリッスンする widget クラスです。
 			* [ULyraDamageLogDebuggerComponent]
-				* ダメージ情報をリッスンするデバッグログクラス。
+				* ダメージ情報をリッスンするデバッグログクラスです。
 			* [UAsyncAction_ListenForGameplayMessage]
 				* 任意のメッセージをリッスン可能な、ブループリント用の Async ノード。
 		* 送信データ
@@ -88,7 +88,7 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 				* `Message_NameplateRequest`
 				* `EliminationFeedMessage`
 		* [FLyraVerbMessageReplication]
-			* [FLyraVerbMessage] をまとめて処理するためのクラス。
+			* [FLyraVerbMessage] をまとめて処理するためのクラスです。
 
 
 # 終わりに

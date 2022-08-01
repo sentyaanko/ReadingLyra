@@ -8,13 +8,13 @@
 > このクラスは、ゲームに組み込まれて配布されるプラグイン、または外部（ウェブサービスや他のエンドポイント）から通知されるプラグインを検出します。 
 
 * 概要
-	* [UDefaultGameFeaturesProjectPolicies] の派生クラス。
+	* [UDefaultGameFeaturesProjectPolicies] の派生クラスです。
 	* いくつか関数をオーバーライドしているが、実装は親クラスと同じ。
 * Lyra での使われ方
 	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録している。
 		* [ULyraGameFeature_HotfixManager]
 		* [ULyraGameFeature_AddGameplayCuePaths]
-	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* で指定している。
+	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* で指定しています。
 
 
 

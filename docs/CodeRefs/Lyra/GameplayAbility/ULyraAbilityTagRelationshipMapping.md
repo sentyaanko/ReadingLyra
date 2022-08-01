@@ -7,12 +7,12 @@
 
 * GameplayAbility の GameplayTag によるブロックやキャンセルの定義をまとめた構造体。
 * [ULyraAbilitySystemComponent] から利用される。
-* 詳しくは [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 拡張されたタグ関係システム] 参照。
+* 詳しくは [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 拡張されたタグ関係システム] を参照してください。
 
 * `FLyraAbilityTagRelationship` の配列を保持する。
 * `ULyraPawnData` から参照されている。
 * `ULyraPawnData` を元にポーンを構築する際に ULyraAbilitySystemComponent に渡し、そこで保持される。
-* [UGameplayAbility] のタグにアクセスする際に値がミックスされる。組み合わせは以下の通り。
+* [UGameplayAbility] のタグにアクセスする際に値がミックスされる。組み合わせは以下の通りです。
 	| FLyraAbilityTagRelationship | UGameplayAbility       |
 	|-----------------------------|------------------------|
 	| AbilityTagsToBlock          | BlockAbilitiesWithTag  |

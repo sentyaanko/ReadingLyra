@@ -7,7 +7,7 @@
 
 * 概要
 	* `EAS_BasicShooterAcolades` ([ULyraExperienceActionSet]) などから `AGameStateBase` 派生クラスにサーバー側にだけ追加される。
-	* Elimination/ControlPoint の際、敵の連続撃破を追跡するクラス。
+	* Elimination/ControlPoint の際、敵の連続撃破を追跡するクラスです。
 
 
 

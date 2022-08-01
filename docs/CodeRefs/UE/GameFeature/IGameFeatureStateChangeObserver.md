@@ -18,12 +18,12 @@
 > もし、これを使う場合は、UGameFeaturesProjectPolicies のサブクラスで作成し、UGameFeaturesSubsystem の AddObserver / RemoveObserver で登録します。  
 
 * 概要
-	* [UGameFeaturesSubsystem] の基底クラス。
-	* [UGameFeaturesSubsystem::AddObserver()] でこのインターフェイスを持つ `UObject` 派生クラスを登録する。
-	* そうすることで、 GameFeature のマウント等が発生した際にオブザーバの関数が呼び出される。
-	* これを利用し、プロジェクトごとの処理を実装可能にしている。
+	* [UGameFeaturesSubsystem] の基底クラスです。
+	* [UGameFeaturesSubsystem::AddObserver()] でこのインターフェイスを持つ `UObject` 派生クラスを登録します。
+	* そうすることで、 GameFeature のマウント等が発生した際にオブザーバの関数が呼び出されます。
+	* これを利用し、プロジェクトごとの処理を実装可能にしています。
 * Lyra での使われ方
-	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] の基底クラス。
+	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] の基底クラスです。
 
 
 <!--- ページ内のリンク --->

@@ -6,7 +6,7 @@
 > 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction 。
 
 * Game Feature がアクティブになった際に付与するアビリティ情報を保持する。
-* [UGameFeatureAction] の派生クラス。
+* [UGameFeatureAction] の派生クラスです。
 * FGameFeatureAbilitiesEntry の配列を保持する。
 * Game Feature がアクティブになった際に付与するアビリティはここの設定を利用する。
 

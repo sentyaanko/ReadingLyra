@@ -5,24 +5,24 @@
 > The manager subsystem for game features  
 > 
 > ----
-> GameFeature の管理を行うサブシステム。
+> GameFeature の管理を行うサブシステムです。
 
 * 概要
-	* GameFeature の管理クラス。
+	* GameFeature の管理クラスです。
 * Lyra での使われ方
 	* [ULyraGameFeaturePolicy]
-		* GameFeature の Policy 実装のため、オブザーバ関連とアセットのパス関連の機能を利用している。
+		* GameFeature の Policy 実装のため、オブザーバ関連とアセットのパス関連の機能を利用しています。
 	* [ULyraExperienceManagerComponent]
-		* エクスペリエンスの実装方法として利用している。
-		* GameFeature のロードやアクティブ化などの機能を利用している。
+		* エクスペリエンスの実装方法として利用しています。
+		* GameFeature のロードやアクティブ化などの機能を利用しています。
 
 ### UGameFeaturesSubsystem::AddObserver()
 
 * 概要
-	* [IGameFeatureStateChangeObserver] インターフェイスを持つ `UObject` 派生クラスを受け取り、保持する。
-	* GameFeature のアクティブ化などが発生した際は保持しているクラスの対応した関数を呼び出す。
+	* [IGameFeatureStateChangeObserver] インターフェイスを持つ `UObject` 派生クラスを受け取り、保持します。
+	* GameFeature のアクティブ化などが発生した際は保持しているクラスの対応した関数を呼び出します。
 * Lyra での使われ方
-	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] を登録している。
+	* [ULyraGameFeature_HotfixManager] / [ULyraGameFeature_AddGameplayCuePaths] を登録しています。
 
 
 <!--- ページ内のリンク --->

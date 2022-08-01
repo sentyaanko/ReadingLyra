@@ -27,7 +27,7 @@
 * [ALyraCharacter] との関係
 	* ほぼ無い。
 	* [ALyraCharacter::ToggleCrouch()] の機能を利用するときのみ参照している。
-		* ただ、上記の関数は `ACharacter` の機能しか利用していないので、最悪参照なしでも実装可能。そのぐらいの関係性の低さ。
+		* ただ、上記の関数は `ACharacter` の機能しか利用していないので、最悪参照なしでも実装可能です。そのぐらいの関係性の低さ。
 
 ### ULyraHeroComponent::DefaultInputConfigs
 
@@ -54,7 +54,7 @@
 
 ### ULyraHeroComponent::OnPawnReadyToInitialize()
 
-* [ULyraPawnExtensionComponent] に登録するデリゲート用の関数。
+* [ULyraPawnExtensionComponent] に登録するデリゲート用の関数です。
 * [ULyraPawnExtensionComponent::InitializeAbilitySystem()] を呼び出す。
 	* 引数の [ULyraAbilitySystemComponent] は [ALyraPlayerState] から受け取ったものを渡す。
 * [ULyraHeroComponent::InitializePlayerInput()] を呼び出す。

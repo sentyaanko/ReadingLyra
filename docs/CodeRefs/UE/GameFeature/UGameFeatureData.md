@@ -5,12 +5,12 @@
 > Data related to a game feature, a collection of code and content that adds a separable discrete feature to the game  
 > 
 > ----
-> GameFeature に関連するデータ。これは、ゲームに分離可能な個別の機能を追加するコードとコンテンツの集合体です。  
+> GameFeature に関連するデータです。これは、ゲームに分離可能な個別の機能を追加するコードとコンテンツの集合体です。  
 
 * 概要
-	* GameFeature を設定するためのデータアセット。
+	* GameFeature を作成するためのデータアセットです。
 * Lyra での使われ方
-	* 以下の 3 つのアセットが存在する。
+	* 以下の 3 つのアセットが存在します。
 		* `ShooterCore` ([UGameFeatureData])
 		* `TopDownArena` ([UGameFeatureData])
 		* `ShooterMaps` ([UGameFeatureData])
@@ -24,10 +24,10 @@
 > この GameFeature のロード/アクティブ化/非アクティブ化/アンロードに伴って実行されるアクションの一覧です。  
 
 * 概要
-	* [UGameFeatureAction] の配列。
-	* この GameFeature で使用したいアクションを設定する。
+	* [UGameFeatureAction] の配列です。
+	* この GameFeature で使用したいアクションを設定します。
 * Lyra での使われ方
-	* [UGameFeatureAction] の表を参照。
+	* [UGameFeatureAction] の表を参照してください。
 
 
 ### UGameFeatureData::PrimaryAssetTypesToScan
@@ -35,13 +35,13 @@
 > List of asset types to scan at startup  
 > 
 > ----
-> 起動時にスキャンするアセットタイプのリスト  
+> 起動時にスキャンするアセットタイプのリストです。  
 
 * 概要
-	* [FPrimaryAssetTypeInfo] の配列。
-	* この GameFeature で使用したい AssetManager への設定項目を設定する。
+	* [FPrimaryAssetTypeInfo] の配列です。
+	* この GameFeature で使用したい AssetManager への設定項目を設定します。
 * Lyra での使われ方
-	* [FPrimaryAssetTypeInfo] の表を参照。
+	* [FPrimaryAssetTypeInfo] の表を参照してください。
 
 
 <!--- ページ内のリンク --->

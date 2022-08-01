@@ -178,7 +178,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* 他の InputTag と異なり、 C++ でのバインドで使用されていない。
 		* つまり、 `ULyraAbilitySet` や `LyraInputConfig` から参照されていない。
 	* `GA_QuickbarSlots` と `B_Hero_ShooterMannequin` で使用されている。
-		* `B_Hero_ShooterMannequin` は `ControlPoints` 等で使用されるキャラクタークラス。
+		* `B_Hero_ShooterMannequin` は `ControlPoints` 等で使用されるキャラクタークラスです。
 		* `GA_QuickbarSlots` は使用武器を変えるためのアビリティ。
 	* `B_Hero_ShooterMannequin` との関係
 		* 直接 Enhanced Action Events(EnhancedInputAction ノード)を利用して以下の InputAction のイベントを実装している。

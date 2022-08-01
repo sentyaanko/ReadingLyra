@@ -8,13 +8,13 @@
 > ゲームのユーザー設定（グラフィックやサウンドの設定など）を保存し、ファイルへの保存と読み込みが可能です。
 
 * 概要
-	* いわゆるコンフィグ情報の管理を行うクラス。
-	* `GEngine->GetGameUserSettings()` で取得可能。
+	* いわゆるコンフィグ情報の管理を行うクラスです。
+	* `GEngine->GetGameUserSettings()` で取得可能です。
 	* *Project Settings > Engine - General Settings > Default Classes > Game User Settings Class* でこの派生クラスを指定します。
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra ゲーム設定]
 * Lyra での使われ方
-	* [ULyraSettingsLocal] の基底クラス。
+	* [ULyraSettingsLocal] の基底クラスです。
 
 
 <!--- ページ内のリンク --->

@@ -8,10 +8,10 @@
 ### ULyraGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()
 
 * 概要
-	* 仮想関数。
+	* 仮想関数です。
 	* [UGameplayAbility::MakeOutgoingGameplayEffectSpec()] をオーバーライドしている。
 	* 攻撃が命中した部位の物理マテリアルから `UPhysicalMaterialWithTags` を取得し、 `UPhysicalMaterialWithTags::Tags` を GameplayEffectSpec に設定する。
-		* GameplayEffectSpec では設定された GameplayTag を元にヘッドショット判定を行っている。詳細は以下などを参照。
+		* GameplayEffectSpec では設定された GameplayTag を元にヘッドショット判定を行っている。詳細は以下などを参照してください。
 			* `PA_Mannequin` の `head` の `Details > Physics > Simple Collision Physical Material` 
 			* `GCNL_Character_DamageTaken` の `EvaluateWeakSpot`
 			* GameplayTag は `Gameplay.Zone.WeakSpot` を使用している。

@@ -13,10 +13,10 @@
 > Project Settings ... Game Features でプロジェクト固有のポリシーが設定されていない場合に使用されます。 
 
 * 概要
-	* [UGameFeaturesProjectPolicies] の派生クラス。
-	* GameFeature のロード時などの挙動のデフォルト実装を定義している。
+	* [UGameFeaturesProjectPolicies] の派生クラスです。
+	* GameFeature のロード時などの挙動のデフォルト実装を定義しています。
 * Lyra での使われ方
-	* [ULyraGameFeaturePolicy] の基底クラス。
+	* [ULyraGameFeaturePolicy] の基底クラスです。
 
 
 <!--- ページ内のリンク --->

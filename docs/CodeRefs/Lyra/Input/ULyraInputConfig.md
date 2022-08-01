@@ -2,7 +2,7 @@
 
 > Non-mutable data asset that contains input configuration properties.
 
-* 適用単位ごとに用意する、入力アクションの設定を定義するクラス。
+* 適用単位ごとに用意する、入力アクションの設定を定義するクラスです。
 * `NativeInputActions`/`AbilityInputActions` に [FLyraInputAction] の配列を保持しています。
 	* `NativeInputActions`
 		* 固定の処理が実装されているアクション。

@@ -8,9 +8,9 @@
 > GameFeature がアクティブになったときに実行されるアクションを表します。
 
 * 概要
-	* GameFeature がアクティブになったとき等に実行されるアクションを定義するための基底クラス。
+	* GameFeature がアクティブになったとき等に実行されるアクションの基底クラスです。
 * Lyra での使われ方
-	* 以下の基底クラスとして利用。
+	* 以下の基底クラスとして利用しています。
 		* [UApplyFrontendPerfSettingsAction]
 		* [UGameFeatureAction_SplitscreenConfig]
 		* [UGameFeatureAction_AddInputBinding]
@@ -20,8 +20,8 @@
 		* [UGameFeatureAction_AddWidgets]
 		* [UGameFeatureAction_AddGameplayCuePath]
 	* [ULyraExperienceManagerComponent] 
-		* エクスペリエンスの実装手段として利用。
-	* 以下のアセットで利用。
+		* エクスペリエンスの実装手段として利用しています。
+	* 以下のアセットで利用しています。
 		* [UGameFeatureData::Actions]
 		* [ULyraExperienceActionSet::Actions]
 		* [ULyraExperienceDefinition::Actions]

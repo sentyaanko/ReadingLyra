@@ -1,7 +1,7 @@
 ## ULyraReticleWidgetBase
 
-* レティクル用 widget の基底クラス。
-* 派生クラスは以下の通り。
+* レティクル用 widget の基底クラスです。
+* 派生クラスは以下の通りです。
 	* `W_AmmoCounter_Pistol`
 	* `W_AmmoCounter_Rifle`
 	* `W_AmmoCounter_Shotgun`
