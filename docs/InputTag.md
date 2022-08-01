@@ -36,8 +36,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * InputTag は **入力に反応して実行する処理をモジュール式に追加出来るようにするため** に使用されています。
 	* Lyra では上記を実現できるように GameplayTag と Gameplay Ability を組み合わせてセットアップしている、という感じです。
 * 入力から Gameplay Ability へのつながりは以下の様になります。
-	1. 物理的な入力に対し `UInputMappingContext` で関連付けられた `UInputAction` の呼び出す。
-	2. `UInputAction` にバインドされた関数の呼び出し。バインドされた関数は `ULyraInputConfig` で設定されている InputTag を引数で渡す。
+	1. 物理的な入力に対し [UInputMappingContext] で関連付けられた [UInputAction] の呼び出す。
+	2. [UInputAction] にバインドされた関数の呼び出し。バインドされた関数は `ULyraInputConfig` で設定されている InputTag を引数で渡す。
 	3. 渡された InputTag を元に `ULyraAbilitySet` で設定されている Gameplay Ability の関数の呼び出す。
 * InputTag は主に以下のアセットで利用されています。
 	* `ULyraInputConfig`
@@ -373,6 +373,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UInputAction]: CodeRefs/UE/Input/UInputAction.md#uinputaction
+[UInputMappingContext]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontext
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 入力タグ アクティベーション サポート]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E5%85%A5%E5%8A%9B%E3%82%BF%E3%82%B0%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88

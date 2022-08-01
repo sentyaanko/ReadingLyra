@@ -268,7 +268,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 			* [UGameplayMessageSubsystem]
 	* `UCheatManager`
 		* [ULyraCheatManager]
-	* `UGameUserSettings`
+	* [UGameUserSettings]
 		* [ULyraSettingsLocal]
 	* `UActorComponent`
 		* `UGameFrameworkComponent`
@@ -369,7 +369,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 			* [ULyraGameFeaturePolicy]
 	* [ULyraGameFeature_HotfixManager]
 	* [ULyraGameFeature_AddGameplayCuePaths]
-	* `UGameplayAbility`
+	* [UGameplayAbility]
 		* [ULyraGameplayAbility]
 			* [ULyraGameplayAbility_FromEquipment]
 				* [ULyraGameplayAbility_RangedWeapon]
@@ -833,6 +833,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [UGameFeaturesProjectPolicies]: CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies.md#ugamefeaturesprojectpolicies
 [UGameFeaturesSubsystem]: CodeRefs/UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystem
 [UGameFeaturesSubsystem::AddObserver()]: CodeRefs/UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystemaddobserver
+[UGameUserSettings]: CodeRefs/UE/GameFramework/UGameUserSettings.md#ugameusersettings
 [FGameplayAbilitySpec]: CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspec
 [FGameplayAbilitySpec::DynamicAbilityTags]: CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags
 [FGameplayEffectSpec]: CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspec

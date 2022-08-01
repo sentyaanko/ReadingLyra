@@ -244,7 +244,7 @@ Lyra についての大まかな説明は以上です。
 ![ContentBrowser-Type=DInputMappingContext]
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
-	* `UPlayerMappableInputConfig`
+	* [UPlayerMappableInputConfig]
 		* プレイヤーに追加する [UInputMappingContext] を指定しています。詳しくは後述します。
 	* `ULyraExperienceActionSet`
 		* エクスペリエンスに紐づく入力マッピング追加のパラメータとして [UInputMappingContext] を指定しています。詳しくは後述します。
@@ -288,7 +288,7 @@ Lyra についての大まかな説明は以上です。
 ## Lyra における入力マッピング追加方法
 
 入力マッピングの追加には [UInputMappingContext] が必要です。  
-前述のとおり、 `UPlayerMappableInputConfig` / `ULyraExperienceActionSet` などが保持しており、この2つがどのように利用されているかを解説します。
+前述のとおり、 [UPlayerMappableInputConfig] / `ULyraExperienceActionSet` などが保持しており、この2つがどのように利用されているかを解説します。
 
 
 ## Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由
@@ -298,7 +298,7 @@ Lyra についての大まかな説明は以上です。
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `B_SimpleHeroPawn` ( `ULyraCharacter` 派生BP)
-	* `ShooterCore/TopDownArena` （ `UGameFeatureData` ）
+	* `ShooterCore/TopDownArena` （ [UGameFeatureData] ）
 
 図にすると以下のような状況です。  
 ![UPlayerMappableInputConfig-Referencing]
@@ -308,11 +308,11 @@ Lyra についての大まかな説明は以上です。
 
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： B_SimpleHeroPawn の場合
 
-* 設定されている `UPlayerMappableInputConfig`
+* 設定されている [UPlayerMappableInputConfig]
 	* `B_SimpleHeroPawn` を開き、コンポーネント `LyraHero` の `Details` を見ると `Lyra Hero Component > Default Input Configs` で以下が指定されていることを確認できます。
 		* `PMI_Default_Gamepad`
 		* `PMI_Default_KBM`
-* 設定されている `UPlayerMappableInputConfig` の利用のされ方について
+* 設定されている [UPlayerMappableInputConfig] の利用のされ方について
 	* `ULyraHeroComponent::InitializePlayerInput()` にて参照され、（キーコンフィグ関連を経由し）入力マッピングの追加が行われます。
 		* キーコンフィグ関連についての解説は割愛します。
 * `B_SimpleHeroPawn` の参照のされ方について
@@ -334,16 +334,16 @@ Lyra についての大まかな説明は以上です。
 
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合
 
-* 設定されている `UPlayerMappableInputConfig`
+* 設定されている [UPlayerMappableInputConfig]
 	* `ShooterCore` を開き、 `Actions > Actions > Index[3]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
 		* `PMI_ShooterDefaultConfig_KBM`
 		* `PMI_ShooterDefaultConfig_Gamepad`
-* 設定されている `UPlayerMappableInputConfig` の利用のされ方について
+* 設定されている [UPlayerMappableInputConfig] の利用のされ方について
 	* `UGameFeatureAction_AddInputConfig` にて参照され、（キーコンフィグ関連を経由し）入力マッピングの追加が行われます。
 		* キーコンフィグ関連についての解説は割愛します。
-* `ShooterCore` （ `UGameFeatureData` ） の参照のされ方について
+* `ShooterCore` （ [UGameFeatureData] ） の参照のされ方について
 	* `Reference Viewer` からでは追うことができません。
 	* 以下のどちらかで Game Feature の名前を指定します。
 		* `ULyraExperienceDefinition::GameFeaturesToEnable`
@@ -386,12 +386,12 @@ Lyra についての大まかな説明は以上です。
 		* `B_ShooterGame_Elimination`
 		* `B_TestInventoryExperience`
 	1. エクスペリエンスで指定された Game Feature `ShooterCore` のロードとアクティブ化が実行される。
-	1. Game Feature `ShooterCore` で指定された以下の `UPlayerMappableInputConfig` が適用される
+	1. Game Feature `ShooterCore` で指定された以下の [UPlayerMappableInputConfig] が適用される
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
 		* `PMI_ShooterDefaultConfig_KBM`
 		* `PMI_ShooterDefaultConfig_Gamepad`
-	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の [UInputMappingContext] が追加される。
+	1. その結果、上記の [UPlayerMappableInputConfig] で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_Default_KBM`
 		* `IMC_Default_Gamepad`
 		* `IMC_ShooterGame_KBM`
@@ -402,11 +402,11 @@ Lyra についての大まかな説明は以上です。
 
 流れは `ShooterCore` とほぼ同じで、参照しているアセットが異なります。
 
-* 設定されている `UPlayerMappableInputConfig`
+* 設定されている [UPlayerMappableInputConfig]
 	* `TopDownArena` を開き、 `Actions > Actions > Index[1]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
-* `TopDownArena` （　`UGameFeatureData` ） の参照のされ方について
+* `TopDownArena` （　[UGameFeatureData] ） の参照のされ方について
 	* 指定されている場所
 		* `B_TopDownArenaExperience` （ `ULyraExperienceDefinition` ）のみ。
 		* つまり、`B_TopDownArenaExperience` （ `ULyraExperienceDefinition`） をアクティブ化する際に `TopDownArena` のロードとアクティブ化が実行されます。
@@ -419,10 +419,10 @@ Lyra についての大まかな説明は以上です。
 	1. レベルで指定された以下のエクスペリエンスを適用する。
 		* `B_TopDownArenaExperience`
 	1. エクスペリエンスで指定された Game Feature `TopDownArena` のロードとアクティブ化が実行される。
-	1. Game Feature `TopDownArena` で指定された以下の `UPlayerMappableInputConfig` が適用される
+	1. Game Feature `TopDownArena` で指定された以下の [UPlayerMappableInputConfig] が適用される
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
-	1. その結果、上記の `UPlayerMappableInputConfig` で指定された以下の [UInputMappingContext] が追加される。
+	1. その結果、上記の [UPlayerMappableInputConfig] で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_Default_KBM`
 		* `IMC_Default_Gamepad`
 
@@ -651,6 +651,7 @@ Lyra についての大まかな説明は以上です。
 <!--- generated --->
 [ULyraInputComponent]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
 [ULyraInputConfig]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
+[UGameFeatureData]: CodeRefs/UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [IEnhancedInputSubsystemInterface::AddMappingContext()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddmappingcontext
 [UEnhancedInputComponent]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
 [UEnhancedInputComponent::BindAction()]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponentbindaction
@@ -662,6 +663,7 @@ Lyra についての大まかな説明は以上です。
 [UInputMappingContext]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontext
 [UInputModifier]: CodeRefs/UE/Input/UInputModifier.md#uinputmodifier
 [UInputTrigger]: CodeRefs/UE/Input/UInputTrigger.md#uinputtrigger
+[UPlayerMappableInputConfig]: CodeRefs/UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig
 [historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
 [Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
 [Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]: https://unrealengine.hatenablog.com/entry/2022/04/24/183000
