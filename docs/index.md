@@ -11,6 +11,7 @@
 - クラス解説
 	- Lyra
 		- Equipment
+			- [FLyraAppliedEquipmentEntry]
 			- [FLyraInventoryList]
 			- [ULyraEquipmentDefinition]
 		- Etc
@@ -187,6 +188,7 @@
 [【UE5】Lyra に学ぶ GAS(概略)]: ./GameplayAbilityOverview.md
 [【UE5】Lyra に学ぶ GameplayMessage]: ./GameplayMessage.md
 [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
 [ULyraEquipmentDefinition]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md
 [ALyraWeaponSpawner]: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md

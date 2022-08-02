@@ -5,10 +5,10 @@
 > ----
 > GameplayAbility を付与するために AbilitySet が使用するデータです。
 
-* Gameplay Ability と `InputTag` を保持しており、関連付けの定義は全てこの構造体を経由する。
-* [ULyraAbilitySet] のメンバ用の構造体であり、実体は [ULyraAbilitySet] のデータアセットで定義する。
-
-
+* 概要
+	* [ULyraGameplayAbility] 、付与する際のアビリティレベル、 **InputTag** を保持します。
+	* Gameplay Ability と **InputTag** の関連付けの定義は全てこの構造体を経由します。
+	* [ULyraAbilitySet] のメンバ用の構造体であり、実体は [ULyraAbilitySet] のデータアセットで設定します。
 
 
 <!--- ページ内のリンク --->
@@ -17,3 +17,4 @@
 
 <!--- generated --->
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
+[ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability

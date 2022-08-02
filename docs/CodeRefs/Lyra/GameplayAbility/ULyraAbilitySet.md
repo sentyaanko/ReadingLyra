@@ -16,6 +16,22 @@
 		* この値は、入力があった際に **InputTag** から [FGameplayAbilitySpec] を見つけるのに利用される。
 		* 詳しくは [ULyraAbilitySystemComponent] を参照してください。
 
+### ULyraAbilitySet::GrantedGameplayAbilities
+
+> Gameplay abilities to grant when this ability set is granted.  
+> 
+> ----
+> このアビリティセットが付与された時に付与されるゲームプレイアビリティです。  
+
+* 概要
+	* [FLyraAbilitySet_GameplayAbility] の配列です。
+	* 例として `AbilitySet_ShooterPistol` の設定内容は以下のとおりです。
+		| GameplayAbility           | 概要                                       |
+		|---------------------------|--------------------------------------------|
+		| `GA_Weapon_Fire_Pistol`   | Pistol 用の射撃アビリティ                  |
+		| `GA_Weapon_Reload_Pistol` | Pistol 用のリロードアビリティ              |
+		| `GA_Weapon_AutoReload`    | リロードアビリティを呼び出す汎用アビリティ |
+
 
 
 <!--- ページ内のリンク --->

@@ -11,7 +11,7 @@
 	* `AbilityInputActions`
 		* Gameplay Ability として実装されているアクション。
 			* Jump 、その他のアクション。
-		* アビリティ用の汎用関数にバインドされ、 `InputTag` を元に付与されている Gameplay Ability を検索してアクティブ化する。
+		* アビリティ用の汎用関数にバインドされ、 **InputTag** を元に付与されている Gameplay Ability を検索してアクティブ化する。
 * 適用単位毎に `InputData_` で始まるデータアセットを作成する。
 
 | アセット名                       | 用途                                                          |

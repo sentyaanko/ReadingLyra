@@ -1,5 +1,8 @@
+[FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
+[FLyraAppliedEquipmentEntry::EquipmentDefinition]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententryequipmentdefinition
 [FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
+[ULyraEquipmentDefinition::AbilitySetsToGrant]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ALyraWeaponSpawner]: ../../Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
 [UAimAssistTargetManagerComponent]: ../../Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
@@ -8,6 +11,7 @@
 [ULyraControllerComponent_CharacterParts]: ../../Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
 [ULyraDamageLogDebuggerComponent]: ../../Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
 [ULyraEquipmentManagerComponent]: ../../Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
+[ULyraEquipmentManagerComponent::EquipmentList]: ../../Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponentequipmentlist
 [ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
 [ULyraGameData]: ../../Lyra/Etc/ULyraGameData.md#ulyragamedata
 [ULyraIndicatorManagerComponent]: ../../Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
@@ -61,6 +65,7 @@
 [ILyraReadyInterface::IsPawnComponentReadyToInitialize()]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterfaceispawncomponentreadytoinitialize
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
 [ULyraAbilitySet::GiveToAbilitySystem()]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilitysetgivetoabilitysystem
+[ULyraAbilitySet::GrantedGameplayAbilities]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilitysetgrantedgameplayabilities
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
 [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentsettagrelationshipmapping
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping

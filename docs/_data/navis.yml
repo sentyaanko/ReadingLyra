@@ -11,6 +11,7 @@ nav:
   - クラス解説:
     - Lyra:
       - Equipment:
+        - FLyraAppliedEquipmentEntry: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry
         - FLyraInventoryList: ./CodeRefs/Lyra/Equipment/FLyraInventoryList
         - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
       - Etc:

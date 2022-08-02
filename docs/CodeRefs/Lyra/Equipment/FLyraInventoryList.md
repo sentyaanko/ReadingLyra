@@ -3,11 +3,12 @@
 > List of applied equipment
 > 
 > ----
-> 適用された装備一覧
+> 適用された装備一覧です
 
-* 装備一覧を保持している。
-* 詳細は割愛。
-
+* 概要
+	* `FFastArraySerializer` の派生クラスです。
+	* [FLyraAppliedEquipmentEntry] の配列で保持しています。
+	* [ULyraEquipmentManagerComponent::EquipmentList] で保持されています。
 
 
 
@@ -16,4 +17,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
+[ULyraEquipmentManagerComponent::EquipmentList]: ../../Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponentequipmentlist

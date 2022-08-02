@@ -14,7 +14,7 @@
 * `AbilitySets` に [ULyraAbilitySet] の配列を保持する。
 	* ポーンにデフォルトのアビリティを付与したい場合はここの設定を利用する。
 * `InputConfig` に [ULyraInputConfig] を保持する。
-	* ポーンにデフォルトの [UInputAction] と `InputTag` の設定を追加したい場合はここの設定を利用する。
+	* ポーンにデフォルトの [UInputAction] と **InputTag** の設定を追加したい場合はここの設定を利用する。
 * 利用するポーンクラス/[ULyraAbilityTagRelationshipMapping]/[ULyraInputConfig]/ULyraCameraMode 等を設定できます。
 
 | アセット名                         | 用途                                                          |
