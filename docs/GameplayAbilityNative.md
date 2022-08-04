@@ -109,8 +109,8 @@ Lyra のプレイヤーキャラクターはヘルスの値を持っており、
 		* ExecutionCalculation である [ULyraHealExecution] と [ULyraDamageExecution] が例外的に直接アクセスします。
 	* リスポーンに関して
 		* `ControlPoint` / `Elimination` ではエクスペリエンスの設定により付与された `GA_AutoRespawn` によって行われています。
-		* `TopDownArena` ではこのアビリティが付与されていないため、リスポーンが行われません。
-		* `TopDownArena` では爆風で一撃死しますが、特別なことはしておらず、ヘルスの値により死亡判定が行われています。
+		* `TopDownArena` ([UGameFeatureData]) ではこのアビリティが付与されていないため、リスポーンが行われません。
+		* `TopDownArena` ([UGameFeatureData]) では爆風で一撃死しますが、特別なことはしておらず、ヘルスの値により死亡判定が行われています。
 * Lyra で実装しているクラス
 	* [ULyraAttributeSet]
 		* `UAttributeSet` の派生クラスで、 Lyra のアトリビュートセットの基底クラスです。
@@ -249,6 +249,7 @@ Lyra では、 GAS の制御をコンポーネントを利用して行ってい�
 [ALyraGameMode]: CodeRefs/Lyra/GameplayFramework/ALyraGameMode.md#alyragamemode
 [ALyraPlayerState]: CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ULyraPawnData]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
+[UGameFeatureData]: CodeRefs/UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ALyraPlayerState]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#alyraplayerstate
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ULyraAttributeSet]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#ulyraattributeset

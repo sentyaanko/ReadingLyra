@@ -123,7 +123,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 		* 内部で [UDataRegistrySubsystem] を使用している。
 * Lyra での使われ方
 	* [UGameFeatureAction_DataRegistry] の使用
-		* `ShooterCore` [UGameFeatureData] で `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) を追加しています。
+		* `ShooterCore` ([UGameFeatureData]) で `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) を追加しています。
 	* [UDataRegistrySubsystem] の使用
 		* [ULyraAccoladeHostWidget::OnNotificationMessage()] 内で [UDataRegistrySubsystem::AcquireItem()] を使用し、 `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) のデータを参照しています。
 		* これは Accolade 発生時に使用する演出のアセットへのソフトリファレンスを取得するのに利用しています。
@@ -666,6 +666,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 <!--- generated --->
 [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]: ./EnhancedInput.md
 [ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[ULyraEquipmentManagerComponent]: CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
 [ALyraWeaponSpawner]: CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
 [UAimAssistTargetManagerComponent]: CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
@@ -673,7 +674,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [ULyraCheatManager]: CodeRefs/Lyra/Etc/ULyraCheatManager.md#ulyracheatmanager
 [ULyraControllerComponent_CharacterParts]: CodeRefs/Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
 [ULyraDamageLogDebuggerComponent]: CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
-[ULyraEquipmentManagerComponent]: CodeRefs/Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
 [ULyraFrontendStateComponent]: CodeRefs/Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
 [ULyraIndicatorManagerComponent]: CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
 [ULyraNumberPopComponent]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent

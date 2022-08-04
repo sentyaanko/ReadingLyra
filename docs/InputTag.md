@@ -171,8 +171,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 | InputTag.Ability.ToggleMarkerInWorld     | IA_ToggleMarkerInWorld | ShooterMaps                     |
 
 * InputTag と InputAction の属する GameFeature の差について
-	* 例１： `IA_Melee` は GameFeature `ShooterCore` に属しているが、 `InputTag.Ability.Melee` は `DefaultGameplayTags.ini` で定義されている。
-	* 例２： `IA_Interact` は GameFeature `ShooterMaps` に属しているが、 `InputTag.Ability.Melee` は `ShooterCoreTags.ini` で定義されている。
+	* 例１： `IA_Melee` は GameFeature `ShooterCore` ([UGameFeatureData]) に属しているが、 `InputTag.Ability.Melee` は `DefaultGameplayTags.ini` で定義されている。
+	* 例２： `IA_Interact` は GameFeature `ShooterMaps` ([UGameFeatureData]) に属しているが、 `InputTag.Ability.Melee` は `ShooterCoreTags.ini` で定義されている。
 	* 理由は不明。要確認。
 * `InputTag.Ability.Quickslot.*` の補足
 	* 他の InputTag と異なり、 C++ でのバインドで使用されていない。
@@ -373,6 +373,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UGameFeatureData]: CodeRefs/UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [UInputAction]: CodeRefs/UE/Input/UInputAction.md#uinputaction
 [UInputMappingContext]: CodeRefs/UE/Input/UInputMappingContext.md#uinputmappingcontext
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra

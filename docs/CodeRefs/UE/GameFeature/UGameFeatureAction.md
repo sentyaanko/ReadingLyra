@@ -63,6 +63,41 @@
 		|                                                                    | [UGameFeatureAction_SplitscreenConfig]      |
 		|                                                                    | [UGameFeatureAction_AddComponents]          |
 
+### UGameFeatureAction::OnGameFeatureRegistering()
+
+> Called when the object owning the action is registered for possible activation, this is called even if a feature never activates  
+> 
+> ----
+> アクションを所有するオブジェクトが起動可能に登録されたときに呼び出され、これは Feature が起動しない場合でも呼び出されます。  
+
+### UGameFeatureAction::OnGameFeatureUnregistering()
+
+> Called to unregister an action, it will not be activated again without being registered again  
+> 
+> ----
+> アクションの登録を解除するために呼び出され、再度登録しなければ再び起動することはありません。  
+
+### UGameFeatureAction::OnGameFeatureLoading()
+
+> Called to indicate that a feature is being loaded for activation in the near future  
+> 
+> ----
+> 近い将来に起動するために Feature がロードされていることを示すために呼び出されます。 
+
+### UGameFeatureAction::OnGameFeatureActivating()
+
+> Called when the feature is actually applied  
+> 
+> ----
+> Feature が実際に適用されるときに呼び出されます。  
+
+### UGameFeatureAction::OnGameFeatureDeactivating()
+
+> Called when game feature is deactivated, it may be activated again in the near future  
+> 
+> ----
+> Game Feature が無効化されたときに呼び出され、近い将来に再び有効化される可能性もあります。  
+
 
 <!--- ページ内のリンク --->
 

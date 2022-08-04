@@ -335,7 +335,7 @@ Lyra についての大まかな説明は以上です。
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合
 
 * 設定されている [UPlayerMappableInputConfig]
-	* `ShooterCore` を開き、 `Actions > Actions > Index[3]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
+	* `ShooterCore` ([UGameFeatureData]) を開き、 `Actions > Actions > Index[3]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
 		* `PMI_ShooterDefaultConfig_KBM`
@@ -343,7 +343,7 @@ Lyra についての大まかな説明は以上です。
 * 設定されている [UPlayerMappableInputConfig] の利用のされ方について
 	* `UGameFeatureAction_AddInputConfig` にて参照され、（キーコンフィグ関連を経由し）入力マッピングの追加が行われます。
 		* キーコンフィグ関連についての解説は割愛します。
-* `ShooterCore` （ [UGameFeatureData] ） の参照のされ方について
+* `ShooterCore` ([UGameFeatureData]) の参照のされ方について
 	* `Reference Viewer` からでは追うことができません。
 	* 以下のどちらかで Game Feature の名前を指定します。
 		* `ULyraExperienceDefinition::GameFeaturesToEnable`
@@ -361,7 +361,7 @@ Lyra についての大まかな説明は以上です。
 			* `LAS_InventoryTest`
 		* `ULyraExperienceActionSet` は `ULyraExperienceDefinition` から参照されますが、上記 4 つの `ULyraExperienceActionSet` は上記 3 つの `ULyraExperienceDefinition` からのみ参照されています。
 			* （注：現状で確認できる範囲では。）
-		* つまり、上記 3 つの `ULyraExperienceDefinition` をアクティブ化する際に `ShooterCore` のロードとアクティブ化が実行されます。
+		* つまり、上記 3 つの `ULyraExperienceDefinition` をアクティブ化する際に `ShooterCore` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
 	* 各 `ULyraExperienceDefinition` が指定されているレベル
 		* `B_LyraShooterGame_ControlPoints`
 			* `L_Convolution_Blockout`
@@ -372,7 +372,7 @@ Lyra についての大まかな説明は以上です。
 			* `L_FiringRange_WP`
 		* `B_TestInventoryExperience`
 			* `L_InventoryTestMap`
-		* つまりこれら 6 つのレベルをロードする際に `ShooterCore` のロードとアクティブ化が実行されます。
+		* つまりこれら 6 つのレベルをロードする際に `ShooterCore` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
 * 処理の流れのまとめ
 	1. 以下いずれかのレベルの初期化を行う。
 		* `L_Convolution_Blockout`
@@ -385,8 +385,8 @@ Lyra についての大まかな説明は以上です。
 		* `B_LyraShooterGame_ControlPoints`
 		* `B_ShooterGame_Elimination`
 		* `B_TestInventoryExperience`
-	1. エクスペリエンスで指定された Game Feature `ShooterCore` のロードとアクティブ化が実行される。
-	1. Game Feature `ShooterCore` で指定された以下の [UPlayerMappableInputConfig] が適用される
+	1. エクスペリエンスで指定された Game Feature `ShooterCore` ([UGameFeatureData]) のロードとアクティブ化が実行される。
+	1. Game Feature `ShooterCore` ([UGameFeatureData]) で指定された以下の [UPlayerMappableInputConfig] が適用される
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
 		* `PMI_ShooterDefaultConfig_KBM`
@@ -400,26 +400,26 @@ Lyra についての大まかな説明は以上です。
 
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： TopDownArena の場合
 
-流れは `ShooterCore` とほぼ同じで、参照しているアセットが異なります。
+流れは `ShooterCore` ([UGameFeatureData]) とほぼ同じで、参照しているアセットが異なります。
 
 * 設定されている [UPlayerMappableInputConfig]
-	* `TopDownArena` を開き、 `Actions > Actions > Index[1]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
+	* `TopDownArena` ([UGameFeatureData]) を開き、 `Actions > Actions > Index[1]` を見ると `Add Input Config` が指定され、 `Input Configs` で以下が指定されていることを確認できます。
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
-* `TopDownArena` （　[UGameFeatureData] ） の参照のされ方について
+* `TopDownArena` ([UGameFeatureData]) の参照のされ方について
 	* 指定されている場所
 		* `B_TopDownArenaExperience` （ `ULyraExperienceDefinition` ）のみ。
-		* つまり、`B_TopDownArenaExperience` （ `ULyraExperienceDefinition`） をアクティブ化する際に `TopDownArena` のロードとアクティブ化が実行されます。
+		* つまり、`B_TopDownArenaExperience` （ `ULyraExperienceDefinition`） をアクティブ化する際に `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
 	* `B_TopDownArenaExperience` （ `ULyraExperienceDefinition` ） が指定されているレベル
 		* `L_TopDownArenaGym` のみ。
-		* つまり `L_TopDownArenaGym` レベルをロードする際に `TopDownArena` のロードとアクティブ化が実行されます。
+		* つまり `L_TopDownArenaGym` レベルをロードする際に `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
 * 処理の流れのまとめ
 	1. 以下のレベルの初期化を行う。
 		* `L_TopDownArenaGym`
 	1. レベルで指定された以下のエクスペリエンスを適用する。
 		* `B_TopDownArenaExperience`
-	1. エクスペリエンスで指定された Game Feature `TopDownArena` のロードとアクティブ化が実行される。
-	1. Game Feature `TopDownArena` で指定された以下の [UPlayerMappableInputConfig] が適用される
+	1. エクスペリエンスで指定された Game Feature `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行される。
+	1. Game Feature `TopDownArena` ([UGameFeatureData]) で指定された以下の [UPlayerMappableInputConfig] が適用される
 		* `PMI_Default_KBM`
 		* `PMI_Default_Gamepad`
 	1. その結果、上記の [UPlayerMappableInputConfig] で指定された以下の [UInputMappingContext] が追加される。
@@ -468,7 +468,7 @@ Lyra についての大まかな説明は以上です。
 
 > note:  
 > つまり、たとえば `IMC_ShooterGame_KBM` は以下の 2 箇所から追加されていることになります。
-> * `ShooterCore`
+> * `ShooterCore` ([UGameFeatureData])
 > * `LAS_ShooterGame_SharedInput`
 > 
 > その際に指定しているプライオリティも異なります。（それぞれ 0 と 1 を指定しています。）  
@@ -528,7 +528,7 @@ Lyra についての大まかな説明は以上です。
 
 これらの依存関係を見ていくと、どのレベルでどの入力アクションがバインドされているのかがわかります。
 
-* 例：`TopDownArena` をプレイしようとする場合
+* 例：`TopDownArena` ([UGameFeatureData]) をプレイしようとする場合
 	* レベル `L_TopDownArenaGym` の初期化を行う。
 		* ポーンの情報として `InputData_Arena` が使用される。
 			* NativeAction として `IA_Move` が使用される。
@@ -542,7 +542,7 @@ Lyra についての大まかな説明は以上です。
 			* AbilityAction として `IA_Melee/IA_ADS/IA_Grenade/IA_ShowScoreboard/IA_DropWeapon/IA_Emote` が使用される。
 
 > note:  
-> これを見ると `TopDownArena` では `IA_Ability_Death` が使用されていないことがわかり、 `ControlPoints` などとは異なる死亡処理が行われていることが想像できます。  
+> これを見ると `TopDownArena` ([UGameFeatureData]) では `IA_Ability_Death` が使用されていないことがわかり、 `ControlPoints` などとは異なる死亡処理が行われていることが想像できます。  
 > （実際の死亡処理はまだ確認していませんので実際の処理は不明です。）
 
 
@@ -564,7 +564,7 @@ Lyra についての大まかな説明は以上です。
 
 前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 
-* 例：`TopDownArena` をプレイしようとする場合
+* 例：`TopDownArena` ([UGameFeatureData]) をプレイしようとする場合
 	* ポーンの情報として `InputData_Arena` が使用される。
 		* `InputData_Arena` の `NativeInputActions` を確認すると以下の項目のペアが設定されている。
 			* `IA_Move` と `InputTag.Move`
@@ -598,7 +598,7 @@ Lyra についての大まかな説明は以上です。
 
 前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 
-* 例：`TopDownArena` をプレイしようとする場合
+* 例：`TopDownArena` ([UGameFeatureData]) をプレイしようとする場合
 	* ポーンの情報として `InputData_Arena` が使用される。
 		* `InputData_Arena` の `AbilityInputActions` を確認すると以下の 1 つのペアが設定されている。
 			* `IA_Weapon_Fire` と `InputTag.Weapon.Fire` 

@@ -12,7 +12,7 @@
 			* ここで定義している RowName は [FLyraNotificationMessage::PayloadTag] と同じにしている。
 			* そうすることで、 [UGameplayMessageSubsystem] で受信した名前をそのまま [UDataRegistrySubsystem] で利用しています。
 	* [UDataRegistrySubsystem] への登録方法
-		* `ShooterCore` [UGameFeatureData] の設定経由で行っている。
+		* `ShooterCore` ([UGameFeatureData]) の設定経由で行っている。
 		* [UGameFeatureData::Actions] で [UGameFeatureAction_DataRegistry] のパラメータに `AccoladeDataRegistry` を設定している。
 		* そうすることで、フィーチャーの適用時に `AccoladeDataRegistry` が [UDataRegistrySubsystem] に登録される。
 * データレジストリに関しては以下を参照してください。

@@ -27,6 +27,13 @@
 > 
 > ----
 
+### UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()
+
+* 概要
+	* [UGameFeatureAction::OnGameFeatureActivating()] のオーバーライドです。
+	* [UGameFeatureAction_AddInputConfig::InputConfigs] をイテレート処理します。
+		* [FMappableConfigPair::bShouldActivateAutomatically] が true の場合は即座にアクティブ化します。
+
 
 
 <!--- ページ内のリンク --->
@@ -35,5 +42,8 @@
 
 <!--- generated --->
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
+[FMappableConfigPair::bShouldActivateAutomatically]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairbshouldactivateautomatically
+[UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
+[UGameFeatureAction::OnGameFeatureActivating()]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureactionongamefeatureactivating
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [UPlayerMappableInputConfig]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig

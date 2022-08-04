@@ -14,6 +14,7 @@ nav:
         - FLyraAppliedEquipmentEntry: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry
         - FLyraInventoryList: ./CodeRefs/Lyra/Equipment/FLyraInventoryList
         - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
+        - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent
       - Etc:
         - ALyraWeaponSpawner: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
         - UAimAssistTargetManagerComponent: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent
@@ -22,7 +23,6 @@ nav:
         - ULyraCheatManager: ./CodeRefs/Lyra/Etc/ULyraCheatManager
         - ULyraControllerComponent_CharacterParts: ./CodeRefs/Lyra/Etc/ULyraControllerComponent_CharacterParts
         - ULyraDamageLogDebuggerComponent: ./CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent
-        - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Etc/ULyraEquipmentManagerComponent
         - ULyraFrontendStateComponent: ./CodeRefs/Lyra/Etc/ULyraFrontendStateComponent
         - ULyraGameData: ./CodeRefs/Lyra/Etc/ULyraGameData
         - ULyraIndicatorManagerComponent: ./CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent
@@ -44,6 +44,8 @@ nav:
         - ULyraUserFacingExperienceDefinition: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition
       - GameFeature:
         - FGameFeatureAbilitiesEntry: ./CodeRefs/Lyra/GameFeature/FGameFeatureAbilitiesEntry
+        - FLyraAbilityGrant: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant
+        - FLyraAttributeSetGrant: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant
         - FMappableConfigPair: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair
         - UApplyFrontendPerfSettingsAction: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction
         - UGameFeatureAction_AddAbilities: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities
@@ -64,6 +66,7 @@ nav:
         - ILyraReadyInterface: ./CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface
         - ULyraAbilitySet: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySet
         - ULyraAbilitySystemComponent: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemComponent
+        - ULyraAbilitySystemGlobals: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemGlobals
         - ULyraAbilityTagRelationshipMapping: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping
         - ULyraAttributeSet: ./CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet
         - ULyraDamageExecution: ./CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution
@@ -163,6 +166,7 @@ nav:
       - GameplayAbility:
         - FGameplayAbilitySpec: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
         - FGameplayEffectSpec: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec
+        - UAbilitySystemGlobals: ./CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals
         - UGameplayAbility: ./CodeRefs/UE/GameplayAbility/UGameplayAbility
         - UGameplayAbilitySet: ./CodeRefs/UE/GameplayAbility/UGameplayAbilitySet
       - GameplayCue:

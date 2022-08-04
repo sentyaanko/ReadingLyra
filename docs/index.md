@@ -14,6 +14,7 @@
 			- [FLyraAppliedEquipmentEntry]
 			- [FLyraInventoryList]
 			- [ULyraEquipmentDefinition]
+			- [ULyraEquipmentManagerComponent]
 		- Etc
 			- [ALyraWeaponSpawner]
 			- [UAimAssistTargetManagerComponent]
@@ -22,7 +23,6 @@
 			- [ULyraCheatManager]
 			- [ULyraControllerComponent_CharacterParts]
 			- [ULyraDamageLogDebuggerComponent]
-			- [ULyraEquipmentManagerComponent]
 			- [ULyraFrontendStateComponent]
 			- [ULyraGameData]
 			- [ULyraIndicatorManagerComponent]
@@ -44,6 +44,8 @@
 			- [ULyraUserFacingExperienceDefinition]
 		- GameFeature
 			- [FGameFeatureAbilitiesEntry]
+			- [FLyraAbilityGrant]
+			- [FLyraAttributeSetGrant]
 			- [FMappableConfigPair]
 			- [UApplyFrontendPerfSettingsAction]
 			- [UGameFeatureAction_AddAbilities]
@@ -64,6 +66,7 @@
 			- [ILyraReadyInterface]
 			- [ULyraAbilitySet]
 			- [ULyraAbilitySystemComponent]
+			- [ULyraAbilitySystemGlobals]
 			- [ULyraAbilityTagRelationshipMapping]
 			- [ULyraAttributeSet]
 			- [ULyraDamageExecution]
@@ -163,6 +166,7 @@
 		- GameplayAbility
 			- [FGameplayAbilitySpec]
 			- [FGameplayEffectSpec]
+			- [UAbilitySystemGlobals]
 			- [UGameplayAbility]
 			- [UGameplayAbilitySet]
 		- GameplayCue
@@ -191,6 +195,7 @@
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
 [ULyraEquipmentDefinition]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md
+[ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md
 [ALyraWeaponSpawner]: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md
 [UAimAssistTargetManagerComponent]: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent.md
 [ULyraBotCreationComponent]: ./CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md
@@ -198,7 +203,6 @@
 [ULyraCheatManager]: ./CodeRefs/Lyra/Etc/ULyraCheatManager.md
 [ULyraControllerComponent_CharacterParts]: ./CodeRefs/Lyra/Etc/ULyraControllerComponent_CharacterParts.md
 [ULyraDamageLogDebuggerComponent]: ./CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent.md
-[ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Etc/ULyraEquipmentManagerComponent.md
 [ULyraFrontendStateComponent]: ./CodeRefs/Lyra/Etc/ULyraFrontendStateComponent.md
 [ULyraGameData]: ./CodeRefs/Lyra/Etc/ULyraGameData.md
 [ULyraIndicatorManagerComponent]: ./CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent.md
@@ -218,6 +222,8 @@
 [ULyraExperienceManagerComponent]: ./CodeRefs/Lyra/Experience/ULyraExperienceManagerComponent.md
 [ULyraUserFacingExperienceDefinition]: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition.md
 [FGameFeatureAbilitiesEntry]: ./CodeRefs/Lyra/GameFeature/FGameFeatureAbilitiesEntry.md
+[FLyraAbilityGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant.md
+[FLyraAttributeSetGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant.md
 [FMappableConfigPair]: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair.md
 [UApplyFrontendPerfSettingsAction]: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction.md
 [UGameFeatureAction_AddAbilities]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities.md
@@ -237,6 +243,7 @@
 [ILyraReadyInterface]: ./CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface.md
 [ULyraAbilitySet]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySet.md
 [ULyraAbilitySystemComponent]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemComponent.md
+[ULyraAbilitySystemGlobals]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md
 [ULyraAbilityTagRelationshipMapping]: ./CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md
 [ULyraAttributeSet]: ./CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md
 [ULyraDamageExecution]: ./CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution.md
@@ -318,6 +325,7 @@
 [UGameUserSettings]: ./CodeRefs/UE/GameFramework/UGameUserSettings.md
 [FGameplayAbilitySpec]: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md
 [FGameplayEffectSpec]: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md
+[UAbilitySystemGlobals]: ./CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals.md
 [UGameplayAbility]: ./CodeRefs/UE/GameplayAbility/UGameplayAbility.md
 [UGameplayAbilitySet]: ./CodeRefs/UE/GameplayAbility/UGameplayAbilitySet.md
 [UGameplayCueManager]: ./CodeRefs/UE/GameplayCue/UGameplayCueManager.md

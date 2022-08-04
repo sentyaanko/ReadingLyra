@@ -5,13 +5,17 @@
 > @see UAbilitySystemGlobals::GameplayCueNotifyPaths  
 >  
 > ----
+> GameplayCue のパスを GameplayCue Manager に追加する役割を担う GameFeatureAction です。  
+>  
+> [UAbilitySystemGlobals::GameplayCueNotifyPaths] を参照してください。 
 
-* Lyra での使い方
-	| Asset                                  | DirectoryPathsToAdd                                   |
-	| -------------------------------------- | ------------------------------------------------------|
-	| `ShooterCore`<br>([UGameFeatureData])  | `/GameplayCues`<br>`/Weapons`<br>`/Items`             |
-	| `TopDownArena`<br>([UGameFeatureData]) | `/GameplayCues`                                       |
-	| `ShooterMaps`<br>([UGameFeatureData])  | `/GameplayCues`                                       |
+* 概要
+	* Lyra での使い方
+		| Asset                               | DirectoryPathsToAdd                       |
+		| ----------------------------------- | ------------------------------------------|
+		| `ShooterCore` ([UGameFeatureData])  | `/GameplayCues`<br>`/Weapons`<br>`/Items` |
+		| `TopDownArena` ([UGameFeatureData]) | `/GameplayCues`                           |
+		| `ShooterMaps` ([UGameFeatureData])  | `/GameplayCues`                           |
 
 
 
@@ -23,3 +27,4 @@
 
 <!--- generated --->
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
+[UAbilitySystemGlobals::GameplayCueNotifyPaths]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths

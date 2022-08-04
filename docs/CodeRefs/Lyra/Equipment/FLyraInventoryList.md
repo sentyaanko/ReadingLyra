@@ -18,4 +18,4 @@
 
 <!--- generated --->
 [FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
-[ULyraEquipmentManagerComponent::EquipmentList]: ../../Lyra/Etc/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponentequipmentlist
+[ULyraEquipmentManagerComponent::EquipmentList]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponentequipmentlist
