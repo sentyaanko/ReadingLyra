@@ -64,6 +64,7 @@
 [UGameFeatureAction_AddAbilities::HandleActorExtension()]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilitieshandleactorextension
 [UGameFeatureAction_AddGameplayCuePath]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddGameplayCuePath.md#ugamefeatureaction_addgameplaycuepath
 [UGameFeatureAction_AddInputBinding]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputBinding.md#ugamefeatureaction_addinputbinding
+[UGameFeatureAction_AddInputBinding::InputConfigs]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputBinding.md#ugamefeatureaction_addinputbindinginputconfigs
 [UGameFeatureAction_AddInputConfig]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfig
 [UGameFeatureAction_AddInputConfig::InputConfigs]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
 [UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfigongamefeatureactivating
@@ -163,13 +164,18 @@
 [FLoadedMappableConfigPair]: CodeRefs/Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair
 [FLoadedMappableConfigPair::Config]: CodeRefs/Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpairconfig
 [FLyraInputAction]: CodeRefs/Lyra/Input/FLyraInputAction.md#flyrainputaction
+[FLyraInputAction::InputAction]: CodeRefs/Lyra/Input/FLyraInputAction.md#flyrainputactioninputaction
+[FLyraInputAction::InputTag]: CodeRefs/Lyra/Input/FLyraInputAction.md#flyrainputactioninputtag
 [ULyraInputComboComponent]: CodeRefs/Lyra/Input/ULyraInputComboComponent.md#ulyrainputcombocomponent
 [ULyraInputComboComponent::BindInputCallbacks()]: CodeRefs/Lyra/Input/ULyraInputComboComponent.md#ulyrainputcombocomponentbindinputcallbacks
 [ULyraInputComponent]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
 [ULyraInputComponent::AddInputMappings()]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentaddinputmappings
+[ULyraInputComponent::RemoveInputMappings()]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentremoveinputmappings
 [ULyraInputComponent::BindNativeAction()]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentbindnativeaction
 [ULyraInputComponent::BindAbilityActions()]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentbindabilityactions
 [ULyraInputConfig]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
+[ULyraInputConfig::NativeInputActions]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfignativeinputactions
+[ULyraInputConfig::AbilityInputActions]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfigabilityinputactions
 [FLyraInventoryList]: CodeRefs/Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
 [UInventoryFragment_EquippableItem]: CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
 [ULyraInventoryItemDefinition]: CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinition

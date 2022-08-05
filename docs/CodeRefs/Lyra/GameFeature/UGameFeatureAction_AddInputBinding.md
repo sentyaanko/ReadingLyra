@@ -7,11 +7,20 @@
 > ローカル プレイヤーの EnhancedInput システムに InputMappingContext を追加します。
 > ローカル プレーヤーが EnhancedInput システムを使用するように設定されていることが期待されます。
 
-* Lyra での使い方
-	| Asset                                                         | InputMapping<br>([ULyraInputConfig]) |
-	| ------------------------------------------------------------- | ------------------------------------ |
-	| `LAS_InventoryTest`<br>([ULyraExperienceActionSet])           | `InputData_InventoryTest`            |
-	| `LAS_ShooterGame_SharedInput`<br>([ULyraExperienceActionSet]) | `InputData_ShooterGame_AddOns`       |
+* 概要
+	* [UGameFeatureAction_WorldActionBase] の派生クラスです。
+	* 入力バインディングの追加を行う GameFeatureAction です。
+	* アセットの設定は以下の通りです。
+		| Asset                                                      | InputConfigs<br>([ULyraInputConfig]) |
+		| ---------------------------------------------------------- | ------------------------------------ |
+		| `LAS_InventoryTest` ([ULyraExperienceActionSet])           | `InputData_InventoryTest`            |
+		| `LAS_ShooterGame_SharedInput` ([ULyraExperienceActionSet]) | `InputData_ShooterGame_AddOns`       |
+
+### UGameFeatureAction_AddInputBinding::InputConfigs
+
+* 概要
+	* [ULyraInputConfig] の配列です。
+	* 追加する入力バインディングをアセットで指定します。
 
 
 
@@ -21,4 +30,5 @@
 
 <!--- generated --->
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
+[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig

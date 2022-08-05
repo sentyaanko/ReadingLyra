@@ -10,7 +10,10 @@
 > [UAbilitySystemGlobals::GameplayCueNotifyPaths] を参照してください。 
 
 * 概要
-	* Lyra での使い方
+	* [UGameFeatureAction] の派生クラスです。
+	* GameplayCue の検索パスの追加を行うための情報（パス）を保持します。
+	* 実際に検索パスの追加は [ULyraGameFeature_AddGameplayCuePaths] で行っています。
+	* アセットの設定は以下の通りです。
 		| Asset                               | DirectoryPathsToAdd                       |
 		| ----------------------------------- | ------------------------------------------|
 		| `ShooterCore` ([UGameFeatureData])  | `/GameplayCues`<br>`/Weapons`<br>`/Items` |
@@ -19,12 +22,12 @@
 
 
 
-
-
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeature_addgameplaycuepaths
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [UAbilitySystemGlobals::GameplayCueNotifyPaths]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths

@@ -88,7 +88,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* 4.27 でもβとしてして公開されています。
 * [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p65]
 * [Youtube > Unreal Engine > Modular Game Features ｜ Inside Unreal > 1:00:00]
-	*  Enhanced Input の説明です。
+	* Enhanced Input の説明です。
 * [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]
 	* 非公式の動画です。
 	* 公式ドキュメントにある Enhanced Input のセットアップの手順を動画で確認できます。
@@ -482,7 +482,7 @@ Lyra についての大まかな説明は以上です。
 * ここでは C++ で行っているバインドについて述べます。
 	* `B_HeroShooter_Mannequin` 等の Enhanced Action Events(EnhancedInputAction ノード) についての解説は割愛します。
 * C++ でバインドを行う場合、以下の関数を使用します。
-	*  [UEnhancedInputComponent::BindAction()]
+	* [UEnhancedInputComponent::BindAction()]
 * 上記の関数は以下の関数から呼び出していることが確認できます。
 	* `ULyraInputComponent::BindNativeAction()`
 	* `ULyraInputComponent::BindAbilityActions()`
@@ -491,7 +491,7 @@ Lyra についての大まかな説明は以上です。
 		* ポーンの初期化の際に呼び出される関数です。
 		* 関数の実装を更に読み解いていくと以下のことがわかります。
 			* バインドに使用している [UInputAction] は以下で指定している。
-				*  `FLyraInputAction:::InputAction`
+				* `FLyraInputAction:::InputAction`
 			* `FLyraInputAction` は以下のいずれかで指定している。
 				* `ULyraInputConfig::NativeInputActions`
 				* `ULyraInputConfig::AbilityInputActions`
@@ -506,9 +506,9 @@ Lyra についての大まかな説明は以上です。
 		* Game Feature によるバインドの追加の際に呼び出される関数です。
 		* 関数の実装を更に読み解いていくと以下のことがわかります。
 			* バインドに使用している [UInputAction] は以下で指定している。
-				*  `FLyraInputAction:::InputAction`
+				* `FLyraInputAction:::InputAction`
 			* `FLyraInputAction` は以下で指定している。
-				*  `UGameFeatureAction_AddInputBinding:::InputConfigs`
+				* `UGameFeatureAction_AddInputBinding::InputConfigs`
 			* `UGameFeatureAction_AddInputBinding` は以下で指定している。
 				* `ULyraExperienceActionSet::Actions`
 			* `ULyraExperienceActionSet` は以下で指定している。
