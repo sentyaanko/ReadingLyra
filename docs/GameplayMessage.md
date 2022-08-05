@@ -12,7 +12,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 - [概要](#概要)
 - [GameplayMessageSubsystem プラグイン](#gameplaymessagesubsystem-プラグイン)
-- [UGameplayMessageSubsystem について](#ugameplaymessagesubsystem-について)
+- [Lyra での使われ方](#lyra-での使われ方)
 - [終わりに](#終わりに)
 
 
@@ -48,7 +48,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* `ListenForGameplayMessages` ノード
 		* 任意の(GameplayTag で定義された)チャンネルに任意の(構造体で定義された)メッセージが届くのを非同期待ちするノードです。
 
-# UGameplayMessageSubsystem について
+# Lyra での使われ方
 
 * 概要
 	* リスナー用の基底クラス [UGameplayMessageProcessor] が作られています。
@@ -108,8 +108,11 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # 終わりに
 
-> TODO:なんかかく。
+この仕組みを用いることで、例えば Game Feature で実装する様々な機能の相互のやり取りが容易になり、モジュール式に作りやすくなります。  
+ただしこれは根本的には、どこに届くかわからないメッセージを一方的に送るだけ、どこから来るかわからないメッセージを待つだけの仕組みです。  
+レスポンスが必要な場合は互いにメッセージを待つか、別の仕組みを使うかなどが必要になります。  
 
+どなたかの参考になれば幸いです。
 
 -----
 おしまい。

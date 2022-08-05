@@ -62,6 +62,17 @@
 
 ### UGameplayMessageSubsystem::BroadcastMessage()
 
+> Broadcast a message on the specified channel  
+>
+> @param Channel			The message channel to broadcast on  
+> @param Message			The message to send (must be the same type of UScriptStruct expected by the listeners for this channel, otherwise an error will be logged)  
+> 
+> ----
+> 指定されたチャンネルにメッセージをブロードキャストします。  
+>
+> @param Channel			ブロードキャストするメッセージチャンネル。  
+> @param Message			送信するメッセージ（このチャネルのリスナーが期待するUScriptStructと同じタイプでなければならず、そうでない場合はエラーが記録されます）。  
+
 * 概要
 	* 指定されたチャンネルでメッセージをブロードキャストします。
 * Lyra での使われ方
@@ -71,11 +82,39 @@
 		* [ALyraPlayerState::ClientBroadcastMessage()]
 	* [FLyraVerbMessageReplication] からも呼び出しています。
 
-----
+
+### UGameplayMessageSubsystem::RegisterListener()
+
+> Register to receive messages on a specified channel  
+>
+> @param Channel			The message channel to listen to  
+> @param Callback			Function to call with the message when someone broadcasts it (must be the same type of UScriptStruct provided by broadcasters for this channel, otherwise an error will be logged)  
+>
+> @return a handle that can be used to unregister this listener (either by calling Unregister() on the handle or calling UnregisterListener on the router)
+> 
+> ----
+> 指定したチャンネルでメッセージを受信するように登録します。  
+>
+> @param Channel			リッスンするメッセージチャンネル。  
+> @param Callback			誰かがメッセージをブロードキャストしたときに呼び出す関数 (ブロードキャスターがこのチャンネルに対して提供する UScriptStruct と同じ型でなければならず、そうでない場合はエラーが記録されます)。 
+>
+> @return このリスナーの登録を解除するために使用できるハンドル (ハンドル上で Unregister() を呼び出すか、ルータ上で UnregisterListener を呼び出す)
+
+### UGameplayMessageSubsystem::UnregisterListener()
+
+> Remove a message listener previously registered by RegisterListener
+>
+> @param Handle	The handle returned by RegisterListener
+> 
+> ----
+> RegisterListener によって登録されたメッセージリスナーを削除する。
+>
+> @param Handle	RegisterListener() が返すハンドル
+
+
+
 <!--- 自前の画像へのリンク --->
 [AccoladeMessageSequence]: ../../../images/AccoladeMessageSequence.png
-
-
 
 <!--- ページ内のリンク --->
 
