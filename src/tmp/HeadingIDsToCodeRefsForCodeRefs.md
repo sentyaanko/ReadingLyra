@@ -196,6 +196,8 @@
 [UAsyncAction_ListenForGameplayMessage::ListenForGameplayMessages()]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessagelistenforgameplaymessages
 [UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
 [UGameplayMessageSubsystem::BroadcastMessage()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
+[UGameplayMessageSubsystem::RegisterListener()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystemregisterlistener
+[UGameplayMessageSubsystem::UnregisterListener()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystemunregisterlistener
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ../../Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2node_asyncaction_listenforgameplaymessages
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem

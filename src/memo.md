@@ -798,3 +798,428 @@ RPC 経由での処理の流れは
 				* クライアントの場合：**送信します**。
 	* メッセージ `Lyra.ShooterGame.Accolade.*` は `B_AccoladeRelay` で受信します。
 	* メッセージ `Lyra.AddNotification.Message` は `ULyraAccoladeHostWidget` で受信します。
+ 
+
+
+# クラス解説
+
+ここでは、このドキュメントで触れた Lyra で利用している UE のクラスと、 Lyra で実装しているクラスについてまとめています。
+
+## Inheritance Hierarchy
+
+クラス
+
+* `UObject`
+	* `UPrimaryDataAsset`
+		* [UGameFeatureData]
+		* [ULyraExperienceActionSet]
+		* [ULyraExperienceDefinition]
+		* [ULyraUserFacingExperienceDefinition]
+		* [UPlayerMappableInputConfig]
+		* [ULyraAbilitySet]
+		* [ULyraPawnData]
+	* `UDataAsset`
+		* [UInputMappingContext]
+		* [ULyraInputConfig]
+		* [UGameplayCueManager]
+			* [ULyraGameplayCueManager]
+		* [ULyraAbilityTagRelationshipMapping]
+	* `USubsystem`
+		* `UDynamicSubsystem`
+			* `UEngineSubsystem`
+				* [UGameFeaturesSubsystem]
+				* [UDataRegistrySubsystem]
+		* `UWorldSubsystem`
+			* [ULyraGlobalAbilitySystem]
+		* `UGameInstanceSubsystem`
+			* [UGameplayMessageSubsystem]
+	* `UCheatManager`
+		* [ULyraCheatManager]
+	* [UGameUserSettings]
+		* [ULyraSettingsLocal]
+	* `UActorComponent`
+		* `UGameFrameworkComponent`
+			* `UPawnComponent`
+				* [ULyraPawnComponent]
+					* [ULyraPawnExtensionComponent]
+					* [ULyraHeroComponent]
+				* [ULyraEquipmentManagerComponent]
+			* `UGameStateComponent`
+				* [ULyraExperienceManagerComponent]
+				* [ULyraBotCreationComponent]
+				* [UAimAssistTargetManagerComponent]
+				* [ULyraFrontendStateComponent]
+				* [ULyraTeamCreationComponent]
+				* [ULyraPlayerSpawningManagerComponent]
+					* [UTDM_PlayerSpawningManagmentComponent]
+			* `UControllerComponent`
+				* [ULyraWeaponStateComponent]
+				* [ULyraIndicatorManagerComponent]
+				* [ULyraQuickBarComponent]
+				* [ULyraNumberPopComponent]
+					* [ULyraNumberPopComponent_NiagaraText]
+				* [ULyraControllerComponent_CharacterParts]
+			* [ULyraHealthComponent]
+		* `UGameplayTasksComponent`
+			* `UAbilitySystemComponent`
+				* [ULyraAbilitySystemComponent]
+		* [UGameplayMessageProcessor]
+			* [UElimChainProcessor]
+			* [UElimStreakProcessor]
+			* [UAssistProcessor]
+		* [ULyraInventoryManagerComponent]
+		* [ULyraDamageLogDebuggerComponent]
+	* `AActor`
+		* `AInfo`
+			* `AGameModeBase`
+				* `AModularGameModeBase`
+					* [ALyraGameMode]
+			* `AGameStateBase`
+				* `AModularGameStateBase`
+					* [ALyraGameState]
+			* `APlayerState`
+				* `AModularPlayerState`
+					* [ALyraPlayerState]
+			* `AWorldSettings`
+				* [ALyraWorldSettings]
+		* `APawn`
+			* `ACharacter`
+				* `AModularCharacter`
+					* [ALyraCharacter]
+						* `Character_Default`
+							* `B_HeroDefault`
+								* `B_SimpleHeroPawn`
+					* [ALyraCharacterWithAbilities]
+		* `AController`
+			* `APlayerController`
+				* `AModularPlayerController`
+					* `ACommonPlayerController`
+						* [ALyraPlayerController]
+		* `AGameplayCueNotify_Actor`
+			* [AGameplayCueNotify_BurstLatent]
+		* [ALyraWeaponSpawner]
+	* `UVisual`
+		* `UWidget`
+			* `UUserWidget`
+				* `UCommonUserWidget`
+					* [ULyraAccoladeHostWidget]
+					* [ULyraReticleWidgetBase]
+					* [ULyraTaggedWidget]
+					* [UCommonActivatableWidget]
+						* [ULyraActivatableWidget]
+							* [ULyraHUDLayout]
+					* [ULyraWeaponUserInterface]
+					* [ULyraPerfStatContainerBase]
+					* [ULyraSimulatedInputWidget]
+						* [ULyraJoystickWidget]
+						* [ULyraTouchRegion]
+	* `UBlueprintAsyncActionBase`
+		* `UCancellableAsyncAction`
+			* [UAsyncAction_ListenForGameplayMessage]
+		* [UAsyncAction_ExperienceReady]
+	* [UGameFeatureAction]
+		* [UGameFeatureAction_AddGameplayCuePath]
+		* [UApplyFrontendPerfSettingsAction]
+		* [UGameFeatureAction_DataRegistry]
+		* [UGameFeatureAction_AddComponents]
+		* [UGameFeatureAction_AddInputConfig]
+		* [UGameFeatureAction_WorldActionBase]
+			* [UGameFeatureAction_AddInputBinding]
+			* [UGameFeatureAction_AddInputContextMapping]
+			* [UGameFeatureAction_SplitscreenConfig]
+			* [UGameFeatureAction_AddAbilities]
+			* [UGameFeatureAction_AddWidgets]
+	* [UOnlineHotfixManager]
+		* [ULyraHotfixManager]
+	* [UGameFeaturesProjectPolicies]
+		* [UDefaultGameFeaturesProjectPolicies]
+			* [ULyraGameFeaturePolicy]
+	* [ULyraGameFeature_HotfixManager]
+	* [ULyraGameFeature_AddGameplayCuePaths]
+	* [UGameplayAbility]
+		* [ULyraGameplayAbility]
+			* [ULyraGameplayAbility_FromEquipment]
+				* [ULyraGameplayAbility_RangedWeapon]
+			* [ULyraGameplayAbility_Reset]
+			* [ULyraGamePhaseAbility]
+			* [ULyraGameplayAbility_Death]
+	* `UAttributeSet`
+		* [ULyraAttributeSet]
+			* [ULyraHealthSet]
+	* `UGameplayEffectCalculation`
+		* `UGameplayEffectExecutionCalculation`
+			* [ULyraHealExecution]
+			* [ULyraDamageExecution]
+
+構造体
+
+* `FTableRowBase`
+	* [FLyraAccoladeDefinitionRow]
+* `FFastArraySerializer`
+	* [FLyraInventoryList]
+	* [FLyraVerbMessageReplication]
+* `FFastArraySerializerItem`
+	* [FGameplayAbilitySpec]
+* [FGameplayEffectSpec]
+* [FPrimaryAssetTypeInfo]
+* [FMappableConfigPair]
+* [FLyraControlPointStatusMessage]
+* [FLyraInteractionDurationMessage]
+* [FLyraQuickBarActiveIndexChangedMessage]
+* [FLyraQuickBarSlotsChangedMessage]
+* [FLyraNotificationMessage]
+* [FLyraInventoryChangeMessage]
+* [FLyraAbilitySimpleFailureMessage]
+* [FLyraAbilityMontageFailureMessage]
+* [FLyraVerbMessage]
+* [IGameFeatureStateChangeObserver]
+* `ILoadingProcessInterface`
+* [ILyraReadyInterface]
+
+<!--- TODO: 漏れがないか確認すること --->
+
+## 機能別
+
+* HotfixManager 関連
+	* UE
+		- [UOnlineHotfixManager]
+	* Lyra
+		- [ULyraHotfixManager]
+* DataRegistry 関連
+	* UE
+		- [UDataRegistrySubsystem]
+			- [UDataRegistrySubsystem::AcquireItem()]
+* AssetManager 関連
+	* UE
+		- [FPrimaryAssetTypeInfo]
+* GameFeature 関連
+	* UE
+		- [IGameFeatureStateChangeObserver]
+		- [UGameFeaturesProjectPolicies]
+		- [UDefaultGameFeaturesProjectPolicies]
+		- [UGameFeatureAction]
+		- [UGameFeatureAction_DataRegistry]
+		- [UGameFeatureAction_AddComponents]
+		- [UGameFeatureData]
+			- [UGameFeatureData::Actions]
+			- [UGameFeatureData::PrimaryAssetTypesToScan]
+		- [UGameFeaturesSubsystem]
+			- [UGameFeaturesSubsystem::AddObserver()]
+	* Lyra
+		- [ULyraGameFeaturePolicy]
+		- [FMappableConfigPair]
+			- [FMappableConfigPair::Config]
+			- [FMappableConfigPair::Type]
+			- [FMappableConfigPair::DependentPlatformTraits]
+			- [FMappableConfigPair::ExcludedPlatformTraits]
+			- [FMappableConfigPair::bShouldActivateAutomatically]
+		- [UGameFeatureAction_WorldActionBase]
+		- [UGameFeatureAction_AddInputBinding]
+		- [UGameFeatureAction_AddInputContextMapping]
+		- [UGameFeatureAction_SplitscreenConfig]
+		- [UGameFeatureAction_AddAbilities]
+		- [UGameFeatureAction_AddInputConfig]
+			- [UGameFeatureAction_AddInputConfig::InputConfigs]
+		- [UGameFeatureAction_AddWidgets]
+		- [UGameFeatureAction_AddGameplayCuePath]
+		- [UApplyFrontendPerfSettingsAction]
+		- [ULyraGameFeature_HotfixManager]
+		- [ULyraGameFeature_AddGameplayCuePaths]
+* Experience 関連
+	* Lyra
+		- [ALyraWorldSettings]
+		- [ULyraExperienceActionSet]
+			- [ULyraExperienceActionSet::Actions]
+		- [ULyraExperienceDefinition]
+			- [ULyraExperienceDefinition::DefaultPawnData]
+			- [ULyraExperienceDefinition::Actions]
+			- [ULyraExperienceDefinition::ActionSets]
+		- [ULyraUserFacingExperienceDefinition]
+		- [ULyraExperienceManagerComponent]
+			- [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()]
+			- [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded()]
+			- [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_LowPriority()]
+		- [UAsyncAction_ExperienceReady]
+			- [UAsyncAction_ExperienceReady::OnReady]
+* Input 関連
+	* UE
+		- [IEnhancedInputSubsystemInterface]
+		- [UEnhancedInputLocalPlayerSubsystem]
+		- [UInputAction]
+		- [UInputMappingContext]
+			- [UInputMappingContext::Mappings]
+		- [FEnhancedActionKeyMapping]
+			- [FEnhancedActionKeyMapping::Action]
+			- [FEnhancedActionKeyMapping::Key]
+		- [UPlayerMappableInputConfig]
+		- [UPlayerMappableInputConfig::Contexts]
+	* Lyra
+		- [ULyraInputConfig]
+* GameplayCue 関連
+	* UE
+		- [UGameplayCueManager]
+	* Lyra
+		- [ULyraGameplayCueManager]
+		- [AGameplayCueNotify_BurstLatent]
+* GameplayAbility 関連
+	* UE
+		- [UGameplayAbility]
+			- [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]
+			- [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]
+		- [FGameplayAbilitySpec]
+			- [FGameplayAbilitySpec::DynamicAbilityTags]
+		- [FGameplayEffectSpec]
+			- [FGameplayEffectSpec::CapturedSourceTags]
+	* Lyra
+		- [ULyraGlobalAbilitySystem]
+		- [ULyraAbilitySystemComponent]
+			- [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]
+		- [ULyraGameplayAbility]
+			- [ULyraGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]
+		- [ILyraReadyInterface]
+			- [ILyraReadyInterface::IsPawnComponentReadyToInitialize()]
+		- [ULyraPawnComponent]
+		- [ULyraPawnExtensionComponent]
+			- [ULyraPawnExtensionComponent::CheckPawnReadyToInitialize()]
+			- [ULyraPawnExtensionComponent::PawnData]
+			- [ULyraPawnExtensionComponent::GetPawnData()]
+			- [ULyraPawnExtensionComponent::SetPawnData()]
+			- [ULyraPawnExtensionComponent::AbilitySystemComponent]
+			- [ULyraPawnExtensionComponent::GetLyraAbilitySystemComponent()]
+			- [ULyraPawnExtensionComponent::InitializeAbilitySystem()]
+			- [ULyraPawnExtensionComponent::UninitializeAbilitySystem()]
+		- [ULyraHeroComponent]
+			- [ULyraHeroComponent::DefaultInputConfigs]
+			- [ULyraHeroComponent::IsPawnComponentReadyToInitialize()]
+			- [ULyraHeroComponent::OnPawnReadyToInitialize()]
+			- [ULyraHeroComponent::InitializePlayerInput()]
+			- [ULyraHeroComponent::DetermineCameraMode()]
+		- [ULyraAbilitySet]
+			- [ULyraAbilitySet::GiveToAbilitySystem()]
+		- [FLyraAbilityTagRelationship]
+		- [ULyraAbilityTagRelationshipMapping]
+		- [ULyraGameplayAbility_FromEquipment]
+		- [ULyraGameplayAbility_RangedWeapon]
+		- [ULyraGameplayAbility_Reset]
+		- [ULyraGameplayAbility_Death]
+		- [ULyraGameplayAbility_Interact]
+		- [ULyraGameplayAbility_Jump]
+		- [ULyraGamePhaseAbility]
+		- [ULyraAttributeSet]
+		- [ULyraHealthSet]
+			- [ULyraHealthSet::Health]
+			- [ULyraHealthSet::MaxHealth]
+			- [ULyraHealthSet::Healing]
+			- [ULyraHealthSet::Damage]
+		- [ULyraHealthComponent]
+		- [ULyraHealExecution]
+		- [ULyraDamageExecution]
+		- [ALyraCharacterWithAbilities]
+* GameplayMessage 関連
+	* Lyra
+		- [UGameplayMessageSubsystem]
+			- [UGameplayMessageSubsystem::BroadcastMessage()]
+		- [UAsyncAction_ListenForGameplayMessage]
+* GameplayMessageProcessor 関連
+	* Lyra
+		- [UGameplayMessageProcessor]
+		- [UElimChainProcessor]
+		- [UElimStreakProcessor]
+		- [UAssistProcessor]
+* GameplayMessageMessageStruct 関連
+	* Lyra
+		- [FLyraControlPointStatusMessage]
+		- [FLyraInteractionDurationMessage]
+		- [FLyraNotificationMessage]
+			- [FLyraNotificationMessage::PayloadTag]
+		- [FLyraQuickBarActiveIndexChangedMessage]
+		- [FLyraQuickBarSlotsChangedMessage]
+		- [FLyraInventoryChangeMessage]
+		- [FLyraPlayerResetMessage]
+		- [FLyraAbilitySimpleFailureMessage]
+		- [FLyraAbilityMontageFailureMessage]
+		- [FLyraVerbMessage]
+		- [FLyraVerbMessageReplication]
+* GameplayMessageAccolade 関連
+	* Lyra
+		- [FLyraAccoladeDefinitionRow]
+		- [ULyraAccoladeHostWidget]
+			- [ULyraAccoladeHostWidget::OnNotificationMessage()]
+* Inventory 関連
+	* Lyra
+		- [FLyraInventoryList]
+		- [ULyraInventoryManagerComponent]
+* Weapon 関連
+	* Lyra
+		- [ULyraWeaponStateComponent]
+* PawnSetting 関連
+	* Lyra
+		- [ULyraPawnData]
+			- [ULyraPawnData::PawnClass]
+			- [ULyraPawnData::InputConfig]
+			- [ULyraPawnData::TagRelationshipMapping]
+			- [ULyraPawnData::DefaultCameraMode]
+			- [ULyraPawnData::AbilitySets]
+* widget 関連
+	* Lyra
+		- [ULyraReticleWidgetBase]
+		- [ULyraTaggedWidget]
+		- [UCommonActivatableWidget]
+		- [ULyraActivatableWidget]
+		- [ULyraHUDLayout]
+		- [ULyraWeaponUserInterface]
+		- [ULyraPerfStatContainerBase]
+		- [ULyraSimulatedInputWidget]
+		- [ULyraJoystickWidget]
+		- [ULyraTouchRegion]
+* GameplayFramework 関連
+	* Lyra
+		- [ALyraCharacter]
+		- [ALyraPlayerController]
+		- [ALyraGameMode]
+			- [ALyraGameMode::InitGame()]
+			- [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]
+			- [ALyraGameMode::GetPawnDataForController()]
+		- [ALyraGameState]
+			- [ALyraGameState::MulticastMessageToClients()]
+			- [ALyraGameState::MulticastReliableMessageToClients()]
+		- [ALyraPlayerState]
+			- [ALyraPlayerState::StatTags]
+			- [ALyraPlayerState::OnExperienceLoaded()]
+			- [ALyraPlayerState::SetPawnData()]
+			- [ALyraPlayerState::ClientBroadcastMessage()]
+* その他
+	* Lyra
+		- [ALyraWeaponSpawner]
+		- [ULyraCameraMode]
+		- [ULyraCheatManager]
+		- [ULyraSettingsLocal]
+		- [ULyraDamageLogDebuggerComponent]
+		- [ULyraEquipmentManagerComponent]
+		- [ULyraIndicatorManagerComponent]
+		- [ULyraQuickBarComponent]
+		- [ULyraBotCreationComponent]
+		- [UAimAssistTargetManagerComponent]
+		- [ULyraNumberPopComponent]
+		- [ULyraNumberPopComponent_NiagaraText]
+		- [ULyraFrontendStateComponent]
+		- [ULyraTeamCreationComponent]
+		- [ULyraPlayerSpawningManagerComponent]
+		- [UTDM_PlayerSpawningManagmentComponent]
+		- [ULyraControllerComponent_CharacterParts]
+
+<!--- TODO: 漏れがないか確認すること --->
+
+
+
+
+
+
+# おまけ
+
+* [Youtube > Unreal Engine > Developing in UE5 ｜ Inside Unreal]
+	* 日本語字幕が付きました。
+	* 画作りに興味がある方向け。
+	* エンジニア的な内容は出てきません。
+[Youtube > Unreal Engine > Developing in UE5 ｜ Inside Unreal]: https://www.youtube.com/watch?v=5jb5ZMul94Q
+

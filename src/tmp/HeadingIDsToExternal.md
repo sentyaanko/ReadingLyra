@@ -41,7 +41,6 @@
 [Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]: https://docs.unrealengine.com/5.0/ja/enhanced-input-in-unreal-engine/
 [Unreal Engine Issues > UE-142237]: https://issues.unrealengine.com/issue/UE-142237
 [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
-[Youtube > Unreal Engine > Developing in UE5 ｜ Inside Unreal]: https://www.youtube.com/watch?v=5jb5ZMul94Q
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 23:47]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1427
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022 > 24:22]: https://www.youtube.com/watch?v=Fj1zCsYydD8&t=1462
