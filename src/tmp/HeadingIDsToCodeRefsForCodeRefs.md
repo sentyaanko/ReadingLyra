@@ -140,9 +140,6 @@
 [ALyraPlayerState::OnExperienceLoaded()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateonexperienceloaded
 [ALyraPlayerState::SetPawnData()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatesetpawndata
 [ALyraPlayerState::ClientBroadcastMessage()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage
-[UAsyncAction_ListenForGameplayMessage]: ../../Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
-[UGameplayMessageSubsystem]: ../../Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
-[UGameplayMessageSubsystem::BroadcastMessage()]: ../../Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
@@ -195,6 +192,11 @@
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [ULyraTouchRegion]: ../../Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: ../../Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
+[UAsyncAction_ListenForGameplayMessage]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
+[UAsyncAction_ListenForGameplayMessage::ListenForGameplayMessages()]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessagelistenforgameplaymessages
+[UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
+[UGameplayMessageSubsystem::BroadcastMessage()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
+[UK2Node_AsyncAction_ListenForGameplayMessages]: ../../Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2node_asyncaction_listenforgameplaymessages
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem

@@ -95,9 +95,6 @@
 			- [ALyraGameState]
 			- [ALyraPlayerController]
 			- [ALyraPlayerState]
-		- GameplayMessage
-			- [UAsyncAction_ListenForGameplayMessage]
-			- [UGameplayMessageSubsystem]
 		- GameplayMessageAccolade
 			- [FLyraAccoladeDefinitionRow]
 			- [ULyraAccoladeHostWidget]
@@ -147,6 +144,11 @@
 			- [ULyraTaggedWidget]
 			- [ULyraTouchRegion]
 			- [ULyraWeaponUserInterface]
+	- Plugin
+		- GameplayMessageSubsystem
+			- [UAsyncAction_ListenForGameplayMessage]
+			- [UGameplayMessageSubsystem]
+			- [UK2Node_AsyncAction_ListenForGameplayMessages]
 	- UE
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
@@ -270,8 +272,6 @@
 [ALyraGameState]: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState.md
 [ALyraPlayerController]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController.md
 [ALyraPlayerState]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md
-[UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage.md
-[UGameplayMessageSubsystem]: ./CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem.md
 [FLyraAccoladeDefinitionRow]: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md
 [ULyraAccoladeHostWidget]: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md
 [UAssistProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md
@@ -312,6 +312,9 @@
 [ULyraTaggedWidget]: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget.md
 [ULyraTouchRegion]: ./CodeRefs/Lyra/Widget/ULyraTouchRegion.md
 [ULyraWeaponUserInterface]: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md
+[UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md
+[UGameplayMessageSubsystem]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md
+[UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
 [IGameFeatureStateChangeObserver]: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md

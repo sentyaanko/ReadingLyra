@@ -10,13 +10,15 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # Index <!-- omit in toc -->
 
+- [概要](#概要)
+- [GameplayMessageSubsystem プラグイン](#gameplaymessagesubsystem-プラグイン)
 - [UGameplayMessageSubsystem について](#ugameplaymessagesubsystem-について)
 - [終わりに](#終わりに)
 
 
-# UGameplayMessageSubsystem について
+# 概要
 
-Lyra では任意の構造体を使用してメッセージの送受信を行う仕組を実装し、送信者と受信者が互いに直接知らなくてもやり取り可能にしています。
+任意の構造体を使用してメッセージの送受信を行う仕組みを実装しており、これを利用することで送信者と受信者が互いに直接知らなくてもやり取りを可能にしています。
 
 [GASDocumentation(和訳) > 11.1.2 Community Questions] の第 4 項目より
 > Q:  
@@ -32,16 +34,31 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 上記はおそらくこの仕組みに類するものだと思います。  
 (UnrealEngine のリポジトリを検索しても見つけることができなかったので、これがそのままそれというわけではないようです。)
 
+# GameplayMessageSubsystem プラグイン
+
+コアな部分の実装はプラグインとなっています。
+
 * 概要
-	* 管理クラスである [UGameplayMessageSubsystem] とリスナー用の基底クラス [UGameplayMessageProcessor] からなります。
-		* [UGameplayMessageProcessor] は ActorComponent であり、 Lyra では GameState 派生クラスに追加しています。
-		* widget などは [UGameplayMessageSubsystem] の機能を直接利用してリスナー登録しています。
-* Lyra で実装しているクラス
+	* [UAsyncAction_ListenForGameplayMessage]
+		* `ListenForGameplayMessages` ノードを処理するクラスです。
+	* [UK2Node_AsyncAction_ListenForGameplayMessages]
+		* `ListenForGameplayMessages` ノードのカスタマイズのためのクラスです。
 	* [UGameplayMessageSubsystem]
 		* 送信者から渡されたメッセージを、保持している受信者に配信するクラスです。
+	* `ListenForGameplayMessages` ノード
+		* 任意の(GameplayTag で定義された)チャンネルに任意の(構造体で定義された)メッセージが届くのを非同期待ちするノードです。
+
+# UGameplayMessageSubsystem について
+
+* 概要
+	* リスナー用の基底クラス [UGameplayMessageProcessor] が作られています。
+	* （基底クラスが異なるので） widget などは [UGameplayMessageSubsystem] の機能を直接利用してリスナー登録しています。
+* Lyra で実装しているクラス
 	* [UGameplayMessageProcessor]
+		* ActorComponent です。
+		* GameState 派生クラスに追加しています。
 		* メッセージをリッスンする基底クラスです。
-		* 派生クラスは以下の通り
+		* 派生クラスは以下の通りです。
 			* [UElimChainProcessor]
 				* 敵の連鎖撃破を追跡するクラスです。
 			* [UElimStreakProcessor]
@@ -50,27 +67,25 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 				* 撃破のアシストを追跡するクラスです。
 			* `B_AccoladeRelay` ([UGameplayMessageProcessor])
 				* **称賛情報**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラスです。
-				* サーバー、クライアント両方に追加されるコンポーネント。
-				* サーバー側が受け取った際は同じメッセージを **Client RPC** する。
-				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信する。
+				* サーバー、クライアント両方に追加されるコンポーネントです。
+				* サーバー側が受け取った際は同じメッセージを **Client RPC** します。
+				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信します。
 					* (そのメッセージは表示クラスが監視し、受信時に表示を行う)
-				* 基底クラスの機能は利用していない。
+				* 基底クラスの機能は利用していません。
 			* `B_EliminationFeedRelay` ([UGameplayMessageProcessor])
 				* **ヘルスがなくなった事**を追跡し、サーバーからクライアントに情報を送り、他のメッセージにリレーするクラスです。
-				* サーバー、クライアント両方に追加されるコンポーネント。
-				* サーバー側が受け取った際は同じメッセージを **Multicast RPC** する。
-				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信する。
+				* サーバー、クライアント両方に追加されるコンポーネントです。
+				* サーバー側が受け取った際は同じメッセージを **Multicast RPC** します。
+				* コスメティック処理が可能な場合(リッスンサーバー or クライアント or スタンドアロン)は別のメッセージを送信します。
 					* (そのメッセージは表示クラスが監視し、受信時に表示を行う)
-				* 基底クラスの機能は利用していない。
+				* 基底クラスの機能は利用していません。
 	* メッセージの送受信関連の情報
-		* 詳しくは [UGameplayMessageSubsystem] の利用状況の表を参照。
-		* メッセージをリッスンしているその他のクラス
+		* 詳しくは [UGameplayMessageSubsystem] の利用状況の表を参照してください。
+		* メッセージをリッスンしているその他のクラスは以下の通りです。
 			* [ULyraAccoladeHostWidget]
 				* 称賛情報をリッスンする widget クラスです。
 			* [ULyraDamageLogDebuggerComponent]
 				* ダメージ情報をリッスンするデバッグログクラスです。
-			* [UAsyncAction_ListenForGameplayMessage]
-				* 任意のメッセージをリッスン可能な、ブループリント用の Async ノード。
 		* 送信データ
 			* 以下のような構造体を送信している。
 				* [FLyraControlPointStatusMessage]
@@ -105,8 +120,6 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 
 <!--- generated --->
 [ULyraDamageLogDebuggerComponent]: CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
-[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
-[UGameplayMessageSubsystem]: CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
 [ULyraAccoladeHostWidget]: CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [UAssistProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessor
 [UElimChainProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor.md#uelimchainprocessor
@@ -123,5 +136,8 @@ Lyra では任意の構造体を使用してメッセージの送受信を行う
 [FLyraQuickBarSlotsChangedMessage]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraQuickBarSlotsChangedMessage.md#flyraquickbarslotschangedmessage
 [FLyraVerbMessage]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage.md#flyraverbmessage
 [FLyraVerbMessageReplication]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessageReplication.md#flyraverbmessagereplication
+[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
+[UGameplayMessageSubsystem]: CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
+[UK2Node_AsyncAction_ListenForGameplayMessages]: CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2node_asyncaction_listenforgameplaymessages
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra

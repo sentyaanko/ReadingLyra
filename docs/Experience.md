@@ -776,9 +776,6 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [ALyraPlayerState::OnExperienceLoaded()]: CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateonexperienceloaded
 [ALyraPlayerState::SetPawnData()]: CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatesetpawndata
 [ALyraPlayerState::ClientBroadcastMessage()]: CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage
-[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
-[UGameplayMessageSubsystem]: CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
-[UGameplayMessageSubsystem::BroadcastMessage()]: CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
 [FLyraAccoladeDefinitionRow]: CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget]: CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
@@ -819,6 +816,9 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 [ULyraTaggedWidget]: CodeRefs/Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [ULyraTouchRegion]: CodeRefs/Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
+[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
+[UGameplayMessageSubsystem]: CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
+[UGameplayMessageSubsystem::BroadcastMessage()]: CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
 [FPrimaryAssetTypeInfo]: CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem

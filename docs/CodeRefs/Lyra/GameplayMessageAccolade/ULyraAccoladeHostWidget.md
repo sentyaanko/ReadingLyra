@@ -28,11 +28,11 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[UGameplayMessageSubsystem]: ../../Lyra/GameplayMessage/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
 [FLyraNotificationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessage
 [FLyraNotificationMessage::PayloadTag]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessagepayloadtag
+[UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UGameFeatureAction_DataRegistry]: ../../UE/GameFeature/UGameFeatureAction_DataRegistry.md#ugamefeatureaction_dataregistry
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

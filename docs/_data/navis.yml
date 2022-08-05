@@ -95,9 +95,6 @@ nav:
         - ALyraGameState: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState
         - ALyraPlayerController: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController
         - ALyraPlayerState: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState
-      - GameplayMessage:
-        - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Lyra/GameplayMessage/UAsyncAction_ListenForGameplayMessage
-        - UGameplayMessageSubsystem: ./CodeRefs/Lyra/GameplayMessage/UGameplayMessageSubsystem
       - GameplayMessageAccolade:
         - FLyraAccoladeDefinitionRow: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow
         - ULyraAccoladeHostWidget: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget
@@ -147,6 +144,11 @@ nav:
         - ULyraTaggedWidget: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget
         - ULyraTouchRegion: ./CodeRefs/Lyra/Widget/ULyraTouchRegion
         - ULyraWeaponUserInterface: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface
+    - Plugin:
+      - GameplayMessageSubsystem:
+        - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage
+        - UGameplayMessageSubsystem: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem
+        - UK2Node_AsyncAction_ListenForGameplayMessages: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages
     - UE:
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
