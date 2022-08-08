@@ -5,6 +5,9 @@
 > ----
 > プレイヤーが制御するポーン（キャラクター、ビークルなど）を作成するために使用されるコンポーネント。  
 
+* **InputTag** と [UInputAction] の関連付け
+	* [UGameFeatureAction_AddInputBinding] から呼び出されます。
+
 * 主な役割
 	* 入力時のロジックの実装と Enhanced Input との関連付け。
 	* [ULyraPawnExtensionComponent] のアビリティシステム関連の機能呼び出し。
@@ -80,6 +83,7 @@
 [ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ULyraSettingsLocal]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocal
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
+[UGameFeatureAction_AddInputBinding]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputBinding.md#ugamefeatureaction_addinputbinding
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
 [ULyraHeroComponent::OnPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentonpawnreadytoinitialize
 [ULyraHeroComponent::InitializePlayerInput()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinitializeplayerinput
@@ -90,3 +94,4 @@
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ULyraInputComponent::AddInputMappings()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentaddinputmappings
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
+[UInputAction]: ../../UE/Input/UInputAction.md#uinputaction

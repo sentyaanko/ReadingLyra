@@ -1,16 +1,31 @@
 ## ULyraInputComponent
 
 > Component used to manage input mappings and bindings using an input config data asset.  
-> 入力設定データアセットを使用して、入力マッピングおよびバインディングを管理するために使用されるコンポーネントです。
+> 
+> ----
+> 入力設定データアセットを使用して、入力マッピングおよびバインディングを管理するために使用されるコンポーネントです。  
 
-* [UEnhancedInputComponent] の派生クラスです。
-* 仮想関数のオーバーライドなどは行っておらず、 [FLoadedMappableConfigPair] や [ULyraInputConfig] の情報を基底クラス側に設定するためのクラスです。
+* 概要
+	* [UEnhancedInputComponent] の派生クラスです。
+	* 仮想関数のオーバーライドなどは行っていません。
+	* [FLoadedMappableConfigPair] や [ULyraInputConfig] の情報を元に基底クラス側の関数を呼び出す関数が実装されています。
+	* 主に [ULyraHeroComponent] から各種関数が呼び出されます。
+	* [ULyraInputComboComponent] からの呼び出しもありますが、現在 [ULyraInputComboComponent] は使われていないようです。
 
 > note:
-> ULyraInputComponent::RemoveInputConfig での AddPlayerMappableConfig の呼び出しは RemovePlayerMappableConfig の間違いのように見える。
+> ULyraInputComponent::RemoveInputConfig() での AddPlayerMappableConfig の呼び出しは RemovePlayerMappableConfig の間違いのように見受けられます。
 
 ### ULyraInputComponent::AddInputMappings()
 
+* 概要
+	* 入力マッピングコンテキストを追加します。
+	* [IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()] を呼び出します。
+
+### ULyraInputComponent::RemoveInputMappings()
+
+* 概要
+	* 入力マッピングコンテキストを削除します。
+	* [IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()] を呼び出します。
 
 ### ULyraInputComponent::BindNativeAction()
 
@@ -31,6 +46,10 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraHeroComponent]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponent
 [FLoadedMappableConfigPair]: ../../Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair
+[ULyraInputComboComponent]: ../../Lyra/Input/ULyraInputComboComponent.md#ulyrainputcombocomponent
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
+[IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddplayermappableconfig
+[IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremoveplayermappableconfig
 [UEnhancedInputComponent]: ../../UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
