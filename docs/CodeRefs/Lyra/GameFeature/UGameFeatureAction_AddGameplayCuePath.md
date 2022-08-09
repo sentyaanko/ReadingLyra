@@ -11,7 +11,7 @@
 
 * 概要
 	* [UGameFeatureAction] の派生クラスです。
-	* GameplayCue の検索パスの追加を行うための情報（パス）を保持します。
+	* Game Feature がアクティブになった際に GameplayCue の検索パスの追加を行う GameFeatureAction です。
 	* 実際に検索パスの追加は [ULyraGameFeature_AddGameplayCuePaths] で行っています。
 	* アセットの設定は以下の通りです。
 		| Asset                               | DirectoryPathsToAdd                       |

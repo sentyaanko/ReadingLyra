@@ -44,6 +44,7 @@ nav:
         - ULyraUserFacingExperienceDefinition: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition
       - GameFeature:
         - FGameFeatureAbilitiesEntry: ./CodeRefs/Lyra/GameFeature/FGameFeatureAbilitiesEntry
+        - FInputMappingContextAndPriority: ./CodeRefs/Lyra/GameFeature/FInputMappingContextAndPriority
         - FLyraAbilityGrant: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant
         - FLyraAttributeSetGrant: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant
         - FMappableConfigPair: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair

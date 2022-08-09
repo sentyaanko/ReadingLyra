@@ -4,13 +4,18 @@
 > Expects that local players are set up to use the EnhancedInput system.  
 > 
 > ----
+> ローカルプレイヤーの EnhancedInput システムに InputMappingContext を追加します。
+> ローカルプレイヤーが EnhancedInput システムを使用するように設定されていることを想定しています。 
 
-* Lyra での使い方
-	| Asset                                                         | InputMapping<br>([UInputMappingContext]) | Priority |
-	| ------------------------------------------------------------- | ---------------------------------------- | ---------|
-	| `LAS_InventoryTest`<br>([ULyraExperienceActionSet])           | `IMC_InventoryTest`                      | 1        |
-	| `LAS_ShooterGame_SharedInput`<br>([ULyraExperienceActionSet]) | `IMC_ShooterGame_KBM`                    | 1        |
+* 概要
+	* [UGameFeatureAction_WorldActionBase] の派生クラスです。
+	* Game Feature がアクティブになった際に入力マッピングの追加を行う GameFeatureAction です。
 
+### UGameFeatureAction_AddInputContextMapping::InputMappings
+
+* 概要
+	* [FInputMappingContextAndPriority] の配列です。
+	* 入力マッピングコンテキストとプライオリティを指定します。
 
 
 <!--- ページ内のリンク --->
@@ -18,5 +23,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
-[UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext
+[FInputMappingContextAndPriority]: ../../Lyra/GameFeature/FInputMappingContextAndPriority.md#finputmappingcontextandpriority
+[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase

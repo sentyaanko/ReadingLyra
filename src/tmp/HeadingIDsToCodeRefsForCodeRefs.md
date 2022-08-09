@@ -45,6 +45,9 @@
 [FGameFeatureAbilitiesEntry::GrantedAbilities]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilities
 [FGameFeatureAbilitiesEntry::GrantedAttributes]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedattributes
 [FGameFeatureAbilitiesEntry::GrantedAbilitySets]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilitysets
+[FInputMappingContextAndPriority]: ../../Lyra/GameFeature/FInputMappingContextAndPriority.md#finputmappingcontextandpriority
+[FInputMappingContextAndPriority::InputMapping]: ../../Lyra/GameFeature/FInputMappingContextAndPriority.md#finputmappingcontextandpriorityinputmapping
+[FInputMappingContextAndPriority::Priority]: ../../Lyra/GameFeature/FInputMappingContextAndPriority.md#finputmappingcontextandprioritypriority
 [FLyraAbilityGrant]: ../../Lyra/GameFeature/FLyraAbilityGrant.md#flyraabilitygrant
 [FLyraAbilityGrant::AbilityType]: ../../Lyra/GameFeature/FLyraAbilityGrant.md#flyraabilitygrantabilitytype
 [FLyraAttributeSetGrant]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#flyraattributesetgrant
@@ -70,9 +73,12 @@
 [UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
 [UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfigongamefeatureactivating
 [UGameFeatureAction_AddInputContextMapping]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmapping
+[UGameFeatureAction_AddInputContextMapping::InputMappings]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmappinginputmappings
 [UGameFeatureAction_AddWidgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgets
 [UGameFeatureAction_SplitscreenConfig]: ../../Lyra/GameFeature/UGameFeatureAction_SplitscreenConfig.md#ugamefeatureaction_splitscreenconfig
 [UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
+[UGameFeatureAction_WorldActionBase::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbaseongamefeatureactivating
+[UGameFeatureAction_WorldActionBase::AddToWorld()]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbaseaddtoworld
 [ULyraGameFeaturePolicy]: ../../Lyra/GameFeature/ULyraGameFeaturePolicy.md#ulyragamefeaturepolicy
 [ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeature_addgameplaycuepaths
 [ULyraGameFeature_HotfixManager]: ../../Lyra/GameFeature/ULyraGameFeature_HotfixManager.md#ulyragamefeature_hotfixmanager

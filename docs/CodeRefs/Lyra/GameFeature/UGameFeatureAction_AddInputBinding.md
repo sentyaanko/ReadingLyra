@@ -9,6 +9,7 @@
 
 * 概要
 	* [UGameFeatureAction_WorldActionBase] の派生クラスです。
+	* Game Feature がアクティブになった際に入力バインディングの追加を行う GameFeatureAction です。
 	* 入力バインディングの追加を行う GameFeatureAction です。
 	* アセットの設定は以下の通りです。
 		| Asset                                                      | InputConfigs<br>([ULyraInputConfig]) |

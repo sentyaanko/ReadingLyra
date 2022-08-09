@@ -12,6 +12,15 @@
 			* GameFeature 経由で InputMappingContext を設定する際に使用します。
 		* [ULyraHeroComponent::DefaultInputConfigs]
 			* GameFeature を使わないで InputMappingContext を設定する際に使用します。
+	* [UGameFeatureAction_AddInputConfig] を使用しているアセットの設定は以下の通りです。
+		| Asset                                  | Config<br>([UPlayerMappableInputConfig]) | Type             | DependentPlatformTraits                         |
+		| ---------------------------------------| -----------------------------------------|------------------|-------------------------------------------------|
+		| `ShooterCore`<br>([UGameFeatureData])  | `PMI_Default_KBM`                        | MouseAndKeyboard | `Platform.Trait.Input.SupportsMouseAndKeyboard` |
+		|                                        | `PMI_Default_Gamepad`                    | Gamepad          |                                                 |
+		|                                        | `PMI_ShooterDefaultConfig_KBM`           | MouseAndKeyboard | `Platform.Trait.Input.SupportsMouseAndKeyboard` |
+		|                                        | `PMI_ShooterDefaultConfig_Gamepad`       | Gamepad          |                                                 |
+		| `TopDownArena`<br>([UGameFeatureData]) | `PMI_Default_KBM`                        | MouseAndKeyboard |                                                 |
+		|                                        | `PMI_Default_Gamepad`                    | Gamepad          |                                                 |
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra 入力設定]
 
@@ -101,6 +110,7 @@
 [FMappableConfigPair::DependentPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairdependentplatformtraits
 [FMappableConfigPair::ExcludedPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairexcludedplatformtraits
 [FMappableConfigPair::CanBeActivated()]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpaircanbeactivated
+[UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfig
 [UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
 [UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfigongamefeatureactivating
 [ULyraHeroComponent::DefaultInputConfigs]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdefaultinputconfigs

@@ -44,6 +44,7 @@
 			- [ULyraUserFacingExperienceDefinition]
 		- GameFeature
 			- [FGameFeatureAbilitiesEntry]
+			- [FInputMappingContextAndPriority]
 			- [FLyraAbilityGrant]
 			- [FLyraAttributeSetGrant]
 			- [FMappableConfigPair]
@@ -224,6 +225,7 @@
 [ULyraExperienceManagerComponent]: ./CodeRefs/Lyra/Experience/ULyraExperienceManagerComponent.md
 [ULyraUserFacingExperienceDefinition]: ./CodeRefs/Lyra/Experience/ULyraUserFacingExperienceDefinition.md
 [FGameFeatureAbilitiesEntry]: ./CodeRefs/Lyra/GameFeature/FGameFeatureAbilitiesEntry.md
+[FInputMappingContextAndPriority]: ./CodeRefs/Lyra/GameFeature/FInputMappingContextAndPriority.md
 [FLyraAbilityGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant.md
 [FLyraAttributeSetGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant.md
 [FMappableConfigPair]: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair.md

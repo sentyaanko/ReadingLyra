@@ -5,27 +5,26 @@
 > Expects that local players are set up to use the EnhancedInput system.  
 > 
 > ----
+> ゲームユーザー設定に Player Mappable Input config を登録します。 
+>  
+> ローカルプレイヤーは EnhancedInput システムを使用するように設定されていることを想定しています。 
 
-* Game Feature がアクティブになった際に付与する入力マッピング情報を保持する。
-* `InputConfigs` に [FMappableConfigPair] の配列を保持しています。
-
-
-* Lyra での使い方
-	| Asset                                  | Config<br>([UPlayerMappableInputConfig]) | Type             | DependentPlatformTraits                         |
-	| ---------------------------------------| -----------------------------------------|------------------|-------------------------------------------------|
-	| `ShooterCore`<br>([UGameFeatureData])  | `PMI_Default_KBM`                        | MouseAndKeyboard | `Platform.Trait.Input.SupportsMouseAndKeyboard` |
-	|                                        | `PMI_Default_Gamepad`                    | Gamepad          |                                                 |
-	|                                        | `PMI_ShooterDefaultConfig_KBM`           | MouseAndKeyboard | `Platform.Trait.Input.SupportsMouseAndKeyboard` |
-	|                                        | `PMI_ShooterDefaultConfig_Gamepad`       | Gamepad          |                                                 |
-	| `TopDownArena`<br>([UGameFeatureData]) | `PMI_Default_KBM`                        | MouseAndKeyboard |                                                 |
-	|                                        | `PMI_Default_Gamepad`                    | Gamepad          |                                                 |
-
+* 概要
+	* [UGameFeatureAction] の派生クラスです。
+	* Game Feature がアクティブになった際に入力マッピングの追加を行う GameFeatureAction です。
+	* 使用しているアセットは以下の通りです。
+		* `ShooterCore`<br>([UGameFeatureData])
+		* `TopDownArena`<br>([UGameFeatureData])
 
 ### UGameFeatureAction_AddInputConfig::InputConfigs
 
 > The player mappable configs to register for user with this config  
 > 
 > ----
+> このコンフィグを持つユーザーに対して登録するプレーヤーマップ可能なコンフィグ  
+
+* 概要
+	* [FMappableConfigPair] の配列です。
 
 ### UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()
 
@@ -44,6 +43,6 @@
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [FMappableConfigPair::bShouldActivateAutomatically]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairbshouldactivateautomatically
 [UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
 [UGameFeatureAction::OnGameFeatureActivating()]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureactionongamefeatureactivating
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
-[UPlayerMappableInputConfig]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig
