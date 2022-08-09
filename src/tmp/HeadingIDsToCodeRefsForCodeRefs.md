@@ -1,6 +1,7 @@
 [FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
 [FLyraAppliedEquipmentEntry::EquipmentDefinition]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententryequipmentdefinition
 [FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
+[FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ULyraEquipmentDefinition::AbilitySetsToGrant]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent

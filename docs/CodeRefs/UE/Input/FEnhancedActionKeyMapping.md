@@ -34,12 +34,14 @@
 > アクションに影響を与えるキーです。
 
 ### FEnhancedActionKeyMapping::bIsPlayerMappable
+
 > If true than this ActionKeyMapping will be exposed as a player bindable key
 > 
 > ----
 > true の場合、この ActionKeyMapping はプレイヤーバインディング可能なキーとして公開されます。
 
 ### FEnhancedActionKeyMapping::PlayerMappableOptions
+
 > Options for making this a player mappable keymapping
 > 
 > ----
@@ -49,6 +51,7 @@
 	* 名前やカテゴリなどが指定でき、オプション画面等で任意に利用可能です。
 
 ### FEnhancedActionKeyMapping::bShouldBeIgnored
+
 > If true, then this Key Mapping should be ignored. 
 > This is set to true if the key is down during a rebuild of it's owning PlayerInput ControlMappings.
 > 
@@ -60,6 +63,7 @@
 > [IEnhancedInputSubsystemInterface::RebuildControlMappings()] を参照してください。
 
 ### FEnhancedActionKeyMapping::Triggers
+
 > Trigger qualifiers. If any trigger qualifiers exist the mapping will not trigger unless:
 > If there are any Explicit triggers in this list at least one of them must be met.
 > All Implicit triggers in this list must be met.
@@ -73,6 +77,7 @@
 	* [UInputTrigger] の配列です。
 
 ### FEnhancedActionKeyMapping::Modifiers
+
 > Modifiers applied to the raw key value.
 > These are applied sequentially in array order.
 > 

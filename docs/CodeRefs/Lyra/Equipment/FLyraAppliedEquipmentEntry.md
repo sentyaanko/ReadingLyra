@@ -7,7 +7,7 @@
 
 * 概要
 	* `FFastArraySerializerItem` の派生クラスです。
-	* [FLyraAppliedEquipmentEntry] で保持されています。
+	* [FLyraEquipmentList::Entries] で保持されています。
 
 ## FLyraAppliedEquipmentEntry::EquipmentDefinition
 
@@ -26,5 +26,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
+[FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
