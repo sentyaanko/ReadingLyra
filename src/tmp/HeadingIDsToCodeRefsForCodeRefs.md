@@ -53,6 +53,12 @@
 [FLyraAttributeSetGrant]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#flyraattributesetgrant
 [FGameFeatureAbilitiesEntry::AttributeSetType]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#fgamefeatureabilitiesentryattributesettype
 [FGameFeatureAbilitiesEntry::InitializationData]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#fgamefeatureabilitiesentryinitializationdata
+[FLyraHUDElementEntry]: ../../Lyra/GameFeature/FLyraHUDElementEntry.md#flyrahudelemententry
+[FLyraHUDElementEntry::WidgetClass]: ../../Lyra/GameFeature/FLyraHUDElementEntry.md#flyrahudelemententrywidgetclass
+[FLyraHUDElementEntry::SlotID]: ../../Lyra/GameFeature/FLyraHUDElementEntry.md#flyrahudelemententryslotid
+[FLyraHUDLayoutRequest]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequest
+[FLyraHUDLayoutRequest::LayoutClass]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequestlayoutclass
+[FLyraHUDLayoutRequest::LayerID]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequestlayerid
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [FMappableConfigPair::Config]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairconfig
 [FMappableConfigPair::Type]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairtype
@@ -75,6 +81,8 @@
 [UGameFeatureAction_AddInputContextMapping]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmapping
 [UGameFeatureAction_AddInputContextMapping::InputMappings]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmappinginputmappings
 [UGameFeatureAction_AddWidgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgets
+[UGameFeatureAction_AddWidgets::Layout]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetslayout
+[UGameFeatureAction_AddWidgets::Widgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetswidgets
 [UGameFeatureAction_SplitscreenConfig]: ../../Lyra/GameFeature/UGameFeatureAction_SplitscreenConfig.md#ugamefeatureaction_splitscreenconfig
 [UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
 [UGameFeatureAction_WorldActionBase::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbaseongamefeatureactivating
@@ -205,6 +213,9 @@
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [ULyraTouchRegion]: ../../Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: ../../Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
+[CommonGameInstance]: ../../Plugin/CommonGame/CommonGameInstance.md#commongameinstance
+[UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
+[UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
 [UAsyncAction_ListenForGameplayMessage]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
 [UAsyncAction_ListenForGameplayMessage::ListenForGameplayMessages()]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessagelistenforgameplaymessages
 [UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
@@ -212,6 +223,9 @@
 [UGameplayMessageSubsystem::RegisterListener()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystemregisterlistener
 [UGameplayMessageSubsystem::UnregisterListener()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystemunregisterlistener
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ../../Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2node_asyncaction_listenforgameplaymessages
+[UUIExtensionPointWidget]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
+[UUIExtensionPointWidget::ExtensionPointTag]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
+[UUIExtensionSubsystem]: ../../Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem

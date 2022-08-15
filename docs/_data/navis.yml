@@ -47,6 +47,8 @@ nav:
         - FInputMappingContextAndPriority: ./CodeRefs/Lyra/GameFeature/FInputMappingContextAndPriority
         - FLyraAbilityGrant: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant
         - FLyraAttributeSetGrant: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant
+        - FLyraHUDElementEntry: ./CodeRefs/Lyra/GameFeature/FLyraHUDElementEntry
+        - FLyraHUDLayoutRequest: ./CodeRefs/Lyra/GameFeature/FLyraHUDLayoutRequest
         - FMappableConfigPair: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair
         - UApplyFrontendPerfSettingsAction: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction
         - UGameFeatureAction_AddAbilities: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities
@@ -146,10 +148,17 @@ nav:
         - ULyraTouchRegion: ./CodeRefs/Lyra/Widget/ULyraTouchRegion
         - ULyraWeaponUserInterface: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface
     - Plugin:
+      - CommonGame:
+        - CommonGameInstance: ./CodeRefs/Plugin/CommonGame/CommonGameInstance
+        - UCommonUIExtensions: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions
+        - UPrimaryGameLayout: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout
       - GameplayMessageSubsystem:
         - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage
         - UGameplayMessageSubsystem: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem
         - UK2Node_AsyncAction_ListenForGameplayMessages: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages
+      - UIExtension:
+        - UUIExtensionPointWidget: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget
+        - UUIExtensionSubsystem: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem
     - UE:
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo

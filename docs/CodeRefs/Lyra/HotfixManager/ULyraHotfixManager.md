@@ -1,7 +1,9 @@
 ## ULyraHotfixManager
 
+>> 詳細は未確認です。
+
 * 概要
-	* [UOnlineHotfixManager] の Lyra 用の拡張。詳細未確認。
+	* [UOnlineHotfixManager] の Lyra 用の拡張。
 * Lyra での使われ方
 	* [ULyraGameFeature_HotfixManager]
 

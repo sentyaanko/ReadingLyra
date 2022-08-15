@@ -47,6 +47,8 @@
 			- [FInputMappingContextAndPriority]
 			- [FLyraAbilityGrant]
 			- [FLyraAttributeSetGrant]
+			- [FLyraHUDElementEntry]
+			- [FLyraHUDLayoutRequest]
 			- [FMappableConfigPair]
 			- [UApplyFrontendPerfSettingsAction]
 			- [UGameFeatureAction_AddAbilities]
@@ -146,10 +148,17 @@
 			- [ULyraTouchRegion]
 			- [ULyraWeaponUserInterface]
 	- Plugin
+		- CommonGame
+			- [CommonGameInstance]
+			- [UCommonUIExtensions]
+			- [UPrimaryGameLayout]
 		- GameplayMessageSubsystem
 			- [UAsyncAction_ListenForGameplayMessage]
 			- [UGameplayMessageSubsystem]
 			- [UK2Node_AsyncAction_ListenForGameplayMessages]
+		- UIExtension
+			- [UUIExtensionPointWidget]
+			- [UUIExtensionSubsystem]
 	- UE
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
@@ -228,6 +237,8 @@
 [FInputMappingContextAndPriority]: ./CodeRefs/Lyra/GameFeature/FInputMappingContextAndPriority.md
 [FLyraAbilityGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAbilityGrant.md
 [FLyraAttributeSetGrant]: ./CodeRefs/Lyra/GameFeature/FLyraAttributeSetGrant.md
+[FLyraHUDElementEntry]: ./CodeRefs/Lyra/GameFeature/FLyraHUDElementEntry.md
+[FLyraHUDLayoutRequest]: ./CodeRefs/Lyra/GameFeature/FLyraHUDLayoutRequest.md
 [FMappableConfigPair]: ./CodeRefs/Lyra/GameFeature/FMappableConfigPair.md
 [UApplyFrontendPerfSettingsAction]: ./CodeRefs/Lyra/GameFeature/UApplyFrontendPerfSettingsAction.md
 [UGameFeatureAction_AddAbilities]: ./CodeRefs/Lyra/GameFeature/UGameFeatureAction_AddAbilities.md
@@ -314,9 +325,14 @@
 [ULyraTaggedWidget]: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget.md
 [ULyraTouchRegion]: ./CodeRefs/Lyra/Widget/ULyraTouchRegion.md
 [ULyraWeaponUserInterface]: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md
+[CommonGameInstance]: ./CodeRefs/Plugin/CommonGame/CommonGameInstance.md
+[UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
+[UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
 [UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md
 [UGameplayMessageSubsystem]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
+[UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
+[UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
 [IGameFeatureStateChangeObserver]: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md
