@@ -8,7 +8,6 @@
 * 概要
 	* [UGameFeatureAction_WorldActionBase] の派生クラスです。
 	* Game Feature がアクティブになった際にワールド固有の処理を行う為の基底クラスです。
-* Lyra での使われ方
 	* 以下のクラスの基底クラスです。
 		* [UGameFeatureAction_AddAbilities]
 		* [UGameFeatureAction_AddInputBinding]
@@ -33,7 +32,7 @@
 > アクション固有のロジックでオーバーライドします。  
 
 * 概要
-	* 派生クラスでオーバーライドすることを想定している(`PURE_VIRTUAL` を使用している)仮想関数です。
+	* 派生クラスでオーバーライドすることを想定している(`PURE_VIRTUAL マクロ` を使用している)仮想関数です。
 
 
 <!--- ページ内のリンク --->

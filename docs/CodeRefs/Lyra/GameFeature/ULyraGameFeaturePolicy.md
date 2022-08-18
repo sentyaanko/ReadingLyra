@@ -9,13 +9,11 @@
 
 * 概要
 	* [UDefaultGameFeaturesProjectPolicies] の派生クラスです。
-	* いくつか関数をオーバーライドしているが、実装は親クラスと同じ。
-* Lyra での使われ方
-	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録している。
+	* いくつか関数をオーバーライドしているが、実装は親クラスと同じになっています。
+	* [UGameFeaturesSubsystem::AddObserver()] にて以下を登録しています。
 		* [ULyraGameFeature_HotfixManager]
 		* [ULyraGameFeature_AddGameplayCuePaths]
-	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* で指定しています。
-
+	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* でこのクラス指定しています。
 
 
 

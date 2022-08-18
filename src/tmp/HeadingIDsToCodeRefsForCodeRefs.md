@@ -84,6 +84,7 @@
 [UGameFeatureAction_AddWidgets::Layout]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetslayout
 [UGameFeatureAction_AddWidgets::Widgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetswidgets
 [UGameFeatureAction_SplitscreenConfig]: ../../Lyra/GameFeature/UGameFeatureAction_SplitscreenConfig.md#ugamefeatureaction_splitscreenconfig
+[UGameFeatureAction_SplitscreenConfig::bDisableSplitscreen]: ../../Lyra/GameFeature/UGameFeatureAction_SplitscreenConfig.md#ugamefeatureaction_splitscreenconfigbdisablesplitscreen
 [UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
 [UGameFeatureAction_WorldActionBase::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbaseongamefeatureactivating
 [UGameFeatureAction_WorldActionBase::AddToWorld()]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbaseaddtoworld

@@ -3,9 +3,8 @@
 >> 詳細は未確認です。
 
 * 概要
-	* [UOnlineHotfixManager] の Lyra 用の拡張。
-* Lyra での使われ方
-	* [ULyraGameFeature_HotfixManager]
+	* [UOnlineHotfixManager] の Lyra 用の拡張です。
+	* [ULyraGameFeature_HotfixManager] で利用されます。
 
 
 <!--- ページ内のリンク --->

@@ -1,10 +1,11 @@
 ## ULyraGameFeature_HotfixManager
 
-* 概要
-	* HotFix に関する処理を行う。
-	* [ULyraHotfixManager] を利用する。
-	* [IGameFeatureStateChangeObserver] の派生クラスです。
+>> 詳細は未確認です。
 
+* 概要
+	* [IGameFeatureStateChangeObserver] の派生クラスです。
+	* HotFix に関する処理を行います。
+	* [ULyraHotfixManager] を利用します。
 
 
 
