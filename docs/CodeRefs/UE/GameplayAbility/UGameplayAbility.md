@@ -94,7 +94,38 @@
 	* [UGameplayAbility::MakeOutgoingGameplayEffectSpec()] から呼ばれます。
 	* 渡された [FGameplayEffectSpec::CapturedSourceTags] に [FGameplayAbilitySpec::DynamicAbilityTags] を追加します。
 * Lyra での使われ方
-	* [ULyraGameplayAbility] でオーバーライドしている。
+	* [ULyraGameplayAbility] の基底クラスです。
+
+
+### UGameplayAbility::CancelAbilitiesWithTag
+
+> Abilities with these tags are cancelled when this ability is executed  
+> 
+> ----
+> これらのタグを持つアビリティは、このアビリティが実行されるとキャンセルされます。 
+
+
+### UGameplayAbility::BlockAbilitiesWithTag
+
+> Abilities with these tags are blocked while this ability is active  
+> 
+> ----
+> このアビリティがアクティブな間、これらのタグを持つアビリティはブロックされます。 
+
+### UGameplayAbility::ActivationRequiredTags
+
+> This ability can only be activated if the activating actor/component has all of these tags  
+> 
+> ----
+> このアビリティは、アクティブ化するアクター/コンポーネントが以下のタグをすべて持っている場合にのみアクティブ化されます。 
+
+### UGameplayAbility::ActivationBlockedTags
+
+> This ability is blocked if the activating actor/component has any of these tags  
+> 
+> ----
+> アクティブ化するアクター/コンポーネントが以下のいずれかのタグを持っている場合、このアビリティはブロックされます。 
+
 
 
 <!--- ページ内のリンク --->

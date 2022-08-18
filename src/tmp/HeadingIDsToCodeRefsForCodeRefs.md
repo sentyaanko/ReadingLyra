@@ -94,6 +94,11 @@
 [ALyraCharacterWithAbilities]: ../../Lyra/GameplayAbility/ALyraCharacterWithAbilities.md#alyracharacterwithabilities
 [FLyraAbilitySet_GameplayAbility]: ../../Lyra/GameplayAbility/FLyraAbilitySet_GameplayAbility.md#flyraabilityset_gameplayability
 [FLyraAbilityTagRelationship]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationship
+[FLyraAbilityTagRelationship::AbilityTag]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytag
+[FLyraAbilityTagRelationship::AbilityTagsToBlock]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytagstoblock
+[FLyraAbilityTagRelationship::AbilityTagsToCancel]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytagstocancel
+[FLyraAbilityTagRelationship::ActivationRequiredTags]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipactivationrequiredtags
+[FLyraAbilityTagRelationship::ActivationBlockedTags]: ../../Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipactivationblockedtags
 [ILyraReadyInterface]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterface
 [ILyraReadyInterface::IsPawnComponentReadyToInitialize()]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterfaceispawncomponentreadytoinitialize
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
@@ -103,6 +108,7 @@
 [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentsettagrelationshipmapping
 [ULyraAbilitySystemGlobals]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
+[ULyraAbilityTagRelationshipMapping::AbilityTagRelationships]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmappingabilitytagrelationships
 [ULyraAttributeSet]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
 [ULyraAttributeSet::Health]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesethealth
 [ULyraDamageExecution]: ../../Lyra/GameplayAbility/ULyraDamageExecution.md#ulyradamageexecution
@@ -256,6 +262,10 @@
 [UGameplayAbility]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
 [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec
+[UGameplayAbility::CancelAbilitiesWithTag]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitycancelabilitieswithtag
+[UGameplayAbility::BlockAbilitiesWithTag]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityblockabilitieswithtag
+[UGameplayAbility::ActivationRequiredTags]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivationrequiredtags
+[UGameplayAbility::ActivationBlockedTags]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivationblockedtags
 [UGameplayAbilitySet]: ../../UE/GameplayAbility/UGameplayAbilitySet.md#ugameplayabilityset
 [UGameplayCueManager]: ../../UE/GameplayCue/UGameplayCueManager.md#ugameplaycuemanager
 [UOnlineHotfixManager]: ../../UE/HotfixManager/UOnlineHotfixManager.md#uonlinehotfixmanager

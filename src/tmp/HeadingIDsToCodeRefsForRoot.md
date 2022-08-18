@@ -94,6 +94,11 @@
 [ALyraCharacterWithAbilities]: CodeRefs/Lyra/GameplayAbility/ALyraCharacterWithAbilities.md#alyracharacterwithabilities
 [FLyraAbilitySet_GameplayAbility]: CodeRefs/Lyra/GameplayAbility/FLyraAbilitySet_GameplayAbility.md#flyraabilityset_gameplayability
 [FLyraAbilityTagRelationship]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationship
+[FLyraAbilityTagRelationship::AbilityTag]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytag
+[FLyraAbilityTagRelationship::AbilityTagsToBlock]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytagstoblock
+[FLyraAbilityTagRelationship::AbilityTagsToCancel]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipabilitytagstocancel
+[FLyraAbilityTagRelationship::ActivationRequiredTags]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipactivationrequiredtags
+[FLyraAbilityTagRelationship::ActivationBlockedTags]: CodeRefs/Lyra/GameplayAbility/FLyraAbilityTagRelationship.md#flyraabilitytagrelationshipactivationblockedtags
 [ILyraReadyInterface]: CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterface
 [ILyraReadyInterface::IsPawnComponentReadyToInitialize()]: CodeRefs/Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterfaceispawncomponentreadytoinitialize
 [ULyraAbilitySet]: CodeRefs/Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
@@ -103,6 +108,7 @@
 [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]: CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentsettagrelationshipmapping
 [ULyraAbilitySystemGlobals]: CodeRefs/Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
 [ULyraAbilityTagRelationshipMapping]: CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
+[ULyraAbilityTagRelationshipMapping::AbilityTagRelationships]: CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmappingabilitytagrelationships
 [ULyraAttributeSet]: CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
 [ULyraAttributeSet::Health]: CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesethealth
 [ULyraDamageExecution]: CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution.md#ulyradamageexecution
@@ -256,6 +262,10 @@
 [UGameplayAbility]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
 [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec
+[UGameplayAbility::CancelAbilitiesWithTag]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitycancelabilitieswithtag
+[UGameplayAbility::BlockAbilitiesWithTag]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityblockabilitieswithtag
+[UGameplayAbility::ActivationRequiredTags]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivationrequiredtags
+[UGameplayAbility::ActivationBlockedTags]: CodeRefs/UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivationblockedtags
 [UGameplayAbilitySet]: CodeRefs/UE/GameplayAbility/UGameplayAbilitySet.md#ugameplayabilityset
 [UGameplayCueManager]: CodeRefs/UE/GameplayCue/UGameplayCueManager.md#ugameplaycuemanager
 [UOnlineHotfixManager]: CodeRefs/UE/HotfixManager/UOnlineHotfixManager.md#uonlinehotfixmanager
