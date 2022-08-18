@@ -3,9 +3,8 @@
 > GameFeatureAction responsible for granting abilities (and attributes) to actors of a specified type.  
 > 
 > ----
-> 指定されたタイプのアクターにアビリティ（とアトリビュート）を付与する GameFeatureAction を担当する。 
-
-> note: 上記はおそらく、 [UGameFeatureAction_AddAbilities] からのコピペで、適切なコメントではない。
+> 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction です。	
+>> Note: UGameFeatureAction_AddAbilities のコピペなので実態に即していません。
 
 * Split Screen を抑制します。
 * Lyra での使い方
@@ -29,4 +28,3 @@
 
 <!--- generated --->
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
-[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilities

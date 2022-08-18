@@ -6,7 +6,7 @@ Plugin の Description より
 > A subsystem that allows extending UI elements in a modular way.  
 > 
 > ----
-> UI 要素をモジュール方式で拡張することができるサブシステム。  
+> UI 要素をモジュール方式で拡張することができるサブシステムです。  
 
 * 概要
 	* `UWorldSubsystem` の派生クラスです。

@@ -3,7 +3,7 @@
 > GameFeatureAction responsible for granting abilities (and attributes) to actors of a specified type.  
 > 
 > ----
-> 指定されたタイプのアクターに能力（と属性）を付与する GameFeatureAction を担当する。  
+> 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction です。	
 >> Note: UGameFeatureAction_AddAbilities のコピペなので実態に即していません。
 
 * 概要
@@ -21,7 +21,7 @@
 > Layout to add to the HUD
 > 
 > ----
-> HUD に追加するレイアウト
+> HUD に追加するレイアウトです。  
 
 * 概要
 	* [FLyraHUDLayoutRequest] の配列です。
@@ -38,7 +38,7 @@
 > Widgets to add to the HUD
 > 
 > ----
-> HUD に追加する widget
+> HUD に追加する widget です。  
 
 * 概要
 	* [FLyraHUDElementEntry] の配列です。

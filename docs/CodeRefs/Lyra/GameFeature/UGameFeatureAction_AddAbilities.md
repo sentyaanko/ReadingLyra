@@ -3,7 +3,7 @@
 > GameFeatureAction responsible for granting abilities (and attributes) to actors of a specified type.  
 > 
 > ----
-> 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction です。
+> 指定されたタイプのアクターに GameplayAbility（と Attribute ）を付与する責任を持つ GameFeatureAction です。	
 
 * 概要
 	* [UGameFeatureAction] の派生クラスです。
