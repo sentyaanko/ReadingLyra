@@ -158,6 +158,7 @@ UE5 の機能を使った、新しいサンプルプロジェクトです。
 	* Overview とは言っていますが、かなり限定的な話題しか挙がりません。
 * [Youtube > Unreal Engine > Lyra Walkthrough Q&A ｜ Inside Unreal]
 	* Lyra を利用する場合の考え方が主な話です。
+	* 2022/08/22 日本語字幕が追加されたようです。
 * [Let's Enjoy Unreal Engine > (2022/04/24) > UE5 Lyraサンプルゲームの設計を解説してみる]
 	* alwei 氏の Lyra の解説。
 	* 主に以下の項目を大まかに解説されています	。

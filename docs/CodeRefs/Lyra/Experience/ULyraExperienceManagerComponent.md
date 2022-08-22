@@ -1,10 +1,10 @@
 ## ULyraExperienceManagerComponent
 
 * 概要
-	* [ULyraExperienceDefinition] のロード等を行うコンポーネント。
-	* [ALyraGameState] に追加されている。
-	* [UAsyncAction_ExperienceReady] はこのクラスの機能を利用し、エクスペリエンスのロード完了を監視する。
-	* ロード完了時に呼び出すデリゲートを内部に持つ。それぞれの利用箇所は以下の通りです。
+	* [ULyraExperienceDefinition] のロード等を行うコンポーネントです。
+	* [ALyraGameState] に追加されます。
+	* [UAsyncAction_ExperienceReady] はこのクラスの機能を利用し、エクスペリエンスのロード完了を監視しています。
+	* ロード完了時に呼び出すデリゲートを内部に持ちます。それぞれの利用箇所は以下の通りです。
 		* [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()]
 			* [ULyraTeamCreationComponent]
 			* [ULyraFrontendStateComponent]
@@ -22,9 +22,28 @@
 
 * 概要
 	* ロード完了時に呼び出すデリゲートを登録する関数です。
-	* すでにロードが完了している場合は渡されたデリゲートを直ちに呼びだす。
-	* 登録された場合、 `HighPriority` 、無印、 `LowPriority` の順番に呼び出される。
+	* すでにロードが完了している状態でこの関数を呼出した場合は渡されたデリゲートを直ちに呼び出します。
+	* ロード完了時にデリゲートを呼び出す場合、 `HighPriority` 、無印、 `LowPriority` の順番に呼び出しを行います。
 
+### ULyraExperienceManagerComponent::GetCurrentExperienceChecked()
+
+> This returns the current experience if it is fully loaded, asserting otherwise (i.e., if you called it too soon)  
+> 
+> ----
+> これは、完全にロードされている場合は現在のエクスペリエンスを返し、そうでない場合(つまり、あまりにも早く呼び出した場合)はアサートします。
+
+* 概要
+	* 現在の [ULyraExperienceDefinition] を返します。
+
+### ULyraExperienceManagerComponent::IsExperienceLoaded()
+
+> Returns true if the experience is fully loaded  
+> 
+> ----
+> エクスペリエンスが完全にロードされている場合、 true を返します。  
+
+* 概要
+	* クラスの内部状態を確認し、現在のエクスペリエンスが設定されており、ロードも完了している場合 true を返します。
 
 
 

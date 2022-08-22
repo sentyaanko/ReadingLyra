@@ -18,7 +18,7 @@
 	* アセットの用途は以下の通りです。
 		| アセット名                  | 用途                                                                                                                                                                  |
 		|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-		| `DefaultPawnData_EmptyPawn` | DefaultGame.ini で指定されている、 `ULyraAssetManager::DefaultPawnData` の初期値。 [ULyraExperienceDefinition::DefaultPawnData] が設定されていない場合に利用される。  |
+		| `DefaultPawnData_EmptyPawn` | DefaultGame.ini で指定されている、 [ULyraAssetManager::DefaultPawnData] の初期値。 [ULyraExperienceDefinition::DefaultPawnData] が設定されていない場合に利用される。  |
 		| `HeroData_Arena`            | `B_TopDownArenaExperience` で指定されている。 Exploader で使用される。                                                                                                |
 		| `HeroData_ShooterGame`      | `B_ShooterGame_Elimination` / `B_LyraShooterGame_ControlPoints` / `B_TestInventoryExperience`  で指定されている。 Elimination/Control 等で使用される。                |
 		| `ShootingTarget_PawnData`   | 参照されていない。テスト用データと思われる。　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　                                      |
@@ -131,6 +131,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraAssetManager::DefaultPawnData]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
 [ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ULyraExperienceDefinition::DefaultPawnData]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitiondefaultpawndata

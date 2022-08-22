@@ -13,6 +13,7 @@ nav:
       - Equipment:
         - FLyraAppliedEquipmentEntry: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry
         - FLyraInventoryList: ./CodeRefs/Lyra/Equipment/FLyraInventoryList
+        - ULyraAssetManager: ./CodeRefs/Lyra/Equipment/ULyraAssetManager
         - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
         - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent
       - Etc:

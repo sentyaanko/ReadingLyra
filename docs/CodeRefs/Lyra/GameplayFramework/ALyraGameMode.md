@@ -5,7 +5,8 @@
 > ----
 > このプロジェクトで使用される基本ゲームモードクラスです。
 
-* `AModularGameModeBase` の派生クラスです。
+* 概要
+	* `AModularGameModeBase` の派生クラスです。
 
 ### ALyraGameMode::InitGame()
 
@@ -15,19 +16,19 @@
 > @warning: this is called before actors' PreInitializeComponents.
 > 
 > ----
-> ゲームを初期化する。
-> GameMode の InitGame() イベントは他の関数（ PreInitializeComponents() を含む）の前に呼ばれ、 GameMode によってパラメータを初期化し、
-> そのヘルパークラスを起動するために使用される。
-> 警告: これはアクターのPreInitializeComponentsの前に呼び出される。
+> ゲームを初期化します。
+> GameMode の InitGame() イベントは他の関数（ PreInitializeComponents() を含む）の前に呼ばれ、 GameMode によってパラメータを初期化し、  
+> そのヘルパークラスを起動するために使用されます。  
+> 警告: これはアクターの PreInitializeComponents の前に呼び出されます。
 
 * 概要
-	* マップのロード時などに呼び出される。
+	* マップのロード時などに呼び出されます。
 	* `SetTimerForNextTick()` に [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()] を登録し、次のフレームに呼び出しています。
-		* 以下のようなコメントがあるので、`SetTimerForNextTick()` を経由しているのは PIE で動作させるためらしい。
+		* 以下のようなコメントがあるので、`SetTimerForNextTick()` を経由しているのは PIE で動作させるためのようです。
 			> Eventually only do this for PIE/auto
 			> 
 			> ----
-			> いずれはPIE/autoのみ行う。
+			> いずれは PIE / auto のみ行う。
 
 
 ### ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()
@@ -42,13 +43,20 @@
 > 
 > ----
 > 優先順位
->  ※以下、原文のままなので略
+>  ※訳は省略
 
 * 概要
-	* 引用したコメントに記載された優先順位に従い、使用するエクスペリエンスを決め、ロードする。
+	* 引用したコメントに記載された優先順位に従い、使用するエクスペリエンスを決め、ロードをします。
 
 ### ALyraGameMode::GetPawnDataForController()
 
+* 概要
+	* [ULyraPawnData] を取得します。
+	* 概ね以下のような処理を行います。
+		* 渡された `AController` から [ALyraPlayerState] 経由で取得できる場合はそれを返します。
+		* 取得できない場合は GameState から [ULyraExperienceManagerComponent] 経由で取得できる場合はそれを返します。
+		* 取得できない場合は [ULyraAssetManager::GetDefaultPawnData()] 経由で取得できる場合はそれを返します。
+		* 取得できない場合は有効な値が返せない状態なので、 null を返します。
 
 
 
@@ -57,4 +65,8 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
+[ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
 [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodehandlematchassignmentifnotexpectingone
+[ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
+[ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata

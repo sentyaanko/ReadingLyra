@@ -2,6 +2,9 @@
 [FLyraAppliedEquipmentEntry::EquipmentDefinition]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententryequipmentdefinition
 [FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
 [FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
+[ULyraAssetManager]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanager
+[ULyraAssetManager::DefaultPawnData]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
+[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ULyraEquipmentDefinition::AbilitySetsToGrant]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
@@ -39,6 +42,8 @@
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_highpriority
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded
 [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_LowPriority()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentcallorregister_onexperienceloaded_lowpriority
+[ULyraExperienceManagerComponent::GetCurrentExperienceChecked()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentgetcurrentexperiencechecked
+[ULyraExperienceManagerComponent::IsExperienceLoaded()]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponentisexperienceloaded
 [ULyraUserFacingExperienceDefinition]: ../../Lyra/Experience/ULyraUserFacingExperienceDefinition.md#ulyrauserfacingexperiencedefinition
 [FGameFeatureAbilitiesEntry]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentry
 [FGameFeatureAbilitiesEntry::ActorClass]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentryactorclass
@@ -136,6 +141,7 @@
 [ULyraHeroComponent::OnPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentonpawnreadytoinitialize
 [ULyraHeroComponent::InitializePlayerInput()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinitializeplayerinput
 [ULyraHeroComponent::DetermineCameraMode()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdeterminecameramode
+[ULyraHeroComponent::Input_Crouch()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_crouch
 [ULyraPawnComponent]: ../../Lyra/GameplayAbility/ULyraPawnComponent.md#ulyrapawncomponent
 [ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent
 [ULyraPawnExtensionComponent::CheckPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponentcheckpawnreadytoinitialize
@@ -163,6 +169,7 @@
 [ALyraPlayerState::OnExperienceLoaded()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateonexperienceloaded
 [ALyraPlayerState::SetPawnData()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatesetpawndata
 [ALyraPlayerState::ClientBroadcastMessage()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage
+[ALyraPlayerState::GetLyraAbilitySystemComponent()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstategetlyraabilitysystemcomponent
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
