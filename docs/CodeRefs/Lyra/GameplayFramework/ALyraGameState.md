@@ -1,13 +1,22 @@
 ## ALyraGameState
 
-* TODO: ソースを見て追記事項があれば。
-* TODO: 特に以下。
-	> Ability System Component をアビリティとして実装された Game Phase (ゲーム フェーズ) とともに使用します。  
-	> これらの Game Phase はアクティブ/非アクティブ化され、ゲームプレイ イベントを処理する方法に影響を及ぼします。  
-	> たとえば、ShooterCore は次のフェーズを実装します。  
-* [ULyraAbilitySystemComponent] を追加しています。
-* GameState であり、 ASC を追加しています。
-* また、その ASC は
+> The base game state class used by this project.
+> 
+> ----
+> このプロジェクトで使用される基本ゲームステートクラスです。
+
+* 概要
+	* `AModularGameStateBase` の派生クラスです。
+	* `IAbilitySystemInterface` の派生クラスです。
+	* [ULyraAbilitySystemComponent] を追加しています。
+	* [ULyraExperienceManagerComponent] を追加しています。
+* 既存のドキュメント
+	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ALyraGameState]
+		* このクラスが持つ Game Phase アビリティに関する記述があります。  
+		> 高レベルのゲーム フェーズ ロジックが「C:\Lyra\Source\LyraGame\LyraGameState.h」ファイルにある Lyra Game State (ALyraGameState) によりサーバー側で管理されます。  
+		> Game State はクライアントとサーバーの両方に存在し、Ability System Component を使用して、アビリティとして実装された Game Phase (ゲーム フェーズ) を持ちます。  
+		> これらの Game Phase をアクティブ/非アクティブ化にすることで、ゲームプレイ イベントの処理に影響を及ぼします。  
+		> たとえば、ShooterCore には 3 つのフェーズが実装されています。  
 
 ### ALyraGameState::MulticastMessageToClients()
 
@@ -15,12 +24,14 @@
 > (use only for client notifications like eliminations, server join messages, etc... that can handle being lost)  
 > 
 > ----
-> すべてのクライアントが（おそらく）受け取ることになるメッセージを送る  
+> すべてのクライアントが（おそらく）受け取ることになるメッセージを送ります。  
 > (削除、サーバ参加メッセージなど、紛失しても大丈夫なクライアントからの通知にのみ使用します)  
 
-* 以下で呼び出されている。
-	* `Phase_Warmup`
-* この呼び出しは `Phase_Warmup` が `GameState` に付与されるアビリティのため、サーバーのみで動作するため、
+* 概要
+	* 以下で呼び出されています。
+		* `Phase_Warmup`
+			* `Net Execution Policy` が `Server Initiated` 、 `Replication Policy` が `Do Not Replicate` の、 `GameState` に付与されるアビリティです。
+			* サーバーのみで動作し、ゲーム開始時のカウントダウンをクライアント側に通知するためにこの関数を使用しています。
 
 
 ### ALyraGameState::MulticastReliableMessageToClients()
@@ -29,13 +40,14 @@
 > (use only for client notifications that cannot handle being lost)  
 > 
 > ----
-> すべてのクライアントが確実に受け取ることができるメッセージを送信する  
+> すべてのクライアントが確実に受け取ることができるメッセージを送信します。  
 > (紛失に耐えられないクライアントへの通知のみに使用)  
 
-* 以下で呼び出されている。
-	* `GA_Auto_Respawn`
-	* `B_EliminationFeedRelay`
-* どちらの呼び出しも `HasAuthority` により、サーバーのみで呼び出す様にしている。
+* 概要
+	* 以下で呼び出されています。
+		* `GA_Auto_Respawn`
+		* `B_EliminationFeedRelay`
+	* どちらも事前に `HasAuthority` ノードを利用し、サーバーのみで呼び出す様にしています。
 
 
 
@@ -46,4 +58,6 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
+[Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ALyraGameState]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#alyragamestate
