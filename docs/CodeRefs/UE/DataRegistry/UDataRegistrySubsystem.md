@@ -13,7 +13,7 @@
 	* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
 		* データレジストリの概念について学べます。
 * Lyra での使われ方
-	* 称賛関連で、 `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) のデータ参照で利用しています。
+	* 称賛関連で、 `AccoladeDataRegistry` ([UDataRegistry] / [FLyraAccoladeDefinitionRow]) に設定しているデータを参照する際に利用しています。
 
 ### UDataRegistrySubsystem::AcquireItem()
 
@@ -35,4 +35,5 @@
 <!--- generated --->
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
+[UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/

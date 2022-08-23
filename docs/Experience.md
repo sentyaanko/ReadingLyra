@@ -119,9 +119,9 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 		* 内部で [UDataRegistrySubsystem] を使用している。
 * Lyra での使われ方
 	* [UGameFeatureAction_DataRegistry] の使用
-		* `ShooterCore` ([UGameFeatureData]) で `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) を追加しています。
+		* `ShooterCore` ([UGameFeatureData]) で `AccoladeDataRegistry` ([UDataRegistry] / [FLyraAccoladeDefinitionRow]) を追加しています。
 	* [UDataRegistrySubsystem] の使用
-		* [ULyraAccoladeHostWidget::OnNotificationMessage()] 内で [UDataRegistrySubsystem::AcquireItem()] を使用し、 `AccoladeDataRegistry` ([FLyraAccoladeDefinitionRow]) のデータを参照しています。
+		* [ULyraAccoladeHostWidget::OnNotificationMessage()] 内で [UDataRegistrySubsystem::AcquireItem()] を使用し、 `AccoladeDataRegistry` ([UDataRegistry] / [FLyraAccoladeDefinitionRow]) のデータを参照しています。
 		* これは Accolade 発生時に使用する演出のアセットへのソフトリファレンスを取得するのに利用しています。
 
 
@@ -277,6 +277,7 @@ Lyra では実装の広い部分をモジュール式に扱えるようにして
 [ULyraHotfixManager]: CodeRefs/Lyra/HotfixManager/ULyraHotfixManager.md#ulyrahotfixmanager
 [ULyraInputConfig]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [ULyraPawnData]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
+[UDataRegistry]: CodeRefs/UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem
 [IGameFeatureStateChangeObserver]: CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md#igamefeaturestatechangeobserver

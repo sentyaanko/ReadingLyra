@@ -164,6 +164,7 @@
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
 		- DataRegistry
+			- [UDataRegistry]
 			- [UDataRegistrySubsystem]
 		- GameFeature
 			- [IGameFeatureStateChangeObserver]
@@ -336,6 +337,7 @@
 [UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
+[UDataRegistry]: ./CodeRefs/UE/DataRegistry/UDataRegistry.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
 [IGameFeatureStateChangeObserver]: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md
 [UDefaultGameFeaturesProjectPolicies]: ./CodeRefs/UE/GameFeature/UDefaultGameFeaturesProjectPolicies.md

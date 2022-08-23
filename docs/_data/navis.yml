@@ -164,6 +164,7 @@ nav:
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
       - DataRegistry:
+        - UDataRegistry: ./CodeRefs/UE/DataRegistry/UDataRegistry
         - UDataRegistrySubsystem: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem
       - GameFeature:
         - IGameFeatureStateChangeObserver: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver
