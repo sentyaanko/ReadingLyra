@@ -103,6 +103,7 @@
 			- [FLyraAccoladeDefinitionRow]
 			- [ULyraAccoladeHostWidget]
 		- GameplayMessageProcessor
+			- [FPlayerAssistDamageTracking]
 			- [UAssistProcessor]
 			- [UElimChainProcessor]
 			- [UElimStreakProcessor]
@@ -290,6 +291,7 @@
 [ALyraPlayerState]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md
 [FLyraAccoladeDefinitionRow]: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md
 [ULyraAccoladeHostWidget]: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md
+[FPlayerAssistDamageTracking]: ./CodeRefs/Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking.md
 [UAssistProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md
 [UElimChainProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor.md
 [UElimStreakProcessor]: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimStreakProcessor.md

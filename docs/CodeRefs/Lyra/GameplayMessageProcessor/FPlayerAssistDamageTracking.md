@@ -24,4 +24,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
+[UAssistProcessor]: ../../Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessor

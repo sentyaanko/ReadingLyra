@@ -130,11 +130,14 @@
 [ULyraGlobalAbilitySystem]: CodeRefs/Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystem
 [ULyraHealExecution]: CodeRefs/Lyra/GameplayAbility/ULyraHealExecution.md#ulyrahealexecution
 [ULyraHealthComponent]: CodeRefs/Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
+[ULyraHealthComponent::HandleOutOfHealth()]: CodeRefs/Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
 [ULyraHealthSet]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthset
 [ULyraHealthSet::Health]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsethealth
 [ULyraHealthSet::MaxHealth]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetmaxhealth
 [ULyraHealthSet::Healing]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsethealing
 [ULyraHealthSet::Damage]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetdamage
+[ULyraHealthSet::OnOutOfHealth]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetonoutofhealth
+[ULyraHealthSet::PostGameplayEffectExecute()]: CodeRefs/Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetpostgameplayeffectexecute
 [ULyraHeroComponent]: CodeRefs/Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponent
 [ULyraHeroComponent::DefaultInputConfigs]: CodeRefs/Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdefaultinputconfigs
 [ULyraHeroComponent::IsPawnComponentReadyToInitialize()]: CodeRefs/Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentispawncomponentreadytoinitialize
@@ -173,7 +176,12 @@
 [FLyraAccoladeDefinitionRow]: CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget]: CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
+[FPlayerAssistDamageTracking]: CodeRefs/Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking.md#fplayerassistdamagetracking
+[UAssistProcessor::AccumulatedDamageByPlayer]: CodeRefs/Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking.md#uassistprocessoraccumulateddamagebyplayer
 [UAssistProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessor
+[UAssistProcessor::DamageHistory]: CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessordamagehistory
+[UAssistProcessor::OnDamageMessage()]: CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessorondamagemessage
+[UAssistProcessor::OnEliminationMessage()]: CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessoroneliminationmessage
 [UElimChainProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor.md#uelimchainprocessor
 [UElimStreakProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UElimStreakProcessor.md#uelimstreakprocessor
 [UGameplayMessageProcessor]: CodeRefs/Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
