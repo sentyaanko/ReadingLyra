@@ -7,19 +7,20 @@
 > and should do their own internal filtering if only relevant for some players.  
 > 
 > ----
-> 他のゲームプレイメッセージを監視し、更新を再送信する可能性のあるメッセージプロセッサの基本クラス  
-> （例：チェーンやコンボが検出されたときなど）。 
+> 他のゲームプレイメッセージを監視し、更新を再送信する可能性のあるメッセージプロセッサの基本クラスです。  
+> （例：チェーンやコンボが検出されたときなど）  
 >  
-> これらのプロセッサはサーバー上で一度生成され（プレイヤー毎ではありません）、
-> 一部のプレイヤーにのみ関連する場合は、独自の内部フィルタリングを行うべきであることに注意してください。 
+> これらのプロセッサはサーバー上で一度生成され（プレイヤー毎ではありません）、  
+> 一部のプレイヤーにのみ関連する場合は、独自の内部フィルタリングを行うべきであることに注意してください。   
 
 * 概要
+	* `UActorComponent` の派生クラスです。
+	* [UAssistProcessor] / [UElimChainProcessor] / [UElimStreakProcessor] / `B_AccoladeRelay` ([UGameplayMessageProcessor]) の基底クラスです。
 	* [UGameplayMessageSubsystem] への登録・解除のための機能を実装した、 [UGameplayMessageSubsystem] を利用したメッセージのリッスンを行うための基底クラスです。
-		* あくまで [UGameplayMessageSubsystem] の機能を利用しているだけなので、このクラスを派生することは必須ではない。
-		* たとえば [ULyraAccoladeHostWidget] 等の widget は自前で [UGameplayMessageSubsystem] の機能を利用してメッセージをリッスンしている。
-	* `EAS_BasicShooterAcolades` ([ULyraExperienceActionSet]) などから `AGameStateBase` 派生クラスに追加される。
-	* この派生クラスは主に [UGameFeatureAction_AddComponents] によって追加される。
-
+		* あくまで [UGameplayMessageSubsystem] の機能を利用しているだけなので、このクラスを派生することがメッセージのリッスンを行うのに必須ということではありません。
+		* たとえば [ULyraAccoladeHostWidget] 等の widget は自前で [UGameplayMessageSubsystem] の機能を利用してメッセージをリッスンしています。
+	* この派生クラスは主に [UGameFeatureAction_AddComponents] によって追加されます。
+		* たとえば `EAS_BasicShooterAcolades` ([ULyraExperienceActionSet]) では `AGameStateBase` 派生クラスにこのクラスの派生クラスを追加しています。
 
 
 
