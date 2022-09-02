@@ -132,6 +132,7 @@
 [ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
 [ULyraGameplayAbility_FromEquipment]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_FromEquipment.md#ulyragameplayability_fromequipment
 [ULyraGameplayAbility_Interact]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interact
+[ULyraGameplayAbility_Interact::TriggerInteraction()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interacttriggerinteraction
 [ULyraGameplayAbility_Jump]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Jump.md#ulyragameplayability_jump
 [ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
 [ULyraGameplayAbility_Reset]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayability_reset
@@ -211,7 +212,11 @@
 [FLyraAbilitySimpleFailureMessage::FailureTags]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessagefailuretags
 [FLyraAbilitySimpleFailureMessage::UserFacingReason]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessageuserfacingreason
 [FLyraControlPointStatusMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage.md#flyracontrolpointstatusmessage
+[FLyraControlPointStatusMessage::ControlPoint]: ../../Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage.md#flyracontrolpointstatusmessagecontrolpoint
+[FLyraControlPointStatusMessage::OwnerTeamID]: ../../Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage.md#flyracontrolpointstatusmessageownerteamid
 [FLyraInteractionDurationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInteractionDurationMessage.md#flyrainteractiondurationmessage
+[FLyraInteractionDurationMessage::Instigator]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInteractionDurationMessage.md#flyrainteractiondurationmessageinstigator
+[FLyraInteractionDurationMessage::Duration]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInteractionDurationMessage.md#flyrainteractiondurationmessageduration
 [FLyraInventoryChangeMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInventoryChangeMessage.md#flyrainventorychangemessage
 [FLyraNotificationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessage
 [FLyraNotificationMessage::PayloadTag]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessagepayloadtag
