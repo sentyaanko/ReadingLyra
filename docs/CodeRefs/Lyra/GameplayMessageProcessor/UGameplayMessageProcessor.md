@@ -16,9 +16,9 @@
 * 概要
 	* `UActorComponent` の派生クラスです。
 	* [UAssistProcessor] / [UElimChainProcessor] / [UElimStreakProcessor] / `B_AccoladeRelay` ([UGameplayMessageProcessor]) の基底クラスです。
-	* [UGameplayMessageSubsystem] への登録・解除のための機能を実装した、 [UGameplayMessageSubsystem] を利用したメッセージのリッスンを行うための基底クラスです。
-		* あくまで [UGameplayMessageSubsystem] の機能を利用しているだけなので、このクラスを派生することがメッセージのリッスンを行うのに必須ということではありません。
-		* たとえば [ULyraAccoladeHostWidget] 等の widget は自前で [UGameplayMessageSubsystem] の機能を利用してメッセージをリッスンしています。
+	* [UGameplayMessageSubsystem] への登録・解除のための機能を実装した、 [UGameplayMessageSubsystem] を利用した Gameplay Message のリッスンを行うための基底クラスです。
+		* あくまで [UGameplayMessageSubsystem] の機能を利用しているだけなので、このクラスを派生することが Gameplay Message のリッスンを行うのに必須ということではありません。
+		* たとえば [ULyraAccoladeHostWidget] 等の widget は自前で [UGameplayMessageSubsystem] の機能を利用して Gameplay Message をリッスンしています。
 	* この派生クラスは主に [UGameFeatureAction_AddComponents] によって追加されます。
 		* たとえば `EAS_BasicShooterAcolades` ([ULyraExperienceActionSet]) では `AGameStateBase` 派生クラスにこのクラスの派生クラスを追加しています。
 

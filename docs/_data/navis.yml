@@ -104,6 +104,7 @@ nav:
         - ULyraAccoladeHostWidget: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget
       - GameplayMessageProcessor:
         - FPlayerAssistDamageTracking: ./CodeRefs/Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking
+        - FPlayerElimChainInfo: ./CodeRefs/Lyra/GameplayMessageProcessor/FPlayerElimChainInfo
         - UAssistProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UAssistProcessor
         - UElimChainProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimChainProcessor
         - UElimStreakProcessor: ./CodeRefs/Lyra/GameplayMessageProcessor/UElimStreakProcessor

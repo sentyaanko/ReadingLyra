@@ -3,7 +3,7 @@
 * 概要
 	* 称賛情報を表示するための widget です。
 	* 処理の流れは概ね以下のようになります。
-		* [UGameplayMessageSubsystem] を利用し、称賛情報を含んだメッセージ ([FLyraNotificationMessage]) の受信を待ちます。
+		* [UGameplayMessageSubsystem] を利用し、称賛情報を含んだ Gameplay Message ([FLyraNotificationMessage]) の受信を待ちます。
 		* 受信したら、関連付けられたデータをロードし、称賛の通知するアイコンの表示やサウンドの再生等を行います。
 	* データのロードは [UDataRegistrySubsystem::AcquireItem()] を利用しています。
 		* `RegistryType` に `Accolades` を、`ItemName` に [FLyraNotificationMessage::PayloadTag] を設定します。
