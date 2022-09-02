@@ -111,6 +111,9 @@
 [ULyraAbilitySet::GrantedGameplayAbilities]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilitysetgrantedgameplayabilities
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
 [ULyraAbilitySystemComponent::SetTagRelationshipMapping()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentsettagrelationshipmapping
+[ULyraAbilitySystemComponent::NotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentnotifyabilityfailed
+[ULyraAbilitySystemComponent::ClientNotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentclientnotifyabilityfailed
+[ULyraAbilitySystemComponent::HandleAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponenthandleabilityfailed
 [ULyraAbilitySystemGlobals]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
 [ULyraAbilityTagRelationshipMapping::AbilityTagRelationships]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmappingabilitytagrelationships
@@ -121,6 +124,11 @@
 [ULyraGamePhaseSubsystem]: ../../Lyra/GameplayAbility/ULyraGamePhaseSubsystem.md#ulyragamephasesubsystem
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ULyraGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityapplyabilitytagstogameplayeffectspec
+[ULyraGameplayAbility::OnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityonabilityfailedtoactivate
+[ULyraGameplayAbility::NativeOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilitynativeonabilityfailedtoactivate
+[ULyraGameplayAbility::ScriptOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityscriptonabilityfailedtoactivate
+[ULyraGameplayAbility::FailureTagToUserFacingMessages]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtouserfacingmessages
+[ULyraGameplayAbility::FailureTagToAnimMontage]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtoanimmontage
 [ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
 [ULyraGameplayAbility_FromEquipment]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_FromEquipment.md#ulyragameplayability_fromequipment
 [ULyraGameplayAbility_Interact]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interact
@@ -195,7 +203,13 @@
 [UElimStreakProcessor::OnEliminationMessage()]: ../../Lyra/GameplayMessageProcessor/UElimStreakProcessor.md#uelimstreakprocessoroneliminationmessage
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
 [FLyraAbilityMontageFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessage
+[FLyraAbilityMontageFailureMessage::PlayerController]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessageplayercontroller
+[FLyraAbilityMontageFailureMessage::FailureTags]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessagefailuretags
+[FLyraAbilityMontageFailureMessage::FailureMontage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessagefailuremontage
 [FLyraAbilitySimpleFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessage
+[FLyraAbilitySimpleFailureMessage::PlayerController]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessageplayercontroller
+[FLyraAbilitySimpleFailureMessage::FailureTags]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessagefailuretags
+[FLyraAbilitySimpleFailureMessage::UserFacingReason]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessageuserfacingreason
 [FLyraControlPointStatusMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraControlPointStatusMessage.md#flyracontrolpointstatusmessage
 [FLyraInteractionDurationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInteractionDurationMessage.md#flyrainteractiondurationmessage
 [FLyraInventoryChangeMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraInventoryChangeMessage.md#flyrainventorychangemessage
