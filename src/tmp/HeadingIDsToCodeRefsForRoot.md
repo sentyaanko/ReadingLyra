@@ -242,10 +242,12 @@
 [ULyraInputConfig::NativeInputActions]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfignativeinputactions
 [ULyraInputConfig::AbilityInputActions]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfigabilityinputactions
 [FLyraInventoryList]: CodeRefs/Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
+[FLyraInventoryList::Entries]: CodeRefs/Lyra/Inventory/FLyraInventoryList.md#flyrainventorylistentries
 [UInventoryFragment_EquippableItem]: CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
 [ULyraInventoryItemDefinition]: CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinition
 [ULyraInventoryItemFragment]: CodeRefs/Lyra/Inventory/ULyraInventoryItemFragment.md#ulyrainventoryitemfragment
 [ULyraInventoryManagerComponent]: CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponent
+[ULyraInventoryManagerComponent::InventoryList]: CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponentinventorylist
 [ULyraPawnData]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
 [ULyraPawnData::PawnClass]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatapawnclass
 [ULyraPawnData::InputConfig]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatainputconfig
