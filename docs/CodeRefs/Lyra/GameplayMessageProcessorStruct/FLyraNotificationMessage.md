@@ -6,7 +6,9 @@
 > 一時的なログ（エリミネーションフィードやインベントリーピックアップストリームなど）を宛先とするメッセージです。  
 
 * 概要
-	* [UGameplayMessageProcessor] で送信する構造体です。
+	* Gameplay Message `Lyra.AddNotification.Message` で送信する構造体です。
+		* この Gameplay Message は `B_AccoladeRelay` ([UGameplayMessageProcessor]) が送信します。
+		* この Gameplay Message は [ULyraAccoladeHostWidget] が受信します。
 	* 称賛情報を表します。
 
 ### FLyraNotificationMessage::PayloadTag
