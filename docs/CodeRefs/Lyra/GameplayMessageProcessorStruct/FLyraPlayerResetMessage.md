@@ -4,7 +4,8 @@
 	* Gameplay Message `GameplayEvent.Reset` で送信する構造体です。
 		* この Gameplay Message は [ULyraGameplayAbility_Reset] が送信します。
 		* この Gameplay Message は `GA_AutoRespawn` ([ULyraGameplayAbility]) が受信します。
-	* プレイヤーリセットの発生を知らせるためのメッセージであり、受信側はリスポーン処理を行っています。
+		* プレイヤーリセットの発生を知らせるためのメッセージであり、受信側はリスポーン処理を行っています。
+	* プレイヤーリセットが発生したプレイヤーの情報を示します。
 
 ### FLyraPlayerResetMessage::OwnerPlayerState
 

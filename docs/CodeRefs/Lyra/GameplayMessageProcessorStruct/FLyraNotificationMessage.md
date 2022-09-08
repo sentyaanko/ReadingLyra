@@ -11,6 +11,7 @@
 			* このクラスは Gameplay Message `Lyra.ShooterGame.Accolade.*` を [ALyraPlayerState::ClientBroadcastMessage()] を利用しサーバーからクライアントに Gameplay Message を伝播させ、コスメティック処理が可能な環境のみ Gameplay Message `Lyra.AddNotification.Message` を送信します。
 			* つまり、称賛の通知を示す Gameplay Message `Lyra.ShooterGame.Accolade.*` を受け取り、称賛の表示の要求を示す Gameplay Message `Lyra.AddNotification.Message` を必要な環境で送信するという役目を負っています。
 		* この Gameplay Message は [ULyraAccoladeHostWidget] が受信します。
+	* 一時的なログで使用可能な情報を示します。
 	* 現状は称賛でしか利用されていませんが、仕組みとしてはそれに依存するものではないので、複雑な情報を付与する必要がないのであれば、一般的なログに使用することが可能です。
 
 ### FLyraNotificationMessage::PayloadTag

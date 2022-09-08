@@ -1,7 +1,10 @@
 ## FLyraQuickBarSlotsChangedMessage
 
-* [UGameplayMessageProcessor] で送信する構造体。
-* 武器のスロット内容の変更
+* 概要
+	* Gameplay Message `Lyra.QuickBar.Message.SlotsChanged` で送信する構造体です。
+		* この Gameplay Message は [ULyraQuickBarComponent] が送信します。
+		* この Gameplay Message は `W_QuickBarSlot` ([ULyraTaggedWidget]) が受信します。
+	* 武器の全スロット内容の情報を示します。
 
 
 
@@ -10,4 +13,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
+[ULyraQuickBarComponent]: ../../Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
+[ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget

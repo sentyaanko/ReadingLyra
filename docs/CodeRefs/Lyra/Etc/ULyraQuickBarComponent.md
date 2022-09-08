@@ -1,11 +1,10 @@
 ## ULyraQuickBarComponent
 
-* `LAS_ShooterGame_StandardComponents` ([ULyraExperienceActionSet])
-	* `Controller` に対して `AddComponent` するように設定されている。
-* その他、誰が持っている？
-* 派生クラス
-	* `B_QuickBarComponent` ([ULyraQuickBarComponent])
-
+* 概要
+	* `UControllerComponent` の派生クラスです。
+	* `B_QuickBarComponent` ([ULyraQuickBarComponent]) の基底クラスです。
+	* `LAS_ShooterGame_StandardComponents` ([ULyraExperienceActionSet]) にてサーバー/クライアントの `Controller` に対して追加するように設定されています。
+	* `ControlPoints` / `Elimination` で画面右下に表示されている、装備中の武器を扱う UI を制御するコンポーネントです。
 
 
 

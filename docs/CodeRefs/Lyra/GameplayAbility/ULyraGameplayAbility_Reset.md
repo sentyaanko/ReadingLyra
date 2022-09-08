@@ -13,7 +13,7 @@
 		* ソースコメントの「サーバーのみ」の処理はイベント `BeginPlay` にて `SwitchHasAuthority` で分岐することで行っています。
 	* `AbilitySet_ShooterHero` ([ULyraAbilitySet]) にて設定されています。
 		* 上記は `HeroData_ShooterGame` ([ULyraPawnData]) にて設定されています。
-		* つまりは `ControlPoint` / `Elimination` でプレイヤーが操作する Pawn に付与されます。
+		* つまりは `ControlPoints` / `Elimination` でプレイヤーが操作する Pawn に付与されます。
 
 
 <!--- ページ内のリンク --->

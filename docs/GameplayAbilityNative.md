@@ -108,7 +108,7 @@ Lyra のプレイヤーキャラクターはヘルスの値を持っており、
 	* AttributeSet を直接参照することは殆どなく、 [ULyraHealthComponent] を介して値の参照等を行います。
 		* ExecutionCalculation である [ULyraHealExecution] と [ULyraDamageExecution] が例外的に直接アクセスします。
 	* リスポーンに関して
-		* `ControlPoint` / `Elimination` ではエクスペリエンスの設定により付与された `GA_AutoRespawn` によって行われています。
+		* `ControlPoints` / `Elimination` ではエクスペリエンスの設定により付与された `GA_AutoRespawn` によって行われています。
 		* `TopDownArena` ([UGameFeatureData]) ではこのアビリティが付与されていないため、リスポーンが行われません。
 		* `TopDownArena` ([UGameFeatureData]) では爆風で一撃死しますが、特別なことはしておらず、ヘルスの値により死亡判定が行われています。
 * Lyra で実装しているクラス

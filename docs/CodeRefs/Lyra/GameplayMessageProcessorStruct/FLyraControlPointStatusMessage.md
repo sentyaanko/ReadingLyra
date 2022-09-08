@@ -8,7 +8,7 @@
 * 概要
 	* `B_ControlPointVolume` (`AActor`) が Gameplay Message `ShooterGame.ControlPoint.Captured.Message` で送信する構造体です。
 		* この Gameplay Message は `B_MusicManagerComponent_ControlPoint` (`UActorComponent`) が受信します。
-	* `ControlPoint` で拠点をキャプチャーしたチームの情報を示します。
+	* `ControlPoints` で拠点をキャプチャーしたチームの情報を示します。
 
 ### FLyraControlPointStatusMessage::ControlPoint
 
