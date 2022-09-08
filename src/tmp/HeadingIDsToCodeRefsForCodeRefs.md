@@ -221,6 +221,7 @@
 [FLyraNotificationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessage
 [FLyraNotificationMessage::PayloadTag]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessagepayloadtag
 [FLyraPlayerResetMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraPlayerResetMessage.md#flyraplayerresetmessage
+[FLyraPlayerResetMessage::OwnerPlayerState]: ../../Lyra/GameplayMessageProcessorStruct/FLyraPlayerResetMessage.md#flyraplayerresetmessageownerplayerstate
 [FLyraQuickBarActiveIndexChangedMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraQuickBarActiveIndexChangedMessage.md#flyraquickbaractiveindexchangedmessage
 [FLyraQuickBarSlotsChangedMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraQuickBarSlotsChangedMessage.md#flyraquickbarslotschangedmessage
 [FLyraVerbMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage.md#flyraverbmessage
