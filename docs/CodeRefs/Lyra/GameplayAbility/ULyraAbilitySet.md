@@ -25,7 +25,7 @@
 
 * 概要
 	* [FLyraAbilitySet_GameplayAbility] の配列です。
-	* 例として `AbilitySet_ShooterPistol` の設定内容は以下のとおりです。
+	* 例として `AbilitySet_ShooterPistol` の設定内容は以下の通りです。
 		| GameplayAbility           | 概要                                       |
 		|---------------------------|--------------------------------------------|
 		| `GA_Weapon_Fire_Pistol`   | Pistol 用の射撃アビリティ                  |

@@ -58,8 +58,8 @@
 * 概要
 	* 以下で呼び出されています。
 		* `B_AccoladeRelay` ([UGameplayMessageProcessor])
-	* この呼び出しは `HasAuthority` により、サーバーのみで呼び出す様にしています。
-
+			* `HasAuthority` により、サーバーのみで呼び出す様に実装されています。
+	* `GetNetMode() == NM_Client` の環境で [UGameplayMessageSubsystem::BroadcastMessage()] を呼び出します。
 
 ### ALyraPlayerState::GetLyraAbilitySystemComponent()
 
@@ -84,4 +84,5 @@
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata
 [ULyraPawnData::AbilitySets]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndataabilitysets
+[UGameplayMessageSubsystem::BroadcastMessage()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ フレームワークのクイック リファレンス]: https://docs.unrealengine.com/5.0/ja/unreal-engine-gameplay-framework-quick-reference/

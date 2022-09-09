@@ -32,6 +32,7 @@
 		* `Phase_Warmup`
 			* `Net Execution Policy` が `Server Initiated` 、 `Replication Policy` が `Do Not Replicate` の、 `GameState` に付与されるアビリティです。
 			* サーバーのみで動作し、ゲーム開始時のカウントダウンをクライアント側に通知するためにこの関数を使用しています。
+	* [ALyraGameState::MulticastMessageToClients_Implementation()] を呼び出します。
 
 
 ### ALyraGameState::MulticastReliableMessageToClients()
@@ -47,9 +48,13 @@
 	* 以下で呼び出されています。
 		* `GA_Auto_Respawn`
 		* `B_EliminationFeedRelay`
-	* どちらも事前に `HasAuthority` ノードを利用し、サーバーのみで呼び出す様にしています。
+		* どちらも事前に `HasAuthority` ノードを利用し、サーバーのみで呼び出す様に実装しています。
+	* [ALyraGameState::MulticastMessageToClients_Implementation()] を呼び出します。
 
+### ALyraGameState::MulticastMessageToClients_Implementation()
 
+* 概要
+	* `GetNetMode() == NM_Client` の環境で [UGameplayMessageSubsystem::BroadcastMessage()] を呼び出します。
 
 
 
@@ -60,4 +65,6 @@
 <!--- generated --->
 [ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
+[ALyraGameState::MulticastMessageToClients_Implementation()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients_implementation
+[UGameplayMessageSubsystem::BroadcastMessage()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ALyraGameState]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#alyragamestate

@@ -175,6 +175,7 @@
 [ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
 [ALyraGameState::MulticastMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients
 [ALyraGameState::MulticastReliableMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastreliablemessagetoclients
+[ALyraGameState::MulticastMessageToClients_Implementation()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients_implementation
 [ALyraPlayerController]: ../../Lyra/GameplayFramework/ALyraPlayerController.md#alyraplayercontroller
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ALyraPlayerState::StatTags]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatestattags
