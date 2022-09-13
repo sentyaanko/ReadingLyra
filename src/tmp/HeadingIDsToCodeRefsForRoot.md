@@ -27,6 +27,9 @@
 [ULyraQuickBarComponent]: CodeRefs/Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
 [ULyraSettingsLocal]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocal
 [ULyraSettingsLocal::RegisteredInputConfigs]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalregisteredinputconfigs
+[ULyraSettingsLocal::CustomKeyboardConfig]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalcustomkeyboardconfig
+[ULyraSettingsLocal::GetAllRegisteredInputConfigs()]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetallregisteredinputconfigs
+[ULyraSettingsLocal::GetCustomPlayerInputConfig()]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetcustomplayerinputconfig
 [ULyraTeamCreationComponent]: CodeRefs/Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponent
 [UTDM_PlayerSpawningManagmentComponent]: CodeRefs/Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent
 [ALyraWorldSettings]: CodeRefs/Lyra/Experience/ALyraWorldSettings.md#alyraworldsettings
@@ -335,6 +338,9 @@
 [IEnhancedInputSubsystemInterface::RemoveMappingContext()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremovemappingcontext
 [IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddplayermappableconfig
 [IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremoveplayermappableconfig
+[IEnhancedInputSubsystemInterface::AddPlayerMappedKey()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddplayermappedkey
+[IEnhancedInputSubsystemInterface::RemovePlayerMappedKey()]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremoveplayermappedkey
+[IEnhancedInputSubsystemInterface::PlayerMappedSettings]: CodeRefs/UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceplayermappedsettings
 [UEnhancedInputComponent]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
 [UEnhancedInputComponent::BindAction()]: CodeRefs/UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponentbindaction
 [UEnhancedInputLocalPlayerSubsystem]: CodeRefs/UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem

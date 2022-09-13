@@ -99,15 +99,67 @@
 
 ### IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()
 
+> Adds all the input mapping contexts inside of this mappable config.
+> 
+> ----
+> このマッピング可能なコンフィグ内の全ての入力マッピングコンテキストを追加します。
+
 * 概要
 	* [UPlayerMappableInputConfig] を受け取り [IEnhancedInputSubsystemInterface::AddMappingContext()] を呼び出します。
 
 ### IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()
 
+> Removes all the input mapping contexts inside of this mappable config.
+> 
+> ----
+> このマッピング可能なコンフィグ内の全ての入力マッピングコンテキストを削除します。
+
 * 概要
 	* [UPlayerMappableInputConfig] を受け取り [IEnhancedInputSubsystemInterface::RemoveMappingContext()] を呼び出します。
 
  
+### IEnhancedInputSubsystemInterface::AddPlayerMappedKey()
+
+> Replace any currently applied mappings to this key mapping with the given new one.
+> Requests a rebuild of the player mappings. 
+> 
+> @return The number of mappings that have been replaced
+> 
+> ----
+> このキーマッピングに現在適用されているマッピングを、与えられた新しいマッピングで置き換えます。
+> プレーヤーマッピングの再構築を要求します。
+> 
+> @return 置換されたマッピングの数
+
+* 概要
+	* 保存に使用するユニークな名前をキーとし `FKey` を値とするペアを [IEnhancedInputSubsystemInterface::PlayerMappedSettings] に追加します。
+
+### IEnhancedInputSubsystemInterface::RemovePlayerMappedKey()
+
+> Remove any player mappings with to the given action
+> Requests a rebuild of the player mappings. 
+> 
+> @return The number of mappings that have been removed
+> 
+> ----
+> 指定されたアクションを持つプレーヤーマッピングをすべて削除します。
+> プレーヤーマッピングの再構築を要求します。
+> 
+> @return 削除されたマッピングの数
+
+* 概要
+	* 保存に使用するユニークな名前をキーとし [IEnhancedInputSubsystemInterface::PlayerMappedSettings] から削除します。
+
+### IEnhancedInputSubsystemInterface::PlayerMappedSettings
+
+> A map of any player mapped keys to the key that they should redirect to instead
+> 
+> ----
+> プレーヤーマップされたキーと、そのキーにリダイレクトされるべきキーのマップです。
+
+* 概要
+	* 保存に使用するユニークな名前をキーとし `FKey` を値とする連想配列です。
+	* プレイヤーの入力設定の保存に利用します。
 
 
 
@@ -122,6 +174,7 @@
 [IEnhancedInputSubsystemInterface::RequestRebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerequestrebuildcontrolmappings
 [IEnhancedInputSubsystemInterface::AddMappingContext()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddmappingcontext
 [IEnhancedInputSubsystemInterface::RemoveMappingContext()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremovemappingcontext
+[IEnhancedInputSubsystemInterface::PlayerMappedSettings]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceplayermappedsettings
 [UEnhancedInputLocalPlayerSubsystem]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem
 [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystemgetplayerinput
 [UEnhancedPlayerInput]: ../../UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinput

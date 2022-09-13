@@ -13,19 +13,25 @@
 	* [ULyraInputComboComponent] からの呼び出しもありますが、現在 [ULyraInputComboComponent] は使われていないようです。
 
 > note:
-> ULyraInputComponent::RemoveInputConfig() での AddPlayerMappableConfig の呼び出しは RemovePlayerMappableConfig の間違いのように見受けられます。
+> `ULyraInputComponent::RemoveInputConfig()` での `AddPlayerMappableConfig()` の呼び出しは `RemovePlayerMappableConfig()` の間違いのように見受けられます。
 
 ### ULyraInputComponent::AddInputMappings()
 
 * 概要
 	* 入力マッピングコンテキストを追加します。
 	* [IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()] を呼び出します。
+		* 引数は [ULyraSettingsLocal::GetAllRegisteredInputConfigs()] から取得した [FLoadedMappableConfigPair] の配列を利用します。
+	* [IEnhancedInputSubsystemInterface::AddPlayerMappedKey()] を呼び出します。
+		* 引数は [ULyraSettingsLocal::GetCustomPlayerInputConfig()] から取得した連想配列配列を利用します。
 
 ### ULyraInputComponent::RemoveInputMappings()
 
 * 概要
 	* 入力マッピングコンテキストを削除します。
 	* [IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()] を呼び出します。
+		* 引数は [ULyraSettingsLocal::GetAllRegisteredInputConfigs()] から取得した [FLoadedMappableConfigPair] の配列を利用します。
+	* [IEnhancedInputSubsystemInterface::RemovePlayerMappedKey()] を呼び出します。
+		* 引数は [ULyraSettingsLocal::GetCustomPlayerInputConfig()] から取得した連想配列配列を利用します。
 
 ### ULyraInputComponent::BindNativeAction()
 
@@ -46,10 +52,14 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraSettingsLocal::GetAllRegisteredInputConfigs()]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetallregisteredinputconfigs
+[ULyraSettingsLocal::GetCustomPlayerInputConfig()]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetcustomplayerinputconfig
 [ULyraHeroComponent]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponent
 [FLoadedMappableConfigPair]: ../../Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair
 [ULyraInputComboComponent]: ../../Lyra/Input/ULyraInputComboComponent.md#ulyrainputcombocomponent
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [IEnhancedInputSubsystemInterface::AddPlayerMappableConfig()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddplayermappableconfig
 [IEnhancedInputSubsystemInterface::RemovePlayerMappableConfig()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremoveplayermappableconfig
+[IEnhancedInputSubsystemInterface::AddPlayerMappedKey()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddplayermappedkey
+[IEnhancedInputSubsystemInterface::RemovePlayerMappedKey()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremoveplayermappedkey
 [UEnhancedInputComponent]: ../../UE/Input/UEnhancedInputComponent.md#uenhancedinputcomponent
