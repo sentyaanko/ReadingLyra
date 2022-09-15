@@ -7,13 +7,12 @@
 
 * 概要
 	* `FFastArraySerializer` の派生クラスです。
-	* [FLyraAppliedEquipmentEntry] の配列で保持しています。
 	* [ULyraEquipmentManagerComponent::EquipmentList] で保持されています。
 
 ## FLyraEquipmentList::Entries
 
 * 概要
-	* FLyraAppliedEquipmentEntry の配列です。
+	* [FLyraAppliedEquipmentEntry] の配列です。
 
 
 <!--- ページ内のリンク --->

@@ -1,10 +1,10 @@
+[ULyraAssetManager]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanager
+[ULyraAssetManager::DefaultPawnData]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
+[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [FLyraAppliedEquipmentEntry]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
 [FLyraAppliedEquipmentEntry::EquipmentDefinition]: ../../Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententryequipmentdefinition
 [FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
 [FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
-[ULyraAssetManager]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanager
-[ULyraAssetManager::DefaultPawnData]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
-[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ULyraEquipmentDefinition::AbilitySetsToGrant]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
@@ -249,7 +249,9 @@
 [FLyraInventoryList]: ../../Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
 [FLyraInventoryList::Entries]: ../../Lyra/Inventory/FLyraInventoryList.md#flyrainventorylistentries
 [UInventoryFragment_EquippableItem]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
+[UInventoryFragment_EquippableItem::EquipmentDefinition]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitemequipmentdefinition
 [ULyraInventoryItemDefinition]: ../../Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinition
+[ULyraInventoryItemDefinition::Fragments]: ../../Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinitionfragments
 [ULyraInventoryItemFragment]: ../../Lyra/Inventory/ULyraInventoryItemFragment.md#ulyrainventoryitemfragment
 [ULyraInventoryManagerComponent]: ../../Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponent
 [ULyraInventoryManagerComponent::InventoryList]: ../../Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponentinventorylist

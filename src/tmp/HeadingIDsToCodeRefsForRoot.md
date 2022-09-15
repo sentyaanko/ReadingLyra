@@ -1,10 +1,10 @@
+[ULyraAssetManager]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanager
+[ULyraAssetManager::DefaultPawnData]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
+[ULyraAssetManager::GetDefaultPawnData()]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [FLyraAppliedEquipmentEntry]: CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententry
 [FLyraAppliedEquipmentEntry::EquipmentDefinition]: CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md#flyraappliedequipmententryequipmentdefinition
 [FLyraEquipmentList]: CodeRefs/Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
 [FLyraEquipmentList::Entries]: CodeRefs/Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
-[ULyraAssetManager]: CodeRefs/Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanager
-[ULyraAssetManager::DefaultPawnData]: CodeRefs/Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
-[ULyraAssetManager::GetDefaultPawnData()]: CodeRefs/Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [ULyraEquipmentDefinition]: CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ULyraEquipmentDefinition::AbilitySetsToGrant]: CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ULyraEquipmentManagerComponent]: CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
@@ -249,7 +249,9 @@
 [FLyraInventoryList]: CodeRefs/Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
 [FLyraInventoryList::Entries]: CodeRefs/Lyra/Inventory/FLyraInventoryList.md#flyrainventorylistentries
 [UInventoryFragment_EquippableItem]: CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
+[UInventoryFragment_EquippableItem::EquipmentDefinition]: CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitemequipmentdefinition
 [ULyraInventoryItemDefinition]: CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinition
+[ULyraInventoryItemDefinition::Fragments]: CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinitionfragments
 [ULyraInventoryItemFragment]: CodeRefs/Lyra/Inventory/ULyraInventoryItemFragment.md#ulyrainventoryitemfragment
 [ULyraInventoryManagerComponent]: CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponent
 [ULyraInventoryManagerComponent::InventoryList]: CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponentinventorylist

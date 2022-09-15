@@ -131,7 +131,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraAssetManager::DefaultPawnData]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
+[ULyraAssetManager::DefaultPawnData]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
 [ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ULyraExperienceDefinition::DefaultPawnData]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitiondefaultpawndata

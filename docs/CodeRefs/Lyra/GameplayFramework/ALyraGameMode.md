@@ -65,7 +65,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/Equipment/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
+[ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
 [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodehandlematchassignmentifnotexpectingone
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate

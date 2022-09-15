@@ -1,10 +1,15 @@
 ## UInventoryFragment_EquippableItem
 
-* 装備可能な武器の部品
-* [ULyraInventoryItemFragment] の派生クラスです。
-* [ULyraEquipmentDefinition] を保持する。
+* 概要
+	* [ULyraInventoryItemFragment] の派生クラスです。
+	* アイテムの挙動を部品化したクラスで、装備可能なアイテムを示します。
+	* [ULyraInventoryItemDefinition::Fragments] にこのクラスを設定することで装備可能として扱われます。
 
+### UInventoryFragment_EquippableItem::EquipmentDefinition
 
+* 概要
+	* [ULyraEquipmentDefinition] を保持します。
+	* 装備の情報です。
 
 
 
@@ -14,4 +19,5 @@
 
 <!--- generated --->
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
+[ULyraInventoryItemDefinition::Fragments]: ../../Lyra/Inventory/ULyraInventoryItemDefinition.md#ulyrainventoryitemdefinitionfragments
 [ULyraInventoryItemFragment]: ../../Lyra/Inventory/ULyraInventoryItemFragment.md#ulyrainventoryitemfragment

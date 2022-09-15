@@ -3,7 +3,7 @@
 > Definition of a piece of equipment that can be applied to a pawn
 > 
 > ----
-> ポーンに適用可能な装備の定義。
+> ポーンに適用可能な装備の定義です。
 
 * 概要
 	* 武器に付随するアビリティはここの設定を利用します。

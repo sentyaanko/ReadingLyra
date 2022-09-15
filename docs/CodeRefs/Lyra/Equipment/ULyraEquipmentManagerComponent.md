@@ -8,7 +8,7 @@
 * 概要
 	* `UPawnComponent` の派生クラスです。
 	* [UGameFeatureAction_AddComponents] を通じてコンポーネントを追加しています。
-		* 設定箇所： `ShooterCore`<br>([UGameFeatureData])
+		* 設定箇所： `ShooterCore` ([UGameFeatureData])
 		* 対象： [ALyraCharacter]
 		* クライアント： ✔
 		* サーバー： ✔

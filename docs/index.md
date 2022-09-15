@@ -10,10 +10,11 @@
 	- [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]
 - クラス解説
 	- Lyra
+		- AssetManager
+			- [ULyraAssetManager]
 		- Equipment
 			- [FLyraAppliedEquipmentEntry]
 			- [FLyraInventoryList]
-			- [ULyraAssetManager]
 			- [ULyraEquipmentDefinition]
 			- [ULyraEquipmentManagerComponent]
 		- Etc
@@ -208,9 +209,9 @@
 [【UE5】Lyra に学ぶ GAS(概略)]: ./GameplayAbilityOverview.md
 [【UE5】Lyra に学ぶ GameplayMessage]: ./GameplayMessage.md
 [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
-[ULyraAssetManager]: ./CodeRefs/Lyra/Equipment/ULyraAssetManager.md
 [ULyraEquipmentDefinition]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md
 [ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md
 [ALyraWeaponSpawner]: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md
