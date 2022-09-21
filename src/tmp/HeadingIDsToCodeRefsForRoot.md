@@ -138,6 +138,8 @@
 [ULyraGameplayAbility_Interact::TriggerInteraction()]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interacttriggerinteraction
 [ULyraGameplayAbility_Jump]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Jump.md#ulyragameplayability_jump
 [ULyraGameplayAbility_RangedWeapon]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
+[ULyraGameplayAbility_RangedWeapon::OnTargetDataReadyCallback()]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponontargetdatareadycallback
+[ULyraGameplayAbility_RangedWeapon::StartRangedWeaponTargeting()]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponstartrangedweapontargeting
 [ULyraGameplayAbility_Reset]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayability_reset
 [ULyraGlobalAbilitySystem]: CodeRefs/Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystem
 [ULyraHealExecution]: CodeRefs/Lyra/GameplayAbility/ULyraHealExecution.md#ulyrahealexecution
@@ -262,6 +264,10 @@
 [ULyraPawnData::DefaultCameraMode]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatadefaultcameramode
 [ULyraPawnData::AbilitySets]: CodeRefs/Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndataabilitysets
 [ULyraWeaponStateComponent]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponent
+[ULyraWeaponStateComponent::GetLastWeaponDamageScreenLocations()]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentgetlastweapondamagescreenlocations
+[ULyraWeaponStateComponent::GetTimeSinceLastHitNotification()]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentgettimesincelasthitnotification
+[ULyraWeaponStateComponent::AddUnconfirmedServerSideHitMarkers()]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentaddunconfirmedserversidehitmarkers
+[ULyraWeaponStateComponent::ClientConfirmTargetData()]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentclientconfirmtargetdata
 [UCommonActivatableWidget]: CodeRefs/Lyra/Widget/UCommonActivatableWidget.md#ucommonactivatablewidget
 [ULyraActivatableWidget]: CodeRefs/Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
 [ULyraHUDLayout]: CodeRefs/Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
