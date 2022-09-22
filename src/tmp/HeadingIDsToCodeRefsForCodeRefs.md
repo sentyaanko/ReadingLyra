@@ -17,6 +17,8 @@
 [ULyraControllerComponent_CharacterParts]: ../../Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
 [ULyraDamageLogDebuggerComponent]: ../../Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
 [ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
+[ULyraFrontendStateComponent::PressStartScreenClass]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponentpressstartscreenclass
+[ULyraFrontendStateComponent::MainScreenClass]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponentmainscreenclass
 [ULyraGameData]: ../../Lyra/Etc/ULyraGameData.md#ulyragamedata
 [ULyraIndicatorManagerComponent]: ../../Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
 [ULyraLobbyBackground]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground

@@ -1,5 +1,7 @@
 ## UCommonActivatableWidget
 
+>> 詳細は未確認です。
+
 > The base for widgets that are capable of being "activated" and "deactivated" during their lifetime without being otherwise modified or destroyed.   
 >
 > This is generally desired for one or more of the following purposes:  
@@ -37,7 +39,14 @@
 * 概要
 	* `UCommonUserWidget` の派生クラスです。
 * Lyra での使われ方
-	* [UCommonUIExtensions]
+	* 派生クラスとして以下があります。
+		* `UGameSettingPressAnyKey`
+		* `UGameSettingScreen`
+		* `UCommonGameDialog`
+		* [ULyraActivatableWidget]
+	* [UPrimaryGameLayout] にて UI を置くためのレイヤーを登録する際の UI のレイアウト情報の型として使用しています。
+	* [UCommonUIExtensions] にて UI をレイヤーに追加する際の型として使用しています。
+	* [ULyraFrontendStateComponent] にて PressStart や Main の UI の情報として保持しています。
 
 
 
@@ -46,4 +55,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
+[ULyraActivatableWidget]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
+[UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
