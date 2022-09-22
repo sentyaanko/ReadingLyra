@@ -34,6 +34,11 @@
 >
 > TODO: 入力に関するより詳細な情報を追加
 
+* 概要
+	* `UCommonUserWidget` の派生クラスです。
+* Lyra での使われ方
+	* [UCommonUIExtensions]
+
 
 
 <!--- ページ内のリンク --->
@@ -41,4 +46,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions

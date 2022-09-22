@@ -141,7 +141,6 @@
 		- Weapon
 			- [ULyraWeaponStateComponent]
 		- Widget
-			- [UCommonActivatableWidget]
 			- [ULyraActivatableWidget]
 			- [ULyraHUDLayout]
 			- [ULyraJoystickWidget]
@@ -156,6 +155,8 @@
 			- [CommonGameInstance]
 			- [UCommonUIExtensions]
 			- [UPrimaryGameLayout]
+		- CommonUI
+			- [UCommonActivatableWidget]
 		- GameplayMessageSubsystem
 			- [UAsyncAction_ListenForGameplayMessage]
 			- [UGameplayMessageSubsystem]
@@ -323,7 +324,6 @@
 [ULyraInventoryManagerComponent]: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md
 [ULyraPawnData]: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData.md
 [ULyraWeaponStateComponent]: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md
-[UCommonActivatableWidget]: ./CodeRefs/Lyra/Widget/UCommonActivatableWidget.md
 [ULyraActivatableWidget]: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget.md
 [ULyraHUDLayout]: ./CodeRefs/Lyra/Widget/ULyraHUDLayout.md
 [ULyraJoystickWidget]: ./CodeRefs/Lyra/Widget/ULyraJoystickWidget.md
@@ -336,6 +336,7 @@
 [CommonGameInstance]: ./CodeRefs/Plugin/CommonGame/CommonGameInstance.md
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
+[UCommonActivatableWidget]: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget.md
 [UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md
 [UGameplayMessageSubsystem]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
