@@ -141,6 +141,7 @@ nav:
       - Weapon:
         - ULyraWeaponStateComponent: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent
       - Widget:
+        - ELyraWidgetInputMode: ./CodeRefs/Lyra/Widget/ELyraWidgetInputMode
         - ULyraActivatableWidget: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget
         - ULyraHUDLayout: ./CodeRefs/Lyra/Widget/ULyraHUDLayout
         - ULyraJoystickWidget: ./CodeRefs/Lyra/Widget/ULyraJoystickWidget
@@ -157,6 +158,7 @@ nav:
         - UPrimaryGameLayout: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout
       - CommonUI:
         - ECommonInputMode: ./CodeRefs/Plugin/CommonUI/ECommonInputMode
+        - FUIInputConfig: ./CodeRefs/Plugin/CommonUI/FUIInputConfig
         - UCommonActivatableWidget: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget
       - GameplayMessageSubsystem:
         - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage

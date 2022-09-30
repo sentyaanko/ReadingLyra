@@ -270,7 +270,13 @@
 [ULyraWeaponStateComponent::GetTimeSinceLastHitNotification()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentgettimesincelasthitnotification
 [ULyraWeaponStateComponent::AddUnconfirmedServerSideHitMarkers()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentaddunconfirmedserversidehitmarkers
 [ULyraWeaponStateComponent::ClientConfirmTargetData()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentclientconfirmtargetdata
+[ELyraWidgetInputMode]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmode
+[ELyraWidgetInputMode::Default]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodedefault
+[ELyraWidgetInputMode::GameAndMenu]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodegameandmenu
+[ELyraWidgetInputMode::Game]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodegame
+[ELyraWidgetInputMode::Menu]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodemenu
 [ULyraActivatableWidget]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
+[ULyraActivatableWidget::GetDesiredInputConfig()]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgetdesiredinputconfig
 [ULyraActivatableWidget::InputConfig]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetinputconfig
 [ULyraActivatableWidget::GameMouseCaptureMode]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgamemousecapturemode
 [ULyraHUDLayout]: ../../Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
@@ -288,7 +294,12 @@
 [ECommonInputMode::Menu]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodemenu
 [ECommonInputMode::Game]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodegame
 [ECommonInputMode::All]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodeall
+[FUIInputConfig]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfig
+[FUIInputConfig::InputMode]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfiginputmode
+[FUIInputConfig::MouseCaptureMode]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfigmousecapturemode
+[FUIInputConfig::bHideCursorDuringViewportCapture]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfigbhidecursorduringviewportcapture
 [UCommonActivatableWidget]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidget
+[UCommonActivatableWidget::GetDesiredInputConfig()]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidgetgetdesiredinputconfig
 [UAsyncAction_ListenForGameplayMessage]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
 [UAsyncAction_ListenForGameplayMessage::ListenForGameplayMessages()]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessagelistenforgameplaymessages
 [UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem

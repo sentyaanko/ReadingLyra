@@ -141,6 +141,7 @@
 		- Weapon
 			- [ULyraWeaponStateComponent]
 		- Widget
+			- [ELyraWidgetInputMode]
 			- [ULyraActivatableWidget]
 			- [ULyraHUDLayout]
 			- [ULyraJoystickWidget]
@@ -157,6 +158,7 @@
 			- [UPrimaryGameLayout]
 		- CommonUI
 			- [ECommonInputMode]
+			- [FUIInputConfig]
 			- [UCommonActivatableWidget]
 		- GameplayMessageSubsystem
 			- [UAsyncAction_ListenForGameplayMessage]
@@ -327,6 +329,7 @@
 [ULyraInventoryManagerComponent]: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md
 [ULyraPawnData]: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData.md
 [ULyraWeaponStateComponent]: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md
+[ELyraWidgetInputMode]: ./CodeRefs/Lyra/Widget/ELyraWidgetInputMode.md
 [ULyraActivatableWidget]: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget.md
 [ULyraHUDLayout]: ./CodeRefs/Lyra/Widget/ULyraHUDLayout.md
 [ULyraJoystickWidget]: ./CodeRefs/Lyra/Widget/ULyraJoystickWidget.md
@@ -340,6 +343,7 @@
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
 [ECommonInputMode]: ./CodeRefs/Plugin/CommonUI/ECommonInputMode.md
+[FUIInputConfig]: ./CodeRefs/Plugin/CommonUI/FUIInputConfig.md
 [UCommonActivatableWidget]: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget.md
 [UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md
 [UGameplayMessageSubsystem]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md

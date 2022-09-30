@@ -48,6 +48,20 @@
 	* [UCommonUIExtensions] にて UI をレイヤーに追加する際の型として使用しています。
 	* [ULyraFrontendStateComponent] にて PressStart や Main の UI の情報として保持しています。
 
+### UCommonActivatableWidget::GetDesiredInputConfig()
+
+> Gets the desired input configuration to establish when this widget activates and can receive input (i.e. all parents are also active).  
+> This configuration will override the existing one established by any previous activatable widget and restore it (if valid) upon deactivation.  
+> 
+> ----
+> このウィジェットがアクティブになり、入力を受け取れるようになったときに確立したい入力構成を取得します (つまり、すべての親もアクティブになります)。  
+> この設定は、以前のアクティブなウィジェットによって確立された既存のものを上書きし、非アクティブ化時に (有効であれば) 復元されます。
+
+* 概要
+	* widget が入力をどのように扱うかを取得するための仮想関数です。
+	* [FUIInputConfig] を返します。
+* Lyra での使われ方
+	* [ULyraActivatableWidget::GetDesiredInputConfig()] でオーバーライドしています。
 
 
 <!--- ページ内のリンク --->
@@ -57,5 +71,7 @@
 <!--- generated --->
 [ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
 [ULyraActivatableWidget]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
+[ULyraActivatableWidget::GetDesiredInputConfig()]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgetdesiredinputconfig
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
+[FUIInputConfig]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfig
