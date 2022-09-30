@@ -271,6 +271,8 @@
 [ULyraWeaponStateComponent::AddUnconfirmedServerSideHitMarkers()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentaddunconfirmedserversidehitmarkers
 [ULyraWeaponStateComponent::ClientConfirmTargetData()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentclientconfirmtargetdata
 [ULyraActivatableWidget]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
+[ULyraActivatableWidget::InputConfig]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetinputconfig
+[ULyraActivatableWidget::GameMouseCaptureMode]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgamemousecapturemode
 [ULyraHUDLayout]: ../../Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
 [ULyraJoystickWidget]: ../../Lyra/Widget/ULyraJoystickWidget.md#ulyrajoystickwidget
 [ULyraPerfStatContainerBase]: ../../Lyra/Widget/ULyraPerfStatContainerBase.md#ulyraperfstatcontainerbase
@@ -282,6 +284,10 @@
 [CommonGameInstance]: ../../Plugin/CommonGame/CommonGameInstance.md#commongameinstance
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
+[ECommonInputMode]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmode
+[ECommonInputMode::Menu]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodemenu
+[ECommonInputMode::Game]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodegame
+[ECommonInputMode::All]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodeall
 [UCommonActivatableWidget]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidget
 [UAsyncAction_ListenForGameplayMessage]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
 [UAsyncAction_ListenForGameplayMessage::ListenForGameplayMessages()]: ../../Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessagelistenforgameplaymessages
@@ -297,6 +303,12 @@
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
 [UDataRegistrySubsystem::AcquireItem()]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystemacquireitem
+[EMouseCaptureMode]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemode
+[EMouseCaptureMode::NoCapture]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemodenocapture
+[EMouseCaptureMode::CapturePermanently]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemodecapturepermanently
+[EMouseCaptureMode::CapturePermanently_IncludingInitialMouseDown]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemodecapturepermanently_includinginitialmousedown
+[EMouseCaptureMode::CaptureDuringMouseDown]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemodecaptureduringmousedown
+[EMouseCaptureMode::CaptureDuringRightMouseDown]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemodecaptureduringrightmousedown
 [IGameFeatureStateChangeObserver]: ../../UE/GameFeature/IGameFeatureStateChangeObserver.md#igamefeaturestatechangeobserver
 [UDefaultGameFeaturesProjectPolicies]: ../../UE/GameFeature/UDefaultGameFeaturesProjectPolicies.md#udefaultgamefeaturesprojectpolicies
 [UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction

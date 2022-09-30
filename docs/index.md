@@ -156,6 +156,7 @@
 			- [UCommonUIExtensions]
 			- [UPrimaryGameLayout]
 		- CommonUI
+			- [ECommonInputMode]
 			- [UCommonActivatableWidget]
 		- GameplayMessageSubsystem
 			- [UAsyncAction_ListenForGameplayMessage]
@@ -170,6 +171,8 @@
 		- DataRegistry
 			- [UDataRegistry]
 			- [UDataRegistrySubsystem]
+		- Engine
+			- [EMouseCaptureMode]
 		- GameFeature
 			- [IGameFeatureStateChangeObserver]
 			- [UDefaultGameFeaturesProjectPolicies]
@@ -336,6 +339,7 @@
 [CommonGameInstance]: ./CodeRefs/Plugin/CommonGame/CommonGameInstance.md
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
+[ECommonInputMode]: ./CodeRefs/Plugin/CommonUI/ECommonInputMode.md
 [UCommonActivatableWidget]: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget.md
 [UAsyncAction_ListenForGameplayMessage]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md
 [UGameplayMessageSubsystem]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md
@@ -345,6 +349,7 @@
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistry]: ./CodeRefs/UE/DataRegistry/UDataRegistry.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
+[EMouseCaptureMode]: ./CodeRefs/UE/Engine/EMouseCaptureMode.md
 [IGameFeatureStateChangeObserver]: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver.md
 [UDefaultGameFeaturesProjectPolicies]: ./CodeRefs/UE/GameFeature/UDefaultGameFeaturesProjectPolicies.md
 [UGameFeatureAction]: ./CodeRefs/UE/GameFeature/UGameFeatureAction.md

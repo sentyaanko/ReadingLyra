@@ -156,6 +156,7 @@ nav:
         - UCommonUIExtensions: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions
         - UPrimaryGameLayout: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout
       - CommonUI:
+        - ECommonInputMode: ./CodeRefs/Plugin/CommonUI/ECommonInputMode
         - UCommonActivatableWidget: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget
       - GameplayMessageSubsystem:
         - UAsyncAction_ListenForGameplayMessage: ./CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage
@@ -170,6 +171,8 @@ nav:
       - DataRegistry:
         - UDataRegistry: ./CodeRefs/UE/DataRegistry/UDataRegistry
         - UDataRegistrySubsystem: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem
+      - Engine:
+        - EMouseCaptureMode: ./CodeRefs/UE/Engine/EMouseCaptureMode
       - GameFeature:
         - IGameFeatureStateChangeObserver: ./CodeRefs/UE/GameFeature/IGameFeatureStateChangeObserver
         - UDefaultGameFeaturesProjectPolicies: ./CodeRefs/UE/GameFeature/UDefaultGameFeaturesProjectPolicies
