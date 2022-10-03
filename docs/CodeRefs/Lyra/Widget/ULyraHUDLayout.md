@@ -13,7 +13,7 @@
 		* `W_ShooterHUDLayout`
 		* `W_ShooterReplayHUD`
 		* `W_TopDownArenaHUDLayout`
-	* このクラスで拡張している機能は Esc アクション時に
+	* このクラスでは Esc アクション時に UI を表示する機能が実装されています。
 	
 ### ULyraHUDLayout::EscapeMenuClass
 

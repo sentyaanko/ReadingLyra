@@ -285,6 +285,7 @@
 [ULyraPerfStatContainerBase]: ../../Lyra/Widget/ULyraPerfStatContainerBase.md#ulyraperfstatcontainerbase
 [ULyraReticleWidgetBase]: ../../Lyra/Widget/ULyraReticleWidgetBase.md#ulyrareticlewidgetbase
 [ULyraSimulatedInputWidget]: ../../Lyra/Widget/ULyraSimulatedInputWidget.md#ulyrasimulatedinputwidget
+[ULyraSimulatedInputWidget::AssociatedAction]: ../../Lyra/Widget/ULyraSimulatedInputWidget.md#ulyrasimulatedinputwidgetassociatedaction
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [ULyraTouchRegion]: ../../Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: ../../Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
