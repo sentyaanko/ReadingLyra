@@ -41,11 +41,14 @@
 				* [ULyraActivatableWidget::InputConfig] に [ECommonInputMode::Menu] を設定。
 				* [ULyraActivatableWidget::GameMouseCaptureMode] に [EMouseCaptureMode::NoCapture] を設定。
 		* [ELyraWidgetInputMode::GameAndMenu] の場合
-			* [ECommonInputMode::All] と [ULyraActivatableWidget::GameMouseCaptureMode] の設定を [FUIInputConfig] にして返します。
+			* [FUIInputConfig::InputMode] に [ECommonInputMode::All] を設定。
+			* [FUIInputConfig::MouseCaptureMode] に [ULyraActivatableWidget::GameMouseCaptureMode] の内容を設定。
 		* [ELyraWidgetInputMode::Game] の場合
-			* [ECommonInputMode::Game] と [ULyraActivatableWidget::GameMouseCaptureMode] の設定を [FUIInputConfig] にして返します。
+			* [FUIInputConfig::InputMode] に [ECommonInputMode::Game] を設定。
+			* [FUIInputConfig::MouseCaptureMode] に [ULyraActivatableWidget::GameMouseCaptureMode] の内容を設定。
 		* [ELyraWidgetInputMode::Menu] の場合
-			* [ECommonInputMode::Menu] と [EMouseCaptureMode::NoCapture] を [FUIInputConfig] にして返します。
+			* [FUIInputConfig::InputMode] に [ECommonInputMode::Menu] を設定。
+			* [FUIInputConfig::MouseCaptureMode] に [EMouseCaptureMode::NoCapture] を設定。
 
 ### ULyraActivatableWidget::InputConfig
 
@@ -56,7 +59,9 @@
 
 * 概要
 	* [ELyraWidgetInputMode] を指定します。
+		* [ECommonInputMode] 型ではないのは、 [ELyraWidgetInputMode::Default] を追加することで親の設定に従う仕組みを実装するためです。
 	* 入力を widget / ゲーム / 両方 のいずれに渡すかを指定します。
+	* [ULyraActivatableWidget::GetDesiredInputConfig()] 内で [FUIInputConfig::InputMode] を決定するために利用する値です。
 
 ### ULyraActivatableWidget::GameMouseCaptureMode
 
@@ -78,13 +83,17 @@
 [ELyraWidgetInputMode::GameAndMenu]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodegameandmenu
 [ELyraWidgetInputMode::Game]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodegame
 [ELyraWidgetInputMode::Menu]: ../../Lyra/Widget/ELyraWidgetInputMode.md#elyrawidgetinputmodemenu
+[ULyraActivatableWidget::GetDesiredInputConfig()]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgetdesiredinputconfig
 [ULyraActivatableWidget::InputConfig]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetinputconfig
 [ULyraActivatableWidget::GameMouseCaptureMode]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgamemousecapturemode
 [ULyraHUDLayout]: ../../Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
+[ECommonInputMode]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmode
 [ECommonInputMode::Menu]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodemenu
 [ECommonInputMode::Game]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodegame
 [ECommonInputMode::All]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodeall
 [FUIInputConfig]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfig
+[FUIInputConfig::InputMode]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfiginputmode
+[FUIInputConfig::MouseCaptureMode]: ../../Plugin/CommonUI/FUIInputConfig.md#fuiinputconfigmousecapturemode
 [UCommonActivatableWidget]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidget
 [UCommonActivatableWidget::GetDesiredInputConfig()]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidgetgetdesiredinputconfig
 [EMouseCaptureMode]: ../../UE/Engine/EMouseCaptureMode.md#emousecapturemode
