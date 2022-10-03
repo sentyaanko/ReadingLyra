@@ -13,6 +13,15 @@
 		* `W_ShooterHUDLayout`
 		* `W_ShooterReplayHUD`
 		* `W_TopDownArenaHUDLayout`
+	* このクラスで拡張している機能は Esc アクション時に
+	
+### ULyraHUDLayout::EscapeMenuClass
+
+* 概要
+	* [UCommonActivatableWidget] を指定します。
+	* ここで設定された値は Esc アクションが発生した際に [UCommonUIExtensions] を利用して UI を表示するのに利用されます。
+	* すべての派生ブループリントで `W_LyraGameMenu` ([UCommonActivatableWidget]) が指定されています。
+
 
 
 <!--- ページ内のリンク --->
@@ -21,3 +30,5 @@
 
 <!--- generated --->
 [ULyraActivatableWidget]: ../../Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidget
+[UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
+[UCommonActivatableWidget]: ../../Plugin/CommonUI/UCommonActivatableWidget.md#ucommonactivatablewidget

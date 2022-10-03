@@ -280,6 +280,7 @@
 [ULyraActivatableWidget::InputConfig]: CodeRefs/Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetinputconfig
 [ULyraActivatableWidget::GameMouseCaptureMode]: CodeRefs/Lyra/Widget/ULyraActivatableWidget.md#ulyraactivatablewidgetgamemousecapturemode
 [ULyraHUDLayout]: CodeRefs/Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
+[ULyraHUDLayout::EscapeMenuClass]: CodeRefs/Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayoutescapemenuclass
 [ULyraJoystickWidget]: CodeRefs/Lyra/Widget/ULyraJoystickWidget.md#ulyrajoystickwidget
 [ULyraPerfStatContainerBase]: CodeRefs/Lyra/Widget/ULyraPerfStatContainerBase.md#ulyraperfstatcontainerbase
 [ULyraReticleWidgetBase]: CodeRefs/Lyra/Widget/ULyraReticleWidgetBase.md#ulyrareticlewidgetbase
