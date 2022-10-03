@@ -1,8 +1,12 @@
 ## ALyraWeaponSpawner
 
-* 武器などのスポーン用アクター
-
-
+* 概要
+	* `AActor` の派生クラスです。
+	* 武器などのスポーン用アクターです。
+	* 派生ブループリントは以下の通りです。
+		* [ALyraWeaponSpawner]
+			* `B_WeaponSpawner`
+				* `B_AbilitySpawner`
 
 
 
@@ -11,4 +15,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[ALyraWeaponSpawner]: ../../Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
