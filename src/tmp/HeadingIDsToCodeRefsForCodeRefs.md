@@ -265,6 +265,7 @@
 [ULyraPawnData::TagRelationshipMapping]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatatagrelationshipmapping
 [ULyraPawnData::DefaultCameraMode]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndatadefaultcameramode
 [ULyraPawnData::AbilitySets]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndataabilitysets
+[ULyraPerfStatWidgetBase]: ../../Lyra/PerformanceStats/ULyraPerfStatWidgetBase.md#ulyraperfstatwidgetbase
 [ULyraWeaponStateComponent]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponent
 [ULyraWeaponStateComponent::GetLastWeaponDamageScreenLocations()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentgetlastweapondamagescreenlocations
 [ULyraWeaponStateComponent::GetTimeSinceLastHitNotification()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentgettimesincelasthitnotification

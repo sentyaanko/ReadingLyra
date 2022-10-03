@@ -138,6 +138,8 @@
 			- [ULyraInventoryManagerComponent]
 		- PawnSetting
 			- [ULyraPawnData]
+		- PerformanceStats
+			- [ULyraPerfStatWidgetBase]
 		- Weapon
 			- [ULyraWeaponStateComponent]
 		- Widget
@@ -328,6 +330,7 @@
 [ULyraInventoryItemFragment]: ./CodeRefs/Lyra/Inventory/ULyraInventoryItemFragment.md
 [ULyraInventoryManagerComponent]: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent.md
 [ULyraPawnData]: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData.md
+[ULyraPerfStatWidgetBase]: ./CodeRefs/Lyra/PerformanceStats/ULyraPerfStatWidgetBase.md
 [ULyraWeaponStateComponent]: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md
 [ELyraWidgetInputMode]: ./CodeRefs/Lyra/Widget/ELyraWidgetInputMode.md
 [ULyraActivatableWidget]: ./CodeRefs/Lyra/Widget/ULyraActivatableWidget.md

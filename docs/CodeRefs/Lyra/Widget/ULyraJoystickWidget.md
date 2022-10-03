@@ -18,7 +18,7 @@
 				* `W_OnScreenJoystick_Left`
 	* `W_OnScreenJoystick_Right` / `W_OnScreenJoystick_Left` について
 		* これらはそれぞれ左右に配置する、仮想ジョイスティック用の widget です。
-		* LAS_ShooterGame_StandardHUD` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddWidgets] を利用することで画面に配置されています。
+		* `LAS_ShooterGame_StandardHUD` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddWidgets] を利用することで画面に配置されています。
 
 
 

@@ -138,6 +138,8 @@ nav:
         - ULyraInventoryManagerComponent: ./CodeRefs/Lyra/Inventory/ULyraInventoryManagerComponent
       - PawnSetting:
         - ULyraPawnData: ./CodeRefs/Lyra/PawnSetting/ULyraPawnData
+      - PerformanceStats:
+        - ULyraPerfStatWidgetBase: ./CodeRefs/Lyra/PerformanceStats/ULyraPerfStatWidgetBase
       - Weapon:
         - ULyraWeaponStateComponent: ./CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent
       - Widget:
