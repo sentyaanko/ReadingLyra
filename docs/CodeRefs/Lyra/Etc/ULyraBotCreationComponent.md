@@ -4,6 +4,7 @@
 
 * 概要
 	* `UGameStateComponent` の派生クラスです。
+	* bot のスポーン処理を行うコンポーネントです。
 	* 派生ブループリントは以下の通りです。
 		* `B_ShooterBotSpawner`
 		* `B_ShooterBotSpawner_ControlPoint`
