@@ -29,6 +29,7 @@
 [ULyraGameData::DynamicTagGameplayEffect]: ../../Lyra/Etc/ULyraGameData.md#ulyragamedatadynamictaggameplayeffect
 [ULyraIndicatorManagerComponent]: ../../Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
 [ULyraLobbyBackground]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground
+[ULyraLobbyBackground::BackgroundLevel]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackgroundbackgroundlevel
 [ULyraNumberPopComponent]: ../../Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent
 [ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
 [ULyraPawnComponent_CharacterParts]: ../../Lyra/Etc/ULyraPawnComponent_CharacterParts.md#ulyrapawncomponent_characterparts

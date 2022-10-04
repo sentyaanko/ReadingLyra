@@ -9,8 +9,8 @@
 	* `UPrimaryDataAsset` の派生クラスです。
 	* プロジェクトに存在するアセットは以下の通りです。
 		* `DefaultGameData`
-	* `DefaultGameData` について
-		* *Project Settings > Game - Asset Manager > Asset Manager > Primary Asset Types of Scan > Index[1]* にて指定されています。
+	* *Project Settings > Game - Asset Manager > Asset Manager > Primary Asset Types of Scan > Index[1]* にて指定されています。
+		* `DefaultGameData` が `Specific Assets` に指定されています。
 
 ### ULyraGameData::DamageGameplayEffect_SetByCaller
 
