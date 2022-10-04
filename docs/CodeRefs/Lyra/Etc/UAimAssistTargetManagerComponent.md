@@ -6,7 +6,7 @@
 > Targets must implement the IAimAssistTargetInterface and be on the collision channel that is set in the ShooterCoreRuntimeSettings.  
 > 
 > ----
-> Aim Assist Target Manager Component は、指定されたプレイヤーのビュー内にあるすべての照準アシストターゲットを収集するために使用されます。
+> Aim Assist Target Manager Component は、指定されたプレイヤーのビュー内にあるすべてのエイムアシストターゲットを収集するために使用されます。  
 > ターゲットは、IAimAssistTargetInterface を実装し、ShooterCoreRuntimeSettings で設定されたコリジョンチャンネル上にある必要があります。  
 
 * 概要

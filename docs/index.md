@@ -18,6 +18,7 @@
 			- [ULyraEquipmentDefinition]
 			- [ULyraEquipmentManagerComponent]
 		- Etc
+			- [ALyraPlayerBotController]
 			- [ALyraWeaponSpawner]
 			- [UAimAssistTargetManagerComponent]
 			- [ULyraBotCreationComponent]
@@ -222,6 +223,7 @@
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
 [ULyraEquipmentDefinition]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md
 [ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md
+[ALyraPlayerBotController]: ./CodeRefs/Lyra/Etc/ALyraPlayerBotController.md
 [ALyraWeaponSpawner]: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner.md
 [UAimAssistTargetManagerComponent]: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent.md
 [ULyraBotCreationComponent]: ./CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md

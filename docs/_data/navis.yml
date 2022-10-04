@@ -18,6 +18,7 @@ nav:
         - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
         - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent
       - Etc:
+        - ALyraPlayerBotController: ./CodeRefs/Lyra/Etc/ALyraPlayerBotController
         - ALyraWeaponSpawner: ./CodeRefs/Lyra/Etc/ALyraWeaponSpawner
         - UAimAssistTargetManagerComponent: ./CodeRefs/Lyra/Etc/UAimAssistTargetManagerComponent
         - ULyraBotCreationComponent: ./CodeRefs/Lyra/Etc/ULyraBotCreationComponent

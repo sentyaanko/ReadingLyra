@@ -9,9 +9,11 @@
 [ULyraEquipmentDefinition::AbilitySetsToGrant]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinitionabilitysetstogrant
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
 [ULyraEquipmentManagerComponent::EquipmentList]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponentequipmentlist
+[ALyraPlayerBotController]: ../../Lyra/Etc/ALyraPlayerBotController.md#alyraplayerbotcontroller
 [ALyraWeaponSpawner]: ../../Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
 [UAimAssistTargetManagerComponent]: ../../Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
+[ULyraBotCreationComponent::BotControllerClass]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponentbotcontrollerclass
 [ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ULyraCheatManager]: ../../Lyra/Etc/ULyraCheatManager.md#ulyracheatmanager
 [ULyraControllerComponent_CharacterParts]: ../../Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
