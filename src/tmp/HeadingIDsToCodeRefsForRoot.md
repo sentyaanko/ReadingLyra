@@ -24,6 +24,9 @@
 [ULyraFrontendStateComponent::PressStartScreenClass]: CodeRefs/Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponentpressstartscreenclass
 [ULyraFrontendStateComponent::MainScreenClass]: CodeRefs/Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponentmainscreenclass
 [ULyraGameData]: CodeRefs/Lyra/Etc/ULyraGameData.md#ulyragamedata
+[ULyraGameData::DamageGameplayEffect_SetByCaller]: CodeRefs/Lyra/Etc/ULyraGameData.md#ulyragamedatadamagegameplayeffect_setbycaller
+[ULyraGameData::HealGameplayEffect_SetByCaller]: CodeRefs/Lyra/Etc/ULyraGameData.md#ulyragamedatahealgameplayeffect_setbycaller
+[ULyraGameData::DynamicTagGameplayEffect]: CodeRefs/Lyra/Etc/ULyraGameData.md#ulyragamedatadynamictaggameplayeffect
 [ULyraIndicatorManagerComponent]: CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
 [ULyraLobbyBackground]: CodeRefs/Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground
 [ULyraNumberPopComponent]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent
