@@ -188,6 +188,7 @@
 			- [UGameFeaturesProjectPolicies]
 			- [UGameFeaturesSubsystem]
 		- GameFramework
+			- [UCheatManager]
 			- [UGameUserSettings]
 		- GameplayAbility
 			- [FGameplayAbilitySpec]
@@ -367,6 +368,7 @@
 [UGameFeatureData]: ./CodeRefs/UE/GameFeature/UGameFeatureData.md
 [UGameFeaturesProjectPolicies]: ./CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies.md
 [UGameFeaturesSubsystem]: ./CodeRefs/UE/GameFeature/UGameFeaturesSubsystem.md
+[UCheatManager]: ./CodeRefs/UE/GameFramework/UCheatManager.md
 [UGameUserSettings]: ./CodeRefs/UE/GameFramework/UGameUserSettings.md
 [FGameplayAbilitySpec]: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md
 [FGameplayEffectSpec]: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md

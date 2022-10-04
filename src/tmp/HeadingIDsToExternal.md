@@ -1,4 +1,5 @@
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
+[historia > (2014/09/05) > ［UE4］ コンソールコマンドを追加する方法]: https://historia.co.jp/archives/839/
 [historia > (2021/06/18) > 【UE5】 プレイヤーの技などをプラグインで実装できる！　GameFeaturesプラグインの紹介]: https://historia.co.jp/archives/21145/
 [historia > (2022/05/02) > ［UE5］［C++］EnhancedInputで独自のInputTriggerを作る～UIカーソル高速移動編～]: https://historia.co.jp/archives/26608/
 [Let's Enjoy Unreal Engine > (2020/11/28) > UE4.26 Enhanced Inputについて]: https://unrealengine.hatenablog.com/entry/2020/11/28/192500
@@ -12,6 +13,7 @@
 [Unreal Engine 4.27 Documentation > インタラクティブな体験をつくりだす > 入力値 > Enhanced Input プラグイン]: https://docs.unrealengine.com/4.27/ja/InteractiveExperiences/Input/EnhancedInput/
 [Unreal Engine 5.0 Documentation > Enhanced Input プラグイン]: https://docs.unrealengine.com/5.0/ja/input/#enhancedinput%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3
 [Unreal Engine 5.0 Documentation > Game Features と Modular Gameplay]: https://docs.unrealengine.com/5.0/ja/game-features-and-modular-gameplay/
+[Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Runtime > Engine > GameFramework > UCheatManager]: https://docs.unrealengine.com/5.0/en-US/API/Runtime/Engine/GameFramework/UCheatManager/
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-system-for-unreal-engine/
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > アビリティ システム コンポーネントと属性]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-system-component-and-gameplay-attributes-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > ゲームプレイ アビリティ システム > アビリティ タスク]: https://docs.unrealengine.com/5.0/ja/gameplay-ability-tasks-in-unreal-engine/

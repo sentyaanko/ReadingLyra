@@ -343,6 +343,7 @@
 [UGameFeaturesProjectPolicies]: ../../UE/GameFeature/UGameFeaturesProjectPolicies.md#ugamefeaturesprojectpolicies
 [UGameFeaturesSubsystem]: ../../UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystem
 [UGameFeaturesSubsystem::AddObserver()]: ../../UE/GameFeature/UGameFeaturesSubsystem.md#ugamefeaturessubsystemaddobserver
+[UCheatManager]: ../../UE/GameFramework/UCheatManager.md#ucheatmanager
 [UGameUserSettings]: ../../UE/GameFramework/UGameUserSettings.md#ugameusersettings
 [FGameplayAbilitySpec]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspec
 [FGameplayAbilitySpec::DynamicAbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags

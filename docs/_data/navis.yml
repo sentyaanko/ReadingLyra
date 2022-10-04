@@ -188,6 +188,7 @@ nav:
         - UGameFeaturesProjectPolicies: ./CodeRefs/UE/GameFeature/UGameFeaturesProjectPolicies
         - UGameFeaturesSubsystem: ./CodeRefs/UE/GameFeature/UGameFeaturesSubsystem
       - GameFramework:
+        - UCheatManager: ./CodeRefs/UE/GameFramework/UCheatManager
         - UGameUserSettings: ./CodeRefs/UE/GameFramework/UGameUserSettings
       - GameplayAbility:
         - FGameplayAbilitySpec: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
