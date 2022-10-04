@@ -15,6 +15,8 @@
 [ULyraBotCreationComponent]: CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
 [ULyraBotCreationComponent::BotControllerClass]: CodeRefs/Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponentbotcontrollerclass
 [ULyraCameraMode]: CodeRefs/Lyra/Etc/ULyraCameraMode.md#ulyracameramode
+[ULyraCameraMode_ThirdPerson]: CodeRefs/Lyra/Etc/ULyraCameraMode.md#ulyracameramode_thirdperson
+[ULyraCameraMode_TopDownArenaCamera]: CodeRefs/Lyra/Etc/ULyraCameraMode.md#ulyracameramode_topdownarenacamera
 [ULyraCheatManager]: CodeRefs/Lyra/Etc/ULyraCheatManager.md#ulyracheatmanager
 [ULyraControllerComponent_CharacterParts]: CodeRefs/Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
 [ULyraDamageLogDebuggerComponent]: CodeRefs/Lyra/Etc/ULyraDamageLogDebuggerComponent.md#ulyradamagelogdebuggercomponent
