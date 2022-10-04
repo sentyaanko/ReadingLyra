@@ -8,7 +8,7 @@
 * 概要
 	* 銃のような射撃用のアビリティの基底クラスです。
 	* [ULyraGameplayAbility_FromEquipment] の派生クラスです。
-	* 以下の派生ブループリントがあります。
+	* 派生ブループリントは以下の通りです。
 		* `GA_HealPickup`
 		* `GA_Weapon_Fire`
 			* `GA_Weapon_Fire_Pistol`
