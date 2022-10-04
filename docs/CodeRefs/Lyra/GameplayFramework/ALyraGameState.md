@@ -7,7 +7,7 @@
 
 * 概要
 	* `AModularGameStateBase` の派生クラスです。
-	* `IAbilitySystemInterface` の派生クラスです。
+	* `IAbilitySystemInterface` のインターフェイスの実装をしています。
 	* [ULyraAbilitySystemComponent] を追加しています。
 	* [ULyraExperienceManagerComponent] を追加しています。
 * 既存のドキュメント

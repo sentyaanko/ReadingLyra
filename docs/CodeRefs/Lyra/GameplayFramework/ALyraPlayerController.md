@@ -7,8 +7,8 @@
 
 * 概要
 	* `ACommonPlayerController` の派生クラスです。
-	* `ILyraCameraAssistInterface` の派生クラスです。
-	* `ILyraTeamAgentInterface` の派生クラスです。
+	* `ILyraCameraAssistInterface` のインターフェイスの実装をしています。
+	* `ILyraTeamAgentInterface` のインターフェイスの実装をしています。
 		* 基底クラスが保持する PlayerState が変更された際に自身が所属するチームの変更を知らせるのに使用しています。
 	* `ShooterCore` ([UGameFeatureData]) を有効化する際に [UGameFeatureAction_AddComponents] を使用し [ULyraIndicatorManagerComponent] を追加しています。
 

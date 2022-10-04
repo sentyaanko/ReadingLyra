@@ -8,7 +8,8 @@
 > ローカルプレーヤー毎の入力サブシステムです。
 
 * 概要
-	* [IEnhancedInputSubsystemInterface] の派生クラスです。
+	* `ULocalPlayerSubsystem` の派生クラスです。
+	* [IEnhancedInputSubsystemInterface] のインターフェイスの実装をしています。
 	* このクラスの実装は [UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()] のみです。
 	* `ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>()` によって取得可能です。
 	* [UInputMappingContext] の登録の際にも利用します。

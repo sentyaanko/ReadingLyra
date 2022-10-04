@@ -9,7 +9,7 @@
 
 * 概要
 	* `AModularAIController` の派生クラスです。
-	* `ILyraTeamAgentInterface` の派生クラスです。
+	* `ILyraTeamAgentInterface` のインターフェイスの実装をしています。
 	* 派生ブループリントは以下の通りです。
 		* [ALyraPlayerBotController]
 			* `B_AI_Controller_LyraShooter`
