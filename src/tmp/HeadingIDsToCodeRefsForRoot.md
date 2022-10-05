@@ -31,6 +31,8 @@
 [ULyraLobbyBackground]: CodeRefs/Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground
 [ULyraLobbyBackground::BackgroundLevel]: CodeRefs/Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackgroundbackgroundlevel
 [ULyraNumberPopComponent]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent
+[ULyraNumberPopComponent::AddNumberPop()]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponentaddnumberpop
+[ULyraNumberPopComponent_MeshText]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent_MeshText.md#ulyranumberpopcomponent_meshtext
 [ULyraNumberPopComponent_NiagaraText]: CodeRefs/Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
 [ULyraPawnComponent_CharacterParts]: CodeRefs/Lyra/Etc/ULyraPawnComponent_CharacterParts.md#ulyrapawncomponent_characterparts
 [ULyraPlayerSpawningManagerComponent]: CodeRefs/Lyra/Etc/ULyraPlayerSpawningManagerComponent.md#ulyraplayerspawningmanagercomponent

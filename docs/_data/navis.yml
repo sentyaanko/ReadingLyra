@@ -31,6 +31,7 @@ nav:
         - ULyraIndicatorManagerComponent: ./CodeRefs/Lyra/Etc/ULyraIndicatorManagerComponent
         - ULyraLobbyBackground: ./CodeRefs/Lyra/Etc/ULyraLobbyBackground
         - ULyraNumberPopComponent: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent
+        - ULyraNumberPopComponent_MeshText: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent_MeshText
         - ULyraNumberPopComponent_NiagaraText: ./CodeRefs/Lyra/Etc/ULyraNumberPopComponent_NiagaraText
         - ULyraPawnComponent_CharacterParts: ./CodeRefs/Lyra/Etc/ULyraPawnComponent_CharacterParts
         - ULyraPlayerSpawningManagerComponent: ./CodeRefs/Lyra/Etc/ULyraPlayerSpawningManagerComponent
