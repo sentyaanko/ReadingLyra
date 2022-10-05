@@ -6,14 +6,14 @@
 > ポーンにカスタム動作を追加するために使用することができるアクターコンポーネントです。  
 
 * 概要
-	* [ILyraReadyInterface] の派生クラスです。
-	* このクラスでは何も実装されていない。
+	* `UPawnComponent` の派生クラスです。
+	* [ILyraReadyInterface] のインターフェイスの実装をしています。
+	* このクラスでは何も実装されていません。
 	* Pawn に所有させるコンポーネントの基底クラスです。
-		* Lyra の全てのポーン用コンポーネント基底クラスと使用しているわけではない。
-		* 例えば以下は `UPawnComponent` から派生している。
+		* Lyra の全てのポーン用コンポーネント基底クラスと使用しているわけではありません。
+		* 例えば以下は `UPawnComponent` から派生しています。
 			* [ULyraPawnComponent_CharacterParts]
 			* [ULyraEquipmentManagerComponent]
-
 
 
 
