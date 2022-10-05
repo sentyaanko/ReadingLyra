@@ -5,7 +5,7 @@
 * 概要
 	* `UControllerComponent` の派生クラスです。
 	* インタラクト時に表示されるインジケーターの保持と、インジケータが追加、削除された際のデリゲートの呼び出しを行います。
-	* `ShooterCore` ([UGameFeatureData]) にて [UGameFeatureAction_AddComponents] により [ALyraPlayerController] にクライアントのみに追加しています。
+	* `ShooterCore` ([UGameFeatureData]) にて [UGameFeatureAction_AddComponents] により [ALyraPlayerController] にクライアントのみで追加しています。
 
 <!--- ページ内のリンク --->
 

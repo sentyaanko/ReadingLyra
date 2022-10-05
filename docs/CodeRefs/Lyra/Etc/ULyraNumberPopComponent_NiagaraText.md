@@ -6,7 +6,7 @@
 	* 派生ブループリントは以下の通りです。
 		* `B_NiagaraNumberPopComponent`
 	* `B_NiagaraNumberPopComponent` について
-		* `LAS_ShooterGame_SharedComponents` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddComponents] により [ALyraPlayerController] にクライアントのみに追加しています。
+		* `LAS_ShooterGame_SharedComponents` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddComponents] により [ALyraPlayerController] にクライアントのみで追加しています。
 
 
 このへんから

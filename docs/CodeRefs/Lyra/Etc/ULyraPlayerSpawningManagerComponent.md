@@ -10,7 +10,7 @@
 			* `UTDM_PlayerSpawningManagmentComponent`
 				* `B_TeamSpawningRules`
 	* `B_TeamSpawningRules` について
-		* 以下の [ULyraExperienceDefinition] にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみに追加しています。
+		* 以下の [ULyraExperienceDefinition] にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみで追加しています。
 			* `B_ShooterGame_Elimination`
 			* `B_LyraShooterGame_ControlPoints`
 			* `B_TestInventoryExperience`

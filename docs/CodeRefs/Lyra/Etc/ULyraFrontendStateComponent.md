@@ -9,7 +9,7 @@
 	* 派生ブループリントは以下の通りです。
 		* `B_LyraFrontendStateComponent`
 	* `B_LyraFrontendStateComponent` について
-		* `B_LyraFrontEnd_Experience` ([ULyraExperienceDefinition]) にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にクライアントのみに追加しています。
+		* `B_LyraFrontEnd_Experience` ([ULyraExperienceDefinition]) にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にクライアントのみで追加しています。
 
 ### ULyraFrontendStateComponent::PressStartScreenClass
 
