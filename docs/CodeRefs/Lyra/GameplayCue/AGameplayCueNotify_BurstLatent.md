@@ -18,7 +18,9 @@
 		* `GCN_Death`
 		* `GCN_Launcher_Activate`
 		* `GCN_Teleporter_Activate`
-	* `GCNL_Character_DamageTaken` では、 [UGameplayMessageSubsystem::BroadcastMessage()] を利用して `B_MusicManagerComponent_Base` (`UActorComponent`) に `Lyra.Damage.Taken.Message` を送る処理を実装しています。
+	* `GCNL_Character_DamageTaken` について
+		* [UGameplayMessageSubsystem::BroadcastMessage()] を利用して `B_MusicManagerComponent_Base` (`UActorComponent`) に `Lyra.Damage.Taken.Message` を送る処理を実装しています。
+		* [ULyraNumberPopComponent::AddNumberPop()] を呼び出し、ダメージ値の表示を行っています。
 
 
 
@@ -27,4 +29,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraNumberPopComponent::AddNumberPop()]: ../../Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponentaddnumberpop
 [UGameplayMessageSubsystem::BroadcastMessage()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystembroadcastmessage

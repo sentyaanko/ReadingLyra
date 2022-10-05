@@ -15,6 +15,7 @@
 
 * 概要
 	* 派生クラスでオーバーライドすることを想定しており、このクラスの実装は空です。
+	* `GCNL_Character_DamageTaken` ([AGameplayCueNotify_BurstLatent]) の `OnExecute` ノードから呼び出されています。
 
 
 
@@ -25,3 +26,4 @@
 <!--- generated --->
 [ULyraNumberPopComponent_MeshText]: ../../Lyra/Etc/ULyraNumberPopComponent_MeshText.md#ulyranumberpopcomponent_meshtext
 [ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
+[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotify_burstlatent
