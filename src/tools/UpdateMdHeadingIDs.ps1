@@ -24,7 +24,7 @@ function Get-SaUsingHeadingIDsIndexes{
 		[hashtable]$HeadingIDsLocal,
 		[string[]]$SplitedHeadingIDs
 	)
-	$dic=Select-SaString -SplitedContent $SplitedHeadingIDs -Pattern '^(\[[^\]]+\]): +(.+)$'
+	$dic=Select-SaString -SplitedContent $SplitedHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
 	$UsingIDs | ForEach-Object{if($dic.ContainsKey($_)){$dic[$_]}else{if($HeadingIDsLocal.ContainsKey($_)){}else{Write-Warning -Message "$_ is not found."}}}
 }
 
@@ -55,8 +55,8 @@ function Get-SaUpdatedContent{
 	$HeadingIDsLocal=@{}
 	if($true){
 		$SplitedContent=$Content -split "`n"
-		$UsingIDsSet=Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]+\])([^:(]|$)'
-		$HeadingIDsLocal=Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]+\]): +(.+)$'
+		$UsingIDsSet=Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]{2,}\])([^:(]|$)'
+		$HeadingIDsLocal=Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
 		$UsingIDs=$UsingIDsSet.Keys
 	}
 
