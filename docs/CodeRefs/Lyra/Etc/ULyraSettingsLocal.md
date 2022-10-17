@@ -1,18 +1,13 @@
 ## ULyraSettingsLocal
 
->> TODO: このドキュメントは書きかけです。
-
 * 概要
-	* ゲームオプションの設定内容を保持する。
-	* キーバインドなどもここから参照される。
-
 	* [UGameUserSettings] 派生クラスです。
-	* キーコンフィグの内容等を保持する。
-	* `RegisteredInputConfigs` に [FLoadedMappableConfigPair] の配列を保持しています。
-
+	* キーコンフィグ等、ゲームオプションの設定内容を保持します。
 	* *Project Settings > Engine - General Settings > Default Classes > Game User Settings Class* でこのクラスを指定しています。
-	* そのため、  `GEngine->GetGameUserSettings()` でインスタンスを取得できます。
-	* 設定された値はこれを経由してあちこちからアクセスされています。
+		* そのため、  `GEngine->GetGameUserSettings()` でインスタンスを取得できます。
+		* 保持された値はこれを経由してあちこちからアクセスされています。
+	* [ULyraInputComponent] にて、このクラスで保持している情報を [UEnhancedInputLocalPlayerSubsystem] に渡すことで入力マッピング情報を設定しています。
+	* [FMappableConfigPair] にて、このクラスへ入力設定を登録しています。
 
 
 ### ULyraSettingsLocal::RegisteredInputConfigs
@@ -40,6 +35,11 @@
 	* 保存に使用するユニークな名前をキーとし `FKey` を値とする連想配列です。
 	* [UInputMappingContext::Mappings] に設定されている [FEnhancedActionKeyMapping::PlayerMappableOptions] ::Name をキーとして利用しています。	
 
+### ULyraSettingsLocal::Get()
+
+* 概要
+	* `GEngine->GetGameUserSettings()` を利用してインスタンスを返します。
+
 ### ULyraSettingsLocal::GetAllRegisteredInputConfigs()
 
 > Get all currently registered input configs
@@ -64,8 +64,11 @@
 <!--- generated --->
 [ULyraSettingsLocal::RegisteredInputConfigs]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalregisteredinputconfigs
 [ULyraSettingsLocal::CustomKeyboardConfig]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalcustomkeyboardconfig
+[FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfig
 [FLoadedMappableConfigPair]: ../../Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair
+[ULyraInputComponent]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
 [UGameUserSettings]: ../../UE/GameFramework/UGameUserSettings.md#ugameusersettings
 [FEnhancedActionKeyMapping::PlayerMappableOptions]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingplayermappableoptions
+[UEnhancedInputLocalPlayerSubsystem]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystem
 [UInputMappingContext::Mappings]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontextmappings

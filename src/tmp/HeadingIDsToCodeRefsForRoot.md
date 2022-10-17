@@ -40,6 +40,7 @@
 [ULyraSettingsLocal]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocal
 [ULyraSettingsLocal::RegisteredInputConfigs]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalregisteredinputconfigs
 [ULyraSettingsLocal::CustomKeyboardConfig]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalcustomkeyboardconfig
+[ULyraSettingsLocal::Get()]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalget
 [ULyraSettingsLocal::GetAllRegisteredInputConfigs()]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetallregisteredinputconfigs
 [ULyraSettingsLocal::GetCustomPlayerInputConfig()]: CodeRefs/Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetcustomplayerinputconfig
 [ULyraTeamCreationComponent]: CodeRefs/Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponent
