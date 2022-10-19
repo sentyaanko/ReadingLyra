@@ -299,7 +299,7 @@ Lyra についての大まかな説明は以上です。
 
 * 各アセットを `Reference Viewer` で確認すると、以下のようなアセットから参照されていることが確認できます。
 	* `B_SimpleHeroPawn` ( `ULyraCharacter` 派生BP)
-	* `ShooterCore/TopDownArena` （ [UGameFeatureData] ）
+	* `ShooterCore/TopDownArena` ([UGameFeatureData])
 
 図にすると以下のような状況です。  
 ![UPlayerMappableInputConfig-Referencing]
@@ -317,7 +317,7 @@ Lyra についての大まかな説明は以上です。
 	* `ULyraHeroComponent::InitializePlayerInput()` にて参照され、（キーコンフィグ関連を経由し）入力マッピングの追加が行われます。
 		* キーコンフィグ関連についての解説は割愛します。
 * `B_SimpleHeroPawn` の参照のされ方について
-	* `B_SimpleHeroPawn` は `B_LyraDefaultExperience` （ `ULyraExperienceDefinition` ） から参照されています。
+	* `B_SimpleHeroPawn` は `B_LyraDefaultExperience` ([ULyraExperienceDefinition]) から参照されています。
 		* `B_LyraDefaultExperience` は `ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()` から参照されます。
 		* 該当のコードは各レベルの `World Settings > Game Mode > Default Gameplay Experience` が指定されていない場合に利用されます。
 		* レベルを開いて確認すると、上記が指定されていないものは具体的には以下となります。
@@ -330,7 +330,7 @@ Lyra についての大まかな説明は以上です。
 	1. エクスペリエンス `B_LyraDefaultExperience` を適用する。
 	1. プレイヤー用のポーンとして `B_SimpleHeroPawn` が使用される。
 	1. ポーンの初期化の際、 `PMI_Default_Gamepad` / `PMI_Default_KBM` が適用される。
-	1. その結果、上記で指定されている `IMC_Default_Gamepad` / `IMC_Default_KBM` （ [UInputMappingContext] ）が追加される。
+	1. その結果、上記で指定されている `IMC_Default_Gamepad` / `IMC_Default_KBM` ([UInputMappingContext])が追加される。
 
 
 ### Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合
@@ -351,7 +351,7 @@ Lyra についての大まかな説明は以上です。
 		* `ULyraExperienceActionSet::GameFeaturesToEnable`
 	* そうすることで、 `ULyraExperienceManagerComponent::OnExperienceLoadComplete()` で参照され、 Game Feature のロードとアクティブ化が実行されます。
 	* 指定されている場所
-		* 以下の 3 つの `ULyraExperienceDefinition`
+		* 以下の 3 つの [ULyraExperienceDefinition]
 			* `B_LyraShooterGame_ControlPoints`
 			* `B_ShooterGame_Elimination`
 			* `B_TestInventoryExperience`
@@ -360,10 +360,10 @@ Lyra についての大まかな説明は以上です。
 			* `LAS_ShooterGame_StandardComponents`
 			* `LAS_ShooterGame_StandardHUD`
 			* `LAS_InventoryTest`
-		* `ULyraExperienceActionSet` は `ULyraExperienceDefinition` から参照されますが、上記 4 つの `ULyraExperienceActionSet` は上記 3 つの `ULyraExperienceDefinition` からのみ参照されています。
+		* `ULyraExperienceActionSet` は [ULyraExperienceDefinition] から参照されますが、上記 4 つの `ULyraExperienceActionSet` は上記 3 つの [ULyraExperienceDefinition] からのみ参照されています。
 			* （注：現状で確認できる範囲では。）
-		* つまり、上記 3 つの `ULyraExperienceDefinition` をアクティブ化する際に `ShooterCore` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
-	* 各 `ULyraExperienceDefinition` が指定されているレベル
+		* つまり、上記 3 つの [ULyraExperienceDefinition] をアクティブ化する際に `ShooterCore` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
+	* 各 [ULyraExperienceDefinition] が指定されているレベル
 		* `B_LyraShooterGame_ControlPoints`
 			* `L_Convolution_Blockout`
 		* `B_ShooterGame_Elimination`
@@ -409,9 +409,9 @@ Lyra についての大まかな説明は以上です。
 		* `PMI_Default_Gamepad`
 * `TopDownArena` ([UGameFeatureData]) の参照のされ方について
 	* 指定されている場所
-		* `B_TopDownArenaExperience` （ `ULyraExperienceDefinition` ）のみ。
-		* つまり、`B_TopDownArenaExperience` （ `ULyraExperienceDefinition`） をアクティブ化する際に `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
-	* `B_TopDownArenaExperience` （ `ULyraExperienceDefinition` ） が指定されているレベル
+		* `B_TopDownArenaExperience` ([ULyraExperienceDefinition])のみ。
+		* つまり、`B_TopDownArenaExperience` （ [ULyraExperienceDefinition]） をアクティブ化する際に `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
+	* `B_TopDownArenaExperience` ([ULyraExperienceDefinition]) が指定されているレベル
 		* `L_TopDownArenaGym` のみ。
 		* つまり `L_TopDownArenaGym` レベルをロードする際に `TopDownArena` ([UGameFeatureData]) のロードとアクティブ化が実行されます。
 * 処理の流れのまとめ
@@ -444,8 +444,8 @@ Lyra についての大まかな説明は以上です。
 		* `L_InventoryTestMap`
 	1. レベルで指定された以下のエクスペリエンスを適用する。
 		* `B_TestInventoryExperience`
-	1. エクスペリエンスで指定された `LAS_InventoryTest` （ `ULyraExperienceActionSet` ） のロードとアクティブ化が実行される。
-	1. `LAS_InventoryTest` （ `ULyraExperienceActionSet` ） で指定された以下の [UInputMappingContext] が追加される。
+	1. エクスペリエンスで指定された `LAS_InventoryTest` ([ULyraExperienceActionSet]) のロードとアクティブ化が実行される。
+	1. `LAS_InventoryTest` ([ULyraExperienceActionSet]) で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_InventoryTest`
 
 
@@ -464,7 +464,7 @@ Lyra についての大まかな説明は以上です。
 		* `B_ShooterGame_Elimination`
 		* `B_TestInventoryExperience`
 	1. エクスペリエンスで指定された `LAS_ShooterGame_SharedInput` （ `ULyraExperienceActionSet`） のロードとアクティブ化が実行される。
-	1. `LAS_ShooterGame_SharedInput` （ `ULyraExperienceActionSet` ） で指定された以下の [UInputMappingContext] が追加される。
+	1. `LAS_ShooterGame_SharedInput` ([ULyraExperienceActionSet]) で指定された以下の [UInputMappingContext] が追加される。
 		* `IMC_ShooterGame_KBM`
 
 > note:  
@@ -500,7 +500,7 @@ Lyra についての大まかな説明は以上です。
 				* `ULyraPawnData::InputConfig`
 			* `ULyraPawnData` は以下で指定している。
 				* `ULyraExperienceDefinition::DefaultPawnData`
-			* `ULyraExperienceDefinition` は以下で指定している。
+			* [ULyraExperienceDefinition] は以下で指定している。
 				* `World Settings > Game Mode > Default Gameplay Experience`
 		* つまり、レベルの初期化時にレベル毎の設定に従ってバインド処理がなされる、ということです。
 	* `ULyraHeroComponent::AddAdditionalInputConfig()`
@@ -514,7 +514,7 @@ Lyra についての大まかな説明は以上です。
 				* `ULyraExperienceActionSet::Actions`
 			* `ULyraExperienceActionSet` は以下で指定している。
 				* `ULyraExperienceDefinition::ActionSets`
-			* `ULyraExperienceDefinition` は以下で指定している。
+			* [ULyraExperienceDefinition] は以下で指定している。
 				* `World Settings > Game Mode > Default Gameplay Experience`
 		* こちらのケースも前述のものと同じように、レベルの初期化が起点となっています。
 
@@ -557,7 +557,7 @@ Lyra についての大まかな説明は以上です。
 	LyraIC->BindNativeAction(InputConfig, GameplayTags.InputTag_Crouch, ETriggerEvent::Triggered, this, &ThisClass::Input_Crouch, /*bLogIfNotFound=*/ false);
 	LyraIC->BindNativeAction(InputConfig, GameplayTags.InputTag_AutoRun, ETriggerEvent::Triggered, this, &ThisClass::Input_AutoRun, /*bLogIfNotFound=*/ false);
 	```
-* `BindNativeAction()` では `InputConfig->NativeInputActions` （ `FLyraInputAction` ） から第二引数と同じ `InputTag` を探します。
+* `BindNativeAction()` では `InputConfig->NativeInputActions` ([FLyraInputAction]) から第二引数と同じ `InputTag` を探します。
 	* あった場合はペアとなる入力アクションに第五引数で渡された関数をバインドします。
 	* ない場合はバインドしません。
 * つまり、固定の処理を行う関数に直接バインドされています。
@@ -588,7 +588,7 @@ Lyra についての大まかな説明は以上です。
 	```c++
 	LyraIC->BindAbilityActions(InputConfig, this, &ThisClass::Input_AbilityInputTagPressed, &ThisClass::Input_AbilityInputTagReleased, /*out*/ BindHandles);
 	```
-* `BindAbilityActions()` では `InputConfig->AbilityInputActions` （ `FLyraInputAction` ） の全ての要素に対して以下を行います。
+* `BindAbilityActions()` では `InputConfig->AbilityInputActions` ([FLyraInputAction]) の全ての要素に対して以下を行います。
 	* 入力アクションに、入力開始/終了時の処理として第三/第四引数で渡された関数を、ペアとなる `InputTag` を含めてバインドします。
 * つまり、アビリティに関しては全て同じ関数にバインドされます。
 * 上記の関数ではバインドされた引数 `InputTag` を元にアビリティを特定し、アクティブ化などを行います。
@@ -650,6 +650,9 @@ Lyra についての大まかな説明は以上です。
 [ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
 <!--- generated --->
+[ULyraExperienceActionSet]: CodeRefs/Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
+[ULyraExperienceDefinition]: CodeRefs/Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
+[FLyraInputAction]: CodeRefs/Lyra/Input/FLyraInputAction.md#flyrainputaction
 [ULyraInputComponent]: CodeRefs/Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
 [ULyraInputConfig]: CodeRefs/Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [UGameFeatureData]: CodeRefs/UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

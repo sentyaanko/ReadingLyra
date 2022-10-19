@@ -1,7 +1,7 @@
 ## ULyraSettingsLocal
 
 * 概要
-	* [UGameUserSettings] 派生クラスです。
+	* [UGameUserSettings] の派生クラスです。
 	* キーコンフィグ等、ゲームオプションの設定内容を保持します。
 	* *Project Settings > Engine - General Settings > Default Classes > Game User Settings Class* でこのクラスを指定しています。
 		* そのため、  `GEngine->GetGameUserSettings()` でインスタンスを取得できます。

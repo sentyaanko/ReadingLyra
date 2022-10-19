@@ -44,6 +44,7 @@
 [ULyraSettingsLocal::GetAllRegisteredInputConfigs()]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetallregisteredinputconfigs
 [ULyraSettingsLocal::GetCustomPlayerInputConfig()]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalgetcustomplayerinputconfig
 [ULyraTeamCreationComponent]: ../../Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponent
+[ULyraTeamCreationComponent::TeamsToCreate]: ../../Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponentteamstocreate
 [UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent
 [ALyraWorldSettings]: ../../Lyra/Experience/ALyraWorldSettings.md#alyraworldsettings
 [UAsyncAction_ExperienceReady]: ../../Lyra/Experience/UAsyncAction_ExperienceReady.md#uasyncaction_experienceready
