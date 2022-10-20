@@ -8,13 +8,13 @@
 > GameState がすでに有効な場合は、すぐに OnReady を呼び出します。
 
 * 概要
-	* エクスペリエンスのロードを待つ AsyncAction 。
-	* widget や GameStateComponent 派生クラス等でエクスペリエンスのロードを待つ際に利用される。
+	* エクスペリエンスのロードを待つ AsyncAction です。
+	* widget や `UGameStateComponent` 派生クラス等でエクスペリエンスのロードを待つ際に利用されます。
 
 ### UAsyncAction_ExperienceReady::OnReady
 
 * 概要
-	* ブループリントで設定する、ロード完了時に発火するイベント。
+	* ブループリントで設定する、ロード完了時に発火するイベントです。
 
 
 
