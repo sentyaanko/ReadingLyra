@@ -4,16 +4,9 @@
 
 * 概要
 	* `UGameStateComponent` の派生クラスです。
-	* `UTDM_PlayerSpawningManagmentComponent` の基底クラスです。
-	* 派生ブループリントは以下の通りです。
-		* [ULyraPlayerSpawningManagerComponent]
-			* `UTDM_PlayerSpawningManagmentComponent`
-				* `B_TeamSpawningRules`
-	* `B_TeamSpawningRules` について
-		* 以下の [ULyraExperienceDefinition] にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみで追加しています。
-			* `B_ShooterGame_Elimination`
-			* `B_LyraShooterGame_ControlPoints`
-			* `B_TestInventoryExperience`
+	* [UTDM_PlayerSpawningManagmentComponent] の基底クラスです。
+	* プレイヤーのスポーン地点を管理するための仕組みを実装したクラスです。
+	* 具体的なスポーン地点は派生クラスで拡張するように設計されています。
 
 
 
@@ -22,7 +15,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraPlayerSpawningManagerComponent]: ../../Lyra/Etc/ULyraPlayerSpawningManagerComponent.md#ulyraplayerspawningmanagercomponent
-[ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
-[ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
-[UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureaction_addcomponents
+[UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent

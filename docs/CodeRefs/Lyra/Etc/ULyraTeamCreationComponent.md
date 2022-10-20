@@ -12,7 +12,10 @@
 	* `B_TeamSetup_FourTeams` について
 		* `B_TopDownArenaExperience` ([ULyraExperienceDefinition]) にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみで追加しています。
 	* `B_TeamSetup_TwoTeams` について
-		* `B_LyraShooterGame_ControlPoints` / `B_ShooterGame_Elimination` / `B_TestInventoryExperience` ([ULyraExperienceDefinition]) にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみで追加しています。
+		* 以下の [ULyraExperienceDefinition] にて [UGameFeatureAction_AddComponents] により [ALyraGameState] にサーバーのみで追加しています。
+		* `B_LyraShooterGame_ControlPoints`
+		* `B_ShooterGame_Elimination`
+		* `B_TestInventoryExperience`
 
 ### ULyraTeamCreationComponent::TeamsToCreate
 
