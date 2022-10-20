@@ -47,11 +47,13 @@
 [ULyraTeamCreationComponent::TeamsToCreate]: ../../Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponentteamstocreate
 [UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent
 [ALyraWorldSettings]: ../../Lyra/Experience/ALyraWorldSettings.md#alyraworldsettings
+[ALyraWorldSettings::DefaultGameplayExperience]: ../../Lyra/Experience/ALyraWorldSettings.md#alyraworldsettingsdefaultgameplayexperience
 [UAsyncAction_ExperienceReady]: ../../Lyra/Experience/UAsyncAction_ExperienceReady.md#uasyncaction_experienceready
 [UAsyncAction_ExperienceReady::OnReady]: ../../Lyra/Experience/UAsyncAction_ExperienceReady.md#uasyncaction_experiencereadyonready
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraExperienceActionSet::Actions]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionsetactions
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
+[ULyraExperienceDefinition::GameFeaturesToEnable]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitiongamefeaturestoenable
 [ULyraExperienceDefinition::DefaultPawnData]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitiondefaultpawndata
 [ULyraExperienceDefinition::Actions]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitionactions
 [ULyraExperienceDefinition::ActionSets]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinitionactionsets

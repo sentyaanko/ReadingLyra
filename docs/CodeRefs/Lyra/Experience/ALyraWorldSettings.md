@@ -6,8 +6,19 @@
 > デフォルトの world settings object で、主にこのマップをプレイする際に使用するデフォルトのゲームプレイエクスペリエンスを設定するために使用されます。
 
 * 概要
-	* マップにエクスペリエンスを設定できるように `AWorldSettings` を拡張したクラスです。
+	* `AWorldSettings` の派生クラスです。
+	* マップにエクスペリエンスを設定できるよう拡張したクラスです。
 	* *Project Settings > Engine - General Settings > Default Classes > World Settings Class* でこのクラスを指定しています。
+
+### ALyraWorldSettings::DefaultGameplayExperience
+
+> The default experience to use when a server opens this map if it is not overridden by the user-facing experience  
+> 
+> ----
+> サーバーがこのマップを開いたときに、ユーザー側のエクスペリエンスで上書きされていない場合に使用されるデフォルトのエクスペリエンスです。 
+
+* 概要
+	* [ULyraExperienceDefinition] のソフトリファレンスです。
 
 
 
@@ -16,4 +27,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
