@@ -1,8 +1,10 @@
 ## ULyraExperienceManagerComponent
 
 * 概要
+	* `UGameStateComponent` の派生クラスです。
+	* `ILoadingProcessInterface` のインターフェイスの実装をしています。
 	* [ULyraExperienceDefinition] のロード等を行うコンポーネントです。
-	* [ALyraGameState] に追加されます。
+	* [ALyraGameState] のコンストラクタにて `CreateDefaultSubobject()` を利用して追加されます。
 	* [UAsyncAction_ExperienceReady] はこのクラスの機能を利用し、エクスペリエンスのロード完了を監視しています。
 	* ロード完了時に呼び出すデリゲートを内部に持ちます。それぞれの利用箇所は以下の通りです。
 		* [ULyraExperienceManagerComponent::CallOrRegister_OnExperienceLoaded_HighPriority()]
