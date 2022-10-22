@@ -143,7 +143,7 @@ UE5 の機能を使った、新しいサンプルプロジェクトです。
 	* ALyraGameState
 	* Game Phase Abilities (ゲーム フェーズ アビリティ)
 	* 入力タグ アクティベーション サポート
-		> 前述の InputTag によるアビリティのアクティブ化の話。
+		> 前述の **InputTag** によるアビリティのアクティブ化の話。
 	* 拡張されたタグ関係システム
 		> 元々 GameplayAbility でも存在する、 GameplayTag によるアビリティのアクティブ化のブロック等の定義を別アセットに持たせる仕組み。
 * ULyraGlobalAbilitySystem

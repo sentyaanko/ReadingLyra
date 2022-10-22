@@ -33,19 +33,19 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * このドキュメントでは **GameplayTag のうち、InputTag で始まるもの** をそのように称しています。
 	* 公式ドキュメントで **入力タグ** 、翻訳元で **Input Tag** という記述もあるので、完全な的外れな呼称というわけではありません。
 		* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > 入力タグ アクティベーション サポート]
-* InputTag は **入力に反応して実行する処理をモジュール式に追加出来るようにするため** に使用されています。
+* **InputTag** は **入力に反応して実行する処理をモジュール式に追加出来るようにするため** に使用されています。
 	* Lyra では上記を実現できるように GameplayTag と Gameplay Ability を組み合わせてセットアップしている、という感じです。
 * 入力から Gameplay Ability へのつながりは以下の様になります。
 	1. 物理的な入力に対し [UInputMappingContext] で関連付けられた [UInputAction] の呼び出す。
-	2. [UInputAction] にバインドされた関数の呼び出し。バインドされた関数は `ULyraInputConfig` で設定されている InputTag を引数で渡す。
-	3. 渡された InputTag を元に `ULyraAbilitySet` で設定されている Gameplay Ability の関数の呼び出す。
-* InputTag は主に以下のアセットで利用されています。
+	2. [UInputAction] にバインドされた関数の呼び出し。バインドされた関数は `ULyraInputConfig` で設定されている **InputTag** を引数で渡す。
+	3. 渡された **InputTag** を元に `ULyraAbilitySet` で設定されている Gameplay Ability の関数の呼び出す。
+* **InputTag** は主に以下のアセットで利用されています。
 	* `ULyraInputConfig`
-		* InputTag と InputAction を関連付けるのに使用。
-		* これにより、 Enhanced Input にて InputAction と InputTag をバインドする。
+		* **InputTag** と InputAction を関連付けるのに使用。
+		* これにより、 Enhanced Input にて InputAction と **InputTag** をバインドする。
 	* `ULyraAbilitySet`
-		* InputTag と Gameplay Ability を関連付けるのに使用。
-		* これにより、 Lyra の実装にて InputTag を元に Gameplay Ability を制御する。
+		* **InputTag** と Gameplay Ability を関連付けるのに使用。
+		* これにより、 Lyra の実装にて **InputTag** を元に Gameplay Ability を制御する。
 	* Gameplay Ability
 		* イベントグラフの `Send Gameplay Event` / `Send Gameplay Event to Actor`
 			* 他の Gameplay Ability に GameplayEvent を送る際の識別子として使用。
@@ -67,7 +67,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* ここには GameFeature に属さない共通設定を定義するのが適している。
 	* `Plugins/GameFeatures/ShooterCore/ShooterCoreTags.ini`
 		* ここには GameFeature の ShooterCore に属する設定を定義するのが適している。
-* 定義されている InputTag は以下の通り。
+* 定義されている **InputTag** は以下の通り。
 	* **LyraGameplayTags.cpp**
 		* InputTag.Move
 		* InputTag.Look.Mouse
@@ -101,7 +101,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 表の幅を抑えるため `ULyraInputConfig` のプレフィックスの `InputData_` は省略します。
 
-| InputTag                                 | SimplePawn    | Hero                | ShooterGame_AddOns | Arena          | InventoryTest          |
+| **InputTag**                             | SimplePawn    | Hero                | ShooterGame_AddOns | Arena          | InventoryTest          |
 |------------------------------------------|---------------|---------------------|--------------------|----------------|------------------------|
 | **LyraGameplayTags.cpp**                 |               |                     |                    |                |                        |
 | InputTag.Move                            | IA_Move       | IA_Move             |                    | IA_Move        |                        |
@@ -134,10 +134,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 | InputTag.Ability.ToggleMap               |               |                     |                    |                | IA_ToggleMap           |
 | InputTag.Ability.ToggleMarkerInWorld     |               |                     |                    |                | IA_ToggleMarkerInWorld |
 
-異なる `ULyraInputConfig` を使用した際も `InputTag` と `InputAction` の組み合わせは同じになるように作られています。  
+異なる `ULyraInputConfig` を使用した際も **InputTag** と `InputAction` の組み合わせは同じになるように作られています。  
 まとめると以下のようになります。
 
-| InputTag                                 | InputAction            | InputAction が属するGameFeature |
+| **InputTag**                             | InputAction            | InputAction が属するGameFeature |
 |------------------------------------------|------------------------|---------------------------------|
 | **LyraGameplayTags.cpp**                 |                        |                                 |
 | InputTag.Move                            | IA_Move                |                                 |
@@ -170,12 +170,12 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 | InputTag.Ability.ToggleMap               | IA_ToggleMap           | ShooterMaps                     |
 | InputTag.Ability.ToggleMarkerInWorld     | IA_ToggleMarkerInWorld | ShooterMaps                     |
 
-* InputTag と InputAction の属する GameFeature の差について
+* **InputTag** と InputAction の属する GameFeature の差について
 	* 例１： `IA_Melee` は GameFeature `ShooterCore` ([UGameFeatureData]) に属しているが、 `InputTag.Ability.Melee` は `DefaultGameplayTags.ini` で定義されている。
 	* 例２： `IA_Interact` は GameFeature `ShooterMaps` ([UGameFeatureData]) に属しているが、 `InputTag.Ability.Melee` は `ShooterCoreTags.ini` で定義されている。
 	* 理由は不明。要確認。
 * `InputTag.Ability.Quickslot.*` の補足
-	* 他の InputTag と異なり、 C++ でのバインドで使用されていない。
+	* 他の **InputTag** と異なり、 C++ でのバインドで使用されていない。
 		* つまり、 `ULyraAbilitySet` や `LyraInputConfig` から参照されていない。
 	* `GA_QuickbarSlots` と `B_Hero_ShooterMannequin` で使用されている。
 		* `B_Hero_ShooterMannequin` は `ControlPoints` 等で使用されるキャラクタークラスです。
@@ -213,9 +213,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 				* 意図
 					* 元々、 GameplayTag の階層は、関連したアビリティを一括停止するなどするために利用できる。
 						* 例：武器変更時に武器のアビリティを一括で止めるなど。
-						* ただ、 InputTag に関して言えば、そういった用途では使用しないのでこれとは無関係。
+						* ただ、 **InputTag** に関して言えば、そういった用途では使用しないのでこれとは無関係。
 					* ここでは関連した GameplayTag であることがわかりやすいようにしている？
-					* `InputTag.Ability.Quickslot` 以下に使用中の武器に関する InputTag を置こうとしていた？
+					* `InputTag.Ability.Quickslot` 以下に使用中の武器に関する **InputTag** を置こうとしていた？
 					* `InputTag.Ability.Quickslot.Drop` の意図は？
 						* 定義も `DefaultGameplayTags.ini` と `ShooterCoreTags.ini` に分かれてしまっている。
 					* なにか歪な感じがします。
@@ -226,7 +226,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## ShooterGame 関連
 
-| InputTag                         | ShooterHero               | ControlPoint          | Elimination            |
+| **InputTag**                     | ShooterHero               | ControlPoint          | Elimination            |
 |----------------------------------|---------------------------|-----------------------|------------------------|
 | **DefaultGameplayTags.ini**      |                           |                       |                        |
 | InputTag.Jump                    | GA_Hero_Jump              |                       |                        |
@@ -256,17 +256,17 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* つまり C++ 経由で入力アクションからアクティブ化されない。
 		* ただ、このアビリティは `Activation Policy` が `OnSpawn` に設定されている。
 			* つまりアビリティが付与された時点でアクティブ化するので問題ない。
-* InputTag が指定されていない Gameplay Ability
+* **InputTag** が指定されていない Gameplay Ability
 	* これらは、要は入力をトリガにせずにアクティブ化する Gameplay Ability です。
 	* 例：
 		* `GA_AutoRespawn`
 			* `Activation Policy` が `OnSpawn` に設定されており、アビリティが付与された時点でアクティブ化する。
 		* `GA_Hero_Death`
-			* InputTag ではない、他の GameplayTag(`GameplayEvent.Death`) によりアクティブ化する。
+			* **InputTag** ではない、他の GameplayTag(`GameplayEvent.Death`) によりアクティブ化する。
 
 ## Weapon 関連
 
-| InputTag                    | ShooterPistol           | ShooterRifle              | ShooterShotgun           | ShooterNetShooter           |
+| **InputTag**                | ShooterPistol           | ShooterRifle              | ShooterShotgun           | ShooterNetShooter           |
 |-----------------------------|-------------------------|---------------------------|--------------------------|-----------------------------|
 | **DefaultGameplayTags.ini** |                         |                           |                          |                             |
 | InputTag.Weapon.Fire        | GA_Weapon_Fire_Pistol   |                           |                          |                             |
@@ -283,7 +283,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## その他
 
-| InputTag                             | Arena              | HealPickup    | InventoryTest          | ShootingTarget |
+| **InputTag**                         | Arena              | HealPickup    | InventoryTest          | ShootingTarget |
 |--------------------------------------|--------------------|---------------|------------------------|----------------|
 | **DefaultGameplayTags.ini**          |                    |               |                        |                |
 | InputTag.Weapon.Fire                 | GA_DropBomb        | GA_HealPickup |                        |                |
@@ -303,7 +303,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # InputTag と Gameplay Ability の関係
 
-| InputTag                                 | Gameplay Ability                                 | 利用箇所                                |
+| **InputTag**                             | Gameplay Ability                                 | 利用箇所                                |
 |------------------------------------------|--------------------------------------------------|-----------------------------------------|
 | **DefaultGameplayTags.ini**              |                                                  |                                         |
 | InputTag.Jump                            |                                                  |                                         |
@@ -340,7 +340,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # その他のクラスとの関係
 
-| InputTag                                 | キャラクタークラス      | BehaviorTree     |
+| **InputTag**                             | キャラクタークラス      | BehaviorTree     |
 |------------------------------------------|-------------------------|------------------|
 | **DefaultGameplayTags.ini**              |                         |                  |
 | InputTag.Weapon.Fire                     |                         | BTS_Shoot        |
@@ -355,13 +355,13 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* つまり、 Gameplay Ability のアクティブ化や `Wait Gameplay Event` のデリゲートの呼び出しに利用されています。
 * 各列を見ることで、以下の様なことがわかります。
 	* キャラクタークラス
-		* ３つの InputTag に紐づいた Gameplay Ability が キャラクタークラスから（ C++ の仕組みを経由せず）利用されている。
+		* ３つの **InputTag** に紐づいた Gameplay Ability が キャラクタークラスから（ C++ の仕組みを経由せず）利用されている。
 	* BehaviorTree
-		* ３つの InputTag に紐づいた Gameplay Ability が AI から利用されている。
+		* ３つの **InputTag** に紐づいた Gameplay Ability が AI から利用されている。
 
 # 終わりに
 
-ここまでで、 InputTag とアセットのつながりが見えてきたと思います。  
+ここまでで、 **InputTag** とアセットのつながりが見えてきたと思います。  
 これを把握することで、 Lyra で実装されている Gameplay Ability の全体像が掴めるようになるのではと思い、このドキュメントを作成しました。  
 大きな表が多く文字ばかり、という読みづらい内容とは思いますが、どなたかの参考になれば幸いです。
 

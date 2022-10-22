@@ -557,7 +557,7 @@ Lyra についての大まかな説明は以上です。
 	LyraIC->BindNativeAction(InputConfig, GameplayTags.InputTag_Crouch, ETriggerEvent::Triggered, this, &ThisClass::Input_Crouch, /*bLogIfNotFound=*/ false);
 	LyraIC->BindNativeAction(InputConfig, GameplayTags.InputTag_AutoRun, ETriggerEvent::Triggered, this, &ThisClass::Input_AutoRun, /*bLogIfNotFound=*/ false);
 	```
-* `BindNativeAction()` では `InputConfig->NativeInputActions` ([FLyraInputAction]) から第二引数と同じ `InputTag` を探します。
+* `BindNativeAction()` では `InputConfig->NativeInputActions` ([FLyraInputAction]) から第二引数と同じ **InputTag** を探します。
 	* あった場合はペアとなる入力アクションに第五引数で渡された関数をバインドします。
 	* ない場合はバインドしません。
 * つまり、固定の処理を行う関数に直接バインドされています。
@@ -589,13 +589,13 @@ Lyra についての大まかな説明は以上です。
 	LyraIC->BindAbilityActions(InputConfig, this, &ThisClass::Input_AbilityInputTagPressed, &ThisClass::Input_AbilityInputTagReleased, /*out*/ BindHandles);
 	```
 * `BindAbilityActions()` では `InputConfig->AbilityInputActions` ([FLyraInputAction]) の全ての要素に対して以下を行います。
-	* 入力アクションに、入力開始/終了時の処理として第三/第四引数で渡された関数を、ペアとなる `InputTag` を含めてバインドします。
+	* 入力アクションに、入力開始/終了時の処理として第三/第四引数で渡された関数を、ペアとなる **InputTag** を含めてバインドします。
 * つまり、アビリティに関しては全て同じ関数にバインドされます。
-* 上記の関数ではバインドされた引数 `InputTag` を元にアビリティを特定し、アクティブ化などを行います。
+* 上記の関数ではバインドされた引数 **InputTag** を元にアビリティを特定し、アクティブ化などを行います。
 * アビリティについて
 	* ここで言うアビリティとは、要は Gameplay Ability です。
 	* Gameplay Ability についての解説はこのドキュメントでは割愛します。
-	* （付与方法、 InputTag から Gameplay Ability の特定方法等々の解説が必要となり、さらにドキュメントが長くなってしまう為。）
+	* （付与方法、 **InputTag** から Gameplay Ability の特定方法等々の解説が必要となり、さらにドキュメントが長くなってしまう為。）
 
 前述の [UInputAction] の依存関係の例でいうと以下のようになります。
 

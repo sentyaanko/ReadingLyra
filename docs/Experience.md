@@ -221,7 +221,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 				* タグリレーションマッピングを保持するデータアセット。
 				* 詳しくは後述します。
 			* [ULyraInputConfig]
-				* InputAction と InputTag を紐づけるためのデータアセット。
+				* InputAction と **InputTag** を紐づけるためのデータアセット。
 				* 詳しくは [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input] / [ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)] を参照してください。
 			* [ULyraCameraMode]
 				* カメラの設定用のデータ専用ブループリント。
