@@ -7,6 +7,7 @@
 
 * 概要
 	* `UDataAsset` の派生クラスです。
+	* `UCLASS` にて `Const` が指定されています。
 	* 適用単位ごとに用意する、入力アクションと **InputTag** をバインドするためのデータアセット作成用のクラスです。
 	* 主に以下で利用されます。
 		* [ULyraInputComponent::BindAbilityActions()] 
