@@ -51,7 +51,7 @@
 * 概要
 	* いわゆるメタ属性です。
 	* [ULyraHealthSet::Health] と同様に `UPROPERTY` の `Meta` にて `HideFromModifiers` が指定されています。
-	* そのため、 [ULyraAttributeSet::Health] と同様に modifier では変更できず execution(`UGameplayEffectExecutionCalculation` 派生クラス等) のみで修正可能です。
+	* そのため、 [ULyraHealthSet::Health] と同様に modifier では変更できず execution(`UGameplayEffectExecutionCalculation` 派生クラス等) のみで修正可能です。
 
 
 ### ULyraHealthSet::OnOutOfHealth
@@ -97,7 +97,6 @@
 
 <!--- generated --->
 [ULyraAttributeSet]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
-[ULyraAttributeSet::Health]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesethealth
 [ULyraHealExecution]: ../../Lyra/GameplayAbility/ULyraHealExecution.md#ulyrahealexecution
 [ULyraHealthComponent]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
 [ULyraHealthComponent::HandleOutOfHealth()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
