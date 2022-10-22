@@ -134,6 +134,7 @@
 [ULyraAbilitySystemComponent::ClientNotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentclientnotifyabilityfailed
 [ULyraAbilitySystemComponent::HandleAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponenthandleabilityfailed
 [ULyraAbilitySystemGlobals]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
+[ULyraAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobalsallocgameplayeffectcontext
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
 [ULyraAbilityTagRelationshipMapping::AbilityTagRelationships]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmappingabilitytagrelationships
 [ULyraAttributeSet]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
@@ -361,6 +362,7 @@
 [FGameplayEffectSpec::CapturedSourceTags]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspeccapturedsourcetags
 [UAbilitySystemGlobals]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobals
 [UAbilitySystemGlobals::GameplayCueNotifyPaths]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths
+[UAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsallocgameplayeffectcontext
 [UGameplayAbility]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
 [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec

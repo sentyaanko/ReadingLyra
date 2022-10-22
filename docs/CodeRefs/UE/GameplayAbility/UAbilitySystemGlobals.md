@@ -24,6 +24,18 @@
 * 概要
 	* `FString` の配列です。
 
+### UAbilitySystemGlobals::AllocGameplayEffectContext()
+
+> Should allocate a project specific GameplayEffectContext struct. Caller is responsible for deallocation  
+> 
+> ----
+> プロジェクト固有の GameplayEffectContext 構造体を割り当てるのが望ましいです。呼び出し元が割り当て解除の責任を負います。  
+
+* 概要
+	* `FGameplayEffectContext` 派生クラスをアロケートして返す関数です。
+	* Gameplay Ability 内で `FGameplayEffectContext` をアロケーションする際に呼び出されます。
+* Lyra での使われ方
+	* [ULyraAbilitySystemGlobals::AllocGameplayEffectContext()] でオーバーライドしています。
 
 
 <!--- ページ内のリンク --->
@@ -32,3 +44,4 @@
 
 <!--- generated --->
 [ULyraAbilitySystemGlobals]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
+[ULyraAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobalsallocgameplayeffectcontext
