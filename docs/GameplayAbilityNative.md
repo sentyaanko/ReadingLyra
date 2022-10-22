@@ -104,7 +104,7 @@ Lyra のプレイヤーキャラクターはヘルスの値を持っており、
 		* AttributeSet に関して、詳しくは GameplayAbility のドキュメントを参照してください。
 	* Player の場合は PlayerState に AttributeSet を追加しています。
 	* Player 以外の場合は [ALyraCharacterWithAbilities] に AttributeSet を追加しています。
-		> MEMO: このクラスはレベルに配置はされていないようです。
+		> MEMO: 派生ブループリントとして `B_ShootingTarget` がありますが、それを含めて、このクラスはどのレベルにも配置されていません。
 	* AttributeSet を直接参照することは殆どなく、 [ULyraHealthComponent] を介して値の参照等を行います。
 		* ExecutionCalculation である [ULyraHealExecution] と [ULyraDamageExecution] が例外的に直接アクセスします。
 	* リスポーンに関して
