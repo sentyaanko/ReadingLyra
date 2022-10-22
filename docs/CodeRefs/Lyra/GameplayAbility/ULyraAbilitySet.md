@@ -5,15 +5,17 @@
 > ----
 > ゲームプレイアビリティおよびゲームプレイエフェクトを付与するために使用される非ミュータブルなデータアセットです。  
 
-* Game Feature がアクティブになった際に付与する入力マッピング情報を保持する。
-* `GrantedGameplayAbilities` に [FLyraAbilitySet_GameplayAbility] の配列を保持する。
-
+* 概要
+	* `UPrimaryDataAsset` の派生クラスです。
+	* `UCLASS` にて `Const` が指定されています。
+	* Game Feature がアクティブになった際に付与する入力マッピング情報を保持します。
 
 ### ULyraAbilitySet::GiveToAbilitySystem()
 
-* 渡された [ULyraAbilitySystemComponent] の Owner が `authoritative` ならばアビリティを付与する。
-	* 付与する際、 [FGameplayAbilitySpec::DynamicAbilityTags] に **InputTag** を設定する。
-		* この値は、入力があった際に **InputTag** から [FGameplayAbilitySpec] を見つけるのに利用される。
+* 概要
+	* 渡された [ULyraAbilitySystemComponent] の Owner が `authoritative` ならばアビリティを付与します。
+	* 付与する際、 [FGameplayAbilitySpec::DynamicAbilityTags] に **InputTag** を設定します。
+		* この値は、入力があった際に **InputTag** から [FGameplayAbilitySpec] を見つけるのに利用されます。
 		* 詳しくは [ULyraAbilitySystemComponent] を参照してください。
 
 ### ULyraAbilitySet::GrantedGameplayAbilities
