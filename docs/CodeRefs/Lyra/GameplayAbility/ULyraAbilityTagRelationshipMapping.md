@@ -6,6 +6,7 @@
 > アビリティタグが他のアビリティをブロックまたはキャンセルする方法のマッピングです。
 
 * 概要
+	* `UDataAsset` の派生クラスです。
 	* GameplayAbility の GameplayTag によるブロックやキャンセルの定義をまとめた構造体です。
 	* [ULyraAbilitySystemComponent] から利用されます。
 	* [ULyraPawnData::TagRelationshipMapping] で保持されています。
