@@ -32,6 +32,7 @@
 > 		- アセットレジストリに、"ゲームが知りうるすべてのゲームプレイキューの通知" を反映させるだけ。  
 
 * 概要
+	* `UDataAsset` の派生クラスです。
 	* `UAbilitySystemGlobals::Get().GetGameplayCueManager()` で取得可能です。
 * Lyra での使われ方
 	* [ULyraGameplayCueManager] の基底クラスです。

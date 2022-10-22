@@ -8,6 +8,7 @@
 > ゲームのユーザー設定（グラフィックやサウンドの設定など）を保存し、ファイルへの保存と読み込みが可能です。
 
 * 概要
+	* `UObject` の派生クラスです。
 	* いわゆるコンフィグ情報の管理を行うクラスです。
 	* `GEngine->GetGameUserSettings()` で取得可能です。
 	* *Project Settings > Engine - General Settings > Default Classes > Game User Settings Class* でこの派生クラスを指定します。

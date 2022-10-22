@@ -18,6 +18,7 @@
 > 	- 既存のコントロールマッピングの上に適用するオーバーレイマッピングの定義（例：MOBAのヒーロー固有のアクションマッピングなど）
 
 * 概要
+	* `UDataAsset` の派生クラスです。
 	* [UInputAction] に対して物理的な入力のマッピングをまとめて作成するためのデータアセットです。
 	* 物理的な入力が発生した際に入力アクションが発生するように [IEnhancedInputSubsystemInterface::AddMappingContext()] 等で追加します。
 * Lyra での使われ方

@@ -12,6 +12,7 @@
 > これらのバインディングは入力イベントを消費しませんが、この動作は UInputMappingContext::Priority を使用して複製することができます。
 
 * 概要
+	* `UInputComponent` の派生クラスです。
 	* *Project Settings > Engine - Input > Default Classes > Default Input Component Class* でこの派生クラスを指定します。
 	* Actor が所持する InputComponent クラスはここで指定されたクラスになります。
 * Lyra での使われ方

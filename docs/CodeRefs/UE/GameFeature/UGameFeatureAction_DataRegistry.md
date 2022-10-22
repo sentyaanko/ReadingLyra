@@ -8,6 +8,7 @@
 > この Feature で読み込み、初期化するデータレジストリのリストを指定します。
 
 * 概要
+	* [UGameFeatureAction] の派生クラスです。
 	* データレジストリにデータを追加するアクションです。
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]
@@ -24,5 +25,6 @@
 <!--- generated --->
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/

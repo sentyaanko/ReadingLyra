@@ -10,6 +10,7 @@
 > インスタンス化されているため、時間軸やディレイなどの latent な処理を行うことができます。 
 
 * 概要
+	* `AGameplayCueNotify_Actor` の派生クラスです。
 	* 派生ブループリントは以下の通りです。
 		* `GCN_Character_Heal`
 		* `GCN_Test_BurstLatent`

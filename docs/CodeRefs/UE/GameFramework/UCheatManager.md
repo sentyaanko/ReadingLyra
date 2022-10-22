@@ -10,6 +10,7 @@
 > Cheat Manager は出荷ビルドではインスタンス化されないので、デバッグ目的のみに使用されます。  
 
 * 概要
+	* `UObject` の派生クラスです。
 	* コンソールコマンド等の管理を行うクラスです。
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > Unreal Engine API Reference > Runtime > Engine > GameFramework > UCheatManager]

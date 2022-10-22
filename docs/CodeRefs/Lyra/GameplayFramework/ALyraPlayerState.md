@@ -6,6 +6,10 @@
 > このプロジェクトで使用されるベースプレイヤーステートクラスです。  
 
 * 概要
+	* `AModularPlayerState` の派生クラスです。
+	* 以下のインターフェイスの実装をしています。
+		* `IAbilitySystemInterface`
+		* `ILyraTeamAgentInterface`
 	* [ULyraPawnData] との関係
 		* レプリケーション対象のプロパティとしてキャッシュを保持する。
 		* [ULyraPawnData::AbilitySets] を元にアビリティの付与を行う。

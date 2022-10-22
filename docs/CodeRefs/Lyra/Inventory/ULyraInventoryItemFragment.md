@@ -6,6 +6,7 @@
 > アイテム定義の部品を表します。
 
 * 概要
+	* `UObject` の派生クラスです。
 	* アイテムの挙動を部品化するための基底クラスです。
 	* 派生クラスは以下の通りです。
 		* [UInventoryFragment_EquippableItem]

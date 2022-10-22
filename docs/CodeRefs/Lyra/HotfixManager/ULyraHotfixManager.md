@@ -3,7 +3,7 @@
 >> 詳細は未確認です。
 
 * 概要
-	* [UOnlineHotfixManager] の Lyra 用の拡張です。
+	* [UOnlineHotfixManager] の派生クラスです。
 	* [ULyraGameFeature_HotfixManager] で利用されます。
 
 

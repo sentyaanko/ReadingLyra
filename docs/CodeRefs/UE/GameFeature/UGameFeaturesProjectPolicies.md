@@ -10,6 +10,7 @@
 > サブクラスを作成し、 Project Settings .. Game Features で選択します。  
 
 * 概要
+	* `UObject` の派生クラスです。
 	* GameFeature の設定を行うクラスです。
 	* *Project Settings > Game - Game Features > Default Classes > Game Feature Project Policy Class* でこの派生クラスを指定します。
 * Lyra での使われ方

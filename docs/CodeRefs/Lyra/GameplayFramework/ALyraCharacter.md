@@ -10,6 +10,12 @@
 > 可能であれば、ポーンコンポーネントを介して新しい動作を追加する必要があります。  
 
 * 概要
+	* `AModularCharacter` の派生クラスです。
+	* 以下のインターフェイスの実装をしています。
+		* `IAbilitySystemInterface`
+		* `IGameplayCueInterface`
+		* `IGameplayTagAssetInterface`
+		* `ILyraTeamAgentInterface`
 	* キャラクターの基底クラスです。
 	* [ULyraPawnExtensionComponent] を追加しています。
 		* アビリティシステムに関するアクセサと、コンポーネントの初期化周りの関数を呼び出しています。

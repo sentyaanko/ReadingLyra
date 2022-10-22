@@ -1,6 +1,7 @@
 ## ULyraInventoryItemDefinition
 
 * 概要
+	* `UObject` の派生クラスです。
 	* アイテム毎に `ID_` で始まるブループリントクラスを作成します。
 	* 派生ブループリントは以下の通りです。
 		* ID_HealPickup

@@ -6,6 +6,7 @@
 > ポーンを定義するために使用されるプロパティを含む、変更不可のデータアセットです。  
 
 * 概要
+	* `UPrimaryDataAsset` の派生クラスです。
 	* プレイヤー用ポーンの設定を作成するためのデータアセットです。
 	* 利用するポーンクラス/[ULyraAbilityTagRelationshipMapping]/[ULyraInputConfig]/ULyraCameraMode 等を設定できます。
 	* 所有者・キャッシュに関して

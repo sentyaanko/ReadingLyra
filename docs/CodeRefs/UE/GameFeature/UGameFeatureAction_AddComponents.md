@@ -12,6 +12,7 @@
 > @UGameFrameworkComponentManager  を参照してください。
 
 * 概要
+	* [UGameFeatureAction] の派生クラスです。
 	* 任意のアクターに任意のコンポーネントを追加するアクションです。
 	* サーバー、クライアントを追加の条件に指定可能です。
 * Lyra での使われ方
@@ -80,4 +81,5 @@
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
 [ULyraInventoryManagerComponent]: ../../Lyra/Inventory/ULyraInventoryManagerComponent.md#ulyrainventorymanagercomponent
 [ULyraWeaponStateComponent]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponent
+[UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

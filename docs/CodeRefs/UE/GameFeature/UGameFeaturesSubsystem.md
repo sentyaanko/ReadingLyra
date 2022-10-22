@@ -8,6 +8,7 @@
 > GameFeature の管理を行うサブシステムです。
 
 * 概要
+	* `UEngineSubsystem` の派生クラスです。
 	* GameFeature の管理クラスです。
 * Lyra での使われ方
 	* [ULyraGameFeaturePolicy]

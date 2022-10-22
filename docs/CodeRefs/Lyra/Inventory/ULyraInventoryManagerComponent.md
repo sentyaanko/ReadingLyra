@@ -6,6 +6,7 @@
 > インベントリを管理します  
 
 * 概要
+	* `UActorComponent` の派生クラスです。
 	* `ShooterCore` ([UGameFeatureData]) から `AController` 派生クラスにサーバー/クライアントともに追加されます。
 	* 主にブループリントからインベントリの操作を行う際に利用されます。
 
