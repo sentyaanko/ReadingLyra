@@ -141,6 +141,7 @@
 [ULyraAttributeSet::GetLyraAbilitySystemComponent()]: ../../Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesetgetlyraabilitysystemcomponent
 [ULyraDamageExecution]: ../../Lyra/GameplayAbility/ULyraDamageExecution.md#ulyradamageexecution
 [ULyraGamePhaseAbility]: ../../Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseability
+[ULyraGamePhaseAbility::GamePhaseTag]: ../../Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseabilitygamephasetag
 [ULyraGamePhaseSubsystem]: ../../Lyra/GameplayAbility/ULyraGamePhaseSubsystem.md#ulyragamephasesubsystem
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ULyraGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityapplyabilitytagstogameplayeffectspec
