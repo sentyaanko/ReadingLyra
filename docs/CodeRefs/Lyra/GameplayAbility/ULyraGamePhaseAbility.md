@@ -11,6 +11,7 @@
 	* フェーズについて
 		* Lyra ではフェーズをゲームルール上の進行状態を示すのに使用しています。
 		* 例えば ShooterCore では、Warmup / Playing / PostGame からなります（ドキュメントに記載されているとおり）。
+	* フェーズの制御は [ULyraGamePhaseSubsystem] を使用します。
 	* 派生ブループリントは以下のとおりです。
 		* `Phase_Warmup`
 		* `Phase_Playing`
@@ -48,4 +49,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraGamePhaseSubsystem]: ../../Lyra/GameplayAbility/ULyraGamePhaseSubsystem.md#ulyragamephasesubsystem
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
