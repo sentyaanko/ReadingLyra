@@ -138,6 +138,7 @@
 [ULyraAbilityTagRelationshipMapping]: CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
 [ULyraAbilityTagRelationshipMapping::AbilityTagRelationships]: CodeRefs/Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmappingabilitytagrelationships
 [ULyraAttributeSet]: CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributeset
+[ULyraAttributeSet::GetLyraAbilitySystemComponent()]: CodeRefs/Lyra/GameplayAbility/ULyraAttributeSet.md#ulyraattributesetgetlyraabilitysystemcomponent
 [ULyraDamageExecution]: CodeRefs/Lyra/GameplayAbility/ULyraDamageExecution.md#ulyradamageexecution
 [ULyraGamePhaseAbility]: CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseability
 [ULyraGamePhaseSubsystem]: CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseSubsystem.md#ulyragamephasesubsystem

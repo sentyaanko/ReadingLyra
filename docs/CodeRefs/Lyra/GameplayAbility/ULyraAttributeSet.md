@@ -20,4 +20,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
 [ULyraHealthSet]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthset
