@@ -32,6 +32,17 @@
 		* そうすることで、実行中のアビリティから特定の **InputTag** が含まれる物を探すことが可能となります。
 		* これを利用して入力情報をアビリティに渡しています。
 
+### FGameplayAbilitySpec::AbilityTags
+
+>  This ability has these tags  
+> 
+> ----
+> このアビリティはこれらのタグを持ちます。
+
+* 概要
+	* アビリティの特徴を示す GameplayTag を格納した `FGameplayTagContainer` です。
+
+
 
 <!--- ページ内のリンク --->
 

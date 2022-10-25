@@ -359,6 +359,7 @@
 [UGameUserSettings]: ../../UE/GameFramework/UGameUserSettings.md#ugameusersettings
 [FGameplayAbilitySpec]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspec
 [FGameplayAbilitySpec::DynamicAbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags
+[FGameplayAbilitySpec::AbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecabilitytags
 [FGameplayEffectSpec]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspec
 [FGameplayEffectSpec::CapturedSourceTags]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspeccapturedsourcetags
 [UAbilitySystemGlobals]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobals
