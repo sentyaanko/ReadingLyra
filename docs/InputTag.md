@@ -48,11 +48,11 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* これにより、 Lyra の実装にて **InputTag** を元に Gameplay Ability を制御する。
 	* Gameplay Ability
 		* イベントグラフの `Send Gameplay Event` / `Send Gameplay Event to Actor`
-			* 他の Gameplay Ability に GameplayEvent を送る際の識別子として使用。
+			* 他の Gameplay Ability に Gameplay Event を送る際の識別子として使用。
 		* イベントグラフの `Wait Gameplay Event`
-			* アクティブ化済みの Gameplay Ability にて、外部から GameplayEvent を受け取る際の識別子として使用。
+			* アクティブ化済みの Gameplay Ability にて、外部から Gameplay Event を受け取る際の識別子として使用。
 		* `Detail > Triggers > Ability Triggers > Trigger Tag`
-			* アクティブ化前の Gameplay Ability にて、外部から GameplayEvent を受け取る際の識別子として使用。
+			* アクティブ化前の Gameplay Ability にて、外部から Gameplay Event を受け取る際の識別子として使用。
 	* キャラクタークラス
 	* BehaviorTree
 * C++ で定義されているものと ini ファイルで定義されているものがあります。
@@ -326,16 +326,16 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 * Ability Triggers
 	* `Detail > Triggers > Ability Triggers > Trigger Tag` の事です。
-	* 設定していると GameplayEvent によるアクティブ化ができるようになり、外部からアクティブ化がしやすくなります。
+	* 設定していると Gameplay Event によるアクティブ化ができるようになり、外部からアクティブ化がしやすくなります。
 	* Lyra では BehaviorTree から呼び出しています。
 * 個々の設定に関して
 	* `InputTag.Weapon.Reload`
-		* `GA_Weapon_AutoReload` で `Send Gameplay Event` に渡すことで、 GameplayEvent 経由で `GA_Weapon_ReloadMagazine` をアクティブ化しています。
+		* `GA_Weapon_AutoReload` で `Send Gameplay Event` に渡すことで、 Gameplay Event 経由で `GA_Weapon_ReloadMagazine` をアクティブ化しています。
 	* `InputTag.Weapon.ADS`
 		* `GA_Melee` の Ability Triggers で指定されていますが、おそらく間違いです。
 		* `InputTag.Ability.Melee` を指定するのが正しいと思われます。
 			* ただし、現状では、 AI は ADS も Melee 攻撃も使っていません（ BehaviorTree からの参照がありません ）。
-			* つまりはこの GameplayEvent は現状発生しないので、影響はありません。
+			* つまりはこの Gameplay Event は現状発生しないので、影響はありません。
 				* AI で ADS や Melee 攻撃をさせるように拡張する際は注意が必要です。
 
 # その他のクラスとの関係
