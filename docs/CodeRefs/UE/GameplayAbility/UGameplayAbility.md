@@ -63,7 +63,7 @@
 
 * 概要
 	* `UObject` の派生クラスです。
-	* `IGameplayTaskOwnerInterface` のインターフェイスを使用しています。
+	* `IGameplayTaskOwnerInterface` のインターフェイスの実装をしています。
 	* アビリティを定義するためのブループリント化可能なクラスです。
 * Lyra での使われ方
 	* [ULyraGameplayAbility] の基底クラスです。

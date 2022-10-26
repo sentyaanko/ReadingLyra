@@ -2,7 +2,7 @@
 
 * 概要
 	* コンポーネントの準備状態を判定するための関数を定義した基底クラスです。
-	* [ULyraPawnComponent] にてこのインターフェイスを実装しています。
+	* [ULyraPawnComponent] にてこのインターフェイスの実装をしています。
 		* この機能を利用する他のクラスは [ULyraPawnComponent] を継承しています。
 
 ### ILyraReadyInterface::IsPawnComponentReadyToInitialize()
