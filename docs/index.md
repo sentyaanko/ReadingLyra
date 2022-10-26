@@ -132,6 +132,8 @@
 			- [ULyraInputComboComponent]
 			- [ULyraInputComponent]
 			- [ULyraInputConfig]
+		- Interact
+			- [ALyraWorldCollectable]
 		- Inventory
 			- [FLyraInventoryList]
 			- [UInventoryFragment_EquippableItem]
@@ -329,6 +331,7 @@
 [ULyraInputComboComponent]: ./CodeRefs/Lyra/Input/ULyraInputComboComponent.md
 [ULyraInputComponent]: ./CodeRefs/Lyra/Input/ULyraInputComponent.md
 [ULyraInputConfig]: ./CodeRefs/Lyra/Input/ULyraInputConfig.md
+[ALyraWorldCollectable]: ./CodeRefs/Lyra/Interact/ALyraWorldCollectable.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Inventory/FLyraInventoryList.md
 [UInventoryFragment_EquippableItem]: ./CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem.md
 [ULyraInventoryItemDefinition]: ./CodeRefs/Lyra/Inventory/ULyraInventoryItemDefinition.md

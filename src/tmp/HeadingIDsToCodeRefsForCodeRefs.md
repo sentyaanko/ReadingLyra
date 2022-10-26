@@ -266,6 +266,7 @@
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [ULyraInputConfig::NativeInputActions]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfignativeinputactions
 [ULyraInputConfig::AbilityInputActions]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfigabilityinputactions
+[ALyraWorldCollectable]: ../../Lyra/Interact/ALyraWorldCollectable.md#alyraworldcollectable
 [FLyraInventoryList]: ../../Lyra/Inventory/FLyraInventoryList.md#flyrainventorylist
 [FLyraInventoryList::Entries]: ../../Lyra/Inventory/FLyraInventoryList.md#flyrainventorylistentries
 [UInventoryFragment_EquippableItem]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem

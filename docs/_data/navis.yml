@@ -132,6 +132,8 @@ nav:
         - ULyraInputComboComponent: ./CodeRefs/Lyra/Input/ULyraInputComboComponent
         - ULyraInputComponent: ./CodeRefs/Lyra/Input/ULyraInputComponent
         - ULyraInputConfig: ./CodeRefs/Lyra/Input/ULyraInputConfig
+      - Interact:
+        - ALyraWorldCollectable: ./CodeRefs/Lyra/Interact/ALyraWorldCollectable
       - Inventory:
         - FLyraInventoryList: ./CodeRefs/Lyra/Inventory/FLyraInventoryList
         - UInventoryFragment_EquippableItem: ./CodeRefs/Lyra/Inventory/UInventoryFragment_EquippableItem
