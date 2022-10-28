@@ -102,6 +102,7 @@ nav:
         - ALyraGameState: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState
         - ALyraPlayerController: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController
         - ALyraPlayerState: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState
+        - ULyraCharacterMovementComponent: ./CodeRefs/Lyra/GameplayFramework/ULyraCharacterMovementComponent
       - GameplayMessageAccolade:
         - FLyraAccoladeDefinitionRow: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow
         - ULyraAccoladeHostWidget: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget

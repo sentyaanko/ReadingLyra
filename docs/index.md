@@ -102,6 +102,7 @@
 			- [ALyraGameState]
 			- [ALyraPlayerController]
 			- [ALyraPlayerState]
+			- [ULyraCharacterMovementComponent]
 		- GameplayMessageAccolade
 			- [FLyraAccoladeDefinitionRow]
 			- [ULyraAccoladeHostWidget]
@@ -306,6 +307,7 @@
 [ALyraGameState]: ./CodeRefs/Lyra/GameplayFramework/ALyraGameState.md
 [ALyraPlayerController]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerController.md
 [ALyraPlayerState]: ./CodeRefs/Lyra/GameplayFramework/ALyraPlayerState.md
+[ULyraCharacterMovementComponent]: ./CodeRefs/Lyra/GameplayFramework/ULyraCharacterMovementComponent.md
 [FLyraAccoladeDefinitionRow]: ./CodeRefs/Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md
 [ULyraAccoladeHostWidget]: ./CodeRefs/Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md
 [FPlayerAssistDamageTracking]: ./CodeRefs/Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking.md

@@ -90,6 +90,28 @@
 		* Healing 関連の処理
 			* **未確認。 [ULyraHealExecution] のときに使われそうな内容だが、そちらで設定しているアトリビュートが Healing ではなく Health なので、実行されないように読める。**
 
+### ULyraHealthSet::PreGameplayEffectExecute()
+
+> Called just before modifying the value of an attribute. 
+> AttributeSet can make additional modifications here. 
+> Return true to continue, or false to throw out the modification.  
+> Note this is only called during an 'execute'. 
+> E.g., a modification to the 'base value' of an attribute. 
+> It is not called during an application of a GameplayEffect, such as a 5 ssecond +10 movement speed buff.  
+> 
+> ----
+> 属性の値を変更する直前に呼び出されます。  
+> AttributeSet はここで追加の修正を行うことができます。  
+> 続行するには true を、修正を破棄するには false を返します。  
+> これは、'execute'の間だけ呼び出されることに注意が必要です。  
+> 例えば、属性の'基本値'を変更する場合などです。  
+> 5 秒間の移動速度 +10 バフのような GameplayEffect の適用中には呼び出されません。  
+
+* 概要
+	* `UAttributeSet::PreGameplayEffectExecute()` のオーバーライドです。
+	* GameplayTag `Gameplay.Damage.SelfDestruct` / `Gameplay.DamageImmunity` などの状態をもとに、ダメージ値を 0 に変更したりします。
+
+
 
 <!--- ページ内のリンク --->
 

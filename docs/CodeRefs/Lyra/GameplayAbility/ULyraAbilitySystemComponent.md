@@ -39,6 +39,67 @@
 	* アビリティのアクティブ化の失敗時の処理を行うための関数です。
 	* [ULyraGameplayAbility::OnAbilityFailedToActivate()] を呼び出します。
 
+### ULyraAbilitySystemComponent::ProcessAbilityInput()
+
+* 概要
+	* [ALyraPlayerController::PostProcessInput()] から呼び出されます。
+	* 入力処理の際に更新される以下の値をもとにアビリティの起動等を行います。
+		* [ULyraAbilitySystemComponent::InputPressedSpecHandles]
+		* [ULyraAbilitySystemComponent::InputReleasedSpecHandles]
+		* [ULyraAbilitySystemComponent::InputHeldSpecHandles] 
+	* ただし、 GameplayTag `Gameplay.AbilityInputBlocked` が付与されている場合は上記のバッファのクリアをしてすぐに終了します。
+		* つまりこの GameplayTag が付与されているとアビリティの起動等が抑制されます。
+
+### ULyraAbilitySystemComponent::ClearAbilityInput()
+
+* 概要
+	* アビリティの入力情報をクリアします。
+	* [ULyraAbilitySystemComponent::ProcessAbilityInput()] から呼び出され、これによりアビリティが入力により起動しなくなります。
+	* 以下の値をクリアします。
+		* [ULyraAbilitySystemComponent::InputPressedSpecHandles]
+		* [ULyraAbilitySystemComponent::InputReleasedSpecHandles]
+		* [ULyraAbilitySystemComponent::InputHeldSpecHandles] 
+
+### ULyraAbilitySystemComponent::AbilityInputTagPressed()
+
+* 概要
+	* アビリティの入力タグが押された際に呼び出すことで関連するアビリティのハンドルを内部で保持する関数です。
+	* [ULyraHeroComponent::Input_AbilityInputTagPressed()] から呼び出されます。
+	* 保持したハンドルは [ULyraAbilitySystemComponent::ProcessAbilityInput()] で消費されます。
+	* `ULyraAbilitySystemComponent::InputPressedSpecHandles` に該当のハンドルを追加します。
+	* `ULyraAbilitySystemComponent::InputHeldSpecHandles` に該当のハンドルを追加します。
+
+### ULyraAbilitySystemComponent::AbilityInputTagReleased()
+
+* 概要
+	* アビリティの入力タグが離された際に呼び出すことで関連するアビリティのハンドルを内部で保持する関数です。
+	* [ULyraHeroComponent::Input_AbilityInputTagReleased()] から呼び出されます。
+	* 保持したハンドルは [ULyraAbilitySystemComponent::ProcessAbilityInput()] で消費されます。
+	* `ULyraAbilitySystemComponent::InputReleasedSpecHandles` に該当のハンドルを追加します。
+	* `ULyraAbilitySystemComponent::InputHeldSpecHandles` から該当のハンドルを削除します。
+
+### ULyraAbilitySystemComponent::InputPressedSpecHandles
+
+> Handles to abilities that had their input pressed this frame.  
+> 
+> ----
+> このフレームで入力が押されたアビリティへのハンドルです。 
+
+### ULyraAbilitySystemComponent::InputReleasedSpecHandles
+
+> Handles to abilities that had their input released this frame.  
+> 
+> ----
+> このフレームで入力が離されたアビリティへのハンドルです。 
+
+### ULyraAbilitySystemComponent::InputHeldSpecHandles
+
+> Handles to abilities that have their input held.  
+> 
+> ----
+> 入力が保持されているアビリティへのハンドルです。 
+
+
 
 
 <!--- ページ内のリンク --->
@@ -50,8 +111,15 @@
 [ULyraAbilitySystemComponent::NotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentnotifyabilityfailed
 [ULyraAbilitySystemComponent::ClientNotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentclientnotifyabilityfailed
 [ULyraAbilitySystemComponent::HandleAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponenthandleabilityfailed
+[ULyraAbilitySystemComponent::ProcessAbilityInput()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentprocessabilityinput
+[ULyraAbilitySystemComponent::InputPressedSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputpressedspechandles
+[ULyraAbilitySystemComponent::InputReleasedSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputreleasedspechandles
+[ULyraAbilitySystemComponent::InputHeldSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputheldspechandles
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
 [ULyraGameplayAbility::OnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityonabilityfailedtoactivate
+[ULyraHeroComponent::Input_AbilityInputTagPressed()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagpressed
+[ULyraHeroComponent::Input_AbilityInputTagReleased()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagreleased
 [ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
+[ALyraPlayerController::PostProcessInput()]: ../../Lyra/GameplayFramework/ALyraPlayerController.md#alyraplayercontrollerpostprocessinput
 [FGameplayAbilitySpec]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspec
 [FGameplayAbilitySpec::DynamicAbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags

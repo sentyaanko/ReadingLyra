@@ -72,6 +72,9 @@
 * 概要
 	* 主に入力マッピングの追加と入力アクションのバインドを行います。
 	* [ULyraHeroComponent::OnPawnReadyToInitialize()] から呼ばれます。
+	* アビリティの入力アクションとして以下を登録します。
+		* 入力が押されたとき [ULyraHeroComponent::Input_AbilityInputTagPressed()]
+		* 入力が離されたとき [ULyraHeroComponent::Input_AbilityInputTagReleased()]
 
 
 ### ULyraHeroComponent::DetermineCameraMode()
@@ -87,6 +90,15 @@
 	* [ALyraCharacter::ToggleCrouch()] を呼び出します。
 	* [ULyraHeroComponent::InitializePlayerInput()] にて [ULyraInputComponent::BindNativeAction()] を呼び出し、 **InputTag** `GameplayTags.InputTag_Crouch` にネイティブアクションとして登録されています。
 
+### ULyraHeroComponent::Input_AbilityInputTagPressed()
+
+* 概要
+	* [ULyraInputComponent] にて入力アクションにバインドされる関数で、入力アクションが押された際に呼び出されます。
+
+### ULyraHeroComponent::Input_AbilityInputTagReleased()
+
+* 概要
+	* [ULyraInputComponent] にて入力アクションにバインドされる関数で、入力アクションが離された際に呼び出されます。
 
 
 <!--- ページ内のリンク --->
@@ -103,12 +115,15 @@
 [ULyraHeroComponent::OnPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentonpawnreadytoinitialize
 [ULyraHeroComponent::InitializePlayerInput()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinitializeplayerinput
 [ULyraHeroComponent::Input_Crouch()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_crouch
+[ULyraHeroComponent::Input_AbilityInputTagPressed()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagpressed
+[ULyraHeroComponent::Input_AbilityInputTagReleased()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagreleased
 [ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent
 [ULyraPawnExtensionComponent::InitializeAbilitySystem()]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponentinitializeabilitysystem
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter
 [ALyraCharacter::ToggleCrouch()]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharactertogglecrouch
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ALyraPlayerState::GetLyraAbilitySystemComponent()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstategetlyraabilitysystemcomponent
+[ULyraInputComponent]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponent
 [ULyraInputComponent::AddInputMappings()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentaddinputmappings
 [ULyraInputComponent::BindNativeAction()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentbindnativeaction
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata

@@ -133,6 +133,13 @@
 [ULyraAbilitySystemComponent::NotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentnotifyabilityfailed
 [ULyraAbilitySystemComponent::ClientNotifyAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentclientnotifyabilityfailed
 [ULyraAbilitySystemComponent::HandleAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponenthandleabilityfailed
+[ULyraAbilitySystemComponent::ProcessAbilityInput()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentprocessabilityinput
+[ULyraAbilitySystemComponent::ClearAbilityInput()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentclearabilityinput
+[ULyraAbilitySystemComponent::AbilityInputTagPressed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentabilityinputtagpressed
+[ULyraAbilitySystemComponent::AbilityInputTagReleased()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentabilityinputtagreleased
+[ULyraAbilitySystemComponent::InputPressedSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputpressedspechandles
+[ULyraAbilitySystemComponent::InputReleasedSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputreleasedspechandles
+[ULyraAbilitySystemComponent::InputHeldSpecHandles]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentinputheldspechandles
 [ULyraAbilitySystemGlobals]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobals
 [ULyraAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemGlobals.md#ulyraabilitysystemglobalsallocgameplayeffectcontext
 [ULyraAbilityTagRelationshipMapping]: ../../Lyra/GameplayAbility/ULyraAbilityTagRelationshipMapping.md#ulyraabilitytagrelationshipmapping
@@ -160,6 +167,8 @@
 [ULyraGameplayAbility_RangedWeapon::StartRangedWeaponTargeting()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponstartrangedweapontargeting
 [ULyraGameplayAbility_Reset]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayability_reset
 [ULyraGlobalAbilitySystem]: ../../Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystem
+[ULyraGlobalAbilitySystem::RegisterASC()]: ../../Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystemregisterasc
+[ULyraGlobalAbilitySystem::UnregisterASC()]: ../../Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystemunregisterasc
 [ULyraHealExecution]: ../../Lyra/GameplayAbility/ULyraHealExecution.md#ulyrahealexecution
 [ULyraHealthComponent]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
 [ULyraHealthComponent::HandleOutOfHealth()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
@@ -170,6 +179,7 @@
 [ULyraHealthSet::Damage]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetdamage
 [ULyraHealthSet::OnOutOfHealth]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetonoutofhealth
 [ULyraHealthSet::PostGameplayEffectExecute()]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetpostgameplayeffectexecute
+[ULyraHealthSet::PreGameplayEffectExecute()]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetpregameplayeffectexecute
 [ULyraHeroComponent]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponent
 [ULyraHeroComponent::DefaultInputConfigs]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdefaultinputconfigs
 [ULyraHeroComponent::IsPawnComponentReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentispawncomponentreadytoinitialize
@@ -177,6 +187,8 @@
 [ULyraHeroComponent::InitializePlayerInput()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinitializeplayerinput
 [ULyraHeroComponent::DetermineCameraMode()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdeterminecameramode
 [ULyraHeroComponent::Input_Crouch()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_crouch
+[ULyraHeroComponent::Input_AbilityInputTagPressed()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagpressed
+[ULyraHeroComponent::Input_AbilityInputTagReleased()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagreleased
 [ULyraPawnComponent]: ../../Lyra/GameplayAbility/ULyraPawnComponent.md#ulyrapawncomponent
 [ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent
 [ULyraPawnExtensionComponent::CheckPawnReadyToInitialize()]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponentcheckpawnreadytoinitialize
@@ -200,12 +212,16 @@
 [ALyraGameState::MulticastReliableMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastreliablemessagetoclients
 [ALyraGameState::MulticastMessageToClients_Implementation()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients_implementation
 [ALyraPlayerController]: ../../Lyra/GameplayFramework/ALyraPlayerController.md#alyraplayercontroller
+[ALyraPlayerController::PostProcessInput()]: ../../Lyra/GameplayFramework/ALyraPlayerController.md#alyraplayercontrollerpostprocessinput
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ALyraPlayerState::StatTags]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatestattags
 [ALyraPlayerState::OnExperienceLoaded()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateonexperienceloaded
 [ALyraPlayerState::SetPawnData()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstatesetpawndata
 [ALyraPlayerState::ClientBroadcastMessage()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage
 [ALyraPlayerState::GetLyraAbilitySystemComponent()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstategetlyraabilitysystemcomponent
+[ULyraCharacterMovementComponent]: ../../Lyra/GameplayFramework/ULyraCharacterMovementComponent.md#ulyracharactermovementcomponent
+[ULyraCharacterMovementComponent::GetDeltaRotation()]: ../../Lyra/GameplayFramework/ULyraCharacterMovementComponent.md#ulyracharactermovementcomponentgetdeltarotation
+[ULyraCharacterMovementComponent::GetMaxSpeed()]: ../../Lyra/GameplayFramework/ULyraCharacterMovementComponent.md#ulyracharactermovementcomponentgetmaxspeed
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
 [ULyraAccoladeHostWidget]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraAccoladeHostWidget::OnNotificationMessage()]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidgetonnotificationmessage
