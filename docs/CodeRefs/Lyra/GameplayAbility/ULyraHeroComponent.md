@@ -6,17 +6,15 @@
 > プレイヤーが制御するポーン（キャラクター、ビークルなど）を作成するために使用されるコンポーネントです。  
 
 * 概要
-	* 主な役割
+	* [ULyraPawnComponent] の派生クラスです。
+	* 概ね以下のような機能を担当しています。
 		* 入力時のロジックの実装と Enhanced Input との関連付け。
 		* [ULyraPawnExtensionComponent] のアビリティシステム関連の機能呼び出し。
 		* アビリティによるカメラ情報の保持。
-	* 追加しているポーン
-		* C++ では追加していません。
-		* `B_Hero_Default` （キャラクターの BP の基底クラス） で追加しています。
+	* `B_Hero_Default` ([ALyraCharacter]) に追加しています。
 	* [ULyraPawnExtensionComponent] との関係
-		* 参照方法
-			* 自身を追加している Pawn にて `FindComponentByClass<ULyraPawnExtensionComponent>()` を呼び出すことで参照しています。
-		* 用途
+		* 自身を追加している Pawn にて `FindComponentByClass<ULyraPawnExtensionComponent>()` を呼び出すことで参照しています。
+		* 以下の用途で使用しています。
 			* [ULyraPawnData] を使用するとき。
 			* [ULyraAbilitySystemComponent] を使用するとき。
 	* [ULyraPawnData] との関係
@@ -117,6 +115,7 @@
 [ULyraHeroComponent::Input_Crouch()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_crouch
 [ULyraHeroComponent::Input_AbilityInputTagPressed()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagpressed
 [ULyraHeroComponent::Input_AbilityInputTagReleased()]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentinput_abilityinputtagreleased
+[ULyraPawnComponent]: ../../Lyra/GameplayAbility/ULyraPawnComponent.md#ulyrapawncomponent
 [ULyraPawnExtensionComponent]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponent
 [ULyraPawnExtensionComponent::InitializeAbilitySystem()]: ../../Lyra/GameplayAbility/ULyraPawnExtensionComponent.md#ulyrapawnextensioncomponentinitializeabilitysystem
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter
