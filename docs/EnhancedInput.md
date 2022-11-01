@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ Enhanced Input <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(02) Enhanced Input <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中で Enhanced Input プラグインが、どのように利用されているかを読み解いていきます。  

@@ -2,12 +2,13 @@
 
 <!--- generatede --->
 - 実装解説
-	- [【UE5】Lyra に学ぶ Enhanced Input]
-	- [【UE5】Lyra に学ぶ基礎]
-	- [【UE5】Lyra に学ぶ GAS(C++)]
-	- [【UE5】Lyra に学ぶ GAS(概略)]
-	- [【UE5】Lyra に学ぶ GameplayMessage]
-	- [【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]
+	- [【UE5】Lyra に学ぶ(02) Enhanced Input]
+	- [【UE5】Lyra に学ぶ(01) エクスペリエンス]
+	- [【UE5】Lyra に学ぶ(07) GameplayAbility]
+	- [【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]
+	- [【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略]
+	- [【UE5】Lyra に学ぶ(04) GameplayMessage]
+	- [【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]
 - クラス解説
 	- Lyra
 		- AssetManager
@@ -217,12 +218,13 @@
 			- [UPlayerMappableInputConfig]
 
 <!--- HedaingIDs --->
-[【UE5】Lyra に学ぶ Enhanced Input]: ./EnhancedInput.md
-[【UE5】Lyra に学ぶ基礎]: ./Experience.md
-[【UE5】Lyra に学ぶ GAS(C++)]: ./GameplayAbilityNative.md
-[【UE5】Lyra に学ぶ GAS(概略)]: ./GameplayAbilityOverview.md
-[【UE5】Lyra に学ぶ GameplayMessage]: ./GameplayMessage.md
-[【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[【UE5】Lyra に学ぶ(02) Enhanced Input]: ./EnhancedInput.md
+[【UE5】Lyra に学ぶ(01) エクスペリエンス]: ./Experience.md
+[【UE5】Lyra に学ぶ(07) GameplayAbility]: ./GameplayAbility.md
+[【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./GameplayAbilitySystemLyra.md
+[【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略]: ./GameplayAbilitySystemOverview.md
+[【UE5】Lyra に学ぶ(04) GameplayMessage]: ./GameplayMessage.md
+[【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md

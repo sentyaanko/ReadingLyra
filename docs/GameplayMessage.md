@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ GameplayMessage <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(04) GameplayMessage <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中では、GameplayMessage という仕組みが実装されています。  

@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag) <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag) <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中で、入力と Gameplay Ability をつなぐのに GameplayTag が利用されており、これを読み解いていきます。  

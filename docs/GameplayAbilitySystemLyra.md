@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ GAS(C++) <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装 <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中では、`Gameplay Ability System` (以降 GAS と略します) が利用されています。  
@@ -10,15 +10,16 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # Index <!-- omit in toc -->
 
+- [公式の解説](#公式の解説)
+- [GameplayAbility の一覧](#gameplayability-の一覧)
 - [Lyra で独自実装してている仕組み](#lyra-で独自実装してている仕組み)
-	- [GameplayAbility の一覧](#gameplayability-の一覧)
 	- [ヘルスの管理方法](#ヘルスの管理方法)
 	- [タグリレーションマッピングについて](#タグリレーションマッピングについて)
 	- [ULyraPawnExtensionComponent と ULyraHeroComponent と GAS](#ulyrapawnextensioncomponent-と-ulyraherocomponent-と-gas)
 - [終わりに](#終わりに)
 
 
-# Lyra で独自実装してている仕組み
+# 公式の解説
 
 * 既存のドキュメント
 	* [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ネイティブ アビリティ サブクラス]
@@ -28,7 +29,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* ネイティブの方と比較すると、こちらはかなり詳しい内容です。
 
 
-## GameplayAbility の一覧
+# GameplayAbility の一覧
 
 Lyra で実装されている GameplayAbility は以下の通り。
 
@@ -90,6 +91,8 @@ Lyra で実装されている GameplayAbility は以下の通り。
 	* Phase アビリティに関して
 		* 前述のとおり、 ShooterCore/TopDownArena で別のアセットが同名で用意されています。
 
+
+# Lyra で独自実装してている仕組み
 
 ## ヘルスの管理方法
 
@@ -216,6 +219,7 @@ GAS に関わるネイティブ実装のうち、主に仕組みに関わる部�
 おしまい。
 
 <!--- ページ内のリンク --->
+[【UE5】Lyra に学ぶ GAS(Blueprint)]: GameplayAbilityBlueprint.md
 
 <!--- 自前の画像へのリンク --->
 [Lyra_CharacterAndComponents]: images/Lyra_CharacterAndComponents.png

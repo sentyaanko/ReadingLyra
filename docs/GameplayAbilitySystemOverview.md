@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ GAS(概略) <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略 <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 その中では、`Gameplay Ability System` （以降 GAS と略します） が利用されています。  
@@ -78,7 +78,7 @@ Lyra では以下の機能を使っています。
 
 ## 「 Enhanced Input 」に関して
 
-* [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input] を参照してください。
+* [ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input] を参照してください。
 
 
 # 参考リンク：公式
@@ -249,7 +249,7 @@ Lyra でどうなったかのみ述べ、以前の方法については触れま
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]: ./EnhancedInput.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input]: ./EnhancedInput.md
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [Qiita > (2021/11/26) > 【UE4】Gameplay Ability System を使い始めたい人向けの情報]: https://qiita.com/sentyaanko/items/314ee39feb62ce67b885
 [Unreal Engine > blog > Modular Game Features in UE5: プラグアンドプレイ、 Unreal な方法で]: https://www.unrealengine.com/ja/blog/modular-game-features-in-ue5-plug-n-play-the-unreal-way

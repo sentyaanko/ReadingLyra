@@ -1,4 +1,4 @@
-# 【UE5】Lyra に学ぶ基礎 <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(01) エクスペリエンス <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
 自作のアプリケーションのたたき台としても利用できるこのプロジェクトは UE の様々の機能を利用しています。  
@@ -132,7 +132,7 @@ GameFeature と絡む部分があります。設定方法は知っておくと�
 Lyra では、入力をモジュール式に扱うために、 Enhanced Input と GameFeature を組み合わせて利用しています。
 
 * 既存のドキュメント
-	* [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]
+	* [ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input]
 		* Enhanced Input 自体についてはこちらを参照してください。
 * 概要
 	* GameFeatureAction を利用し、入力バインディングと入力マッピングコンテキストの追加をフィーチャーの適用時に行えるようにしています。
@@ -222,7 +222,7 @@ Lyra ではプレイヤーが操作するアクターはエクスペリエンス
 				* 詳しくは後述します。
 			* [ULyraInputConfig]
 				* InputAction と **InputTag** を紐づけるためのデータアセット。
-				* 詳しくは [ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input] / [ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)] を参照してください。
+				* 詳しくは [ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input] / [ReadingLyra > 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)] を参照してください。
 			* [ULyraCameraMode]
 				* カメラの設定用のデータ専用ブループリント。
 	* [ULyraExperienceDefinition]
@@ -243,8 +243,8 @@ Lyra では実装の広い部分をモジュール式に扱えるようにして
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ReadingLyra > 【UE5】Lyra に学ぶ Enhanced Input]: ./EnhancedInput.md
-[ReadingLyra > 【UE5】Lyra に学ぶ 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input]: ./EnhancedInput.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
 [ULyraCameraMode]: CodeRefs/Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ALyraWorldSettings]: CodeRefs/Lyra/Experience/ALyraWorldSettings.md#alyraworldsettings
 [ULyraExperienceActionSet]: CodeRefs/Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
