@@ -7,7 +7,7 @@ nav:
     - 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag): ./Lyra03_InputTag
     - 【UE5】Lyra に学ぶ(04) GameplayMessage: ./Lyra04_GameplayMessage
     - 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略: ./Lyra05_GameplayAbilitySystemOverview
-    - 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装: ./Lyra06_GameplayAbilitySystemLyra
+    - 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装: ./Lyra06_GameplayAbilitySystemCppImplement
     - 【UE5】Lyra に学ぶ(07) GameplayAbility: ./Lyra07_GameplayAbility
   - クラス解説:
     - Lyra:

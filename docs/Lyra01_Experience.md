@@ -243,8 +243,8 @@ Lyra では実装の広い部分をモジュール式に扱えるようにして
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input]: ./EnhancedInput.md
-[ReadingLyra > 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]: ./InputTag.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(02) Enhanced Input]: ./Lyra02_EnhancedInput.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]: ./Lyra03_InputTag.md
 [ULyraCameraMode]: CodeRefs/Lyra/Etc/ULyraCameraMode.md#ulyracameramode
 [ALyraWorldSettings]: CodeRefs/Lyra/Experience/ALyraWorldSettings.md#alyraworldsettings
 [ULyraExperienceActionSet]: CodeRefs/Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset

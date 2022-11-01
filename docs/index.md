@@ -223,7 +223,7 @@
 [【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag)]: ./Lyra03_InputTag.md
 [【UE5】Lyra に学ぶ(04) GameplayMessage]: ./Lyra04_GameplayMessage.md
 [【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略]: ./Lyra05_GameplayAbilitySystemOverview.md
-[【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./Lyra06_GameplayAbilitySystemLyra.md
+[【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./Lyra06_GameplayAbilitySystemCppImplement.md
 [【UE5】Lyra に学ぶ(07) GameplayAbility]: ./Lyra07_GameplayAbility.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
