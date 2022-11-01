@@ -2,13 +2,13 @@
 # generated
 nav:
   - 実装解説:
-    - 【UE5】Lyra に学ぶ(02) Enhanced Input: ./EnhancedInput
-    - 【UE5】Lyra に学ぶ(01) エクスペリエンス: ./Experience
-    - 【UE5】Lyra に学ぶ(07) GameplayAbility: ./GameplayAbility
-    - 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装: ./GameplayAbilitySystemLyra
-    - 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略: ./GameplayAbilitySystemOverview
-    - 【UE5】Lyra に学ぶ(04) GameplayMessage: ./GameplayMessage
-    - 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag): ./InputTag
+    - 【UE5】Lyra に学ぶ(01) エクスペリエンス: ./Lyra01_Experience
+    - 【UE5】Lyra に学ぶ(02) Enhanced Input: ./Lyra02_EnhancedInput
+    - 【UE5】Lyra に学ぶ(03) 入力処理用 GameplayTag(InputTag): ./Lyra03_InputTag
+    - 【UE5】Lyra に学ぶ(04) GameplayMessage: ./Lyra04_GameplayMessage
+    - 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略: ./Lyra05_GameplayAbilitySystemOverview
+    - 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装: ./Lyra06_GameplayAbilitySystemLyra
+    - 【UE5】Lyra に学ぶ(07) GameplayAbility: ./Lyra07_GameplayAbility
   - クラス解説:
     - Lyra:
       - AssetManager:
