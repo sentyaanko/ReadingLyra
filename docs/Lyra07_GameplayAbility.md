@@ -78,7 +78,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 > Death Gameplay Event が発生すると、自動的にトリガーするように設定されます。
 > 他のすべてのアビリティをキャンセルし、ポーンの Health Component に Death プロセス開始のシグナルを出します (これが他のゲーム通知と状態変更のトリガーとなる)。  
-> ビジュアル エフェクトはこのクラス (GA_Hero_Death) の BP アビリティ拡張 (GA_Hero_Death) で実行されます。
+> ビジュアル エフェクトはこのクラス (`GA_Hero_Death`) の BP アビリティ拡張 (`GA_Hero_Death`) で実行されます。
 
 * 死亡に関する処理を行う基底クラスです。
 * 詳しくは [ULyraGameplayAbility_Death] を参照してください。
@@ -95,6 +95,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 > Lyra の Equipment システムとインタラクトする機能と、アビリティに関連するアイテムを取得する機能を提供します。
 
+>> note:上記の公式のドキュメントからの引用では `インタラクト` という単語を使っていますが、インタラクトシステムとは無関係で単にやり取りするという意味です。
+
 * 銃などを装備した際に付与される、それらに関連付けられたアビリティの基底クラスです。
 * 詳しくは [ULyraGameplayAbility_FromEquipment] を参照してください。
 
@@ -104,24 +106,24 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.2.2. GA_Weapon_ReloadMagazine
 
-> この Gameplay Ability は、 Ability.Type.Action.Reload タグのアセットで、InputTag.Weapon.Reload によってアクティブ化されます。  
-> これは Event.Movement.Reload タグを付与します。  
+> この Gameplay Ability は、 `Ability.Type.Action.Reload` タグのアセットで、`InputTag.Weapon.Reload` によってアクティブ化されます。  
+> これは `Event.Movement.Reload` タグを付与します。  
 > アクティブである間、移動オプションを制限します。  
 > リロード ロジックは、武器に関連付けられた 3 種類のゲームプレイタグのスタックを中心に展開します。  
-> Lyra.ShooterGame.Weapon.MagazineSize は、その時点の武器のマガジン当たりに許容される弾薬の最大量です。
-> Lyra.ShooterGame.Weapon.MagazineAmmo は、その時点のマガジンに残っている弾薬の量です。
+> `Lyra.ShooterGame.Weapon.MagazineSize` は、その時点の武器のマガジン当たりに許容される弾薬の最大量です。
+> `Lyra.ShooterGame.Weapon.MagazineAmmo` は、その時点のマガジンに残っている弾薬の量です。
 > 量がゼロに到達したとき、発射を続けるために武器をリロードする必要があります。
-> Lyra.ShooterGame.Weapon.SpareAmmo はその時点のマガジンにない、残りの弾薬量です。
+> `Lyra.ShooterGame.Weapon.SpareAmmo` はその時点のマガジンにない、残りの弾薬量です。
 > `K2_CanActivateAbility` 関数をオーバーライドします。
 > これは以下の起動アクティベーション チェックロジックをブループリントで実装したものです。
 > 
-> * MagazineAmmo が MagazineSize より少ないかどうかをチェックします。false の場合、マガジンが一杯であり、リロードを続けられません。
-> * SpareAmmo がゼロより大きいかどうかをチェックします。false の場合、プレイヤーのこの武器で弾薬が切れています。
+> * `MagazineAmmo` が `MagazineSize` より少ないかどうかをチェックします。false の場合、マガジンが一杯であり、リロードを続けられません。
+> * `SpareAmmo` がゼロより大きいかどうかをチェックします。false の場合、プレイヤーのこの武器で弾薬が切れています。
 > 
 > アビリティのアクティベーション時：  
-> * 関連アイテムの MagazineAmmo スタック カウントをチェックします。その時点のマガジンに弾薬が残っていない場合、武器発射アビリティのアクティベーションを抑えるためにタグが適用されます。
-> * 武器リロード アニメーション モンタージュをプレイし、GameplayEvent.ReloadDone イベントをリッスンします。マネキンのモンタージュでアニメーション通知を通じて、このイベントが送信されます。
-> * このイベントが受信されたとき、権限 (サーバー) をチェックし、リロード ロジックを実行します。これはキャラクターのインベントリで関連武器の Lyra.ShooterGame.Weapon.MagazineAmmo および Lyra.ShooterGame.Weapon.SpareAmmo に対する値を変更するだけです。このアビリティを終了します。
+> * 関連アイテムの `MagazineAmmo` スタック カウントをチェックします。その時点のマガジンに弾薬が残っていない場合、武器発射アビリティのアクティベーションを抑えるためにタグが適用されます。
+> * 武器リロード アニメーション モンタージュをプレイし、`GameplayEvent.ReloadDone` イベントをリッスンします。マネキンのモンタージュでアニメーション通知を通じて、このイベントが送信されます。
+> * このイベントが受信されたとき、権限 (サーバー) をチェックし、リロード ロジックを実行します。これはキャラクターのインベントリで関連武器の `Lyra.ShooterGame.Weapon.MagazineAmmo` および `Lyra.ShooterGame.Weapon.SpareAmmo` に対する値を変更するだけです。このアビリティを終了します。
 > * 何らかの理由でイベントが処理されなかった場合、モンタージュが停止または中断された時点で、アビリティはローカルに終了します。On End Ability は、アクティベーション時に設定される発射抑制タグが事前に設定されていた場合、それを削除するために呼び出されます。
 
 * リロード処理を行うアビリティの基底クラスです。
@@ -157,26 +159,26 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 #### 1.2.3.2. GA_Weapon_Fire
 
-> Fire および Reload アビリティは、関連する武器が拾い上げられたとき、Lyra Equipment Definition (ULyraEquipmentDefinition) クラスの Ability Set を通じて、付与されます。  
-> アクティベーション要件は、ULyraGameplayAbility_RangedWeapon クラスで処理されます。  
+> Fire および Reload アビリティは、関連する武器が拾い上げられたとき、 **Lyra Equipment Definition** ([ULyraEquipmentDefinition]) クラスの Ability Set を通じて、付与されます。  
+> アクティベーション要件は、`ULyraGameplayAbility_RangedWeapon` クラスで処理されます。  
 > ターゲット ロジックは同じクラスによって C++ で実行されます。  
-> Weapon Fire Gameplay Ability は、タグ InputTag.Weapon.FireAuto (入力バインディング) と Input.Weapon.Fire タグ (ゲームプレイ イベント) でアクティブ化されます。  
-> マガジンが空の場合、リロード アビリティで設定された Ability.Weapon.NoFiring タグで抑制されます。  
-> Ability.Type.Action.WeaponFire のアセット タグは Event.Movement.WeaponFire タグを付与します。  
-> タグがアクティブである間、On Ability Added イベントは、Ability.PlayMontageOnActivateFail.Message タグのリスナーをセットアップします。  
+> Weapon Fire Gameplay Ability は、タグ `InputTag.Weapon.FireAuto` (入力バインディング) と `Input.Weapon.Fire` タグ (ゲームプレイ イベント) でアクティブ化されます。  
+> マガジンが空の場合、リロード アビリティで設定された `Ability.Weapon.NoFiring` タグで抑制されます。  
+> `Ability.Type.Action.WeaponFire` のアセット タグは `Event.Movement.WeaponFire` タグを付与します。  
+> タグがアクティブである間、On Ability Added イベントは、`Ability.PlayMontageOnActivateFail.Message` タグのリスナーをセットアップします。  
 > 弾薬が残っていない間、プレイヤーが武器の発射を試みると、このイベントがトリガーされます。  
 > メッセージを受け取ったとき、発射を失敗したモンタージュがプレイされます (空砲)。  
 > このモンタージュはプレイヤーがまだ生存している場合にのみプレイされ、アニメーションのスパムを回避するために指定時間が経過した場合にのみ再トリガーされます。  
 > On Activation が呼び出されるとき、キャラクターがローカルでコントロールされる場合、ネイティブのトレース ターゲットを実行し、次の順でターゲット データを作成します。
 > 
 > 1. アビリティ コスト (弾薬消費) はネイティブにコミットされます。
-> 1. ターゲット設定データはネットワーク予測され、サーバーに送信され、 ULyraWeaponStateComponent によって検証され確認されます。
-> 1. ターゲット設定データがサーバーで確認された場合、BP イベント OnRangedWeaponTargetDataReady が呼び出され、見つかったすべてのターゲットが渡されます。これにより、アビリティでダメージの適用、ヒット エフェクトのプレイが可能になります。
+> 1. ターゲット設定データはネットワーク予測され、サーバーに送信され、 [ULyraWeaponStateComponent] によって検証され確認されます。
+> 1. ターゲット設定データがサーバーで確認された場合、BP イベント **OnRangedWeaponTargetDataReady** が呼び出され、見つかったすべてのターゲットが渡されます。これにより、アビリティでダメージの適用、ヒット エフェクトのプレイが可能になります。
 > 1. 発射アニメーション モンタージュをプレイします。
 > 1. タイマーに Fire Delay を設定します。ショットの間の効果的な遅延です。
 > 1. Fire Delay つまりタイマーが終了したとき、アビリティを終了します。さらに発射しようとすると、アクティベーション ロジックで処理されます。
 > 
-> On Ranged Weapon Target Data Ready は、武器が命中したすべてのターゲットが確認されたとき、C++ から呼び出されます。
+> **On Ranged Weapon Target Data Ready** は、武器が命中したすべてのターゲットが確認されたとき、C++ から呼び出されます。
 > これは Firing ゲームプレイ キューを武器のオーナーでトリガーし、最初のヒットをパラメータとして渡します。
 > キューがすべてのターゲット ヒットで繰り返され、各ターゲット位置で衝突のゲームプレイ キューがプレイされます。
 > アビリティに権限 (サーバーで実行) がある場合、各ターゲット ヒットでダメージ Gameplay Effect を適用します。
@@ -240,16 +242,16 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 > 追加の UI 機能を提供するあらゆるアビリティの基本クラスです。  
 > これはアビリティのウィジェットの状態を管理し、ステータス、クールダウン、その他のアビリティ情報を表示できるようにします。  
 > 一例として、 Lyra の Melee アビリティがあり、モバイル プラットフォーム向けのカスタム タッチ入力ウィジェットを備えています。  
-> OnAbilityAdded イベントは、ウィジェット拡張を UI Extension Subsystem に登録し、これにより拡張ハンドルが保存されます。  
-> OnAbilityRemoved イベントは、拡張機能の登録を解除し、拡張機能ハンドルをクリアします。
+> **OnAbilityAdded** イベントは、ウィジェット拡張を UI Extension Subsystem に登録し、これにより拡張ハンドルが保存されます。  
+> **OnAbilityRemoved** イベントは、拡張機能の登録を解除し、拡張機能ハンドルをクリアします。
 
 * 派生クラスでもロジックの実装を行っている。
 * `GAB_ShowWidget_WhenInputPressed` / `GAB_ShowWidget_WhileInputHeld` とのプレフィックスの差はそのあたりが理由なのかもしれない。
 
 ### 1.7.1. GA_ADS
 
-> HUD 表示ボタンを処理するため GA_AbilityWithWidget から継承します。  
-> このアビリティは、Ability.Type.Action.ADS タグのアセットで、InputTag.Weapon.ADS によってアクティブ化され、Event.Movement.ADS タグを付与します。  
+> HUD 表示ボタンを処理するため `GA_AbilityWithWidget` から継承します。  
+> このアビリティは、 `Ability.Type.Action.ADS` タグのアセットで、 `InputTag.Weapon.ADS` によってアクティブ化され、 `Event.Movement.ADS` タグを付与します。  
 > アクティブな間、ローカル予測 (Local predicted) されます。  
 > つまり、クライアントですぐに実行され、サーバーは追いつくために同期します。  
 > 
@@ -269,7 +271,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 ### 1.7.3. GA_Hero_Dash
 
 > GA_AbilityWithWidget から継承します。
-> このアビリティは、InputTag.Ability.Dash タグのアセットで、Ability.Type.Action.Dash によってアクティブ化されます `Event.Movement.Dash` を付与します。  
+> このアビリティは、 `InputTag.Ability.Dash` タグのアセットで、 `Ability.Type.Action.Dash` によってアクティブ化されます `Event.Movement.Dash` を付与します。  
 > アクティブにすると、クールダウン エフェクト **GE_HeroDash_Cooldown** を使用します。
 > 
 > クールダウンのアクティベーション時：
@@ -287,8 +289,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.7.4. GA_Melee
 
-> Ability.Type.Action.Melee のアセットタグを含み、アクティブである間は Event.Movement.Melee タグを付与します。  
-> このアビリティはタグ InputTag.Weapon.Ads でトリガーされます。  
+> `Ability.Type.Action.Melee` のアセットタグを含み、アクティブである間は `Event.Movement.Melee` タグを付与します。  
+> このアビリティはタグ `InputTag.Weapon.Ads` でトリガーされます。  
 > このタグがアクティブ化されたときに、On Activation イベントは、次の順でアビリティ コストをコミットします。
 > 
 > 1. その時点で装備している武器を見つけ、関連するアニメーション モンタージュをプレイします。
@@ -316,8 +318,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 ## 1.11. GA_DropBomb
 ## 1.12. GA_Grenade
 
-> このアビリティは、Ability.Type.Action.Grenade タグのアセットで、InputTag.Weapon.Grenade によってアクティブ化されます。  
-> これは GE_Grenade_Cooldown をクールダウン エフェクトとして使用します。  
+> このアビリティは、 `Ability.Type.Action.Grenade` タグのアセットで、 `InputTag.Weapon.Grenade` によってアクティブ化されます。  
+> これは `GE_Grenade_Cooldown` をクールダウン エフェクトとして使用します。  
 > On Pawn Avatar Set は、ローカルクライアントの UI Extension Subsystem でウィジェットを登録し、アビリティインスタンスごとにウィジェットが 1 つだけ追加されるようにします。  
 > On Activation はアビリティ コストとクールダウンをチェックし、コミットします。  
 > いずれかのチェックが失敗するとアビリティが終了します。
@@ -408,6 +410,7 @@ todo
 [Lyra_CharacterAndComponents]: images/Lyra_CharacterAndComponents.png
 
 <!--- generated --->
+[ULyraEquipmentDefinition]: CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition
 [ULyraGamePhaseAbility]: CodeRefs/Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseability
 [ULyraGameplayAbility]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ULyraGameplayAbility_Death]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
@@ -416,6 +419,7 @@ todo
 [ULyraGameplayAbility_Jump]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Jump.md#ulyragameplayability_jump
 [ULyraGameplayAbility_RangedWeapon]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
 [ULyraGameplayAbility_Reset]: CodeRefs/Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayability_reset
+[ULyraWeaponStateComponent]: CodeRefs/Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponent
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ネイティブ アビリティ サブクラス]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%E3%82%B5%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9
 [Unreal Engine 5.0 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアビリティ > ブループリント アビリティ サブクラス]: https://docs.unrealengine.com/5.0/ja/abilities-in-lyra-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%82%A2%E3%83%93%E3%83%AA%E3%83%86%E3%82%A3%E3%82%B5%E3%83%96%E3%82%AF%E3%83%A9%E3%82%B9
