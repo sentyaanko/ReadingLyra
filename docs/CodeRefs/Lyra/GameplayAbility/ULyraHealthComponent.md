@@ -19,12 +19,34 @@
 			* これは [UAssistProcessor] が受信します。
 		* なお、これらの処理は `WITH_SERVER_CODE` でくくられています。
 
+### ULyraHealthComponent::StartDeath()
+
+> Begins the death sequence for the owner.  
+> 
+> ----
+> 所有者の死亡シークエンスを開始します。  
+
+* 概要
+	* health が 0 になったり、 [ULyraGameplayAbility_Death] によって死亡処理が開始された際に呼び出されます。
+
+
+### ULyraHealthComponent::OnDeathStarted
+
+> Delegate fired when the death sequence has started.  
+> 
+> ----
+> デスシークエンスが開始されたときに発生するデリゲートです。 
+
+* 概要
+	* [ULyraHealthComponent::StartDeath()] 内で呼び出されます。
 
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
+[ULyraHealthComponent::StartDeath()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponentstartdeath
 [ULyraHealthSet::OnOutOfHealth]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetonoutofhealth
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter
 [UAssistProcessor]: ../../Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessor

@@ -58,6 +58,17 @@
 		* 取得できない場合は [ULyraAssetManager::GetDefaultPawnData()] 経由で取得できる場合はそれを返します。
 		* 取得できない場合は有効な値が返せない状態なので、 null を返します。
 
+### ALyraGameMode::RequestPlayerRestartNextFrame()
+
+> Restart (respawn) the specified player or bot next frame  
+> - If bForceReset is true, the controller will be reset this frame (abandoning the currently possessed pawn, if any)  
+> 
+> ----
+> 指定されたプレイヤーまたはボットを次のフレームで再起動（リスポーン）させます。
+> - bForceReset が true の場合、コントローラはこのフレームでリセットされます（現在所持しているポーンがある場合はそれを放棄します）。
+
+* 概要
+	* `GA_AutoRespawn` ([ULyraGameplayAbility]) から呼び出されます。
 
 
 <!--- ページ内のリンク --->
@@ -67,6 +78,7 @@
 <!--- generated --->
 [ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
 [ULyraExperienceManagerComponent]: ../../Lyra/Experience/ULyraExperienceManagerComponent.md#ulyraexperiencemanagercomponent
+[ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodehandlematchassignmentifnotexpectingone
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata

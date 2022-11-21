@@ -157,10 +157,12 @@
 [ULyraGameplayAbility::ScriptOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityscriptonabilityfailedtoactivate
 [ULyraGameplayAbility::FailureTagToUserFacingMessages]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtouserfacingmessages
 [ULyraGameplayAbility::FailureTagToAnimMontage]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtoanimmontage
+[ULyraGameplayAbility::ActivateAbility()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityactivateability
 [ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
 [ULyraGameplayAbility_FromEquipment]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_FromEquipment.md#ulyragameplayability_fromequipment
 [ULyraGameplayAbility_Interact]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interact
 [ULyraGameplayAbility_Interact::TriggerInteraction()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interacttriggerinteraction
+[ULyraGameplayAbility_Interact::ActivateAbility()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interactactivateability
 [ULyraGameplayAbility_Jump]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Jump.md#ulyragameplayability_jump
 [ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
 [ULyraGameplayAbility_RangedWeapon::OnTargetDataReadyCallback()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponontargetdatareadycallback
@@ -172,6 +174,8 @@
 [ULyraHealExecution]: ../../Lyra/GameplayAbility/ULyraHealExecution.md#ulyrahealexecution
 [ULyraHealthComponent]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
 [ULyraHealthComponent::HandleOutOfHealth()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
+[ULyraHealthComponent::StartDeath()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponentstartdeath
+[ULyraHealthComponent::OnDeathStarted]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponentondeathstarted
 [ULyraHealthSet]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthset
 [ULyraHealthSet::Health]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsethealth
 [ULyraHealthSet::MaxHealth]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetmaxhealth
@@ -207,6 +211,7 @@
 [ALyraGameMode::InitGame()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodeinitgame
 [ALyraGameMode::HandleMatchAssignmentIfNotExpectingOne()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodehandlematchassignmentifnotexpectingone
 [ALyraGameMode::GetPawnDataForController()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemodegetpawndataforcontroller
+[ALyraGameMode::RequestPlayerRestartNextFrame()]: ../../Lyra/GameplayFramework/ALyraGameMode.md#alyragamemoderequestplayerrestartnextframe
 [ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
 [ALyraGameState::MulticastMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients
 [ALyraGameState::MulticastReliableMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastreliablemessagetoclients
@@ -383,6 +388,7 @@
 [UAbilitySystemGlobals::GameplayCueNotifyPaths]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths
 [UAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsallocgameplayeffectcontext
 [UGameplayAbility]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayability
+[UGameplayAbility::ActivateAbility()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivateability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
 [UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec
 [UGameplayAbility::CancelAbilitiesWithTag]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitycancelabilitieswithtag

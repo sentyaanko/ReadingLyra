@@ -31,6 +31,14 @@
 	* Gameplay Event `Ability.Interaction.Activate` を呼び出します。
 		* Instigator を `GetAvatarActorFromActorInfo()` にしています。
 
+### ULyraGameplayAbility_Interact::ActivateAbility()
+
+* 概要
+	* [ULyraGameplayAbility::ActivateAbility()] のオーバーライドです。
+	* アビリティタスク `UAbilityTask_GrantNearbyInteraction` の起動を行っています。
+		* 設定された距離内で最も近いインタラクト可能なアクターを取得します。
+		* そのアクターからインタラクトを行う側に付与する GameplayAbility を取得します。
+		* 取得した GameplayAbility をインタラクトを行う側に付与します。
 
 
 <!--- ページ内のリンク --->
@@ -42,6 +50,7 @@
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
+[ULyraGameplayAbility::ActivateAbility()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityactivateability
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [ALyraWorldCollectable]: ../../Lyra/Interact/ALyraWorldCollectable.md#alyraworldcollectable
 [UInputAction]: ../../UE/Input/UInputAction.md#uinputaction

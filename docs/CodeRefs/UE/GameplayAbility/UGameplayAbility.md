@@ -68,6 +68,13 @@
 * Lyra での使われ方
 	* [ULyraGameplayAbility] の基底クラスです。
 
+### UGameplayAbility::ActivateAbility()
+
+> Actually activate ability, do not call this directly  
+> 
+> ----
+> 実際にアビリティを起動する、これを直接呼び出さない。 
+
 ### UGameplayAbility::MakeOutgoingGameplayEffectSpec()
 
 > Convenience method for abilities to get outgoing gameplay effect specs  

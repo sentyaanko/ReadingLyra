@@ -72,6 +72,12 @@
 		|-----------------------------|-----------------------|---------------------------------------------------------------------------------------------------------|
 		| `Ability.ActivateFail.Cost` | `AM_MM_Rifle_DryFire` | コスト不足でアクティブ化出来ない場合はモンタージュ `AM_MM_Rifle_DryFire` を Gameplay Message で送信する |
 
+### ULyraGameplayAbility::ActivateAbility()
+
+* 概要
+	* [UGameplayAbility::ActivateAbility()] のオーバーライドです。
+	* 基底クラスの関数を呼び出す以外のことは行っていません。
+
 
 
 <!--- ページ内のリンク --->
@@ -88,4 +94,5 @@
 [FLyraAbilityMontageFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessage
 [FLyraAbilitySimpleFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessage
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
+[UGameplayAbility::ActivateAbility()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityactivateability
 [UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
