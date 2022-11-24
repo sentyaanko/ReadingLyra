@@ -14,51 +14,51 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 - [NetShooter に関する補足](#netshooter-に関する補足)
 - [AbilityState に関する補足](#abilitystate-に関する補足)
 - [1. ULyraGameplayAbility](#1-ulyragameplayability)
-	- [1.1. ULyraGameplayAbility_Death](#11-ulyragameplayability_death)
-		- [1.1.1. GA_ArenaHero_Death](#111-ga_arenahero_death)
-		- [1.1.2. GA_Hero_Death](#112-ga_hero_death)
-	- [1.2. ULyraGameplayAbility_FromEquipment](#12-ulyragameplayability_fromequipment)
-		- [1.2.1. GA_Weapon_AutoReload](#121-ga_weapon_autoreload)
-		- [1.2.2. GA_Weapon_ReloadMagazine](#122-ga_weapon_reloadmagazine)
-			- [1.2.2.1. GA_Weapon_Reload_Pistol](#1221-ga_weapon_reload_pistol)
-			- [1.2.2.2. GA_Weapon_Reload_Rifle](#1222-ga_weapon_reload_rifle)
-			- [1.2.2.3. GA_Weapon_Reload_Shotgun](#1223-ga_weapon_reload_shotgun)
-			- [1.2.2.4. GA_Weapon_Reload_NetShooter](#1224-ga_weapon_reload_netshooter)
-		- [1.2.3. ULyraGameplayAbility_RangedWeapon](#123-ulyragameplayability_rangedweapon)
-			- [1.2.3.1. GA_HealPickup](#1231-ga_healpickup)
-			- [1.2.3.2. GA_Weapon_Fire](#1232-ga_weapon_fire)
-				- [1.2.3.2.1. GA_Weapon_Fire_Pistol](#12321-ga_weapon_fire_pistol)
-				- [1.2.3.2.2. GA_Weapon_Fire_Rifle](#12322-ga_weapon_fire_rifle)
-				- [1.2.3.2.3. GA_Weapon_Fire_Shotgun](#12323-ga_weapon_fire_shotgun)
-				- [1.2.3.2.4. GA_WeaponNetShooter](#12324-ga_weaponnetshooter)
-	- [1.3. ULyraGameplayAbility_Interact](#13-ulyragameplayability_interact)
-		- [1.3.1. GA_Interact](#131-ga_interact)
-	- [1.4. ULyraGameplayAbility_Jump](#14-ulyragameplayability_jump)
-		- [1.4.1. GA_Hero_Jump](#141-ga_hero_jump)
-	- [1.5. ULyraGameplayAbility_Reset](#15-ulyragameplayability_reset)
+	- [1.1. ULyraGameplayAbility\_Death](#11-ulyragameplayability_death)
+		- [1.1.1. GA\_ArenaHero\_Death](#111-ga_arenahero_death)
+		- [1.1.2. GA\_Hero\_Death](#112-ga_hero_death)
+	- [1.2. ULyraGameplayAbility\_FromEquipment](#12-ulyragameplayability_fromequipment)
+		- [1.2.1. GA\_Weapon\_AutoReload](#121-ga_weapon_autoreload)
+		- [1.2.2. GA\_Weapon\_ReloadMagazine](#122-ga_weapon_reloadmagazine)
+			- [1.2.2.1. GA\_Weapon\_Reload\_Pistol](#1221-ga_weapon_reload_pistol)
+			- [1.2.2.2. GA\_Weapon\_Reload\_Rifle](#1222-ga_weapon_reload_rifle)
+			- [1.2.2.3. GA\_Weapon\_Reload\_Shotgun](#1223-ga_weapon_reload_shotgun)
+			- [1.2.2.4. GA\_Weapon\_Reload\_NetShooter](#1224-ga_weapon_reload_netshooter)
+		- [1.2.3. ULyraGameplayAbility\_RangedWeapon](#123-ulyragameplayability_rangedweapon)
+			- [1.2.3.1. GA\_HealPickup](#1231-ga_healpickup)
+			- [1.2.3.2. GA\_Weapon\_Fire](#1232-ga_weapon_fire)
+				- [1.2.3.2.1. GA\_Weapon\_Fire\_Pistol](#12321-ga_weapon_fire_pistol)
+				- [1.2.3.2.2. GA\_Weapon\_Fire\_Rifle](#12322-ga_weapon_fire_rifle)
+				- [1.2.3.2.3. GA\_Weapon\_Fire\_Shotgun](#12323-ga_weapon_fire_shotgun)
+				- [1.2.3.2.4. GA\_WeaponNetShooter](#12324-ga_weaponnetshooter)
+	- [1.3. ULyraGameplayAbility\_Interact](#13-ulyragameplayability_interact)
+		- [1.3.1. GA\_Interact](#131-ga_interact)
+	- [1.4. ULyraGameplayAbility\_Jump](#14-ulyragameplayability_jump)
+		- [1.4.1. GA\_Hero\_Jump](#141-ga_hero_jump)
+	- [1.5. ULyraGameplayAbility\_Reset](#15-ulyragameplayability_reset)
 	- [1.6. ULyraGamePhaseAbility](#16-ulyragamephaseability)
-		- [1.6.1. Phase_Warmup](#161-phase_warmup)
-		- [1.6.2. Phase_Playing](#162-phase_playing)
-		- [1.6.3. Phase_PostGame](#163-phase_postgame)
-	- [1.7. GA_AbilityWithWidget](#17-ga_abilitywithwidget)
-		- [1.7.1. GA_ADS](#171-ga_ads)
-		- [1.7.2. GA_Emote](#172-ga_emote)
-		- [1.7.3. GA_Hero_Dash](#173-ga_hero_dash)
-		- [1.7.4. GA_Melee](#174-ga_melee)
-	- [1.8. GAB_ShowWidget_WhenInputPressed](#18-gab_showwidget_wheninputpressed)
-		- [1.8.1. GA_ToggleInventory](#181-ga_toggleinventory)
-		- [1.8.2. GA_ToggleMap](#182-ga_togglemap)
-	- [1.9. GAB_ShowWidget_WhileInputHeld](#19-gab_showwidget_whileinputheld)
-		- [1.9.1. GA_ShowLeaderboard_CP](#191-ga_showleaderboard_cp)
-		- [1.9.2. GA_ShowLeaderboard_TDM](#192-ga_showleaderboard_tdm)
-	- [1.10. GA_AutoRespawn](#110-ga_autorespawn)
-	- [1.11. GA_DropBomb](#111-ga_dropbomb)
-	- [1.12. GA_Grenade](#112-ga_grenade)
-	- [1.13. GA_Hero_Heal](#113-ga_hero_heal)
-	- [1.14. GA_Interaction_Collect](#114-ga_interaction_collect)
-	- [1.15. GA_QuickbarSlots](#115-ga_quickbarslots)
-	- [1.16. GA_SpawnEffect](#116-ga_spawneffect)
-	- [1.17. GA_ToggleMarkerInWorld](#117-ga_togglemarkerinworld)
+		- [1.6.1. Phase\_Warmup](#161-phase_warmup)
+		- [1.6.2. Phase\_Playing](#162-phase_playing)
+		- [1.6.3. Phase\_PostGame](#163-phase_postgame)
+	- [1.7. GA\_AbilityWithWidget](#17-ga_abilitywithwidget)
+		- [1.7.1. GA\_ADS](#171-ga_ads)
+		- [1.7.2. GA\_Emote](#172-ga_emote)
+		- [1.7.3. GA\_Hero\_Dash](#173-ga_hero_dash)
+		- [1.7.4. GA\_Melee](#174-ga_melee)
+	- [1.8. GAB\_ShowWidget\_WhenInputPressed](#18-gab_showwidget_wheninputpressed)
+		- [1.8.1. GA\_ToggleInventory](#181-ga_toggleinventory)
+		- [1.8.2. GA\_ToggleMap](#182-ga_togglemap)
+	- [1.9. GAB\_ShowWidget\_WhileInputHeld](#19-gab_showwidget_whileinputheld)
+		- [1.9.1. GA\_ShowLeaderboard\_CP](#191-ga_showleaderboard_cp)
+		- [1.9.2. GA\_ShowLeaderboard\_TDM](#192-ga_showleaderboard_tdm)
+	- [1.10. GA\_AutoRespawn](#110-ga_autorespawn)
+	- [1.11. GA\_DropBomb](#111-ga_dropbomb)
+	- [1.12. GA\_Grenade](#112-ga_grenade)
+	- [1.13. GA\_Hero\_Heal](#113-ga_hero_heal)
+	- [1.14. GA\_Interaction\_Collect](#114-ga_interaction_collect)
+	- [1.15. GA\_QuickbarSlots](#115-ga_quickbarslots)
+	- [1.16. GA\_SpawnEffect](#116-ga_spawneffect)
+	- [1.17. GA\_ToggleMarkerInWorld](#117-ga_togglemarkerinworld)
 - [終わりに](#終わりに)
 
 # 参考
@@ -101,9 +101,15 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.1. ULyraGameplayAbility_Death
 
+公式ドキュメントより
 > Death Gameplay Event が発生すると、自動的にトリガーするように設定されます。
 > 他のすべてのアビリティをキャンセルし、ポーンの Health Component に Death プロセス開始のシグナルを出します (これが他のゲーム通知と状態変更のトリガーとなる)。  
 > ビジュアル エフェクトはこのクラス (`GA_Hero_Death`) の BP アビリティ拡張 (`GA_Hero_Death`) で実行されます。
+>> note: 3行目の訳がちょっとおかしいので、英文と翻訳したものも載せておきます。  
+>> The visual effects are performed by a BP ability extension of this class (GA_Hero_Death).
+>> 
+>> ------
+>> ビジュアル エフェクトはこのクラスの BP アビリティ拡張 (`GA_Hero_Death`) で実行されます。
 
 * 死亡に関する処理を行う基底クラスです。
 * 基底クラスであり、インスタンス化はされません。
@@ -125,9 +131,9 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.2. ULyraGameplayAbility_FromEquipment
 
+公式ドキュメントより
 > Lyra の Equipment システムとインタラクトする機能と、アビリティに関連するアイテムを取得する機能を提供します。
-
->> note:上記の公式のドキュメントからの引用では `インタラクト` という単語を使っていますが、インタラクトシステムとは無関係で単にやり取りするという意味です。
+>> note: `インタラクト` という単語を使っていますが、インタラクトシステムとは無関係で、単にやり取りするという意味です。
 
 * 銃などを装備した際に付与される、それらに関連付けられたアビリティの基底クラスです。
 * 基底クラスであり、インスタンス化はされません。
@@ -166,6 +172,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.2.2. GA_Weapon_ReloadMagazine
 
+公式ドキュメントより
 > この Gameplay Ability は、 `Ability.Type.Action.Reload` タグのアセットで、`InputTag.Weapon.Reload` によってアクティブ化されます。  
 > これは `Event.Movement.Reload` タグを付与します。  
 > アクティブである間、移動オプションを制限します。  
@@ -224,6 +231,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.2.3. ULyraGameplayAbility_RangedWeapon
 
+公式ドキュメントより
 > 武器発射のネイティブ実装。
 > 弾薬数、命中精度などを決定するために関連する武器とやり取りします。
 > 発射コーン内で弾丸の軌道を計算し、命中目標を見つけ、検証するためのレイキャスト機能が用意されています。
@@ -241,6 +249,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 #### 1.2.3.2. GA_Weapon_Fire
 
+公式ドキュメントより
 > Fire および Reload アビリティは、関連する武器が拾い上げられたとき、 **Lyra Equipment Definition** ([ULyraEquipmentDefinition]) クラスの Ability Set を通じて、付与されます。  
 > アクティベーション要件は、`ULyraGameplayAbility_RangedWeapon` クラスで処理されます。  
 > ターゲット ロジックは同じクラスによって C++ で実行されます。  
@@ -310,13 +319,14 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.4. ULyraGameplayAbility_Jump
 
+公式ドキュメントより
+> ポーンの Character Movement Component で Jump と StopJumping の入力をトリガーする機能を提供し、その際、アビリティのオーナーがローカルにコントロールされた有効なポーンであるのかをチェックします。
+
 * ジャンプアビリティの基底クラスです。
 * 基底クラスであり、インスタンス化はされません。
 * 詳しくは [ULyraGameplayAbility_Jump] を参照してください。
 
 ### 1.4.1. GA_Hero_Jump
-
-> ポーンの Character Movement Component で Jump と StopJumping の入力をトリガーする機能を提供し、その際、アビリティのオーナーがローカルにコントロールされた有効なポーンであるのかをチェックします。
 
 * `ShooterCore` 等でプレイヤーに付与されている、ジャンプアビリティです。
 * `AbilitySet_ShooterHero` ([ULyraAbilitySet]) に設定されています。
@@ -325,6 +335,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.5. ULyraGameplayAbility_Reset
 
+公式ドキュメントより
 > アクティブ化されたとき、このアビリティは、直ちに所有するプレイヤーの新しいポーンをスポーンされた初期状態にリセットし、他のすべてのアビリティをキャンセルします。
 
 * 初期状態にリセットするアビリティです。
@@ -365,6 +376,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.7. GA_AbilityWithWidget
 
+公式ドキュメントより
 > 追加の UI 機能を提供するあらゆるアビリティの基本クラスです。  
 > これはアビリティのウィジェットの状態を管理し、ステータス、クールダウン、その他のアビリティ情報を表示できるようにします。  
 > 一例として、 Lyra の Melee アビリティがあり、モバイル プラットフォーム向けのカスタム タッチ入力ウィジェットを備えています。  
@@ -373,11 +385,11 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 * アビリティとウィジェットを連携するための基底クラスです。
 * 基底クラスであり、インスタンス化はされません。
-
-> ウィジェットごとのロジックはサブクラスで実装することが想定されています。
+* ウィジェットごとのロジックはサブクラスで実装することが想定されています。
 
 ### 1.7.1. GA_ADS
 
+公式ドキュメントより
 > HUD 表示ボタンを処理するため `GA_AbilityWithWidget` から継承します。  
 > このアビリティは、 `Ability.Type.Action.ADS` タグのアセットで、 `InputTag.Weapon.ADS` によってアクティブ化され、 `Event.Movement.ADS` タグを付与します。  
 > アクティブな間、ローカル予測 (Local predicted) されます。  
@@ -407,6 +419,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.7.3. GA_Hero_Dash
 
+公式ドキュメントより
 > `GA_AbilityWithWidget` から継承します。
 > このアビリティは、 `InputTag.Ability.Dash` タグのアセットで、 `Ability.Type.Action.Dash` によってアクティブ化されます `Event.Movement.Dash` を付与します。  
 > アクティブにすると、クールダウン エフェクト **GE_HeroDash_Cooldown** を使用します。
@@ -430,6 +443,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ### 1.7.4. GA_Melee
 
+公式ドキュメントより
 > `Ability.Type.Action.Melee` のアセットタグを含み、アクティブである間は `Event.Movement.Melee` タグを付与します。  
 > このアビリティはタグ `InputTag.Weapon.Ads` でトリガーされます。  
 > このタグがアクティブ化されたときに、On Activation イベントは、次の順でアビリティ コストをコミットします。
@@ -450,8 +464,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * 入力が押された際にウィジェットを表示させるためのアビリティです。
 * 基底クラスであり、インスタンス化はされません。
 
-> プレフィックスが `GAB_` の理由は不明です。
-> インスタンス化されず、派生クラスがデータオンリーブループリントである、ということが関係しているのかもしれません。
+>> note: プレフィックスが `GAB_` の理由は不明です。  
+>> インスタンス化されず、派生クラスがデータオンリーブループリントである、ということが関係しているのかもしれません。
 
 ### 1.8.1. GA_ToggleInventory
 
@@ -461,8 +475,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* その他、 [ULyraExperienceActionSet] / [ULyraExperienceDefinition] 等の設定により、 `InventoryTestMap` で、 [ALyraPlayerState] に付与されます。
 * データオンリーブループリントであり、表示する UI の設定のみ行われています。
 	* `Widget to Spawn` に `W_InventoryScreen` が設定してあり、アビリティがアクティブになるとインベントリ用の UI が表示され、 Esc キーで消えます。
-		> 詳細は未確認ですが、 UI 表示直後は入力フォーカスがなく、 Esc が効かないようです。
-		> アイテムを表示するためと思しき CommonTileView の領域をクリックすることで Esc で閉じることが可能になります。
+		>> note: 詳細は未確認ですが、 UI 表示直後は入力フォーカスがなく、 Esc が効かないようです。  
+		>> アイテムを表示するためと思しき CommonTileView の領域をクリックすることで Esc で閉じることが可能になります。  
 
 ### 1.8.2. GA_ToggleMap
 
@@ -472,8 +486,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* その他、 [ULyraExperienceActionSet] / [ULyraExperienceDefinition] 等の設定により、 `InventoryTestMap` で、 [ALyraPlayerState] に付与されます。
 * データオンリーブループリントであり、表示する UI の設定のみ行われています。
 	* `Widget to Spawn` に `W_MapScreen` が設定してあり、アビリティがアクティブになるとマップ用の UI が表示され、 Esc キーで消えます。
-		> 詳細は未確認ですが、 UI 表示直後は入力フォーカスがなく、 Esc が効かないようです。
-		> マウス操作を受け付ける領域がないため、 Alt+Tab などでアプリを切り替える等を行うなどすることで Esc で閉じることが可能になります。
+		>> note: 詳細は未確認ですが、 UI 表示直後は入力フォーカスがなく、 Esc が効かないようです。  
+		>> マウス操作を受け付ける領域がないため、 Alt+Tab などでアプリを切り替える等を行うなどすることで Esc で閉じることが可能になります。  
 
 ## 1.9. GAB_ShowWidget_WhileInputHeld
 
@@ -498,7 +512,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * データオンリーブループリントであり、表示する UI の設定のみ行われています。
 	* `Widget to Spawn` に `W_MatchScoreBoard_Elimination` が設定してあり、アビリティがアクティブになると Elimination 用のスコアボードの UI が表示され、入力の開放で消えます。
 
-> TDM は TeamDeathMatch の略称です。
+>> note: TDM は TeamDeathMatch の略称です。
 
 ## 1.10. GA_AutoRespawn
 
@@ -512,7 +526,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 			* これは [ULyraGameplayAbility_Reset] が送信します。
 		* Case2: イベント `OnAbatarEndPlay` が呼び出された場合。
 			* これは、イベント `AActor::OnEndPlay` にバインドしています。
-				> Note: AActor::OnEndPlay
+				* AActor::OnEndPlay のコメントより
 				> Event triggered when the actor is being deleted or removed from a level.  
 				> 
 				> ----
@@ -543,6 +557,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 ## 1.12. GA_Grenade
 
+公式ドキュメントより
 > このアビリティは、 `Ability.Type.Action.Grenade` タグのアセットで、 `InputTag.Weapon.Grenade` によってアクティブ化されます。  
 > これは `GE_Grenade_Cooldown` をクールダウン エフェクトとして使用します。  
 > On Pawn Avatar Set は、ローカルクライアントの UI Extension Subsystem でウィジェットを登録し、アビリティインスタンスごとにウィジェットが 1 つだけ追加されるようにします。  
@@ -582,7 +597,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * `AbilitySet_ShooterHero` ([ULyraAbilitySet]) に設定されています。
 	* その他、 [ULyraPawnData] 等の設定により、 `ControlPoints` / `Elimination` 等で、 [ALyraPlayerState] に付与されます。
 * アビリティの起動は付与された時点で行われます。
-	* これは *Details > Lyra > Ability Activation > Activation Policy* の *On Spawn* の設定によるものです。
+	* これは *Details > Lyra > Ability Activation > Activation Policy* を *On Spawn* に設定しているためです。
 * アビリティの起動後、 AbilityTask にて以下の Gameplay Event を待ちます。
 	* `InputTag.AbilityQuickslot.SelectSlot` (ペイロードパラメータに武器のスロットを表す 1 ～ 3 の数値も合わせて送信)
 	* `InputTag.AbilityQuickslot.CycleBackward`
@@ -603,15 +618,15 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 * `AbilitySet_ShooterHero` ([ULyraAbilitySet]) に設定されています。
 	* その他、 [ULyraPawnData] 等の設定により、 `ControlPoints` / `Elimination` 等で、 [ALyraPlayerState] に付与されます。
 * アビリティの起動は付与された時点で行われます。
-	* これは *Details > Lyra > Ability Activation > Activation Policy* の *On Spawn* の設定によるものです。
+	* これは *Details > Lyra > Ability Activation > Activation Policy* を *On Spawn* に設定しているためです。
 * スポーン時のモンタージュは、初期武器の装備モンタージュに上書きされるため見えません。
-	* 以下はブループリント内に記載されたコメントです。
-		> We play a montage but control the rest of the ability based on the nominal length,  
-		> ignoring if the montage is cancelled (e.g., by the equip anim)  
-		> 
-		> ----
-		> モンタージュを再生するが、モンタージュが（例えば装備アニメによって）キャンセルされた場合は無視して、  
-		> 残りのアビリティを公称の長さに基づいて制御する。
+	* ブループリント内のコメントより
+	> We play a montage but control the rest of the ability based on the nominal length,  
+	> ignoring if the montage is cancelled (e.g., by the equip anim)  
+	> 
+	> ----
+	> モンタージュを再生するが、モンタージュが（例えば装備アニメによって）キャンセルされた場合は無視して、  
+	> 残りのアビリティを公称の長さに基づいて制御する。
 
 ## 1.17. GA_ToggleMarkerInWorld
 
@@ -625,9 +640,10 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # 終わりに
 
-todo
-
+駆け足ですが、 Lyra で実装されているすべての GameplayAbility について、簡単に解説しました。  
+それぞれについて更に詳しく調べるためのきっかけになるように、アビリティの目的、付与のタイミング、起動の方法などを主にまとめました。  
 どなたかの参考になれば幸いです。
+
 
 
 -----
