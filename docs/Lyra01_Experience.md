@@ -19,7 +19,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	- [Enhanced Input と GameFeature](#enhanced-input-と-gamefeature)
 	- [エクスペリエンス と GameFeature](#エクスペリエンス-と-gamefeature)
 	- [ULyraHeroComponent で設定できる FMappableConfigPair に関して](#ulyraherocomponent-で設定できる-fmappableconfigpair-に関して)
-	- [プレイヤーが操作するアクターのについて](#プレイヤーが操作するアクターのについて)
+	- [プレイヤーが操作するアクターについて](#プレイヤーが操作するアクターについて)
 - [終わりに](#終わりに)
 
 
@@ -200,7 +200,7 @@ Lyra ではエクスペリエンスという独自の単位で GameFeature の�
 		* 開発用のマップであるため、 GameFeature を使用せずに [ULyraHeroComponent::DefaultInputConfigs] を使用しているものと思われる。
 
 
-## プレイヤーが操作するアクターのについて
+## プレイヤーが操作するアクターについて
 
 Lyra ではプレイヤーが操作するアクターはエクスペリエンスの設定に従うようにように実装されており、レベル毎に異なるアクターが利用可能です。
 
