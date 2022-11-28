@@ -2,6 +2,9 @@
 
 * 概要
 	* 称賛情報を表示するための widget です。
+	* `UCommonUserWidget` の派生クラスです。
+	* [FAsyncMixin] の派生クラスです。
+		* このクラスをミックスインし、昨日を利用することで、データの非同期ロードの制御を行っています。
 	* 処理の流れは概ね以下のようになります。
 		* [UGameplayMessageSubsystem] を利用し、称賛情報を含んだ Gameplay Message ([FLyraNotificationMessage]) の受信を待ちます。
 		* 受信したら、関連付けられたデータをロードし、称賛の通知するアイコンの表示やサウンドの再生等を行います。
@@ -37,6 +40,7 @@
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor
 [FLyraNotificationMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessage
 [FLyraNotificationMessage::PayloadTag]: ../../Lyra/GameplayMessageProcessorStruct/FLyraNotificationMessage.md#flyranotificationmessagepayloadtag
+[FAsyncMixin]: ../../Plugin/AsyncMixin/FAsyncMixin.md#fasyncmixin
 [UGameplayMessageSubsystem]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
 [UGameplayMessageSubsystem::RegisterListener()]: ../../Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystemregisterlistener
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry

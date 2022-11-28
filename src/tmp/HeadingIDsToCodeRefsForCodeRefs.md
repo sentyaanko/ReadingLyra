@@ -328,6 +328,8 @@
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [ULyraTouchRegion]: ../../Lyra/Widget/ULyraTouchRegion.md#ulyratouchregion
 [ULyraWeaponUserInterface]: ../../Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
+[AsymcMixin]: ../../Plugin/AsyncMixin/AsyncMixin.md#asymcmixin
+[FAsyncMixin]: ../../Plugin/AsyncMixin/FAsyncMixin.md#fasyncmixin
 [CommonGameInstance]: ../../Plugin/CommonGame/CommonGameInstance.md#commongameinstance
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout

@@ -160,6 +160,9 @@
 			- [ULyraTouchRegion]
 			- [ULyraWeaponUserInterface]
 	- Plugin
+		- AsyncMixin
+			- [AsyncMixin]
+			- [FAsyncMixin]
 		- CommonGame
 			- [CommonGameInstance]
 			- [UCommonUIExtensions]
@@ -354,6 +357,8 @@
 [ULyraTaggedWidget]: ./CodeRefs/Lyra/Widget/ULyraTaggedWidget.md
 [ULyraTouchRegion]: ./CodeRefs/Lyra/Widget/ULyraTouchRegion.md
 [ULyraWeaponUserInterface]: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md
+[AsyncMixin]: ./CodeRefs/Plugin/AsyncMixin/AsyncMixin.md
+[FAsyncMixin]: ./CodeRefs/Plugin/AsyncMixin/FAsyncMixin.md
 [CommonGameInstance]: ./CodeRefs/Plugin/CommonGame/CommonGameInstance.md
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md

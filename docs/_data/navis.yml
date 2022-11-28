@@ -160,6 +160,9 @@ nav:
         - ULyraTouchRegion: ./CodeRefs/Lyra/Widget/ULyraTouchRegion
         - ULyraWeaponUserInterface: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface
     - Plugin:
+      - AsyncMixin:
+        - AsyncMixin: ./CodeRefs/Plugin/AsyncMixin/AsyncMixin
+        - FAsyncMixin: ./CodeRefs/Plugin/AsyncMixin/FAsyncMixin
       - CommonGame:
         - CommonGameInstance: ./CodeRefs/Plugin/CommonGame/CommonGameInstance
         - UCommonUIExtensions: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions
