@@ -334,6 +334,7 @@
 [UCommonGameInstance ]: ../../Plugin/CommonGame/UCommonGameInstance.md#ucommongameinstance 
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
+[CommonUI]: ../../Plugin/CommonUI/CommonUI.md#commonui
 [ECommonInputMode]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmode
 [ECommonInputMode::Menu]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodemenu
 [ECommonInputMode::Game]: ../../Plugin/CommonUI/ECommonInputMode.md#ecommoninputmodegame

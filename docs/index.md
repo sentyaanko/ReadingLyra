@@ -169,6 +169,7 @@
 			- [UCommonUIExtensions]
 			- [UPrimaryGameLayout]
 		- CommonUI
+			- [CommonUI]
 			- [ECommonInputMode]
 			- [FUIInputConfig]
 			- [UCommonActivatableWidget]
@@ -364,6 +365,7 @@
 [UCommonGameInstance]: ./CodeRefs/Plugin/CommonGame/UCommonGameInstance.md
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
+[CommonUI]: ./CodeRefs/Plugin/CommonUI/CommonUI.md
 [ECommonInputMode]: ./CodeRefs/Plugin/CommonUI/ECommonInputMode.md
 [FUIInputConfig]: ./CodeRefs/Plugin/CommonUI/FUIInputConfig.md
 [UCommonActivatableWidget]: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget.md

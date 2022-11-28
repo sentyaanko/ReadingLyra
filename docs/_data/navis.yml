@@ -169,6 +169,7 @@ nav:
         - UCommonUIExtensions: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions
         - UPrimaryGameLayout: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout
       - CommonUI:
+        - CommonUI: ./CodeRefs/Plugin/CommonUI/CommonUI
         - ECommonInputMode: ./CodeRefs/Plugin/CommonUI/ECommonInputMode
         - FUIInputConfig: ./CodeRefs/Plugin/CommonUI/FUIInputConfig
         - UCommonActivatableWidget: ./CodeRefs/Plugin/CommonUI/UCommonActivatableWidget
