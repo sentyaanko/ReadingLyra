@@ -330,7 +330,8 @@
 [ULyraWeaponUserInterface]: CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md#ulyraweaponuserinterface
 [AsymcMixin]: CodeRefs/Plugin/AsyncMixin/AsyncMixin.md#asymcmixin
 [FAsyncMixin]: CodeRefs/Plugin/AsyncMixin/FAsyncMixin.md#fasyncmixin
-[CommonGameInstance]: CodeRefs/Plugin/CommonGame/CommonGameInstance.md#commongameinstance
+[CommonGame]: CodeRefs/Plugin/CommonGame/CommonGame.md#commongame
+[UCommonGameInstance ]: CodeRefs/Plugin/CommonGame/UCommonGameInstance.md#ucommongameinstance 
 [UCommonUIExtensions]: CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
 [ECommonInputMode]: CodeRefs/Plugin/CommonUI/ECommonInputMode.md#ecommoninputmode

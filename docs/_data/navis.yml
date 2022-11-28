@@ -164,7 +164,8 @@ nav:
         - AsyncMixin: ./CodeRefs/Plugin/AsyncMixin/AsyncMixin
         - FAsyncMixin: ./CodeRefs/Plugin/AsyncMixin/FAsyncMixin
       - CommonGame:
-        - CommonGameInstance: ./CodeRefs/Plugin/CommonGame/CommonGameInstance
+        - CommonGame: ./CodeRefs/Plugin/CommonGame/CommonGame
+        - UCommonGameInstance: ./CodeRefs/Plugin/CommonGame/UCommonGameInstance
         - UCommonUIExtensions: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions
         - UPrimaryGameLayout: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout
       - CommonUI:

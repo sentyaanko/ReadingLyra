@@ -164,7 +164,8 @@
 			- [AsyncMixin]
 			- [FAsyncMixin]
 		- CommonGame
-			- [CommonGameInstance]
+			- [CommonGame]
+			- [UCommonGameInstance]
 			- [UCommonUIExtensions]
 			- [UPrimaryGameLayout]
 		- CommonUI
@@ -359,7 +360,8 @@
 [ULyraWeaponUserInterface]: ./CodeRefs/Lyra/Widget/ULyraWeaponUserInterface.md
 [AsyncMixin]: ./CodeRefs/Plugin/AsyncMixin/AsyncMixin.md
 [FAsyncMixin]: ./CodeRefs/Plugin/AsyncMixin/FAsyncMixin.md
-[CommonGameInstance]: ./CodeRefs/Plugin/CommonGame/CommonGameInstance.md
+[CommonGame]: ./CodeRefs/Plugin/CommonGame/CommonGame.md
+[UCommonGameInstance]: ./CodeRefs/Plugin/CommonGame/UCommonGameInstance.md
 [UCommonUIExtensions]: ./CodeRefs/Plugin/CommonGame/UCommonUIExtensions.md
 [UPrimaryGameLayout]: ./CodeRefs/Plugin/CommonGame/UPrimaryGameLayout.md
 [ECommonInputMode]: ./CodeRefs/Plugin/CommonUI/ECommonInputMode.md
