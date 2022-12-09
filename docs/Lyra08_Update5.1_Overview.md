@@ -128,6 +128,7 @@ Unreal Engine 5.1 では、 Lyra Sample Game がアップデートされ、サ�
 	> 		* インターフェイス `IGameFrameworkInitStateInterface` も継承するように変更され、関連する処理も変更されました。
 	> 	* `ULyraPawnExtensionComponent`
 	> 		* 基底クラスが `ULyraPawnComponent` から `UPawnComponent` に変更されました。
+	> 		* インターフェイス `IGameFrameworkInitStateInterface` も継承するように変更され、関連する処理も変更されました。
 	> 			* その影響で以下のクラスがで呼び出す関数が変更されました。
 	> 				* `ALyraPlayerState`
 	> 					* `CheckPawnReadyToInitialize()` から `CheckDefaultInitialization()` に変更されました。
@@ -135,7 +136,6 @@ Unreal Engine 5.1 では、 Lyra Sample Game がアップデートされ、サ�
 	> 					* `CheckPawnReadyToInitialize()` から `CheckDefaultInitialization()` に変更されました。
 	> 				* `ULyraCheatManager`
 	> 					* `IsPawnReadyToInitialize()` から `HasReachedInitState()` に変更されました。
-	> 		* インターフェイス `IGameFrameworkInitStateInterface` も継承するように変更され、関連する処理も変更されました。
 	> 	* `UGameFeatureAction_AddInputConfig`
 	> 		* 基底クラスが `UGameFeatureAction` から `UGameFeatureAction_WorldActionBase` に変更されました。
 	> 			* これは `AddToWorld()` を使用するためです。
@@ -182,7 +182,7 @@ Unreal Engine 5.1 では、 Lyra Sample Game がアップデートされ、サ�
 	> 		* 成否をデリゲートで通知できるようになっています。
 * 新たなプラグイン ShooterExplorer と ShooterTest にプロトタイプとテスト用のコンテンツを追加しました。
 	> * `ShooterExplorer`
-	> 	* ShooterMaps 内に置かれていた InventoryTest 関連のコードやアセットからなります。
+	> 	* `ShooterMaps` 内に置かれていた InventoryTest 関連のコードやアセットからなります。
 	> 		* 以下のフォルダのものが移動されました。
 	> 			* `Plugins/GameFeatures/ShooterMaps/Content/PROTO/`
 	> 			* `Plugins/GameFeatures/ShooterMaps/Content/System/Experiences/`
@@ -575,19 +575,12 @@ Lyra Sample Game の 5.0 バージョンは、オリジナルのリリースに�
 
 公式ドキュメントでまとめられている点以外は基本的に細かな修正が多く、提供されている Lyra をそのまま動かす分には挙動は殆ど変わっていないと思います。  
 もし Lyra をベースにして独自の拡張を行っている場合、 `ULyraGameplayAbility_Reset` や `ULyraGamePhaseSubsystem` あたりの更新は影響を受けると思います。  
-`UInputTriggerComboAction` についても Lyra では使用されていませんでしたが、独自に使用していた場合は以前のものを時前で追加するなどが必要になります。  
+`UInputTriggerComboAction` についても Lyra では使用されていませんでしたが、独自に使用していた場合は以前のものを自前で追加するなどが必要になります。  
 
 -----
 おしまい。
 
 <!--- ページ内のリンク --->
-[Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
-[Unreal Engine 5.1 リリース ノート]: https://docs.unrealengine.com/5.1/ja/unreal-engine-5.1-release-notes/
-[Unreal Engine 5.1 Documentation > プロダクション パイプラインをセットアップする > Unreal ビルド パイプライン > UnrealBuildTool > モジュールのプロパティ]: https://docs.unrealengine.com/5.1/ja/module-properties-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Upgrading the Lyra Starter Game to the Latest Engine Release]: https://docs.unrealengine.com/5.1/ja/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要]: https://docs.unrealengine.com/5.1/ja/automation-system-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要 > 機能テスト]: https://docs.unrealengine.com/5.1/ja/functional-testing-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Developer > FunctionalTesting > AFunctionalTest]: https://docs.unrealengine.com/5.1/en-US/API/Developer/FunctionalTesting/AFunctionalTest/
 
 <!--- 自前の画像へのリンク --->
 
