@@ -5,3 +5,4 @@
 [ReadingLyra > 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略]: ./Lyra05_GameplayAbilitySystemOverview.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./Lyra06_GameplayAbilitySystemCppImplement.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(07) GameplayAbility]: ./Lyra07_GameplayAbility.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(08) Update5.1]: ./Lyra08_Update5.1_Overview.md

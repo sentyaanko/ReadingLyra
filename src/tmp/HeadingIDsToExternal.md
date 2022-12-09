@@ -44,6 +44,12 @@
 [Unreal Engine 5.0 Documentation > プログラミング サブシステム]: https://docs.unrealengine.com/5.0/ja/programming-subsystems/
 [Unreal Engine 5.0 Documentation > プロダクション パイプラインをセットアップする > アセット管理]: https://docs.unrealengine.com/5.0/ja/asset-management-in-unreal-engine/
 [Unreal Engine 5.0 Documentation > 入力値 > RawInput プラグイン]: https://docs.unrealengine.com/5.0/ja/enhanced-input-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Developer > FunctionalTesting > AFunctionalTest]: https://docs.unrealengine.com/5.1/en-US/API/Developer/FunctionalTesting/AFunctionalTest/
+[Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要]: https://docs.unrealengine.com/5.1/ja/automation-system-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要 > 機能テスト]: https://docs.unrealengine.com/5.1/ja/functional-testing-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Upgrading the Lyra Starter Game to the Latest Engine Release]: https://docs.unrealengine.com/5.1/ja/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > プロダクション パイプラインをセットアップする > Unreal ビルド パイプライン > UnrealBuildTool > モジュールのプロパティ]: https://docs.unrealengine.com/5.1/ja/module-properties-in-unreal-engine/
+[Unreal Engine 5.1 リリース ノート]: https://docs.unrealengine.com/5.1/ja/unreal-engine-5.1-release-notes/
 [Unreal Engine Issues > UE-142237]: https://issues.unrealengine.com/issue/UE-142237
 [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
