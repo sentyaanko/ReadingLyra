@@ -12,6 +12,11 @@
 	- [【UE5】Lyra に学ぶ(08) Update5.1]
 - クラス解説
 	- Lyra
+		- ABP
+			- [ABP_ItemAnimLayersBase]
+			- [ABP_Mannequin_Base]
+		- Animation
+			- [ULyraAnimInstance]
 		- AssetManager
 			- [ULyraAssetManager]
 		- Equipment
@@ -182,6 +187,8 @@
 			- [UUIExtensionPointWidget]
 			- [UUIExtensionSubsystem]
 	- UE
+		- Animation
+			- [UAnimInstance]
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
 		- DataRegistry
@@ -204,6 +211,8 @@
 		- GameplayAbility
 			- [FGameplayAbilitySpec]
 			- [FGameplayEffectSpec]
+			- [FGameplayTagBlueprintPropertyMap]
+			- [FGameplayTagBlueprintPropertyMapping]
 			- [UAbilitySystemGlobals]
 			- [UGameplayAbility]
 			- [UGameplayAbilitySet]
@@ -232,6 +241,9 @@
 [【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./Lyra06_GameplayAbilitySystemCppImplement.md
 [【UE5】Lyra に学ぶ(07) GameplayAbility]: ./Lyra07_GameplayAbility.md
 [【UE5】Lyra に学ぶ(08) Update5.1]: ./Lyra08_Update5.1_Overview.md
+[ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
+[ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
+[ULyraAnimInstance]: ./CodeRefs/Lyra/Animation/ULyraAnimInstance.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
 [FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
@@ -376,6 +388,7 @@
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
 [UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
+[UAnimInstance]: ./CodeRefs/UE/Animation/UAnimInstance.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistry]: ./CodeRefs/UE/DataRegistry/UDataRegistry.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
@@ -392,6 +405,8 @@
 [UGameUserSettings]: ./CodeRefs/UE/GameFramework/UGameUserSettings.md
 [FGameplayAbilitySpec]: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md
 [FGameplayEffectSpec]: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md
+[FGameplayTagBlueprintPropertyMap]: ./CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md
+[FGameplayTagBlueprintPropertyMapping]: ./CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md
 [UAbilitySystemGlobals]: ./CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals.md
 [UGameplayAbility]: ./CodeRefs/UE/GameplayAbility/UGameplayAbility.md
 [UGameplayAbilitySet]: ./CodeRefs/UE/GameplayAbility/UGameplayAbilitySet.md

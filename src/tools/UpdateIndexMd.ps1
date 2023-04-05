@@ -69,11 +69,11 @@ function Update-SaIndexMd{
 	$CodeRefsMdFilenames = Get-ChildItem CodeRefs -Include *.md -Recurse | ForEach-Object{((Resolve-Path $_ -Relative) -replace '\\','/')}
 
 	# CodeRefs 以下の md ファイル名の一覧 を元に見出しのリストの作成
-	$MdListItems = $CodeRefsMdFilenames | ForEach-Object{($_ -replace './CodeRefs/', '') -replace '/(\w+)\.md', '/[$1]'}
+	$MdListItems = $CodeRefsMdFilenames | ForEach-Object{($_ -replace './CodeRefs/', '') -replace '/([^/]+)\.md', '/[$1]'}
 	$CodeRefsLists = Get-SaMarkdownLists -ListItems $MdListItems -Indent 1
 
 	# CodeRefs 以下の md ファイル名の一覧 を元に HeadingIDs の作成
-	$HeadingIDsToCodeRefsForCodeRefs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/(\w+)\.md', '[$2]: $1/$2.md'}) -join "`n"
+	$HeadingIDsToCodeRefsForCodeRefs = ($CodeRefsMdFilenames | ForEach-Object{$_ -replace '(.+)/([^/]+)\.md', '[$2]: $1/$2.md'}) -join "`n"
 
 	$myContent="- 実装解説`n"+$RootLists+"`n- クラス解説`n"+$CodeRefsLists+"`n<!--- HedaingIDs --->`n"+$HeadingIDsToCodeRefsForRoot+"`n"+$HeadingIDsToCodeRefsForCodeRefs+"`n"
 	Update-SaFile -Filename "$PSScriptRoot\..\..\docs\index.md" -Keyword '<!--- generatede --->' -Content $myContent

@@ -1,3 +1,11 @@
+[ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abp_itemanimlayersbase
+[ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abp_mannequin_base
+[ULyraAnimInstance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstance
+[ULyraAnimInstance::NativeInitializeAnimation()]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeinitializeanimation
+[ULyraAnimInstance::NativeUpdateAnimation()]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeupdateanimation
+[ULyraAnimInstance::InitializeWithAbilitySystem()]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstanceinitializewithabilitysystem
+[ULyraAnimInstance::GameplayTagPropertyMap]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
+[ULyraAnimInstance::GroundDistance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance
 [ULyraAssetManager]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanager
 [ULyraAssetManager::DefaultPawnData]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
 [ULyraAssetManager::GetDefaultPawnData()]: ../../Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
@@ -355,6 +363,11 @@
 [UUIExtensionPointWidget]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: ../../Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
+[UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
+[UAnimInstance::GetInstanceCurrentStateElapsedTime()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
+[UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
+[UAnimInstance::NativeInitializeAnimation()]: ../../UE/Animation/UAnimInstance.md#uaniminstancenativeinitializeanimation
+[UAnimInstance::NativeUpdateAnimation()]: ../../UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
@@ -388,6 +401,13 @@
 [FGameplayAbilitySpec::AbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecabilitytags
 [FGameplayEffectSpec]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspec
 [FGameplayEffectSpec::CapturedSourceTags]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspeccapturedsourcetags
+[FGameplayTagBlueprintPropertyMap]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymap
+[FGameplayTagBlueprintPropertyMap::Initialize()]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymapinitialize
+[FGameplayTagBlueprintPropertyMap::GameplayTagEventCallback()]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymapgameplaytageventcallback
+[FGameplayTagBlueprintPropertyMap::PropertyMappings]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymappropertymappings
+[FGameplayTagBlueprintPropertyMapping]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymapping
+[FGameplayTagBlueprintPropertyMapping::TagToMap]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymappingtagtomap
+[FGameplayTagBlueprintPropertyMapping::PropertyToEdit]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymappingpropertytoedit
 [UAbilitySystemGlobals]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobals
 [UAbilitySystemGlobals::GameplayCueNotifyPaths]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths
 [UAbilitySystemGlobals::AllocGameplayEffectContext()]: ../../UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsallocgameplayeffectcontext

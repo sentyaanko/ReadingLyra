@@ -1,3 +1,11 @@
+[ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abp_itemanimlayersbase
+[ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abp_mannequin_base
+[ULyraAnimInstance]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstance
+[ULyraAnimInstance::NativeInitializeAnimation()]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeinitializeanimation
+[ULyraAnimInstance::NativeUpdateAnimation()]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeupdateanimation
+[ULyraAnimInstance::InitializeWithAbilitySystem()]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstanceinitializewithabilitysystem
+[ULyraAnimInstance::GameplayTagPropertyMap]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
+[ULyraAnimInstance::GroundDistance]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance
 [ULyraAssetManager]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanager
 [ULyraAssetManager::DefaultPawnData]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagerdefaultpawndata
 [ULyraAssetManager::GetDefaultPawnData()]: CodeRefs/Lyra/AssetManager/ULyraAssetManager.md#ulyraassetmanagergetdefaultpawndata
@@ -355,6 +363,11 @@
 [UUIExtensionPointWidget]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
+[UAnimInstance]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstance
+[UAnimInstance::GetInstanceCurrentStateElapsedTime()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
+[UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
+[UAnimInstance::NativeInitializeAnimation()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancenativeinitializeanimation
+[UAnimInstance::NativeUpdateAnimation()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
 [FPrimaryAssetTypeInfo]: CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: CodeRefs/UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
@@ -388,6 +401,13 @@
 [FGameplayAbilitySpec::AbilityTags]: CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecabilitytags
 [FGameplayEffectSpec]: CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspec
 [FGameplayEffectSpec::CapturedSourceTags]: CodeRefs/UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspeccapturedsourcetags
+[FGameplayTagBlueprintPropertyMap]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymap
+[FGameplayTagBlueprintPropertyMap::Initialize()]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymapinitialize
+[FGameplayTagBlueprintPropertyMap::GameplayTagEventCallback()]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymapgameplaytageventcallback
+[FGameplayTagBlueprintPropertyMap::PropertyMappings]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymappropertymappings
+[FGameplayTagBlueprintPropertyMapping]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymapping
+[FGameplayTagBlueprintPropertyMapping::TagToMap]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymappingtagtomap
+[FGameplayTagBlueprintPropertyMapping::PropertyToEdit]: CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping.md#fgameplaytagblueprintpropertymappingpropertytoedit
 [UAbilitySystemGlobals]: CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobals
 [UAbilitySystemGlobals::GameplayCueNotifyPaths]: CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsgameplaycuenotifypaths
 [UAbilitySystemGlobals::AllocGameplayEffectContext()]: CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals.md#uabilitysystemglobalsallocgameplayeffectcontext

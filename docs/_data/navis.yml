@@ -9,9 +9,14 @@ nav:
     - 【UE5】Lyra に学ぶ(05) GameplayAbilitySystem 概略: ./Lyra05_GameplayAbilitySystemOverview
     - 【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装: ./Lyra06_GameplayAbilitySystemCppImplement
     - 【UE5】Lyra に学ぶ(07) GameplayAbility: ./Lyra07_GameplayAbility
-    - 【UE5】Lyra に学ぶ(08) Update5.1: ./Lyra08_Update5.1_Overview.md
+    - 【UE5】Lyra に学ぶ(08) Update5.1: ./Lyra08_Update5.1_Overview
   - クラス解説:
     - Lyra:
+      - ABP:
+        - ABP_ItemAnimLayersBase: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase
+        - ABP_Mannequin_Base: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base
+      - Animation:
+        - ULyraAnimInstance: ./CodeRefs/Lyra/Animation/ULyraAnimInstance
       - AssetManager:
         - ULyraAssetManager: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager
       - Equipment:
@@ -182,6 +187,8 @@ nav:
         - UUIExtensionPointWidget: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget
         - UUIExtensionSubsystem: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem
     - UE:
+      - Animation:
+        - UAnimInstance: ./CodeRefs/UE/Animation/UAnimInstance
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
       - DataRegistry:
@@ -204,6 +211,8 @@ nav:
       - GameplayAbility:
         - FGameplayAbilitySpec: ./CodeRefs/UE/GameplayAbility/FGameplayAbilitySpec
         - FGameplayEffectSpec: ./CodeRefs/UE/GameplayAbility/FGameplayEffectSpec
+        - FGameplayTagBlueprintPropertyMap: ./CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMap
+        - FGameplayTagBlueprintPropertyMapping: ./CodeRefs/UE/GameplayAbility/FGameplayTagBlueprintPropertyMapping
         - UAbilitySystemGlobals: ./CodeRefs/UE/GameplayAbility/UAbilitySystemGlobals
         - UGameplayAbility: ./CodeRefs/UE/GameplayAbility/UGameplayAbility
         - UGameplayAbilitySet: ./CodeRefs/UE/GameplayAbility/UGameplayAbilitySet
