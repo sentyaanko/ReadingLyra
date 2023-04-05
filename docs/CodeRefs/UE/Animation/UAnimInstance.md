@@ -29,7 +29,7 @@
 > Get the current elapsed time of a state within the specified state machine  
 > 
 > ----
-> 指定されたステートマシン内のステートの現在の経過時間を取得します。
+> 指定されたステートマシン内のステートの現在の経過時間を取得します。  
 
 
 ### UAnimInstance::WasAnimNotifyStateActiveInSourceState()
@@ -37,7 +37,7 @@
 > Get whether a particular notify state is active in a specific state last tick.  
 > 
 > ----
-> 特定のステートの最後のティックで、指定された notify state がアクティブであるかどうかを取得する。
+> 特定のステートの最後のティックで、指定された notify state がアクティブであるかどうかを取得します。  
 
 
 ### UAnimInstance::NativeInitializeAnimation()
@@ -45,7 +45,7 @@
 > Native initialization override point  
 > 
 > ----
-> ネイティブ初期化オーバーライドポイント  
+> ネイティブ初期化オーバーライドポイントです。  
 
 
 ### UAnimInstance::NativeUpdateAnimation()
@@ -54,7 +54,7 @@
 > It is usually a good idea to simply gather data in this step and for the bulk of the work to be done in NativeThreadSafeUpdateAnimation.  
 >
 > ----
-> ネイティブ更新のオーバーライドポイント。
+> ネイティブ更新のオーバーライドポイントです。  
 > 通常、このステップでは単にデータを収集するだけで、作業の大部分は NativeThreadSafeUpdateAnimation で終了するのがよい方法です。
 
 
