@@ -339,7 +339,7 @@
 [AsymcMixin]: ../../Plugin/AsyncMixin/AsyncMixin.md#asymcmixin
 [FAsyncMixin]: ../../Plugin/AsyncMixin/FAsyncMixin.md#fasyncmixin
 [CommonGame]: ../../Plugin/CommonGame/CommonGame.md#commongame
-[UCommonGameInstance ]: ../../Plugin/CommonGame/UCommonGameInstance.md#ucommongameinstance 
+[UCommonGameInstance]: ../../Plugin/CommonGame/UCommonGameInstance.md#ucommongameinstance
 [UCommonUIExtensions]: ../../Plugin/CommonGame/UCommonUIExtensions.md#ucommonuiextensions
 [UPrimaryGameLayout]: ../../Plugin/CommonGame/UPrimaryGameLayout.md#uprimarygamelayout
 [CommonUI]: ../../Plugin/CommonUI/CommonUI.md#commonui
