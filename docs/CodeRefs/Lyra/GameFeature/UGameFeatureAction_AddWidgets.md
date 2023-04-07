@@ -75,9 +75,9 @@
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [FLyraHUDElementEntry]: ../../Lyra/GameFeature/FLyraHUDElementEntry.md#flyrahudelemententry
 [FLyraHUDLayoutRequest]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequest
-[UGameFeatureAction_AddWidgets::Layout]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetslayout
-[UGameFeatureAction_AddWidgets::Widgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgetswidgets
-[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
+[UGameFeatureAction_AddWidgets::Layout]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureactionaddwidgetslayout
+[UGameFeatureAction_AddWidgets::Widgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureactionaddwidgetswidgets
+[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureactionworldactionbase
 [ULyraAccoladeHostWidget]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraHUDLayout]: ../../Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
 [ULyraJoystickWidget]: ../../Lyra/Widget/ULyraJoystickWidget.md#ulyrajoystickwidget

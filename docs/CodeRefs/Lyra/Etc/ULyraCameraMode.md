@@ -40,5 +40,5 @@
 
 <!--- generated --->
 [ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
-[ULyraCameraMode_ThirdPerson]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode_thirdperson
-[ULyraCameraMode_TopDownArenaCamera]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode_topdownarenacamera
+[ULyraCameraMode_ThirdPerson]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramodethirdperson
+[ULyraCameraMode_TopDownArenaCamera]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramodetopdownarenacamera

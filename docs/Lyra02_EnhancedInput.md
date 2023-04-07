@@ -636,7 +636,6 @@ Lyra についての大まかな説明は以上です。
 おしまい。
 
 <!--- ページ内のリンク --->
-[Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合]: #lyra-における入力マッピング追加方法-uplayermappableinputconfig-経由-shootercore-の場合
 
 <!--- 自前の画像へのリンク --->
 [ContentBrowser-Type=DInputAction]: images/ContentBrowser-Type%3DInputAction.png
@@ -650,6 +649,7 @@ Lyra についての大まかな説明は以上です。
 [ULyraInputConfig-Referencing_ActionSet]: images/ULyraInputConfig-Referencing_ActionSet.png
 
 <!--- generated --->
+[Lyra における入力マッピング追加方法： UPlayerMappableInputConfig 経由： ShooterCore の場合]: #lyra--uplayermappableinputconfig--shootercore-
 [ULyraExperienceActionSet]: CodeRefs/Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraExperienceDefinition]: CodeRefs/Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [FLyraInputAction]: CodeRefs/Lyra/Input/FLyraInputAction.md#flyrainputaction

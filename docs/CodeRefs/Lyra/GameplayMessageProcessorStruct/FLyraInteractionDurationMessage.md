@@ -44,5 +44,5 @@
 
 <!--- generated --->
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
-[ULyraGameplayAbility_Interact::TriggerInteraction()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayability_interacttriggerinteraction
+[ULyraGameplayAbility_Interact::TriggerInteraction()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Interact.md#ulyragameplayabilityinteracttriggerinteraction
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget

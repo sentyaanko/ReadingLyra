@@ -27,4 +27,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[UInventoryFragment_EquippableItem]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragment_equippableitem
+[UInventoryFragment_EquippableItem]: ../../Lyra/Inventory/UInventoryFragment_EquippableItem.md#uinventoryfragmentequippableitem

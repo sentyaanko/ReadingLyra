@@ -90,7 +90,7 @@
 [ULyraGameplayAbility::ScriptOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityscriptonabilityfailedtoactivate
 [ULyraGameplayAbility::FailureTagToUserFacingMessages]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtouserfacingmessages
 [ULyraGameplayAbility::FailureTagToAnimMontage]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtoanimmontage
-[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
+[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweapon
 [FLyraAbilityMontageFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessage
 [FLyraAbilitySimpleFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessage
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget

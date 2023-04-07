@@ -15,4 +15,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent
+[UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdmplayerspawningmanagmentcomponent

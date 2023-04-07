@@ -139,8 +139,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 [FLyraQuickBarSlotsChangedMessage]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraQuickBarSlotsChangedMessage.md#flyraquickbarslotschangedmessage
 [FLyraVerbMessage]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessage.md#flyraverbmessage
 [FLyraVerbMessageReplication]: CodeRefs/Lyra/GameplayMessageProcessorStruct/FLyraVerbMessageReplication.md#flyraverbmessagereplication
-[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncaction_listenforgameplaymessage
+[UAsyncAction_ListenForGameplayMessage]: CodeRefs/Plugin/GameplayMessageSubsystem/UAsyncAction_ListenForGameplayMessage.md#uasyncactionlistenforgameplaymessage
 [UGameplayMessageSubsystem]: CodeRefs/Plugin/GameplayMessageSubsystem/UGameplayMessageSubsystem.md#ugameplaymessagesubsystem
-[UK2Node_AsyncAction_ListenForGameplayMessages]: CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2node_asyncaction_listenforgameplaymessages
+[UK2Node_AsyncAction_ListenForGameplayMessages]: CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md#uk2nodeasyncactionlistenforgameplaymessages
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra

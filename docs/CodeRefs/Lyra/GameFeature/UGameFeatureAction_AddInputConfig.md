@@ -42,7 +42,7 @@
 <!--- generated --->
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [FMappableConfigPair::bShouldActivateAutomatically]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairbshouldactivateautomatically
-[UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
+[UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfiginputconfigs
 [UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction
 [UGameFeatureAction::OnGameFeatureActivating()]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureactionongamefeatureactivating
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

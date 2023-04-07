@@ -23,5 +23,5 @@
 
 <!--- generated --->
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
-[ULyraPawnComponent_CharacterParts]: ../../Lyra/Etc/ULyraPawnComponent_CharacterParts.md#ulyrapawncomponent_characterparts
+[ULyraPawnComponent_CharacterParts]: ../../Lyra/Etc/ULyraPawnComponent_CharacterParts.md#ulyrapawncomponentcharacterparts
 [ILyraReadyInterface]: ../../Lyra/GameplayAbility/ILyraReadyInterface.md#ilyrareadyinterface

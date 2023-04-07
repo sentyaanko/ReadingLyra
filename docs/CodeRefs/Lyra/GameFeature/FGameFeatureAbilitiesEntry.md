@@ -65,6 +65,6 @@
 [FGameFeatureAbilitiesEntry::GrantedAbilitySets]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilitysets
 [FLyraAbilityGrant]: ../../Lyra/GameFeature/FLyraAbilityGrant.md#flyraabilitygrant
 [FLyraAttributeSetGrant]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#flyraattributesetgrant
-[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilities
-[UGameFeatureAction_AddAbilities::AddActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilitiesaddactorabilities
+[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilities
+[UGameFeatureAction_AddAbilities::AddActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitiesaddactorabilities
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset

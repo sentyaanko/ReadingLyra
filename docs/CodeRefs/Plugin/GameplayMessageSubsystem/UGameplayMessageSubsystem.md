@@ -126,11 +126,11 @@
 [ULyraQuickBarComponent]: ../../Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
 [ULyraGamePhaseAbility]: ../../Lyra/GameplayAbility/ULyraGamePhaseAbility.md#ulyragamephaseability
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
-[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
-[ULyraGameplayAbility_Reset]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayability_reset
+[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweapon
+[ULyraGameplayAbility_Reset]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Reset.md#ulyragameplayabilityreset
 [ULyraHealthComponent]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
 [ULyraHealthSet]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthset
-[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotify_burstlatent
+[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotifyburstlatent
 [ALyraGameState::MulticastMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients
 [ALyraGameState::MulticastReliableMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastreliablemessagetoclients
 [ALyraPlayerState::ClientBroadcastMessage()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage

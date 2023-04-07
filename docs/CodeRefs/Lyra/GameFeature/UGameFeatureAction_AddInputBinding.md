@@ -31,5 +31,5 @@
 
 <!--- generated --->
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
-[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
+[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureactionworldactionbase
 [ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig

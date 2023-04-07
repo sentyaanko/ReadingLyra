@@ -12,5 +12,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraGameFeature_HotfixManager]: ../../Lyra/GameFeature/ULyraGameFeature_HotfixManager.md#ulyragamefeature_hotfixmanager
+[ULyraGameFeature_HotfixManager]: ../../Lyra/GameFeature/ULyraGameFeature_HotfixManager.md#ulyragamefeaturehotfixmanager
 [UOnlineHotfixManager]: ../../UE/HotfixManager/UOnlineHotfixManager.md#uonlinehotfixmanager

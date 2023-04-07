@@ -110,9 +110,9 @@
 [FMappableConfigPair::DependentPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairdependentplatformtraits
 [FMappableConfigPair::ExcludedPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairexcludedplatformtraits
 [FMappableConfigPair::CanBeActivated()]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpaircanbeactivated
-[UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfig
-[UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfiginputconfigs
-[UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureaction_addinputconfigongamefeatureactivating
+[UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfig
+[UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfiginputconfigs
+[UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfigongamefeatureactivating
 [ULyraHeroComponent::DefaultInputConfigs]: ../../Lyra/GameplayAbility/ULyraHeroComponent.md#ulyraherocomponentdefaultinputconfigs
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata
 [UPlayerMappableInputConfig]: ../../UE/Input/UPlayerMappableInputConfig.md#uplayermappableinputconfig

@@ -19,4 +19,4 @@
 [ULyraNumberPopComponent]: ../../Lyra/Etc/ULyraNumberPopComponent.md#ulyranumberpopcomponent
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ALyraPlayerController]: ../../Lyra/GameplayFramework/ALyraPlayerController.md#alyraplayercontroller
-[UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureaction_addcomponents
+[UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureactionaddcomponents

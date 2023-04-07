@@ -45,7 +45,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayability_death
+[ULyraGameplayAbility_Death]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_Death.md#ulyragameplayabilitydeath
 [ULyraHealthComponent::StartDeath()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponentstartdeath
 [ULyraHealthSet::OnOutOfHealth]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetonoutofhealth
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter

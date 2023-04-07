@@ -52,9 +52,9 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweapon
-[ULyraGameplayAbility_RangedWeapon::OnTargetDataReadyCallback()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponontargetdatareadycallback
-[ULyraGameplayAbility_RangedWeapon::StartRangedWeaponTargeting()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayability_rangedweaponstartrangedweapontargeting
+[ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweapon
+[ULyraGameplayAbility_RangedWeapon::OnTargetDataReadyCallback()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweaponontargetdatareadycallback
+[ULyraGameplayAbility_RangedWeapon::StartRangedWeaponTargeting()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweaponstartrangedweapontargeting
 [ULyraWeaponStateComponent::AddUnconfirmedServerSideHitMarkers()]: ../../Lyra/Weapon/ULyraWeaponStateComponent.md#ulyraweaponstatecomponentaddunconfirmedserversidehitmarkers
-[UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureaction_addcomponents
+[UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureactionaddcomponents
 [UGameFeatureData]: ../../UE/GameFeature/UGameFeatureData.md#ugamefeaturedata

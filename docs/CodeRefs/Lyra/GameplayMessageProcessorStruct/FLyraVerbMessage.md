@@ -93,7 +93,7 @@
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [ULyraHealthComponent]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponent
 [ULyraHealthSet]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthset
-[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotify_burstlatent
+[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotifyburstlatent
 [ALyraGameState::MulticastMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastmessagetoclients
 [ALyraGameState::MulticastReliableMessageToClients()]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestatemulticastreliablemessagetoclients
 [ALyraPlayerState::ClientBroadcastMessage()]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstateclientbroadcastmessage

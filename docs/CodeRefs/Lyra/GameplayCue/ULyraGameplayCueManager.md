@@ -18,5 +18,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeature_addgameplaycuepaths
+[ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeatureaddgameplaycuepaths
 [UGameplayCueManager]: ../../UE/GameplayCue/UGameplayCueManager.md#ugameplaycuemanager

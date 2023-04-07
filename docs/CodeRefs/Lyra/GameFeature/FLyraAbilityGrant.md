@@ -23,6 +23,6 @@
 
 <!--- generated --->
 [FGameFeatureAbilitiesEntry::GrantedAbilities]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilities
-[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilities
-[UGameFeatureAction_AddAbilities::AddActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureaction_addabilitiesaddactorabilities
+[UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilities
+[UGameFeatureAction_AddAbilities::AddActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitiesaddactorabilities
 [UGameplayAbility]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayability

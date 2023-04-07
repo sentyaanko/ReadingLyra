@@ -44,5 +44,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeature_addgameplaycuepaths
+[ULyraGameFeature_AddGameplayCuePaths]: ../../Lyra/GameFeature/ULyraGameFeature_AddGameplayCuePaths.md#ulyragamefeatureaddgameplaycuepaths
 [ULyraGameplayCueManager]: ../../Lyra/GameplayCue/ULyraGameplayCueManager.md#ulyragameplaycuemanager

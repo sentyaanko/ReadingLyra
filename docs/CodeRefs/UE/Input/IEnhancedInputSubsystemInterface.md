@@ -168,7 +168,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[UGameFeatureAction_AddInputContextMapping]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmapping
+[UGameFeatureAction_AddInputContextMapping]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureactionaddinputcontextmapping
 [ULyraTaggedWidget]: ../../Lyra/Widget/ULyraTaggedWidget.md#ulyrataggedwidget
 [IEnhancedInputSubsystemInterface::RebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerebuildcontrolmappings
 [IEnhancedInputSubsystemInterface::RequestRebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerequestrebuildcontrolmappings

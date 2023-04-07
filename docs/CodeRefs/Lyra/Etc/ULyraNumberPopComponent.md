@@ -24,6 +24,6 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraNumberPopComponent_MeshText]: ../../Lyra/Etc/ULyraNumberPopComponent_MeshText.md#ulyranumberpopcomponent_meshtext
-[ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
-[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotify_burstlatent
+[ULyraNumberPopComponent_MeshText]: ../../Lyra/Etc/ULyraNumberPopComponent_MeshText.md#ulyranumberpopcomponentmeshtext
+[ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponentniagaratext
+[AGameplayCueNotify_BurstLatent]: ../../Lyra/GameplayCue/AGameplayCueNotify_BurstLatent.md#agameplaycuenotifyburstlatent

@@ -63,13 +63,13 @@
 [ULyraEquipmentManagerComponent]: ../../Lyra/Equipment/ULyraEquipmentManagerComponent.md#ulyraequipmentmanagercomponent
 [UAimAssistTargetManagerComponent]: ../../Lyra/Etc/UAimAssistTargetManagerComponent.md#uaimassisttargetmanagercomponent
 [ULyraBotCreationComponent]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
-[ULyraControllerComponent_CharacterParts]: ../../Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponent_characterparts
+[ULyraControllerComponent_CharacterParts]: ../../Lyra/Etc/ULyraControllerComponent_CharacterParts.md#ulyracontrollercomponentcharacterparts
 [ULyraFrontendStateComponent]: ../../Lyra/Etc/ULyraFrontendStateComponent.md#ulyrafrontendstatecomponent
 [ULyraIndicatorManagerComponent]: ../../Lyra/Etc/ULyraIndicatorManagerComponent.md#ulyraindicatormanagercomponent
-[ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponent_niagaratext
+[ULyraNumberPopComponent_NiagaraText]: ../../Lyra/Etc/ULyraNumberPopComponent_NiagaraText.md#ulyranumberpopcomponentniagaratext
 [ULyraQuickBarComponent]: ../../Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
 [ULyraTeamCreationComponent]: ../../Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponent
-[UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdm_playerspawningmanagmentcomponent
+[UTDM_PlayerSpawningManagmentComponent]: ../../Lyra/Etc/UTDM_PlayerSpawningManagmentComponent.md#utdmplayerspawningmanagmentcomponent
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter

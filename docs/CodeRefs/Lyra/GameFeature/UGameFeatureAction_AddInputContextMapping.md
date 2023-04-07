@@ -24,4 +24,4 @@
 
 <!--- generated --->
 [FInputMappingContextAndPriority]: ../../Lyra/GameFeature/FInputMappingContextAndPriority.md#finputmappingcontextandpriority
-[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureaction_worldactionbase
+[UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureactionworldactionbase

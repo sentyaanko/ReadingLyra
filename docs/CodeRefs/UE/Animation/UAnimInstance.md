@@ -63,7 +63,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abp_itemanimlayersbase
-[ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abp_mannequin_base
+[ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ULyraAnimInstance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstance
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance

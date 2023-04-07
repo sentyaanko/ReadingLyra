@@ -31,5 +31,5 @@
 
 <!--- generated --->
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
-[UGameFeatureAction_AddInputContextMapping::InputMappings]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureaction_addinputcontextmappinginputmappings
+[UGameFeatureAction_AddInputContextMapping::InputMappings]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputContextMapping.md#ugamefeatureactionaddinputcontextmappinginputmappings
 [UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext

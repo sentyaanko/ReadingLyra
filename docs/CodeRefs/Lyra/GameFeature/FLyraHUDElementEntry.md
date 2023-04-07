@@ -35,7 +35,7 @@
 
 <!--- generated --->
 [FLyraHUDLayoutRequest::LayoutClass]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequestlayoutclass
-[UGameFeatureAction_AddWidgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureaction_addwidgets
+[UGameFeatureAction_AddWidgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureactionaddwidgets
 [UUIExtensionPointWidget]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: ../../Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
