@@ -51,14 +51,14 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UGameFeatureAction_AddAbilities::AbilitiesList]: #ugamefeatureactionaddabilitiesabilitieslist
+[UGameFeatureAction_AddAbilities::AddActorAbilities()]: #ugamefeatureactionaddabilitiesaddactorabilities
+[UGameFeatureAction_AddAbilities::RemoveActorAbilities()]: #ugamefeatureactionaddabilitiesremoveactorabilities
+[UGameFeatureAction_AddAbilities::HandleActorExtension()]: #ugamefeatureactionaddabilitieshandleactorextension
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [FGameFeatureAbilitiesEntry]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentry
 [FGameFeatureAbilitiesEntry::GrantedAbilitySets]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilitysets
-[UGameFeatureAction_AddAbilities::AbilitiesList]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitiesabilitieslist
-[UGameFeatureAction_AddAbilities::AddActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitiesaddactorabilities
-[UGameFeatureAction_AddAbilities::RemoveActorAbilities()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitiesremoveactorabilities
-[UGameFeatureAction_AddAbilities::HandleActorExtension()]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilitieshandleactorextension
 [ULyraAbilitySet]: ../../Lyra/GameplayAbility/ULyraAbilitySet.md#ulyraabilityset
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate
 [UGameFeatureAction]: ../../UE/GameFeature/UGameFeatureAction.md#ugamefeatureaction

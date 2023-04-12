@@ -35,5 +35,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UInputTrigger]: #uinputtrigger
 [UInputAction::Triggers]: ../../UE/Input/UInputAction.md#uinputactiontriggers
-[UInputTrigger]: ../../UE/Input/UInputTrigger.md#uinputtrigger

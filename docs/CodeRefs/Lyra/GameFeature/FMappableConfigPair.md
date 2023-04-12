@@ -107,9 +107,9 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FMappableConfigPair::DependentPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairdependentplatformtraits
-[FMappableConfigPair::ExcludedPlatformTraits]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpairexcludedplatformtraits
-[FMappableConfigPair::CanBeActivated()]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpaircanbeactivated
+[FMappableConfigPair::DependentPlatformTraits]: #fmappableconfigpairdependentplatformtraits
+[FMappableConfigPair::ExcludedPlatformTraits]: #fmappableconfigpairexcludedplatformtraits
+[FMappableConfigPair::CanBeActivated()]: #fmappableconfigpaircanbeactivated
 [UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfig
 [UGameFeatureAction_AddInputConfig::InputConfigs]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfiginputconfigs
 [UGameFeatureAction_AddInputConfig::OnGameFeatureActivating()]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfigongamefeatureactivating

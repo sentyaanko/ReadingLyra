@@ -51,10 +51,10 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UElimChainProcessor::PlayerChainHistory]: #uelimchainprocessorplayerchainhistory
+[UElimChainProcessor::ElimChainTags]: #uelimchainprocessorelimchaintags
+[UElimChainProcessor::OnEliminationMessage()]: #uelimchainprocessoroneliminationmessage
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraHealthComponent::HandleOutOfHealth()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
 [FPlayerElimChainInfo]: ../../Lyra/GameplayMessageProcessor/FPlayerElimChainInfo.md#fplayerelimchaininfo
-[UElimChainProcessor::PlayerChainHistory]: ../../Lyra/GameplayMessageProcessor/UElimChainProcessor.md#uelimchainprocessorplayerchainhistory
-[UElimChainProcessor::ElimChainTags]: ../../Lyra/GameplayMessageProcessor/UElimChainProcessor.md#uelimchainprocessorelimchaintags
-[UElimChainProcessor::OnEliminationMessage()]: ../../Lyra/GameplayMessageProcessor/UElimChainProcessor.md#uelimchainprocessoroneliminationmessage
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor

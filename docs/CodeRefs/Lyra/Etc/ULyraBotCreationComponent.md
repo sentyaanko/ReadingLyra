@@ -29,9 +29,9 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraBotCreationComponent]: #ulyrabotcreationcomponent
+[ULyraBotCreationComponent::BotControllerClass]: #ulyrabotcreationcomponentbotcontrollerclass
 [ALyraPlayerBotController]: ../../Lyra/Etc/ALyraPlayerBotController.md#alyraplayerbotcontroller
-[ULyraBotCreationComponent]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponent
-[ULyraBotCreationComponent::BotControllerClass]: ../../Lyra/Etc/ULyraBotCreationComponent.md#ulyrabotcreationcomponentbotcontrollerclass
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
 [UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureactionaddcomponents

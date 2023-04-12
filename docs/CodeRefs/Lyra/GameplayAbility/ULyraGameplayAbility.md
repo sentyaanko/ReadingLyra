@@ -85,11 +85,11 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraGameplayAbility::NativeOnAbilityFailedToActivate()]: #ulyragameplayabilitynativeonabilityfailedtoactivate
+[ULyraGameplayAbility::ScriptOnAbilityFailedToActivate()]: #ulyragameplayabilityscriptonabilityfailedtoactivate
+[ULyraGameplayAbility::FailureTagToUserFacingMessages]: #ulyragameplayabilityfailuretagtouserfacingmessages
+[ULyraGameplayAbility::FailureTagToAnimMontage]: #ulyragameplayabilityfailuretagtoanimmontage
 [ULyraAbilitySystemComponent::HandleAbilityFailed()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponenthandleabilityfailed
-[ULyraGameplayAbility::NativeOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilitynativeonabilityfailedtoactivate
-[ULyraGameplayAbility::ScriptOnAbilityFailedToActivate()]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityscriptonabilityfailedtoactivate
-[ULyraGameplayAbility::FailureTagToUserFacingMessages]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtouserfacingmessages
-[ULyraGameplayAbility::FailureTagToAnimMontage]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayabilityfailuretagtoanimmontage
 [ULyraGameplayAbility_RangedWeapon]: ../../Lyra/GameplayAbility/ULyraGameplayAbility_RangedWeapon.md#ulyragameplayabilityrangedweapon
 [FLyraAbilityMontageFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilityMontageFailureMessage.md#flyraabilitymontagefailuremessage
 [FLyraAbilitySimpleFailureMessage]: ../../Lyra/GameplayMessageProcessorStruct/FLyraAbilitySimpleFailureMessage.md#flyraabilitysimplefailuremessage

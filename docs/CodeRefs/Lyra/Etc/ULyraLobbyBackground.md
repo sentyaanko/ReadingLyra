@@ -24,5 +24,6 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraLobbyBackground]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackground
-[ULyraLobbyBackground::BackgroundLevel]: ../../Lyra/Etc/ULyraLobbyBackground.md#ulyralobbybackgroundbackgroundlevel
+[ULyraLobbyBackground]: #ulyralobbybackground
+[ULyraLobbyBackground::BackgroundLevel]: #ulyralobbybackgroundbackgroundlevel
+

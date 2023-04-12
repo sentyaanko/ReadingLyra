@@ -94,9 +94,9 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FEnhancedActionKeyMapping::Action]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingaction
-[FEnhancedActionKeyMapping::Key]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingkey
-[FEnhancedActionKeyMapping::Triggers]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymappingtriggers
+[FEnhancedActionKeyMapping::Action]: #fenhancedactionkeymappingaction
+[FEnhancedActionKeyMapping::Key]: #fenhancedactionkeymappingkey
+[FEnhancedActionKeyMapping::Triggers]: #fenhancedactionkeymappingtriggers
 [IEnhancedInputSubsystemInterface::RebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerebuildcontrolmappings
 [UInputAction]: ../../UE/Input/UInputAction.md#uinputaction
 [UInputMappingContext::Mappings]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontextmappings

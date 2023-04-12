@@ -25,6 +25,6 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UDataRegistry]: #udataregistry
 [FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
-[UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [Unreal Engine 5.0 Documentation > インタラクティブな体験をつくりだす > データ駆動型のゲームプレイエレメント > データ レジストリ]: https://docs.unrealengine.com/5.0/ja/data-registries-in-unreal-engine/

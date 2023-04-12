@@ -15,4 +15,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ALyraWeaponSpawner]: ../../Lyra/Etc/ALyraWeaponSpawner.md#alyraweaponspawner
+[ALyraWeaponSpawner]: #alyraweaponspawner
+

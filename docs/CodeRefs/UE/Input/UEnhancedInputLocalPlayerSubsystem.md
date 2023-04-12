@@ -26,7 +26,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()]: #uenhancedinputlocalplayersubsystemgetplayerinput
 [IEnhancedInputSubsystemInterface]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterface
-[UEnhancedInputLocalPlayerSubsystem::GetPlayerInput()]: ../../UE/Input/UEnhancedInputLocalPlayerSubsystem.md#uenhancedinputlocalplayersubsystemgetplayerinput
 [UEnhancedPlayerInput]: ../../UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinput
 [UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext

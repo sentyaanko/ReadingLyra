@@ -39,6 +39,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraCameraMode]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramode
-[ULyraCameraMode_ThirdPerson]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramodethirdperson
-[ULyraCameraMode_TopDownArenaCamera]: ../../Lyra/Etc/ULyraCameraMode.md#ulyracameramodetopdownarenacamera
+[ULyraCameraMode]: #ulyracameramode
+[ULyraCameraMode_ThirdPerson]: #ulyracameramodethirdperson
+[ULyraCameraMode_TopDownArenaCamera]: #ulyracameramodetopdownarenacamera
+

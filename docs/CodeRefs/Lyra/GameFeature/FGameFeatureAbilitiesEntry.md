@@ -59,10 +59,10 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FGameFeatureAbilitiesEntry::ActorClass]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentryactorclass
-[FGameFeatureAbilitiesEntry::GrantedAbilities]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilities
-[FGameFeatureAbilitiesEntry::GrantedAttributes]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedattributes
-[FGameFeatureAbilitiesEntry::GrantedAbilitySets]: ../../Lyra/GameFeature/FGameFeatureAbilitiesEntry.md#fgamefeatureabilitiesentrygrantedabilitysets
+[FGameFeatureAbilitiesEntry::ActorClass]: #fgamefeatureabilitiesentryactorclass
+[FGameFeatureAbilitiesEntry::GrantedAbilities]: #fgamefeatureabilitiesentrygrantedabilities
+[FGameFeatureAbilitiesEntry::GrantedAttributes]: #fgamefeatureabilitiesentrygrantedattributes
+[FGameFeatureAbilitiesEntry::GrantedAbilitySets]: #fgamefeatureabilitiesentrygrantedabilitysets
 [FLyraAbilityGrant]: ../../Lyra/GameFeature/FLyraAbilityGrant.md#flyraabilitygrant
 [FLyraAttributeSetGrant]: ../../Lyra/GameFeature/FLyraAttributeSetGrant.md#flyraattributesetgrant
 [UGameFeatureAction_AddAbilities]: ../../Lyra/GameFeature/UGameFeatureAction_AddAbilities.md#ugamefeatureactionaddabilities

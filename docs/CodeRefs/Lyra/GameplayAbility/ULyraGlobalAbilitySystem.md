@@ -58,10 +58,10 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraGlobalAbilitySystem::RegisterASC()]: #ulyraglobalabilitysystemregisterasc
+[ULyraGlobalAbilitySystem::UnregisterASC()]: #ulyraglobalabilitysystemunregisterasc
 [ULyraAbilitySystemComponent]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponent
 [ULyraAbilitySystemComponent::ProcessAbilityInput()]: ../../Lyra/GameplayAbility/ULyraAbilitySystemComponent.md#ulyraabilitysystemcomponentprocessabilityinput
-[ULyraGlobalAbilitySystem::RegisterASC()]: ../../Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystemregisterasc
-[ULyraGlobalAbilitySystem::UnregisterASC()]: ../../Lyra/GameplayAbility/ULyraGlobalAbilitySystem.md#ulyraglobalabilitysystemunregisterasc
 [ULyraHealthSet::PreGameplayEffectExecute()]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetpregameplayeffectexecute
 [ULyraCharacterMovementComponent::GetDeltaRotation()]: ../../Lyra/GameplayFramework/ULyraCharacterMovementComponent.md#ulyracharactermovementcomponentgetdeltarotation
 [ULyraCharacterMovementComponent::GetMaxSpeed()]: ../../Lyra/GameplayFramework/ULyraCharacterMovementComponent.md#ulyracharactermovementcomponentgetmaxspeed

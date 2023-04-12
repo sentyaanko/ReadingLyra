@@ -52,9 +52,9 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UElimStreakProcessor::PlayerStreakHistory]: #uelimstreakprocessorplayerstreakhistory
+[UElimStreakProcessor::ElimStreakTags]: #uelimstreakprocessorelimstreaktags
+[UElimStreakProcessor::OnEliminationMessage()]: #uelimstreakprocessoroneliminationmessage
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraHealthComponent::HandleOutOfHealth()]: ../../Lyra/GameplayAbility/ULyraHealthComponent.md#ulyrahealthcomponenthandleoutofhealth
-[UElimStreakProcessor::PlayerStreakHistory]: ../../Lyra/GameplayMessageProcessor/UElimStreakProcessor.md#uelimstreakprocessorplayerstreakhistory
-[UElimStreakProcessor::ElimStreakTags]: ../../Lyra/GameplayMessageProcessor/UElimStreakProcessor.md#uelimstreakprocessorelimstreaktags
-[UElimStreakProcessor::OnEliminationMessage()]: ../../Lyra/GameplayMessageProcessor/UElimStreakProcessor.md#uelimstreakprocessoroneliminationmessage
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor

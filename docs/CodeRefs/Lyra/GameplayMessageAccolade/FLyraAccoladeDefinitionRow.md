@@ -13,5 +13,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FLyraAccoladeDefinitionRow]: ../../Lyra/GameplayMessageAccolade/FLyraAccoladeDefinitionRow.md#flyraaccoladedefinitionrow
+[FLyraAccoladeDefinitionRow]: #flyraaccoladedefinitionrow
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry

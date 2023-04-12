@@ -142,8 +142,8 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: #ugameplayabilitymakeoutgoinggameplayeffectspec
+[UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: #ugameplayabilityapplyabilitytagstogameplayeffectspec
 [ULyraGameplayAbility]: ../../Lyra/GameplayAbility/ULyraGameplayAbility.md#ulyragameplayability
 [FGameplayAbilitySpec::DynamicAbilityTags]: ../../UE/GameplayAbility/FGameplayAbilitySpec.md#fgameplayabilityspecdynamicabilitytags
 [FGameplayEffectSpec::CapturedSourceTags]: ../../UE/GameplayAbility/FGameplayEffectSpec.md#fgameplayeffectspeccapturedsourcetags
-[UGameplayAbility::MakeOutgoingGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilitymakeoutgoinggameplayeffectspec
-[UGameplayAbility::ApplyAbilityTagsToGameplayEffectSpec()]: ../../UE/GameplayAbility/UGameplayAbility.md#ugameplayabilityapplyabilitytagstogameplayeffectspec

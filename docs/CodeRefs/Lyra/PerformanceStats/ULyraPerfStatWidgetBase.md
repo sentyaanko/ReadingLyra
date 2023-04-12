@@ -19,4 +19,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraPerfStatWidgetBase]: ../../Lyra/PerformanceStats/ULyraPerfStatWidgetBase.md#ulyraperfstatwidgetbase
+[ULyraPerfStatWidgetBase]: #ulyraperfstatwidgetbase
+

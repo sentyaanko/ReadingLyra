@@ -37,7 +37,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraTeamCreationComponent::TeamsToCreate]: ../../Lyra/Etc/ULyraTeamCreationComponent.md#ulyrateamcreationcomponentteamstocreate
+[ULyraTeamCreationComponent::TeamsToCreate]: #ulyrateamcreationcomponentteamstocreate
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [ALyraGameState]: ../../Lyra/GameplayFramework/ALyraGameState.md#alyragamestate
 [ALyraPlayerState]: ../../Lyra/GameplayFramework/ALyraPlayerState.md#alyraplayerstate

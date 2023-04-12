@@ -22,4 +22,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ALyraPlayerBotController]: ../../Lyra/Etc/ALyraPlayerBotController.md#alyraplayerbotcontroller
+[ALyraPlayerBotController]: #alyraplayerbotcontroller
+

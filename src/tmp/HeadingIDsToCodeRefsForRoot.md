@@ -1,5 +1,158 @@
 [ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
+[GRAPHS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#graphs
+[EventGraph]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#eventgraph
+[ANIMATION GRAPHS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#animation-graphs
+[AnimGraph]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#animgraph
+[LocomotionSM]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#locomotionsm
+[Idle (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#idle-state
+[Start (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#start-state
+[Cycle (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#cycle-state
+[Stop (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#stop-state
+[Pivot (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivot-state
+[JumpStart (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpstart-state
+[JumpStartLoop (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpstartloop-state
+[JumpApex (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpapex-state
+[FallLoop (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fallloop-state
+[FallLand (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fallland-state
+[PivotSources]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivotsources
+[JumpSources]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpsources
+[JumpFallInterruptSources]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpfallinterruptsources
+[CycleAlias]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#cyclealias
+[IdleAlias]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#idlealias
+[JumpSelector (conduit rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpselector-conduit-rule
+[EndAir (conduit rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#endair-conduit-rule
+[Idle to Start (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#idle-to-start-rule
+[Start to Cycle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#start-to-cycle-rule
+[StopRule (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#stoprule-rule
+[Stop to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#stop-to-idle-rule
+[Stop to Start (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#stop-to-start-rule
+[PivotSources to Pivot (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivotsources-to-pivot-rule
+[Pivot to Cycle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivot-to-cycle-rule
+[Pivot to Stop (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivot-to-stop-rule
+[JumpSources to JumpSelector (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpsources-to-jumpselector-rule
+[JumpSelector to JumpStart (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpselector-to-jumpstart-rule
+[JumpStart to JumpStartLoop (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpstart-to-jumpstartloop-rule
+[JumpStartLoop to JumpApex (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpstartloop-to-jumpapex-rule
+[JumpSelector to JumpApex (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpselector-to-jumpapex-rule
+[JumpApex to FallLoop (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpapex-to-fallloop-rule
+[FallLoop to FallLand (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fallloop-to-fallland-rule
+[FallLand to EndAir (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fallland-to-endair-rule
+[JumpFallInterruptSources to EndAir (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#jumpfallinterruptsources-to-endair-rule
+[EndAir to CycleAlias (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#endair-to-cyclealias-rule
+[EndAir to IdleAlias (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#endair-to-idlealias-rule
+[ANIMATION LAYERS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#animation-layers
+[Item Anim Layers]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#item-anim-layers
+[FullBodyAdditives]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyadditives
+[FullBody_IdleState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyidlestate
+[FullBody_StartState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodystartstate
+[FullBody_CycleState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodycyclestate
+[FullBody_StopState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodystopstate
+[FullBody_PivotState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodypivotstate
+[FullBody_Aiming]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyaiming
+[FullBody_JumpStartState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyjumpstartstate
+[FullBody_JumpApexState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyjumpapexstate
+[FullBody_FallLandState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyfalllandstate
+[FullBody_FallLoopState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyfallloopstate
+[FullBody_JumpStartLoopState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyjumpstartloopstate
+[FullBody_SkeletalControls]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#fullbodyskeletalcontrols
+[LeftHandPose_OverrideState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#lefthandposeoverridestate
+[FUNCTIONS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#functions
+[State Node Functions]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#state-node-functions
+[UpdateIdleState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updateidlestate
+[SetUpStartState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#setupstartstate
+[UpdateStartState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatestartstate
+[UpdateStopState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatestopstate
+[SetUpPivotState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#setuppivotstate
+[UpdatePivotState()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatepivotstate
+[UpdateLocomotionStateMachine()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatelocomotionstatemachine
+[Helper Functions]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#helper-functions
+[GetOppositeCardinalDirection()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#getoppositecardinaldirection
+[IsMovingPerpendicularToInitialPivot()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#ismovingperpendiculartoinitialpivot
+[Blueprint Thread Safe Update Functions]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#blueprint-thread-safe-update-functions
+[UpdateLocationData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatelocationdata
+[UpdateRotationData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updaterotationdata
+[UpdateVelocityData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatevelocitydata
+[UpdateAccelerationData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updateaccelerationdata
+[UpdateCharacterStateData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatecharacterstatedata
+[UpdateBlendWeightData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updateblendweightdata
+[UpdateAimingData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updateaimingdata
+[UpdateJumpFallData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatejumpfalldata
+[UpdateWallDetectionHeuristic()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updatewalldetectionheuristic
+[Turn In Place]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#turn-in-place
+[SetRootYawOffset()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#setrootyawoffset
+[ProcessTurnYawCurve()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#processturnyawcurve
+[UpdateRootYawOffset()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#updaterootyawoffset
+[Default(FUNCTIONS)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#defaultfunctions
+[BlueprintThreadSafeUpdateAnimation()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#blueprintthreadsafeupdateanimation
+[GetMovementComponent()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#getmovementcomponent
+[ShouldEnableControlRig()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#shouldenablecontrolrig
+[VALIABLES]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#valiables
+[Rotation Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rotation-data
+[WorldRotation]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#worldrotation
+[YawDeltaSinceLastUpdate]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#yawdeltasincelastupdate
+[AdditiveLeanAngle]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#additiveleanangle
+[YawDeltaSpeed]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#yawdeltaspeed
+[Location Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#location-data
+[WorldLocation]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#worldlocation
+[DisplacementSinceLastUpdate]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#displacementsincelastupdate
+[DisplacementSpeed]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#displacementspeed
+[Velocity Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#velocity-data
+[WorldVelocity]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#worldvelocity
+[LocalVelocity2D]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localvelocity2d
+[LocalVelocityDirectionAngle]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localvelocitydirectionangle
+[LocalVelocityDirectionAngleWithOffset]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localvelocitydirectionanglewithoffset
+[LocalVelocityDirection]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localvelocitydirection
+[LocalVelocityDirectionNoOffset]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localvelocitydirectionnooffset
+[HasVelocity]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#hasvelocity
+[Acceleration Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#acceleration-data
+[LocalAcceleration2D]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#localacceleration2d
+[HasAcceleration]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#hasacceleration
+[PivotDirection2D]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivotdirection2d
+[Character State Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#character-state-data
+[IsOnGround]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#isonground
+[IsCrouching]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#iscrouching
+[CrouchStateChange]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#crouchstatechange
+[ADSStateChanged]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#adsstatechanged
+[WasADSLastUpdate]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#wasadslastupdate
+[TimeSinceFiredWeapon]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#timesincefiredweapon
+[IsJumping]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#isjumping
+[IsFalling]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#isfalling
+[TimeToJumpApex]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#timetojumpapex
+[IsRunningIntoWall]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#isrunningintowall
+[Gameplay Tag Bindings]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplay-tag-bindings
+[GameplayTag_IsADS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplaytagisads
+[GameplayTag_IsFiring]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplaytagisfiring
+[GameplayTag_IsReloading]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplaytagisreloading
+[GameplayTag_IsDashing]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplaytagisdashing
+[GameplayTag_IsMelee]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#gameplaytagismelee
+[Locomotion SM Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#locomotion-sm-data
+[StartDirection]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#startdirection
+[PivotInitialDirection]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#pivotinitialdirection
+[LastPivotTime]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#lastpivottime
+[CardinalDirectionFromAcceleration]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#cardinaldirectionfromacceleration
+[Blend Weight Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#blend-weight-data
+[UpperbodyDynamicAdditiveWeight]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#upperbodydynamicadditiveweight
+[Aiming Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#aiming-data
+[AimPitch]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#aimpitch
+[AimYaw]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#aimyaw
+[Settings]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#settings
+[CardinalDirectionDeadZone]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#cardinaldirectiondeadzone
+[Linked Layer Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#linked-layer-data
+[LinkedLayerChanged]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#linkedlayerchanged
+[LastLinkedLayer]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#lastlinkedlayer
+[Turn In Place]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#turn-in-place
+[RootYawOffset]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rootyawoffset
+[RootYawOffsetSpringState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rootyawoffsetspringstate
+[TurnYawCurveValue]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#turnyawcurvevalue
+[RootYawOffsetMode]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rootyawoffsetmode
+[RootYawOffsetAngleClamp]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rootyawoffsetangleclamp
+[RootYawOffsetAngleClampCrouched]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#rootyawoffsetangleclampcrouched
+[Default(VALIABLES)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#defaultvaliables
+[IsFirstUpdate]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#isfirstupdate
+[EnableControlRig]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#enablecontrolrig
+[UseFootPlacement]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#usefootplacement
+[bEnableRootYawOffset]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#benablerootyawoffset
 [ULyraAnimInstance]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstance
 [ULyraAnimInstance::NativeInitializeAnimation()]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeinitializeanimation
 [ULyraAnimInstance::NativeUpdateAnimation()]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancenativeupdateanimation

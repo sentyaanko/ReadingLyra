@@ -82,6 +82,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[ULyraInputConfig]: #ulyrainputconfig
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [FLyraInputAction]: ../../Lyra/Input/FLyraInputAction.md#flyrainputaction
 [FLyraInputAction::InputAction]: ../../Lyra/Input/FLyraInputAction.md#flyrainputactioninputaction
@@ -90,5 +91,4 @@
 [ULyraInputComponent::RemoveInputMappings()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentremoveinputmappings
 [ULyraInputComponent::BindNativeAction()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentbindnativeaction
 [ULyraInputComponent::BindAbilityActions()]: ../../Lyra/Input/ULyraInputComponent.md#ulyrainputcomponentbindabilityactions
-[ULyraInputConfig]: ../../Lyra/Input/ULyraInputConfig.md#ulyrainputconfig
 [ULyraPawnData]: ../../Lyra/PawnSetting/ULyraPawnData.md#ulyrapawndata

@@ -62,8 +62,8 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[ULyraSettingsLocal::RegisteredInputConfigs]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalregisteredinputconfigs
-[ULyraSettingsLocal::CustomKeyboardConfig]: ../../Lyra/Etc/ULyraSettingsLocal.md#ulyrasettingslocalcustomkeyboardconfig
+[ULyraSettingsLocal::RegisteredInputConfigs]: #ulyrasettingslocalregisteredinputconfigs
+[ULyraSettingsLocal::CustomKeyboardConfig]: #ulyrasettingslocalcustomkeyboardconfig
 [FMappableConfigPair]: ../../Lyra/GameFeature/FMappableConfigPair.md#fmappableconfigpair
 [UGameFeatureAction_AddInputConfig]: ../../Lyra/GameFeature/UGameFeatureAction_AddInputConfig.md#ugamefeatureactionaddinputconfig
 [FLoadedMappableConfigPair]: ../../Lyra/Input/FLoadedMappableConfigPair.md#floadedmappableconfigpair

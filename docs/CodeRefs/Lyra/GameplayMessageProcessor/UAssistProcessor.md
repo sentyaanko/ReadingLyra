@@ -42,8 +42,8 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UAssistProcessor::DamageHistory]: #uassistprocessordamagehistory
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraHealthSet::PostGameplayEffectExecute()]: ../../Lyra/GameplayAbility/ULyraHealthSet.md#ulyrahealthsetpostgameplayeffectexecute
 [FPlayerAssistDamageTracking]: ../../Lyra/GameplayMessageProcessor/FPlayerAssistDamageTracking.md#fplayerassistdamagetracking
-[UAssistProcessor::DamageHistory]: ../../Lyra/GameplayMessageProcessor/UAssistProcessor.md#uassistprocessordamagehistory
 [UGameplayMessageProcessor]: ../../Lyra/GameplayMessageProcessor/UGameplayMessageProcessor.md#ugameplaymessageprocessor

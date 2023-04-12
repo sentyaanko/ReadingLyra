@@ -65,11 +65,11 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UEnhancedPlayerInput::AddMapping()]: #uenhancedplayerinputaddmapping
+[UEnhancedPlayerInput::EnhancedActionMappings]: #uenhancedplayerinputenhancedactionmappings
 [FEnhancedActionKeyMapping]: ../../UE/Input/FEnhancedActionKeyMapping.md#fenhancedactionkeymapping
 [IEnhancedInputSubsystemInterface]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterface
 [IEnhancedInputSubsystemInterface::RebuildControlMappings()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfacerebuildcontrolmappings
 [IEnhancedInputSubsystemInterface::AddMappingContext()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceaddmappingcontext
 [IEnhancedInputSubsystemInterface::RemoveMappingContext()]: ../../UE/Input/IEnhancedInputSubsystemInterface.md#ienhancedinputsubsysteminterfaceremovemappingcontext
-[UEnhancedPlayerInput::AddMapping()]: ../../UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinputaddmapping
-[UEnhancedPlayerInput::EnhancedActionMappings]: ../../UE/Input/UEnhancedPlayerInput.md#uenhancedplayerinputenhancedactionmappings
 [UInputMappingContext]: ../../UE/Input/UInputMappingContext.md#uinputmappingcontext

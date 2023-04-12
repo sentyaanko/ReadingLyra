@@ -71,12 +71,12 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[UGameFeatureAction_AddWidgets::Layout]: #ugamefeatureactionaddwidgetslayout
+[UGameFeatureAction_AddWidgets::Widgets]: #ugamefeatureactionaddwidgetswidgets
 [ULyraExperienceActionSet]: ../../Lyra/Experience/ULyraExperienceActionSet.md#ulyraexperienceactionset
 [ULyraExperienceDefinition]: ../../Lyra/Experience/ULyraExperienceDefinition.md#ulyraexperiencedefinition
 [FLyraHUDElementEntry]: ../../Lyra/GameFeature/FLyraHUDElementEntry.md#flyrahudelemententry
 [FLyraHUDLayoutRequest]: ../../Lyra/GameFeature/FLyraHUDLayoutRequest.md#flyrahudlayoutrequest
-[UGameFeatureAction_AddWidgets::Layout]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureactionaddwidgetslayout
-[UGameFeatureAction_AddWidgets::Widgets]: ../../Lyra/GameFeature/UGameFeatureAction_AddWidgets.md#ugamefeatureactionaddwidgetswidgets
 [UGameFeatureAction_WorldActionBase]: ../../Lyra/GameFeature/UGameFeatureAction_WorldActionBase.md#ugamefeatureactionworldactionbase
 [ULyraAccoladeHostWidget]: ../../Lyra/GameplayMessageAccolade/ULyraAccoladeHostWidget.md#ulyraaccoladehostwidget
 [ULyraHUDLayout]: ../../Lyra/Widget/ULyraHUDLayout.md#ulyrahudlayout
