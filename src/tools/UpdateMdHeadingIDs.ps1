@@ -19,72 +19,32 @@ function Select-SaString{
 	$DataSet
 }
 
-# HeadingIDs ファイルに記載されている SPL の使用中の Index 配列の取得
-# @param $SPLHeadingIDs HeadingIDs ファイルに記載されている SPL 。この中を検索する。
-# @param $FPLUsing 使用されている FPL 。この中にあるものを検索する。
-# @param $SPLLocalDefined ローカルに記載されている SPL 。 $SPLHeadingIDs の中になく、この中にもない場合は警告を表示する。
-# @param $FPLHeadings ファイル内のヘッダーから作った FPL 。この中にあるものは出力しない。
-function Get-SaIndexOfSPL{
-	param(
-		[string[]]$SPLHeadingIDs,
-		[string[]]$FPLUsing,
-		[string[]]$SPLLocalDefined,
-		[string[]]$FPLHeadings,
-		[string[]]$SPLHeadingAnchors,
-		[bool]$IsOutputWarning
-	)
-	$mode = 'test2'
-
-	switch($mode){
-		original {
-			$dic=Select-SaString -SplitedContent $SPLHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
-			$FPLUsing | ForEach-Object{if($FPLHeadings.Contains($_)){}else{if($dic.ContainsKey($_)){$dic[$_]}else{if($SPLLocalDefined.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}
-			break
-		}
-		test2 {
-			$dic=Select-SaString -SplitedContent $SPLHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
-			$FPLUsing | ForEach-Object{if($SPLHeadingAnchors.ContainsKey($_)){}else{if($dic.ContainsKey($_)){$dic[$_]}else{if($IsOutputWarning){if($SPLLocalDefined.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}}
-			break
-		}
-	}
-}
-
 # 参照している SPL を join した文字列を取得する
-# @param $SPLHeadingIDs HeadingIDs ファイルに記載されている SPL
 # @param $FPLUsing 使用されている FPL
+# @param $SPLHeadingIDs HeadingIDs ファイルに記載されている SPL
 # @param $SPLLocalDefined ローカルに記載されている SPL
-# @param $FPLHeadings ファイル内のヘッダーから作った FPL
+# @param $SPLHeadingAnchors ファイル内のヘッダーから作った SPL
 function Get-SaJoinedSPLReferencing{
 	param(
-		[string[]]$SPLHeadingIDs,
 		[string[]]$FPLUsing,
+		[string[]]$SPLHeadingIDs,
 		[string[]]$SPLLocalDefined,
-		[string[]]$FPLHeadings,
 		[string[]]$SPLHeadingAnchors
 	)
-	$mode = 'test2'
+	# $FPLUsing のうち、 $SPLHeadingAnchors に含まれるものの一覧を作成する
+	$dicHeadingAnchors=Select-SaString -SplitedContent $SPLHeadingAnchors -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
+	$IndexOfSPLHeadingAnchors=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){$dicHeadingAnchors[$_]}}
+	[string[]]$SPLHeadingAnchorsReferencing=$IndexOfSPLHeadingAnchors | Sort-Object | ForEach-Object{$SPLHeadingAnchors[$_]}
 
-	switch($mode){
-		original {
-			$IndexOfSPL=Get-SaIndexOfSPL -FPLUsing $FPLUsing -SPLLocalDefined $SPLLocalDefined -FPLHeadings $FPLHeadings -SPLHeadingIDs $SPLHeadingIDs -SPLHeadingAnchors $SPLHeadingAnchors
-			(($IndexOfSPL | Sort-Object | ForEach-Object{$SPLHeadingIDs[$_]}) -join "`n")+"`n"
-			break
-		}
-		test2 {
-			$dicHeadingAnchors=Select-SaString -SplitedContent $SPLHeadingAnchors -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
-			$IndexOfSPLHeadingAnchors=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){$dicHeadingAnchors[$_]}}
-			[string[]]$SPLHeadingAnchorsReferencing=$IndexOfSPLHeadingAnchors | Sort-Object | ForEach-Object{$SPLHeadingAnchors[$_]}
+	# $FPLUsing のうち、 $SPLHeadingAnchors に含まれず、 $SPLHeadingIDs に含まれるものの一覧を作成する
+	# また、どちらにも含まれず、さらに $SPLLocalDefined にも含まれない場合はウォーニングメッセージを出力する。
+	$dicHeadingIDs=Select-SaString -SplitedContent $SPLHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
+	$IndexOfSPLHeadingIDs=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){}else{if($dicHeadingIDs.ContainsKey($_)){$dicHeadingIDs[$_]}else{if($SPLLocalDefined.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}
+	[string[]]$SPLHeadingIDsReferencing=$IndexOfSPLHeadingIDs | Sort-Object | ForEach-Object{$SPLHeadingIDs[$_]}
 
-			$dicHeadingIDs=Select-SaString -SplitedContent $SPLHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
-			$IndexOfSPLHeadingIDs=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){}else{if($dicHeadingIDs.ContainsKey($_)){$dicHeadingIDs[$_]}else{if($SPLLocalDefined.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}
-			[string[]]$SPLHeadingIDsReferencing=$IndexOfSPLHeadingIDs | Sort-Object | ForEach-Object{$SPLHeadingIDs[$_]}
+	$SPLHeading = $SPLHeadingAnchorsReferencing + $SPLHeadingIDsReferencing
 
-			$SPLHeading = $SPLHeadingAnchorsReferencing + $SPLHeadingIDsReferencing
-
-			($SPLHeading -join "`n")+"`n"
-			break
-		}
-	}
+	($SPLHeading -join "`n")+"`n"
 }
 
 # 更新後のコンテンツの取得
@@ -98,64 +58,16 @@ function Get-SaUpdatedContent{
 	# Content を行分割する
 	$SplitedContent=$Content -split "`n"
 
-	$mode = 'test2'
+	# Content から # で始まる行を探し、 heading と anchor のペアの配列を作る
+	$HeadingToAnchorDic=$SplitedContent | Select-String '^#' | ForEach-Object {$LinkName=($_.Line -replace '^#+\s','') -replace '\s+\<\!-- omit in toc --\>', '';$Anchor=Get-SaAnchor -Heading $LinkName;@{LinkName=$LinkName;Anchor=$Anchor}}
+	# Joined SPL を作る
+	[string[]]$SPLHeadingAnchors=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]: #$($_.Anchor)"}
 
-	switch($mode){
-		original {
-			# Content から # で始まる行を探し、 heading と anchor のペアの配列を作る
-			$HeadingToAnchorDic=$SplitedContent | Select-String '^#' | ForEach-Object {$LinkName=($_.Line -replace '^#+\s','') -replace '\s+\<\!-- omit in toc --\>', '';$Anchor=Get-SaAnchor -Heading $LinkName;@{LinkName=$LinkName;Anchor=$Anchor}}
-			# Joined SPL を作る
-			#$JoinedSPLHeadingAnchors=(($HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]: #$($_.Anchor)"}) -join "`n") + "`n"
-			[string[]]$SPLHeadingAnchors=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]: #$($_.Anchor)"}
-			$JoinedSPLHeadingAnchors=($SPLHeadingAnchors -join "`n") + "`n"
-			# anchor のみを取り出して FPL を作る
-			$FPLHeadings=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]"}
-			#$FPLHeadings=@()
+	$FPLUsing=(Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]{2,}\])([^:(]|$)').Keys
+	$SPLLocalDefined=(Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]{2,}\]): +(.+)$').Keys
 
-			#todo 内部リンクを作らなくした理由がよくわからんので見直す
-
-			$FPLUsing=(Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]{2,}\])([^:(]|$)').Keys
-			$SPLLocalDefined=(Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]{2,}\]): +(.+)$').Keys
-
-			#内部参照を使わないパターン
-			#$SPLAll = $SPLHeadingAnchors + $SPLHeadingIDs
-			#$JoinedSPLReferencing=Get-SaJoinedSPLReferencing -SPLHeadingIDs $SPLAll -FPLUsing $FPLUsing -SPLLocalDefined $SPLLocalDefined -FPLHeadings $FPLHeadings
-			#$Content+$JoinedSPLReferencing
-
-			$JoinedSPLReferencing=Get-SaJoinedSPLReferencing -SPLHeadingIDs $SPLHeadingIDs -FPLUsing $FPLUsing -SPLLocalDefined $SPLLocalDefined -FPLHeadings $FPLHeadings
-			$Content+$JoinedSPLHeadingAnchors+"`n"+$JoinedSPLReferencing
-			break
-		}
-		test1 {
-			# Content から # で始まる行を探し、 heading と anchor のペアの配列を作る
-			$HeadingToAnchorDic=$SplitedContent | Select-String '^#' | ForEach-Object {$LinkName=($_.Line -replace '^#+\s','') -replace '\s+\<\!-- omit in toc --\>', '';$Anchor=Get-SaAnchor -Heading $LinkName;@{LinkName=$LinkName;Anchor=$Anchor}}
-			# Joined SPL を作る
-			[string[]]$SPLHeadingAnchors=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]: #$($_.Anchor)"}
-			$JoinedSPLHeadingAnchors=($SPLHeadingAnchors -join "`n") + "`n"
-			# anchor のみを取り出して FPL を作る
-			$FPLHeadings=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]"}
-
-			$FPLUsing=(Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]{2,}\])([^:(]|$)').Keys
-			$SPLLocalDefined=(Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]{2,}\]): +(.+)$').Keys
-
-			$JoinedSPLReferencing=Get-SaJoinedSPLReferencing -SPLHeadingIDs $SPLHeadingIDs -FPLUsing $FPLUsing -SPLLocalDefined $SPLLocalDefined -FPLHeadings $FPLHeadings
-			$Content+$JoinedSPLHeadingAnchors+"`n"+$JoinedSPLReferencing
-			break
-		}
-		test2 {
-			# Content から # で始まる行を探し、 heading と anchor のペアの配列を作る
-			$HeadingToAnchorDic=$SplitedContent | Select-String '^#' | ForEach-Object {$LinkName=($_.Line -replace '^#+\s','') -replace '\s+\<\!-- omit in toc --\>', '';$Anchor=Get-SaAnchor -Heading $LinkName;@{LinkName=$LinkName;Anchor=$Anchor}}
-			# Joined SPL を作る
-			[string[]]$SPLHeadingAnchors=$HeadingToAnchorDic | ForEach-Object{"[$($_.LinkName)]: #$($_.Anchor)"}
-
-			$FPLUsing=(Select-SaString -SplitedContent $SplitedContent -Pattern '(\[[^\]]{2,}\])([^:(]|$)').Keys
-			$SPLLocalDefined=(Select-SaString -SplitedContent $SplitedContent -Pattern '^(\[[^\]]{2,}\]): +(.+)$').Keys
-
-			$JoinedSPLReferencing=Get-SaJoinedSPLReferencing -SPLHeadingIDs $SPLHeadingIDs -FPLUsing $FPLUsing -SPLLocalDefined $SPLLocalDefined -SPLHeadingAnchors $SPLHeadingAnchors
-			$Content+$JoinedSPLReferencing
-			break
-		}
-	}
+	$JoinedSPLReferencing=Get-SaJoinedSPLReferencing -FPLUsing $FPLUsing -SPLHeadingIDs $SPLHeadingIDs -SPLLocalDefined $SPLLocalDefined -SPLHeadingAnchors $SPLHeadingAnchors
+	$Content+$JoinedSPLReferencing
 }
 # .md ファイルの SPL の更新処理
 # @param $HeadingIDsFullName 利用する HeadingIDs のファイル名
