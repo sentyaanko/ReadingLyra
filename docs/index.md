@@ -15,7 +15,12 @@
 		- ABP
 			- [ABP_ItemAnimLayersBase]
 			- [ABP_Mannequin_Base]
+			- [ALI_ItemAnimLayers]
 			- [AnimEnum_RootYawOffsetMode]
+			- [Comment_AnimBP_Tour.En]
+			- [Comment_AnimBP_Tour.Ja]
+			- [Comment_TourInPlace.En]
+			- [Comment_TourInPlace.Ja]
 		- Animation
 			- [ULyraAnimInstance]
 		- AssetManager
@@ -244,7 +249,12 @@
 [【UE5】Lyra に学ぶ(08) Update5.1]: ./Lyra08_Update5.1_Overview.md
 [ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
 [ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
+[ALI_ItemAnimLayers]: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md
 [AnimEnum_RootYawOffsetMode]: ./CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md
+[Comment_AnimBP_Tour.En]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md
+[Comment_AnimBP_Tour.Ja]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md
+[Comment_TourInPlace.En]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En.md
+[Comment_TourInPlace.Ja]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.Ja.md
 [ULyraAnimInstance]: ./CodeRefs/Lyra/Animation/ULyraAnimInstance.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
