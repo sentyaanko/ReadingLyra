@@ -26,5 +26,5 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlistentries
+[FLyraEquipmentList::Entries]: ../../Lyra/Equipment/FLyraEquipmentList.md#flyraequipmentlistentries
 [ULyraEquipmentDefinition]: ../../Lyra/Equipment/ULyraEquipmentDefinition.md#ulyraequipmentdefinition

@@ -15,13 +15,14 @@ nav:
       - ABP:
         - ABP_ItemAnimLayersBase: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase
         - ABP_Mannequin_Base: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base
+        - AnimEnum_RootYawOffsetMode: ./CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode
       - Animation:
         - ULyraAnimInstance: ./CodeRefs/Lyra/Animation/ULyraAnimInstance
       - AssetManager:
         - ULyraAssetManager: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager
       - Equipment:
         - FLyraAppliedEquipmentEntry: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry
-        - FLyraInventoryList: ./CodeRefs/Lyra/Equipment/FLyraInventoryList
+        - FLyraEquipmentList: ./CodeRefs/Lyra/Equipment/FLyraEquipmentList
         - ULyraEquipmentDefinition: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition
         - ULyraEquipmentManagerComponent: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent
       - Etc:

@@ -27,7 +27,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[FLyraEquipmentList]: ../../Lyra/Equipment/FLyraInventoryList.md#flyraequipmentlist
+[FLyraEquipmentList]: ../../Lyra/Equipment/FLyraEquipmentList.md#flyraequipmentlist
 [ULyraQuickBarComponent]: ../../Lyra/Etc/ULyraQuickBarComponent.md#ulyraquickbarcomponent
 [ALyraCharacter]: ../../Lyra/GameplayFramework/ALyraCharacter.md#alyracharacter
 [UGameFeatureAction_AddComponents]: ../../UE/GameFeature/UGameFeatureAction_AddComponents.md#ugamefeatureactionaddcomponents

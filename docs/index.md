@@ -15,13 +15,14 @@
 		- ABP
 			- [ABP_ItemAnimLayersBase]
 			- [ABP_Mannequin_Base]
+			- [AnimEnum_RootYawOffsetMode]
 		- Animation
 			- [ULyraAnimInstance]
 		- AssetManager
 			- [ULyraAssetManager]
 		- Equipment
 			- [FLyraAppliedEquipmentEntry]
-			- [FLyraInventoryList]
+			- [FLyraEquipmentList]
 			- [ULyraEquipmentDefinition]
 			- [ULyraEquipmentManagerComponent]
 		- Etc
@@ -243,10 +244,11 @@
 [【UE5】Lyra に学ぶ(08) Update5.1]: ./Lyra08_Update5.1_Overview.md
 [ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
 [ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
+[AnimEnum_RootYawOffsetMode]: ./CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md
 [ULyraAnimInstance]: ./CodeRefs/Lyra/Animation/ULyraAnimInstance.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md
-[FLyraInventoryList]: ./CodeRefs/Lyra/Equipment/FLyraInventoryList.md
+[FLyraEquipmentList]: ./CodeRefs/Lyra/Equipment/FLyraEquipmentList.md
 [ULyraEquipmentDefinition]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentDefinition.md
 [ULyraEquipmentManagerComponent]: ./CodeRefs/Lyra/Equipment/ULyraEquipmentManagerComponent.md
 [ALyraPlayerBotController]: ./CodeRefs/Lyra/Etc/ALyraPlayerBotController.md
