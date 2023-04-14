@@ -1,4 +1,4 @@
-## AsymcMixin
+## AsyncMixin
 
 >> 詳細は未確認です。
 

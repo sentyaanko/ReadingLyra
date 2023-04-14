@@ -4,7 +4,7 @@
 	* Gameplay Ability を付与するために [UGameFeatureAction_AddAbilities] が使用するデータです。
 	* アトリビュートセットの付与で利用する情報を納めるための構造体です。
 
-### FGameFeatureAbilitiesEntry::AttributeSetType
+### FLyraAttributeSetGrant::AttributeSetType
 > Ability set to grant
 > 
 > ----
@@ -13,7 +13,7 @@
 * 概要
 	* `UAttributeSet` 派生クラスを指定します。
 
-### FGameFeatureAbilitiesEntry::InitializationData
+### FLyraAttributeSetGrant::InitializationData
 > Data table referent to initialize the attributes with, if any (can be left unset)
 > 
 > ----

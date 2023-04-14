@@ -8,7 +8,7 @@
 * 概要
 	* [UAssistProcessor] が保持する、プレイヤー毎の被ダメージを記録する構造体です。
 
-### UAssistProcessor::AccumulatedDamageByPlayer
+### FPlayerAssistDamageTracking::AccumulatedDamageByPlayer
 
 > Map of damager to damage dealt  
 > 
