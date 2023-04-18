@@ -1,4 +1,8 @@
 [ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
+[ABP_ItemAnimLayersBase::SetUpPivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
+[ABP_ItemAnimLayersBase::UpdatePivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
+[ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::GRAPHS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegraphs
 [ABP_Mannequin_Base::EventGraph]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseeventgraph
@@ -21,7 +25,7 @@
 [ABP_Mannequin_Base::CycleAlias]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasecyclealias
 [ABP_Mannequin_Base::IdleAlias]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseidlealias
 [ABP_Mannequin_Base::JumpSelector (conduit rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasejumpselector-conduit-rule
-[ABP_Mannequin_Base::EndAir (conduit rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendair-conduit-rule
+[ABP_Mannequin_Base::EndInAir (conduit rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendinair-conduit-rule
 [ABP_Mannequin_Base::Idle to Start (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseidle-to-start-rule
 [ABP_Mannequin_Base::Start to Cycle (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasestart-to-cycle-rule
 [ABP_Mannequin_Base::StopRule (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasestoprule-rule
@@ -37,10 +41,10 @@
 [ABP_Mannequin_Base::JumpSelector to JumpApex (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasejumpselector-to-jumpapex-rule
 [ABP_Mannequin_Base::JumpApex to FallLoop (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasejumpapex-to-fallloop-rule
 [ABP_Mannequin_Base::FallLoop to FallLand (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasefallloop-to-fallland-rule
-[ABP_Mannequin_Base::FallLand to EndAir (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasefallland-to-endair-rule
-[ABP_Mannequin_Base::JumpFallInterruptSources to EndAir (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasejumpfallinterruptsources-to-endair-rule
-[ABP_Mannequin_Base::EndAir to CycleAlias (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendair-to-cyclealias-rule
-[ABP_Mannequin_Base::EndAir to IdleAlias (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendair-to-idlealias-rule
+[ABP_Mannequin_Base::FallLand to EndInAir (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasefallland-to-endinair-rule
+[ABP_Mannequin_Base::JumpFallInterruptSources to EndInAir (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasejumpfallinterruptsources-to-endinair-rule
+[ABP_Mannequin_Base::EndInAir to CycleAlias (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendinair-to-cyclealias-rule
+[ABP_Mannequin_Base::EndInAir to IdleAlias (rule)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseendinair-to-idlealias-rule
 [ABP_Mannequin_Base::ANIMATION LAYERS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseanimation-layers
 [ABP_Mannequin_Base::Item Anim Layers]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseitem-anim-layers
 [ABP_Mannequin_Base::FullBodyAdditives]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasefullbodyadditives
@@ -155,6 +159,11 @@
 [ABP_Mannequin_Base::UseFootPlacement]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseusefootplacement
 [ABP_Mannequin_Base::bEnableRootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasebenablerootyawoffset
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
+[AnimEnum_CardinalDirection]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirection
+[AnimEnum_CardinalDirection::Forward]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirectionforward
+[AnimEnum_CardinalDirection::Backward]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirectionbackward
+[AnimEnum_CardinalDirection::Left]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirectionleft
+[AnimEnum_CardinalDirection::Right]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirectionright
 [AnimEnum_RootYawOffsetMode]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmode
 [AnimEnum_RootYawOffsetMode::BlendOut]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeblendout
 [AnimEnum_RootYawOffsetMode::Hold]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodehold
@@ -563,6 +572,7 @@
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
 [UAnimInstance::NativeInitializeAnimation()]: ../../UE/Animation/UAnimInstance.md#uaniminstancenativeinitializeanimation
 [UAnimInstance::NativeUpdateAnimation()]: ../../UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
+[UAnimInstance::IsAnyMontagePlaying()]: ../../UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem

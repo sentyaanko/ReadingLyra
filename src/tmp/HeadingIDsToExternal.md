@@ -1,3 +1,4 @@
+[Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 [GASDocumentation(和訳) > 4.11.2 Target Actors]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-targeting-actors
 [GASDocumentation(和訳) > 4.7.3 Using Ability Tasks]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-at-using
@@ -47,10 +48,14 @@
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Developer > FunctionalTesting > AFunctionalTest]: https://docs.unrealengine.com/5.1/en-US/API/Developer/FunctionalTesting/AFunctionalTest/
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  慣性化]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E6%85%A3%E6%80%A7%E5%8C%96
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
 [Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要]: https://docs.unrealengine.com/5.1/ja/automation-system-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要 > 機能テスト]: https://docs.unrealengine.com/5.1/ja/functional-testing-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%AE%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95%E3%81%AA%E6%9B%B4%E6%96%B0%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Upgrading the Lyra Starter Game to the Latest Engine Release]: https://docs.unrealengine.com/5.1/ja/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > プロダクション パイプラインをセットアップする > Unreal ビルド パイプライン > UnrealBuildTool > モジュールのプロパティ]: https://docs.unrealengine.com/5.1/ja/module-properties-in-unreal-engine/
 [Unreal Engine 5.1 リリース ノート]: https://docs.unrealengine.com/5.1/ja/unreal-engine-5.1-release-notes/

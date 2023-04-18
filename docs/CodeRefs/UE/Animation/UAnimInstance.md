@@ -58,6 +58,16 @@
 > 通常、このステップでは単にデータを収集するだけで、作業の大部分は NativeThreadSafeUpdateAnimation で終了するのがよい方法です。
 
 
+### UAnimInstance::IsAnyMontagePlaying()
+
+> Returns true if any montage is playing currently.  
+> Doesn't mean it's active though, it could be blending out.  
+> 
+> ----
+> モンタージュが現在再生されている場合、true を返します。  
+> ただし、アクティブであることを意味するものではなく、ブレンドアウトしている可能性もあります。  
+
+
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->

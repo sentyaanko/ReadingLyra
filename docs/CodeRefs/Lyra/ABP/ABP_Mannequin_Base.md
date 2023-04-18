@@ -29,7 +29,7 @@
 					* [IdleAlias]
 				* Conduit
 					* [JumpSelector (conduit rule)]
-					* [EndAir (conduit rule)]
+					* [EndInAir (conduit rule)]
 				* Transition Rule Sharing
 					* [StopRule (rule)]
 				* Rule
@@ -48,10 +48,10 @@
 					* [JumpSelector to JumpApex (rule)]
 					* [JumpApex to FallLoop (rule)]
 					* [FallLoop to FallLand (rule)]
-					* [FallLand to EndAir (rule)]
-					* [JumpFallInterruptSources to EndAir (rule)]
-					* [EndAir to CycleAlias (rule)]
-					* [EndAir to IdleAlias (rule)]
+					* [FallLand to EndInAir (rule)]
+					* [JumpFallInterruptSources to EndInAir (rule)]
+					* [EndInAir to CycleAlias (rule)]
+					* [EndInAir to IdleAlias (rule)]
 	* [ANIMATION LAYERS]
 		* [Item Anim Layers]
 			* [FullBodyAdditives]
@@ -175,11 +175,11 @@
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]
 			* 命名規則は以下のいずれかです。
 				* Update（関数のタイプが On Update） + ステート名 + State
-					* 例：UpdateIdleState()
+					* 例：[UpdateIdleState()]
 				* SetUp（関数のタイプが On Become Relevant） + ステート名 + State
-					* 例：SetUpStartState()
+					* 例：[SetUpStartState()]
 				* その他（LocomotionSM の On Update）
-					* UpdateLocomotionStateMachine()
+					* [UpdateLocomotionStateMachine()]
 		* [Helper Functions]
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
 		* [Blueprint Thread Safe Update Functions]
@@ -189,21 +189,21 @@
 			* Turn In Place について詳しくは [Comment_TourInPlace.Ja] を参照。
 	* [VALIABLES] で使用されているもの。
 		* [Rotation Data]
-			* 更新は UpdateRotationData() で行われます。
+			* 更新は [UpdateRotationData()] で行われます。
 			* Actor の Rotation を元の算出された変数です。
 		* [Location Data]
-			* 更新は UpdateLocationData() で行われます。
+			* 更新は [UpdateLocationData()] で行われます。
 			* Actor の Location を元の算出された変数です。
 		* [Velocity Data]
-			* 更新は UpdateLocationData() で行われます。
+			* 更新は [UpdateLocationData()] で行われます。
 			* Pawn の Velocity を元の算出された変数です。
 		* [Acceleration Data]
-			* 更新は UpdateAccelerationData() で行われます。
+			* 更新は [UpdateAccelerationData()] で行われます。
 			* MovementComponent の CurrentAcceleration を元の算出された変数です。
 		* [Character State Data]
-			* 更新は UpdateCharacterStateData() で行われますが、以下の 2 つは例外です。
-				* TimeToJumpApex
-				* IsRunningIntoWall
+			* 更新は [UpdateCharacterStateData()] で行われますが、以下の 2 つは例外です。
+				* [TimeToJumpApex]
+				* [IsRunningIntoWall]
 			* キャラクターの各種状態（例：立っている、しゃがんでいる、 ADS している、ジャンプしている、落下している等々）を保持しています。
 		* [Gameplay Tag Bindings]
 			* 更新は [ULyraAnimInstance::GameplayTagPropertyMap] により行われます。
@@ -211,16 +211,16 @@
 		* [Locomotion SM Data]
 			* [LocomotionSM] 内で読み書きされる変数です。
 		* [Blend Weight Data]
-			* 更新は UpdateBlendWeightData() で行われます。
+			* 更新は [UpdateBlendWeightData()] で行われます。
 			* アニメーションのブレンドの際のアルファ値を保持する変数です。
 		* [Aiming Data]
-			* 更新は UpdateAimingData() で行われますが、以下は例外です。
-				* AimYaw
-					* RootYawOffset と連動するため SetRootYawOffset() で更新されます。
+			* 更新は [UpdateAimingData()] で行われますが、以下は例外です。
+				* [AimYaw]
+					* [RootYawOffset] と連動するため [SetRootYawOffset()] で更新されます。
 		* [Settings]
 			* 定数として扱われている変数です。
 		* [Linked Layer Data]
-			* 更新は UpdateLocomotionStateMachine() で行われます。
+			* 更新は [UpdateLocomotionStateMachine()] で行われます。
 			* Linked Anim Instance に関する変数です。
 		* [Turn In Place]
 			* Turn In Place 処理を行うための関数です。
@@ -231,7 +231,7 @@
 ## EventGraph
 
 * Tour コメント
-	* [Comment_AnimBP_Tour.Ja.1]
+	* [Comment_AnimBP_Tour.Ja::1]
 * 概要
 	* マルチスレッド対応のため、基本的には空っぽ。
 
@@ -240,96 +240,96 @@
 ## AnimGraph
 
 * Tour コメント
-	* [Comment_AnimBP_Tour.Ja.3]
-	* [Comment_TourInPlace.Ja.1]
+	* [Comment_AnimBP_Tour.Ja::3]
+	* [Comment_TourInPlace.Ja::1]
 * 概要
 	* Anim Seaquence
 		* 基本的に直接参照しない。
 	* Blendspace
-		* 例： AnimGraph > LocomotionSM > Cycle (state) にて BS_MM_Rifle_Jog_Leans が直接指定されている。
+		* 例： [Cycle (state)] にて BS_MM_Rifle_Jog_Leans が直接指定されている。
 		* おそらく変わることがないため直接指定されているものと思われる。
 
 ### LocomotionSM
 
 * Tour コメント
-	* [Comment_AnimBP_Tour.Ja.4]
+	* [Comment_AnimBP_Tour.Ja::4]
 * ノード関数の使用状況
-	| ノード        | 種別      | ノード関数名                   |
-	|---------------|-----------|--------------------------------|
-	| LocomotionSM  | On Update | UpdateLocomotionStateMachine() |
+	| ノード          | 種別      | ノード関数名                     |
+	|-----------------|-----------|----------------------------------|
+	| [LocomotionSM]  | On Update | [UpdateLocomotionStateMachine()] |
 * 構成要素
 	* State
-		* Idle (state)
-		* Start (state)
-		* Cycle (state)
-		* Stop (state)
-		* Pivot (state)
-		* JumpStart (state)
-		* JumpStartLoop (state)
-		* JumpApex (state)
-		* FallLoop (state)
-		* FallLand (state)
+		* [Idle (state)]
+		* [Start (state)]
+		* [Cycle (state)]
+		* [Stop (state)]
+		* [Pivot (state)]
+		* [JumpStart (state)]
+		* [JumpStartLoop (state)]
+		* [JumpApex (state)]
+		* [FallLoop (state)]
+		* [FallLand (state)]
 	* State Alias
-		* PivotSources
-		* JumpSources
-		* JumpFallInterruptSources
-		* CycleAlias
-		* IdleAlias
+		* [PivotSources]
+		* [JumpSources]
+		* [JumpFallInterruptSources]
+		* [CycleAlias]
+		* [IdleAlias]
 	* Conduit
-		* JumpSelector (conduit rule)
-		* EndAir (conduit rule)
+		* [JumpSelector (conduit rule)]
+		* [EndInAir (conduit rule)]
 	* Transition Rule Sharing
-		* StopRule (rule)
+		* [StopRule (rule)]
 	* Rule
-		* Idle to Start (rule)
-		* Start to Cycle (rule)
-		* StopRule (rule)
-		* Stop to Idle (rule)
-		* Stop to Start (rule)
-		* PivotSources to Pivot (rule)
-		* Pivot to Cycle (rule)
-		* Pivot to Stop (rule)
-		* JumpSources to JumpSelector (rule)
-		* JumpSelector to JumpStart (rule)
-		* JumpStart to JumpStartLoop (rule)
-		* JumpStartLoop to JumpApex (rule)
-		* JumpSelector to JumpApex (rule)
-		* JumpApex to FallLoop (rule)
-		* FallLoop to FallLand (rule)
-		* FallLand to EndAir (rule)
-		* JumpFallInterruptSources to EndAir (rule)
-		* EndAir to CycleAlias (rule)
-		* EndAir to IdleAlias (rule)
+		* [Idle to Start (rule)]
+		* [Start to Cycle (rule)]
+		* [StopRule (rule)]
+		* [Stop to Idle (rule)]
+		* [Stop to Start (rule)]
+		* [PivotSources to Pivot (rule)]
+		* [Pivot to Cycle (rule)]
+		* [Pivot to Stop (rule)]
+		* [JumpSources to JumpSelector (rule)]
+		* [JumpSelector to JumpStart (rule)]
+		* [JumpStart to JumpStartLoop (rule)]
+		* [JumpStartLoop to JumpApex (rule)]
+		* [JumpSelector to JumpApex (rule)]
+		* [JumpApex to FallLoop (rule)]
+		* [FallLoop to FallLand (rule)]
+		* [FallLand to EndInAir (rule)]
+		* [JumpFallInterruptSources to EndInAir (rule)]
+		* [EndInAir to CycleAlias (rule)]
+		* [EndInAir to IdleAlias (rule)]
 * State に関して
 	* ノード関数の使用状況
-		| ノード        | 種別               | ノード関数名                   |
-		|---------------|--------------------|--------------------------------|
-		| Idle (state)  | On Update          | UpdateIdleState()              |
-		| Start (state) | On Become Relevant | SetUpStartState()              |
-		| Start (state) | On Update          | UpdateStartState()             |
-		| Stop (state)  | On Update          | UpdateStopState()              |
-		| Pivot (state) | On Become Relevant | SetUpPivotState()              |
-		| Pivot (state) | On Update          | UpdatePivotState()             |
+		| ノード          | 種別               | ノード関数名         |
+		|-----------------|--------------------|----------------------|
+		| [Idle (state)]  | On Update          | [UpdateIdleState()]  |
+		| [Start (state)] | On Become Relevant | [SetUpStartState()]  |
+		| [Start (state)] | On Update          | [UpdateStartState()] |
+		| [Stop (state)]  | On Update          | [UpdateStopState()]  |
+		| [Pivot (state)] | On Become Relevant | [SetUpPivotState()]  |
+		| [Pivot (state)] | On Update          | [UpdatePivotState()] |
 	* ブレンドスペースの使用状況
-		| 名前          | 利用しているブレンドスペース |
-		|---------------|------------------------------|
-		| Start (state) | BS_MM_Rifle_Jog_Leans        |
-		| Cycle (state) | BS_MM_Rifle_Jog_Leans        |
-		| Pivot (state) | BS_MM_Rifle_Jog_Leans        |
+		| 名前            | 利用しているブレンドスペース |
+		|-----------------|------------------------------|
+		| [Start (state)] | BS_MM_Rifle_Jog_Leans        |
+		| [Cycle (state)] | BS_MM_Rifle_Jog_Leans        |
+		| [Pivot (state)] | BS_MM_Rifle_Jog_Leans        |
 	* その他特記事項
-		* Start (state)
+		* [Start (state)]
 			* FullBody_StartState を利用しており、 Tag には StartLayerNode と設定してあります。
 			* これにより Start ノードへの参照が取得できるようにしています。
-			* 参照の取得は UpdateLocomotionStateMachine() にて行っています。
+			* 参照の取得は [UpdateLocomotionStateMachine()] にて行っています。
 * State Alias に関して
 	* 一覧と主な設定
-		| 名前                     | 用途                                                | 含んでいる state                                                                                       |
-		|--------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-		| PivotSources             | Pivot (state) に移行できるステート群                | Start (state)<br>Cycle (state)                                                                         |
-		| JumpSources              | JumpSelector (conduit rule) に移行できるステート群  | Idle (state)<br>Start (state)<br>Cycle (state)<br>Stop (state)<br>Pivot (state)                        |
-		| JumpFallInterruptSources | EndAir (conduit rule) に移行できるステート群        | JumpStart (state)<br>JumpStartLoop (state)<br>JumpApex (state)<br>FallLoop (state)<br>FallLand (state) |
-		| CycleAlias               | Cycle (state) のエイリアス                          | Cycle (state)                                                                                          |
-		| IdleAlias                | Idle (state) のエイリアス                           | Idle (state)                                                                                           |
+		| 名前                       | 用途                                                  | 含んでいる state                                                                                                 |
+		|----------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+		| [PivotSources]             | [Pivot (state)] に移行できるステート群                | [Start (state)]<br>[Cycle (state)]                                                                               |
+		| [JumpSources]              | [JumpSelector (conduit rule)] に移行できるステート群  | [Idle (state)]<br>[Start (state)]<br>[Cycle (state)]<br>[Stop (state)]<br>[Pivot (state)]                        |
+		| [JumpFallInterruptSources] | [EndInAir (conduit rule)] に移行できるステート群      | [JumpStart (state)]<br>[JumpStartLoop (state)]<br>[JumpApex (state)]<br>[FallLoop (state)]<br>[FallLand (state)] |
+		| [CycleAlias]               | [Cycle (state)] のエイリアス                          | [Cycle (state)]                                                                                                  |
+		| [IdleAlias]                | [Idle (state)] のエイリアス                           | [Idle (state)]                                                                                                   |
 	* JumpSources に記載されたコメント
 		> This is an example of a State Alias.
 		> State Aliases help to reduce the amount of transition lines required.
@@ -341,10 +341,10 @@
 		> このエイリアスを使用すると、各ソースステートから明示的な遷移線を用意しなくても、複数のステートが同じ条件でジャンプに遷移することができます。
 * Conduit に関して
 	* 一覧と主な設定
-		| 名前                        | 遷移元                   | 遷移先                                  |
-		|-----------------------------|--------------------------|-----------------------------------------|
-		| JumpSelector (conduit rule) | JumpSources              | JumpStart (state)<br>JumpApex (state)   |
-		| EndAir (conduit rule)       | JumpFallInterruptSources | CycleAlias (state)<br>IdleAlias (state) |
+		| 名前                          | 遷移元                     | 遷移先                                      |
+		|-------------------------------|----------------------------|---------------------------------------------|
+		| [JumpSelector (conduit rule)] | [JumpSources]              | [JumpStart (state)]<br>[JumpApex (state)]   |
+		| [EndInAir (conduit rule)]     | [JumpFallInterruptSources] | [CycleAlias]<br>[IdleAlias]                 |
 * Transition Rule Sharing に関して
 	* 一覧と主な設定
 		| 名前                     | 用途                                                | 遷移元                                                                                       |
@@ -363,6 +363,12 @@
 				> ブレンドの期間も遷移時間に含まれるため、アニメーションが **2.0** 秒で、遷移時間が **0.5** 秒の場合、 **1.5** 秒経過後に遷移が実行されます。
 		* Can Enter Transition について
 			* true を返すと遷移します。
+		* `Blend Logic` について
+			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]
+			* `Stamdard Blemd` が規定値で、 `Inertialization` (慣性化) が数か所指定されている。
+			* `Inertialization` (慣性化) について
+				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]
+
 
 #### Idle (state)
 #### Start (state)
@@ -380,127 +386,156 @@
 #### CycleAlias
 #### IdleAlias
 #### JumpSelector (conduit rule)
-#### EndAir (conduit rule)
+#### EndInAir (conduit rule)
+
 #### Idle to Start (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Idle to Start (rule)                      | 1        | HasAcceleration<br>GameplayTag_IsMelee<br>HasVelocity                                                                                         |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [HasAcceleration]
+		* [GameplayTag_IsMelee]
+		* [HasVelocity]
 
 #### Start to Cycle (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Start to Cycle (rule)                     | 1        | RootYawOffset                                                                                                                                 |                          |
-| Start to Cycle (rule)                     | 1        | LinkedLayerChanged                                                                                                                            |                          |
-| Start to Cycle (rule)                     | 2        | Automatic Rule Based on Sequence Player in State を true にしている                                                                           |                          |
-| Start to Cycle (rule)                     | 3        | StartDirection<br>LocalVelocityDirection<br>CrouchStateChange<br>ADSStateChanged<br>DisplacementSpeed<br>GetInstanceCurrentStateElapsedTime() |                          |
+
+* 参照する変数/関数
+	* Priority.1
+		* [RootYawOffset]
+	* Priority.1
+		* [LinkedLayerChanged]
+		* `Blend Logic` に `Inertialization` を指定している。
+	* Priority.2
+		* Automatic Rule Based on Sequence Player in State を true にしている
+	* Priority.3
+		* [StartDirection]
+		* [LocalVelocityDirection]
+		* [CrouchStateChange]
+		* [ADSStateChanged]
+		* [DisplacementSpeed]
+		* [UAnimInstance::GetInstanceCurrentStateElapsedTime()]
 
 #### StopRule (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| StopRule (rule)                           | 1        | HasAcceleration<br>GameplayTag_IsMelee<br>HasVelocity                                                                                         |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [HasAcceleration]
+		* [GameplayTag_IsMelee]
+		* [HasVelocity]
 
 #### Stop to Idle (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Stop to Idle (rule)                       | 1        | LinkedLayerChanged                                                                                                                            |                          |
-| Stop to Idle (rule)                       | 2        | CrouchStateChange<br>ADSStateChanged                                                                                                          |                          |
-| Stop to Idle (rule)                       | 3        | Automatic Rule Based on Sequence Player in State を true にしている                                                                           |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [LinkedLayerChanged]
+		* `Blend Logic` に `Inertialization` を指定している。
+	* Priority.2
+		* [CrouchStateChange]
+		* [ADSStateChanged]
+		* `Blend Logic` に `Inertialization` を指定している。
+	* Priority.3
+		* Automatic Rule Based on Sequence Player in State を true にしている
 
 #### Stop to Start (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Stop to Start (rule)                      | 1        | HasAcceleration                                                                                                                               |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [HasAcceleration]
 
 #### PivotSources to Pivot (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| PivotSources to Pivot (rule)              | 1        | LocalVelocity2D<br>LocalAcceleration2D<br>IsRunningIntoWall                                                                                   | XY 平面での移動と加速飲む気が反対かつ壁の中に入っていない場合は true                         |
+* 参照する変数/関数
+	* Priority.1
+		* [LocalVelocity2D]
+		* [LocalAcceleration2D]
+		* [IsRunningIntoWall]
+		* XY 平面での移動と加速飲む気が反対かつ壁の中に入っていない場合は true
 
 #### Pivot to Cycle (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Pivot to Cycle (rule)                     | 1        | LinkedLayerChanged                                                                                                                            |                          |
-| Pivot to Cycle (rule)                     | 2        | WasAnimNotifyStateActiveInSourceState()                                                                                                       |                          |
-| Pivot to Cycle (rule)                     | 3        | CrouchStateChange<br>ADSStateChanged<br>IsMovingPerpendicularToInitialPivot()<br>LastPivotTime                                                |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [LinkedLayerChanged]
+		* `Blend Logic` に `Inertialization` を指定している。
+	* Priority.2
+		* [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]
+	* Priority.3
+		* [CrouchStateChange]
+		* [ADSStateChanged]
+		* [IsMovingPerpendicularToInitialPivot()]
+		* [LastPivotTime]
 
 #### Pivot to Stop (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Pivot to Stop (rule)                      | 2        | HasAcceleration                                                                                                                               |                          |
+* 参照する変数/関数
+	* Priority.2
+		* [HasAcceleration]
 
 #### JumpSources to JumpSelector (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpSources to JumpSelector (rule)        |          | Can Enter Transition を true にしている                                                                                                       |                          |
+* 参照する変数/関数
+	* Priority は conduit への遷移なのでありません。
+	* Can Enter Transition を true にしている
 
 #### JumpSelector to JumpStart (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpSelector to JumpStart (rule)          | 1        | IsJumping                                                                                                                                     |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [IsJumping]
 
 #### JumpStart to JumpStartLoop (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpStart to JumpStartLoop (rule)         | 1        | Automatic Rule Based on Sequence Player in State を true にしている                                                                           |                          |
+* 参照する変数/関数
+	* Priority.1
+		* Automatic Rule Based on Sequence Player in State を true にしている
 
 #### JumpStartLoop to JumpApex (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpStartLoop to JumpApex (rule)          | 1        | TimeToJumpApex                                                                                                                                |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [TimeToJumpApex]
 
 #### JumpSelector to JumpApex (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpSelector to JumpApex (rule)           | 1        | IsFalling                                                                                                                                     |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [IsFalling]
 
 #### JumpApex to FallLoop (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpApex to FallLoop (rule)               | 1        | Automatic Rule Based on Sequence Player in State を true にしている                                                                           |                          |
+* 参照する変数/関数
+	* Priority.1
+		* Automatic Rule Based on Sequence Player in State を true にしている
 
 #### FallLoop to FallLand (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| FallLoop to FallLand (rule)               | 1        | GroundDistance                                                                                                                                |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [ULyraAnimInstance::GroundDistance]
 
-#### FallLand to EndAir (rule)
+#### FallLand to EndInAir (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| FallLand to EndAir (rule)                 |          | Can Enter Transition を true にしている                                                                                                       |                          |
+* 参照する変数/関数
+	* Priority は conduit への遷移なのでありません。
+	* Can Enter Transition を true にしている
 
-#### JumpFallInterruptSources to EndAir (rule)
+#### JumpFallInterruptSources to EndInAir (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| JumpFallInterruptSources to EndAir (rule) |          | Can Enter Transition を IsOnGround にしている                                                                                                 |                          |
+* 参照する変数/関数
+	* Priority は conduit への遷移なのでありません。
+	* Can Enter Transition を IsOnGround にしている
 
-#### EndAir to CycleAlias (rule)
+#### EndInAir to CycleAlias (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| EndAir to CycleAlias (rule)               | 1        | HasAcceleration                                                                                                                               |                          |
+* 参照する変数/関数
+	* Priority.1
+		* [HasAcceleration]
 
-#### EndAir to IdleAlias (rule)
+#### EndInAir to IdleAlias (rule)
 
-| 名前                                      | Priority | 参照する変数/関数                                                                                                                             | 概要                     |
-|-------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| EndAir to IdleAlias (rule)                | 2        | Can Enter Transition を true にしている                                                                                                       |                          |
+* 参照する変数/関数
+	* Priority.2
+		* Can Enter Transition を true にしている
 
 # ANIMATION LAYERS
 
@@ -508,24 +543,24 @@
 
 * 概要
 	* すべて空の状態。
-	* すべて ABP_ItemAnimLayerBase で実装されている。
+	* すべて ABP_ItemAnimLayersBase で実装されている。
 * 呼び出し元
-	| 名前                        | 呼び出し元            |
-	|-----------------------------|-----------------------|
-	| FullBodyAdditives           | AnimGraph             |
-	| FullBody_IdleState          | Idle (state)          |
-	| FullBody_StartState         | Start (state)         |
-	| FullBody_CycleState         | Cycle (state)         |
-	| FullBody_StopState          | Stop (state)          |
-	| FullBody_PivotState         | Pivot (state)         |
-	| FullBody_Aiming             | AnimGraph             |
-	| FullBody_JumpStartState     | JumpStart (state)     |
-	| FullBody_JumpApexState      | JumpApex (state)      |
-	| FullBody_FallLandState      | FallLand (state)      |
-	| FullBody_FallLoopState      | FallLoop (state)      |
-	| FullBody_JumpStartLoopState | JumpStartLoop (state) |
-	| FullBody_SkeletalControls   | AnimGraph             |
-	| LeftHandPose_OverrideState  | AnimGraph             |
+	| 名前                          | 呼び出し元              |
+	|-------------------------------|-------------------------|
+	| [FullBodyAdditives]           | [AnimGraph]             |
+	| [FullBody_IdleState]          | [Idle (state)]          |
+	| [FullBody_StartState]         | [Start (state)]         |
+	| [FullBody_CycleState]         | [Cycle (state)]         |
+	| [FullBody_StopState]          | [Stop (state)]          |
+	| [FullBody_PivotState]         | [Pivot (state)]         |
+	| [FullBody_Aiming]             | [AnimGraph]             |
+	| [FullBody_JumpStartState]     | [JumpStart (state)]     |
+	| [FullBody_JumpApexState]      | [JumpApex (state)]      |
+	| [FullBody_FallLandState]      | [FallLand (state)]      |
+	| [FullBody_FallLoopState]      | [FallLoop (state)]      |
+	| [FullBody_JumpStartLoopState] | [JumpStartLoop (state)] |
+	| [FullBody_SkeletalControls]   | [AnimGraph]             |
+	| [LeftHandPose_OverrideState]  | [AnimGraph]             |
 
 ### FullBodyAdditives
 ### FullBody_IdleState
@@ -543,50 +578,43 @@
 ### LeftHandPose_OverrideState
 
 
-
-
 # FUNCTIONS
 
 ## State Node Functions
 
 ### UpdateIdleState()
 
-* FullBody_IdleState から利用される。
-* TurnYawCurveValue / RootYawOffsetMode などを更新し、 ProcessTurnYawCurve() を呼び出します。
+* [FullBody_IdleState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [TurnYawCurveValue] / [RootYawOffsetMode] などを更新し、 [ProcessTurnYawCurve()] を呼び出します。
 
 ### SetUpStartState()
 
-* FullBody_StartState から利用される。
-* LocalVelocityDirection の値を StartDirection に設定している。
-* どういうことか？
-	* 移動開始時に Actor から見た移動方向を StartDirection に設定するための関数です。
+* [FullBody_StartState] 内の Output Animation Pose ノードの On Become Relevant ノード関数です。
+* [LocalVelocityDirection] の値を [StartDirection] に設定しています。
+	* Start ステート開始時に Actor から見た移動方向を [StartDirection] に設定するための関数です。
 
 ### UpdateStartState()
 
-* FullBody_StartState から利用される。
-* ステートが Blending Out でない場合は RootYawOffsetMode の値を Hold に設定している。
-* どういうことか？
-	* このステートにいる間、 UpdateRootYawOffset() で行われるヨーオフセットの更新が行われないように RootYawOffsetMode を設定するための関数です。
+* [FullBody_StartState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* ステートが Blending Out でない場合は [RootYawOffsetMode] の値を [AnimEnum_RootYawOffsetMode::Hold] に設定します。
+	* Start ステートにいる間、 [UpdateRootYawOffset()] で行われるヨーオフセットの更新が行われないように [RootYawOffsetMode] を設定するための関数です。
 
 ### UpdateStopState()
 
-* FullBody_StopState から利用される。
-* ステートが Blending Out でない場合は RootYawOffsetMode の値を Accumulate に設定している。
-* どういうことか？
-	* このステートにいる間、 UpdateRootYawOffset() で行われるヨーオフセットの更新が行われるように RootYawOffsetMode を設定するための関数です。
+* [FullBody_StopState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* ステートが Blending Out でない場合は [RootYawOffsetMode] の値を [AnimEnum_RootYawOffsetMode::Accumulate] に設定します。
+	* Stop ステートにいる間、 [UpdateRootYawOffset()] で行われるヨーオフセットの更新が行われるように [RootYawOffsetMode] を設定するための関数です。
 
 ### SetUpPivotState()
 
-* FullBody_PivotState から利用される。
-* LocalVelocityDirection の値を PivotInitialDirection に設定している。
-* どういうことか？
+* [FullBody_PivotState] 内の Output Animation Pose ノードの On Become Relevant ノード関数です。
+* [LocalVelocityDirection] の値を [PivotInitialDirection] に設定している。
 	* Pivot ステート開始時に Actor から見た移動方向を PivotInitialDirection に設定するための関数です。
 
 ### UpdatePivotState()
 
-* FullBody_PivotState から利用される。
-* LastPivotTime が 0 より大きい場合は DeltaTime を減じている。
-* どういうことか？
+* [FullBody_PivotState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [LastPivotTime] が 0 より大きい場合は DeltaTime を減じている。
 	* Pivot に必要な時間が経過したかを判定する変数を更新するための関数です。
 
 ### UpdateLocomotionStateMachine()
@@ -598,30 +626,35 @@
 	> ----
 	> Start ステートのレイヤーノードがリンクしているアニメーションインスタンスが変更されたかどうかをチェックしています。  
 	> 他のノードはすべて同じグループであり、同じアニメーションインスタンスを共有しているので、チェックする必要はありません。  
-	* StartLayerNode というタグ名を利用して、 AnimGraph > LocomotionSM > Start (state) のリファレンスを取得し、 Linked Anim Instance が直前のフレームから変更があったかを LinkedLayerChanged に設定しています。
-* AnimGraph に配置している LocomotionSM の On Update に設定されている。
+	* StartLayerNode というタグ名を利用して、 [AnimGraph] > [LocomotionSM] > [Start (state)] のリファレンスを取得し、 Linked Anim Instance が直前のフレームから変更があったかを [LinkedLayerChanged] に設定しています。
+* [AnimGraph] 内の [LocomotionSM] ノードの On Update ノード関数です。
+
 
 ## Helper Functions
+
+### SelectCardinalDirectionFromAngle()
+
 * 概要
-	* 引数を元に、 AnimEnum_CardinalDirection を返す。
+	* 引数を元に、 [AnimEnum_CardinalDirection] を返します。
 * 引数
 	* 向いている角度（正面を 0 、右を正、背面を 180 とする）
 	* 判定の遊び値（現在の向きを考慮する場合、向きが変わったかどうかの判定をゆるくするための角度）
 	* 現在の向き
 	* 現在の向きを考慮するかどうか
-* 呼び出し元
-	* UpdateVelocityData()
-		* LocalVelocityDirectionAngleWithOffset を元に LocalVelocityDirection を算出するために利用。
-		* LocalVelocityDirectionAngle を元に LocalVelocityDirectionNoOffset を算出するために利用。
-	* UpdateAccelerationData()
-		* PivotDirection2D を元に CardinalDirectionFromAcceleration を算出するために利用。
+* 呼び出し元は以下の通り。
+	* [UpdateVelocityData()]
+		* [LocalVelocityDirectionAngleWithOffset] を元に [LocalVelocityDirection] を算出するために利用。
+		* [LocalVelocityDirectionAngle] を元に [LocalVelocityDirectionNoOffset] を算出するために利用。
+	* [UpdateAccelerationData()]
+		* [PivotDirection2D] を元に [CardinalDirectionFromAcceleration] を算出するために利用。
 
 ### GetOppositeCardinalDirection()
+
 * 概要
-	* 引数で AnimEnum_CardinalDirection を受け取り、反対向きの AnimEnum_CardinalDirection を返す。
+	* 引数で [AnimEnum_CardinalDirection] を受け取り、反対向きの [AnimEnum_CardinalDirection] を返します。
 * 呼び出し元
-	* UpdateAccelerationData()
-		* PivotDirection2D の反対方向 を算出するために利用。
+	* [UpdateAccelerationData()]
+		* [PivotDirection2D] の反対方向 を算出するために利用。
 
 ### IsMovingPerpendicularToInitialPivot()
 
@@ -632,41 +665,40 @@
 	> 線に沿ったピボット（例：右から左のピボットをしながら左から右のピボットを誘発する）の時はピボットに留まり、キャラクターが垂直に方向転換する場合はブレイクアウトします。  
 * 概要
 	* Pivot ステート開始時と現在の移動方向が垂直ならば true を返します。
-	* PivotInitialDirection / LocalVelocityDirection を元に Pivot ステート開始時と現在の移動方向を比較し、垂直方向になっていたら true を返します。
+	* [PivotInitialDirection] / [LocalVelocityDirection] を元に Pivot ステート開始時と現在の移動方向を比較し、垂直方向になっていたら true を返します。
 * 呼び出し元
-	* Pivot to Cycle (rule)
+	* [Pivot to Cycle (rule)]
 		* Pivot が行われたかの判定に利用。
+
 
 ## Blueprint Thread Safe Update Functions
 
 ### UpdateLocationData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* DisplacementSinceLastUpdate
-		* WorldLocation
-		* DisplacementSpeed
+* カテゴリ [Location Data] に属する全ての変数を更新します。具体的には以下の変数です。
+	* [DisplacementSinceLastUpdate]
+	* [WorldLocation]
+	* [DisplacementSpeed]
+
 
 ### UpdateRotationData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* WorldRotation
-		* YawDeltaSinceLastUpdate
-		* AdditiveLeanAngle
-		* YawDeltaSpeed
+* カテゴリ [Rotation Data] に属する全ての変数を更新します。具体的には以下の変数です。
+	* [WorldRotation]
+	* [YawDeltaSinceLastUpdate]
+	* [AdditiveLeanAngle]
+	* [YawDeltaSpeed]
 
 ### UpdateVelocityData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* WorldVelocity
-		* LocalVelocity2D
-		* LocalVelocityDirectionAngle
-		* LocalVelocityDirectionAngleWithOffset
-		* LocalVelocityDirection
-		* LocalVelocityDirectionNoOffset
-		* HasVelocity
+* カテゴリ [Velocity Data] に属する全ての変数を更新します。具体的には以下の変数です。
+	* [WorldVelocity]
+	* [LocalVelocity2D]
+	* [LocalVelocityDirectionAngle]
+	* [LocalVelocityDirectionAngleWithOffset]
+	* [LocalVelocityDirection]
+	* [LocalVelocityDirectionNoOffset]
+	* [HasVelocity]
 
 ### UpdateAccelerationData()
 
@@ -677,56 +709,52 @@
    > ----
    > 加速度からピボットに使用するカーディナルディレクションを算出する。  
    > 加速度は、速度よりもプレイヤーの意図がより伝わりやすい。  
-* 概要
-	* 以下の変数の更新を行う。
-		* LocalAcceleration2D
-		* HasAcceleration
-		* PivotDirection2D
-		* CardinalDirectionFromAcceleration
-* 備考
-	* CardinalDirectionFromAcceleration はカテゴリ LocomotionSMData の変数。
+* カテゴリ [Acceleration Data] に属する全ての変数を更新します。具体的には以下の変数です。
+	* [LocalAcceleration2D]
+	* [HasAcceleration]
+	* [PivotDirection2D]
+* また、それ以外のカテゴリの変数も更新します。具体的には以下の変数です。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Locomotion SM Data]    | [CardinalDirectionFromAcceleration]     |
 
 ### UpdateCharacterStateData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* IsOnGround
-		* IsCrouching
-		* CrouchStateChange
-		* ADSStateChanged
-		* WasADSLastUpdate
-		* TimeSinceFiredWeapon
-		* IsJumping
-		* IsFalling
-	* 以下の変数はカテゴリ Character State Data に属するが、この関数では更新しない。
-		* TimeToJumpApex
-			* UpdateJumpFallData() で更新を行う。
-		* IsRunningIntoWall
-			* UpdateWallDetectionHeuristic() で更新を行う。
-* 備考
-	* IsJumping / IsFalling の算出
-		* WorldVelocity の Z 成分より上昇中か下降中かを判定
+* カテゴリ [Character State Data] に属する一部の変数を更新します。具体的には以下の変数です。
+	* [IsOnGround]
+	* [IsCrouching]
+	* [CrouchStateChange]
+	* [ADSStateChanged]
+	* [WasADSLastUpdate]
+	* [TimeSinceFiredWeapon]
+	* [IsJumping]
+	* [IsFalling]
+* 以下の変数はカテゴリ [Character State Data] に属するが、この関数では更新しません。
+	* [TimeToJumpApex]
+		* [UpdateJumpFallData()] で更新を行う。
+	* [IsRunningIntoWall]
+		* [UpdateWallDetectionHeuristic()] で更新を行う。
 
 ### UpdateBlendWeightData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* UpperbodyDynamicAdditiveWeight
+* カテゴリ [Blend Weight Data] に属する全ての変数を更新します。具体的には以下の変数です。
+	* [UpperbodyDynamicAdditiveWeight]
 
 ### UpdateAimingData()
 
-* 概要
-	* 以下の変数の更新を行う。
-		* AimPitch
-	* 以下の変数はカテゴリ Aiming Data に属するが、この関数では更新しない。
-		* AimYaw
+* カテゴリ [Aiming Data] に属する一部の変数を更新します。具体的には以下の変数です。
+	* [AimPitch]
+* 以下の変数はカテゴリ [Aiming Data] に属するが、この関数では更新しません。
+	* [AimYaw]
+		* [SetRootYawOffset()] で更新を行う。
 
 ### UpdateJumpFallData()
 
-* 概要
-	* 変数のカテゴリ (Jump Fall Data) は存在しない。
-	* 以下の変数の更新を行う。
-		* TimeToJumpApex
+* カテゴリ `Jump Fall Data` は存在しません。
+* それ以外のカテゴリの変数を更新します。具体的には以下の変数です。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Character State Data]  | [TimeToJumpApex]                        |
 
 ### UpdateWallDetectionHeuristic()
 
@@ -739,59 +767,56 @@
 	> このロジックは、速度と加速度の角度が大きいかどうか、加速しようとしているが速度が相対的に小さいかどうかをチェックすることで、
 	> キャラクターが壁にぶつかっているかどうかを推測します。
 	> (例：キャラクターが壁に向かって押しているが、実際には横に滑っている)  
-* 概要
-	* 変数のカテゴリ (Wall Detection Heuristic) は存在しない。
-	* 以下の変数の更新を行う。
-		* IsRunningIntoWall
-* 備考
-	* IsRunningIntoWall の算出
-		* LocalAcceleration2D の大きさが 0.1 より大きいかを調べている
-			* これは加速度が移動しようとしているかを調べている
-		* LocalAcceleration2D の大きさが 200 未満かを調べている
-			* これは速度が（移動しようとしている割に）低いかを調べている
-		* LocalAcceleration2D と LocalVelocity2D の内積が \[-0.6,0.6\] の範囲かを調べている
-			* これは移動しようとしている向きと実際の移動方向の成す角がおおよそ 50 度以内かを調べている
+* カテゴリ `Wall Detection Heuristic` は存在しません。
+* それ以外のカテゴリの変数を更新します。具体的には以下の変数です。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Character State Data]  | [IsRunningIntoWall]                     |
 
 ## Turn In Place
 
 ### SetRootYawOffset()
+
 * Tour コメント
-	* [Comment_TourInPlace.Ja.3]
-	* [Comment_TourInPlace.Ja.4]
+	* [Comment_TourInPlace.Ja::3]
+	* [Comment_TourInPlace.Ja::4]
+* 以下の変数の更新を行います。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Aiming Data]           | [AimYaw]                                |
+	| [Turn In Place]         | [RootYawOffset]                         |
 * 概要
-	* 以下の変数の更新を行う。
-		* RootYawOffset
-		* AimYaw
-	* 渡された InRootYawOffset を RootYawOffset に設定し、 -1 を掛けたものを AimYaw に設定する。
-	* ただし、 EnableRootYawOffset が false の場合はいずれも 0.0 に設定する。
+	* 渡されたパラメータ `InRootYawOffset` を [RootYawOffset] に設定し、 -1 を掛けたものを [AimYaw] に設定する。
+	* ただし、 [bEnableRootYawOffset] が false の場合はいずれも 0.0 に設定する。
 	* また、設定する値には上限があり、設定前に上限値でクランプを行う。
-	* 上限値はしゃがんでいるとき/そうでないときで別の値 RootYawOffsetAngleClampCrouched / RootYawOffsetAngleClamp を持つ。
-	* しゃがんでいるかは IsCrouching で判定する。
-	* 2 回 SetRootYawOffset() を呼び出すケースについて
-		* Idle State にいる場合、 ProcessTurnYawCurve() 経由と UpdateRootYawOffset() 経由で同一フレームに 2 回呼び出される。
-		* 基本的に SetRootYawOffset() は新しく設定したい値を InRootYawOffset に設定する
+	* 上限値はしゃがんでいるとき/そうでないときで別の値 [RootYawOffsetAngleClampCrouched] / [RootYawOffsetAngleClamp] を持つ。
+	* しゃがんでいるかは [IsCrouching] で判定する。
+	* 2 回 [SetRootYawOffset()] を呼び出すケースについて
+		* Idle State にいる場合、 [ProcessTurnYawCurve()] 経由と [UpdateRootYawOffset()] 経由で同一フレームに 2 回呼び出される。
+		* 基本的に [SetRootYawOffset()] は新しく設定したい値をパラメータ `InRootYawOffset` に設定する
 		* それぞれ別の由来の変化値の反映のため、 2 回呼び出すことは特に問題ない。
 * 呼び出し元
-	* ProcessTurnYawCurve()
-		* アニメーションに設定されている RemainingTurnYaw / TurnYawWeight 由来の変化を反映するために利用。
-	* UpdateRootYawOffset()
-		* (Actor Rotation を元にした) YawDeltaSinceLastUpdate 由来の変化を反映するために利用。
+	* [ProcessTurnYawCurve()]
+		* アニメーションに設定されている `RemainingTurnYaw` / `TurnYawWeight` 由来の変化を反映するために利用。
+	* [UpdateRootYawOffset()]
+		* (Actor Rotation を元にした) [YawDeltaSinceLastUpdate] 由来の変化を反映するために利用。
 
 ### ProcessTurnYawCurve()
+
 * Tour コメント
-	* [Comment_TourInPlace.Ja.5]
-* コメント：アニメーションに設定されている RemainingTurnYaw / TurnYawWeight を元に TurnYawCurveValue を更新する部分について
+	* [Comment_TourInPlace.Ja::5]
+* コメント：アニメーションに設定されている `RemainingTurnYaw` / `TurnYawWeight` を元に TurnYawCurveValue を更新する部分について
 	> The "TurnYawWeight" curve is set to 1 in TurnInPlace animations, so its current value from GetCurveValue will be the current weight of the TurnInPlace animation.   
 	> We can use this to "unweight" the TurnInPlace animation to get the full RemainingTurnYaw curve value.  
 	> 
 	> ----
 	> TurnInPlace アニメーションでは "TurnYawWeight" カーブが 1 に設定されているため、 GetCurveValue() から得られる現在の値は、 TurnInPlace アニメーションの現在のウェイトとなります。  
 	> これを利用して、 TurnInPlace アニメーションのウェイトを "解除" し、 RemainingTurnYaw カーブの値を完全に取得することができます。  
-	* RemainingTurnYaw / TurnYawWeight について詳しくは TurnYawAnimModifier を参照。
-	* TurnYawWeight は初期値 1.0 でその値を維持し、 Root の Yaw が最終値と同値に至ると 0.0 となる。
-	* TurnYawWeight で除算はしているが、 1.0 以下の値を除算することになる為、 0.0 に近づくほど RemainingTurnYaw より大きな値が TurnYawCurveValue に設定される。
+	* `RemainingTurnYaw` / `TurnYawWeight` について詳しくは TurnYawAnimModifier を参照。
+	* `TurnYawWeight` は初期値 1.0 でその値を維持し、 Root の Yaw が最終値と同値に至ると 0.0 となる。
+	* `TurnYawWeight` で除算はしているが、 1.0 以下の値を除算することになる為、 0.0 に近づくほど `RemainingTurnYaw` より大きな値が TurnYawCurveValue に設定される。
 		* TODO: 乗算して徐々に影響を減らすほうが正しいのでは？要確認。
-* コメント：直前のフレームの TurnYawCurveValue が 0.0 ではないかの分岐について
+* コメント：直前のフレームの [TurnYawCurveValue] が 0.0 ではないかの分岐について
 	> Avoid applying the curve delta when the curve first becomes relevant.   
 	> E.g. When a turn animation starts, the previous curve value will be 0 and the current value will be 90, but no actual rotation has happened yet.  
 	> 
@@ -805,22 +830,23 @@
 	> RootYawOffset を、ターンアニメーションの回転量分減らす。  
 * 参考
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]
+* 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Aiming Data]           | [AimYaw]                                |
+	| [Turn In Place]         | [RootYawOffset]                         |
+	| [Turn In Place]         | [TurnYawCurveValue]                     |
 * 概要
-	* 以下の変数の更新を行う。
-		* TurnYawCurveValue
-	* SetRootYawOffset() の呼び出し内で以下も更新する。
-		* RootYawOffset
-		* AimYaw
-	* アニメーションカーブ RemainingTurnYaw / TurnYawWeight を元に RootYawOffset の値を更新します。
-	* RootYawOffset は更新の際にクランプ処理や AimYaw の更新も必要になるため SetRootYawOffset() を呼び出すことで更新を行います。
+	* アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` を元に [RootYawOffset] の値を更新します。
+	* [RootYawOffset] は更新の際にクランプ処理や [AimYaw] の更新も必要になるため [SetRootYawOffset()] を呼び出すことで更新を行います。
 * 呼び出し元
-	* UpdateIdleState()
+	* [UpdateIdleState()]
 		* State Blending Out 中でない場合にアニメーションに設定されている Yaw の値を反映するために利用。
 
 ### UpdateRootYawOffset()
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja.2]
+	* [Comment_TourInPlace.Ja::2]
 * コメント
 	> 1. When the feet aren't moving (e.g. during Idle), offset the root in the opposite direction to the Pawn owner's rotation to keep the mesh from rotating with the Pawn.  
 	> 1. When in motion, smoothly blend out the offset.  
@@ -836,95 +862,129 @@
 	>    更新のたびに、オフセットを蓄積または保持するようステートが要求する必要があります。  
 	>    そうしないと、オフセットがブレンドアウトされます。  
 	>    これは主に、大多数の状態がオフセットをブレンドアウトすることを望んでいるためで、これにより各状態にタグを付ける手間が省けます。  
-	* 補足： RootYawOffsetMode
-		* Accumulate
+	* 補足： [RootYawOffsetMode]
+		* [AnimEnum_RootYawOffsetMode::Accumulate]
 			* 足が動いていないとき（アイドル時など）にこの値に設定します。
-			* 具体的には UpdateIdleState() / UpdateStopState() にて、 State の BlendingOut 中でない場合にこの値に設定しています。
-			* この値の場合、 SetRootYawOffset() の InRootYawOffset には RootYawOffset - YawDeltaSinceLastUpdate を渡します。
+			* 具体的には [UpdateIdleState()] / [UpdateStopState()] にて、 State の Blending Out 中でない場合にこの値に設定しています。
+			* この値の場合、 [SetRootYawOffset()] のパラメータ `InRootYawOffset` には [RootYawOffset] - [YawDeltaSinceLastUpdate] を渡します。
 				* Actor の Rotation の Delta 値を引いた値をそのまま使用するということです。
-				* つまり、ユーザーの入力により変化した Rotation をそのまま RootYawOffset / AimYaw に反映させる、ということです。
-		* BlendOut
-			* 本関数 UpdateRootYawOffset() の最後に設定している初期値で、ステートで設定していない場合はこの値となります。
-			* この値の場合、 SetRootYawOffset() の InRootYawOffset には FloatSpringInterp() の計算結果を渡します。
-				* FloatSpringInterp() は Current に RootYawOffset 、 Target に 0.0 を指定しています。
-				* つまり、徐々に 0.0 に BlendOut する値を RootYawOffset / AimYaw に反映させる、ということです。
-		* Hold
-			* Accumulate / BlendOut のいずれの処理も行いたくない場合は、この値を設定します。
-			* 具体的には UpdateStartState() にて、 State の BlendingOut 中でない場合にこの値に設定しています。
-			* この値の場合、 SetRootYawOffset() の呼び出しを行わず、 RootYawOffset / AimYaw の更新が行われません。
-				* つまり、 Start State 中は RootYawOffset / AimYaw が変化しないということです。
+				* つまり、ユーザーの入力により変化した Rotation をそのまま [RootYawOffset] / [AimYaw] に反映させる、ということです。
+		* [AnimEnum_RootYawOffsetMode::BlendOut]
+			* 本関数 [UpdateRootYawOffset()] の最後に設定している初期値で、ステートで設定していない場合はこの値となります。
+			* この値の場合、 [SetRootYawOffset()] のパラメータ `InRootYawOffset` には `FloatSpringInterp()` の計算結果を渡します。
+				* `FloatSpringInterp()` は `Current` に [RootYawOffset] 、 `Target` に 0.0 を指定しています。
+				* つまり、徐々に 0.0 に Blend Out する値を [RootYawOffset] / [AimYaw] に反映させる、ということです。
+		* [AnimEnum_RootYawOffsetMode::Hold]
+			* [AnimEnum_RootYawOffsetMode::Accumulate] / [AnimEnum_RootYawOffsetMode::BlendOut] のいずれの処理も行いたくない場合は、この値を設定します。
+			* 具体的には [UpdateStartState()] にて、 State の Blending Out 中でない場合にこの値に設定しています。
+			* この値の場合、 [SetRootYawOffset()] の呼び出しを行わず、 [RootYawOffset] / [AimYaw] の更新が行われません。
+				* つまり、 Start State 中は [RootYawOffset] / [AimYaw] が変化しないということです。
+* 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
+	| カテゴリ                | 変数名                                  |
+	|-------------------------|-----------------------------------------|
+	| [Aiming Data]           | [AimYaw]                                |
+	| [Turn In Place]         | [RootYawOffset]                         |
+	| [Turn In Place]         | [RootYawOffsetMode]                     |
 * 概要
-	* 以下の変数の更新を行う。
-		* RootYawOffsetMode
-	* SetRootYawOffset() の呼び出し内で以下も更新する。
-		* RootYawOffset
-		* AimYaw
-	* RootYawOffsetMode に従って SetRootYawOffset() を呼びだし、 RootYawOffset / AimYaw を更新します。
-	* 最後に RootYawOffsetMode を BlendOut に再設定します。
+	* [RootYawOffsetMode] に従って [SetRootYawOffset()] を呼びだし、 [RootYawOffset] / [AimYaw] を更新します。
+	* 最後に [RootYawOffsetMode] を [AnimEnum_RootYawOffsetMode::BlendOut] に再設定します。
+		* 理由については前述のコメントのとおりです。
 
 ## Default(FUNCTIONS)
 
 ### BlueprintThreadSafeUpdateAnimation()
 
+* ヘッダファイルコメント
+	> Executed when the Animation Blueprint is updated on a worker thread, just prior to graph update
+	> 
+	> ----
+	> ワーカースレッドで Animation Blueprint が更新されたとき、グラフ更新の直前に実行されます。
 * Tour コメント
-	* [Comment_AnimBP_Tour.Ja.2]
-* 以下の関数を呼び出している。
-	* UpdateLocationData()
-	* UpdateRotationData()
-	* UpdateVelocityData()
-	* UpdateAccelerationData()
-	* UpdateWallDetectionHeuristic()
-	* UpdateCharacterStateData()
-	* UpdateBlendWeightData()
-	* UpdateRootYawOffset()
-	* UpdateAimingData()
-	* UpdateJumpFallData()
+	* [Comment_AnimBP_Tour.Ja::2]
+* 参考
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]
+		> ## スレッド セーフな更新アニメーション
+		> 
+		> アニメーション ブループリントのパフォーマンスを向上させるには、Update Animation イベントのスレッドセーフな代替手段として  
+		> Blueprint Thread Safe Update Animation を使用することができます。  
+		> この代替手段は、ブループリントに追加するためにオーバーライドする必要のある関数です。  
+		> Event Graph Update Animation イベントは常にゲーム スレッドで実行されるため、  
+		> マルチスレッドを活用して全体のフレームレートを向上させることができません。  
+		> そのため、この代替手段が役立ちます。  
+		> 
+		> これを実行するには、My Blueprint (マイ ブループリント) パネルの Functions カテゴリで Override (オーバーライド) ドロップダウン メニューをクリックし、  
+		> Blueprint Thread Safe Update Animation を選択します。
+		> これで関数のリストに追加されました。これを開くと、関数のエントリ ポイントと、  
+		> EventGraph Update Animation ノードの Delta Time X ピンと類似した Delta Time ピンが表示されます。  
+		> これで、イベント グラフで行う場合と同じように、この関数で Update Animation ロジックを作成することができます。  
+		> ただし、この関数は、ゲーム スレッドではなくワーカー スレッドで実行されます。
+	* [Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]
+		> 全ての処理をワーカースレッドで Anim Node 関数, Property Access, 
+		> BlueprintThreadsafeUpdateAnimation 関数 により 
+		> Event Graph を空にし、（ほぼ）全ての処理をワーカースレッドで実行可能！ 
+		> Lyra における AnimBP では、ゲームスレッドで動く Event Graph の実装は完全に空！
+* 以下の関数を呼び出しています。
+	* [UpdateLocationData()]
+	* [UpdateRotationData()]
+	* [UpdateVelocityData()]
+	* [UpdateAccelerationData()]
+	* [UpdateWallDetectionHeuristic()]
+	* [UpdateCharacterStateData()]
+	* [UpdateBlendWeightData()]
+	* [UpdateRootYawOffset()]
+	* [UpdateAimingData()]
+	* [UpdateJumpFallData()]
 
 ### GetMovementComponent()
 
-* (BlueprintThreadSafeUpdateAnimation() から呼ばれる) Update 系関数から呼び出される、 MovementComponent のプロパティのアクセスに利用する関数。
+* 概要
+	* ([BlueprintThreadSafeUpdateAnimation()] から呼ばれる) Update 系関数から呼び出される、 MovementComponent のプロパティのアクセスに利用する関数です。
 
 ### ShouldEnableControlRig()
 
-* AnimGraph から呼び出されている、 ControlRig の enable を決める関数。
+* [AnimGraph] から呼び出されている、 `ControlRig` の enable を決める関数。
 * 使用する変数
-	* UseFootPlacement
+	* [UseFootPlacement]
 * 使用するカーブ
-	* DisableLegIK
-		* 例： AM_MM_Dash_Forward で足が浮いている間 0 より大きい値が設定される。
+	* `DisableLegIK`
+		* 例： `AM_MM_Dash_Forward` で足が浮いている間 0 より大きい値が設定される。
 * 実装概要
-	* DisableLegIK の値が 0.0 以下かつ UseFootPlacement が false のときに true を返す。
-	* つまり、足が浮いていて、 UseFootPlacement が false になっているとき、 ControlRig が enable となる。
-		* TODO: UseFootPlacement の初期値が true であり、値を変更する箇所が検索にかからない。要調査。
+	* `DisableLegIK` の値が 0.0 以下かつ [UseFootPlacement] が false のときに true を返す。
+	* つまり、足が浮いていて、 [UseFootPlacement] が false になっているとき、 `ControlRig` が enable となる。
+		* TODO: [UseFootPlacement] の初期値が true であり、値を変更する箇所が検索にかからない。要調査。
 
 # VALIABLES
 
 ## Rotation Data
+
+* 概要
+	* このカテゴリの変数の更新は [UpdateRotationData()] で行われます。
+	* ここに分類されているのは Actor の Rotation を元に算出される値です。
 
 ### WorldRotation
 
 * 型
 	* Rotator
 * 概要
-	* Actor の Rotation
-	* ワールド座標系の Vector をローカル座標系に変換するのに利用
+	* Actor の Rotation です。
+	* ワールド座標系の Vector をローカル座標系に変換するのに利用しています。
 * 用途
-	| 利用箇所										| 目的																		|
-	|----											|----																		|
-	| UpdateRotationData()							| 直前のフレームの値と比較し YawDeltaSinceLastUpdate の算出に利用			|
-	| UpdateVelocityData()							| LocalVelocity2D / LocalVelocityDirectionAngle の算出に利用				|
-	| UpdateAccelerationData()						| LocalAcceleration2D / CardinalDirectionFromAcceleration の算出に利用		|
+	| 利用箇所											| 目的																		|
+	|----												|----																		|
+	| [UpdateRotationData()]							| 直前のフレームの値と比較し [YawDeltaSinceLastUpdate] の算出に利用			|
+	| [UpdateVelocityData()]							| [LocalVelocity2D] / [LocalVelocityDirectionAngle] の算出に利用			|
+	| [UpdateAccelerationData()]						| [LocalAcceleration2D] / [CardinalDirectionFromAcceleration] の算出に利用	|
 
 ### YawDeltaSinceLastUpdate
 
 * 型
 	* float
 * 概要
-	* WorldRotation の Yaw の直前のフレームとの Delta
+	* [WorldRotation] の Yaw の直前のフレームとの Delta 値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateRootYawOffset()							| RootYawOffset の更新に利用												|
+	| [UpdateRootYawOffset()]						| [RootYawOffset] の更新に利用												|
 
 ### AdditiveLeanAngle
 
@@ -932,358 +992,375 @@
 	* float
 * 概要
 	* 体の傾き角度
-	* しゃがみや ADS 状態による定数と YawDeltaSpeed の乗算で求める
+	* しゃがみや ADS 状態による定数と [YawDeltaSpeed] の乗算で求める
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Start (state)									| BS_MM_Rifle_Jog_Leans の LeanAngle に利用									|
-	| Cycle (state)									| 同上																		|
-	| Pivot (state)									| 同上																		|
+	| [Start (state)]								| `BS_MM_Rifle_Jog_Leans` の `LeanAngle` に利用								|
+	| [Cycle (state)]								| 同上																		|
+	| [Pivot (state)]								| 同上																		|
 
 ### YawDeltaSpeed
 
 * 型
 	* float
 * 概要
-	* 時間あたりの YawDeltaSinceLastUpdate
-	* YawDeltaSinceLastUpdate を DeltaTime で割った値
+	* 時間あたりの [YawDeltaSinceLastUpdate]
+	* [YawDeltaSinceLastUpdate] を `DeltaTime` で割った値
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateRotationData()							| AdditiveLeanAngle の算出に利用											|
+	| [UpdateRotationData()]						| [AdditiveLeanAngle] の算出に利用											|
 
 ## Location Data
 
 * 概要
-	* 共通して、更新は UpdateLocationData() で行われる。
+	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
+	* ここに分類されているのは Actor の Location を元に算出される値です。
 
 ### WorldLocation
 
 * 型
 	*  Vector
 * 概要
-	* Actor の Location
+	* Actor の Location です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| WorldLocation の算出に利用												|
+	| [UpdateLocationData()]						| [WorldLocation] の算出に利用												|
 
 ### DisplacementSinceLastUpdate
 
 * 型
 	* float
 * 概要
-	* WorldLocation の XY 平面での大きさ
+	* [WorldLocation] の XY 平面での大きさです。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| DisplacementSpeed の算出に利用											|
+	| [UpdateLocationData()]						| [DisplacementSpeed] の算出に利用											|
 
 ### DisplacementSpeed
 
 * 型
 	*  float
 * 概要
-	* XY 平面での速度
+	* [DisplacementSinceLastUpdate] を `De;taTime` で割った、 XY 平面での速度です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Start to Cycle (rule)							| 速度が一定を超えているかの判定に利用										|
+	| [Start to Cycle (rule)]						| 速度が一定を超えているかの判定に利用										|
 
 ## Velocity Data
 
 * 概要
-	* 共通して、更新は UpdateLocationData() で行われる。
+	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
+	* ここに分類されているのは Pawn の Velocity を元に算出される値です。
 
 ### WorldVelocity
 
 * 型
 	* Vector
 * 概要
-	* Pawn の Velocity
+	* Pawn の Velocity です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| ローカル変数 WorldVelocit2D の算出に利用									|
-	| UpdateCharacterStateData()					| IsJumping / IsFalling の算出に利用										|
-	| UpdateJumpFallData()							| TimeToJumpApex の算出に利用												|
+	| [UpdateLocationData()]						| ローカル変数 `WorldVelocity2D` の算出に利用								|
+	| [UpdateCharacterStateData()]					| [IsJumping] / [IsFalling] の算出に利用									|
+	| [UpdateJumpFallData()]						| [TimeToJumpApex] の算出に利用												|
 
 ### LocalVelocity2D
 
 * 型
 	* Vector
 * 概要
-	* WorldVelocity から算出したローカル座標系での Velocity
+	* [WorldVelocity] から算出したローカル座標系での Velocity です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| ローカル変数 WasMovingLastUpdate の算出に利用								|
-	|												| (WasMovingLastUpdate は直前のフレームに移動下かを示す)					|
-	|												| HasVelocity の算出に利用													|
-	| UpdateWallDetectionHeuristic()				| IsRunningIntoWall の算出に利用											|
-	| PivotSources to Pivot (rule)					| LocalVelocity2D と LocalAcceleration2D が逆向きかを調べる際に利用			|
+	| [UpdateLocationData()]						| ローカル変数 `WasMovingLastUpdate` の算出に利用							|
+	|												| (`WasMovingLastUpdate` は直前のフレームに移動したかを示す)				|
+	|												| [HasVelocity] の算出に利用												|
+	| [UpdateWallDetectionHeuristic()]				| [IsRunningIntoWall] の算出に利用											|
+	| [PivotSources to Pivot (rule)]				| [LocalVelocity2D] と [LocalAcceleration2D] が逆向きかを調べる際に利用		|
 
 ### LocalVelocityDirectionAngle
 
 * 型
 	* float
 * 概要
-	* LocalVelocity2D から算出した \[-180,180\] の値を取る向き
+	* [LocalVelocity2D] から算出した \[-180,180\] の値を取る角度です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| LocalVelocityDirectionNoOffset の算出に利用								|
-	|												| LocalVelocityDirectionAngleWithOffset の算出に利用						|
+	| [UpdateLocationData()]						| [LocalVelocityDirectionNoOffset] の算出に利用								|
+	|												| [LocalVelocityDirectionAngleWithOffset] の算出に利用						|
 
 ### LocalVelocityDirectionAngleWithOffset
 
 * 型
 	* float
 * 概要
-	* LocalVelocityDirectionAngle に RootYawOffset を加えた値
+	* [LocalVelocityDirectionAngle] に [RootYawOffset] を加えた角度です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| LocalVelocityDirection の算出に利用										|
+	| [UpdateLocationData()]						| [LocalVelocityDirection] の算出に利用										|
 
 ### LocalVelocityDirection
 
 * 型
-	* AnimEnum_CardinalDirection
+	* [AnimEnum_CardinalDirection]
 * 概要
-	* LocalVelocityDirectionAngleWithOffset から算出した、移動方向
+	* [LocalVelocityDirectionAngleWithOffset] から算出した、移動方向を示す前後左右いずれかの値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| LocalVelocityDirection の算出に利用										|
-	| SetUpStartState()								| StartDirection ヘ値の複製に利用											|
-	| SetUpPivotState()								| PivottInitialDirection ヘ値の複製に利用									|
-	| IsMovingPerpendicularToInitialPivot()			| 戻り値の算出に利用														|
-	| Start to Cycle (rule)							| StartDirection との比較に利用												|
+	| [UpdateLocationData()]						| [LocalVelocityDirection] の算出に利用										|
+	| [SetUpStartState()]							| [StartDirection] ヘ値の複製に利用											|
+	| [SetUpPivotState()]							| [PivotInitialDirection] ヘ値の複製に利用									|
+	| [IsMovingPerpendicularToInitialPivot()]		| 戻り値の算出に利用														|
+	| [Start to Cycle (rule)]						| [StartDirection] との比較に利用											|
 	|												| Start ステートの初期 Direction と現在の Direction が異なるかの判定に利用	|
 
 ### LocalVelocityDirectionNoOffset
 
 * 型
-	* AnimEnum_CardinalDirection
+	* [AnimEnum_CardinalDirection]
 * 概要
-	* LocalVelocityDirectionAngle から算出した、移動方向
+	* [LocalVelocityDirectionAngle] から算出した、移動方向を示す前後左右いずれかの値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| LocalVelocityDirectionNoOffset の算出に利用								|
+	| [UpdateLocationData()]						| [LocalVelocityDirectionNoOffset] の算出に利用								|
 
 ### HasVelocity
 
 * 型
 	* bool
 * 概要
-	* LocalVelocity2D が 0 に近くないか
+	* [LocalVelocity2D] が 0 に近くないかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| AnimGraph										| ControlRig の Enabled に利用												|
-	| Idle to Start (rule)							| トランジションの判定の一部で利用											|
-	| StopRule (rule)								| トランジションの判定の一部で利用											|
+	| [AnimGraph]									| `ControlRig` の `Enabled` に利用											|
+	| [Idle to Start (rule)]						| トランジションの判定の一部で利用											|
+	| [StopRule (rule)]								| トランジションの判定の一部で利用											|
 
 ## Acceleration Data
 
 * 概要
-	* 共通して、更新は UpdateAccelerationData() で行われる。
+	* このカテゴリの変数の更新は [UpdateAccelerationData()] で行われます。
+	* ここに分類されているのは Pawn の MovementComponent の CurrentAcceleration を元に算出される値です。
 
 ### LocalAcceleration2D
 
 * 型
 	* Vector
 * 概要
-	* ローカル座標系での Acceleration
-	* MovementComponent の CurrentAcceleration の XY 成分から算出
+	* Pawn の MovementComponent の CurrentAcceleration の XY 成分から算出したローカル座標系での Acceleration です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateAccelerationData()						| HasAcceleration の算出に利用												|
-	| UpdateWallDetectionHeuristic()				| IsRunningIntoWall の算出に利用											|
-	| PivotSources to Pivot (rule)					| Velocity と Acceleration の向きが逆かを調べる際に利用						|
+	| [UpdateAccelerationData()]					| [HasAcceleration] の算出に利用											|
+	| [UpdateWallDetectionHeuristic()]				| [IsRunningIntoWall] の算出に利用											|
+	| [PivotSources to Pivot (rule)]				| Velocity と Acceleration の向きが逆かを調べる際に利用						|
 
 ### HasAcceleration
 
 * 型
 	* bool
 * 概要
-	* LocalAcceleration2D が 0 に近くないか
+	* [LocalAcceleration2D] が 0 に近くないかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Idle to Start (rule)							| トランジションの判定の一部で利用											|
-	| StopRule (rule)								| トランジションの判定の一部で利用											|
-	| Pivot to Stop (rule)							| トランジションの判定の一部で利用											|
-	| Stop to Start (rule)							| トランジションの判定の一部で利用											|
-	| EndAir tot CycleAlias (rule)					| トランジションの判定の一部で利用											|
+	| [Idle to Start (rule)]						| トランジションの判定の一部で利用											|
+	| [StopRule (rule)]								| トランジションの判定の一部で利用											|
+	| [Pivot to Stop (rule)]						| トランジションの判定の一部で利用											|
+	| [Stop to Start (rule)]						| トランジションの判定の一部で利用											|
+	| [EndInAir to CycleAlias (rule)]				| トランジションの判定の一部で利用											|
 
 ### PivotDirection2D
 
 * 型
 	* Vector
 * 概要
-	* MovementComponent の CurrentAcceleration の XY 成分の Vector のと直前のフレームの値を 0.5 で lerp したワールド座標系の Vector
+	* Pawn の MovementComponent の CurrentAcceleration の XY 成分から算出した Vector と、直前のフレームの [PivotDirection2D] の値を 0.5 で lerp したワールド座標系の Vector です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateAccelerationData()						| CardinalDirectionFromAcceleration の算出に利用							|
+	| [UpdateAccelerationData()]					| [CardinalDirectionFromAcceleration] の算出に利用							|
 
 ## Character State Data
 
 * 概要
-	* 共通して、更新は UpdateCharacterStateData() で行われる。
-		* ただし、以下の変数はカテゴリ Character State Data に属するが、この関数では更新しない。
-			* TimeToJumpApex
-			* IsRunningIntoWall
+	* このカテゴリの変数の更新は [UpdateCharacterStateData()] で行われます。
+		* ただし、以下の変数はカテゴリ [Character State Data] に属するが、この関数では更新しません。
+			* [TimeToJumpApex]
+			* [IsRunningIntoWall]
+	* ここに分類されているのはキャラクターの状態を示す値です。
 
 ### IsOnGround
 
 * 型
 	* bool
 * 概要
-	* MovementComponent の IsMovingOnGround
+	* Pawn の MovementComponent の IsMovingOnGround です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateBlendWeightData()						| UpperbodyDynamicAdditiveWeight の算出に利用								|
-	| FallLand to EndInAir (rule)					| トランジションの判定の一部で利用											|
-	| JumpFallInterruptSources to EndInAir (rule)	| トランジションの判定の一部で利用											|
+	| [UpdateBlendWeightData()]						| [UpperbodyDynamicAdditiveWeight] の算出に利用								|
+	| [FallLand to EndInAir (rule)]					| トランジションの判定の一部で利用											|
+	| [JumpFallInterruptSources to EndInAir (rule)]	| トランジションの判定の一部で利用											|
 
 ### IsCrouching
 
 * 型
 	* bool
 * 概要
-	* MovementComponent の IsCrouching
+	* Pawn の MovementComponent の IsCrouching です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateCharacterStateData()					| CrouchStateChange / WasCrouchingLastUpdate の算出に利用					|
-	| AnimGraph										| ControlRig の IsCrouching に利用											|
-	| UpdateRotationData()							| AdditiveLeanAngle の算出に利用											|
-	| SetRootYawOffset()							| RootYawOffset の算出に利用												|
+	| [UpdateCharacterStateData()]					| [CrouchStateChange] / ローカル変数 `WasCrouchingLastUpdate` の算出に利用	|
+	| [AnimGraph]									| `ControlRig` の `IsCrouching` に利用										|
+	| [UpdateRotationData()]						| [AdditiveLeanAngle] の算出に利用											|
+	| [SetRootYawOffset()]							| [RootYawOffset] の算出に利用												|
 
 ### CrouchStateChange
 
 * 型
 	* bool
 * 概要
-	* IsCrouching が直前のフレームから変わっているか
+	* [IsCrouching] が直前のフレームから変わっているかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Start to Cycle (rule)							| トランジションの判定の一部で利用											|
-	| Pivot to Cycle (rule)							| トランジションの判定の一部で利用											|
-	| Stop to Idle (rule)							| トランジションの判定の一部で利用											|
+	| [Start to Cycle (rule)]						| トランジションの判定の一部で利用											|
+	| [Pivot to Cycle (rule)]						| トランジションの判定の一部で利用											|
+	| [Stop to Idle (rule)]							| トランジションの判定の一部で利用											|
 
 ### ADSStateChanged
 
 * 型
 	* bool
 * 概要
-	* ADS の状態が直前のフレームから変わっているか
+	* ADS の状態が直前のフレームから変わっているかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Start to Cycle (rule)							| トランジションの判定の一部で利用											|
-	| Pivot to Cycle (rule)							| トランジションの判定の一部で利用											|
-	| Stop to Idle (rule)							| トランジションの判定の一部で利用											|
+	| [Start to Cycle (rule)]						| トランジションの判定の一部で利用											|
+	| [Pivot to Cycle (rule)]						| トランジションの判定の一部で利用											|
+	| [Stop to Idle (rule)]							| トランジションの判定の一部で利用											|
 
 ### WasADSLastUpdate
 
 * 型
 	* bool
 * 概要
-	* GameplayTagIsADS の直前のフレームの値の参照用
+	* [GameplayTag_IsADS] の直前のフレームの値を参照するためのコピーです。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateCharacterStateData()					| ADSStateChanged の算出に利用												|
+	| [UpdateCharacterStateData()]					| [ADSStateChanged] の算出に利用											|
 
 ### TimeSinceFiredWeapon
 
 * 型
 	* float
 * 概要
-	* GameplayTagIsFiring が false になってからの時間
+	* [GameplayTag_IsFiring] が false になってからの時間です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateCharacterStateData()					| TimeSinceFiredWeapon の算出に利用											|
+	| [UpdateCharacterStateData()]					| [TimeSinceFiredWeapon] の算出に利用										|
 
 ### IsJumping
 
 * 型
 	* bool
 * 概要
-	* WorldVelocity の Z 値が 0 より小さいか
+	* [WorldVelocity] の Z 値が 0 より小さいかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateJumpFallData()							| TimeToJumpApex の算出に利用												|
-	| JumpSelector to JumpStart (rule)				| トランジションの判定の一部で利用											|
+	| [UpdateJumpFallData()]						| [TimeToJumpApex] の算出に利用												|
+	| [JumpSelector to JumpStart (rule)]			| トランジションの判定の一部で利用											|
+* 備考
+	* [UpdateCharacterStateData()] で更新。
+	* [WorldVelocity] の Z 成分より上昇中か下降中かを設定。
+	* [IsJumping] / [IsFalling] の算出
 
 ### IsFalling
 
 * 型
 	* bool
 * 概要
-	* WorldVelocity の Z 値が 0 以上か
+	* WorldVelocity の Z 値が 0 以上かの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| JumpSelector to JumpStart (rule)				| トランジションの判定の一部で利用											|
+	| [JumpSelector to JumpStart (rule)]			| トランジションの判定の一部で利用											|
+* 備考
+	* [UpdateCharacterStateData()] で更新。
+	* [WorldVelocity] の Z 成分より上昇中か下降中かを設定。
+	* [IsJumping] / [IsFalling] の算出
 
 ### TimeToJumpApex
 
 * 型
 	* float
 * 概要
-	* UpdateJumpFallData() で更新する、ジャンプの頂点までの時間
-	* IsJumping でジャンプしているかを判定
-		* ジャンプしていない場合は 0.0 を設定
-		* ジャンプしている場合は WorldVelocity の Z 成分に重力加速度を割ることで算出
+	* ジャンプの頂点までの時間です。
+	* 更新は [UpdateJumpFallData()] で以下のように行います。
+		* [IsJumping] でジャンプしているかを判定
+			* ジャンプしていない場合は 0.0 を設定
+			* ジャンプしている場合は [WorldVelocity] の Z 成分に重力加速度を割ることで算出
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| JumpStartLoop to JumpApex (rule)				| トランジションの判定の一部で利用											|
+	| [JumpStartLoop to JumpApex (rule)]			| トランジションの判定の一部で利用											|
 
 ### IsRunningIntoWall
 * 型
 	* bool
 * 概要
-	* UpdateWallDetectionHeuristic() で更新する、壁にめり込むように移動しようとしているか
+	* 壁にめり込むように移動しようとしているかの真偽値です。
+	* 更新は [UpdateWallDetectionHeuristic()] で以下のように行います。
+		* 以下の 3 つの条件が真かを設定します。
+			* [LocalAcceleration2D] の大きさが 0.1 より大きいか
+				* 移動しようとしているか
+			* [LocalVelocity2D] の大きさが 200 未満か
+				* 速度が（移動しようとしている割に）低いかを調べている
+			* [LocalAcceleration2D] と [LocalVelocity2D] の内積が \[-0.6,0.6\] の範囲か
+				* 移動しようとしている向きと実際の移動方向の成す角がおおよそ 50 度以内かを調べている
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| PivotSources to Pivot (rule)					| トランジションの判定の一部で利用											|
+	| [PivotSources to Pivot (rule)]				| トランジションの判定の一部で利用											|
+
 
 ## Gameplay Tag Bindings
 
-* TODO:未整備
+* 概要
+	* このカテゴリの変数の更新は [ULyraAnimInstance::GameplayTagPropertyMap] の機能を利用して行われます。
+	* [ULyraAnimInstance::GameplayTagPropertyMap] の設定は以下の通り。
+		| 変数                      | GameplayTag                 | 付与を行う GameplayAbility                            |
+		|----                       |----                         |----                                                   |
+		| [GameplayTag_IsADS]       | `Event.Movement.ADS`        | `GA_ADS`                                              |
+		| [GameplayTag_IsFiring]    | `Event.Movement.WeaponFire` | `GA_Weapon_Fire` とその派生クラス及び `GA_HealPickup` |
+		| [GameplayTag_IsReloading] | `Event.Movement.Reload`     | `GA_WeaponReloadMagazine`                             |
+		| [GameplayTag_IsDashing]   | `Event.Movement.Dash`       | `GA_Hero_Dash`                                        |
+		| [GameplayTag_IsMelee]     | `Event.Movement.Melee`      | `GA_Melee`                                            |
 
 ### GameplayTag_IsADS
-
-* TODO:未整備
-
 ### GameplayTag_IsFiring
-
-* TODO:未整備
-
 ### GameplayTag_IsReloading
-
-* TODO:未整備
-
 ### GameplayTag_IsDashing
-
-* TODO:未整備
-
 ### GameplayTag_IsMelee
 
-* TODO:未整備
 
 ## Locomotion SM Data
 
@@ -1292,96 +1369,111 @@
 ### StartDirection
 
 * 型
-	* AnimEnum_CardinalDirection
+	* [AnimEnum_CardinalDirection]
 * 概要
-	* LocalVelocityDirection のコピー
+	* [LocalVelocityDirection] のコピーです。
+	* Start ステート開始時に呼び出される [SetUpStartState()] で設定されます。
 * read
-	* Start to Cycle (rule)
+	* [Start to Cycle (rule)]
+		* [LocalVelocityDirection] と比較することで、 Start ステート開始時から移動方向が変わっているかの判定に利用されます。
 * write
-	* SetUpStartState()
+	* [SetUpStartState()]
 
 ### PivotInitialDirection
 
 * 型
-	* AnimEnum_CardinalDirection
+	* [AnimEnum_CardinalDirection]
 * 概要
-	* LocalVelocityDirection のコピー
+	* [LocalVelocityDirection] のコピーです。
+	* Pivot ステート開始時に呼び出される [SetUpPivotState()] で設定されます。
 * read
-	* IsMovingPerpendicularToInitialPivot()
+	* [IsMovingPerpendicularToInitialPivot()]
 * write
-	* SetUpPivotState()
+	* [SetUpPivotState()]
 
 ### LastPivotTime
 
 * 型
 	* float
 * 概要
-	* Pivot から Cycle に移る際に Pivot を行うのに十分な時間が経過したか判定するための時間計測用の変数です。<br>値の初期化は派生クラス(ABP_ItemAnimLayerBase)でのみ行われています。
+	* Pivot から Cycle に移る際に Pivot を行うのに十分な時間が経過したか判定するための時間計測用の変数です。
+	* 値の初期化は派生クラス [ABP_ItemAnimLayersBase] でのみ行われています。
 * read
-	* Pivot to Cycle (rule)
+	* [Pivot to Cycle (rule)]
 * write
-	* UpdatePivotState()<br>SetUpPivotAnim()(ABP_ItemAnimLayerBase)
+	* [UpdatePivotState()]
+	* [ABP_ItemAnimLayersBase::SetUpPivotAnim()]
 
 ### CardinalDirectionFromAcceleration
+
 * 型
-	* AnimEnum_CardinalDirection
+	* [AnimEnum_CardinalDirection]
 * 概要
-	* PivotDirection2D から算出し、反対にした方向。このクラスでは設定のみで、利用は派生クラスでのみ行なわれています。
+	* [PivotDirection2D] から算出し、反対にした方向です。
+	* このクラスでは設定のみで、利用は派生クラスでのみ行なわれています。
 * read
-	* SetUpPivotAnim()(ABP_ItemAnimLayerBase)<br>UpdatePivotAnim()(ABP_ItemAnimLayerBase)
+	* [ABP_ItemAnimLayersBase::SetUpPivotAnim()]
+	* [ABP_ItemAnimLayersBase::UpdatePivotAnim()]
 * write
-	* UpdateAccelerationData()
+	* [UpdateAccelerationData()]
 
 ## Blend Weight Data
 
+TODO このへんから
+
 * 概要
-	* 共通して、更新は UpdateBlendWeightData() で行われる。
+	* このカテゴリの変数の更新は [UpdateBlendWeightData()] で行われます。
+	* ここに分類されているのは [UpperbodyDynamicAdditiveWeight] のみです。
 
 ### UpperbodyDynamicAdditiveWeight
 
 * 型
 	* float
 * 概要
-	* スロット UpperBodyAdditive のアニメーションモンタージュを ApplyAdditive() する際の Alpha
-	* IsOnGround かつ UAnimInstance::IsAnyMontagePlaying() により値が決まる
+	* [AnimGraph] にてノード `ApplyAdditive()` のパラメータ `Alpha` に利用されます。
+		* そこでは `Locomotion` のポーズキャッシュにスロット `UpperBodyAdditive` のアニメーションモンタージュをブレンドしています。
+	* [IsOnGround] かつ [UAnimInstance::IsAnyMontagePlaying()] により値が決まります。
 		* true の場合： 1.0
-		* false の場合： 現在値から 0.0 に向けて FInterpTo した値
+		* false の場合： 現在値から 0.0 に向けて `FInterpTo` した値
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateBlendWeightData()						| UpperbodyDynamicAdditiveWeight の算出に利用								|
-	| AnimGraph										| ApplyAdditive() の Alpha に利用											|
+	| [UpdateBlendWeightData()]						| [UpperbodyDynamicAdditiveWeight] の算出に利用								|
+	| [AnimGraph]									| ノード `ApplyAdditive()` のパラメータ `Alpha` に利用						|
 
 ## Aiming Data
 
 * 概要
-	* AimPitch の更新は UpdateAimingData() で行われる。
-	* AimYaw の更新は RootYawOffset と連動するため SetRootYawOffset() で行われる。
+	* このカテゴリの変数の更新は [UpdateAimingData()] で行われます。
+		* ただし、以下の変数はカテゴリ [Aiming Data] に属するが、この関数では更新しません。
+			* [AimYaw]
 
 ### AimPitch
 
 * 型
 	* float
 * 概要
-	* Owner の BaseAimRotation の Pitch
+	* Owner の BaseAimRotation の Pitch の値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| AnimGrap										| Fullbody_Aiming の AimPitch として利用									|
+	| [AnimGraph]									| [Fullbody_Aiming] のパラメータ `AimPitch` として利用						|
 
 ### AimYaw
+
 * 型
 	* float
 * 概要
-	* RootYawOffset に -1 をかけた値。
-	* 以下の 2 箇所で更新を行う
-		* BlueprintThreadSafeUpdateAnimation() > UpdateRootYawOffset() > SetRootYawOffset()
-		* UpdateIdleState() > ProcessTurnYawCurve() > SetRootYawOffset()
-	* 詳しくは SetRootYawOffset() を参照。
+	* この変数の更新は [RootYawOffset] と連動するため [SetRootYawOffset()] で行われます。
+	* 設定される値は RootYawOffset に -1 をかけた値となります。
+	* [SetRootYawOffset()] の呼び出しは以下の 2 箇所から行われます。
+		* [BlueprintThreadSafeUpdateAnimation()] > [UpdateRootYawOffset()] > [SetRootYawOffset()]
+		* [UpdateIdleState()] > [ProcessTurnYawCurve()] > [SetRootYawOffset()]
+	* 詳しくは [SetRootYawOffset()] を参照ください。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| AnimGrap										| Fullbody_Aiming の AimYaw として利用										|
+	| [AnimGraph]									| [Fullbody_Aiming] のパラメータ `AimYaw` として利用						|
 
 ## Settings
 
@@ -1394,20 +1486,20 @@
 ## Linked Layer Data
 
 * 概要
-	* 共通して、更新は UpdateLocomotionStateMachine() で行われる。
+	* このカテゴリの変数の更新は [UpdateLocomotionStateMachine()] で行われます。
 
 ### LinkedLayerChanged
 
 * 型
 	* bool
 * 概要
-	* AnimGraph > LocomotionSM > Start (state) の Linked Anim Instance が直前のフレームから変更されているか 
+	* [Start (state)] の `Linked Anim Instance` が直前のフレームから変更されているか 
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| Start to Cycle (rule)							| TODO																		|
-	| Pivot to Cycle (rule)							| TODO																		|
-	| Stop to Idle (rule)							| TODO																		|
+	| [Start to Cycle (rule)]						| TODO																		|
+	| [Pivot to Cycle (rule)]						| TODO																		|
+	| [Stop to Idle (rule)]							| TODO																		|
 
 ### LastLinkedLayer
 
@@ -1416,81 +1508,85 @@
 ## Turn In Place
 
 * 概要
-	* 更新は UpdateRootYawOffset() で行われるものとそうでないものがある。
-		* UpdateRootYawOffset() で更新するもの
-			* RootYawOffset
-		* UpdatIdleState() で更新するもの
-			* TurnYawCurveValue
-		* UpdateRootYawOffset() で基本の値を設定し、 Update...State() で特定の値を設定するもの
-			* RootYawOffsetMode
+	* このカテゴリの変数の更新は [UpdateRootYawOffset()] で行われるものとそうでないものがあります。
+		* [UpdateRootYawOffset()] で更新するもの
+			* [RootYawOffset]
+		* [UpdateIdleState()] で更新するもの
+			* [TurnYawCurveValue]
+		* [UpdateRootYawOffset()] で基本の値を設定し、 `Update...State()` で特定の値を設定するもの
+			* [RootYawOffsetMode]
 		* 値を外出しするための定数
-			* RootYawOffsetAngleClamp
-			* RootYawOffsetAngleClampCrouched
-		* FloatSpringInterp() 用の構造体
-			* RootYawOffsetSpringState
+			* [RootYawOffsetAngleClamp]
+			* [RootYawOffsetAngleClampCrouched]
+		* `FloatSpringInterp()` 用の構造体
+			* [RootYawOffsetSpringState]
 
 ### RootYawOffset
+
+TODO このへんから
 
 * 型
 	* float
 * 概要
-	* RotateRootBone() の Yaw で使用する値。
-	* SetRootYawOffset() にて設定され、以下から呼び出される。
-		* UpdateRootYawOffset()
-		* ProcessTurnYawOffset()
+	* [AnimGraph] にてノード `RotateRootBone()` のパラメータ `Yaw` に利用されます。
+	* [SetRootYawOffset()] にて設定されます。
+	* [SetRootYawOffset()] 以下から呼び出されます。
+		* [UpdateRootYawOffset()]
+		* [ProcessTurnYawCurve()]
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| AnimGraph										| RotateRootBone() の Yaw に利用											|
-	| UpdateVelocityData()							| LocalVelocityDirectionAngleWithOffset の算出に利用						|
-	| ProcessTurnYawOffset()						| SetRootYawOffset() に渡す値の算出に利用									|
-	| UpdateRootYawOffset()							| SetRootYawOffset() に渡す値の算出に利用									|
-	| Start to Cycle (rule)							| トランジションの判定の一部で利用											|
+	| [AnimGraph]									| ノード `RotateRootBone()` のパラメータ `Yaw` に利用						|
+	| [UpdateVelocityData()]						| [LocalVelocityDirectionAngleWithOffset] の算出に利用						|
+	| [ProcessTurnYawCurve()]						| [SetRootYawOffset()] に渡す値の算出に利用									|
+	| [UpdateRootYawOffset()]						| [SetRootYawOffset()] に渡す値の算出に利用									|
+	| [Start to Cycle (rule)]						| トランジションの判定の一部で利用											|
 
 ### RootYawOffsetSpringState
 
 * 型
-	* FloatSpringState
+	* `FloatSpringState`
 * 概要
-	* UpdateRootYawOffset() 内で FloatSpringInterp() のステートを保持するための構造体
+	* [UpdateRootYawOffset()] にてノード `FloatSpringInterp()` のパラメータ `SpringState` に利用されます。
+	* `FloatSpringInterp()` のステートを保持するための構造体です。
 
 ### TurnYawCurveValue
 
 * 型
 	* float
 * 概要
-	* UpdatIdleState() で以下の二通りで更新が行われる。
-		* 直接 0.0 に更新
-		* ProcessTurnYawCurve() を呼び出しての更新
-	* 直前のフレームとの Delta 値を SetRootYawOffset() にわたす値の算出に必要なため、値をフレームを超えて記憶するための変数。
+	* 以下の 2 箇所で更新が行われます。
+		* [UpdateIdleState()] で直接 0.0 に更新
+		* [ProcessTurnYawCurve()] で更新
+			* 2 つのアニメーションカーブ `RemainingTurnYaw` と `TurnYawWeight` の値を取得し、前者を後者で割った値を設定します。
+			* この変数は [SetRootYawOffset()] のパラメータ `InRootYawOffset` の算出の際に利用されます。
+				* パラメータ `InRootYawOffset` の算出では直前のフレームとの Delta 値を利用するため、フレームを超えて記憶する為、変数に保存しています。
+	* [ProcessTurnYawCurve()] の呼び出しも [UpdateIdleState()] から行われるため、実質的には [UpdateIdleState()] からのみ更新されることになります。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| ProcessTurnYawCurve()							| SetRootYawOffset() に渡す値の算出に利用									|
+	| [ProcessTurnYawCurve()]						| [SetRootYawOffset()] に渡す値の算出に利用									|
 
 ### RootYawOffsetMode
 
 * 型
-	* AnimEnum_RootYawOffsetMode
+	* [AnimEnum_RootYawOffsetMode]
 * 概要
 	* Turn In Place の挙動を決めるための変数
 	* enum の各値は以下の関数で設定している
-		* BlendOut
-			* UpdateRootYawOffset()
-		* Hold
-			* UpdateStartState()
-		* Accumulate
-			* UpdateIdleState()
-			* UpdateStopState()
+		* [AnimEnum_RootYawOffsetMode::BlendOut]
+			* [UpdateRootYawOffset()]
+		* [AnimEnum_RootYawOffsetMode::Hold]
+			* [UpdateStartState()]
+		* [AnimEnum_RootYawOffsetMode::Accumulate]
+			* [UpdateIdleState()]
+			* [UpdateStopState()]
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateRootYawOffset()							| SetRootYawOffset() を呼び出す条件に利用									|
+	| [UpdateRootYawOffset()]						| [SetRootYawOffset()] を呼び出す条件に利用									|
 
 ### RootYawOffsetAngleClamp
-
-* TODO:未整備
-
 ### RootYawOffsetAngleClampCrouched
 
 * コメント
@@ -1505,93 +1601,112 @@
 * 型
 	* Vector2D
 * 概要
-	* SetRootYawOffset() で利用される、 RootYawOffset の設定前に適用するクランプ値。
-		* 詳しくは [Comment_TourInPlace.Ja.3] を参照。
-	* RootYawOffsetAngleClamp はしゃがんで **いない** ときに使用する。
-	* RootYawOffsetAngleClampCrouched はしゃがんで **いる** ときに使用する。
+	* [SetRootYawOffset()] で利用される、 [RootYawOffset] の設定前に適用するクランプ値。
+		* 詳しくは [Comment_TourInPlace.Ja::3] を参照。
+	* [RootYawOffsetAngleClamp] はしゃがんで **いない** ときに使用する。
+	* [RootYawOffsetAngleClampCrouched] はしゃがんで **いる** ときに使用する。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| SetRootYawOffset()							| RootYawOffset の算出に利用												|
+	| [SetRootYawOffset()]							| [RootYawOffset] の算出に利用												|
 
 ## Default(VALIABLES)
 
 * 概要
-	* 「初回アップデートが済んでいるか」と、「各種の実装を有効にするか」と言うカテゴリに属さない設定関連の変数からなる。
+	* 「初回アップデートが済んでいるか」や、「各種の実装を有効にするか」など、カテゴリに属さない設定関連の変数からなります。
 
 ### IsFirstUpdate
 
 * 型
 	* bool
 * 概要
-	* BlueprintThreadSafeUpdateAnimation() の呼び出しが一度も完了していないかを返す
-	* 初期値 true
-	* BlueprintThreadSafeUpdateAnimation() の最後で false に設定される
-	* 主に直前のフレームとの Delta 値を用いる値の算出時に参照し、 true の場合は無効な値を設定するのに利用している。
+	* [BlueprintThreadSafeUpdateAnimation()] の呼び出しが一度も完了していないかを返します。
+	* 初期値は true となります。
+	* [BlueprintThreadSafeUpdateAnimation()] の最後で false に設定されます。
+	* 主に直前のフレームとの Delta 値を用いる値の算出時に参照し、 true の場合は無効な値を設定するのに利用しています。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| UpdateLocationData()							| DisplacementSinceLastUpdate / DisplacementSpeed の算出に利用				|
-	| UpdateRotationData()							| YawDeltaSinceLastUpdate / AdditiveLeanAngle の算出に利用					|
-	| UpdateLocomotionStateMachine()				| LinkedLayerChanged の算出に利用											|
+	| [UpdateLocationData()]						| [DisplacementSinceLastUpdate] / [DisplacementSpeed] の算出に利用			|
+	| [UpdateRotationData()]						| [YawDeltaSinceLastUpdate] / [AdditiveLeanAngle] の算出に利用				|
+	| [UpdateLocomotionStateMachine()]				| [LinkedLayerChanged] の算出に利用											|
 
 ### EnableControlRig
 
 * 型
 	* bool
 * 概要
-	* 用途不明。
-	* 初期値 false のまま変更されない。
-	* このクラスでは使用されていない。
-	* ABP_ItemAnimLayersBase の FullBody_SkeletalControls の Transform (Modify) Bone ノードの Enable の値として利用。
+	* 変数名からするとノード `ControlRig` を有効にするかを示す値のようですが、ノード `ControlRig` のパラメータ `Enabled` は関数 [ShouldEnableControlRig()] が指定されており、またこの変数はその関数内で使用されていません。
+	* そもそもこのクラスでは使用されていません。
+	* [ABP_ItemAnimLayersBase::FullBody_SkeletalControls] にてノード `Transform (Modify) Bone` のパラメータ `Enable` として利用しています。
+		* 意図としては `ControlRig` が無効の場合は Z 軸 -2.0 平行移動させることで床から足が浮いているように見えないようにしているものと思われます。
+	* 初期値 false のまま変更されません。
+		* 設定、もしくは動作確認のためのフラグ的な変数と思われます。
+* 用途
+	| 利用箇所												| 目的																		|
+	|----													|----																		|
+	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `Transform (Modify) Bone` のパラメータ `Enable` として利用			|
 
 ### UseFootPlacement
 
 * 型
 	* bool
 * 概要
-	* 足の位置を調整するか。 
-		* ShouldEnableControlRig() の戻り値の算出に影響を及ぼす。
-			* true の場合、常に false を返す。
-			* false の場合、 アニメーションカーブ DisableLegIK が 0.0 以下の場合 true を返す。
-		* ABP_ItemAnimLayerBase の ShouldEnableFootPlacement() の戻り値の算出に影響を及ぼす。
-			* true の場合、アニメーションカーブ DisableLegIK が 0.0 以下の場合 true を返す。
-			* false の場合、 常に false を返す。
-		* つまり実装が逆になっている。
-			* TODO: これが排他的に制御するために意図してそうなっているのかどうか要確認。
-	* 初期値 true のまま変更されない。
+	* ノード `FootPlacement` を使用するかを示します。
+	* 以下の 3 箇所で利用されています。
+		* [ShouldEnableControlRig()]
+			* 戻り値の算出に影響を及ぼします。
+				* true の場合、常に false を返す。
+				* false の場合、 アニメーションカーブ `DisableLegIK` が 0.0 以下の場合 true を返す。
+		* [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]
+			* 戻り値の算出に影響を及ぼします。
+				* true の場合、アニメーションカーブ `DisableLegIK` が 0.0 以下の場合 true を返す。
+				* false の場合、 常に false を返す。
+		* [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]
+			* ノード `FootPlacement` のパラメータ `Enabled` として利用しています。
+	* [ShouldEnableControlRig()] と [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()] は扱いが逆になっています。
+		* これは排他的に制御するために意図してそうなっているのものと思われます。
+	* 初期値 true のまま変更されません。
+		* 設定、もしくは動作確認のためのフラグ的な変数と思われます。
 * 用途
-	| 利用箇所										| 目的																		|
-	|----											|----																		|
-	| ShouldEnableControlRig()						| 戻り値の算出に利用														|
+	| 利用箇所												| 目的																		|
+	|----													|----																		|
+	| [ShouldEnableControlRig()]							| 戻り値の算出に利用														|
+	| [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]	| 戻り値の算出に利用														|
+	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `FootPlacement` のパラメータ `Enabled` として利用					|
 
 ### bEnableRootYawOffset
 
 * 型
 	* bool
 * 概要
-	* RootYawOffset の機能を使用するか。
-		* SetRootYawOffset() の挙動に影響を及ぼす。
-			* true の場合、 RootYawOffset / AimYaw の値が状況によって変化する
-			* false の場合、 RootYawOffset / AimYaw の値が常に 0.0 となる
-	* 初期値 true のまま変更されない。
+	* `RootYawOffset` の機能を使用するか。
+		* [SetRootYawOffset()] の挙動に影響を及ぼす。
+			* true の場合、 [RootYawOffset] / [AimYaw] の値が状況によって変化する
+			* false の場合、 [RootYawOffset] / [AimYaw] の値が常に 0.0 となる
+	* 初期値 true のまま変更されません。
+		* 設定、もしくは動作確認のためのフラグ的な変数と思われます。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| SetRootYawOffset()							| RootYawOffset / AimYaw の算出に利用										|
+	| [SetRootYawOffset()]							| [RootYawOffset] / [AimYaw] の算出に利用									|
 
 
 
 <!--- ------------------------------------------------------------------ --->
 
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
-
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
-
-
-
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%AE%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95%E3%81%AA%E6%9B%B4%E6%96%B0%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  慣性化]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E6%85%A3%E6%80%A7%E5%8C%96
+[Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
+
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
+
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
+
 
 <!--- ページ内のリンク --->
 
@@ -1619,7 +1734,7 @@
 [CycleAlias]: #cyclealias
 [IdleAlias]: #idlealias
 [JumpSelector (conduit rule)]: #jumpselector-conduit-rule
-[EndAir (conduit rule)]: #endair-conduit-rule
+[EndInAir (conduit rule)]: #endinair-conduit-rule
 [Idle to Start (rule)]: #idle-to-start-rule
 [Start to Cycle (rule)]: #start-to-cycle-rule
 [StopRule (rule)]: #stoprule-rule
@@ -1635,10 +1750,10 @@
 [JumpSelector to JumpApex (rule)]: #jumpselector-to-jumpapex-rule
 [JumpApex to FallLoop (rule)]: #jumpapex-to-fallloop-rule
 [FallLoop to FallLand (rule)]: #fallloop-to-fallland-rule
-[FallLand to EndAir (rule)]: #fallland-to-endair-rule
-[JumpFallInterruptSources to EndAir (rule)]: #jumpfallinterruptsources-to-endair-rule
-[EndAir to CycleAlias (rule)]: #endair-to-cyclealias-rule
-[EndAir to IdleAlias (rule)]: #endair-to-idlealias-rule
+[FallLand to EndInAir (rule)]: #fallland-to-endinair-rule
+[JumpFallInterruptSources to EndInAir (rule)]: #jumpfallinterruptsources-to-endinair-rule
+[EndInAir to CycleAlias (rule)]: #endinair-to-cyclealias-rule
+[EndInAir to IdleAlias (rule)]: #endinair-to-idlealias-rule
 [ANIMATION LAYERS]: #animation-layers
 [Item Anim Layers]: #item-anim-layers
 [FullBodyAdditives]: #fullbodyadditives
@@ -1665,6 +1780,7 @@
 [UpdatePivotState()]: #updatepivotstate
 [UpdateLocomotionStateMachine()]: #updatelocomotionstatemachine
 [Helper Functions]: #helper-functions
+[SelectCardinalDirectionFromAngle()]: #selectcardinaldirectionfromangle
 [GetOppositeCardinalDirection()]: #getoppositecardinaldirection
 [IsMovingPerpendicularToInitialPivot()]: #ismovingperpendiculartoinitialpivot
 [Blueprint Thread Safe Update Functions]: #blueprint-thread-safe-update-functions
@@ -1750,8 +1866,37 @@
 [EnableControlRig]: #enablecontrolrig
 [UseFootPlacement]: #usefootplacement
 [bEnableRootYawOffset]: #benablerootyawoffset
+[ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
+[ABP_ItemAnimLayersBase::SetUpPivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
+[ABP_ItemAnimLayersBase::UpdatePivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
+[ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
+[ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
+[AnimEnum_CardinalDirection]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirection
+[AnimEnum_RootYawOffsetMode]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmode
+[AnimEnum_RootYawOffsetMode::BlendOut]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeblendout
+[AnimEnum_RootYawOffsetMode::Hold]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodehold
+[AnimEnum_RootYawOffsetMode::Accumulate]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeaccumulate
+[Comment_AnimBP_Tour.Ja::1]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja1
+[Comment_AnimBP_Tour.Ja::2]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja2
+[Comment_AnimBP_Tour.Ja::3]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja3
+[Comment_AnimBP_Tour.Ja::4]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja4
+[Comment_TourInPlace.Ja]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja
+[Comment_TourInPlace.Ja::1]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja1
+[Comment_TourInPlace.Ja::2]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja2
+[Comment_TourInPlace.Ja::3]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja3
+[Comment_TourInPlace.Ja::4]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja4
+[Comment_TourInPlace.Ja::5]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja5
 [ULyraAnimInstance::GameplayTagPropertyMap]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
+[ULyraAnimInstance::GroundDistance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance
+[UAnimInstance::GetInstanceCurrentStateElapsedTime()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
+[UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
+[UAnimInstance::IsAnyMontagePlaying()]: ../../UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
+[Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%AE%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95%E3%81%AA%E6%9B%B4%E6%96%B0%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
