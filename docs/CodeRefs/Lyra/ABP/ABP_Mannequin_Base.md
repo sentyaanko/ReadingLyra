@@ -1,5 +1,7 @@
 # ABP_Mannequin_Base
 
+TODO の見直し。
+
 * 概要
 	* キャラクターブループリントに設定する、基本となる ABP です。
 * 他のクラスとの関係
@@ -318,7 +320,7 @@
 		| [Pivot (state)] | BS_MM_Rifle_Jog_Leans        |
 	* その他特記事項
 		* [Start (state)]
-			* FullBody_StartState を利用しており、 Tag には StartLayerNode と設定してあります。
+			* [FullBody_StartState] を利用しており、 Tag には `StartLayerNode` と設定してあります。
 			* これにより Start ノードへの参照が取得できるようにしています。
 			* 参照の取得は [UpdateLocomotionStateMachine()] にて行っています。
 * State Alias に関して
@@ -371,11 +373,32 @@
 
 
 #### Idle (state)
+
+* 立ち止まっている時のステートです。
+
 #### Start (state)
+
+* 移動開始直後のステートです。
+* [FullBody_StartState] ノードに `StartLayerNode` というタグ名を設置しています。
+* このタグ名は [UpdateLocomotionStateMachine()] で利用されています。
+
+
 #### Cycle (state)
+
+* 移動中のステートです。
+
 #### Stop (state)
+
+* 移動を停止する時のステートです。
+
 #### Pivot (state)
+
+* 方向転換時のステートです。
+
 #### JumpStart (state)
+
+TODO ざっくりした説明を書いておく。
+
 #### JumpStartLoop (state)
 #### JumpApex (state)
 #### FallLoop (state)
@@ -626,8 +649,11 @@
 	> ----
 	> Start ステートのレイヤーノードがリンクしているアニメーションインスタンスが変更されたかどうかをチェックしています。  
 	> 他のノードはすべて同じグループであり、同じアニメーションインスタンスを共有しているので、チェックする必要はありません。  
-	* StartLayerNode というタグ名を利用して、 [AnimGraph] > [LocomotionSM] > [Start (state)] のリファレンスを取得し、 Linked Anim Instance が直前のフレームから変更があったかを [LinkedLayerChanged] に設定しています。
 * [AnimGraph] 内の [LocomotionSM] ノードの On Update ノード関数です。
+* `StartLayerNode` というタグ名を利用して、 [Start (state)] の [FullBody_StartState] の `FAnimNodeReference` を取得しています。
+* `FAnimNodeReference` は `ULinkedAnimGraphLibrary::ConvertToLinkedAnimGraph()` を使用して `FLinkedAnimGraphReference` を取得できます。
+* `FLinkedAnimGraphReference` は `ULinkedAnimGraphLibrary::GetLinkedAnimInstance()` を使用して [UAnimInstance] を取得できます。
+* 取得した [UAnimInstance] は [LastLinkedLayer] に設定しておき、直前のフレームと異なるかを [LinkedLayerChanged] に設定する際に利用しています。
 
 
 ## Helper Functions
@@ -637,10 +663,10 @@
 * 概要
 	* 引数を元に、 [AnimEnum_CardinalDirection] を返します。
 * 引数
-	* 向いている角度（正面を 0 、右を正、背面を 180 とする）
-	* 判定の遊び値（現在の向きを考慮する場合、向きが変わったかどうかの判定をゆるくするための角度）
-	* 現在の向き
-	* 現在の向きを考慮するかどうか
+	* `Angle`: 向いている角度（正面を 0 、右を正、背面を 180 とする）
+	* `DeadZone`: 判定の遊び値（現在の向きを考慮する場合、向きが変わったかどうかの判定をゆるくするための角度）
+	* `CurrentDirection`: 現在の向き
+	* `UseCurrentDirection`: 現在の向きを考慮するかどうか
 * 呼び出し元は以下の通り。
 	* [UpdateVelocityData()]
 		* [LocalVelocityDirectionAngleWithOffset] を元に [LocalVelocityDirection] を算出するために利用。
@@ -797,7 +823,7 @@
 		* それぞれ別の由来の変化値の反映のため、 2 回呼び出すことは特に問題ない。
 * 呼び出し元
 	* [ProcessTurnYawCurve()]
-		* アニメーションに設定されている `RemainingTurnYaw` / `TurnYawWeight` 由来の変化を反映するために利用。
+		* アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` 由来の変化を反映するために利用。
 	* [UpdateRootYawOffset()]
 		* (Actor Rotation を元にした) [YawDeltaSinceLastUpdate] 由来の変化を反映するために利用。
 
@@ -805,17 +831,17 @@
 
 * Tour コメント
 	* [Comment_TourInPlace.Ja::5]
-* コメント：アニメーションに設定されている `RemainingTurnYaw` / `TurnYawWeight` を元に TurnYawCurveValue を更新する部分について
-	> The "TurnYawWeight" curve is set to 1 in TurnInPlace animations, so its current value from GetCurveValue will be the current weight of the TurnInPlace animation.   
-	> We can use this to "unweight" the TurnInPlace animation to get the full RemainingTurnYaw curve value.  
+* コメント：アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` を元に [TurnYawCurveValue] を更新する部分について
+	> The `TurnYawWeight` curve is set to 1 in TurnInPlace animations, so its current value from `GetCurveValue()` will be the current weight of the TurnInPlace animation.   
+	> We can use this to "unweight" the TurnInPlace animation to get the full `RemainingTurnYaw` curve value.  
 	> 
 	> ----
-	> TurnInPlace アニメーションでは "TurnYawWeight" カーブが 1 に設定されているため、 GetCurveValue() から得られる現在の値は、 TurnInPlace アニメーションの現在のウェイトとなります。  
-	> これを利用して、 TurnInPlace アニメーションのウェイトを "解除" し、 RemainingTurnYaw カーブの値を完全に取得することができます。  
-	* `RemainingTurnYaw` / `TurnYawWeight` について詳しくは TurnYawAnimModifier を参照。
-	* `TurnYawWeight` は初期値 1.0 でその値を維持し、 Root の Yaw が最終値と同値に至ると 0.0 となる。
-	* `TurnYawWeight` で除算はしているが、 1.0 以下の値を除算することになる為、 0.0 に近づくほど `RemainingTurnYaw` より大きな値が TurnYawCurveValue に設定される。
-		* TODO: 乗算して徐々に影響を減らすほうが正しいのでは？要確認。
+	> TurnInPlace アニメーションでは `TurnYawWeight` カーブが 1 に設定されているため、 `GetCurveValue()` から得られる現在の値は、 TurnInPlace アニメーションの現在のウェイトとなります。  
+	> これを利用して、 TurnInPlace アニメーションのウェイトを "解除" し、 `RemainingTurnYaw` カーブの値を完全に取得することができます。  
+	* アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` について詳しくは [TurnYawAnimModifier] を参照。
+	* `TurnYawWeight` は初期値 1.0 で、 root の Yaw が最終値と同値に至ると 0.0 となる。
+	* `TurnYawWeight` で除算はしているが、 1.0 以下の値を除算することになる為、 0.0 に近づくほど `RemainingTurnYaw` より大きな値が [TurnYawCurveValue] に設定される。
+		> Memo: 乗算して徐々に影響を減らすほうが正しいのでは？要確認。
 * コメント：直前のフレームの [TurnYawCurveValue] が 0.0 ではないかの分岐について
 	> Avoid applying the curve delta when the curve first becomes relevant.   
 	> E.g. When a turn animation starts, the previous curve value will be 0 and the current value will be 90, but no actual rotation has happened yet.  
@@ -828,8 +854,6 @@
 	> 
 	> ----
 	> RootYawOffset を、ターンアニメーションの回転量分減らす。  
-* 参考
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]
 * 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
 	| カテゴリ                | 変数名                                  |
 	|-------------------------|-----------------------------------------|
@@ -879,6 +903,9 @@
 			* 具体的には [UpdateStartState()] にて、 State の Blending Out 中でない場合にこの値に設定しています。
 			* この値の場合、 [SetRootYawOffset()] の呼び出しを行わず、 [RootYawOffset] / [AimYaw] の更新が行われません。
 				* つまり、 Start State 中は [RootYawOffset] / [AimYaw] が変化しないということです。
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
+		* ｀Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
 	| カテゴリ                | 変数名                                  |
 	|-------------------------|-----------------------------------------|
@@ -942,16 +969,17 @@
 
 ### ShouldEnableControlRig()
 
-* [AnimGraph] から呼び出されている、 `ControlRig` の enable を決める関数。
+* 概要
+	* [AnimGraph] にてノード `ControlRig` のパラメータ `Enabled` に利用されます。
 * 使用する変数
 	* [UseFootPlacement]
-* 使用するカーブ
+* 使用するアニメーションカーブ
 	* `DisableLegIK`
 		* 例： `AM_MM_Dash_Forward` で足が浮いている間 0 より大きい値が設定される。
+			> Memo: `AM_MM_Dash_Forward` には AnimationModifier が設定されていないので、おそらく手で付けられている。
 * 実装概要
 	* `DisableLegIK` の値が 0.0 以下かつ [UseFootPlacement] が false のときに true を返す。
 	* つまり、足が浮いていて、 [UseFootPlacement] が false になっているとき、 `ControlRig` が enable となる。
-		* TODO: [UseFootPlacement] の初期値が true であり、値を変更する箇所が検索にかからない。要調査。
 
 # VALIABLES
 
@@ -1144,7 +1172,7 @@
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| [AnimGraph]									| `ControlRig` の `Enabled` に利用											|
+	| [AnimGraph]									| `ControlRig` のパラメータ `IsMoving2D` に利用								|
 	| [Idle to Start (rule)]						| トランジションの判定の一部で利用											|
 	| [StopRule (rule)]								| トランジションの判定の一部で利用											|
 
@@ -1364,7 +1392,8 @@
 
 ## Locomotion SM Data
 
-* TODO:未整備
+* 概要
+	* [LocomotionSM] 内で読み書きされる変数です。
 
 ### StartDirection
 
@@ -1419,8 +1448,6 @@
 
 ## Blend Weight Data
 
-TODO このへんから
-
 * 概要
 	* このカテゴリの変数の更新は [UpdateBlendWeightData()] で行われます。
 	* ここに分類されているのは [UpperbodyDynamicAdditiveWeight] のみです。
@@ -1457,7 +1484,7 @@ TODO このへんから
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| [AnimGraph]									| [Fullbody_Aiming] のパラメータ `AimPitch` として利用						|
+	| [AnimGraph]									| ノード [Fullbody_Aiming] のパラメータ `AimPitch` に利用					|
 
 ### AimYaw
 
@@ -1473,15 +1500,26 @@ TODO このへんから
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| [AnimGraph]									| [Fullbody_Aiming] のパラメータ `AimYaw` として利用						|
+	| [AnimGraph]									| ノード [Fullbody_Aiming] のパラメータ `AimYaw` に利用						|
 
 ## Settings
 
-* TODO:未整備
+* 概要
+	* このカテゴリの変数は挙動の調整のための固定値で更新はされません。
+	* ここに分類されているのは [CardinalDirectionDeadZone] のみです。
 
 ### CardinalDirectionDeadZone
 
-* TODO:未整備
+* 型
+	* float
+* 概要
+	* この変数の更新はノード [SelectCardinalDirectionFromAngle()] のパラメータ `DeadZone` に利用されます。
+	* 挙動を調整するための定数で、デフォルトで 10.0 が設定されており、変更されません。
+* 用途
+	| 利用箇所										| 目的																		|
+	|----											|----																		|
+	| [UpdateVelocityData()]						| [LocalVelocityDirection] / [LocalVelocityDirectionNoOffset] の算出に利用	|
+	| [UpdateAccelerationData()]					| [CardinalDirectionFromAcceleration] の算出に利用							|
 
 ## Linked Layer Data
 
@@ -1493,17 +1531,24 @@ TODO このへんから
 * 型
 	* bool
 * 概要
-	* [Start (state)] の `Linked Anim Instance` が直前のフレームから変更されているか 
+	* [Start (state)] の [FullBody_StartState] が示す `Linked Anim Instance` が直前のフレームから変更されているかの真偽値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| [Start to Cycle (rule)]						| TODO																		|
-	| [Pivot to Cycle (rule)]						| TODO																		|
-	| [Stop to Idle (rule)]							| TODO																		|
+	| [Start to Cycle (rule)]						| トランジションの判定で直接利用											|
+	| [Pivot to Cycle (rule)]						| トランジションの判定で直接利用											|
+	| [Stop to Idle (rule)]							| トランジションの判定で直接利用											|
 
 ### LastLinkedLayer
 
-* TODO:未整備
+* 型
+	* [UAnimInstance]
+* 概要
+	* [Start (state)] の [FullBody_StartState] が示す `Linked Anim Instance` の直前のフレームの値で、今回のフレームで変化があったかを判定するための変数です。
+* 用途
+	| 利用箇所										| 目的																		|
+	|----											|----																		|
+	| [Start to Cycle (rule)]						| トランジションの判定で直接利用											|
 
 ## Turn In Place
 
@@ -1645,7 +1690,7 @@ TODO このへんから
 * 用途
 	| 利用箇所												| 目的																		|
 	|----													|----																		|
-	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `Transform (Modify) Bone` のパラメータ `Enable` として利用			|
+	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `Transform (Modify) Bone` のパラメータ `Enable` に利用				|
 
 ### UseFootPlacement
 
@@ -1673,7 +1718,7 @@ TODO このへんから
 	|----													|----																		|
 	| [ShouldEnableControlRig()]							| 戻り値の算出に利用														|
 	| [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]	| 戻り値の算出に利用														|
-	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `FootPlacement` のパラメータ `Enabled` として利用					|
+	| [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]	| ノード `FootPlacement` のパラメータ `Enabled` に利用						|
 
 ### bEnableRootYawOffset
 
@@ -1706,6 +1751,7 @@ TODO このへんから
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
 
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 
 
 <!--- ページ内のリンク --->
@@ -1887,16 +1933,18 @@ TODO このへんから
 [Comment_TourInPlace.Ja::3]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja3
 [Comment_TourInPlace.Ja::4]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja4
 [Comment_TourInPlace.Ja::5]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja5
+[TurnYawAnimModifier]: ../../Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
 [ULyraAnimInstance::GameplayTagPropertyMap]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
 [ULyraAnimInstance::GroundDistance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance
+[UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetInstanceCurrentStateElapsedTime()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
 [UAnimInstance::IsAnyMontagePlaying()]: ../../UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
 [Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%AE%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95%E3%81%AA%E6%9B%B4%E6%96%B0%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3

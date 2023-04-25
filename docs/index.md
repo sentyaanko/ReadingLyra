@@ -22,6 +22,9 @@
 			- [Comment_AnimBP_Tour.Ja]
 			- [Comment_TourInPlace.En]
 			- [Comment_TourInPlace.Ja]
+			- [FootFXAnimModifier]
+			- [SyncMarkerAnimModifier]
+			- [TurnYawAnimModifier]
 		- Animation
 			- [ULyraAnimInstance]
 		- AssetManager
@@ -257,6 +260,9 @@
 [Comment_AnimBP_Tour.Ja]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md
 [Comment_TourInPlace.En]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En.md
 [Comment_TourInPlace.Ja]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.Ja.md
+[FootFXAnimModifier]: ./CodeRefs/Lyra/ABP/FootFXAnimModifier.md
+[SyncMarkerAnimModifier]: ./CodeRefs/Lyra/ABP/SyncMarkerAnimModifier.md
+[TurnYawAnimModifier]: ./CodeRefs/Lyra/ABP/TurnYawAnimModifier.md
 [ULyraAnimInstance]: ./CodeRefs/Lyra/Animation/ULyraAnimInstance.md
 [ULyraAssetManager]: ./CodeRefs/Lyra/AssetManager/ULyraAssetManager.md
 [FLyraAppliedEquipmentEntry]: ./CodeRefs/Lyra/Equipment/FLyraAppliedEquipmentEntry.md

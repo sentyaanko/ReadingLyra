@@ -44,6 +44,11 @@
 > タグが追加または削除されると、変数が自動的に更新されます。  
 > ゲームプレイタグを手動で照会する代わりに、これらを使用するべきです。
 
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > ゲームプレイ タグ バインディング
+		> Lyra は、プレイヤーのほとんどのアクションで ゲームプレイ アビリティ システム を使用しています。  
+		> アニメーション ブループリントでは、ゲームプレイ タグ バインディングを使用して、これらのイベントに対応することができます。  
+		> AnimBP_Mannequin_Base ブループリント内のゲームプレイ タグは、`Class Defaults > Details > Gameplay Tags > Gameplay Tag Property Map` から操作できます。
 * 概要
 	* [FGameplayTagBlueprintPropertyMap] 型です。
 	* これを利用することでプロパティの値を見るだけで GameplayTag の状態を取得することができ、アニメーションブループリント内で GameplayTag を直接照会しないようにしています。
@@ -73,3 +78,4 @@
 [FGameplayTagBlueprintPropertyMap]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymap
 [FGameplayTagBlueprintPropertyMap::Initialize()]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymapinitialize
 [FGameplayTagBlueprintPropertyMap::PropertyMappings]: ../../UE/GameplayAbility/FGameplayTagBlueprintPropertyMap.md#fgameplaytagblueprintpropertymappropertymappings
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/

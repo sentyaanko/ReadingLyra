@@ -22,6 +22,9 @@ nav:
         - Comment_AnimBP_Tour.Ja: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja
         - Comment_TourInPlace.En: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En
         - Comment_TourInPlace.Ja: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.Ja
+        - FootFXAnimModifier: ./CodeRefs/Lyra/ABP/FootFXAnimModifier
+        - SyncMarkerAnimModifier: ./CodeRefs/Lyra/ABP/SyncMarkerAnimModifier
+        - TurnYawAnimModifier: ./CodeRefs/Lyra/ABP/TurnYawAnimModifier
       - Animation:
         - ULyraAnimInstance: ./CodeRefs/Lyra/Animation/ULyraAnimInstance
       - AssetManager:
