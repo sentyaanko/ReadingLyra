@@ -1,7 +1,5 @@
 # ABP_Mannequin_Base
 
-TODO の見直し。
-
 * 概要
 	* キャラクターブループリントに設定する、基本となる ABP です。
 * 他のクラスとの関係
@@ -397,19 +395,51 @@ TODO の見直し。
 
 #### JumpStart (state)
 
-TODO ざっくりした説明を書いておく。
+* ジャンプ開始時のステートです。
 
 #### JumpStartLoop (state)
+
+* ジャンプしてから頂点付近に至るまでのステートです。
+
 #### JumpApex (state)
+
+* ジャンプの頂点付近のステートです。
+
 #### FallLoop (state)
+
+* 落下時のステートです。
+
 #### FallLand (state)
+
+* 着地付近のステートです。
+
 #### PivotSources
+
+* Pivot に遷移可能なステート群を示すステートエイリアスです。
+
 #### JumpSources
+
+* Jump に遷移可能なステート群を示すステートエイリアスです。
+
 #### JumpFallInterruptSources
+
+* 落下を中断して地上のステートに遷移可能なステート群を示すステートエイリアスです。
+
 #### CycleAlias
+
+* [Cycle (state)] に遷移するためのステートエイリアスです。
+
 #### IdleAlias
+
+* [Idle (state)] に遷移するためのステートエイリアスです。
+
 #### JumpSelector (conduit rule)
+
+* ジャンプか落下か分岐するためのコンジットルールです。
+
 #### EndInAir (conduit rule)
+
+* 立ち止まるか移動中か分岐するためのコンジットルールです。
 
 #### Idle to Start (rule)
 
@@ -420,7 +450,6 @@ TODO ざっくりした説明を書いておく。
 		* [HasVelocity]
 
 #### Start to Cycle (rule)
-
 
 * 参照する変数/関数
 	* Priority.1
@@ -801,6 +830,10 @@ TODO ざっくりした説明を書いておく。
 
 ## Turn In Place
 
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
+		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
+
 ### SetRootYawOffset()
 
 * Tour コメント
@@ -903,9 +936,6 @@ TODO ざっくりした説明を書いておく。
 			* 具体的には [UpdateStartState()] にて、 State の Blending Out 中でない場合にこの値に設定しています。
 			* この値の場合、 [SetRootYawOffset()] の呼び出しを行わず、 [RootYawOffset] / [AimYaw] の更新が行われません。
 				* つまり、 Start State 中は [RootYawOffset] / [AimYaw] が変化しないということです。
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
-		* ｀Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
 	| カテゴリ                | 変数名                                  |
 	|-------------------------|-----------------------------------------|
@@ -1552,6 +1582,9 @@ TODO ざっくりした説明を書いておく。
 
 ## Turn In Place
 
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
+		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * 概要
 	* このカテゴリの変数の更新は [UpdateRootYawOffset()] で行われるものとそうでないものがあります。
 		* [UpdateRootYawOffset()] で更新するもの
@@ -1567,8 +1600,6 @@ TODO ざっくりした説明を書いておく。
 			* [RootYawOffsetSpringState]
 
 ### RootYawOffset
-
-TODO このへんから
 
 * 型
 	* float
@@ -1739,19 +1770,6 @@ TODO このへんから
 
 
 <!--- ------------------------------------------------------------------ --->
-
-[Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > ブループリントのスレッドセーフな更新アニメーション]: https://docs.unrealengine.com/5.0/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E3%83%96%E3%83%AB%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88%E3%81%AE%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95%E3%81%AA%E6%9B%B4%E6%96%B0%E3%82%A2%E3%83%8B%E3%83%A1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  慣性化]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E6%85%A3%E6%80%A7%E5%8C%96
-[Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
-
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97
-
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 
 
 <!--- ページ内のリンク --->
