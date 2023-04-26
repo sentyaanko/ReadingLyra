@@ -3,7 +3,7 @@
 * 概要
 	* キャラクターブループリントに設定する、基本となる ABP です。
 * 他のクラスとの関係
-	* B_HeroShooterMannyquin の Mesh の AnimClass で指定されています。
+	* `B_HeroShooterMannyquin` の Mesh の AnimClass で指定されています。
 * 構成要素
 	* [GRAPHS]
 		* [EventGraph]
@@ -91,7 +91,7 @@
 			* [UpdateAimingData()]
 			* [UpdateJumpFallData()]
 			* [UpdateWallDetectionHeuristic()]
-		* [Turn In Place]
+		* [Turn In Place(FUNCTIONS)]
 			* [SetRootYawOffset()]
 			* [ProcessTurnYawCurve()]
 			* [UpdateRootYawOffset()]
@@ -153,7 +153,7 @@
 		* [Linked Layer Data]
 			* [LinkedLayerChanged]
 			* [LastLinkedLayer]
-		* [Turn In Place]
+		* [Turn In Place(VALIABLES)]
 			* [RootYawOffset]
 			* [RootYawOffsetSpringState]
 			* [TurnYawCurveValue]
@@ -166,10 +166,10 @@
 			* [UseFootPlacement]
 			* [bEnableRootYawOffset]
 * グループについて
-	* [ANIMATION LAYERS] で使用されているもの。
+	* [ANIMATION LAYERS] のグループ
 		* [Item Anim Layers]
 			* [ALI_ItemAnimLayers] で定義されている。
-	* [FUNCTIONS] で使用されているもの。
+	* [FUNCTIONS] のグループ
 		* [State Node Functions]
 			* ステート及びステートマシンで使用しているノード関数です。
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]
@@ -184,47 +184,56 @@
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
 		* [Blueprint Thread Safe Update Functions]
 			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
-		* [Turn In Place]
-			* Turn In Place 処理を行うための関数です。
-			* Turn In Place について詳しくは [Comment_TourInPlace.Ja] を参照。
-	* [VALIABLES] で使用されているもの。
+		* [Turn In Place(FUNCTIONS)]
+			* 所定の位置での旋回処理を行うための関数です。
+			* [所定の位置での旋回について(about Turn In Place)] を参照。
+	* [VALIABLES] のグループ
 		* [Rotation Data]
-			* 更新は [UpdateRotationData()] で行われます。
 			* Actor の Rotation を元の算出された変数です。
+			* 更新は [UpdateRotationData()] で行われます。
 		* [Location Data]
-			* 更新は [UpdateLocationData()] で行われます。
 			* Actor の Location を元の算出された変数です。
-		* [Velocity Data]
 			* 更新は [UpdateLocationData()] で行われます。
+		* [Velocity Data]
 			* Pawn の Velocity を元の算出された変数です。
+			* 更新は [UpdateLocationData()] で行われます。
 		* [Acceleration Data]
-			* 更新は [UpdateAccelerationData()] で行われます。
 			* MovementComponent の CurrentAcceleration を元の算出された変数です。
+			* 更新は [UpdateAccelerationData()] で行われます。
 		* [Character State Data]
+			* キャラクターの各種状態（例：立っている、しゃがんでいる、 ADS している、ジャンプしている、落下している等々）を保持しています。
 			* 更新は [UpdateCharacterStateData()] で行われますが、以下の 2 つは例外です。
 				* [TimeToJumpApex]
 				* [IsRunningIntoWall]
-			* キャラクターの各種状態（例：立っている、しゃがんでいる、 ADS している、ジャンプしている、落下している等々）を保持しています。
 		* [Gameplay Tag Bindings]
-			* 更新は [ULyraAnimInstance::GameplayTagPropertyMap] により行われます。
 			* GameplayTag を監視し、付与状態と連動します。
+			* 更新は [ULyraAnimInstance::GameplayTagPropertyMap] により行われます。
 		* [Locomotion SM Data]
 			* [LocomotionSM] 内で読み書きされる変数です。
 		* [Blend Weight Data]
-			* 更新は [UpdateBlendWeightData()] で行われます。
 			* アニメーションのブレンドの際のアルファ値を保持する変数です。
+			* 更新は [UpdateBlendWeightData()] で行われます。
 		* [Aiming Data]
+			* キャラクターの向いている方向に関する変数です。
 			* 更新は [UpdateAimingData()] で行われますが、以下は例外です。
 				* [AimYaw]
 					* [RootYawOffset] と連動するため [SetRootYawOffset()] で更新されます。
 		* [Settings]
 			* 定数として扱われている変数です。
 		* [Linked Layer Data]
-			* 更新は [UpdateLocomotionStateMachine()] で行われます。
 			* Linked Anim Instance に関する変数です。
-		* [Turn In Place]
-			* Turn In Place 処理を行うための関数です。
-			* Turn In Place について詳しくは [Comment_TourInPlace.Ja] を参照。
+			* 更新は [UpdateLocomotionStateMachine()] で行われます。
+		* [Turn In Place(VALIABLES)]
+			* 所定の位置での旋回処理を行うための関数です。
+			* [所定の位置での旋回について(about Turn In Place)] を参照。
+
+# 所定の位置での旋回について(about Turn In Place)
+
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
+		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
+* Tour コメント
+	* [Comment_TourInPlace.Ja]
 
 # GRAPHS
 
@@ -828,11 +837,7 @@
 	|-------------------------|-----------------------------------------|
 	| [Character State Data]  | [IsRunningIntoWall]                     |
 
-## Turn In Place
-
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
-		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
+## Turn In Place(FUNCTIONS)
 
 ### SetRootYawOffset()
 
@@ -840,10 +845,10 @@
 	* [Comment_TourInPlace.Ja::3]
 	* [Comment_TourInPlace.Ja::4]
 * 以下の変数の更新を行います。
-	| カテゴリ                | 変数名                                  |
-	|-------------------------|-----------------------------------------|
-	| [Aiming Data]           | [AimYaw]                                |
-	| [Turn In Place]         | [RootYawOffset]                         |
+	| カテゴリ                   | 変数名                                  |
+	|----------------------------|-----------------------------------------|
+	| [Aiming Data]              | [AimYaw]                                |
+	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
 * 概要
 	* 渡されたパラメータ `InRootYawOffset` を [RootYawOffset] に設定し、 -1 を掛けたものを [AimYaw] に設定する。
 	* ただし、 [bEnableRootYawOffset] が false の場合はいずれも 0.0 に設定する。
@@ -888,11 +893,11 @@
 	> ----
 	> RootYawOffset を、ターンアニメーションの回転量分減らす。  
 * 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
-	| カテゴリ                | 変数名                                  |
-	|-------------------------|-----------------------------------------|
-	| [Aiming Data]           | [AimYaw]                                |
-	| [Turn In Place]         | [RootYawOffset]                         |
-	| [Turn In Place]         | [TurnYawCurveValue]                     |
+	| カテゴリ                   | 変数名                                  |
+	|----------------------------|-----------------------------------------|
+	| [Aiming Data]              | [AimYaw]                                |
+	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
+	| [Turn In Place(VALIABLES)] | [TurnYawCurveValue]                     |
 * 概要
 	* アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` を元に [RootYawOffset] の値を更新します。
 	* [RootYawOffset] は更新の際にクランプ処理や [AimYaw] の更新も必要になるため [SetRootYawOffset()] を呼び出すことで更新を行います。
@@ -937,11 +942,11 @@
 			* この値の場合、 [SetRootYawOffset()] の呼び出しを行わず、 [RootYawOffset] / [AimYaw] の更新が行われません。
 				* つまり、 Start State 中は [RootYawOffset] / [AimYaw] が変化しないということです。
 * 関数内および [SetRootYawOffset()] の呼び出しにより、以下の変数の更新を行います。
-	| カテゴリ                | 変数名                                  |
-	|-------------------------|-----------------------------------------|
-	| [Aiming Data]           | [AimYaw]                                |
-	| [Turn In Place]         | [RootYawOffset]                         |
-	| [Turn In Place]         | [RootYawOffsetMode]                     |
+	| カテゴリ                   | 変数名                                  |
+	|----------------------------|-----------------------------------------|
+	| [Aiming Data]              | [AimYaw]                                |
+	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
+	| [Turn In Place(VALIABLES)] | [RootYawOffsetMode]                     |
 * 概要
 	* [RootYawOffsetMode] に従って [SetRootYawOffset()] を呼びだし、 [RootYawOffset] / [AimYaw] を更新します。
 	* 最後に [RootYawOffsetMode] を [AnimEnum_RootYawOffsetMode::BlendOut] に再設定します。
@@ -1148,7 +1153,7 @@
 * 型
 	* float
 * 概要
-	* [LocalVelocity2D] から算出した \[-180,180\] の値を取る角度です。
+	* [LocalVelocity2D] から算出した &#91;-180,180&#93; の値を取る角度です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1392,7 +1397,7 @@
 				* 移動しようとしているか
 			* [LocalVelocity2D] の大きさが 200 未満か
 				* 速度が（移動しようとしている割に）低いかを調べている
-			* [LocalAcceleration2D] と [LocalVelocity2D] の内積が \[-0.6,0.6\] の範囲か
+			* [LocalAcceleration2D] と [LocalVelocity2D] の内積が &#91;-0.6,0.6&#93; の範囲か
 				* 移動しようとしている向きと実際の移動方向の成す角がおおよそ 50 度以内かを調べている
 * 用途
 	| 利用箇所										| 目的																		|
@@ -1580,11 +1585,8 @@
 	|----											|----																		|
 	| [Start to Cycle (rule)]						| トランジションの判定で直接利用											|
 
-## Turn In Place
+## Turn In Place(VALIABLES)
 
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
-		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * 概要
 	* このカテゴリの変数の更新は [UpdateRootYawOffset()] で行われるものとそうでないものがあります。
 		* [UpdateRootYawOffset()] で更新するもの
@@ -1648,7 +1650,7 @@
 * 型
 	* [AnimEnum_RootYawOffsetMode]
 * 概要
-	* Turn In Place の挙動を決めるための変数
+	* `Turn In Place` の挙動を決めるための変数
 	* enum の各値は以下の関数で設定している
 		* [AnimEnum_RootYawOffsetMode::BlendOut]
 			* [UpdateRootYawOffset()]
@@ -1777,6 +1779,7 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[所定の位置での旋回について(about Turn In Place)]: #about-turn-in-place
 [GRAPHS]: #graphs
 [EventGraph]: #eventgraph
 [ANIMATION GRAPHS]: #animation-graphs
@@ -1857,6 +1860,7 @@
 [UpdateAimingData()]: #updateaimingdata
 [UpdateJumpFallData()]: #updatejumpfalldata
 [UpdateWallDetectionHeuristic()]: #updatewalldetectionheuristic
+[Turn In Place(FUNCTIONS)]: #turn-in-placefunctions
 [SetRootYawOffset()]: #setrootyawoffset
 [ProcessTurnYawCurve()]: #processturnyawcurve
 [UpdateRootYawOffset()]: #updaterootyawoffset
@@ -1918,7 +1922,7 @@
 [Linked Layer Data]: #linked-layer-data
 [LinkedLayerChanged]: #linkedlayerchanged
 [LastLinkedLayer]: #lastlinkedlayer
-[Turn In Place]: #turn-in-place
+[Turn In Place(VALIABLES)]: #turn-in-placevaliables
 [RootYawOffset]: #rootyawoffset
 [RootYawOffsetSpringState]: #rootyawoffsetspringstate
 [TurnYawCurveValue]: #turnyawcurvevalue

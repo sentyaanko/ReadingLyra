@@ -4,6 +4,7 @@
 [ABP_ItemAnimLayersBase::UpdatePivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
 [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
+[ABP_Mannequin_Base::所定の位置での旋回について(about Turn In Place)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-turn-in-place
 [ABP_Mannequin_Base::GRAPHS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegraphs
 [ABP_Mannequin_Base::EventGraph]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseeventgraph
 [ABP_Mannequin_Base::ANIMATION GRAPHS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseanimation-graphs
@@ -84,7 +85,7 @@
 [ABP_Mannequin_Base::UpdateAimingData()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdateaimingdata
 [ABP_Mannequin_Base::UpdateJumpFallData()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatejumpfalldata
 [ABP_Mannequin_Base::UpdateWallDetectionHeuristic()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatewalldetectionheuristic
-[ABP_Mannequin_Base::Turn In Place]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-place
+[ABP_Mannequin_Base::Turn In Place(FUNCTIONS)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placefunctions
 [ABP_Mannequin_Base::SetRootYawOffset()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasesetrootyawoffset
 [ABP_Mannequin_Base::ProcessTurnYawCurve()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseprocessturnyawcurve
 [ABP_Mannequin_Base::UpdateRootYawOffset()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdaterootyawoffset
@@ -146,7 +147,7 @@
 [ABP_Mannequin_Base::Linked Layer Data]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselinked-layer-data
 [ABP_Mannequin_Base::LinkedLayerChanged]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselinkedlayerchanged
 [ABP_Mannequin_Base::LastLinkedLayer]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselastlinkedlayer
-[ABP_Mannequin_Base::Turn In Place]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-place
+[ABP_Mannequin_Base::Turn In Place(VALIABLES)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placevaliables
 [ABP_Mannequin_Base::RootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
 [ABP_Mannequin_Base::RootYawOffsetSpringState]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffsetspringstate
 [ABP_Mannequin_Base::TurnYawCurveValue]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturnyawcurvevalue
