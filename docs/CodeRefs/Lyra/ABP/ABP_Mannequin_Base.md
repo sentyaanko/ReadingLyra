@@ -374,7 +374,10 @@
 			* true を返すと遷移します。
 		* `Blend Logic` について
 			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]
-			* `Stamdard Blemd` が規定値で、 `Inertialization` (慣性化) が数か所指定されている。
+			* `Stamdard Blemd` が規定値で、 `Inertialization` (慣性化) が数か所指定されています。具体的には以下の通り。
+				* [Start to Cycle (rule)] の Priority.1
+				* [Stop to Idle (rule)] の Priority.1 と 2
+				* [Pivot to Cycle (rule)] の Priority.1
 			* `Inertialization` (慣性化) について
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]
 
@@ -388,7 +391,6 @@
 * 移動開始直後のステートです。
 * [FullBody_StartState] ノードに `StartLayerNode` というタグ名を設置しています。
 * このタグ名は [UpdateLocomotionStateMachine()] で利用されています。
-
 
 #### Cycle (state)
 
@@ -451,6 +453,8 @@
 * 立ち止まるか移動中か分岐するためのコンジットルールです。
 
 #### Idle to Start (rule)
+
+TODO: ルール全般、コード化して、何を意図しているかの説明を書く。
 
 * 参照する変数/関数
 	* Priority.1
@@ -603,8 +607,8 @@
 ## Item Anim Layers
 
 * 概要
-	* すべて空の状態。
-	* すべて ABP_ItemAnimLayersBase で実装されている。
+	* すべて空の状態です。
+	* すべて [ABP_ItemAnimLayersBase] で実装されています。
 * 呼び出し元
 	| 名前                          | 呼び出し元              |
 	|-------------------------------|-------------------------|
@@ -645,36 +649,36 @@
 
 ### UpdateIdleState()
 
-* [FullBody_IdleState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [FullBody_IdleState] 内の `Output Animation Pose` ノードの On Update ノード関数です。
 * [TurnYawCurveValue] / [RootYawOffsetMode] などを更新し、 [ProcessTurnYawCurve()] を呼び出します。
 
 ### SetUpStartState()
 
-* [FullBody_StartState] 内の Output Animation Pose ノードの On Become Relevant ノード関数です。
+* [FullBody_StartState] 内の `Output Animation Pose` ノードの On Become Relevant ノード関数です。
 * [LocalVelocityDirection] の値を [StartDirection] に設定しています。
 	* Start ステート開始時に Actor から見た移動方向を [StartDirection] に設定するための関数です。
 
 ### UpdateStartState()
 
-* [FullBody_StartState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [FullBody_StartState] 内の `Output Animation Pose` ノードの On Update ノード関数です。
 * ステートが Blending Out でない場合は [RootYawOffsetMode] の値を [AnimEnum_RootYawOffsetMode::Hold] に設定します。
 	* Start ステートにいる間、 [UpdateRootYawOffset()] で行われるヨーオフセットの更新が行われないように [RootYawOffsetMode] を設定するための関数です。
 
 ### UpdateStopState()
 
-* [FullBody_StopState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [FullBody_StopState] 内の `Output Animation Pose` ノードの On Update ノード関数です。
 * ステートが Blending Out でない場合は [RootYawOffsetMode] の値を [AnimEnum_RootYawOffsetMode::Accumulate] に設定します。
 	* Stop ステートにいる間、 [UpdateRootYawOffset()] で行われるヨーオフセットの更新が行われるように [RootYawOffsetMode] を設定するための関数です。
 
 ### SetUpPivotState()
 
-* [FullBody_PivotState] 内の Output Animation Pose ノードの On Become Relevant ノード関数です。
+* [FullBody_PivotState] 内の `Output Animation Pose` ノードの On Become Relevant ノード関数です。
 * [LocalVelocityDirection] の値を [PivotInitialDirection] に設定している。
-	* Pivot ステート開始時に Actor から見た移動方向を PivotInitialDirection に設定するための関数です。
+	* Pivot ステート開始時に Actor から見た移動方向を [PivotInitialDirection] に設定するための関数です。
 
 ### UpdatePivotState()
 
-* [FullBody_PivotState] 内の Output Animation Pose ノードの On Update ノード関数です。
+* [FullBody_PivotState] 内の `Output Animation Pose` ノードの On Update ノード関数です。
 * [LastPivotTime] が 0 より大きい場合は DeltaTime を減じている。
 	* Pivot に必要な時間が経過したかを判定する変数を更新するための関数です。
 
@@ -1021,8 +1025,8 @@
 ## Rotation Data
 
 * 概要
-	* このカテゴリの変数の更新は [UpdateRotationData()] で行われます。
 	* ここに分類されているのは Actor の Rotation を元に算出される値です。
+	* このカテゴリの変数の更新は [UpdateRotationData()] で行われます。
 
 ### WorldRotation
 
@@ -1030,7 +1034,7 @@
 	* Rotator
 * 概要
 	* Actor の Rotation です。
-	* ワールド座標系の Vector をローカル座標系に変換するのに利用しています。
+	* ワールド座標系の Vector をアクターのローカル座標系に変換するのに利用しています。
 * 用途
 	| 利用箇所											| 目的																		|
 	|----												|----																		|
@@ -1043,10 +1047,11 @@
 * 型
 	* float
 * 概要
-	* [WorldRotation] の Yaw の直前のフレームとの Delta 値です。
+	* Actor の Yaw の Delta 値で、 Actor の Rotation の Yaw から直前のフレームの値([WorldRotation] に設定している値)を引くことで求めます。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
+	| [UpdateRotationData()]						| [YawDeltaSpeed] の算出に利用												|
 	| [UpdateRootYawOffset()]						| [RootYawOffset] の更新に利用												|
 
 ### AdditiveLeanAngle
@@ -1054,8 +1059,14 @@
 * 型
 	* float
 * 概要
-	* 体の傾き角度
-	* しゃがみや ADS 状態による定数と [YawDeltaSpeed] の乗算で求める
+	* [YawDeltaSpeed] に *状態による係数* を掛けた値で、 `BS_MM_Rifle_Jog_Leans` の `LeanAngle` に利用します。
+		> 係数は「しゃがみや ADS 状態」のときは 0.025　、それ以外「通常状態」のときは 0.0375 (1.5 倍)としています。
+		> `BS_MM_Rifle_Jog_Leans` の `LeanAngle` は &#91;-20, 20&#93; が有効範囲となっています。
+		> 各状態の時に最大の値 (20) となるのは以下の角速度を超えて動かした場合となります。
+		> | 状態					| 角速度 &#91;rad / s&#93;	|							|
+		> |----						|----						|----						|
+		> | 通常状態				| 533 						| 秒間 1.5 周ほど			|
+		> | はしゃがみや ADS 状態	| 800 						| 秒間 2.3 周ほど			|
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1068,8 +1079,7 @@
 * 型
 	* float
 * 概要
-	* 時間あたりの [YawDeltaSinceLastUpdate]
-	* [YawDeltaSinceLastUpdate] を `DeltaTime` で割った値
+	* Actor の Yaw の 角速度で、 [YawDeltaSinceLastUpdate] を Delta 時間で割ることで求めます。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1078,8 +1088,8 @@
 ## Location Data
 
 * 概要
-	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
 	* ここに分類されているのは Actor の Location を元に算出される値です。
+	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
 
 ### WorldLocation
 
@@ -1090,7 +1100,7 @@
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
-	| [UpdateLocationData()]						| [WorldLocation] の算出に利用												|
+	| [UpdateLocationData()]						| [DisplacementSinceLastUpdate] の算出に利用								|
 
 ### DisplacementSinceLastUpdate
 
@@ -1117,8 +1127,8 @@
 ## Velocity Data
 
 * 概要
-	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
 	* ここに分類されているのは Pawn の Velocity を元に算出される値です。
+	* このカテゴリの変数の更新は [UpdateLocationData()] で行われます。
 
 ### WorldVelocity
 
@@ -1138,7 +1148,7 @@
 * 型
 	* Vector
 * 概要
-	* [WorldVelocity] から算出したローカル座標系での Velocity です。
+	* [WorldVelocity] の XY 平面のベクトルと [WorldRotation] から算出した、アクターのローカル座標系での XY 平面の Velocity です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1153,7 +1163,8 @@
 * 型
 	* float
 * 概要
-	* [LocalVelocity2D] から算出した &#91;-180,180&#93; の値を取る角度です。
+	* [WorldVelocity] の XY 平面のベクトルと [WorldRotation] から算出した、 Actor の Forward 方向と移動方向のなす角度です。
+	*  &#91;-180,180&#93; の値を取ります。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1165,7 +1176,16 @@
 * 型
 	* float
 * 概要
-	* [LocalVelocityDirectionAngle] に [RootYawOffset] を加えた角度です。
+	* [LocalVelocityDirectionAngle] に [RootYawOffset] を減じた角度です。
+	* つまり、 `Root Bone` の Forward 方向と移動方向のなす角度です。
+		> この値は (`Turn In Place` によって Yaw が回転された)見た目上の正面方向と移動方向のなす角を示しています。
+		> 例：移動方向が左に 45 度の方向で、 Yaw が右に 10 度回転した場合
+		> [LocalVelocityDirectionAngle] - [RootYawOffset] = -45 - -10 = -35
+		> となり、左に 35 度、となります。
+		> この時以下のような状況となっています。
+		> * `Turn In Place` の処理によって、 `Rotate Root Bone` の Yaw に -10 が設定されている。
+		> 	* つまり Actor の Forward 方向から左に 10 度 `Root Bone` の Yaw が回転している。
+		> * 左に 35 度というのは、 `Root Bone` の向きと移動方向のなす角、ということになります。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1176,7 +1196,8 @@
 * 型
 	* [AnimEnum_CardinalDirection]
 * 概要
-	* [LocalVelocityDirectionAngleWithOffset] から算出した、移動方向を示す前後左右いずれかの値です。
+	* [LocalVelocityDirectionAngleWithOffset] から算出した、前後左右いずれかの値です。
+	* つまり、 `Root Bone` の Forward 方向を前とする、移動方向の値です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1192,11 +1213,14 @@
 * 型
 	* [AnimEnum_CardinalDirection]
 * 概要
-	* [LocalVelocityDirectionAngle] から算出した、移動方向を示す前後左右いずれかの値です。
+	* [LocalVelocityDirectionAngle] から算出した、前後左右いずれかの値です。
+	* つまり、 Actor の Forward 方向を前とする、移動方向の値です。
+	* このクラスでは設定だけで、参照は [ABP_ItemAnimLayersBase] で行われます。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
 	| [UpdateLocationData()]						| [LocalVelocityDirectionNoOffset] の算出に利用								|
+	| [ABP_ItemAnimLayersBase::UpdateCycleAnim()]	| 使用するアニメーションシーケンスの決定に利用								|
 
 ### HasVelocity
 
@@ -1214,15 +1238,15 @@
 ## Acceleration Data
 
 * 概要
-	* このカテゴリの変数の更新は [UpdateAccelerationData()] で行われます。
 	* ここに分類されているのは Pawn の MovementComponent の CurrentAcceleration を元に算出される値です。
+	* このカテゴリの変数の更新は [UpdateAccelerationData()] で行われます。
 
 ### LocalAcceleration2D
 
 * 型
 	* Vector
 * 概要
-	* Pawn の MovementComponent の CurrentAcceleration の XY 成分から算出したローカル座標系での Acceleration です。
+	* Pawn の MovementComponent の CurrentAcceleration から算出した、アクターのローカル座標系での XY  平面の Acceleration です。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1250,7 +1274,8 @@
 * 型
 	* Vector
 * 概要
-	* Pawn の MovementComponent の CurrentAcceleration の XY 成分から算出した Vector と、直前のフレームの [PivotDirection2D] の値を 0.5 で lerp したワールド座標系の Vector です。
+	* [LocalAcceleration2D] と、直前のフレームの [PivotDirection2D] の値を 0.5 で lerp しノーマライズしたワールド座標系の Vector です。
+	* つまり、直前のフレームと今回のフレームの加速度ベクトルの中間を向く単位ベクトルです。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1259,11 +1284,11 @@
 ## Character State Data
 
 * 概要
+	* ここに分類されているのはキャラクターの状態を示す値です。
 	* このカテゴリの変数の更新は [UpdateCharacterStateData()] で行われます。
 		* ただし、以下の変数はカテゴリ [Character State Data] に属するが、この関数では更新しません。
 			* [TimeToJumpApex]
 			* [IsRunningIntoWall]
-	* ここに分類されているのはキャラクターの状態を示す値です。
 
 ### IsOnGround
 
@@ -1417,6 +1442,21 @@
 		| [GameplayTag_IsReloading] | `Event.Movement.Reload`     | `GA_WeaponReloadMagazine`                             |
 		| [GameplayTag_IsDashing]   | `Event.Movement.Dash`       | `GA_Hero_Dash`                                        |
 		| [GameplayTag_IsMelee]     | `Event.Movement.Melee`      | `GA_Melee`                                            |
+		> * [GameplayTag_IsFiring] を付与する GameplayAbility クラスの継承関係
+		> 	* `LyraGameplayAbility_RangeWepon`
+		>		* `GA_HealPickUp`
+		>		* `GA_Weapon_Fire`
+		>			* `GA_Weapon_Fire_Pistol`
+		>			* `GA_Weapon_Fire_Rifle_Auto`
+		>			* `GA_Weapon_Fire_Shotgun`
+		>			* `GA_WeaponNetShooter`
+		> * つまり、全て `LyraGameplayAbility_RangeWepon` の派生クラスである。
+		> * `LyraGameplayAbility_RangeWepon` について
+		> 	* しかし、 `LyraGameplayAbility_RangeWepon` は c++ のクラスであり、汎用的に作られている。
+		> 	* そのため、特定の GameplayTag の付与はしていない。
+		> * `GA_Weapon_Fire` とその派生クラスについて
+		>	* `GA_Weapon_Fire` で GameplayTag の付与の設定を行っている。
+		>	* 派生クラスではその設定をそのまま利用している。
 
 ### GameplayTag_IsADS
 ### GameplayTag_IsFiring
@@ -1452,6 +1492,7 @@
 	* Pivot ステート開始時に呼び出される [SetUpPivotState()] で設定されます。
 * read
 	* [IsMovingPerpendicularToInitialPivot()]
+		* [LocalVelocityDirection] と比較することで、 Pivot ステート開始時から移動方向が垂直方向に変わっているかの判定に利用されます。
 * write
 	* [SetUpPivotState()]
 
@@ -1474,16 +1515,20 @@
 	* [AnimEnum_CardinalDirection]
 * 概要
 	* [PivotDirection2D] から算出し、反対にした方向です。
+	* つまり、直前のフレームと今回のフレームの加速度の向きの中間方向の逆向きを前後左右で表した値です。
 	* このクラスでは設定のみで、利用は派生クラスでのみ行なわれています。
 * read
 	* [ABP_ItemAnimLayersBase::SetUpPivotAnim()]
+		* [FullBody_PivotState] が返すアニメーションシーケンスの決定に利用します。
 	* [ABP_ItemAnimLayersBase::UpdatePivotAnim()]
+		* [FullBody_PivotState] が返すアニメーションシーケンスの決定に利用します。
 * write
 	* [UpdateAccelerationData()]
 
 ## Blend Weight Data
 
 * 概要
+	* モーションブレンドの係数です。
 	* このカテゴリの変数の更新は [UpdateBlendWeightData()] で行われます。
 	* ここに分類されているのは [UpperbodyDynamicAdditiveWeight] のみです。
 
@@ -1506,6 +1551,7 @@
 ## Aiming Data
 
 * 概要
+	* ピットとヨーです。
 	* このカテゴリの変数の更新は [UpdateAimingData()] で行われます。
 		* ただし、以下の変数はカテゴリ [Aiming Data] に属するが、この関数では更新しません。
 			* [AimYaw]
@@ -1527,10 +1573,12 @@
 	* float
 * 概要
 	* この変数の更新は [RootYawOffset] と連動するため [SetRootYawOffset()] で行われます。
-	* 設定される値は RootYawOffset に -1 をかけた値となります。
+	* 設定される値は [RootYawOffset] に -1 をかけた値となります。
 	* [SetRootYawOffset()] の呼び出しは以下の 2 箇所から行われます。
 		* [BlueprintThreadSafeUpdateAnimation()] > [UpdateRootYawOffset()] > [SetRootYawOffset()]
+			* [YawDeltaSinceLastUpdate] を元に設定します。
 		* [UpdateIdleState()] > [ProcessTurnYawCurve()] > [SetRootYawOffset()]
+			* [TurnYawCurveValue] を元に設定します。
 	* 詳しくは [SetRootYawOffset()] を参照ください。
 * 用途
 	| 利用箇所										| 目的																		|
@@ -1540,7 +1588,8 @@
 ## Settings
 
 * 概要
-	* このカテゴリの変数は挙動の調整のための固定値で更新はされません。
+	* このカテゴリの変数は挙動の調整のため変数です。
+	* 固定値で、更新はされません。
 	* ここに分類されているのは [CardinalDirectionDeadZone] のみです。
 
 ### CardinalDirectionDeadZone
@@ -1559,6 +1608,7 @@
 ## Linked Layer Data
 
 * 概要
+	* `Linked Anim Layer` の状態です。
 	* このカテゴリの変数の更新は [UpdateLocomotionStateMachine()] で行われます。
 
 ### LinkedLayerChanged
@@ -1588,6 +1638,7 @@
 ## Turn In Place(VALIABLES)
 
 * 概要
+	* [所定の位置での旋回について(about Turn In Place)] の処理で利用する変数です。
 	* このカテゴリの変数の更新は [UpdateRootYawOffset()] で行われるものとそうでないものがあります。
 		* [UpdateRootYawOffset()] で更新するもの
 			* [RootYawOffset]
@@ -1607,6 +1658,8 @@
 	* float
 * 概要
 	* [AnimGraph] にてノード `RotateRootBone()` のパラメータ `Yaw` に利用されます。
+	* つまり、 Yaw が回転した際、それを打ち消すような回転を `Root Bone` の Yaw に設定します。
+		*  これにより、 Yaw の変化が一定範囲内の間は初期の方向に足が向いたままになるようにしています。
 	* [SetRootYawOffset()] にて設定されます。
 	* [SetRootYawOffset()] 以下から呼び出されます。
 		* [UpdateRootYawOffset()]
@@ -1627,6 +1680,7 @@
 * 概要
 	* [UpdateRootYawOffset()] にてノード `FloatSpringInterp()` のパラメータ `SpringState` に利用されます。
 	* `FloatSpringInterp()` のステートを保持するための構造体です。
+	* [RootYawOffsetMode] が [AnimEnum_RootYawOffsetMode::BlendOut] である時に、徐々に [RootYawOffset] を 0.0 に Interp するために利用しています。
 
 ### TurnYawCurveValue
 
@@ -1650,8 +1704,8 @@
 * 型
 	* [AnimEnum_RootYawOffsetMode]
 * 概要
-	* `Turn In Place` の挙動を決めるための変数
-	* enum の各値は以下の関数で設定している
+	* `Turn In Place` の挙動を決めるための変数です。
+	* enum の各値は以下の関数で設定しています。
 		* [AnimEnum_RootYawOffsetMode::BlendOut]
 			* [UpdateRootYawOffset()]
 		* [AnimEnum_RootYawOffsetMode::Hold]
@@ -1679,10 +1733,10 @@
 * 型
 	* Vector2D
 * 概要
-	* [SetRootYawOffset()] で利用される、 [RootYawOffset] の設定前に適用するクランプ値。
-		* 詳しくは [Comment_TourInPlace.Ja::3] を参照。
-	* [RootYawOffsetAngleClamp] はしゃがんで **いない** ときに使用する。
-	* [RootYawOffsetAngleClampCrouched] はしゃがんで **いる** ときに使用する。
+	* [SetRootYawOffset()] で利用される、 [RootYawOffset] の設定前に適用するクランプ値です。
+		* 詳しくは [Comment_TourInPlace.Ja::3] を参照ください。
+	* [RootYawOffsetAngleClamp] はしゃがんで **いない** ときに使用します。
+	* [RootYawOffsetAngleClampCrouched] はしゃがんで **いる** ときに使用します。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1692,6 +1746,7 @@
 
 * 概要
 	* 「初回アップデートが済んでいるか」や、「各種の実装を有効にするか」など、カテゴリに属さない設定関連の変数からなります。
+	* [IsFirstUpdate] 以外は初期値のまま変更されません。
 
 ### IsFirstUpdate
 
@@ -1717,7 +1772,7 @@
 	* 変数名からするとノード `ControlRig` を有効にするかを示す値のようですが、ノード `ControlRig` のパラメータ `Enabled` は関数 [ShouldEnableControlRig()] が指定されており、またこの変数はその関数内で使用されていません。
 	* そもそもこのクラスでは使用されていません。
 	* [ABP_ItemAnimLayersBase::FullBody_SkeletalControls] にてノード `Transform (Modify) Bone` のパラメータ `Enable` として利用しています。
-		* 意図としては `ControlRig` が無効の場合は Z 軸 -2.0 平行移動させることで床から足が浮いているように見えないようにしているものと思われます。
+		* 意図としてはノード `ControlRig` が無効の場合は Z 軸 -2.0 平行移動させることで床から足が浮いているように見えないようにしているものと思われます。
 	* 初期値 false のまま変更されません。
 		* 設定、もしくは動作確認のためのフラグ的な変数と思われます。
 * 用途
@@ -1731,6 +1786,7 @@
 	* bool
 * 概要
 	* ノード `FootPlacement` を使用するかを示します。
+	* また、ノード `FootPlacement` を使用する場合(つまりは [UseFootPlacement] が true の場合)、 [AnimGraph] のノード `ControlRig` のパラメータ `Enabled` が [ShouldEnableControlRig()] を通じて false となります。
 	* 以下の 3 箇所で利用されています。
 		* [ShouldEnableControlRig()]
 			* 戻り値の算出に影響を及ぼします。
@@ -1938,6 +1994,7 @@
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
 [ABP_ItemAnimLayersBase::SetUpPivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
 [ABP_ItemAnimLayersBase::UpdatePivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
+[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
 [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [AnimEnum_CardinalDirection]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirection

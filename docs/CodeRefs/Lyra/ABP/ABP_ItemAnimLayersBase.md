@@ -6,6 +6,7 @@
 
 ### SetUpPivotAnim()
 ### UpdatePivotAnim()
+### UpdateCycleAnim()
 
 ### ShouldEnableFootPlacement()
 

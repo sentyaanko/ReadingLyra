@@ -2,6 +2,7 @@
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
 [ABP_ItemAnimLayersBase::SetUpPivotAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
 [ABP_ItemAnimLayersBase::UpdatePivotAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
+[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
 [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::所定の位置での旋回について(about Turn In Place)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-turn-in-place
