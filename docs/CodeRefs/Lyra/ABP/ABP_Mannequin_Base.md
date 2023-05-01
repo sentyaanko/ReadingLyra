@@ -91,11 +91,11 @@
 			* [UpdateAimingData()]
 			* [UpdateJumpFallData()]
 			* [UpdateWallDetectionHeuristic()]
-		* [Turn In Place(FUNCTIONS)]
+		* [Turn In Place{FUNCTIONS}]
 			* [SetRootYawOffset()]
 			* [ProcessTurnYawCurve()]
 			* [UpdateRootYawOffset()]
-		* [Default(FUNCTIONS)]
+		* [Default{FUNCTIONS}]
 			* [BlueprintThreadSafeUpdateAnimation()]
 			* [GetMovementComponent()]
 			* [ShouldEnableControlRig()]
@@ -153,14 +153,14 @@
 		* [Linked Layer Data]
 			* [LinkedLayerChanged]
 			* [LastLinkedLayer]
-		* [Turn In Place(VALIABLES)]
+		* [Turn In Place{VALIABLES}]
 			* [RootYawOffset]
 			* [RootYawOffsetSpringState]
 			* [TurnYawCurveValue]
 			* [RootYawOffsetMode]
 			* [RootYawOffsetAngleClamp]
 			* [RootYawOffsetAngleClampCrouched]
-		* [Default(VALIABLES)]
+		* [Default{VALIABLES}]
 			* [IsFirstUpdate]
 			* [EnableControlRig]
 			* [UseFootPlacement]
@@ -184,7 +184,7 @@
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
 		* [Blueprint Thread Safe Update Functions]
 			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
-		* [Turn In Place(FUNCTIONS)]
+		* [Turn In Place{FUNCTIONS}]
 			* 所定の位置での旋回処理を行うための関数です。
 			* [所定の位置での旋回について(about Turn In Place)] を参照。
 	* [VALIABLES] のグループ
@@ -223,7 +223,7 @@
 		* [Linked Layer Data]
 			* Linked Anim Instance に関する変数です。
 			* 更新は [UpdateLocomotionStateMachine()] で行われます。
-		* [Turn In Place(VALIABLES)]
+		* [Turn In Place{VALIABLES}]
 			* 所定の位置での旋回処理を行うための関数です。
 			* [所定の位置での旋回について(about Turn In Place)] を参照。
 
@@ -841,7 +841,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	|-------------------------|-----------------------------------------|
 	| [Character State Data]  | [IsRunningIntoWall]                     |
 
-## Turn In Place(FUNCTIONS)
+## Turn In Place{FUNCTIONS}
 
 ### SetRootYawOffset()
 
@@ -852,7 +852,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	| カテゴリ                   | 変数名                                  |
 	|----------------------------|-----------------------------------------|
 	| [Aiming Data]              | [AimYaw]                                |
-	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
+	| [Turn In Place{VALIABLES}] | [RootYawOffset]                         |
 * 概要
 	* 渡されたパラメータ `InRootYawOffset` を [RootYawOffset] に設定し、 -1 を掛けたものを [AimYaw] に設定する。
 	* ただし、 [bEnableRootYawOffset] が false の場合はいずれも 0.0 に設定する。
@@ -900,8 +900,8 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	| カテゴリ                   | 変数名                                  |
 	|----------------------------|-----------------------------------------|
 	| [Aiming Data]              | [AimYaw]                                |
-	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
-	| [Turn In Place(VALIABLES)] | [TurnYawCurveValue]                     |
+	| [Turn In Place{VALIABLES}] | [RootYawOffset]                         |
+	| [Turn In Place{VALIABLES}] | [TurnYawCurveValue]                     |
 * 概要
 	* アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` を元に [RootYawOffset] の値を更新します。
 	* [RootYawOffset] は更新の際にクランプ処理や [AimYaw] の更新も必要になるため [SetRootYawOffset()] を呼び出すことで更新を行います。
@@ -949,14 +949,14 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	| カテゴリ                   | 変数名                                  |
 	|----------------------------|-----------------------------------------|
 	| [Aiming Data]              | [AimYaw]                                |
-	| [Turn In Place(VALIABLES)] | [RootYawOffset]                         |
-	| [Turn In Place(VALIABLES)] | [RootYawOffsetMode]                     |
+	| [Turn In Place{VALIABLES}] | [RootYawOffset]                         |
+	| [Turn In Place{VALIABLES}] | [RootYawOffsetMode]                     |
 * 概要
 	* [RootYawOffsetMode] に従って [SetRootYawOffset()] を呼びだし、 [RootYawOffset] / [AimYaw] を更新します。
 	* 最後に [RootYawOffsetMode] を [AnimEnum_RootYawOffsetMode::BlendOut] に再設定します。
 		* 理由については前述のコメントのとおりです。
 
-## Default(FUNCTIONS)
+## Default{FUNCTIONS}
 
 ### BlueprintThreadSafeUpdateAnimation()
 
@@ -1635,7 +1635,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	|----											|----																		|
 	| [Start to Cycle (rule)]						| トランジションの判定で直接利用											|
 
-## Turn In Place(VALIABLES)
+## Turn In Place{VALIABLES}
 
 * 概要
 	* [所定の位置での旋回について(about Turn In Place)] の処理で利用する変数です。
@@ -1742,7 +1742,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	|----											|----																		|
 	| [SetRootYawOffset()]							| [RootYawOffset] の算出に利用												|
 
-## Default(VALIABLES)
+## Default{VALIABLES}
 
 * 概要
 	* 「初回アップデートが済んでいるか」や、「各種の実装を有効にするか」など、カテゴリに属さない設定関連の変数からなります。
@@ -1916,11 +1916,11 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [UpdateAimingData()]: #updateaimingdata
 [UpdateJumpFallData()]: #updatejumpfalldata
 [UpdateWallDetectionHeuristic()]: #updatewalldetectionheuristic
-[Turn In Place(FUNCTIONS)]: #turn-in-placefunctions
+[Turn In Place{FUNCTIONS}]: #turn-in-placefunctions
 [SetRootYawOffset()]: #setrootyawoffset
 [ProcessTurnYawCurve()]: #processturnyawcurve
 [UpdateRootYawOffset()]: #updaterootyawoffset
-[Default(FUNCTIONS)]: #defaultfunctions
+[Default{FUNCTIONS}]: #defaultfunctions
 [BlueprintThreadSafeUpdateAnimation()]: #blueprintthreadsafeupdateanimation
 [GetMovementComponent()]: #getmovementcomponent
 [ShouldEnableControlRig()]: #shouldenablecontrolrig
@@ -1978,23 +1978,23 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [Linked Layer Data]: #linked-layer-data
 [LinkedLayerChanged]: #linkedlayerchanged
 [LastLinkedLayer]: #lastlinkedlayer
-[Turn In Place(VALIABLES)]: #turn-in-placevaliables
+[Turn In Place{VALIABLES}]: #turn-in-placevaliables
 [RootYawOffset]: #rootyawoffset
 [RootYawOffsetSpringState]: #rootyawoffsetspringstate
 [TurnYawCurveValue]: #turnyawcurvevalue
 [RootYawOffsetMode]: #rootyawoffsetmode
 [RootYawOffsetAngleClamp]: #rootyawoffsetangleclamp
 [RootYawOffsetAngleClampCrouched]: #rootyawoffsetangleclampcrouched
-[Default(VALIABLES)]: #defaultvaliables
+[Default{VALIABLES}]: #defaultvaliables
 [IsFirstUpdate]: #isfirstupdate
 [EnableControlRig]: #enablecontrolrig
 [UseFootPlacement]: #usefootplacement
 [bEnableRootYawOffset]: #benablerootyawoffset
 [ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
+[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
 [ABP_ItemAnimLayersBase::SetUpPivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
 [ABP_ItemAnimLayersBase::UpdatePivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
-[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
 [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [AnimEnum_CardinalDirection]: ../../Lyra/ABP/AnimEnum_CardinalDirection.md#animenumcardinaldirection

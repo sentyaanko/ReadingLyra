@@ -1,9 +1,177 @@
 [ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_ItemAnimLayersBase::GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegraphs
+[ABP_ItemAnimLayersBase::EventGraph]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseeventgraph
+[ABP_ItemAnimLayersBase::ANIMATION GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanimation-graphs
+[ABP_ItemAnimLayersBase::AnimGraph]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanimgraph
+[ABP_ItemAnimLayersBase::ANIMATION LAYERS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanimation-layers
+[ABP_ItemAnimLayersBase::Item Anim Layers]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseitem-anim-layers
+[ABP_ItemAnimLayersBase::FullBodyAdditives]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditives
+[ABP_ItemAnimLayersBase::FullBodyAdditive_SM]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditivesm
+[ABP_ItemAnimLayersBase::Identity (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidentity-state
+[ABP_ItemAnimLayersBase::AirIdentity (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseairidentity-state
+[ABP_ItemAnimLayersBase::LandRecovery (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecovery-state
+[ABP_ItemAnimLayersBase::Identity to AirIdentity (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidentity-to-airidentity-rule
+[ABP_ItemAnimLayersBase::AirIdentity to LandRecovery (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseairidentity-to-landrecovery-rule
+[ABP_ItemAnimLayersBase::LandRecovery to Identity (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecovery-to-identity-rule
+[ABP_ItemAnimLayersBase::FullBody_IdleState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyidlestate
+[ABP_ItemAnimLayersBase::IdleSM]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlesm
+[ABP_ItemAnimLayersBase::Idle (state){in IdleSM}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlesm
+[ABP_ItemAnimLayersBase::TurnInPlaceRotation (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-state
+[ABP_ItemAnimLayersBase::TurnInPlaceRecovery (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-state
+[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
+[ABP_ItemAnimLayersBase::IdleBreak (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-state
+[ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsturninplace-rule
+[ABP_ItemAnimLayersBase::Idle to IdleBreak (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-idlebreak-rule
+[ABP_ItemAnimLayersBase::IdleBreak to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-to-idle-rule
+[ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-to-turninplacerecovery-rule
+[ABP_ItemAnimLayersBase::IdleStance]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlestance
+[ABP_ItemAnimLayersBase::Idle (state){in IdleStance}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlestance
+[ABP_ItemAnimLayersBase::StanceTransition (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-state
+[ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-stancetransition-rule
+[ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-to-idle-rule
+[ABP_ItemAnimLayersBase::FullBody_StartState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodystartstate
+[ABP_ItemAnimLayersBase::FullBody_CycleState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodycyclestate
+[ABP_ItemAnimLayersBase::FullBody_StopState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodystopstate
+[ABP_ItemAnimLayersBase::FullBody_PivotState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodypivotstate
+[ABP_ItemAnimLayersBase::PivotSM]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsm
+[ABP_ItemAnimLayersBase::PivotA (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivota-state
+[ABP_ItemAnimLayersBase::PivotB (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotb-state
+[ABP_ItemAnimLayersBase::WantsToRePivit (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivit-rule
+[ABP_ItemAnimLayersBase::FullBody_Aiming]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyaiming
+[ABP_ItemAnimLayersBase::FullBody_JumpStartState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyjumpstartstate
+[ABP_ItemAnimLayersBase::FullBody_JumpApexState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyjumpapexstate
+[ABP_ItemAnimLayersBase::FullBody_FallLandState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyfalllandstate
+[ABP_ItemAnimLayersBase::FullBody_FallLoopState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyfallloopstate
+[ABP_ItemAnimLayersBase::FullBody_JumpStartLoopState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyjumpstartloopstate
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
+[ABP_ItemAnimLayersBase::LeftHandPose_OverrideState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverridestate
+[ABP_ItemAnimLayersBase::FUNCTIONS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefunctions
+[ABP_ItemAnimLayersBase::State Node Functions]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestate-node-functions
+[ABP_ItemAnimLayersBase::SetUpIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
+[ABP_ItemAnimLayersBase::UpdateIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidlestate
+[ABP_ItemAnimLayersBase::LandRecoveryStart()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecoverystart
+[ABP_ItemAnimLayersBase::SetupIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
+[ABP_ItemAnimLayersBase::Anim Node Functions]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-node-functions
+[ABP_ItemAnimLayersBase::UpdateIdleAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidleanim
+[ABP_ItemAnimLayersBase::SetUpIdleBreakAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlebreakanim
+[ABP_ItemAnimLayersBase::SetUpStartAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupstartanim
+[ABP_ItemAnimLayersBase::UpdateStartAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatestartanim
+[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
+[ABP_ItemAnimLayersBase::SetUpStopAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupstopanim
+[ABP_ItemAnimLayersBase::UpdateStopAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatestopanim
 [ABP_ItemAnimLayersBase::SetUpPivotAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
 [ABP_ItemAnimLayersBase::UpdatePivotAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatepivotanim
-[ABP_ItemAnimLayersBase::UpdateCycleAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
+[ABP_ItemAnimLayersBase::UpdateHipFireRaiseWeaponPose()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatehipfireraiseweaponpose
+[ABP_ItemAnimLayersBase::SetUpFallLandAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupfalllandanim
+[ABP_ItemAnimLayersBase::UpdateFallLandAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatefalllandanim
+[ABP_ItemAnimLayersBase::SetLeftHandPoseOverrideWeight()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetlefthandposeoverrideweight
+[ABP_ItemAnimLayersBase::Turn In Place{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturn-in-placefunctions
+[ABP_ItemAnimLayersBase::SetupTurnInPlaceAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplaceanim
+[ABP_ItemAnimLayersBase::UpdateTurnInPlaceAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateturninplaceanim
+[ABP_ItemAnimLayersBase::SetUpTurnInPlaceRotationState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerotationstate
+[ABP_ItemAnimLayersBase::SetUpTurnInPlaceRecoveryState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerecoverystate
+[ABP_ItemAnimLayersBase::SelectTurnInPlaceAnimation()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseselectturninplaceanimation
+[ABP_ItemAnimLayersBase::Idle Breaks{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-breaksfunctions
+[ABP_ItemAnimLayersBase::CanPlayIdleBreak()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecanplayidlebreak
+[ABP_ItemAnimLayersBase::ResetIdleBreakTransitionLogic()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseresetidlebreaktransitionlogic
+[ABP_ItemAnimLayersBase::ProcessIdleBreakTransitionLogic()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseprocessidlebreaktransitionlogic
+[ABP_ItemAnimLayersBase::ChooseIdleBreakDelayTime()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasechooseidlebreakdelaytime
+[ABP_ItemAnimLayersBase::Blueprint Thread Safe Update Functions]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseblueprint-thread-safe-update-functions
+[ABP_ItemAnimLayersBase::UpdateBlendWeightData()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateblendweightdata
+[ABP_ItemAnimLayersBase::UpdateJumpFallData()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatejumpfalldata
+[ABP_ItemAnimLayersBase::UpdateSkelControlData()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateskelcontroldata
+[ABP_ItemAnimLayersBase::Distance Matching]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedistance-matching
+[ABP_ItemAnimLayersBase::GetPredicatedStopDistance()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetpredicatedstopdistance
+[ABP_ItemAnimLayersBase::ShouldDistanceMatchStop()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshoulddistancematchstop
+[ABP_ItemAnimLayersBase::Pivots{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsfunctions
+[ABP_ItemAnimLayersBase::GetDesiredPivotSequence()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetdesiredpivotsequence
+[ABP_ItemAnimLayersBase::Default{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedefaultfunctions
+[ABP_ItemAnimLayersBase::BlueprintThreadSafeUpdateAnimation()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseblueprintthreadsafeupdateanimation
+[ABP_ItemAnimLayersBase::GetMainAnimBPThreadSafe()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetmainanimbpthreadsafe
 [ABP_ItemAnimLayersBase::ShouldEnableFootPlacement()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshouldenablefootplacement
+[ABP_ItemAnimLayersBase::GetMovementComponent()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetmovementcomponent
+[ABP_ItemAnimLayersBase::VALIABLES]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasevaliables
+[ABP_ItemAnimLayersBase::Anim Set - Idle]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--idle
+[ABP_ItemAnimLayersBase::Idle_ADS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidleads
+[ABP_ItemAnimLayersBase::Idle_Hipfire]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlehipfire
+[ABP_ItemAnimLayersBase::Idle_Breaks]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreaks
+[ABP_ItemAnimLayersBase::Crouch_Idle]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchidle
+[ABP_ItemAnimLayersBase::Crouch_Idle_Entry]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchidleentry
+[ABP_ItemAnimLayersBase::Crouch_Idle_Exit]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchidleexit
+[ABP_ItemAnimLayersBase::LeftHandPose_Override]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverride
+[ABP_ItemAnimLayersBase::Anim Set - Starts]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--starts
+[ABP_ItemAnimLayersBase::Jog_Start_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejogstartcardinals
+[ABP_ItemAnimLayersBase::ADS_Start_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseadsstartcardinals
+[ABP_ItemAnimLayersBase::Crouch_Start_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchstartcardinals
+[ABP_ItemAnimLayersBase::Anim Set - Stops]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--stops
+[ABP_ItemAnimLayersBase::Jog_Stop_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejogstopcardinals
+[ABP_ItemAnimLayersBase::ADS_Stop_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseadsstopcardinals
+[ABP_ItemAnimLayersBase::Crouch_Stop_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchstopcardinals
+[ABP_ItemAnimLayersBase::Anim Set - Pivots]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--pivots
+[ABP_ItemAnimLayersBase::Jog_Pivot_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejogpivotcardinals
+[ABP_ItemAnimLayersBase::ADS_Pivot_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseadspivotcardinals
+[ABP_ItemAnimLayersBase::Crouch_Pivot_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchpivotcardinals
+[ABP_ItemAnimLayersBase::Anim Set - Turn in Place]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--turn-in-place
+[ABP_ItemAnimLayersBase::TurnInPlace_Left]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplaceleft
+[ABP_ItemAnimLayersBase::TurnInPlace_Right]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplaceright
+[ABP_ItemAnimLayersBase::Crouch_TurnInPlace_Left]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchturninplaceleft
+[ABP_ItemAnimLayersBase::Crouch_TurnInPlace_Right]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchturninplaceright
+[ABP_ItemAnimLayersBase::Anim Set - Jog]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--jog
+[ABP_ItemAnimLayersBase::Jog_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejogcardinals
+[ABP_ItemAnimLayersBase::Anim Set - Jump]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--jump
+[ABP_ItemAnimLayersBase::Jump_Start]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpstart
+[ABP_ItemAnimLayersBase::Jump_Apex]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpapex
+[ABP_ItemAnimLayersBase::Jump_FallLand]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpfallland
+[ABP_ItemAnimLayersBase::Jump_RecoveryAdditive]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumprecoveryadditive
+[ABP_ItemAnimLayersBase::Jump_StartLoop]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpstartloop
+[ABP_ItemAnimLayersBase::Jump_FallLoop]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpfallloop
+[ABP_ItemAnimLayersBase::JumpDistanceCurveName]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejumpdistancecurvename
+[ABP_ItemAnimLayersBase::Anim Set - Walk]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--walk
+[ABP_ItemAnimLayersBase::Walk_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewalkcardinals
+[ABP_ItemAnimLayersBase::Crouch_Walk_Cardinals]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecrouchwalkcardinals
+[ABP_ItemAnimLayersBase::Anim Set - Aiming]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-set--aiming
+[ABP_ItemAnimLayersBase::Aim_HipFirePose]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseaimhipfirepose
+[ABP_ItemAnimLayersBase::Aim_HipFirePose_Crouch]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseaimhipfireposecrouch
+[ABP_ItemAnimLayersBase::IdleAnimOffset]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidleanimoffset
+[ABP_ItemAnimLayersBase::RelaxedAimOffset]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaserelaxedaimoffset
+[ABP_ItemAnimLayersBase::Settings]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesettings
+[ABP_ItemAnimLayersBase::PlayRateClampStarsPivos]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseplayrateclampstarspivos
+[ABP_ItemAnimLayersBase::RaiseWeaponAfterFiringWhenCrouched]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseraiseweaponafterfiringwhencrouched
+[ABP_ItemAnimLayersBase::DisableHandIK]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedisablehandik
+[ABP_ItemAnimLayersBase::EnableLeftHandPoseOverride]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseenablelefthandposeoverride
+[ABP_ItemAnimLayersBase::RaiseWeaponAfterFiringDuration]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseraiseweaponafterfiringduration
+[ABP_ItemAnimLayersBase::StrideWarpingBlendInDurationScaled]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestridewarpingblendindurationscaled
+[ABP_ItemAnimLayersBase::StrideWarpingBlendStartOffset]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestridewarpingblendstartoffset
+[ABP_ItemAnimLayersBase::LocomotionDistanceCurveName]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselocomotiondistancecurvename
+[ABP_ItemAnimLayersBase::PlayRateClampCycle]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseplayrateclampcycle
+[ABP_ItemAnimLayersBase::Blend Weight Data]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseblend-weight-data
+[ABP_ItemAnimLayersBase::HipFireUpperBodyOverrideWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehipfireupperbodyoverrideweight
+[ABP_ItemAnimLayersBase::AimOffsetBlendWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseaimoffsetblendweight
+[ABP_ItemAnimLayersBase::Turn In Place{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturn-in-placevaliables
+[ABP_ItemAnimLayersBase::TurnInPlaceAnimTime]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplaceanimtime
+[ABP_ItemAnimLayersBase::TurnInPlaceRotationDirection]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotationdirection
+[ABP_ItemAnimLayersBase::TurnInPlaceRecoveryDirection]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecoverydirection
+[ABP_ItemAnimLayersBase::Idle Breaks{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-breaksvaliables
+[ABP_ItemAnimLayersBase::WantsIdleBreak]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsidlebreak
+[ABP_ItemAnimLayersBase::TimeUntilNextIdleBreak]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasetimeuntilnextidlebreak
+[ABP_ItemAnimLayersBase::CurrentIdleBreakIndex]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasecurrentidlebreakindex
+[ABP_ItemAnimLayersBase::IdleBreakDelayTime]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreakdelaytime
+[ABP_ItemAnimLayersBase::Pivots{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsvaliables
+[ABP_ItemAnimLayersBase::PivotStartingAcceleration]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotstartingacceleration
+[ABP_ItemAnimLayersBase::TimeAtPivotStop]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasetimeatpivotstop
+[ABP_ItemAnimLayersBase::Jump]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasejump
+[ABP_ItemAnimLayersBase::LandRecoveryAlpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecoveryalpha
+[ABP_ItemAnimLayersBase::TimeFalling]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasetimefalling
+[ABP_ItemAnimLayersBase::Skel Control Data]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseskel-control-data
+[ABP_ItemAnimLayersBase::HandIK_Right_Alpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehandikrightalpha
+[ABP_ItemAnimLayersBase::HandIK_Left_Alpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehandikleftalpha
+[ABP_ItemAnimLayersBase::Stride Warping]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestride-warping
+[ABP_ItemAnimLayersBase::StrideWarpingStartAlpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestridewarpingstartalpha
+[ABP_ItemAnimLayersBase::StrideWarpingPivotAlpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestridewarpingpivotalpha
+[ABP_ItemAnimLayersBase::StrideWarpingCycleAlpha]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestridewarpingcyclealpha
+[ABP_ItemAnimLayersBase::Default{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedefaultvaliables
+[ABP_ItemAnimLayersBase::LeftHandPoseOverrideWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverrideweight
+[ABP_ItemAnimLayersBase::HandFKWeightWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehandfkweightweight
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::所定の位置での旋回について(about Turn In Place)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-turn-in-place
 [ABP_Mannequin_Base::GRAPHS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegraphs
@@ -86,11 +254,11 @@
 [ABP_Mannequin_Base::UpdateAimingData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdateaimingdata
 [ABP_Mannequin_Base::UpdateJumpFallData()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatejumpfalldata
 [ABP_Mannequin_Base::UpdateWallDetectionHeuristic()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatewalldetectionheuristic
-[ABP_Mannequin_Base::Turn In Place(FUNCTIONS)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placefunctions
+[ABP_Mannequin_Base::Turn In Place{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placefunctions
 [ABP_Mannequin_Base::SetRootYawOffset()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasesetrootyawoffset
 [ABP_Mannequin_Base::ProcessTurnYawCurve()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseprocessturnyawcurve
 [ABP_Mannequin_Base::UpdateRootYawOffset()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdaterootyawoffset
-[ABP_Mannequin_Base::Default(FUNCTIONS)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasedefaultfunctions
+[ABP_Mannequin_Base::Default{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasedefaultfunctions
 [ABP_Mannequin_Base::BlueprintThreadSafeUpdateAnimation()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseblueprintthreadsafeupdateanimation
 [ABP_Mannequin_Base::GetMovementComponent()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegetmovementcomponent
 [ABP_Mannequin_Base::ShouldEnableControlRig()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseshouldenablecontrolrig
@@ -148,14 +316,14 @@
 [ABP_Mannequin_Base::Linked Layer Data]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselinked-layer-data
 [ABP_Mannequin_Base::LinkedLayerChanged]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselinkedlayerchanged
 [ABP_Mannequin_Base::LastLinkedLayer]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselastlinkedlayer
-[ABP_Mannequin_Base::Turn In Place(VALIABLES)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placevaliables
+[ABP_Mannequin_Base::Turn In Place{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturn-in-placevaliables
 [ABP_Mannequin_Base::RootYawOffset]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
 [ABP_Mannequin_Base::RootYawOffsetSpringState]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffsetspringstate
 [ABP_Mannequin_Base::TurnYawCurveValue]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseturnyawcurvevalue
 [ABP_Mannequin_Base::RootYawOffsetMode]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffsetmode
 [ABP_Mannequin_Base::RootYawOffsetAngleClamp]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffsetangleclamp
 [ABP_Mannequin_Base::RootYawOffsetAngleClampCrouched]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffsetangleclampcrouched
-[ABP_Mannequin_Base::Default(VALIABLES)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasedefaultvaliables
+[ABP_Mannequin_Base::Default{VALIABLES}]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasedefaultvaliables
 [ABP_Mannequin_Base::IsFirstUpdate]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseisfirstupdate
 [ABP_Mannequin_Base::EnableControlRig]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseenablecontrolrig
 [ABP_Mannequin_Base::UseFootPlacement]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseusefootplacement
@@ -591,6 +759,7 @@
 [UAnimInstance::NativeInitializeAnimation()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancenativeinitializeanimation
 [UAnimInstance::NativeUpdateAnimation()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
 [UAnimInstance::IsAnyMontagePlaying()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
+[UAnimInstance::GetOwningComponent()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
 [FPrimaryAssetTypeInfo]: CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: CodeRefs/UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem

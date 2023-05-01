@@ -68,6 +68,16 @@
 > ただし、アクティブであることを意味するものではなく、ブレンドアウトしている可能性もあります。  
 
 
+### UAnimInstance::GetOwningComponent()
+
+> Returns the skeletal mesh component that has created this AnimInstance  
+> 
+> ----
+> この AnimInstance を作成したスケルタルメッシュコンポーネントを返します。  
+
+* `USkeletalMeshComponent` を返します。
+
+
 <!--- ページ内のリンク --->
 
 <!--- 自前の画像へのリンク --->
