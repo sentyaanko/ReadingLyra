@@ -50,7 +50,7 @@
 [ABP_ItemAnimLayersBase::SetUpIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
 [ABP_ItemAnimLayersBase::UpdateIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidlestate
 [ABP_ItemAnimLayersBase::LandRecoveryStart()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecoverystart
-[ABP_ItemAnimLayersBase::SetupIdleState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
+[ABP_ItemAnimLayersBase::SetupIdleTransition()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidletransition
 [ABP_ItemAnimLayersBase::Anim Node Functions]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-node-functions
 [ABP_ItemAnimLayersBase::UpdateIdleAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidleanim
 [ABP_ItemAnimLayersBase::SetUpIdleBreakAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlebreakanim
@@ -81,7 +81,7 @@
 [ABP_ItemAnimLayersBase::UpdateJumpFallData()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatejumpfalldata
 [ABP_ItemAnimLayersBase::UpdateSkelControlData()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateskelcontroldata
 [ABP_ItemAnimLayersBase::Distance Matching]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedistance-matching
-[ABP_ItemAnimLayersBase::GetPredicatedStopDistance()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetpredicatedstopdistance
+[ABP_ItemAnimLayersBase::GetPredictedStopDistance()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetpredictedstopdistance
 [ABP_ItemAnimLayersBase::ShouldDistanceMatchStop()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshoulddistancematchstop
 [ABP_ItemAnimLayersBase::Pivots{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsfunctions
 [ABP_ItemAnimLayersBase::GetDesiredPivotSequence()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetdesiredpivotsequence

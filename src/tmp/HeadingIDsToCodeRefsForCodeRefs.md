@@ -50,7 +50,7 @@
 [ABP_ItemAnimLayersBase::SetUpIdleState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
 [ABP_ItemAnimLayersBase::UpdateIdleState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidlestate
 [ABP_ItemAnimLayersBase::LandRecoveryStart()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselandrecoverystart
-[ABP_ItemAnimLayersBase::SetupIdleState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlestate
+[ABP_ItemAnimLayersBase::SetupIdleTransition()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidletransition
 [ABP_ItemAnimLayersBase::Anim Node Functions]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanim-node-functions
 [ABP_ItemAnimLayersBase::UpdateIdleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateidleanim
 [ABP_ItemAnimLayersBase::SetUpIdleBreakAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupidlebreakanim
@@ -81,7 +81,7 @@
 [ABP_ItemAnimLayersBase::UpdateJumpFallData()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatejumpfalldata
 [ABP_ItemAnimLayersBase::UpdateSkelControlData()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateskelcontroldata
 [ABP_ItemAnimLayersBase::Distance Matching]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasedistance-matching
-[ABP_ItemAnimLayersBase::GetPredicatedStopDistance()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetpredicatedstopdistance
+[ABP_ItemAnimLayersBase::GetPredictedStopDistance()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetpredictedstopdistance
 [ABP_ItemAnimLayersBase::ShouldDistanceMatchStop()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseshoulddistancematchstop
 [ABP_ItemAnimLayersBase::Pivots{FUNCTIONS}]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsfunctions
 [ABP_ItemAnimLayersBase::GetDesiredPivotSequence()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegetdesiredpivotsequence

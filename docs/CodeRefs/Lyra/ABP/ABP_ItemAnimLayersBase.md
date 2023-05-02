@@ -62,7 +62,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* [SetUpIdleState()]
 			* [UpdateIdleState()]
 			* [LandRecoveryStart()]
-			* [SetupIdleState()]
+			* [SetupIdleTransition()]
 		* [Anim Node Functions]
 			* [UpdateIdleAnim()]
 			* [SetUpIdleBreakAnim()]
@@ -93,7 +93,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* [UpdateJumpFallData()]
 			* [UpdateSkelControlData()]
 		* [Distance Matching]
-			* [GetPredicatedStopDistance()]
+			* [GetPredictedStopDistance()]
 			* [ShouldDistanceMatchStop()]
 		* [Pivots{FUNCTIONS}]
 			* [GetDesiredPivotSequence()]
@@ -184,6 +184,104 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 		* [Default{VALIABLES}]
 			* [LeftHandPoseOverrideWeight]
 			* [HandFKWeightWeight]
+* グループについて
+	* [ANIMATION LAYERS] のグループ
+		* [Item Anim Layers]
+			* [ALI_ItemAnimLayers] で定義されている。
+	* [FUNCTIONS] のグループ
+		* [State Node Functions]
+			* 主に ステートの `Output Animation Pose` ノード及び [AnimGraph] のステートマシンノードで使用しているノード関数です。
+				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]
+			* 命名規則は以下のいずれかです。
+				* Update（関数のタイプが On Update） + ステート名 + State
+					* 例：[UpdateIdleState()]
+				* SetUp（関数のタイプが On Become Relevant） + ステート名 + State
+					* 例：[SetUpIdleState()]
+				* 命名規則に沿わないもの
+					* [LandRecoveryStart()]
+					* [SetupIdleTransition()]
+		* [Anim Node Functions]
+			* 主に `Sequence Player` ノードまたは `Sequence Evaluator` ノードで使用しいているノード関数です。
+				* 主に再生するアニメーションシーケンスの指定を行います。
+				* [SetLeftHandPoseOverrideWeight()] は例外で、 `Layered blend per bone` ノードに設定されており、これに渡す `Blend Weights 0` パラメータの計算を行っています。
+			* 命名規則は以下のいずれかです。
+				* Update（関数のタイプが On Update） + ステート名(またはアニメーションレイヤー名の一部) + Anim
+					* 例：[UpdateIdleAnim()] / [UpdateStartAnim()]
+				* SetUp（関数のタイプが On Become Relevant） + ステート名(またはアニメーションレイヤー名の一部) + Anim
+					* 例：[SetUpIdleBreakAnim()] / [SetUpStartAnim()]
+				* 命名規則に沿わないもの
+					* [SetLeftHandPoseOverrideWeight()]
+		* [Turn In Place{FUNCTIONS}]
+			* 所定の位置での旋回処理を行うための関数です。
+			* [SelectTurnInPlaceAnimation()] 以外はノード関数として利用されています。
+		* [Idle Breaks{FUNCTIONS}]
+			* TODO: なにかかく。
+		* [Blueprint Thread Safe Update Functions]
+			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
+		* [Distance Matching]
+			* TODO: なにかかく。
+		* [Pivots{FUNCTIONS}]
+			* TODO: なにかかく。
+		* [Default{FUNCTIONS}]
+			* TODO: なにかかく。
+	* [VALIABLES] のグループ
+		* TODO ここから
+		* `Anim Set - ???`
+			* 以下のグループについて
+				* [Anim Set - Idle]
+				* [Anim Set - Starts]
+				* [Anim Set - Stops]
+				* [Anim Set - Pivots]
+				* [Anim Set - Turn in Place]
+				* [Anim Set - Jog]
+				* [Anim Set - Jump]
+				* [Anim Set - Walk]
+				* [Anim Set - Aiming]
+			* 各ステートで使用するアニメーションシーケンスに関するプロパティです。
+		* [Settings]
+			* 定数として扱われている変数です。？？？
+			* TODO: なにかかく。
+		* [Blend Weight Data]
+			* アニメーションのブレンドの際のアルファ値を保持する変数です。？？？
+			* 更新は [UpdateBlendWeightData()] で行われます。？？？
+			* TODO: なにかかく。
+		* [Turn In Place{VALIABLES}]
+			* 所定の位置での旋回処理を行うための関数です。？？？
+			* TODO: なにかかく。
+		* [Idle Breaks{VALIABLES}]
+			* TODO: なにかかく。
+		* [Pivots{VALIABLES}]
+			* TODO: なにかかく。
+		* [Jump]
+			* TODO: なにかかく。
+		* [Skel Control Data]
+			* TODO: なにかかく。
+		* [Stride Warping]
+			* TODO: なにかかく。
+* ノード関数の利用状況
+	| グループ						| ノード関数名							| グラフ								| ノード					| 種別					|
+	| ----							| ----									| ----									| ----						| ----					|
+	| [State Node Functions]		| [UpdateIdleState()]					| [Idle (state){in IdleSM}]				| `Output Animation Pose`	| On Update				|
+	| [State Node Functions]		| [SetUpIdleState()]					| [Idle (state){in IdleSM}]				| `Output Animation Pose`	| On Become Relevant	|
+	| [State Node Functions]		| [LandRecoveryStart()]					| [LandRecovery (state)]				| `Output Animation Pose`	| On Become Relevant	|
+	| [State Node Functions]		| [SetupIdleTransition()]				| [StanceTransition (state)]			| `Sequence Player`			| On Become Relevant	|
+	| [Anim Node Functions]			| [UpdateIdleAnim()]					| [Idle (state){in IdleStance}]			| `Sequence Player`			| On Update				|
+	| [Anim Node Functions]			| [SetUpIdleBreakAnim()]				| [IdleBreak (state)]					| `Sequence Player`			| On Become Relevant	|
+	| [Anim Node Functions]			| [SetUpStartAnim()]					| [FullBody_StartState]					| `Sequence Evaluator`		| On Become Relevant	|
+	| [Anim Node Functions]			| [UpdateStartAnim()]					| [FullBody_StartState]					| `Sequence Evaluator`		| On Update				|
+	| [Anim Node Functions]			| [UpdateCycleAnim()]					| [FullBody_CycleState]					| `Sequence Player`			| On Update				|
+	| [Anim Node Functions]			| [SetUpStopAnim()]						| [FullBody_StopState]					| `Sequence Evaluator`		| On Become Relevant	|
+	| [Anim Node Functions]			| [UpdateStopAnim()]					| [FullBody_StopState]					| `Sequence Evaluator`		| On Update				|
+	| [Anim Node Functions]			| [SetUpPivotAnim()]					| [PivotA (state)]<br>[PivotB (state)]	| `Sequence Evaluator`		| On Become Relevant	|
+	| [Anim Node Functions]			| [UpdatePivotAnim()]					| [PivotA (state)]<br>[PivotB (state)]	| `Sequence Evaluator`		| On Update				|
+	| [Anim Node Functions]			| [UpdateHipFireRaiseWeaponPose()]		| [FullBody_StartState]<br>[FullBody_CycleState]<br>[FullBody_StopState]<br>[FullBody_PivotState]<br>[FullBody_JumpStartState]<br>[FullBody_JumpApexState]<br>[FullBody_FallLandState]<br>[FullBody_FallLoopState]<br>[FullBody_JumpStartLoopState]	| `Sequence Evaluator`		| On Update				|
+	| [Anim Node Functions]			| [SetUpFallLandAnim()]					| [FullBody_FallLandState]				| `Sequence Evaluator`		| On Become Relevant	|
+	| [Anim Node Functions]			| [UpdateFallLandAnim()]				| [FullBody_FallLandState]				| `Sequence Evaluator`		| On Update				|
+	| [Anim Node Functions]			| [SetLeftHandPoseOverrideWeight()]		| [LeftHandPose_OverrideState]			| `Layered blend per bone`	| On Update				|
+	| [Turn In Place{FUNCTIONS}]	| [SetupTurnInPlaceAnim()]				| [TurnInPlaceRotation (state)]			| `Sequence Evaluator`		| On Become Relevant	|
+	| [Turn In Place{FUNCTIONS}]	| [UpdateTurnInPlaceAnim()]				| [TurnInPlaceRotation (state)]			| `Sequence Evaluator`		| On Update				|
+	| [Turn In Place{FUNCTIONS}]	| [SetUpTurnInPlaceRotationState()]		| [TurnInPlaceRotation (state)]			| `Output Animation Pose`	| On Become Relevant	|
+	| [Turn In Place{FUNCTIONS}]	| [SetUpTurnInPlaceRecoveryState()]		| [TurnInPlaceRecovery (state)]			| `Output Animation Pose`	| On Become Relevant	|
 
 
 # GRAPHS
@@ -270,8 +368,17 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ## State Node Functions
 ### SetUpIdleState()
 ### UpdateIdleState()
+
 ### LandRecoveryStart()
-### SetupIdleState()
+
+* [LandRecovery (state)] の On Become Relevant
+* 命名規則に合わせると `SetUpLandRecoveryState` のほうが妥当
+
+### SetupIdleTransition()
+
+* [StanceTransition (state)] の `Sequence Player` ノードの On Become Relevant
+* これは、 [Anim Node Functions] グループに所属させ、名前を `SetUpStanceTransitionAnim` にするほうが妥当
+
 ## Anim Node Functions
 ### UpdateIdleAnim()
 ### SetUpIdleBreakAnim()
@@ -294,6 +401,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 
 ### SetupTurnInPlaceAnim()
 
+* 命名規則に従うならば `SetUpTurnInPlaceAnim()` のほうが妥当。
 * [TurnInPlaceAnimTime] に 0 を設定している。
 * `SetExplicitTime` に 0 を指定している。（アニメーション再生位置を 0 に設定）
 
@@ -320,7 +428,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ### UpdateJumpFallData()
 ### UpdateSkelControlData()
 ## Distance Matching
-### GetPredicatedStopDistance()
+### GetPredictedStopDistance()
 ### ShouldDistanceMatchStop()
 ## Pivots{FUNCTIONS}
 ### GetDesiredPivotSequence()
@@ -475,9 +583,10 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [LeftHandPose_OverrideState]: #lefthandposeoverridestate
 [FUNCTIONS]: #functions
 [State Node Functions]: #state-node-functions
+[SetUpIdleState()]: #setupidlestate
 [UpdateIdleState()]: #updateidlestate
 [LandRecoveryStart()]: #landrecoverystart
-[SetupIdleState()]: #setupidlestate
+[SetupIdleTransition()]: #setupidletransition
 [Anim Node Functions]: #anim-node-functions
 [UpdateIdleAnim()]: #updateidleanim
 [SetUpIdleBreakAnim()]: #setupidlebreakanim
@@ -508,7 +617,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [UpdateJumpFallData()]: #updatejumpfalldata
 [UpdateSkelControlData()]: #updateskelcontroldata
 [Distance Matching]: #distance-matching
-[GetPredicatedStopDistance()]: #getpredicatedstopdistance
+[GetPredictedStopDistance()]: #getpredictedstopdistance
 [ShouldDistanceMatchStop()]: #shoulddistancematchstop
 [Pivots{FUNCTIONS}]: #pivotsfunctions
 [GetDesiredPivotSequence()]: #getdesiredpivotsequence
@@ -601,6 +710,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [HandFKWeightWeight]: #handfkweightweight
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::RootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
+[ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [Comment_AnimBP_Tour.Ja::5]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja5
 [Comment_AnimBP_Tour.Ja::6]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja6
 [Comment_AnimBP_Tour.Ja::7]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja7
@@ -610,3 +720,4 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [Comment_TourInPlace.Ja::6]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja6
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0

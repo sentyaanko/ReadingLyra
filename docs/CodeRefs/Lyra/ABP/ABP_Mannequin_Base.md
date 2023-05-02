@@ -171,14 +171,14 @@
 			* [ALI_ItemAnimLayers] で定義されている。
 	* [FUNCTIONS] のグループ
 		* [State Node Functions]
-			* ステート及びステートマシンで使用しているノード関数です。
+			* ステートの `Output Animation Pose` ノード及び [AnimGraph] のステートマシンノードで使用しているノード関数です。
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]
 			* 命名規則は以下のいずれかです。
 				* Update（関数のタイプが On Update） + ステート名 + State
 					* 例：[UpdateIdleState()]
 				* SetUp（関数のタイプが On Become Relevant） + ステート名 + State
 					* 例：[SetUpStartState()]
-				* その他（LocomotionSM の On Update）
+				* その他（ステートマシン [LocomotionSM] の On Update）
 					* [UpdateLocomotionStateMachine()]
 		* [Helper Functions]
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
