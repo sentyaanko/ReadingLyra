@@ -16,14 +16,14 @@
 [ABP_ItemAnimLayersBase::FullBody_IdleState]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyidlestate
 [ABP_ItemAnimLayersBase::IdleSM]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlesm
 [ABP_ItemAnimLayersBase::Idle (state){in IdleSM}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlesm
+[ABP_ItemAnimLayersBase::IdleBreak (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-state
 [ABP_ItemAnimLayersBase::TurnInPlaceRotation (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-state
 [ABP_ItemAnimLayersBase::TurnInPlaceRecovery (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-state
-[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
-[ABP_ItemAnimLayersBase::IdleBreak (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-state
 [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsturninplace-rule
 [ABP_ItemAnimLayersBase::Idle to IdleBreak (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-idlebreak-rule
 [ABP_ItemAnimLayersBase::IdleBreak to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-to-idle-rule
 [ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-to-turninplacerecovery-rule
+[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
 [ABP_ItemAnimLayersBase::IdleStance]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlestance
 [ABP_ItemAnimLayersBase::Idle (state){in IdleStance}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlestance
 [ABP_ItemAnimLayersBase::StanceTransition (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-state
@@ -69,6 +69,7 @@
 [ABP_ItemAnimLayersBase::SetupTurnInPlaceAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplaceanim
 [ABP_ItemAnimLayersBase::UpdateTurnInPlaceAnim()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateturninplaceanim
 [ABP_ItemAnimLayersBase::SetUpTurnInPlaceRotationState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerotationstate
+[ABP_ItemAnimLayersBase::UpdateTurnInPlaceRecoveryState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateturninplacerecoverystate
 [ABP_ItemAnimLayersBase::SetUpTurnInPlaceRecoveryState()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerecoverystate
 [ABP_ItemAnimLayersBase::SelectTurnInPlaceAnimation()]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseselectturninplaceanimation
 [ABP_ItemAnimLayersBase::Idle Breaks{FUNCTIONS}]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-breaksfunctions
@@ -338,6 +339,11 @@
 [AnimEnum_RootYawOffsetMode::BlendOut]: CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeblendout
 [AnimEnum_RootYawOffsetMode::Hold]: CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodehold
 [AnimEnum_RootYawOffsetMode::Accumulate]: CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeaccumulate
+[AnimStruct_CardinalDirections]: CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirections
+[AnimStruct_CardinalDirections::Forward]: CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsforward
+[AnimStruct_CardinalDirections::Backward]: CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsbackward
+[AnimStruct_CardinalDirections::Left]: CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsleft
+[AnimStruct_CardinalDirections::Right]: CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsright
 [Comment_AnimBP_Tour.En]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren
 [Comment_AnimBP_Tour.En::1]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren1
 [Comment_AnimBP_Tour.En::2]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren2
@@ -753,6 +759,7 @@
 [UUIExtensionPointWidget]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
+[UAimOffsetBlendSpace]: CodeRefs/UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimInstance]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetInstanceCurrentStateElapsedTime()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
@@ -760,6 +767,7 @@
 [UAnimInstance::NativeUpdateAnimation()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
 [UAnimInstance::IsAnyMontagePlaying()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
 [UAnimInstance::GetOwningComponent()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
+[UAnimSequence]: CodeRefs/UE/Animation/UAnimSequence.md#uanimsequence
 [FPrimaryAssetTypeInfo]: CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: CodeRefs/UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem

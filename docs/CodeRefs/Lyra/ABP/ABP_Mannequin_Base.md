@@ -224,7 +224,7 @@
 			* Linked Anim Instance に関する変数です。
 			* 更新は [UpdateLocomotionStateMachine()] で行われます。
 		* [Turn In Place{VALIABLES}]
-			* 所定の位置での旋回処理を行うための関数です。
+			* 所定の位置での旋回処理を行うための変数です。
 			* [所定の位置での旋回について(about Turn In Place)] を参照。
 
 # 所定の位置での旋回について(about Turn In Place)
@@ -357,8 +357,8 @@
 * Transition Rule Sharing に関して
 	* 一覧と主な設定
 		| 名前                     | 用途                                                | 遷移元                                                                                       |
-		|--------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-		| StopRule (rule)          | Stop (state) への遷移ルール                         | Start (state)<br>Cycle (state)                                                                         |
+		|--------------------------|-----------------------------------------------------|----------------------------------------------------------------------------------------------|
+		| [StopRule (rule)]        | [Stop (state)] への遷移ルール                       | [Start (state)]<br>[Cycle (state)]                                                           |
 * Rule に関して
 	* Unreal の仕組み関連のメモ
 		* Automatic Rule Based on Sequence Player in State について
@@ -588,7 +588,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 
 * 参照する変数/関数
 	* Priority は conduit への遷移なのでありません。
-	* Can Enter Transition を IsOnGround にしている
+	* Can Enter Transition を [IsOnGround] にしている
 
 #### EndInAir to CycleAlias (rule)
 

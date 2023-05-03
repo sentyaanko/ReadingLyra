@@ -98,7 +98,7 @@ Layers can play a single animation, or contain complex logic like state machines
 
 # 8
 
-ABP_ItemAnimLayersBase > FullBody_IdleState
+ABP_ItemAnimLayersBase > FullBody_StartState
 
 AnimBP Tour #8
 

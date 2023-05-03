@@ -18,6 +18,7 @@ nav:
         - ALI_ItemAnimLayers: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers
         - AnimEnum_CardinalDirection: ./CodeRefs/Lyra/ABP/AnimEnum_CardinalDirection
         - AnimEnum_RootYawOffsetMode: ./CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode
+        - AnimStruct_CardinalDirections: ./CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections
         - Comment_AnimBP_Tour.En: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En
         - Comment_AnimBP_Tour.Ja: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja
         - Comment_TourInPlace.En: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En
@@ -198,7 +199,9 @@ nav:
         - UUIExtensionSubsystem: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem
     - UE:
       - Animation:
+        - UAimOffsetBlendSpace: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace
         - UAnimInstance: ./CodeRefs/UE/Animation/UAnimInstance
+        - UAnimSequence: ./CodeRefs/UE/Animation/UAnimSequence
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
       - DataRegistry:

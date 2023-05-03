@@ -16,14 +16,14 @@
 [ABP_ItemAnimLayersBase::FullBody_IdleState]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyidlestate
 [ABP_ItemAnimLayersBase::IdleSM]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlesm
 [ABP_ItemAnimLayersBase::Idle (state){in IdleSM}]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlesm
+[ABP_ItemAnimLayersBase::IdleBreak (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-state
 [ABP_ItemAnimLayersBase::TurnInPlaceRotation (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-state
 [ABP_ItemAnimLayersBase::TurnInPlaceRecovery (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-state
-[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
-[ABP_ItemAnimLayersBase::IdleBreak (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-state
 [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsturninplace-rule
 [ABP_ItemAnimLayersBase::Idle to IdleBreak (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-idlebreak-rule
 [ABP_ItemAnimLayersBase::IdleBreak to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlebreak-to-idle-rule
 [ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-to-turninplacerecovery-rule
+[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
 [ABP_ItemAnimLayersBase::IdleStance]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlestance
 [ABP_ItemAnimLayersBase::Idle (state){in IdleStance}]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-statein-idlestance
 [ABP_ItemAnimLayersBase::StanceTransition (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-state
@@ -69,6 +69,7 @@
 [ABP_ItemAnimLayersBase::SetupTurnInPlaceAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplaceanim
 [ABP_ItemAnimLayersBase::UpdateTurnInPlaceAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateturninplaceanim
 [ABP_ItemAnimLayersBase::SetUpTurnInPlaceRotationState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerotationstate
+[ABP_ItemAnimLayersBase::UpdateTurnInPlaceRecoveryState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdateturninplacerecoverystate
 [ABP_ItemAnimLayersBase::SetUpTurnInPlaceRecoveryState()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetupturninplacerecoverystate
 [ABP_ItemAnimLayersBase::SelectTurnInPlaceAnimation()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseselectturninplaceanimation
 [ABP_ItemAnimLayersBase::Idle Breaks{FUNCTIONS}]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-breaksfunctions
@@ -338,6 +339,11 @@
 [AnimEnum_RootYawOffsetMode::BlendOut]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeblendout
 [AnimEnum_RootYawOffsetMode::Hold]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodehold
 [AnimEnum_RootYawOffsetMode::Accumulate]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmodeaccumulate
+[AnimStruct_CardinalDirections]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirections
+[AnimStruct_CardinalDirections::Forward]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsforward
+[AnimStruct_CardinalDirections::Backward]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsbackward
+[AnimStruct_CardinalDirections::Left]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsleft
+[AnimStruct_CardinalDirections::Right]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirectionsright
 [Comment_AnimBP_Tour.En]: ../../Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren
 [Comment_AnimBP_Tour.En::1]: ../../Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren1
 [Comment_AnimBP_Tour.En::2]: ../../Lyra/ABP/Comment_AnimBP_Tour.En.md#commentanimbptouren2
@@ -753,6 +759,7 @@
 [UUIExtensionPointWidget]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: ../../Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: ../../Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
+[UAimOffsetBlendSpace]: ../../UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetInstanceCurrentStateElapsedTime()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
@@ -760,6 +767,7 @@
 [UAnimInstance::NativeUpdateAnimation()]: ../../UE/Animation/UAnimInstance.md#uaniminstancenativeupdateanimation
 [UAnimInstance::IsAnyMontagePlaying()]: ../../UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
+[UAnimSequence]: ../../UE/Animation/UAnimSequence.md#uanimsequence
 [FPrimaryAssetTypeInfo]: ../../UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: ../../UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: ../../UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem

@@ -81,6 +81,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* [SetupTurnInPlaceAnim()]
 			* [UpdateTurnInPlaceAnim()]
 			* [SetUpTurnInPlaceRotationState()]
+			* [UpdateTurnInPlaceRecoveryState()]
 			* [SetUpTurnInPlaceRecoveryState()]
 			* [SelectTurnInPlaceAnimation()]
 		* [Idle Breaks{FUNCTIONS}]
@@ -238,16 +239,18 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 				* [Anim Set - Walk]
 				* [Anim Set - Aiming]
 			* 各ステートで使用するアニメーションシーケンスに関するプロパティです。
+			* ほぼ、アニメーションシーケンスに関する以下の型です。
+				* [UAnimSequence]
+				* [UAimOffsetBlendSpace]
+				* [AnimStruct_CardinalDirections]
+			* それ以外にアニメーションカーブ名を指定する [JumpDistanceCurveName] があります。
 		* [Settings]
-			* 定数として扱われている変数です。？？？
-			* TODO: なにかかく。
+			* 定数として扱われている変数です。
 		* [Blend Weight Data]
-			* アニメーションのブレンドの際のアルファ値を保持する変数です。？？？
-			* 更新は [UpdateBlendWeightData()] で行われます。？？？
-			* TODO: なにかかく。
+			* アニメーションのブレンドの際のアルファ値を保持する変数です。
+			* 更新は [UpdateBlendWeightData()] で行われます。
 		* [Turn In Place{VALIABLES}]
-			* 所定の位置での旋回処理を行うための関数です。？？？
-			* TODO: なにかかく。
+			* 所定の位置での旋回処理を行うための変数です。
 		* [Idle Breaks{VALIABLES}]
 			* TODO: なにかかく。
 		* [Pivots{VALIABLES}]
@@ -281,6 +284,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	| [Turn In Place{FUNCTIONS}]	| [SetupTurnInPlaceAnim()]				| [TurnInPlaceRotation (state)]			| `Sequence Evaluator`		| On Become Relevant	|
 	| [Turn In Place{FUNCTIONS}]	| [UpdateTurnInPlaceAnim()]				| [TurnInPlaceRotation (state)]			| `Sequence Evaluator`		| On Update				|
 	| [Turn In Place{FUNCTIONS}]	| [SetUpTurnInPlaceRotationState()]		| [TurnInPlaceRotation (state)]			| `Output Animation Pose`	| On Become Relevant	|
+	| [Turn In Place{FUNCTIONS}]	| [UpdateTurnInPlaceRecoveryState()]	| [TurnInPlaceRecovery (state)]			| `Sequence Player`			| On Update				|
 	| [Turn In Place{FUNCTIONS}]	| [SetUpTurnInPlaceRecoveryState()]		| [TurnInPlaceRecovery (state)]			| `Output Animation Pose`	| On Become Relevant	|
 
 
@@ -291,62 +295,295 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::5]
 	* [Comment_AnimBP_Tour.Ja::6]
+* 概要
+	* マルチスレッド対応のため、基本的には空っぽ。
 
 # ANIMATION GRAPHS
+
 ## AnimGraph
+
+* 概要
+	* Animation Layer 用の Animation Blueprint なので、空っぽ。
 
 # ANIMATION LAYERS
 
-* すべて基本的な実装をしている。
+* 概要
+	* すべて基本的な実装をしている。
 
 ## Item Anim Layers
+
 ### FullBodyAdditives
+
+* 概要
+	* ステートマシン [FullBodyAdditive_SM] の結果を `Output Pose` に接続しています。
+
 #### FullBodyAdditive_SM
+
+* 構成要素
+	* State
+		* [Identity (state)]
+		* [AirIdentity (state)]
+		* [LandRecovery (state)]
+	* Rule
+		* [Identity to AirIdentity (rule)]
+		* [AirIdentity to LandRecovery (rule)]
+		* [LandRecovery to Identity (rule)]
+* State に関して
+	* ノード関数の使用状況
+		| グラフ					| ノード					| 種別					| ノード関数名				|
+		|----						|----						|----					|----						|
+		| [LandRecovery (state)]	| `Output Animation Pose`	| On Become Relevant	| [LandRecoveryStart()]		|
+	* アニメーションシーケンスの使用状況
+		| 名前						| アニメーションシーケンス		|
+		|----						|								|
+		| [LandRecovery (state)]	| [Jump_RecoveryAdditive]		|
+
 ##### Identity (state)
+
+* 地上に居るステートです。
+* 特に追加のアニメーションが存在せず、アニメーションシーケンスを出力しません。
+
 ##### AirIdentity (state)
+
+* 空中に居るステートです。
+* 特に追加のアニメーションが存在せず、アニメーションシーケンスを出力しません。
+
 ##### LandRecovery (state)
+
+* 空中から地上に移ったときのステートです。
+* [Jump_RecoveryAdditive] に設定された、アニメーションシーケンスを出力します。
+* 要は着地時のアニメーションを設定するためのステートです。
+
 ##### Identity to AirIdentity (rule)
+
+* Priority.1
+	* Not( [ABP_Mannequin_Base::IsOnGround] ) を `Can Enter Transition` に設定します。
+	* つまり地面から離れたら遷移します。
+
 ##### AirIdentity to LandRecovery (rule)
+
+* Priority.1
+	* [ABP_Mannequin_Base::IsOnGround] を `Can Enter Transition` に設定します。
+	* つまり地面に着いたら遷移します。
+
 ##### LandRecovery to Identity (rule)
+
+* Priority.1
+	* Not( [ABP_Mannequin_Base::IsOnGround] ) を `Can Enter Transition` に設定します。
+	* つまり地面から離れたら遷移します。
+* Priority.2
+	* `Automatic Rule Base on Aequence` に true が設定されています。
+	* つまり、 [LandRecovery (state)] で設定されたアニメーションシーケンスの再生が終わり次第遷移します。
 
 ### FullBody_IdleState
 
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::7]
-	* [Comment_AnimBP_Tour.Ja::8]
+* 概要
+	* ステートマシン [Idle (state){in IdleSM}] の結果を `Output Pose` に接続しています。
 
 #### IdleSM
 
+* 構成要素
+	* State
+		* [Idle (state){in IdleSM}]
+		* [IdleBreak (state)]
+		* [TurnInPlaceRotation (state)]
+		* [TurnInPlaceRecovery (state)]
+	* Transition Rule Sharing
+		* [WantsTurnInPlace (rule)]
+	* Rule
+		* [Idle to IdleBreak (rule)]
+		* [IdleBreak to Idle (rule)]
+		* [TurnInPlaceRotation to TurnInPlaceRecovery (rule)]
+		* [TurnInPlaceRecovery to Idle (rule)]
+* State に関して
+	* ノード関数の使用状況
+		| グラフ						| ノード					| 種別					| ノード関数名							|
+		|----							|----						|----					|----									|
+		| [Idle (state){in IdleSM}]		| `Output Animation Pose`	| On Become Relevant	| [SetUpIdleState()]					|
+		| [Idle (state){in IdleSM}]		| `Output Animation Pose`	| On Update				| [UpdateIdleState()]					|
+		| [IdleBreak (state)]			| `Sequence Player`			| On Become Relevant	| [SetUpIdleBreakAnim()]				|
+		| [TurnInPlaceRotation (state)]	| `Sequence Evaluator`		| On Become Relevant	| [SetupTurnInPlaceAnim()]				|
+		| [TurnInPlaceRotation (state)]	| `Sequence Evaluator`		| On Update				| [UpdateTurnInPlaceAnim()]				|
+		| [TurnInPlaceRotation (state)]	| `Output Animation Pose`	| On Become Relevant	| [SetUpTurnInPlaceRotationState()]		|
+		| [TurnInPlaceRecovery (state)]	| `Sequence Player`			| On Update				| [UpdateTurnInPlaceRecoveryState()]	|
+		| [TurnInPlaceRecovery (state)]	| `Output Animation Pose`	| On Become Relevant	| [LandRecoveryStart()]					|
+	* アニメーションシーケンスの使用状況
+		| 名前							| アニメーションシーケンス								|
+		|----							|----													|
+		| [Idle (state){in IdleSM}]		| ステートマシン [IdleStance] に従う					|
+		| [IdleBreak (state)]			| ノード関数 [SetUpIdleBreakAnim()] に従う				|
+		| [TurnInPlaceRotation (state)]	| ノード関数 [UpdateTurnInPlaceAnim()] に従う			|
+		| [TurnInPlaceRecovery (state)]	| ノード関数 [UpdateTurnInPlaceRecoveryState()] に従う	|
+* Transition Rule Sharing に関して
+	* 一覧と主な設定
+		| 名前							| 用途													| 遷移元																				|
+		|----							|----													|----																					|
+		| [WantsTurnInPlace (rule)]		| [TurnInPlaceRotation (state)] への遷移ルール			| [Idle (state){in IdleSM}]<br>[IdleBreak (state)]<br>[TurnInPlaceRecovery (state)]		|
+
+
 ##### Idle (state){in IdleSM}
 
-* Tour コメント
-	* [Comment_TourInPlace.Ja::6]
+* 概要
+	* 立っているだけの状態です。
+	* ステート内でステートマシン [IdleStance] を利用しています。
+	* 以下のノード関数を利用しています。
+		| ノード					| 種別					| ノード関数名							|
+		|----						|----					|----									|
+		| `Output Animation Pose`	| On Become Relevant	| [SetUpIdleState()]					|
+		| `Output Animation Pose`	| On Update				| [UpdateIdleState()]					|
+
+##### IdleBreak (state)
+
+* 概要
+	* 立っているだけの状態がしばらく続いた後にあたりを見渡すなどをする状態です。
+	* 以下のノード関数を利用しています。
+		| ノード					| 種別					| ノード関数名							|
+		|----						|----					|----									|
+		| `Sequence Player`			| On Become Relevant	| [SetUpIdleBreakAnim()]				|
 
 ##### TurnInPlaceRotation (state)
 
-* Seqence Evaluator にて [SetupTurnInPlaceAnim()] / [UpdateTurnInPlaceAnim()] を呼び出し。
-* Output Animation Pose にて [SetUpTurnInPlaceRotationState()] を呼び出し。
+* Tour コメント
+	* [Comment_TourInPlace.Ja::6]
+* 概要
+	* `Turn In Place` のうち、転回を行う状態です。
+	* 以下のノード関数を利用しています。
+		| ノード					| 種別					| ノード関数名							|
+		|----						|----					|----									|
+		| `Sequence Evaluator`		| On Become Relevant	| [SetupTurnInPlaceAnim()]				|
+		| `Sequence Evaluator`		| On Update				| [UpdateTurnInPlaceAnim()]				|
+		| `Output Animation Pose`	| On Become Relevant	| [SetUpTurnInPlaceRotationState()]		|
+
 
 ##### TurnInPlaceRecovery (state)
-##### TurnInPlaceRecovery to Idle (rule)
-##### IdleBreak (state)
+
+* Tour コメント
+	* [Comment_TourInPlace.Ja::6]
+* 概要
+	* `Turn In Place` のうち、転回を行った後の、 [Idle (state){in IdleSM}] に戻る前の一時的な状態です。
+	* 以下のノード関数を利用しています。
+		| ノード					| 種別					| ノード関数名							|
+		|----						|----					|----									|
+		| `Sequence Player`			| On Update				| [UpdateTurnInPlaceRecoveryState()]	|
+		| `Output Animation Pose`	| On Become Relevant	| [LandRecoveryStart()]					|
+
 ##### WantsTurnInPlace (rule)
+
+* 概要
+	* `Turn In Place` の転回を行うためのルールです。
+	* つまり、 [TurnInPlaceRotation (state)] 以外のステートから [TurnInPlaceRotation (state)] に移るための共通のルールです。
+	* [TurnInPlaceRecovery (state)] からの設定では `Blend Logic` に `Inertialization` が指定されています。
+
+
 ##### Idle to IdleBreak (rule)
+
+* Priority.1
+	* [TimeUntilNextIdleBreak] がマイナスかどうかを `Can Enter Transition` に設定します。
+	* [TimeUntilNextIdleBreak] は [ResetIdleBreakTransitionLogic()] で初期化され、 [ProcessIdleBreakTransitionLogic()] で毎フレーム減算されます。
+	* つまり一定時間経過したら遷移します。
+
+
 ##### IdleBreak to Idle (rule)
+
+* Priority.1
+	* [ABP_Mannequin_Base::GameplayTag_IsFiring] を `Can Enter Transition` に設定します。
+	* つまり地面発砲中は遷移します。
+* Priority.2
+	* Not( [CanPlayIdleBreak()] ) を `Can Enter Transition` に設定します。
+	* つまり、何ら頭の操作を行うなどした場合に遷移します。
+* Priority.2
+	* `Automatic Rule Base on Aequence` に true が設定されています。
+	* つまり、 [IdleBreak (state)] で設定されたアニメーションシーケンスの再生が終わり次第遷移します。
+	> Priority が重複している理由は不明です。
+
+
 ##### TurnInPlaceRotation to TurnInPlaceRecovery (rule)
+
+* Priority.1
+	* アニメーションカーブ `TurnYawWeight` がほぼ 0.0 かを `Can Enter Transition` に設定します。
+		* `TurnYawWeight` については [TurnYawAnimModifier] を参照してください。
+	* つまりアニメーションシーケンスで設定されてる Yaw の回転が終わった際に遷移します
+	* `Blend Logic` に `Inertialization` が指定されています。
+
+
+##### TurnInPlaceRecovery to Idle (rule)
+
+* Priority.1
+	* `Automatic Rule Base on Aequence` に true が設定されています。
+	* つまり、 [TurnInPlaceRecovery (state)] で設定されたアニメーションシーケンスの再生が終わり次第遷移します。
+
 
 #### IdleStance
 
-* [Idle (state){in IdleSM}] で利用されているステートマシンです。
+* 概要
+	* [Idle (state){in IdleSM}] で利用されているステートマシンです。
+	* しゃがみの開始と終了のアニメーションシーケンスの再生を制御します。
+* 構成要素
+	* State
+		* [Idle (state){in IdleStance}]
+		* [StanceTransition (state)]
+	* Rule
+		* [Idle to StanceTransition (rule)]
+		* [StanceTransition to Idle (rule)]
+* State に関して
+	* ノード関数の使用状況
+		| グラフ						| ノード					| 種別					| ノード関数名							|
+		|----							|----						|----					|----									|
+		| [Idle (state){in IdleStance}]	| `Sequence Player`			| On Update				| [UpdateIdleAnim()]					|
+		| [StanceTransition (state)]	| `Sequence Player`			| On Become Relevant	| [SetupIdleTransition()]				|
+	* アニメーションシーケンスの使用状況
+		| 名前							| アニメーションシーケンス								|
+		|----							|----													|
+		| [Idle (state){in IdleStance}]	| ノード関数 [UpdateIdleAnim()] に従う					|
+		| [StanceTransition (state)]	| ノード関数 [SetupIdleTransition()] に従う				|
+
 
 ##### Idle (state){in IdleStance}
+
+* 概要
+	* しゃがみの開始と終了をしていない、通常の待機状態です。
+	* キャラクターの状態により、腰撃ち、 ADS 、しゃがみのいずれかの待機アニメーションシーケンスの設定を行います。
+* ノード関数の使用状況
+	| ノード					| 種別					| ノード関数名							|
+	|----						|----					|----									|
+	| `Sequence Player`			| On Update				| [UpdateIdleAnim()]					|
+
+
 ##### StanceTransition (state)
+
+* 概要
+	* しゃがみの開始と終了のいずれかをしている状態です。
+	* キャラクターの状態により、「立ちからしゃがみ」「しゃがみから立ち」のいずれかのアニメーションシーケンスの設定を行います。
+* ノード関数の使用状況
+	| ノード					| 種別					| ノード関数名							|
+	|----						|----					|----									|
+	| `Sequence Player`			| On Become Relevant	| [SetupIdleTransition()]				|
+
+
 ##### Idle to StanceTransition (rule)
+
+* Priority.1
+	* [ABP_Mannequin_Base::CrouchStateChange] を `Can Enter Transition` に設定します。
+	* つまり立ったりしゃがんだりしたら遷移します。
+
 ##### StanceTransition to Idle (rule)
+
+* Priority.1
+	* [ABP_Mannequin_Base::CrouchStateChange] を `Can Enter Transition` に設定します。
+	* つまり立ったりしゃがんだりしたら遷移します。
+* Priority.2
+	* `Automatic Rule Base on Aequence` に true が設定されています。
+	* つまり、 [StanceTransition (state)] で設定されたアニメーションシーケンスの再生が終わり次第遷移します。
+
 
 ### FullBody_StartState
 
+TODO このへんから
+
 * Tour コメント
+	* [Comment_AnimBP_Tour.Ja::8]
 	* [Comment_AnimBP_Tour.Ja::10]
 
 ### FullBody_CycleState
@@ -416,6 +653,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * [TurnInPlaceRotationDirection] に [ABP_Mannequin_Base::RootYawOffset] の `Sign` (sin 値)を設定しています。
 	* どちらに向いているかを正負で判断できるようにしています。
 
+### UpdateTurnInPlaceRecoveryState()
 ### SetUpTurnInPlaceRecoveryState()
 ### SelectTurnInPlaceAnimation()
 ## Idle Breaks{FUNCTIONS}
@@ -440,7 +678,8 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * ます、 [UAnimInstance::GetOwningComponent()] にてこの AnimBP を所有している `USkeletalMeshComponent` を取得します
 	* これは要は `B_HeroShooterMannyquin` の Mesh コンポーネントです。
 * 次に  `USkeletalMeshComponent::GetAnimInstance()` にてこのスケルタルメッシュを駆動している [UAnimInstance] を取得します。
-	* これは要は `ABP_Mannequin_Base` です。
+	* これは要は [ABP_Mannequin_Base] です。
+* 要は [ABP_Mannequin_Base] を取得する関数です。
 
 ### ShouldEnableFootPlacement()
 ### GetMovementComponent()
@@ -509,6 +748,9 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ### TurnInPlaceRecoveryDirection
 ## Idle Breaks{VALIABLES}
 ### WantsIdleBreak
+
+* 使用されていないようです。
+
 ### TimeUntilNextIdleBreak
 ### CurrentIdleBreakIndex
 ### IdleBreakDelayTime
@@ -552,14 +794,14 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [FullBody_IdleState]: #fullbodyidlestate
 [IdleSM]: #idlesm
 [Idle (state){in IdleSM}]: #idle-statein-idlesm
+[IdleBreak (state)]: #idlebreak-state
 [TurnInPlaceRotation (state)]: #turninplacerotation-state
 [TurnInPlaceRecovery (state)]: #turninplacerecovery-state
-[TurnInPlaceRecovery to Idle (rule)]: #turninplacerecovery-to-idle-rule
-[IdleBreak (state)]: #idlebreak-state
 [WantsTurnInPlace (rule)]: #wantsturninplace-rule
 [Idle to IdleBreak (rule)]: #idle-to-idlebreak-rule
 [IdleBreak to Idle (rule)]: #idlebreak-to-idle-rule
 [TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: #turninplacerotation-to-turninplacerecovery-rule
+[TurnInPlaceRecovery to Idle (rule)]: #turninplacerecovery-to-idle-rule
 [IdleStance]: #idlestance
 [Idle (state){in IdleStance}]: #idle-statein-idlestance
 [StanceTransition (state)]: #stancetransition-state
@@ -605,6 +847,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [SetupTurnInPlaceAnim()]: #setupturninplaceanim
 [UpdateTurnInPlaceAnim()]: #updateturninplaceanim
 [SetUpTurnInPlaceRotationState()]: #setupturninplacerotationstate
+[UpdateTurnInPlaceRecoveryState()]: #updateturninplacerecoverystate
 [SetUpTurnInPlaceRecoveryState()]: #setupturninplacerecoverystate
 [SelectTurnInPlaceAnimation()]: #selectturninplaceanimation
 [Idle Breaks{FUNCTIONS}]: #idle-breaksfunctions
@@ -709,8 +952,12 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [LeftHandPoseOverrideWeight]: #lefthandposeoverrideweight
 [HandFKWeightWeight]: #handfkweightweight
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
+[ABP_Mannequin_Base::IsOnGround]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseisonground
+[ABP_Mannequin_Base::CrouchStateChange]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasecrouchstatechange
+[ABP_Mannequin_Base::GameplayTag_IsFiring]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegameplaytagisfiring
 [ABP_Mannequin_Base::RootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
+[AnimStruct_CardinalDirections]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirections
 [Comment_AnimBP_Tour.Ja::5]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja5
 [Comment_AnimBP_Tour.Ja::6]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja6
 [Comment_AnimBP_Tour.Ja::7]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja7
@@ -718,6 +965,9 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [Comment_AnimBP_Tour.Ja::9]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja9
 [Comment_AnimBP_Tour.Ja::10]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja10
 [Comment_TourInPlace.Ja::6]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja6
+[TurnYawAnimModifier]: ../../Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
+[UAimOffsetBlendSpace]: ../../UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
+[UAnimSequence]: ../../UE/Animation/UAnimSequence.md#uanimsequence
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0

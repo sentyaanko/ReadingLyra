@@ -98,7 +98,7 @@ AnimBP ツアー #7
 
 # 8
 
-ABP_ItemAnimLayersBase > FullBody_IdleState
+ABP_ItemAnimLayersBase > FullBody_StartState
 
 AnimBP ツアー #8
 

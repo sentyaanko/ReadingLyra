@@ -18,6 +18,7 @@
 			- [ALI_ItemAnimLayers]
 			- [AnimEnum_CardinalDirection]
 			- [AnimEnum_RootYawOffsetMode]
+			- [AnimStruct_CardinalDirections]
 			- [Comment_AnimBP_Tour.En]
 			- [Comment_AnimBP_Tour.Ja]
 			- [Comment_TourInPlace.En]
@@ -198,7 +199,9 @@
 			- [UUIExtensionSubsystem]
 	- UE
 		- Animation
+			- [UAimOffsetBlendSpace]
 			- [UAnimInstance]
+			- [UAnimSequence]
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
 		- DataRegistry
@@ -256,6 +259,7 @@
 [ALI_ItemAnimLayers]: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md
 [AnimEnum_CardinalDirection]: ./CodeRefs/Lyra/ABP/AnimEnum_CardinalDirection.md
 [AnimEnum_RootYawOffsetMode]: ./CodeRefs/Lyra/ABP/AnimEnum_RootYawOffsetMode.md
+[AnimStruct_CardinalDirections]: ./CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md
 [Comment_AnimBP_Tour.En]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md
 [Comment_AnimBP_Tour.Ja]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md
 [Comment_TourInPlace.En]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En.md
@@ -408,7 +412,9 @@
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
 [UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
+[UAimOffsetBlendSpace]: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace.md
 [UAnimInstance]: ./CodeRefs/UE/Animation/UAnimInstance.md
+[UAnimSequence]: ./CodeRefs/UE/Animation/UAnimSequence.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistry]: ./CodeRefs/UE/DataRegistry/UDataRegistry.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md
