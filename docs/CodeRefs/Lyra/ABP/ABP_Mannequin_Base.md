@@ -169,7 +169,7 @@
 	* [ANIMATION LAYERS] のグループ
 		* [Item Anim Layers]
 			* [ALI_ItemAnimLayers] で定義されている。
-	* [FUNCTIONS] のグループ
+	* [FUNCTIONS] / [VALIABLES] のグループ
 		* [State Node Functions]
 			* ステートの `Output Animation Pose` ノード及び [AnimGraph] のステートマシンノードで使用しているノード関数です。
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]
@@ -184,10 +184,9 @@
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
 		* [Blueprint Thread Safe Update Functions]
 			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
-		* [Turn In Place{FUNCTIONS}]
-			* 所定の位置での旋回処理を行うための関数です。
+		* [Turn In Place{FUNCTIONS}] / [Turn In Place{VALIABLES}]
+			* 所定の位置での旋回処理を行うための関数 / 変数です。
 			* [所定の位置での旋回について(about Turn In Place)] を参照。
-	* [VALIABLES] のグループ
 		* [Rotation Data]
 			* Actor の Rotation を元の算出された変数です。
 			* 更新は [UpdateRotationData()] で行われます。
@@ -223,9 +222,6 @@
 		* [Linked Layer Data]
 			* Linked Anim Instance に関する変数です。
 			* 更新は [UpdateLocomotionStateMachine()] で行われます。
-		* [Turn In Place{VALIABLES}]
-			* 所定の位置での旋回処理を行うための変数です。
-			* [所定の位置での旋回について(about Turn In Place)] を参照。
 
 # 所定の位置での旋回について(about Turn In Place)
 
@@ -729,7 +725,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 * コメント
 	> We stay in a pivot when pivoting along a line (e.g. triggering a left-right pivot while playing a right-left pivot), but break out if the character makes a perpendicular change in direction.  
 	> 
-	>----
+	> ----
 	> 線に沿ったピボット（例：右から左のピボットをしながら左から右のピボットを誘発する）の時はピボットに留まり、キャラクターが垂直に方向転換する場合はブレイクアウトします。  
 * 概要
 	* Pivot ステート開始時と現在の移動方向が垂直ならば true を返します。

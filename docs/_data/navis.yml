@@ -200,8 +200,10 @@ nav:
     - UE:
       - Animation:
         - UAimOffsetBlendSpace: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace
+        - UAnimDistanceMatchingLibrary: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary
         - UAnimInstance: ./CodeRefs/UE/Animation/UAnimInstance
         - UAnimSequence: ./CodeRefs/UE/Animation/UAnimSequence
+        - UDistanceCurveModifier: ./CodeRefs/UE/Animation/UDistanceCurveModifier
       - AssetManager:
         - FPrimaryAssetTypeInfo: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo
       - DataRegistry:

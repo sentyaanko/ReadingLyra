@@ -200,8 +200,10 @@
 	- UE
 		- Animation
 			- [UAimOffsetBlendSpace]
+			- [UAnimDistanceMatchingLibrary]
 			- [UAnimInstance]
 			- [UAnimSequence]
+			- [UDistanceCurveModifier]
 		- AssetManager
 			- [FPrimaryAssetTypeInfo]
 		- DataRegistry
@@ -413,8 +415,10 @@
 [UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
 [UAimOffsetBlendSpace]: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace.md
+[UAnimDistanceMatchingLibrary]: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md
 [UAnimInstance]: ./CodeRefs/UE/Animation/UAnimInstance.md
 [UAnimSequence]: ./CodeRefs/UE/Animation/UAnimSequence.md
+[UDistanceCurveModifier]: ./CodeRefs/UE/Animation/UDistanceCurveModifier.md
 [FPrimaryAssetTypeInfo]: ./CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md
 [UDataRegistry]: ./CodeRefs/UE/DataRegistry/UDataRegistry.md
 [UDataRegistrySubsystem]: ./CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md

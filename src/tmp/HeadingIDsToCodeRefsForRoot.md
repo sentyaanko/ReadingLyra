@@ -1,4 +1,10 @@
 [ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_ItemAnimLayersBase::所定の位置での旋回について(about Turn In Place)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseabout-turn-in-place
+[ABP_ItemAnimLayersBase::アイドル時の小休止について(about Idle Breaks)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseabout-idle-breaks
+[ABP_ItemAnimLayersBase::距離マッチングとストライド ワープについて(about Distance Matching And Stride Warping)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase-about-distance-matching-and-stride-warping
+[ABP_ItemAnimLayersBase::オリエンテーション ワープについて(about Orientation Warping)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase-about-orientation-warping
+[ABP_ItemAnimLayersBase::方向転換について(about Pivots)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseabout-pivots
+[ABP_ItemAnimLayersBase::？？？について(about Skel Control Data)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseabout-skel-control-data
 [ABP_ItemAnimLayersBase::GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegraphs
 [ABP_ItemAnimLayersBase::EventGraph]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseeventgraph
 [ABP_ItemAnimLayersBase::ANIMATION GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanimation-graphs
@@ -760,6 +766,9 @@
 [UUIExtensionPointWidget::ExtensionPointTag]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
 [UAimOffsetBlendSpace]: CodeRefs/UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
+[UAnimDistanceMatchingLibrary]: CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrary
+[UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]: CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibraryadvancetimebydistancematching
+[UAnimDistanceMatchingLibrary::DistanceMatchToTarget()]: CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrarydistancematchtotarget
 [UAnimInstance]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetInstanceCurrentStateElapsedTime()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
@@ -768,6 +777,12 @@
 [UAnimInstance::IsAnyMontagePlaying()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstanceisanymontageplaying
 [UAnimInstance::GetOwningComponent()]: CodeRefs/UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
 [UAnimSequence]: CodeRefs/UE/Animation/UAnimSequence.md#uanimsequence
+[UDistanceCurveModifier]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifier
+[UDistanceCurveModifier::SampleRate]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifiersamplerate
+[UDistanceCurveModifier::CurveName]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifiercurvename
+[UDistanceCurveModifier::StopSpeedThreshold]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifierstopspeedthreshold
+[UDistanceCurveModifier::Axis]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifieraxis
+[UDistanceCurveModifier::bStopAtEnd]: CodeRefs/UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifierbstopatend
 [FPrimaryAssetTypeInfo]: CodeRefs/UE/AssetManager/FPrimaryAssetTypeInfo.md#fprimaryassettypeinfo
 [UDataRegistry]: CodeRefs/UE/DataRegistry/UDataRegistry.md#udataregistry
 [UDataRegistrySubsystem]: CodeRefs/UE/DataRegistry/UDataRegistrySubsystem.md#udataregistrysubsystem
