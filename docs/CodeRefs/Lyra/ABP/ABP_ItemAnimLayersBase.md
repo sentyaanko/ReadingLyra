@@ -340,9 +340,9 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * 距離マッチング
 	* 移動開始時、停止時、着地時、ピボット時などで利用しています。
 	* ノード `Advance Time by Distance Matching` / `Distance Match to Target` を利用することで実現しています。
-		* ノード `Advance Time by Distance Matching`
+		* ノード `Advance Time by Distance Matching` のクラス
 			* [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]
-		* ノード `Distance Match to Target`
+		* ノード `Distance Match to Target` のクラス
 			* [UAnimDistanceMatchingLibrary::DistanceMatchToTarget()]
 	* 移動開始時
 		* [UpdateStartAnim()] にてノード `Advance Time by Distance Matching` を利用しています。
@@ -355,12 +355,30 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	* アニメーションカーブ `Distance` / `GroundDistance` はアニメーションモディファイア `DistanceCurveModifier` により自動的に生成されます。
 		* アニメーションモディファイア `DistanceCurveModifier` について、詳しくは [UDistanceCurveModifier] を参照してください。
 * ストライド ワープ
-	* TODO 実装状況の確認とまとめ
-
-
+	* 移動開始時、移動時、着地時、ピボット時などで利用しています。
+	* ノード `Stride Warping` を利用することで実現しています。
+		* ノード `Stride Warping` のクラス
+			* [UAnimGraphNode_StrideWarping]
+		* プロパティの内容について
+			* 各項目については以下を参照してください。
+				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]
+			* 設定はすべては共通で、以下の項目がデフォルト値から変更されています。
+				* `Settings > Pelvis Bone`
+				* `Settings > IK Foot Root Base`
+				* `Settings > Foot Definitions`
+				* `Settings > Stride Scale Modifier > Clamp Result`
+				* `Settings > Stride Scale Modifier > Interp Result`
+	* 移動開始時
+		* [FullBody_StartState] にて利用しています。
+	* 移動時
+		* [FullBody_CycleState] にて利用しています。
+	* ピボット時
+		* [PivotA (state)] / [PivotB (state)] にて利用しています。
 
 
 # オリエンテーション ワープについて(about Orientation Warping)
+
+* TODO 実装状況の確認とまとめ
 
 * 既存のドキュメント
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]
@@ -678,18 +696,39 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 
 ### FullBody_StartState
 
-TODO このへんから
-
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::8]
 	* [Comment_AnimBP_Tour.Ja::10]
+* ストライド ワープについて
+	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingStartAlpha] が指定されています。
+
 
 ### FullBody_CycleState
+
+* ストライド ワープについて
+	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingCycleAlpha] が指定されています。
+
+
 ### FullBody_StopState
 ### FullBody_PivotState
 #### PivotSM
+
+* 概要
+	* ピボット中にさらにピボットできるよう、２つのステート [PivotA (state)] / [PivotB (state)] を制御するためのステートマシンです。
+	* [PivotA (state)] / [PivotB (state)] の内容は全く同じです。
+
 ##### PivotA (state)
+
+* ストライド ワープについて
+	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingPivotAlpha] が指定されています。
+
+
 ##### PivotB (state)
+
+* ストライド ワープについて
+	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingPivotAlpha] が指定されています。
+
+
 ##### WantsToRePivit (rule)
 ### FullBody_Aiming
 ### FullBody_JumpStartState
@@ -1276,6 +1315,7 @@ TODO このへんから
 [UAimOffsetBlendSpace]: ../../UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibraryadvancetimebydistancematching
 [UAnimDistanceMatchingLibrary::DistanceMatchToTarget()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrarydistancematchtotarget
+[UAnimGraphNode_StrideWarping]: ../../UE/Animation/UAnimGraphNode_StrideWarping.md#uanimgraphnodestridewarping
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
 [UAnimSequence]: ../../UE/Animation/UAnimSequence.md#uanimsequence

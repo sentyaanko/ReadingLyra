@@ -1,4 +1,5 @@
-[Docswell> 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.32]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p32
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 [GASDocumentation(和訳) > 4.11.2 Target Actors]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-targeting-actors
 [GASDocumentation(和訳) > 4.7.3 Using Ability Tasks]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-at-using
@@ -50,6 +51,7 @@
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット]: https://docs.unrealengine.com/5.1/ja/aim-offset-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#orientationwarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]: https://docs.unrealengine.com/5.0/ja/distance-matching-in-unreal-engine/#%E3%82%AB%E3%83%BC%E3%83%96%E3%81%AE%E7%94%9F%E6%88%90
@@ -85,4 +87,5 @@
 [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2
 [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p54]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2#p54
 [ドクセル > 2021/8/26 > CEDEC2021 > Unreal Engine 5 早期アクセスの注目機能総おさらい Part 2【CEDEC 2021】 > p65]: https://www.docswell.com/s/EpicGamesJapan/KDJ34K-UE4_CEDEC2021_UE5EA_Part2#p65
+[ぼっちプログラマのメモ > 【UE5】UE5のアニメーションに関する新機能をサクッと試せるサンプルを公開しました！]: https://pafuhana1213.hatenablog.com/entry/2022/12/13/000758
 [マーケットプレイス > Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra

@@ -769,6 +769,7 @@
 [UAnimDistanceMatchingLibrary]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrary
 [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibraryadvancetimebydistancematching
 [UAnimDistanceMatchingLibrary::DistanceMatchToTarget()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrarydistancematchtotarget
+[UAnimGraphNode_StrideWarping]: ../../UE/Animation/UAnimGraphNode_StrideWarping.md#uanimgraphnodestridewarping
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetInstanceCurrentStateElapsedTime()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetinstancecurrentstateelapsedtime
 [UAnimInstance::WasAnimNotifyStateActiveInSourceState()]: ../../UE/Animation/UAnimInstance.md#uaniminstancewasanimnotifystateactiveinsourcestate
