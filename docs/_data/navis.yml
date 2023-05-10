@@ -201,6 +201,7 @@ nav:
       - Animation:
         - UAimOffsetBlendSpace: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace
         - UAnimDistanceMatchingLibrary: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary
+        - UAnimGraphNode_OrientationWarping: ./CodeRefs/UE/Animation/UAnimGraphNode_OrientationWarping
         - UAnimGraphNode_StrideWarping: ./CodeRefs/UE/Animation/UAnimGraphNode_StrideWarping
         - UAnimInstance: ./CodeRefs/UE/Animation/UAnimInstance
         - UAnimSequence: ./CodeRefs/UE/Animation/UAnimSequence

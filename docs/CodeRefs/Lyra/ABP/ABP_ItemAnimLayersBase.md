@@ -5,6 +5,21 @@
 TODO: 各変数が取る値は各変数の項目に記載するようにする。
 
 
+* アニメーションカーブ `DisableLegIK`
+	* AM_MM_Dash_Forward
+	* MM_Pistol_Jump_Apex
+	* MM_Pistol_Jump_Fall_Land
+	* MM_Pistol_Jump_Fall_Loop
+	* MM_Pistol_Jump_Start
+	* MM_Pistol_Jump_Start_Loop
+* アニメーションカーブ `ScaleDownWeaponR`
+	* AM_MF_Emote_FingerGuns
+	* AM_MM_Pistol_Equip
+	* AM_MM_Rifle_Equip
+
+desu
+
+
 * 概要
 	* 拳銃等のアニメーションの設定を行う Anim Layer 用の AnimBP の基底クラスです。
 * 他のクラスとの関係
@@ -125,10 +140,10 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* [ADS_Pivot_Cardinals]
 			* [Crouch_Pivot_Cardinals]
 		* [Anim Set - Turn in Place]
-			* [TurnInPlace_Left]
 			* [TurnInPlace_Right]
-			* [Crouch_TurnInPlace_Left]
+			* [TurnInPlace_Left]
 			* [Crouch_TurnInPlace_Right]
+			* [Crouch_TurnInPlace_Left]
 		* [Anim Set - Jog]
 			* [Jog_Cardinals]
 		* [Anim Set - Jump]
@@ -176,8 +191,8 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* [LandRecoveryAlpha]
 			* [TimeFalling]
 		* [Skel Control Data]
-			* [HandIK_Right_Alpha]
 			* [HandIK_Left_Alpha]
+			* [HandIK_Right_Alpha]
 		* [Stride Warping]
 			* [StrideWarpingStartAlpha]
 			* [StrideWarpingPivotAlpha]
@@ -188,7 +203,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * グループについて
 	* [ANIMATION LAYERS] のグループ
 		* [Item Anim Layers]
-			* [ALI_ItemAnimLayers] で定義されている。
+			* [ALI_ItemAnimLayers] で定義されているグループです。
 	* [FUNCTIONS] / [VALIABLES] のグループ
 		* [State Node Functions]
 			* 主に ステートの `Output Animation Pose` ノード及び [AnimGraph] のステートマシンノードで使用しているノード関数です。
@@ -220,16 +235,15 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 			* アイドル中に操作を行わないと小休止のモーションに移行する処理のためのの関数 / 変数です。
 			* 詳しくは [アイドル時の小休止について(about Idle Breaks)] を参照してください。
 		* [Blueprint Thread Safe Update Functions]
-			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
+			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、変数を更新する関数です。
 		* [Distance Matching]
-			* TODO: なにかかく。
+			* 距離マッチングで使われる関数です。
 			* 詳しくは [距離マッチングとストライド ワープについて(about Distance Matching And Stride Warping)] を参照してください。
 		* [Pivots{FUNCTIONS}] / [Pivots{VALIABLES}]
-			* TODO: なにかかく。
-		* [Default{FUNCTIONS}]
-			* TODO: なにかかく。
+			* 方向転換で使われる関数 / 変数です。
+			* 詳しくは [方向転換について(about Pivots)] を参照してください。
 		* `Anim Set - ???`
-			* 以下のグループについて
+			* 以下のグループがあります。
 				* [Anim Set - Idle]
 				* [Anim Set - Starts]
 				* [Anim Set - Stops]
@@ -246,18 +260,20 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 				* [AnimStruct_CardinalDirections]
 			* それ以外にアニメーションカーブ名を指定する [JumpDistanceCurveName] があります。
 		* [Settings]
-			* 定数として扱われている変数です。
+			* 調整用の定数として扱われている変数です。
 		* [Blend Weight Data]
 			* アニメーションのブレンドの際のアルファ値を保持する変数です。
 			* 更新は [UpdateBlendWeightData()] で行われます。
-			* TODO: なにかかく。
 		* [Jump]
-			* TODO: なにかかく。
+			* ジャンプ処理で使われる変数です。
+				* ジャンプそのものというより、着地時のモーションをブレンドする際のアルファ値とそれを算出するための変数からなります。
 		* [Skel Control Data]
-			* TODO: なにかかく。
+			* IK に使用する変数です。
+				* ノード `Two Bone IK` のパラメータ `Alpha` で使用する左右の手毎の変数です。
 		* [Stride Warping]
+			* ストライド ワープで使用する変数です。
+				* 各ステート毎に用意された、ノード `Stride Warping` のパラメータ `Alpha` に渡すための変数です。
 			* 詳しくは [距離マッチングとストライド ワープについて(about Distance Matching And Stride Warping)] を参照してください。
-			* TODO: なにかかく。
 * ノード関数の利用状況
 	| グループ						| ノード関数名							| グラフ								| ノード					| 種別					|
 	| ----							| ----									| ----									| ----						| ----					|
@@ -284,6 +300,21 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	| [Turn In Place{FUNCTIONS}]	| [UpdateTurnInPlaceRecoveryState()]	| [TurnInPlaceRecovery (state)]			| `Sequence Player`			| On Update				|
 	| [Turn In Place{FUNCTIONS}]	| [SetUpTurnInPlaceRecoveryState()]		| [TurnInPlaceRecovery (state)]			| `Output Animation Pose`	| On Become Relevant	|
 
+
+# アニメーションカーブについて(about Animation Curve)
+
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]
+		* アニメーションカーブに付いての解説です。
+		* メタデータ カーブについて
+			> メタデータ カーブは読み取り専用となり、1.0 の定数カーブ値を出力します。
+			* 一部のアニメーションカーブはメタデータ カーブで作られています。
+			* 例として以下があります。
+				* `AM_MF_Emote_FingerGuns` に設定されたアニメーションカーブ `DisableLHandIK` / `DisableRHandIK`
+				* `AM_MM_Rifle_Melee` に設定されたアニメーションカーブ `DisableRHandIK`
+			* メタデータ カーブはタイムラインの背景がチェッカーボードになっているので、見た目でそれとわかります。
+
+
 # 所定の位置での旋回について(about Turn In Place)
 
 * 既存のドキュメント
@@ -291,6 +322,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * Tour コメント
 	* [Comment_TourInPlace.Ja]
+
 
 # アイドル時の小休止について(about Idle Breaks)
 
@@ -328,8 +360,14 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 
 * 既存のドキュメント
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]
+		* ノード `Advance Time by Distance Matching` / `Distance Match to Target` の詳しい説明があります。
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]
+		* ノード `Stride Warping` のプロパティの詳しい説明があります。
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 距離マッチングとストライド ワープ
+		> **距離マッチング** は、スタート、ストップ、着地アニメーションといったロコモーション アセットなどの、アニメーション アセットとゲームプレイの間の動作を一致させるのが困難な場合にアニメーションの再生レートを調整します。
+		> **ストライド ワープ** は、キャラクターがジョグ ステートに移行したときなど、再生レートの調整ができない場合に、キャラクターのストライド (歩幅) を動的に調整するために使用されます。
+		> これら 2 つの手法を組み合わせることで、どちらか一方を優先するように動的に選択することができます。
+		> スタート ステートでは、まず **距離マッチング** でポーズを保持し、ジョグ ステートに近づくにつれて **ストライド ワープ** を使用してブレンドします。
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::9]
 * 関連する関数及び変数
@@ -337,8 +375,9 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	* [Stride Warping]
 * 概要
 	* どちらも足が地面を滑らないようにするために利用しています。
-* 距離マッチング
-	* 移動開始時、停止時、着地時、ピボット時などで利用しています。
+* 概要・距離マッチング
+	* 移動開始時、停止時、着地時、方向転換時などで利用しています。
+		* 移動距離を元にアニメーション再生位置の調整を行う機能で、移動の始めや終わりではこちらの効果が強くなるようにしています。
 	* ノード `Advance Time by Distance Matching` / `Distance Match to Target` を利用することで実現しています。
 		* ノード `Advance Time by Distance Matching` のクラス
 			* [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]
@@ -350,57 +389,103 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 		* [SetUpStopAnim()] または [UpdateStopAnim()] にてノード `Distance Match to Target` を利用しています。
 	* 着地時
 		* [UpdateFallLandAnim()] にてノード `Distance Match to Target` を利用しています。
-	* ピボット時
+	* 方向転換時
 		* [UpdatePivotAnim()] にてノード `Advance Time by Distance Matching` / `Distance Match to Target` の両方を利用しています。
 	* アニメーションカーブ `Distance` / `GroundDistance` はアニメーションモディファイア `DistanceCurveModifier` により自動的に生成されます。
 		* アニメーションモディファイア `DistanceCurveModifier` について、詳しくは [UDistanceCurveModifier] を参照してください。
-* ストライド ワープ
-	* 移動開始時、移動時、着地時、ピボット時などで利用しています。
+* 概要・ストライド ワープ
+	* 移動開始時、移動時、方向転換時などで利用しています。	
+		* 移動速度を元に足の位置を調整を行う機能で、移動中ではこちらの効果が強くなるようにしています。
 	* ノード `Stride Warping` を利用することで実現しています。
 		* ノード `Stride Warping` のクラス
 			* [UAnimGraphNode_StrideWarping]
 		* プロパティの内容について
-			* 各項目については以下を参照してください。
-				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]
 			* 設定はすべては共通で、以下の項目がデフォルト値から変更されています。
 				* `Settings > Pelvis Bone`
+					> スケルトンの Pelvis Bone を定義します。
 				* `Settings > IK Foot Root Base`
+					> スケルトンの IK Foot Root Bone を定義します。
 				* `Settings > Foot Definitions`
+					> このパラメータ内で、インデックスを作成して使用することで、ワープの実行に必要な IK および FK の足と大腿部のボーンを定義できます。
+					> スケルトンに含まれるロコモーション脚ごとに 1 つのインデックスとその定義が必要です。
 				* `Settings > Stride Scale Modifier > Clamp Result`
+					> クランプのガイドラインを追加して、ストライド スケールの最終結果の変更を有効にできます。
 				* `Settings > Stride Scale Modifier > Interp Result`
+					> 補間のガイドラインを追加して、ストライド スケールの最終結果の変更を有効にできます。
 	* 移動開始時
 		* [FullBody_StartState] にて利用しています。
 	* 移動時
 		* [FullBody_CycleState] にて利用しています。
-	* ピボット時
+	* 方向転換時
 		* [PivotA (state)] / [PivotB (state)] にて利用しています。
 
 
 # オリエンテーション ワープについて(about Orientation Warping)
 
-* TODO 実装状況の確認とまとめ
-
 * 既存のドキュメント
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]
-
-
-
-
-
+		* ノード `Orientation Warping` のプロパティの詳しい説明があります。
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > オリエンテーション ワープ
+		> **オリエンテーション ワープ** は、キャラクターの動きのルート モーションの角度と併用して、その角度に合わせてキャラクターの下半身を曲げることができます。  
+		> Lyra では、Strafe アニメーションは 4 つの枢軸方向に対して作成されます。
+		> これは、プレイヤーが 360 度の自由度で移動できるため、オリエンテーション ワープを使用して、ポーズをプロシージャルに調整できるためです。  
+		> この手法は、アニメーションの対応範囲が限定されているため、開始時に使用されます。
+* Tour コメント
+	* [Comment_AnimBP_Tour.Ja::9]
+* ノードコメント
+	> Added IK_Hand_Root as a 'Spine Bone' because it is the parent of the ik hands and we want to orient them w/ the chest.  
+	> 
+	> ----
+	> IK_Hand_Root を「Spine Bone」として追加しました。これは、 ik hands の親であり、 chest と連動するようにしたいからです。  
+* 概要
+	* 移動開始時、移動時、方向転換時などで利用しています。
+	* ノード `Orientation Warping` を利用することで実現しています。
+		* ノード `Orientation Warping` のクラス
+			* [UAnimGraphNode_OrientationWarping]
+		* プロパティの内容について
+			* 設定はすべては共通で、以下の項目がデフォルト値から変更されています。
+				* `Evaluation > Mode`
+					> Pose Warping ノードがアニメーションのポーズをワープするための値を導出するモードを選択します。
+					> * Manual:
+					> 	* アニメーション ワープ評価をユーザー定義のパラメータから導出します。
+					> 	* 更新変数を活用すると、遷移のスムーズさにかけるため、これはスタティック インスタンスまたはスクリプト インスタンスでの使用に適しています。 
+					> * Graph:
+					> 	* 動的に定義されたグラフ制御パラメータからアニメーション ワープ評価を導出します。
+					> 	* 一部のノード プロパティが変更され、ルート モーション対応アニメー ション シーケンスが必要になりました。
+				* `Evaluation > Min Root Motion Speed Threshold`
+					> Minimum root motion speed required to apply orientation warping.  
+					> This is useful to prevent unnatural re-orientation when the animation has a portion with no root motion (i.e starts/stops/idles).  
+					> When this value is greater than 0, it's recommended to enable interpolation with RotationInterpSpeed > 0.  
+					> 
+					> ----
+					> オリエンテーションワープを適用するために必要なルートモーションの最小速度です。
+					> これは、アニメーションにルートモーションがない部分（つまり、スタート/ストップ/アイドル）がある場合に、不自然な再方向付けを防ぐのに便利です。
+					> この値を 0 より大きくする場合、RotationInterpSpeed > 0 にして補間を有効にすることをお勧めします。
+					* 公式ドキュメントに解説がありません。公式ドキュメントが生成された後に追加された変数だと思われます。
+				* `Settings > Spine Bone`
+					> よりシームレスな外観の回転を実現するために、全体的にワープをテーパーさせる脊椎ボーンを定義します。  
+					> 定義を追加するには、追加 (+)ボタンを使用します。  
+					> インデックス 0 は、最上位階層に位置し、最も回転の少ないボーンです。  
+					> インデックスが追加されるごとに、次にネストされる脊椎ボーンとなり、徐々に回転の影響を大きく受けるようになります。  
+				* `Settings > IK Foot Root Base`
+					> スケルトンの IK Foot Root Bone を定義します。
+				* `Settings > IK Foot Bones`
+					> スケルトンに含まれる IK Foot Bones のインデックス インスタンスを追加して定義します。
+				* `Settings > Distributed Bone Orientation Alpha`
+					> 脊椎ボーンを通じてキャラクター ボディ全体に分散される回転の量を指定します。
+					> この値は上半身で優先され、値「1」は全回転がインデックス「0」の脊椎ボーンで発生することを示し、値 0 は回転が最も高いインデックス付きのスパイン ボーンで発生することを示します。
+	* 移動開始時
+		* [FullBody_StartState] にて利用しています。
+	* 移動時
+		* [FullBody_CycleState] にて利用しています。
+	* 方向転換時
+		* [PivotA (state)] / [PivotB (state)] にて利用しています。
 
 
 # 方向転換について(about Pivots)
 
-* TODO なにかかく
-* 概要
-	* たしか、移動法が真逆になった時に急反転するアニメーションモンタージュを使用するための仕組み。
-
-# ？？？について(about Skel Control Data)
-
-* TODO なにかかく
-* 使われ方を確認した上でまとめる。
-
-
+* TODO ここで書くべきことがあれば書く、なければ項目を消す。
+	* 量がないなら [PivotSM] でいい気がする。
 
 
 
@@ -431,6 +516,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ### FullBodyAdditives
 
 * 概要
+	* 着地時にそれ用のアニメーションを出力するために使用しています。
 	* ステートマシン [FullBodyAdditive_SM] の結果を `Output Pose` に接続しています。
 
 #### FullBodyAdditive_SM
@@ -496,7 +582,9 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::7]
 * 概要
+	* 待機用のアニメーションを出力するために使用しています。
 	* ステートマシン [Idle (state){in IdleSM}] の結果を `Output Pose` に接続しています。
+
 
 #### IdleSM
 
@@ -701,21 +789,36 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	* [Comment_AnimBP_Tour.Ja::10]
 * ストライド ワープについて
 	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingStartAlpha] が指定されています。
-
+TODO
+	ここから！
 
 ### FullBody_CycleState
 
 * ストライド ワープについて
 	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingCycleAlpha] が指定されています。
+TODO
 
 
 ### FullBody_StopState
+
+TODO
+
+
+
 ### FullBody_PivotState
+
+TODO
+
 #### PivotSM
 
+* コメント
+	> Two states are required to blend between pivots because state re-entry is not currently supported.
+	> ピボット間のブレンドには、 2 つのステートが必要です。というのも、ステートの再入は現在サポートされていないからです。
 * 概要
-	* ピボット中にさらにピボットできるよう、２つのステート [PivotA (state)] / [PivotB (state)] を制御するためのステートマシンです。
+	* 方向転換中にさらに方向転換できるよう、２つのステート [PivotA (state)] / [PivotB (state)] を制御するためのステートマシンです。
 	* [PivotA (state)] / [PivotB (state)] の内容は全く同じです。
+	* ステートを切り替えるルールも両方向ともに Transition Rule Sharing [WantsToRePivit (rule)] を指定しています。
+
 
 ##### PivotA (state)
 
@@ -832,7 +935,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	> Allow switching the selected pivot for a short duration at the beginning.  
 	> 
 	> ----
-	> 選択したピボットを最初に短時間だけ切り替えることができるようにする。  
+	> 選択した方向転換を最初に短時間だけ切り替えることができるようにする。  
 	* [ABP_Mannequin_Base::LastPivotTime] が 0.0 より大きい場合は Pivot 用のシーケンスの切り替え処理を受け付けます。
 		* [ABP_Mannequin_Base::LastPivotTime] の値
 			* [SetUpPivotAnim()] で 0.2 に設定されます。
@@ -850,7 +953,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	> While acceleration opposes velocity, the character is still approaching the pivot point, so we distance match to that point.  
 	> 
 	> ----
-	> 加速度が速度の逆向きの間は、キャラクターはまだピボットポイントに近づいているので、そのポイントに距離マッチングをします。  
+	> 加速度が速度の逆向きの間は、キャラクターはまだ方向転換点に近づいているので、そのポイントに距離マッチングをします。  
 	* 詳しくは「距離マッチングについて」以降を参照してください。
 * コメント 4
 	> Alpha = (ExplicitTime - StopTime - Offset)/Duration  
@@ -878,7 +981,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	> Once acceleration and velocity are aligned, the character is accelerating away from the pivot point, so we just advance time by distance traveled for the rest of the animation.  
 	> 
 	> ----
-	> 加速度と速度が揃うと、キャラクターはピボットポイントから離れる方向に加速するので、アニメーションの残りの部分は移動距離で時間を進めるだけです。  
+	> 加速度と速度が揃うと、キャラクターは方向転換点から離れる方向に加速するので、アニメーションの残りの部分は移動距離で時間を進めるだけです。  
 * 距離マッチングについて
 	* ノード `Advance Time by Distance Matching` / `Distance Match to Target` の両方を利用しています。
 	* 速度と加速度が逆向きの間は停止時と同じような計算となります。
@@ -940,6 +1043,16 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ### UpdateBlendWeightData()
 ### UpdateJumpFallData()
 ### UpdateSkelControlData()
+
+* [BlueprintThreadSafeUpdateAnimation()] から呼び出されます。
+* 以下の変数を更新します。
+	* [HandIK_Left_Alpha]
+	* [HandIK_Right_Alpha]
+* [DisableHandIK] が true の場合
+	* 0.0 を設定します。
+* false の場合
+	* アニメーションカーブ `DisableLHandIK` / `DisableRHandIK` の値を C とすると、 ```Clamp(0.0, 1.0, 1.0 - C)``` を設定します。
+
 ## Distance Matching
 ### GetPredictedStopDistance()
 
@@ -950,7 +1063,20 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 	* つまり、速度があり、かつ加速度がない場合に true を返します。
 
 ## Pivots{FUNCTIONS}
+
 ### GetDesiredPivotSequence()
+
+* 概要
+	* 以下の関数から呼び出されます。
+		* [SetUpPivotAnim()]
+		* [UpdatePivotAnim()]
+	* 以下の情報を元に、方向転換時に使用するシーケンスを返します。
+		* パラメータ `InDirection` 
+			* どの呼び出しでも [ABP_Mannequin_Base::CardinalDirectionFromAcceleration] を使用します。
+		* [ABP_Mannequin_Base::IsCrouching]
+		* [ABP_Mannequin_Base::GameplayTag_IsADS]
+
+
 ## Default{FUNCTIONS}
 ### BlueprintThreadSafeUpdateAnimation()
 
@@ -1041,13 +1167,56 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 ### IdleBreakDelayTime
 ## Pivots{VALIABLES}
 ### PivotStartingAcceleration
+
+* 概要
+	* 方向転換開始時の [ABP_Mannequin_Base::LocalAcceleration2D] のコピーです。
+	* [PivotA (state)] / [PivotB (state)] の開始時に呼び出される [SetUpPivotAnim()] 及び、方向転換中に再び方向転換した際に初期化されます。
+	* [WantsToRePivit (rule)] にてトランジションの判定の一部で利用
+
+
 ### TimeAtPivotStop
+
+* 概要
+	* 方向転換を開始してからアクターの移動方向が転換先になる（アクターの速度と加速のなす角が 90 度未満になる）直前までの時間保存するための変数です。
+	* [SetUpPivotAnim()] にて 0.0 で初期化します。
+	* [UpdatePivotAnim()] にて `Sequence Evaluator` の `Accumulated Time` を設定します。
+		* これは方向転換を開始してからアクターの移動方向が転換先になるまで行われます。
+		* それにより、アクターの移動方向が転換先になった後は「方向転換を開始してからアクターの移動方向が転換先になる直前までの時間」として利用できるようになります。
+	* [UpdatePivotAnim()] にて [StrideWarpingPivotAlpha] の算出に利用
+
+
 ## Jump
 ### LandRecoveryAlpha
 ### TimeFalling
 ## Skel Control Data
-### HandIK_Right_Alpha
+
 ### HandIK_Left_Alpha
+
+* [UpdateSkelControlData()] で更新されます。
+* [FullBody_SkeletalControls] にてノード `Two Bone IK` のパラメータ `Alpha` として利用されます。
+* 以下のモンタージュに設定されたアニメーションカーブ `DisableLHandIK` にしたがって値が決定します。
+	* `AM_MF_Emote_FingerGuns`
+		* メタデータ カーブで設定されており、 1.0 固定です。
+	* `AM_MM_Pistol_Melee`
+		* メタデータ カーブで設定されており、 1.0 固定です。
+	* `AM_MM_Pistol_Equip`
+		* 最初から最後まで 0.5 が設定されています。
+	* `AM_MM_Rifle_Equip`
+		* アニメーションの状態によって 1.0 から 0.0 に変化していきます。
+
+
+### HandIK_Right_Alpha
+
+* [UpdateSkelControlData()] で更新されます。
+* [FullBody_SkeletalControls] にてノード `Two Bone IK` のパラメータ `Alpha` として利用されます。
+* 以下のモンタージュに設定されたアニメーションカーブ `DisableRHandIK` にしたがって値が決定します。
+	* `AM_MF_Emote_FingerGuns`
+	* `AM_MM_Pistol_Melee`
+	* `AM_MM_Rifle_Melee`
+	* `AM_MM_Shotgun_Melee`
+	* すべてメタデータ カーブで設定されており、 1.0 固定です。
+	* つまり、これらのモンタージュ再生中は ノード `Two Bone IK` のパラメータ `Alpha` は 0.0 となります。
+
 
 ## Stride Warping
 
@@ -1102,6 +1271,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#orientationwarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]: https://docs.unrealengine.com/5.1/ja/distance-matching-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]: https://docs.unrealengine.com/5.1/ja/animation-curves-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
 
@@ -1114,6 +1284,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [所定の位置での旋回について(about Turn In Place)]: #about-turn-in-place
 [アイドル時の小休止について(about Idle Breaks)]: #about-idle-breaks
 [距離マッチングとストライド ワープについて(about Distance Matching And Stride Warping)]: #-about-distance-matching-and-stride-warping
+[方向転換について(about Pivots)]: #about-pivots
 [GRAPHS]: #graphs
 [EventGraph]: #eventgraph
 [ANIMATION GRAPHS]: #animation-graphs
@@ -1279,8 +1450,8 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [LandRecoveryAlpha]: #landrecoveryalpha
 [TimeFalling]: #timefalling
 [Skel Control Data]: #skel-control-data
-[HandIK_Right_Alpha]: #handikrightalpha
 [HandIK_Left_Alpha]: #handikleftalpha
+[HandIK_Right_Alpha]: #handikrightalpha
 [Stride Warping]: #stride-warping
 [StrideWarpingStartAlpha]: #stridewarpingstartalpha
 [StrideWarpingPivotAlpha]: #stridewarpingpivotalpha
@@ -1295,9 +1466,12 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [ABP_Mannequin_Base::LocalAcceleration2D]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselocalacceleration2d
 [ABP_Mannequin_Base::HasAcceleration]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasehasacceleration
 [ABP_Mannequin_Base::IsOnGround]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseisonground
+[ABP_Mannequin_Base::IsCrouching]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseiscrouching
 [ABP_Mannequin_Base::CrouchStateChange]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasecrouchstatechange
+[ABP_Mannequin_Base::GameplayTag_IsADS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegameplaytagisads
 [ABP_Mannequin_Base::GameplayTag_IsFiring]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegameplaytagisfiring
 [ABP_Mannequin_Base::LastPivotTime]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselastpivottime
+[ABP_Mannequin_Base::CardinalDirectionFromAcceleration]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasecardinaldirectionfromacceleration
 [ABP_Mannequin_Base::RootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [AnimEnum_RootYawOffsetMode]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmode
@@ -1315,6 +1489,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [UAimOffsetBlendSpace]: ../../UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibraryadvancetimebydistancematching
 [UAnimDistanceMatchingLibrary::DistanceMatchToTarget()]: ../../UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrarydistancematchtotarget
+[UAnimGraphNode_OrientationWarping]: ../../UE/Animation/UAnimGraphNode_OrientationWarping.md#uanimgraphnodeorientationwarping
 [UAnimGraphNode_StrideWarping]: ../../UE/Animation/UAnimGraphNode_StrideWarping.md#uanimgraphnodestridewarping
 [UAnimInstance]: ../../UE/Animation/UAnimInstance.md#uaniminstance
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
@@ -1322,6 +1497,7 @@ TODO: 各変数が取る値は各変数の項目に記載するようにする�
 [UDistanceCurveModifier]: ../../UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifier
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]: https://docs.unrealengine.com/5.1/ja/animation-curves-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#orientationwarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]: https://docs.unrealengine.com/5.0/ja/distance-matching-in-unreal-engine/#%E3%82%AB%E3%83%BC%E3%83%96%E3%81%AE%E7%94%9F%E6%88%90

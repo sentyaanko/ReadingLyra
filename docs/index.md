@@ -201,6 +201,7 @@
 		- Animation
 			- [UAimOffsetBlendSpace]
 			- [UAnimDistanceMatchingLibrary]
+			- [UAnimGraphNode_OrientationWarping]
 			- [UAnimGraphNode_StrideWarping]
 			- [UAnimInstance]
 			- [UAnimSequence]
@@ -417,6 +418,7 @@
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
 [UAimOffsetBlendSpace]: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace.md
 [UAnimDistanceMatchingLibrary]: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md
+[UAnimGraphNode_OrientationWarping]: ./CodeRefs/UE/Animation/UAnimGraphNode_OrientationWarping.md
 [UAnimGraphNode_StrideWarping]: ./CodeRefs/UE/Animation/UAnimGraphNode_StrideWarping.md
 [UAnimInstance]: ./CodeRefs/UE/Animation/UAnimInstance.md
 [UAnimSequence]: ./CodeRefs/UE/Animation/UAnimSequence.md

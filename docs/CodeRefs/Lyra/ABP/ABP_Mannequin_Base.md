@@ -168,7 +168,7 @@
 * グループについて
 	* [ANIMATION LAYERS] のグループ
 		* [Item Anim Layers]
-			* [ALI_ItemAnimLayers] で定義されている。
+			* [ALI_ItemAnimLayers] で定義されているグループです。
 	* [FUNCTIONS] / [VALIABLES] のグループ
 		* [State Node Functions]
 			* ステートの `Output Animation Pose` ノード及び [AnimGraph] のステートマシンノードで使用しているノード関数です。
@@ -183,7 +183,7 @@
 		* [Helper Functions]
 			* 他の関数から呼ばれる、計算等を行う補助関数です。
 		* [Blueprint Thread Safe Update Functions]
-			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、アニメーショングラフで利用される変数を更新する関数です。
+			* [BlueprintThreadSafeUpdateAnimation()] から呼び出される、変数を更新する関数です。
 		* [Turn In Place{FUNCTIONS}] / [Turn In Place{VALIABLES}]
 			* 所定の位置での旋回処理を行うための関数 / 変数です。
 			* [所定の位置での旋回について(about Turn In Place)] を参照。
