@@ -5,6 +5,7 @@
 [ABP_ItemAnimLayersBase::距離マッチングとストライド ワープについて(about Distance Matching And Stride Warping)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase-about-distance-matching-and-stride-warping
 [ABP_ItemAnimLayersBase::オリエンテーション ワープについて(about Orientation Warping)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase-about-orientation-warping
 [ABP_ItemAnimLayersBase::方向転換について(about Pivots)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseabout-pivots
+[ABP_ItemAnimLayersBase::LeftHandPoseOverride について(about LeftHandPoseOverride)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverride-about-lefthandposeoverride
 [ABP_ItemAnimLayersBase::GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasegraphs
 [ABP_ItemAnimLayersBase::EventGraph]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseeventgraph
 [ABP_ItemAnimLayersBase::ANIMATION GRAPHS]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseanimation-graphs
@@ -180,6 +181,9 @@
 [ABP_ItemAnimLayersBase::LeftHandPoseOverrideWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverrideweight
 [ABP_ItemAnimLayersBase::HandFKWeightWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehandfkweightweight
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
+[ABP_Mannequin_Base::アニメーションスロットについて(about Animation Slot)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-animation-slot
+[ABP_Mannequin_Base::Additive Anim Type について(about Additive Anim Type)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseadditive-anim-type-about-additive-anim-type
+[ABP_Mannequin_Base::キャッシュポーズについて(about Cache Pose)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-cache-pose
 [ABP_Mannequin_Base::所定の位置での旋回について(about Turn In Place)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-turn-in-place
 [ABP_Mannequin_Base::GRAPHS]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegraphs
 [ABP_Mannequin_Base::EventGraph]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseeventgraph

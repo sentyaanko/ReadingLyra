@@ -3,7 +3,7 @@
 >> 詳細は未確認です。
 
 TODO: 各変数が取る値は各変数の項目に記載するようにする。
-
+TODO: アニメーションシーケンス、モンタージュ、ポーズの使い方を見直す。
 
 * アニメーションカーブ `DisableLegIK`
 	* AM_MM_Dash_Forward
@@ -352,7 +352,7 @@ desu
 			* 組み合わせで存在しないものもあります。
 			* 一部 MF が Mf となっているものがあります。
 			* 命名規則に沿わないものに MF&#95;Unarmed&#95;Idle&#95;Break があります。
-		* Manny の Rifle 用と Manny の Unarmed 要は二種類登録されていることがわかります。
+		* Manny の Rifle 用と Manny の Unarmed 用は二種類登録されていることがわかります。
 
 
 
@@ -488,6 +488,28 @@ desu
 	* 量がないなら [PivotSM] でいい気がする。
 
 
+# LeftHandPoseOverride について(about LeftHandPoseOverride)
+
+* 5.1 では機能していません。
+	* ノード `Layerd blend per bone` のパラメータ `Blend Pose 0` は常に None 、パラメータ `Blend Weights 0` は常に 0.0 の為、パラメータ `Base Pose` に設定されているノード `Input Pose` の出力がそのままノード `Output Pose` に渡されることになります。
+	* ノード `Layerd blend per bone` の詳細は以下の通りです。
+		* パラメータ `Blend Pose 0`
+			* ノード `Sequence Evaluator` を経由して [LeftHandPose_Override] が設定されています
+			* [LeftHandPose_Override] は初期値 None で、設定されている箇所がありません。
+		* パラメータ `Blend Weights 0`
+			* [LeftHandPoseOverrideWeight] が設定されています。
+			* [LeftHandPoseOverrideWeight] は [EnableLeftHandPoseOverride] とアニメーションカーブ `DisableLeftHandPoseOverride` に依存します。
+			* [EnableLeftHandPoseOverride] は初期値 false で、設定されている箇所がありません。
+			* アニメーションカーブ `DisableLeftHandPoseOverride` が設定されているアニメーションシーケンスは存在しません。
+* 本来の機能
+	* その名の通り、左手のポースを上書きするためのものです。
+	* 対象のボーン
+		* ノード `Layerd blend per bone` のパラメータ `Blend Mode` / `Blend Masks` に従います。
+		* つまり、アニメーションマスク `LeftFingerMask` で 1.0 に近い値が設定されているボーン（つまりは `hand_l` から先であり、左手）です。
+	* 使用するアニメーションと再生位置
+		* ノード `Seqence Evaluator` のパラメータ `Sequence` / `Explicit Time` に従います。
+		* つまり、 [LeftHandPose_Override] で指定されたアニメーションシーケンスの 0 フレーム目が使用されます。
+
 
 # GRAPHS
 
@@ -516,7 +538,8 @@ desu
 ### FullBodyAdditives
 
 * 概要
-	* 着地時にそれ用のアニメーションを出力するために使用しています。
+	* 他の処理で行われていない、追加要素的なフルボディアニメーションを追加するためのインターフェイスです。
+	* 着地後、通常状態に復帰するアニメーションを出力するために使用しています。
 	* ステートマシン [FullBodyAdditive_SM] の結果を `Output Pose` に接続しています。
 
 #### FullBodyAdditive_SM
@@ -833,7 +856,35 @@ TODO
 
 
 ##### WantsToRePivit (rule)
+
+
+
 ### FullBody_Aiming
+
+* 概要
+	* ノード `AimOffset Player` を利用した、上半身を狙った場所に向けるアニメーションのブレンドを行っています。
+	* 2 種類（武器を構えたものと、武器を持たずに頭の向きだけ帰るもの）の Aim Offset をブレンドしています。
+		* これは両手を徐々に下げるような表現を行うためで、地上で ADS もしゃがみもしておらず、発砲もせずの状態で、移動すると武器なしの重みが増す様に実装されています。
+* 実装
+	* Aim に関するモンタージュをブレンドします。
+		* ノード `AimOffset Player` のパラメータ `Base Pose` に渡されたポーズを、パラメータ `Blend Space` に [RelaxedAimOffset] / [IdleAnimOffset] を渡し、その結果をノード `Blend` でブレンドした結果をノード `Output Pose` に渡します。
+			* [RelaxedAimOffset] に設定されるアニメーションシーケンスは以下の通り
+				* AO_MM_Unarmed_Idle_Ready
+			* [IdleAnimOffset]
+				* AO_&#91;MM|MF&#93;_&#91;Pistol|Unarmed&#93;_Idle_ADS
+				* AO_MM_Rifle_Idle_Hipfire
+			* パラメータ `Alpha` には [AimOffsetBlendWeight] が渡される。
+			* [AimOffsetBlendWeight] が 0.0 → 1.0 で [RelaxedAimOffset] → [IdleAnimOffset] の重みが増える。
+				* 1.0 になるケース
+					* (しゃがんでいる) or (しゃがんでいない and ADS 状態 and 地上)
+					* (発砲から 0.5 秒以内) or (ADS 状態 and (しゃがんでいる or 空中)) or (アニメーションカーブ `applyHipFireOverridePose`  > 0.0)
+						* アニメーションカーブ `applyHipFireOverridePose` を設定しているアニメーションモンタージュはないため、現状この条件は無視して良い
+				* 1.0 にならないケース
+					* not ((発砲から 0.5 秒以内) or (ADS 状態 and (しゃがんでいる or 空中)) or (アニメーションカーブ `applyHipFireOverridePose`  > 0.0))
+						* 要は、発砲から 0.5 秒以上立っていて地上にいてしゃがんでもADSでもないときです。
+					* 値は移動をし始めると 0.0 に近づいていきます。移動停止、発砲、ADS、しゃがみなどを行うと 1.0 に戻ります。
+
+
 ### FullBody_JumpStartState
 ### FullBody_JumpApexState
 ### FullBody_FallLandState
@@ -1125,6 +1176,13 @@ TODO
 ### Jump_Apex
 ### Jump_FallLand
 ### Jump_RecoveryAdditive
+
+* ジャンプ着地から通常の立ち状態に戻る時に使用するアニメーションシーケンスです。
+* 以下のものがあります。
+	* MM_&#91;Unarmed|Pistol|Rifle&#93;_Jump_RecoveryAdditive
+
+
+
 ### Jump_StartLoop
 ### Jump_FallLoop
 ### JumpDistanceCurveName

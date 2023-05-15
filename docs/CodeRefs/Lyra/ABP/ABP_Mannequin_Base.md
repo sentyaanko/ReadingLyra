@@ -223,6 +223,84 @@
 			* Linked Anim Instance に関する変数です。
 			* 更新は [UpdateLocomotionStateMachine()] で行われます。
 
+# アニメーションスロットについて(about Animation Slot)
+
+* DefaultGroup
+	* FullBody
+	* DefaultSlot
+	* UpperBody
+	* FullBodyAdditivePreAim
+	* UpperBodyAdditive
+	* UpperBodyDynAdditiveBase
+	* UpperBodyDynAdditive
+* AdditiveGroup
+	* AdditiveHitReact
+
+使用状況
+
+* AdditiveGroup.AdditiveHitReact
+	* 被ダメージ時のモンタージュ再生用グループ。
+	* AM_MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+		* AdditiveGroup.AdditiveHitReact
+			* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+		* 最後の数字はバリエーションですが、物によりバリエーション数は異なります。
+* DefaultGroup.FullBodyAdditivePreAim
+	* 発砲時のモンタージュ再生用グループ。
+	* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+		* DefaultGroup.FullBodyAdditivePreAim
+			* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+* DefaultGroup.UpperBody と DefaultGroup.UpperBodyAdditive
+	* 武器装備、解除、近接攻撃、リロード、空打ち、グレネード投擲のモンタージュ再生用グループ。
+	* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+		* DefaultGroup.UpperBody
+			* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+		* DefaultGroup.UpperBodyAdditive
+			* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
+		* AM_MM_Shotgun_DryFire は例外的に存在しません。
+	* AM_MM_Generic_Unequip
+		* DefaultGroup.UpperBody
+			* MM_Pistol_Equip
+		* DefaultGroup.UpperBodyAdditive
+			* MM_Pistol_Equip_Additive
+	* AM_MM_Rifle_GrenadeToss
+		* DefaultGroup.UpperBody
+			* MM_Rifle_GrenadeToss
+		* DefaultGroup.UpperBodyAdditive
+			* MM_Rifle_GrenadeToss_Additive
+* DefaultGroup.UpperBody
+	* DropBomb_Montage
+		* DefaultGroup.UpperBody
+			* MM_Rifle_GrenadeToss
+* DefaultGroup.FullBody
+	* 上記以外。
+
+
+# Additive Anim Type について(about Additive Anim Type)
+
+アニメーションスロット名に `Additive` がつくものの殆どは、設定されているアニメーションシーケンスの `Additive Anim Type` に `Local Space Base` が設定されています。
+例外として `DefaultGroup.FullBodyAdditivePreAim` に設定されているアニメーションシーケンスでは `Rotation Offset Mesh Space` が設定されています。
+
+* Local Space Base
+	* MM_&#91;Pistol|Rifle&#93;_Jump_RecoveryAdditive
+	* MM_Rifle_Jog_Lean_&#91;Center|Left|Right&#93;
+	* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+	* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
+	* MM_Rifle_GrenadeToss_Additive
+* Rotation Offset Mesh Space
+	* Manny_Upperarm_r_anim
+	* &#91;MM|MF&#93;_&#91;Pistol|Rifle|Shotgun&#93;&#91;_Crouch|_Hipfire&#93;*_Idle_ADS_AO&#95;&#91;CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU&#93;
+	* MM_Unarmed_Idle_Ready_AO&#95;&#91;CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU&#93;
+	* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+
+
+
+# キャッシュポーズについて(about Cache Pose)
+
+* Locomotion
+* UpperbodyLowerbodySplit
+
+
+
 # 所定の位置での旋回について(about Turn In Place)
 
 * 既存のドキュメント
@@ -253,6 +331,90 @@
 	* Blendspace
 		* 例： [Cycle (state)] にて BS_MM_Rifle_Jog_Leans が直接指定されている。
 		* おそらく変わることがないため直接指定されているものと思われる。
+* グラフの流れ
+	* コメント `Locomition` 部分
+		1. [LocomotionSM] で出力されたポーズをノード [LeftHandPose_OverrideState] のパラメータ `Input Poes` で渡し、その結果をポーズキャッシュ `Locomotion` に設定します。
+			* [LeftHandPose_OverrideState] について詳しくは [ABP_ItemAnimLayersBase::LeftHandPoseOverride について(about LeftHandPoseOverride)] を参照してください。
+			* ポーズキャッシュ `Locomotion` はコメント `Upperbody/lowerbody split.` 内で 2 箇所で使われます。
+	* コメント `Upperbody/lowerbody split.` 部分
+		1. ポーズキャッシュ `Locomotion` / スロット `UpperBodyAdditive` をノード `ApplyAdditive` のパラメータ `Base` / `Additive` でそれぞれ渡し、加算します。
+			* スロット `UpperBodyAdditive` を使用するアニメーションシーケンスは以下のとおりです。
+				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+					* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
+				* AM_MM_Generic_Unequip
+					* MM_Pistol_Equip_Additive
+				* AM_MM_Rifle_GrenadeToss
+					* MM_Rifle_GrenadeToss_Additive
+				* 要約すると、各種武器の装備、リロード、近接攻撃、空打ち、及びグレネードの投擲用のアニメーションです。
+			* パラメータ `Alpha` には [UpperbodyDynamicAdditiveWeight] を設定します。
+		2. ポーズキャッシュ `Locomotion` をスロット `UpperBody` のパラメータ `Source` で渡します。
+			* スロット `UpperBody` を使用するアニメーションシーケンスは以下のとおりです。
+				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+					* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+				* AM_MM_Generic_Unequip
+					* MM_Pistol_Equip
+				* AM_MM_Rifle_GrenadeToss
+					* MM_Rifle_GrenadeToss
+				* DropBomb_Montage
+					* MM_Rifle_GrenadeToss
+				* 要約すると、各種武器の装備、リロード、近接攻撃、空打ち、及びグレネードの当適用にアニメーションです。
+		3. 1 の出力 / 2 の出力 をノード `Layered blend per bone`  のパラメータ `Base Pose` / `Blend Pose 0` でそれぞれ渡し、ブレンドします。
+			* パラメータ `Blend Weights 0` は常に 1.0 を設定しています。
+			* パラメータ `Blend Mode` は `Blend Mask` を設定しています。
+			* パラメータ `Blend Masks` は `UpperBodyLowerBodySplitMask` を設定します。
+				* `UpperBodyLowerBodySplitMask` は上半身を見るためのマスクです。
+				* 上半身はボーン `spine_01` で 0.2 で、末端に行くほど 1.0 になります。
+				* 下半身はボーン `thigh_l` / `thigh_r` から先が全て 0.0 となります。
+		4. 3 の出力をスロット `FullBodyAdditivePreAim` のパラメータ `Source` で渡し、出力をポーズキャッシュ `UpperbodyLowerbodySplit` に設定します。
+			* スロット `FullBodyAdditivePreAim` を使用するアニメーションシーケンスは以下のとおりです。
+				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+					* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+				* 要約すると、各種武器の発砲用アニメーションです。
+			* ポーズキャッシュ `UpperbodyLowerbodySplit` はノード `Output Pose` の大本に使われます。
+				* 移動に関する下半身と各種武器の基本的なアクションに関する上半身のアニメーションがブレンドされた状態になっています。
+	* ノード `Output Pose` まで繋がる部分
+		1. ポーズキャッシュ `UpperbodyLowerbodySplit` をノード [FullBody_Aiming] のパラメータ `Pre Aim Pose` で渡します。
+			* 上半身のエイムに関するアニメーションがブレンドされます。
+			* [FullBody_Aiming] について詳しくは [ABP_ItemAnimLayersBase::FullBody_Aiming] を参照してください。
+		2. 1 の出力をスロット `AdditiveHitReact` のパラメータ `Source` で渡します。
+			* スロット `AdditiveHitReact` を使用するアニメーションシーケンスは以下のとおりです。
+				* AM_MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+					* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+				* 要約すると、被ダメージ用アニメーションです。
+		3. 2 の出力 / ノード [FullBodyAdditives] の出力をそれぞれノード `ApplyAdditive()` のパラメータ `Base` / `Additive` でそれぞれ渡し、加算します。
+			* [FullBodyAdditives] について詳しくは [ABP_ItemAnimLayersBase::FullBodyAdditives] を参照してください。
+				* 使用するアニメーションシーケンスは以下のとおりです。
+					* MM_&#91;Unarmed|Pistol|Rifle&#93;_Jump_RecoveryAdditive
+				* 要約すると、着地後の復帰用アニメーションです。
+			* パラメータ `Alpha` は 0.65 固定となっています。
+		4. 3 の出力をスロット `FullBody` のパラメータ `Source` で渡します。
+			* スロット `FullBody` を使用するアニメーションシーケンスは以下のとおりです。
+				* AM_MF_Emote_FingerGuns
+					* MF_Emote_FingerGuns
+				* AM_MM_Dash_&#91;Backward|Forward|Left|Right&#93;
+					* MM_Dash_&#91;Backward|Forward|Left|Right&#93;
+				* AM_MM_Death_&#91;Back|Front|Left|Right&#93;&#91;_01|_02|_03&#93;
+					* MM_Death_&#91;Back|Front|Left|Right&#93;&#91;_01|_02|_03&#93;
+				* AM_MM_Pistol_Spawn
+			* 全身を使うワンショット用アニメーションです。
+		4. 4 の出力をノード `Inertialization` のパラメータ `Source` で渡します。
+			* これは `Inertialization` (慣性化) を使う際に必要なノードです。
+				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]
+			* `Inertialization` は以下で使用しています。
+				* [LocomotionSM] 内の以下のルール
+					* [Start to Cycle (rule)]
+					* [Pivot to Cycle (rule)]
+					* [Stop to Idle (rule)]
+				* [ABP_ItemAnimLayersBase::IdleSM] 内の以下のルール
+					* [ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]
+					* [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]
+					* [ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]
+				* [ABP_ItemAnimLayersBase::IdleStance] 内の以下のルール
+					* [ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]
+					* [ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]
+				* [ABP_ItemAnimLayersBase::PivotSM] 内の以下のルール
+					* [ABP_ItemAnimLayersBase::WantsToRePivit (rule)]
+TODO このへんから
 
 ### LocomotionSM
 
@@ -1988,6 +2150,15 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [UseFootPlacement]: #usefootplacement
 [bEnableRootYawOffset]: #benablerootyawoffset
 [ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[ABP_ItemAnimLayersBase::LeftHandPoseOverride について(about LeftHandPoseOverride)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverride-about-lefthandposeoverride
+[ABP_ItemAnimLayersBase::FullBodyAdditives]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditives
+[ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsturninplace-rule
+[ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-to-turninplacerecovery-rule
+[ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
+[ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-stancetransition-rule
+[ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-to-idle-rule
+[ABP_ItemAnimLayersBase::WantsToRePivit (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivit-rule
+[ABP_ItemAnimLayersBase::FullBody_Aiming]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyaiming
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
 [ABP_ItemAnimLayersBase::UpdateCycleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
 [ABP_ItemAnimLayersBase::SetUpPivotAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasesetuppivotanim
