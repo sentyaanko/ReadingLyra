@@ -333,7 +333,7 @@
 		* おそらく変わることがないため直接指定されているものと思われる。
 * グラフの流れ
 	* コメント `Locomition` 部分
-		1. [LocomotionSM] で出力されたポーズをノード [LeftHandPose_OverrideState] のパラメータ `Input Poes` で渡し、その結果をポーズキャッシュ `Locomotion` に設定します。
+		1. [LocomotionSM] で出力されたポーズをノード [LeftHandPose_OverrideState] のパラメータ `Input Poes` に渡し、その結果をポーズキャッシュ `Locomotion` に設定します。
 			* [LeftHandPose_OverrideState] について詳しくは [ABP_ItemAnimLayersBase::LeftHandPoseOverride について(about LeftHandPoseOverride)] を参照してください。
 			* ポーズキャッシュ `Locomotion` はコメント `Upperbody/lowerbody split.` 内で 2 箇所で使われます。
 	* コメント `Upperbody/lowerbody split.` 部分
@@ -347,7 +347,7 @@
 					* MM_Rifle_GrenadeToss_Additive
 				* 要約すると、各種武器の装備、リロード、近接攻撃、空打ち、及びグレネードの投擲用のアニメーションです。
 			* パラメータ `Alpha` には [UpperbodyDynamicAdditiveWeight] を設定します。
-		2. ポーズキャッシュ `Locomotion` をスロット `UpperBody` のパラメータ `Source` で渡します。
+		2. ポーズキャッシュ `Locomotion` をスロット `UpperBody` のパラメータ `Source` に渡します。
 			* スロット `UpperBody` を使用するアニメーションシーケンスは以下のとおりです。
 				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
 					* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
@@ -365,7 +365,7 @@
 				* `UpperBodyLowerBodySplitMask` は上半身を見るためのマスクです。
 				* 上半身はボーン `spine_01` で 0.2 で、末端に行くほど 1.0 になります。
 				* 下半身はボーン `thigh_l` / `thigh_r` から先が全て 0.0 となります。
-		4. 3 の出力をスロット `FullBodyAdditivePreAim` のパラメータ `Source` で渡し、出力をポーズキャッシュ `UpperbodyLowerbodySplit` に設定します。
+		4. 3 の出力をスロット `FullBodyAdditivePreAim` のパラメータ `Source` に渡し、出力をポーズキャッシュ `UpperbodyLowerbodySplit` に設定します。
 			* スロット `FullBodyAdditivePreAim` を使用するアニメーションシーケンスは以下のとおりです。
 				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
 					* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
@@ -373,10 +373,10 @@
 			* ポーズキャッシュ `UpperbodyLowerbodySplit` はノード `Output Pose` の大本に使われます。
 				* 移動に関する下半身と各種武器の基本的なアクションに関する上半身のアニメーションがブレンドされた状態になっています。
 	* ノード `Output Pose` まで繋がる部分
-		1. ポーズキャッシュ `UpperbodyLowerbodySplit` をノード [FullBody_Aiming] のパラメータ `Pre Aim Pose` で渡します。
+		1. ポーズキャッシュ `UpperbodyLowerbodySplit` をノード [FullBody_Aiming] のパラメータ `Pre Aim Pose` に渡します。
 			* 上半身のエイムに関するアニメーションがブレンドされます。
 			* [FullBody_Aiming] について詳しくは [ABP_ItemAnimLayersBase::FullBody_Aiming] を参照してください。
-		2. 1 の出力をスロット `AdditiveHitReact` のパラメータ `Source` で渡します。
+		2. 1 の出力をスロット `AdditiveHitReact` のパラメータ `Source` に渡します。
 			* スロット `AdditiveHitReact` を使用するアニメーションシーケンスは以下のとおりです。
 				* AM_MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
 					* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
@@ -387,7 +387,7 @@
 					* MM_&#91;Unarmed|Pistol|Rifle&#93;_Jump_RecoveryAdditive
 				* 要約すると、着地後の復帰用アニメーションです。
 			* パラメータ `Alpha` は 0.65 固定となっています。
-		4. 3 の出力をスロット `FullBody` のパラメータ `Source` で渡します。
+		4. 3 の出力をスロット `FullBody` のパラメータ `Source` に渡します。
 			* スロット `FullBody` を使用するアニメーションシーケンスは以下のとおりです。
 				* AM_MF_Emote_FingerGuns
 					* MF_Emote_FingerGuns
@@ -397,7 +397,7 @@
 					* MM_Death_&#91;Back|Front|Left|Right&#93;&#91;_01|_02|_03&#93;
 				* AM_MM_Pistol_Spawn
 			* 全身を使うワンショット用アニメーションです。
-		4. 4 の出力をノード `Inertialization` のパラメータ `Source` で渡します。
+		5. 4 の出力をノード `Inertialization` のパラメータ `Source` に渡します。
 			* これは `Inertialization` (慣性化) を使う際に必要なノードです。
 				* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]
 			* `Inertialization` は以下で使用しています。
@@ -414,7 +414,21 @@
 					* [ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]
 				* [ABP_ItemAnimLayersBase::PivotSM] 内の以下のルール
 					* [ABP_ItemAnimLayersBase::WantsToRePivit (rule)]
-TODO このへんから
+		6. 5 の出力をノード `Rotate Root Bone()` のパラメータ `Base Pose` に渡します。
+			* Tour コメント
+				* [Comment_TourInPlace.Ja::1]
+			* `Turn In Place` 関連の処理です。
+			* エイムを Yaw 方向に回した際にルートボーンにそれを打ち消す回転を設定しています。
+			* 足がそうすることで滑らないようにしています。
+		7. 6 の出力をノード [FullBody_SkeletalControls] のパラメータ `In Pose` に渡します。
+			* [FullBody_SkeletalControls] について詳しくは [ABP_ItemAnimLayersBase::FullBody_SkeletalControls] を参照してください。
+		8. 7 の出力をノード `Control Rig` のパラメータ `Source` に渡します。
+			* パラメータ `Control Rig > Control Rig Class`
+				* `CR_Maneequin_FootPlant` を指定しています。
+					* これは足の位置を地面の高さに合わせ、腰の位置を調整するためのコントロールリグです。
+			* パラメータ `Enabled`
+				* [ShouldEnableControlRig()] を渡しています。
+			* ノード `Foot Placement` と行うことが重複するため、 `Foot Placement` を有効にしている場合、パラメータ `Enabled` が false になるように実装されています。
 
 ### LocomotionSM
 
@@ -2152,11 +2166,14 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [ABP_ItemAnimLayersBase]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
 [ABP_ItemAnimLayersBase::LeftHandPoseOverride について(about LeftHandPoseOverride)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverride-about-lefthandposeoverride
 [ABP_ItemAnimLayersBase::FullBodyAdditives]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditives
+[ABP_ItemAnimLayersBase::IdleSM]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlesm
 [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantsturninplace-rule
 [ABP_ItemAnimLayersBase::TurnInPlaceRotation to TurnInPlaceRecovery (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerotation-to-turninplacerecovery-rule
 [ABP_ItemAnimLayersBase::TurnInPlaceRecovery to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseturninplacerecovery-to-idle-rule
+[ABP_ItemAnimLayersBase::IdleStance]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidlestance
 [ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-stancetransition-rule
 [ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-to-idle-rule
+[ABP_ItemAnimLayersBase::PivotSM]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsm
 [ABP_ItemAnimLayersBase::WantsToRePivit (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivit-rule
 [ABP_ItemAnimLayersBase::FullBody_Aiming]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyaiming
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols

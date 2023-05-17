@@ -1,6 +1,8 @@
+[Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.32]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p32
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.42]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p42
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p57
 [GASDocumentation(和訳) > 11.1.2 Community Questions]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#resources-daveratti-community2
 [GASDocumentation(和訳) > 4.11.2 Target Actors]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-targeting-actors
 [GASDocumentation(和訳) > 4.7.3 Using Ability Tasks]: https://github.com/sentyaanko/GASDocumentation/blob/lang-ja/README.jp.md#concepts-at-using
@@ -51,6 +53,9 @@
 [Unreal Engine 5.1 Documentation > Unreal Engine API Reference > Editor > AnimGraph > UAnimStateTransitionNode]: https://docs.unrealengine.com/5.1/en-US/API/Editor/AnimGraph/UAnimStateTransitionNode/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-transform-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]: https://docs.unrealengine.com/5.1/ja/animation-curves-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット]: https://docs.unrealengine.com/5.1/ja/aim-offset-in-unreal-engine/
@@ -58,6 +63,7 @@
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]: https://docs.unrealengine.com/5.0/ja/distance-matching-in-unreal-engine/#%E3%82%AB%E3%83%BC%E3%83%96%E3%81%AE%E7%94%9F%E6%88%90
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > ステートマシン > 遷移ルール >  遷移ブレンドのタイプ]: https://docs.unrealengine.com/5.1/ja/transition-rules-in-unreal-engine/#%E9%81%B7%E7%A7%BB%E3%83%96%E3%83%AC%E3%83%B3%E3%83%89%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%97

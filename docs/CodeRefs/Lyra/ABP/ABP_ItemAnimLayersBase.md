@@ -16,8 +16,17 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 	* AM_MF_Emote_FingerGuns
 	* AM_MM_Pistol_Equip
 	* AM_MM_Rifle_Equip
-
-desu
+* アニメーションカーブ `DisableLHandIK`
+	* MM_Rifle_TurnLeft_180
+* アニメーションカーブ `blendParent1`
+	* MM_Unarmed_Crouch_Walk_Fwd_Pivot
+	* MM_Unarmed_Crouch_Walk_Fwd_Stop
+	* MM_Unarmed_Walk_Fwd_Stop
+	* MM_Unarmed_Walk_Bwd_Stop
+	* MM_Unarmed_Walk_Left_Stop
+	* MM_Unarmed_Walk_Right
+	* MM_Unarmed_Walk_Right_Pivot
+	* MM_Unarmed_Walk_Right_Start
 
 
 * 概要
@@ -199,7 +208,7 @@ desu
 			* [StrideWarpingCycleAlpha]
 		* [Default{VALIABLES}]
 			* [LeftHandPoseOverrideWeight]
-			* [HandFKWeightWeight]
+			* [HandFKWeight]
 * グループについて
 	* [ANIMATION LAYERS] のグループ
 		* [Item Anim Layers]
@@ -890,7 +899,126 @@ TODO
 ### FullBody_FallLandState
 ### FullBody_FallLoopState
 ### FullBody_JumpStartLoopState
+
 ### FullBody_SkeletalControls
+
+* IK 関連を行っています。
+	* 概ね以下のことを行っています。
+		* Manne と Quin の比率差による武器の位置調整
+		* 武器の位置に手をあわせる
+		* 床の位置に足を合わせ、腰も連動させる
+		* 武器をしまう際など、武器用ボーンのスケールを小さくする
+* 使用しているノードについて
+	* 既存のドキュメント
+		* `Hand IK Retargeting`
+			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]
+		* `Copy Bone`
+			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]
+		* `Transform (Modify) Bone`
+			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]
+		* `Two Bone IK`
+			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]
+		* `Foot Placement`
+			* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]
+		* `Leg IK`
+			* [Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]
+* 実装内容
+	1. `Hand IK Retargeting`
+		* 比率の異なるキャラクター Manne と Quin の、比率の差による不自然な動きの低減をしています。
+		* 右手を優先し、武器用のボーンを動かすことで左手の位置の調整を行います。
+		* 詳細
+			* パラメータ `Right Hand FK` / `Left Hand FK`
+				* `hand_l` / `hand_r` が指定されています。
+			* パラメータ `Right Hand IK` / `Left Hand IK`
+				* `ik_hand_l` / `ik_hand_r` が指定されています。
+			* パラメータ `IKBones to Move`
+				* `ik_hand_gun` が指定されています。
+					* これはスケルトンツリー上では `ik_hand_l` / `ik_hand_r` の親となっています。
+			* パラメータ `Alpha`
+				* アニメーションカーブ `DisableHandIKRetargeting` を指定していますが、これを持つアニメーションモンタージュは存在しません。
+				* なので、実質常に 1.0 です。
+			* パラメータ `Hand FKWeight`
+				* [HandFKWeight] を渡していますが、初期値 1.0 のまま変更されません。
+				* なので、実質常に 1.0 です。
+				* つまり常に右手側に重みをおいているということです。
+	2. `Copy Bone`
+		* ボーン `VB_IK_Hand_L_weaponSpace` のトランスフォームをボーン `ik_hand_l` にコピーします。
+		* この後の　`Two Bone IK` のための処理です。
+	3. `Transform (modify) Bone`
+		* ControlRig を使用する場合は Z 軸に -2.0 の平行移動を行います。
+			* （プロジェクトの初期状態では ControlRig を使用しないようになっています。）
+		* 詳細
+			* パラメータ `Enable`
+				* [ABP_Mannequin_Base::EnableControlRig] 指定されていますが、初期値 false のまま変更されません。
+			* パラメータ `Translation`
+				* (0.0, 0.0, -2.0) が設定されており、つまりは Z 軸 -2.0 の平行移動を行う設定です。
+	4. `Two Bone IK`
+		* 一つ目が右手用、二つ目が左手用の IK です。
+		* 詳細
+			* パラメータ `IKBone`
+				* ボーン `hand_r` / `hand_l` （手首）を指定しています。
+			* パラメータ `Effector Target`
+				* ボーン `ik_hand_r` / `ik_hand_l` を指定しています。
+			* パラメータ `Joint Target`
+				* ボーン `lowerarm_r` / `lowerarm_l` （肘）を指定しています。
+			* パラメータ `Joint Target Location`
+				* (0.0, 50.0, 0.0) / (0.0, -50.0, 0.0) （肘から手首に向かう逆方向 50）を指定しています。
+			* パラメータ `Take Rotation from Effector Space`
+				* 左手用だけ true に変更しています。
+	5. `Foot Placement`
+		* レイを使った地面の検出、腰の FK ボーンと足の IK ボーンの制御を行うノードです。
+		* ここでは足腰が地面にマッチするように使用しています。
+		* ジャンプ中は無効になるようパラメータ `Enabled` が設定されています。
+		* 詳細
+			* パラメータ `Enabled`
+				* [ShouldEnableFootPlacement()] を指定しています。
+			* パラメータ `Settings > Plant Settings > Lock Type`
+				* `Unlocked` （Lock しない）を指定しています。
+	6. `Leg IK`
+		* 足用の IK です。
+		* 詳細
+			* パラメータ `Alpha`
+				* 1 - (アニメーションカーブ `DisableLegIK`) を指定しています。
+				* つまりジャンプ中は無効ということです。
+	7. `Transform (modify) Bone`
+		* ノードコメント
+			> Scaling down the weapon during the equips  
+			> 
+			> ----
+			> 装備中に武器をスケールダウンさせる。
+		* 武器を装備するモーション中などで武器のスケールを変更するためのノードです。
+		* 詳細
+			* パラメータ `Bone to Modifiy`
+				* ボーン `weapon_r` （武器接続専用ボーン）を指定しています。
+			* パラメータ `Alpha`
+				* Clamp(0.0, 1.0, (アニメーションカーブ `ScaleDownWeaponR`) * 100) を指定しています。
+				* アニメーションカーブ `ScaleDownWeaponR` について
+					* 以下で設定されています。
+						* AM_MF_Emote_FingerGuns
+						* AM_MM_Pistol_Equip
+						* AM_MM_Rifle_Equip
+					* &#91;0.0, 0.1&#93; の値が設定されています。
+						* どのアニメーションにおいても初期 1.0 から始まり、途中で 0.0 に変わるように設定されています。
+					* 要は武器の取り出し中とエモート中はスケールダウンから始まり、途中でスケールダウンをしなくなる、ということです。
+			* パラメータ `Scale`
+				* (0.05, 0.05, 0.05) を指定しています。
+
+
+
+
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-transform-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
+
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p57
+[Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
+
+
+
+
+
+
 ### LeftHandPose_OverrideState
 # FUNCTIONS
 ## State Node Functions
@@ -1102,7 +1230,7 @@ TODO
 * [DisableHandIK] が true の場合
 	* 0.0 を設定します。
 * false の場合
-	* アニメーションカーブ `DisableLHandIK` / `DisableRHandIK` の値を C とすると、 ```Clamp(0.0, 1.0, 1.0 - C)``` を設定します。
+	* Clamp(1.0 - (アニメーションカーブ `DisableLHandIK` / `DisableRHandIK`), 0.0, 1.0) を設定します。
 
 ## Distance Matching
 ### GetPredictedStopDistance()
@@ -1140,6 +1268,22 @@ TODO
 * 要は [ABP_Mannequin_Base] を取得する関数です。
 
 ### ShouldEnableFootPlacement()
+
+* 詳細
+	* ノード `FootPlacement` を使用するかを返します。
+		* まず、 [ABP_Mannequin_Base::UseFootPlacement] の値を見て、設定が使用する状態化を確認します。
+		* その上で、アニメーションカーブ `DisableLegIK` の値をチェックし、 足の IK を無効化したい状態ではない場合は true を返します。
+			* アニメーションカーブ `DisableLegIK` について
+				* 以下で設定されています。
+					* AM_MM_Dash_Forward
+					* MM_Pistol_Jump_Apex
+					* MM_Pistol_Jump_Fall_Land
+					* MM_Pistol_Jump_Fall_Loop
+					* MM_Pistol_Jump_Start
+					* MM_Pistol_Jump_Start_Loop
+				* 要はジャンプ中は無効になるということです。
+
+
 ### GetMovementComponent()
 
 # VALIABLES
@@ -1323,7 +1467,9 @@ TODO
 ### StrideWarpingCycleAlpha
 ## Default{VALIABLES}
 ### LeftHandPoseOverrideWeight
-### HandFKWeightWeight
+### HandFKWeight
+
+<!--- ------------------------- --->
 
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
@@ -1516,7 +1662,7 @@ TODO
 [StrideWarpingCycleAlpha]: #stridewarpingcyclealpha
 [Default{VALIABLES}]: #defaultvaliables
 [LeftHandPoseOverrideWeight]: #lefthandposeoverrideweight
-[HandFKWeightWeight]: #handfkweightweight
+[HandFKWeight]: #handfkweight
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::UpdatePivotState()]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatepivotstate
 [ABP_Mannequin_Base::LocalVelocity2D]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselocalvelocity2d
@@ -1531,6 +1677,8 @@ TODO
 [ABP_Mannequin_Base::LastPivotTime]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselastpivottime
 [ABP_Mannequin_Base::CardinalDirectionFromAcceleration]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasecardinaldirectionfromacceleration
 [ABP_Mannequin_Base::RootYawOffset]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaserootyawoffset
+[ABP_Mannequin_Base::EnableControlRig]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseenablecontrolrig
+[ABP_Mannequin_Base::UseFootPlacement]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseusefootplacement
 [ALI_ItemAnimLayers]: ../../Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [AnimEnum_RootYawOffsetMode]: ../../Lyra/ABP/AnimEnum_RootYawOffsetMode.md#animenumrootyawoffsetmode
 [AnimStruct_CardinalDirections]: ../../Lyra/ABP/AnimStruct_CardinalDirections.md#animstructcardinaldirections
@@ -1553,11 +1701,17 @@ TODO
 [UAnimInstance::GetOwningComponent()]: ../../UE/Animation/UAnimInstance.md#uaniminstancegetowningcomponent
 [UAnimSequence]: ../../UE/Animation/UAnimSequence.md#uanimsequence
 [UDistanceCurveModifier]: ../../UE/Animation/UDistanceCurveModifier.md#udistancecurvemodifier
+[Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p57
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-transform-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]: https://docs.unrealengine.com/5.1/ja/animation-curves-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Orientation Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#orientationwarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > ポーズ ワープ > Stride Warping]: https://docs.unrealengine.com/5.1/ja/pose-warping-in-unreal-engine/#stridewarping
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動 > 距離マッチング]: https://docs.unrealengine.com/5.0/ja/distance-matching-in-unreal-engine/#%E3%82%AB%E3%83%BC%E3%83%96%E3%81%AE%E7%94%9F%E6%88%90
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ブループリントでのグラフ作成 > ノード関数]: https://docs.unrealengine.com/5.1/ja/graphing-in-animation-blueprints-in-unreal-engine/#%E3%83%8E%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
