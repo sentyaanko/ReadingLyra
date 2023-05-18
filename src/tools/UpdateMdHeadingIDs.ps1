@@ -55,8 +55,13 @@ function Get-SaUpdatedContent{
 		[string[]]$SPLHeadingIDs,
 		[string]$Content
 	)
+
+	# Content からコードブロックを削除する
+	$ContentWithoutCodeBlock=$Content -replace '(`{1,3})[^`]+\1',''
+
 	# Content を行分割する
-	$SplitedContent=$Content -split "`n"
+#	$SplitedContent=$Content -split "`n"
+	$SplitedContent=$ContentWithoutCodeBlock -split "`n"
 
 	# Content から # で始まる行を探し、 heading と anchor のペアの配列を作る
 	$HeadingToAnchorDic=$SplitedContent | Select-String '^#' | ForEach-Object {$LinkName=($_.Line -replace '^#+\s','') -replace '\s+\<\!-- omit in toc --\>', '';$Anchor=Get-SaAnchor -Heading $LinkName;@{LinkName=$LinkName;Anchor=$Anchor}}
