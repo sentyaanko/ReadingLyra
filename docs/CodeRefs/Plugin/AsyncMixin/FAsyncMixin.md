@@ -30,7 +30,7 @@
 > If you forget to call StartAsyncLoading(), we'll call it next frame, but you should remember to call it when you're done with your setup, as maybe everything is already loaded, and it will avoid a single frame of a loading indicator flash, which is annoying.  
 >  
 > * NOTE:
-> 	* The FAsyncMixin also makes it safe to pass &#91;```this```&#93; as a captured input into your lambda, because it handles unhooking everything if either your owner class is destroyed, or you cancel everything.
+> 	* The FAsyncMixin also makes it safe to pass ```[this]``` as a captured input into your lambda, because it handles unhooking everything if either your owner class is destroyed, or you cancel everything.
 > * NOTE: 
 > 	* FAsyncMixin doesn't add any additional memory to your class.
 > 	* Several classes currently handling async loading internally allocate TSharedPtr<FStreamableHandle> members and tend to hold onto SoftObjectPaths temporary state.
@@ -67,7 +67,7 @@
 > StartAsyncLoading() を呼び忘れた場合、次のフレームで呼び出しますが、セットアップが完了したときに呼び出すことを覚えておくべきです。おそらくすべてがすでにロードされており、ロードインジケータのフラッシュが 1 フレームだけ発生するのを避けることができます。  
 >  
 > * 注意:
-> 	* FAsyncMixin はまた、オーナークラスが破壊されたり、すべてをキャンセルした場合に、すべてのフックを解除する処理を行うため、ラムダへのキャプチャ入力として &#91;```this```&#93; を渡すことが安全になるようにします。
+> 	* FAsyncMixin はまた、オーナークラスが破壊されたり、すべてをキャンセルした場合に、すべてのフックを解除する処理を行うため、ラムダへのキャプチャ入力として ```[this]``` を渡すことが安全になるようにします。
 > * 注意:
 > 	* FAsyncMixin はクラスにメモリを追加することはありません。
 > 	* 現在非同期ロードを扱ういくつかのクラスは内部で TSharedPtr<FStreamableHandle> メンバーを割り当て、 SoftObjectPaths の一時状態を保持する傾向があります。
