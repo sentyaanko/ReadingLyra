@@ -14,7 +14,7 @@
 				* `W_TouchRegion_Right`
 	* `W_TouchRegion_Left` / `W_TouchRegion_Right` について
 		* これらはそれぞれ左右に配置する、仮想ボタン用の widget です。
-		* LAS_ShooterGame_StandardHUD` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddWidgets] を利用することで画面に配置されています。
+		* `LAS_ShooterGame_StandardHUD` ([ULyraExperienceActionSet]) にて [UGameFeatureAction_AddWidgets] を利用することで画面に配置されています。
 		> Note:  
 		> もともと右側の操作用に実装したものを左側にも利用するように拡張したようで、  
 		> `W_TouchRegion_Base` に右側用の `IA_Weapon_Fire` が設定されていたりします。
