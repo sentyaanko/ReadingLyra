@@ -240,37 +240,37 @@
 
 * AdditiveGroup.AdditiveHitReact
 	* 被ダメージ時のモンタージュ再生用グループ。
-	* AM_MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+	* `AM_MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
 		* AdditiveGroup.AdditiveHitReact
-			* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+			* `MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
 		* 最後の数字はバリエーションですが、物によりバリエーション数は異なります。
 * DefaultGroup.FullBodyAdditivePreAim
 	* 発砲時のモンタージュ再生用グループ。
-	* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+	* `AM_MM_[Pistol|Rifle|Shotgun]_Fire`
 		* DefaultGroup.FullBodyAdditivePreAim
-			* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+			* `MM_[Pistol|Rifle|Shotgun]_Fire`
 * DefaultGroup.UpperBody と DefaultGroup.UpperBodyAdditive
 	* 武器装備、解除、近接攻撃、リロード、空打ち、グレネード投擲のモンタージュ再生用グループ。
-	* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+	* `AM_MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
 		* DefaultGroup.UpperBody
-			* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
+			* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
 		* DefaultGroup.UpperBodyAdditive
-			* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
-		* AM_MM_Shotgun_DryFire は例外的に存在しません。
+			* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]_Additive`
+		* `AM_MM_Shotgun_DryFire` は例外的に存在しません。
 	* AM_MM_Generic_Unequip
 		* DefaultGroup.UpperBody
-			* MM_Pistol_Equip
+			* `MM_Pistol_Equip`
 		* DefaultGroup.UpperBodyAdditive
-			* MM_Pistol_Equip_Additive
+			* `MM_Pistol_Equip_Additive`
 	* AM_MM_Rifle_GrenadeToss
 		* DefaultGroup.UpperBody
-			* MM_Rifle_GrenadeToss
+			* `MM_Rifle_GrenadeToss`
 		* DefaultGroup.UpperBodyAdditive
-			* MM_Rifle_GrenadeToss_Additive
+			* `MM_Rifle_GrenadeToss_Additive`
 * DefaultGroup.UpperBody
-	* DropBomb_Montage
+	* `DropBomb_Montage`
 		* DefaultGroup.UpperBody
-			* MM_Rifle_GrenadeToss
+			* `MM_Rifle_GrenadeToss`
 * DefaultGroup.FullBody
 	* 上記以外。
 
@@ -281,16 +281,16 @@
 例外として `DefaultGroup.FullBodyAdditivePreAim` に設定されているアニメーションシーケンスでは `Rotation Offset Mesh Space` が設定されています。
 
 * Local Space Base
-	* MM_&#91;Pistol|Rifle&#93;_Jump_RecoveryAdditive
-	* MM_Rifle_Jog_Lean_&#91;Center|Left|Right&#93;
-	* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
-	* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
-	* MM_Rifle_GrenadeToss_Additive
+	* `MM_[Pistol|Rifle]_Jump_RecoveryAdditive`
+	* `MM_Rifle_Jog_Lean_[Center|Left|Right]`
+	* `MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
+	* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]_Additive`
+	* `MM_Rifle_GrenadeToss_Additive`
 * Rotation Offset Mesh Space
-	* Manny_Upperarm_r_anim
-	* &#91;MM|MF&#93;_&#91;Pistol|Rifle|Shotgun&#93;&#91;_Crouch|_Hipfire&#93;*_Idle_ADS_AO&#95;&#91;CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU&#93;
-	* MM_Unarmed_Idle_Ready_AO&#95;&#91;CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU&#93;
-	* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+	* `Manny_Upperarm_r_anim`
+	* `[MM|MF]_[Pistol|Rifle|Shotgun][_Crouch|_Hipfire]*_Idle_ADS_AO_[CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU]`
+	* `MM_Unarmed_Idle_Ready_AO_[CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU]`
+	* `MM_[Pistol|Rifle|Shotgun]_Fire`
 
 
 
@@ -339,24 +339,24 @@
 	* コメント `Upperbody/lowerbody split.` 部分
 		1. ポーズキャッシュ `Locomotion` / スロット `UpperBodyAdditive` をノード `ApplyAdditive` のパラメータ `Base` / `Additive` でそれぞれ渡し、加算します。
 			* スロット `UpperBodyAdditive` を使用するアニメーションシーケンスは以下のとおりです。
-				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
-					* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;_Additive
-				* AM_MM_Generic_Unequip
-					* MM_Pistol_Equip_Additive
-				* AM_MM_Rifle_GrenadeToss
-					* MM_Rifle_GrenadeToss_Additive
+				* `AM_MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
+					* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]_Additive`
+				* `AM_MM_Generic_Unequip`
+					* `MM_Pistol_Equip_Additive`
+				* `AM_MM_Rifle_GrenadeToss`
+					* `MM_Rifle_GrenadeToss_Additive`
 				* 要約すると、各種武器の装備、リロード、近接攻撃、空打ち、及びグレネードの投擲用のアニメーションです。
 			* パラメータ `Alpha` には [UpperbodyDynamicAdditiveWeight] を設定します。
 		2. ポーズキャッシュ `Locomotion` をスロット `UpperBody` のパラメータ `Source` に渡します。
 			* スロット `UpperBody` を使用するアニメーションシーケンスは以下のとおりです。
-				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
-					* MM_&#91;Pistol|Rifle|Shotgun&#93;_&#91;DryFire|Equip|Reload|Melee&#93;
-				* AM_MM_Generic_Unequip
-					* MM_Pistol_Equip
-				* AM_MM_Rifle_GrenadeToss
-					* MM_Rifle_GrenadeToss
-				* DropBomb_Montage
-					* MM_Rifle_GrenadeToss
+				* `AM_MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
+					* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
+				* `AM_MM_Generic_Unequip`
+					* `MM_Pistol_Equip`
+				* `AM_MM_Rifle_GrenadeToss`
+					* `MM_Rifle_GrenadeToss`
+				* `DropBomb_Montage`
+					* `MM_Rifle_GrenadeToss`
 				* 要約すると、各種武器の装備、リロード、近接攻撃、空打ち、及びグレネードの当適用にアニメーションです。
 		3. 1 の出力 / 2 の出力 をノード `Layered blend per bone`  のパラメータ `Base Pose` / `Blend Pose 0` でそれぞれ渡し、ブレンドします。
 			* パラメータ `Blend Weights 0` は常に 1.0 を設定しています。
@@ -367,8 +367,8 @@
 				* 下半身はボーン `thigh_l` / `thigh_r` から先が全て 0.0 となります。
 		4. 3 の出力をスロット `FullBodyAdditivePreAim` のパラメータ `Source` に渡し、出力をポーズキャッシュ `UpperbodyLowerbodySplit` に設定します。
 			* スロット `FullBodyAdditivePreAim` を使用するアニメーションシーケンスは以下のとおりです。
-				* AM_MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
-					* MM_&#91;Pistol|Rifle|Shotgun&#93;_Fire
+				* `AM_MM_[Pistol|Rifle|Shotgun]_Fire`
+					* `MM_[Pistol|Rifle|Shotgun]_Fire`
 				* 要約すると、各種武器の発砲用アニメーションです。
 			* ポーズキャッシュ `UpperbodyLowerbodySplit` はノード `Output Pose` の大本に使われます。
 				* 移動に関する下半身と各種武器の基本的なアクションに関する上半身のアニメーションがブレンドされた状態になっています。
@@ -378,23 +378,23 @@
 			* [FullBody_Aiming] について詳しくは [ABP_ItemAnimLayersBase::FullBody_Aiming] を参照してください。
 		2. 1 の出力をスロット `AdditiveHitReact` のパラメータ `Source` に渡します。
 			* スロット `AdditiveHitReact` を使用するアニメーションシーケンスは以下のとおりです。
-				* AM_MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
-					* MM_HitReact_&#91;Back|Front|Left|Right&#93;_&#91;Lgt|Med|Hvy&#93;&#95;&#91;01|02|03|04&#93;
+				* `AM_MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
+					* `MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
 				* 要約すると、被ダメージ用アニメーションです。
 		3. 2 の出力 / ノード [FullBodyAdditives] の出力をそれぞれノード `ApplyAdditive()` のパラメータ `Base` / `Additive` でそれぞれ渡し、加算します。
 			* [FullBodyAdditives] について詳しくは [ABP_ItemAnimLayersBase::FullBodyAdditives] を参照してください。
 				* 使用するアニメーションシーケンスは以下のとおりです。
-					* MM_&#91;Unarmed|Pistol|Rifle&#93;_Jump_RecoveryAdditive
+					* `MM_[Unarmed|Pistol|Rifle]_Jump_RecoveryAdditive`
 				* 要約すると、着地後の復帰用アニメーションです。
 			* パラメータ `Alpha` は 0.65 固定となっています。
 		4. 3 の出力をスロット `FullBody` のパラメータ `Source` に渡します。
 			* スロット `FullBody` を使用するアニメーションシーケンスは以下のとおりです。
 				* AM_MF_Emote_FingerGuns
 					* MF_Emote_FingerGuns
-				* AM_MM_Dash_&#91;Backward|Forward|Left|Right&#93;
-					* MM_Dash_&#91;Backward|Forward|Left|Right&#93;
-				* AM_MM_Death_&#91;Back|Front|Left|Right&#93;&#91;_01|_02|_03&#93;
-					* MM_Death_&#91;Back|Front|Left|Right&#93;&#91;_01|_02|_03&#93;
+				* `AM_MM_Dash_[Backward|Forward|Left|Right]`
+					* `MM_Dash_[Backward|Forward|Left|Right]`
+				* `AM_MM_Death_[Back|Front|Left|Right][_01|_02|_03]`
+					* `MM_Death_[Back|Front|Left|Right][_01|_02|_03]`
 				* AM_MM_Pistol_Spawn
 			* 全身を使うワンショット用アニメーションです。
 		5. 4 の出力をノード `Inertialization` のパラメータ `Source` に渡します。
@@ -1233,7 +1233,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 * 概要
 	* [YawDeltaSpeed] に *状態による係数* を掛けた値で、 `BS_MM_Rifle_Jog_Leans` の `LeanAngle` に利用します。
 		> 係数は「しゃがみや ADS 状態」のときは 0.025　、それ以外「通常状態」のときは 0.0375 (1.5 倍)としています。
-		> `BS_MM_Rifle_Jog_Leans` の `LeanAngle` は &#91;-20, 20&#93; が有効範囲となっています。
+		> `BS_MM_Rifle_Jog_Leans` の `LeanAngle` は `[-20, 20]` が有効範囲となっています。
 		> 各状態の時に最大の値 (20) となるのは以下の角速度を超えて動かした場合となります。
 		> | 状態					| 角速度 &#91;rad / s&#93;	|							|
 		> |----						|----						|----						|
@@ -1336,7 +1336,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	* float
 * 概要
 	* [WorldVelocity] の XY 平面のベクトルと [WorldRotation] から算出した、 Actor の Forward 方向と移動方向のなす角度です。
-	*  &#91;-180,180&#93; の値を取ります。
+	*  `[-180,180]` の値を取ります。
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
@@ -1594,7 +1594,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 				* 移動しようとしているか
 			* [LocalVelocity2D] の大きさが 200 未満か
 				* 速度が（移動しようとしている割に）低いかを調べている
-			* [LocalAcceleration2D] と [LocalVelocity2D] の内積が &#91;-0.6,0.6&#93; の範囲か
+			* [LocalAcceleration2D] と [LocalVelocity2D] の内積が `[-0.6,0.6]` の範囲か
 				* 移動しようとしている向きと実際の移動方向の成す角がおおよそ 50 度以内かを調べている
 * 用途
 	| 利用箇所										| 目的																		|

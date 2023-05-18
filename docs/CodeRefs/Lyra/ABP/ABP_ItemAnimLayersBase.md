@@ -354,13 +354,13 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 			| `MM_Unarmed_Idle_Break`		| `ABP_UnarmedAnimLayers_Feminine`	|
 			| `MM_Unarmed_IdleBreak_Fidget`	| `ABP_UnarmedAnimLayers`			|
 			| `MM_Unarmed_IdleBreak_Scan`	| `ABP_UnarmedAnimLayers`			|
-		* 概ね &#91;MF|MM&#93;&#95;&#91;Pistol|Rifle|Unarmed&#93;&#95;IdleBreak&#95;&#91;Scan|Fidget&#93; という名規則に沿います。
-			* &#91;MF|MM&#93; は Manny 用か Quinn 用かを示します。
-			* &#91;Pistol|Rifle|Unarmed&#93; は武器に種類を示します。
-			* &#91;Scan|Fidget&#93; はバリエーションです。
+		* 概ね `[MF|MM]_[Pistol|Rifle|Unarmed]_IdleBreak_[Scan|Fidget]` という名規則に沿います。
+			* `[MF|MM]` は Manny 用か Quinn 用かを示します。
+			* `[Pistol|Rifle|Unarmed]` は武器に種類を示します。
+			* `[Scan|Fidget]` はバリエーションです。
 			* 組み合わせで存在しないものもあります。
 			* 一部 MF が Mf となっているものがあります。
-			* 命名規則に沿わないものに MF&#95;Unarmed&#95;Idle&#95;Break があります。
+			* 命名規則に沿わないものに `MF_Unarmed_Idle_Break` があります。
 		* Manny の Rifle 用と Manny の Unarmed 用は二種類登録されていることがわかります。
 
 
@@ -880,7 +880,7 @@ TODO
 			* [RelaxedAimOffset] に設定されるアニメーションシーケンスは以下の通り
 				* AO_MM_Unarmed_Idle_Ready
 			* [IdleAnimOffset]
-				* AO_&#91;MM|MF&#93;_&#91;Pistol|Unarmed&#93;_Idle_ADS
+				* `AO_[MM|MF]_[Pistol|Unarmed]_Idle_ADS`
 				* AO_MM_Rifle_Idle_Hipfire
 			* パラメータ `Alpha` には [AimOffsetBlendWeight] が渡される。
 			* [AimOffsetBlendWeight] が 0.0 → 1.0 で [RelaxedAimOffset] → [IdleAnimOffset] の重みが増える。
@@ -997,24 +997,11 @@ TODO
 						* AM_MF_Emote_FingerGuns
 						* AM_MM_Pistol_Equip
 						* AM_MM_Rifle_Equip
-					* &#91;0.0, 0.1&#93; の値が設定されています。
+					* `[0.0, 0.1]` の値が設定されています。
 						* どのアニメーションにおいても初期 1.0 から始まり、途中で 0.0 に変わるように設定されています。
 					* 要は武器の取り出し中とエモート中はスケールダウンから始まり、途中でスケールダウンをしなくなる、ということです。
 			* パラメータ `Scale`
 				* (0.05, 0.05, 0.05) を指定しています。
-
-
-
-
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-transform-bone-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
-
-[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p57
-[Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
-
-
 
 
 
@@ -1054,7 +1041,7 @@ TODO
 	> ストライドワーピングをブレンドしながら、プレイレートの最低速度をスムーズに上げていきます。  
 	* ノード `Advance Time by Distance Matching` の パラメータ `Play Rate Clamp` を計算について書かれています。
 		* 最小値(Vector2D のX)は [StrideWarpingBlendInDurationScaled] から [PlayRateClampStarsPivos].X の値を取ります。
-		* これらは設定用の定数扱いの変数で、つまりは &#91;0.2, 0.6&#93; の範囲の値を使用します。
+		* これらは設定用の定数扱いの変数で、つまりは `[0.2, 0.6]` の範囲の値を使用します。
 		* 値の決定はノード `Lerp` のパラメータ `Alpha` に [StrideWarpingStartAlpha] を指定することで決定しています。
 		* [StrideWarpingStartAlpha] はシーケンスの再生位置に従いっており、その値から最小値(Vector2D のX)は以下のように決まります。
 			* シーケンスの再生位置が 0.0 から 0.15 までは 0.2
@@ -1149,7 +1136,7 @@ TODO
 	> ストライドワーピングをブレンドしながら、プレイレートの最低速度をスムーズに上げていきます。  
 	* ノード `Advance Time by Distance Matching` の パラメータ `Play Rate Clamp` を計算について書かれています。
 		* 最小値(Vector2D のX)は 0.2 から [PlayRateClampStarsPivos].X の値を取ります。
-		* [PlayRateClampStarsPivos] は設定用の定数扱いの変数で、つまりは &#91;0.2, 0.6&#93; の範囲の値を使用します。
+		* [PlayRateClampStarsPivos] は設定用の定数扱いの変数で、つまりは `[0.2, 0.6]` の範囲の値を使用します。
 		* 値の決定はノード `Lerp` のパラメータ `Alpha` に [StrideWarpingPivotAlpha] を指定することで決定しています。
 		* [StrideWarpingPivotAlpha] はシーケンスの再生位置に従いっており、その値から最小値(Vector2D のX)は以下のように決まります。
 			* シーケンスの再生位置が 0.0 から 0.15 までは 0.2
@@ -1323,7 +1310,7 @@ TODO
 
 * ジャンプ着地から通常の立ち状態に戻る時に使用するアニメーションシーケンスです。
 * 以下のものがあります。
-	* MM_&#91;Unarmed|Pistol|Rifle&#93;_Jump_RecoveryAdditive
+	* `MM_[Unarmed|Pistol|Rifle]_Jump_RecoveryAdditive]`
 
 
 
@@ -1432,7 +1419,7 @@ TODO
 		* パラメータ `Out Range A` に 0.0 を設定します。
 		* パラメータ `Out Range B` に 1.0 を設定します。
 	* つまり、
-		* &#91;0.0, 1.0&#93; の値を取ります。
+		* `[0.0, 1.0]` の値を取ります。
 		* `Sequence Evaluator` の `Accumulated Time` の値によって以下のような値を取ります
 			* 0.0 から 0.15 までは 0.0
 			* 0.15 から 0.20 までは 0.0 から 1.0 にリマップされた値
@@ -1453,7 +1440,7 @@ TODO
 		* パラメータ `Out Range A` に 0.0 を設定します。
 		* パラメータ `Out Range B` に 1.0 を設定します。
 	* つまり、
-		* &#91;0.0, 1.0&#93; の値を取ります。
+		* `[0.0, 1.0]` の値を取ります。
 		* `Sequence Evaluator` の `Accumulated Time` の差分の値によって以下のような値を取ります
 			* 0.0 から 0.15 までは 0.0
 			* 0.15 から 0.20 までは 0.0 から 1.0 にリマップされた値
@@ -1478,6 +1465,20 @@ TODO
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > アニメーション シーケンス > アニメーション カーブ]: https://docs.unrealengine.com/5.1/ja/animation-curves-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Stop Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementStopLocatio-/
 [Unreal Engine 5.1 Documentation > Unreal Engine Blueprint API Reference > Animation Character Movement > Predict Ground Movement Pivot Location]: https://docs.unrealengine.com/5.1/en-US/BlueprintAPI/AnimationCharacterMovement/PredictGroundMovementPivotLocati-/
+
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Transform Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-transform-bone-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > Animation ノードの参照 > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
+
+[Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.57]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p57
+[Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
+
+
+
+
+
+
 
 <!--- ページ内のリンク --->
 
