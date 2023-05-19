@@ -10,6 +10,7 @@
 	- [【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]
 	- [【UE5】Lyra に学ぶ(07) GameplayAbility]
 	- [【UE5】Lyra に学ぶ(08) Update5.1]
+	- [【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character]
 - クラス解説
 	- Lyra
 		- ABP
@@ -258,6 +259,7 @@
 [【UE5】Lyra に学ぶ(06) GameplayAbilitySystem C++ 実装]: ./Lyra06_GameplayAbilitySystemCppImplement.md
 [【UE5】Lyra に学ぶ(07) GameplayAbility]: ./Lyra07_GameplayAbility.md
 [【UE5】Lyra に学ぶ(08) Update5.1]: ./Lyra08_Update5.1_Overview.md
+[【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character]: ./Lyra09_AnimationBlueprintForCharacter.md
 [ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
 [ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
 [ALI_ItemAnimLayers]: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md

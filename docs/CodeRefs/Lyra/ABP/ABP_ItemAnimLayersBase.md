@@ -615,7 +615,7 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 	* [Comment_AnimBP_Tour.Ja::7]
 * 概要
 	* 待機用のアニメーションを出力するために使用しています。
-	* ステートマシン [Idle (state){in IdleSM}] の結果を `Output Pose` に接続しています。
+	* ステートマシン [IdleSM] の結果を `Output Pose` に接続しています。
 
 
 #### IdleSM
