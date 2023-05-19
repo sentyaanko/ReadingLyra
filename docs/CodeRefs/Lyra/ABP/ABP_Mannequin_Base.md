@@ -307,7 +307,7 @@
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
 		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * Tour コメント
-	* [Comment_TourInPlace.Ja]
+	* [Comment_TurnInPlace.Ja]
 
 # GRAPHS
 
@@ -324,7 +324,7 @@
 
 * Tour コメント
 	* [Comment_AnimBP_Tour.Ja::3]
-	* [Comment_TourInPlace.Ja::1]
+	* [Comment_TurnInPlace.Ja::1]
 * 概要
 	* Anim Seaquence
 		* 基本的に直接参照しない。
@@ -416,7 +416,7 @@
 					* [ABP_ItemAnimLayersBase::WantsToRePivit (rule)]
 		6. 5 の出力をノード `Rotate Root Bone()` のパラメータ `Base Pose` に渡します。
 			* Tour コメント
-				* [Comment_TourInPlace.Ja::1]
+				* [Comment_TurnInPlace.Ja::1]
 			* `Turn In Place` 関連の処理です。
 			* エイムを Yaw 方向に回した際にルートボーンにそれを打ち消す回転を設定しています。
 			* 足がそうすることで滑らないようにしています。
@@ -1018,8 +1018,8 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 ### SetRootYawOffset()
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja::3]
-	* [Comment_TourInPlace.Ja::4]
+	* [Comment_TurnInPlace.Ja::3]
+	* [Comment_TurnInPlace.Ja::4]
 * 以下の変数の更新を行います。
 	| カテゴリ                   | 変数名                                  |
 	|----------------------------|-----------------------------------------|
@@ -1044,7 +1044,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 ### ProcessTurnYawCurve()
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja::5]
+	* [Comment_TurnInPlace.Ja::5]
 * コメント：アニメーションカーブ `RemainingTurnYaw` / `TurnYawWeight` を元に [TurnYawCurveValue] を更新する部分について
 	> The `TurnYawWeight` curve is set to 1 in TurnInPlace animations, so its current value from `GetCurveValue()` will be the current weight of the TurnInPlace animation.   
 	> We can use this to "unweight" the TurnInPlace animation to get the full `RemainingTurnYaw` curve value.  
@@ -1084,7 +1084,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 ### UpdateRootYawOffset()
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja::2]
+	* [Comment_TurnInPlace.Ja::2]
 * コメント
 	> 1. When the feet aren't moving (e.g. during Idle), offset the root in the opposite direction to the Pawn owner's rotation to keep the mesh from rotating with the Pawn.  
 	> 1. When in motion, smoothly blend out the offset.  
@@ -1906,7 +1906,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 	* Vector2D
 * 概要
 	* [SetRootYawOffset()] で利用される、 [RootYawOffset] の設定前に適用するクランプ値です。
-		* 詳しくは [Comment_TourInPlace.Ja::3] を参照ください。
+		* 詳しくは [Comment_TurnInPlace.Ja::3] を参照ください。
 	* [RootYawOffsetAngleClamp] はしゃがんで **いない** ときに使用します。
 	* [RootYawOffsetAngleClampCrouched] はしゃがんで **いる** ときに使用します。
 * 用途
@@ -2191,12 +2191,12 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [Comment_AnimBP_Tour.Ja::2]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja2
 [Comment_AnimBP_Tour.Ja::3]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja3
 [Comment_AnimBP_Tour.Ja::4]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja4
-[Comment_TourInPlace.Ja]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja
-[Comment_TourInPlace.Ja::1]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja1
-[Comment_TourInPlace.Ja::2]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja2
-[Comment_TourInPlace.Ja::3]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja3
-[Comment_TourInPlace.Ja::4]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja4
-[Comment_TourInPlace.Ja::5]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja5
+[Comment_TurnInPlace.Ja]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
+[Comment_TurnInPlace.Ja::1]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja1
+[Comment_TurnInPlace.Ja::2]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja2
+[Comment_TurnInPlace.Ja::3]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja3
+[Comment_TurnInPlace.Ja::4]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja4
+[Comment_TurnInPlace.Ja::5]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja5
 [TurnYawAnimModifier]: ../../Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
 [ULyraAnimInstance::GameplayTagPropertyMap]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
 [ULyraAnimInstance::GroundDistance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance

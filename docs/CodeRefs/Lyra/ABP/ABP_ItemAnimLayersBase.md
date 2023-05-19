@@ -330,7 +330,7 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション] > 所定の位置での旋回
 		* `Turn In Place` に関する情報や [AnimEnum_RootYawOffsetMode] の各値の説明などがまとめられています。
 * Tour コメント
-	* [Comment_TourInPlace.Ja]
+	* [Comment_TurnInPlace.Ja]
 
 
 # アイドル時の小休止について(about Idle Breaks)
@@ -682,7 +682,7 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 ##### TurnInPlaceRotation (state)
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja::6]
+	* [Comment_TurnInPlace.Ja::6]
 * 概要
 	* `Turn In Place` のうち、転回を行う状態です。
 	* 以下のノード関数を利用しています。
@@ -696,7 +696,7 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 ##### TurnInPlaceRecovery (state)
 
 * Tour コメント
-	* [Comment_TourInPlace.Ja::6]
+	* [Comment_TurnInPlace.Ja::6]
 * 概要
 	* `Turn In Place` のうち、転回を行った後の、 [Idle (state){in IdleSM}] に戻る前の一時的な状態です。
 	* 以下のノード関数を利用しています。
@@ -1689,8 +1689,8 @@ TODO
 [Comment_AnimBP_Tour.Ja::8]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja8
 [Comment_AnimBP_Tour.Ja::9]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja9
 [Comment_AnimBP_Tour.Ja::10]: ../../Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja10
-[Comment_TourInPlace.Ja]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja
-[Comment_TourInPlace.Ja::6]: ../../Lyra/ABP/Comment_TourInPlace.Ja.md#commenttourinplaceja6
+[Comment_TurnInPlace.Ja]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
+[Comment_TurnInPlace.Ja::6]: ../../Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja6
 [TurnYawAnimModifier]: ../../Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
 [ULyraAnimInstance::GroundDistance]: ../../Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegrounddistance
 [UAimOffsetBlendSpace]: ../../UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace

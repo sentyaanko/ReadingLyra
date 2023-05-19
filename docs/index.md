@@ -21,8 +21,8 @@
 			- [AnimStruct_CardinalDirections]
 			- [Comment_AnimBP_Tour.En]
 			- [Comment_AnimBP_Tour.Ja]
-			- [Comment_TourInPlace.En]
-			- [Comment_TourInPlace.Ja]
+			- [Comment_TurnInPlace.En]
+			- [Comment_TurnInPlace.Ja]
 			- [FootFXAnimModifier]
 			- [SyncMarkerAnimModifier]
 			- [TurnYawAnimModifier]
@@ -266,8 +266,8 @@
 [AnimStruct_CardinalDirections]: ./CodeRefs/Lyra/ABP/AnimStruct_CardinalDirections.md
 [Comment_AnimBP_Tour.En]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.En.md
 [Comment_AnimBP_Tour.Ja]: ./CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md
-[Comment_TourInPlace.En]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.En.md
-[Comment_TourInPlace.Ja]: ./CodeRefs/Lyra/ABP/Comment_TourInPlace.Ja.md
+[Comment_TurnInPlace.En]: ./CodeRefs/Lyra/ABP/Comment_TurnInPlace.En.md
+[Comment_TurnInPlace.Ja]: ./CodeRefs/Lyra/ABP/Comment_TurnInPlace.Ja.md
 [FootFXAnimModifier]: ./CodeRefs/Lyra/ABP/FootFXAnimModifier.md
 [SyncMarkerAnimModifier]: ./CodeRefs/Lyra/ABP/SyncMarkerAnimModifier.md
 [TurnYawAnimModifier]: ./CodeRefs/Lyra/ABP/TurnYawAnimModifier.md
