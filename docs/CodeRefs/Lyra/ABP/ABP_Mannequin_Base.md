@@ -389,13 +389,14 @@
 			* パラメータ `Alpha` は 0.65 固定となっています。
 		4. 3 の出力をスロット `FullBody` のパラメータ `Source` に渡します。
 			* スロット `FullBody` を使用するアニメーションシーケンスは以下のとおりです。
-				* AM_MF_Emote_FingerGuns
-					* MF_Emote_FingerGuns
+				* `AM_MF_Emote_FingerGuns`
+					* `MF_Emote_FingerGuns`
 				* `AM_MM_Dash_[Backward|Forward|Left|Right]`
 					* `MM_Dash_[Backward|Forward|Left|Right]`
 				* `AM_MM_Death_[Back|Front|Left|Right][_01|_02|_03]`
 					* `MM_Death_[Back|Front|Left|Right][_01|_02|_03]`
-				* AM_MM_Pistol_Spawn
+				* `AM_MM_Pistol_Spawn`
+					* `MM_Pistol_Spawn_Turn180`
 			* 全身を使うワンショット用アニメーションです。
 		5. 4 の出力をノード `Inertialization` のパラメータ `Source` に渡します。
 			* これは `Inertialization` (慣性化) を使う際に必要なノードです。
@@ -1235,10 +1236,10 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 		> 係数は「しゃがみや ADS 状態」のときは 0.025　、それ以外「通常状態」のときは 0.0375 (1.5 倍)としています。
 		> `BS_MM_Rifle_Jog_Leans` の `LeanAngle` は `[-20, 20]` が有効範囲となっています。
 		> 各状態の時に最大の値 (20) となるのは以下の角速度を超えて動かした場合となります。
-		> | 状態					| 角速度 &#91;rad / s&#93;	|							|
-		> |----						|----						|----						|
-		> | 通常状態				| 533 						| 秒間 1.5 周ほど			|
-		> | はしゃがみや ADS 状態	| 800 						| 秒間 2.3 周ほど			|
+		> | 状態					| 角速度 &#91;rad / s&#93;	| 上限となる大凡の秒間の回転量				|
+		> |----						|----						|----										|
+		> | 通常状態				| 533 						| 533/360= 約 1.48 なので秒間 1.5 周ほど	|
+		> | しゃがみや ADS 状態		| 800 						| 800/360= 約 2.22 なので秒間 2.3 周ほど	|
 * 用途
 	| 利用箇所										| 目的																		|
 	|----											|----																		|
