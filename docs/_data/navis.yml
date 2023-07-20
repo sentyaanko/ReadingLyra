@@ -12,6 +12,7 @@ nav:
     - 【UE5】Lyra に学ぶ(08) Update5.1: ./Lyra08_Update5.1_Overview
     - 【UE5】Lyra に学ぶ(09) AnimationAssets: ./Lyra09_AnimationAssets
     - 【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character: ./Lyra09_AnimationBlueprintForCharacter
+    - 【UE5】Lyra に学ぶ(10) AnimationMontage for Character: ./Lyra10_AnimationMontageForCharacter
   - クラス解説:
     - Lyra:
       - ABP:

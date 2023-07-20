@@ -1,10 +1,12 @@
 # 【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
-そこでの AniamtionBlueprint がどのように実装されているかを見ていきます。  
+キャラクター用の AniamtionBlueprint がどのように実装されているかを見ていきます。  
 扱うのはキャラクター用の AnimationBlueprint で、すなわち以下のものです。  
+ * [ALI_ItemAnimLayers]
  * [ABP_Mannequin_Base]
  * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
+ * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess`
 
 * バージョン
 	* [Lyra Starter Game]
@@ -22,32 +24,28 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* Animation Layer Interface などの解説
 * Lyra の解説
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]
-		* Lyra のアニメーションブループリントについてまとめられています。項目としては以下の通り。
-			* スレッドセーフなアニメーションブループリント
-			* ノード関数
-			* ステートエイリアス
-			* ブレンドノードによる上半身と下半身のレイヤー化
-			* アニメーション ブループリント リンク システム(Linked Layer Animation Blueprint)
-			* アニメーションレイヤーインターフェイス(Animation Layer Interface)
-			* [ABP_ItemAnimLayersBase] の派生ブループリント
-			* 距離マッチング(移動開始時の再生レート調整)とストライド ワープ(ジョグ移行後の再生レート調整ができない場合の歩幅調整)
-			* オリエンテーション ワープ(下半身をルートモーションに合わせて回転している)
-			* 所定の位置での旋回(Turn In Place)
-			* ([ULyraAnimInstance::GameplayTagPropertyMap] による)ゲームプレイタグバインディング
-			* ブレンド プロファイル と Inertialization
-			* ステートマシンの遷移ルール内でのアニメーション通知情報の利用
+		* Lyra のアニメーションブループリントで使われている機能がまとめられています。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
 
 
+# ABP 全体のお話
 
-# ABP 共通のお話
-
-* AnimGraph
-	* Anim Seaquence
-		* 基本的に直接参照しない。
-		* 変数を用意し、派生クラスで任意のアニメーションシーケンスを設定できるようにしている。
-	* Blendspace
-		* 一部で直接参照している。
+* アニメーションアセットとの関係
+	* Animation Seaquence
+		* 直接参照せず、変数を用意し、派生クラスで任意のアニメーションシーケンスを設定できるようにしています。
+	* Aim Offset
+		* Animation Seaquence と同様です。
+	* Blend Space 1D
+		* [ABP_Mannequin_Base] にて Lean 用のアセットを直接参照しています。
+			> **Note**  
+			> Lean は移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
+	* Pose Asset
+		 * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess` にてノード `Pose Driver` から直接参照しています。
+	* Control Rig
+		 * `CR_Mannequin_FootPlant`
+			 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
+		 * `CR_Mannequin_Procedural`
+			 * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess` にてノード `Control Rig` から直接参照しています。
 * ツアーコメントについて
 	* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
 	* 具体的には以下の 2 種があります。
@@ -57,7 +55,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 			* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
 
 
-# ABP_Mannequin_Base で参照している Blendspace
+# ABP_Mannequin_Base で参照している Blend Space 1D
 
 ## BS_MM_Rifle_Jog_Leans
 
@@ -75,7 +73,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 		* 1 フレームのアニメーションシーケンス
 		* `Base Pose Type`: `MM_Rifle_Jog_Lean_Center`
 		* `Additive Anim Type`: `Local Space`
-	* ライフルを持って走るポーズ（）が基本となっている BlendSpace です。
+	* ライフルを持って走るポーズ（）が基本となっている Blend Space 1D です。
 * 以下のステートで利用しています。
 	* [ABP_Mannequin_Base::Start (state)] にて [ABP_ItemAnimLayersBase::FullBody_StartState] の出力とブレンド
 	* [ABP_Mannequin_Base::Cycle (state)] にて [ABP_ItemAnimLayersBase::FullBody_CycleState] の出力とブレンド
@@ -827,6 +825,7 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 [ABP_Mannequin_Base::UpperbodyDynamicAdditiveWeight]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupperbodydynamicadditiveweight
 [ABP_Mannequin_Base::AimPitch]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseaimpitch
 [ABP_Mannequin_Base::AimYaw]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseaimyaw
+[ALI_ItemAnimLayers]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [ALI_ItemAnimLayers::FullBodyAdditives]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyadditives
 [ALI_ItemAnimLayers::FullBody_IdleState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyidlestate
 [ALI_ItemAnimLayers::FullBody_StartState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodystartstate
@@ -843,7 +842,6 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 [ALI_ItemAnimLayers::LeftHandPose_OverrideState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayerslefthandposeoverridestate
 [Comment_AnimBP_Tour.Ja]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja
 [Comment_TurnInPlace.Ja]: CodeRefs/Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
-[ULyraAnimInstance::GameplayTagPropertyMap]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstancegameplaytagpropertymap
 [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]: https://forums.unrealengine.com/t/how-to-get-a-anim-layer-node-reference-as-shown-in-the-lyra-example-project/663840
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p159]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p159
