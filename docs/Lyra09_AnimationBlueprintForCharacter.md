@@ -6,14 +6,18 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
  * [ALI_ItemAnimLayers]
  * [ABP_Mannequin_Base]
  * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
- * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess`
+ * `ABP_Mannequin_CopyPose`
+ * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess`
+
+主にシューターゲーム用の部分について述べ、他 (TopDownArena 用等) に関しては省略します。  
+実装で使用されている仕組みに関してはほぼ言及しませんので、それらの情報は下記の参考リンク等を確認してください。  
 
 * バージョン
 	* [Lyra Starter Game]
 		* 2022/11/29 版(5.1 用)
 
 
-# 参考
+# 0. 参考
 
 * Unreal Engine の機能解説
 	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > レイヤー化されたアニメーションを使用する]
@@ -28,94 +32,289 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
 
 
-# ABP 全体のお話
+# 1. ABP 全体のお話
 
-* アニメーションアセットとの関係
-	* Animation Seaquence
-		* 直接参照せず、変数を用意し、派生クラスで任意のアニメーションシーケンスを設定できるようにしています。
-	* Aim Offset
-		* Animation Seaquence と同様です。
-	* Blend Space 1D
-		* [ABP_Mannequin_Base] にて Lean 用のアセットを直接参照しています。
-			> **Note**  
-			> Lean は移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
-	* Pose Asset
-		 * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess` にてノード `Pose Driver` から直接参照しています。
-	* Control Rig
-		 * `CR_Mannequin_FootPlant`
-			 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
-		 * `CR_Mannequin_Procedural`
-			 * `ABP_Manny_PostProcess` / `ABP_Manny_PostProcess` にてノード `Control Rig` から直接参照しています。
-* ツアーコメントについて
-	* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
-	* 具体的には以下の 2 種があります。
-		* AnimBP Tour
-			* [Comment_AnimBP_Tour.Ja] にコメントをまとめて引用しています。
-		* TurnInPlace
-			* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
+## 1.1. キャラクター関連の ABP 一覧
 
+### 1.1.1. 継承関係
 
-# ABP_Mannequin_Base で参照している Blend Space 1D
+継承ツリーは以下のようになっています。
 
-## BS_MM_Rifle_Jog_Leans
+* `AnimLayerInterface`
+	* [ALI_ItemAnimLayers]
+* `AnimInstance`
+	* [ULyraAnimInstance]
+		* [ABP_Mannequin_Base]
+	* [ABP_ItemAnimLayersBase]
+		* `ABP_PistolAnimLayers`
+		* `ABP_PistolAnimLayers_Feminine`
+		* `ABP_RifleAnimLayers`
+			* `ABP_ShotgunAnimLayers`
+		* `ABP_RifleAnimLayers_Feminine`
+			* `ABP_ShotgunAnimLayers_Feminine`
+		* `ABP_UnarmedAnimLayers`
+		* `ABP_UnarmedAnimLayers_Feminine`
+	* `ABP_Mannequin_CopyPose`
+	* `ABP_Manny_PostProcess`
+	* `ABP_Quinn_PostProcess`
 
-* 移動する際にカメラを回転させた際、体を傾けるのに使用しているブレンドスペースです。
-* パラメータ `LernAngle` は左右の傾き具合で、 [ABP_Mannequin_Base::AdditiveLeanAngle] を設定しています。
-	* [ABP_Mannequin_Base::AdditiveLeanAngle] はキャラクターの Z 軸の回転のデルタを基本に、キャラクターの状態ごとの係数をかけた値です。
-* 参照しているのアニメーションシーケンスについて
-	* 以下を利用しています。
-		* `MM_Rifle_Jog_Lean_Center`
-			> `MM_Rifle_Jog_Fwd` の 1 フレーム目を元に作られているようです。
-		* `MM_Rifle_Jog_Leans_Left`
-			> `Leans` なのは単に表記の揺れのようです。
-		* `MM_Rifle_Jog_Lean_Right`
-	* アセットは以下のような共通の設定です。
-		* 1 フレームのアニメーションシーケンス
-		* `Base Pose Type`: `MM_Rifle_Jog_Lean_Center`
-		* `Additive Anim Type`: `Local Space`
-	* ライフルを持って走るポーズ（）が基本となっている Blend Space 1D です。
-* 以下のステートで利用しています。
-	* [ABP_Mannequin_Base::Start (state)] にて [ABP_ItemAnimLayersBase::FullBody_StartState] の出力とブレンド
-	* [ABP_Mannequin_Base::Cycle (state)] にて [ABP_ItemAnimLayersBase::FullBody_CycleState] の出力とブレンド
-	* [ABP_Mannequin_Base::Pivot (state)] にて [ABP_ItemAnimLayersBase::FullBody_PivotState] の出力とブレンド
+Manny (無印)と Quinn (_Feminine 付き)の継承関係は基本的に兄弟になっています。  
+Shotgun は Rifle の派生クラスとなっています。これは流用が多い為です。  
+[ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] に継承関係はありません。
 
 
-# TurnYawAnimModifier
+### 1.1.2. クラス名と用途
 
-* TurnInPlace で利用する、ルートモーションで Yaw が変化するモンタージュに対し、回転量及び回転量が最終フレームと同値になるタイミングを示すアニメーションカーブを自動生成するためのモディファイアです。
-* アニメーションカーブを 2 つ(RemainingTurnYaw/TurnYawWeight)作り、以下のキーを設定する。
-	* RemainingTurnYaw
-		* 全フレームに自動的にキーを打っている。
-			* 指定したボーン(root)の Yaw の最終フレームの値から現在のフレームの値を引いた値
-	* TurnYawWeight
-		* 以下の３箇所に自動的にキーを打っている。
-			* 0 フレーム目に値 1
-			* 指定したボーン(root)の Yaw の最終フレームの値と同じになる前に値 1
-			* 指定したボーン(root)の Yaw の最終フレームの値と同じになる後に値 0
+| クラス名							| 用途																							|
+|----								|----																							|
+| [ALI_ItemAnimLayers]				| 武器毎に異なる AnimGrap を実装するためのアニメーションレイヤーインターフェイスクラスです。	|
+| [ULyraAnimInstance]				| Lyra 用に拡張した `AnimInstance` の派生クラスです。											|
+| [ABP_Mannequin_Base]				| キャラクター用の ABP で [ALI_ItemAnimLayers] の関数を呼び出しをしています。					|
+| [ABP_ItemAnimLayersBase]			| 武器用の基底クラスで [ALI_ItemAnimLayers] の関数を実装しています。							|
+| `ABP_PistolAnimLayers`			| Manny の Pistol 用の DataOnly の ABP です。													|
+| `ABP_PistolAnimLayers_Feminine`	| Quinn の Pistol 用の DataOnly の ABP です。													|
+| `ABP_RifleAnimLayers`				| Manny の Rifle 用の DataOnly の ABP です。													|
+| `ABP_RifleAnimLayers_Feminine`	| Quinn の Rifle 用の DataOnly の ABP です。													|
+| `ABP_ShotgunAnimLayers`			| Manny の Shotgun 用の DataOnly の ABP です。													|
+| `ABP_ShotgunAnimLayers_Feminine`	| Quinn の Shotgun 用の DataOnly の ABP です。													|
+| `ABP_UnarmedAnimLayers`			| Manny の 非武装用の DataOnly の ABP です。													|
+| `ABP_UnarmedAnimLayers_Feminine`	| Quinn の 非武装用の DataOnly の ABP です。													|
+| `ABP_Mannequin_CopyPose`			| 親のメッシュコンポーネントのポーズを複製する ABP です。										|
+| `ABP_Manny_PostProcess`			| Manny の プロシージャルアニメーションのポストプロセス用の ABP です。							|
+| `ABP_Quinn_PostProcess`			| Quinn の プロシージャルアニメーションのポストプロセス用の ABP です。							|
 
-# AimOffset
-
-TODO: 何を書きたかったのか再確認
-* AO_MF_Pistol_Idle_ADS
-* AO_MM_Pistol_Idle_ADS
-* AO_MM_Rifle_Crouch_Idle
-* AO_MM_Rifle_Idle_ADS
-* AO_MM_Rifle_Idle_Hipfire
-* AO_MM_Unarmed_Idle_Ready
+* [ALI_ItemAnimLayers]
+	* [ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] の Class Setting `Interfaces > Implemented Interfaces` で [ALI_ItemAnimLayers] を追加しています。
+		> **Note**  
+		> [Unreal Engine Forum > Update to UE5.1 have anim layer bug]  
+		> 5.1.0 だと不具合がありました。 5.1.1 では修正されているようです。
+	* [ABP_Mannequin_Base] は [ALI_ItemAnimLayers] のインターフェイスを利用する側です。
+	* [ABP_ItemAnimLayersBase] は [ALI_ItemAnimLayers] のインターフェイスを実装する側です。
 
 
-ABP_ItemAnimLayersBase の Anim Node Functions とは？
+### 1.1.3. 参照元
 
-Pivot とは？
+* [ABP_Mannequin_Base]
+	* キャラクタークラスのメッシュコンポーネントの Anim Class で利用しています。
+	* 具体的には `B_Hero_ShooterMannequin` 等の Mesh コンポーネントのプロパティ `Mesh > Anim Class` にて利用しています。
+* [ABP_ItemAnimLayersBase] の派生クラス
+	* キャラクタークラスの Linked Animation Blueprint で利用しています。
+	* 具体的には `B_WeaponInstance_Base` のイベント `OnEquipped` / `OnUnequipped` 内でノード `LinkAnimClassLayers` を呼び出す事で、 [ABP_Mannequin_Base] の Linked Animation Blueprint として設定しています。
+		> **Note**  
+		> * `B_WeaponInstance_Base` はプロパティ `Animation > Equipped Anim Set` 等を持ち、この値を上記のタイミングで使用します。
+		> * `B_WeaponInstance_Base` は武器毎の派生クラスを持ち、上記のプロパティに [ABP_ItemAnimLayersBase] の武器毎の派生クラスを指定することで武器に合った Linked Animation Blueprint の設定ができるようにしています。
+* `ABP_Mannequin_CopyPose`
+	* キャラクター表示用のアクターのメッシュコンポーネントの Anim Class で利用しています。
+	* 具体的には `B_Hero_ShooterMannequin` 等の子アクター `B_Manny` / `B_Quinn` の Mesh コンポーネントのプロパティ `Mesh > Anim Class` にて利用しています。
+* `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess`
+	* ポストプロセスアニメーションブループリントとして利用しています。
+	* 具体的には `SKM_Manny` / `SKM_Quinn` の `Skeltal Mesh  > Post Process Anim Blueprint` にて利用しています。
+	* AnimGrap で使用しているノードは `Control Rig` と `Pose Driver` のみです。
+		* `Control Rig` は `CR_Mannequin_Procedural` を使用しています。
+		* `Pose Driver` は `Manny` / `Quinn` 毎のポーズアセット 14 種((4(腕) + 3(足)) x 2(左右) )を使用しています。
+
+一体のキャラクターを表示するのに 4 つのアニメーションブループリントが使われていることになります。  
+実行時のキャラクター
 
 
-# Anim Node の Tag と Anim Node Reference ノード
+
+### 1.1.4. 実行時のキャラクターのアクター階層
+
+例として、見た目が Manny で Pistol 装備中という状況で説明します。
+
+* `B_Hero_ShooterMannequin`(`B_Hero_Default`(`Character_Default`(`ALyraCharacter`(`AModularCharacter`(`ACharacter`)))))
+	* `B_Manny`(`ALyraTaggedActor`(`AActor`))
+	* `B_Pistol`(`B_Weapon`(`AActor`))
+
+※カッコの中は基底クラス名です。  
+
+キャラクター (B_Hero_ShooterMannequin) の子にキャラクター表示用のアクター (B_Manny) と武器用アクター (B_Pistol) が作られます。  
+
+### 1.1.5. 実行時のアクターのアニメーションブループリント
+
+| アクター						| Animation Blueprint		| Linked Animation Blueprint			| スケルタルメッシュ	| Post Process Anim Blueprint	|
+|----							|----						|----									|----					|----							|
+| `B_Hero_ShooterMannequin`		| [ABP_Mannequin_Base]		| [ABP_ItemAnimLayersBase] の派生クラス	| `SKM_Manny_Invis`		|								|
+| `B_Manny`						| `ABP_Mannequin_CopyPose`	|										| `SKM_Manny`			| `ABP_Manny_PostProcess`		|
+
+* キャラクターの制御を行っているアクター `B_Hero_ShooterMannequin` に設定されたアニメーションブループリント [ABP_Mannequin_Base] によって基本的なアニメーション制御を行う。
+* 武器毎の処理の差は Linked Animation Blueprint を利用して [ABP_ItemAnimLayersBase] の派生クラスで行う。
+* `B_Hero_ShooterMannequin` に設定されたスケルタルメッシュ `SKM_Manny_Invis` は何も表示されない様に作られている。
+* キャラクターの表示を行っているアクター `B_Manny` に設定されたアニメーションブループリント `ABP_Mannequin_CopyPose` によって親アクター `B_Hero_ShooterMannequin` のメッシュコンポーネントのポーズを複製することでベースとなるポーズの設定を行う。
+* `B_Manny` に設定されたスケルタルメッシュ `SKM_Manny` のプロパティ `Skeletal Mesh > Post Process Anim Blueprint` に設定された `ABP_Manny_PostProcess` により、スケルタルメッシュ毎の調整を行う。
+	* `B_Manny` / `B_Quinn` の EventGraph のコメントを引用
+		> The mesh component has the ABP_Mannequin_CopyPose anim BP,  
+		> which will just copy the pose across from the invisible 'driving' mesh component since the skeletons are directly compatible.  
+		> If you change the mesh to something incompatble, use a Rertarget anim BP instead which targets the correct skeleton.
+		>
+		> ----
+		> このメッシュコンポーネントには ABP_Mannequin_CopyPose アニメーション BP があり、  
+		> スケルトンに直接互換性があるため、不可視の「ドライビング」メッシュコンポーネントからポーズをコピーします。  
+		> メッシュを互換性のないものに変更する場合は、正しいスケルトンをターゲットにする Rertarget anim BP を代わりに使用してください。
+
+アクターの階層 (`B_Manny` / `B_Quinn` のどちらを追加するのか) や各アセットの設定 (どの武器を装備するのか) は実行時に行われます。  
+そのあたりの解説はドキュメントが膨大になるので割愛します。  
+
+
+## 1.2. ABP とアニメーションアセットの関係
+
+* Animation Seaquence
+	* [ABP_Mannequin_Base] では参照しません。
+	* 武器を装備したときの基底クラスである [ABP_ItemAnimLayersBase] では、変数を用意し、武器毎の派生クラスで任意のアニメーションシーケンスを設定できるようにしています。
+* Aim Offset
+	* Animation Seaquence と同様です。
+* Blend Space 1D
+	* [ABP_Mannequin_Base] にて Lean 用のアセットを直接参照しています。
+		> **Note**  
+		> Lean は移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
+* Pose Asset
+	 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Pose Driver` から直接参照しています。
+* Control Rig
+	 * `CR_Mannequin_FootPlant`
+		 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
+			 > **Note**  
+			 > 床の位置に足をあわせるためのコントロールリグです。  
+			 > プロジェクト初期状態ではこちらは利用されていません。  
+			 > 代わりに `5.1` で追加された `Foot Placement` ノードを利用するようになっています。
+	 * `CR_Mannequin_Procedural`
+		 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Control Rig` から直接参照しています。
+
+## 1.3. ABP で記載されているツアーコメントについて
+
+* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
+* 具体的には以下の 2 種があります。
+	* AnimBP Tour
+		* [Comment_AnimBP_Tour.Ja] にコメントをまとめて引用しています。
+	* TurnInPlace
+		* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
+
+
+
+
+# 2. Anim Node の Tag と Anim Node Reference ノード
 
 * 既存のドキュメント
 	* [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p159]
 
+Lyra では [ABP_Mannequin_Base::Start (state)] に配置しているノード [ALI_ItemAnimLayers::FullBody_StartState] のプロパティ Tag に `StartLayerNode` を設定しています。  
+この Tag を利用し、 [ABP_Mannequin_Base::UpdateLocomotionStateMachine()] ではいくつかの関数を経て現在設定されている AnimLayer のリファレンスを取得しています。  
+この参照先を毎フレームチェックすることで AnimLayer が変更されたかを変数に保存しています。  
+この変更されたかを示す変数は [ABP_Mannequin_Base::LocomotionSM] 内のトランジションから参照されています。  
+使われ方の例として Pivot 中に武器変更すると Cycle に移行する、が挙げられます。
 
+
+# 3. 所定の位置での旋回(TurnInPlace)
+
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]
+
+## 3.1. 仕組み
+
+Lyra ではキャラクターアクタはコントローラーのヨー方向に向いています。（ `UseControllerRotationYaw` が true ）  
+ですが、キャラクターが移動していない状態でマウスを動かす等カメラの向きを操作した場合、キャラクターの下半身の向きは以下のように実装されています。 
+
+* 移動しなくなった時点の下半身の方向を保持しておく。
+* 更新毎に保存しておいた下半身の方向と現在のコントローラーのヨー方向を比較する。
+* 45 度 + αの範囲内では足を動かさずに上半身の向きだけ変える。
+* 45 度 + αを超えると 90 度、下半身の向きを変える。
+
+> α は遊びの範囲で、これがあることで 45 度を行き来しただけでアニメーションが再生されないようになります。  
+> 実際には [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)] にて、回転角の絶対値が 50 度を超えた際にステートが移行されるようになっています。  
+> （よって、上記の説明のαは 5 度で実装しているということになります）
+
+
+つまり上半身と下半身の向きが一致していないということです。  
+この挙動は、主に以下の処理により実現しています。  
+
+* 上半身の向きだけ変える処理
+	* 操作した向きの回転をノード `AimOffset Player` のパラメータ `Yaw` に与える
+	* 操作した向きと逆回転をルートボーンに与える（ノード `RotateRootBone` を利用）
+	* これらが互いに打ち消し合うことで足が回転前の位置のまま滑らないようにしている
+* 下半身の向きを変える処理
+	* 事前の準備
+		* 90 度向きを変えるための、ルートボーンが回転を行うアニメーションシーケンスを用意する
+		* アニメーションモディファイア [TurnYawAnimModifier] を利用してフレームごとの回転をアニメーションカーブ `RemainingTurnYaw` にベイクする
+	* 上半身だけ動かす範囲を超えた操作を行い、下半身の向きを変える必要がある場合は、上記のアニメーションを再生する
+	* アニメーション再生時、ルートボーンに与えていた回転と `AimOffset Player` のパラメータ `Yaw` の回転をアニメーションカーブの値だけ減じる
+
+> 例:  
+> 右 55 度の時点で右回転アニメーションシーケンスを再生するとする場合、アニメーションシーケンスの回転ごとに以下のような値が設定される。  
+> | アニメーションシーケンスの回転	| ルートボーン	| AimOffset の Yaw	|
+> | ----:							| ----:			| ----:				|
+> |  0								| -55			|  55				|
+> | 45								| -10			|  10				|
+> | 90								|  35			| -35				|
+
+「アクターは常に画面正面を向いていて、上半身はそれに追随し、下半身だけ足が滑らないように捻ってる」というのが想像しやすいと思います。
+
+## 3.2. TurnYawAnimModifier
+
+* 既存のドキュメント
+	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]
+		> Animation Modifiers (Anim Modifier) は、ネイティブまたは ブループリント クラス の一種で、  
+		> アニメーション シーケンス または スケルトン アセットにアクション シーケンスを適用することができます。  
+		> これには、足の自動同期マーカーを作成するなどが考えられます。  
+		> 左または右の足が地面に触れるのはどのフレームであるかをピンポイントで示します。  
+		> こうした情報を使って、足の骨が最も低いポイント (フロアに接触する) にくる場所に Animation Sync Markers を追加します。
+
+
+[TurnYawAnimModifier] は Lyra で実装されているアニメーションモディファイアです。  
+TurnInPlace では 90 度振り向くアニメーションシーケンスを利用しますが、このアニメーションシーケンスにアニメーションモディファイアを設定しています。
+このアニメーションシーケンスではルートモーションで Yaw が変化する様に作られています。  
+アニメーションモディファイアでは回転量及び回転量が最終フレームと同値になるタイミングを示すアニメーションカーブを自動生成します。
+アニメーションカーブの内容は以下のようになります。
+
+* RemainingTurnYaw
+	* 全フレームに自動的にキーを打っている。
+		* 指定したボーン(root)の Yaw の最終フレームの値から現在のフレームの値を引いた値
+* TurnYawWeight
+	* 以下の３箇所に自動的にキーを打っている。
+		* 0 フレーム目に値 1
+		* 指定したボーン(root)の Yaw の最終フレームの値と同じになる前に値 1
+		* 指定したボーン(root)の Yaw の最終フレームの値と同じになる後に値 0
+
+これらの値を利用することで、振り向くアニメーションとエイムの向きに矛盾がなく、スムーズに繋がるように実装されています。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LeftHandPose_OverrideState
+* 左手のポーズを上書きするための処理を記述するための関数です。
+* [ALI_ItemAnimLayers::LeftHandPose_OverrideState] の実装では無効化されています。
+	* 設定様変数で無効化されており、ブレンドのウェイト決定のためのアニメーションカーブを持つアニメーションがありません。
+
+
+
+
+
+
+
+
+
+TODO: このへんから
+書式統一の見直し。
+
+
+
+
+
+
+
+
+
+TODO: Pivot とは？
 
 
 # AnimGrap とアニメーションレイヤーの解説
@@ -626,79 +825,8 @@ Pivot とは？
 				* 詳細
 					* パラメータ `Bone to Modifiy`
 						* ボーン `weapon_r` （武器接続専用ボーン）を指定しています。
-					* パラメータ `Alpha`
-						* Clamp((アニメーションカーブ `ScaleDownWeaponR`) * 100, 0.0, 1.0) を指定しています。
-							* アニメーションカーブの値を 100 倍、例えば 0.01 以上で 1.0 として扱っています。
-						* アニメーションカーブ `ScaleDownWeaponR` について
-							* 以下で設定されています。
-								* AM_MF_Emote_FingerGuns
-								* AM_MM_Pistol_Equip
-							* `[0.0, 1.0]` の値が設定されています。
-								* どのアニメーションにおいても初期 1.0 から始まり、途中で 0.0 に変わるように設定されています。
-							* 要は武器の取り出し中とエモート中はスケールダウンから始まり、途中でスケールダウンをしなくなる、ということです。
-							* このアニメーションカーブを設定するアニメーションモディファイアはありません。つまり手付けのようです。
-					* パラメータ `Scale`
-						* (0.05, 0.05, 0.05) を指定しています。
-* `ControlRig`
-	* 床の位置に足をあわせるために使用しています。
-	* 詳細
-		* パラメータ `Enabled`
-			* [ABP_Mannequin_Base::ShouldEnableControlRig()] を指定しています。
-				* この値は設定用の変数であり、初期値 `false` のまま変更されません。
-				* つまり、プロジェクト初期状態ではこの `ControlRig` は使用されません。
 
 
-
-
-TODO: このへんから
-書式統一の見直し。
-
-
-TurnInPlace
-# 所定の位置での旋回
-
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]
-
-Lyra ではキャラクターアクタはコントローラーのヨー方向に向いています。（ `UseControllerRotationYaw` が true ）  
-ですが、キャラクターが移動していない状態でマウスを動かす等の向きの操作を行った場合のキャラクターの向きは以下のように実装されています。 
-
-* 移動しなくなった時点と現在のコントローラーのヨー方向
-* 45 度 + αの範囲内では足を動かさずに上半身の向きだけ変える。
-* 45 度 + αを超えると 90 度、下半身の向きを変える。
-
-> α は遊びの範囲で、これがあることで 45 度を行き来しただけでアニメーションが再生されないようになります。  
-> 実際には [ABP_ItemAnimLayersBase::WantsTurnInPlace (rule)] にて、回転角の絶対値が 50 度を超えた際にステートが移行されるようになっています。  
-> 
-
-
-つまり上半身と下半身の向きが一致していないということです。  
-この挙動は、主に以下の処理により実現しています。  
-
-* 上半身の向きだけ変える処理
-	* 操作した向きの回転をノード `AimOffset Player` のパラメータ `Yaw` に与える
-	* 操作した向きと逆回転をルートボーンに与える（ノード `RotateRootBone` を利用）
-	* これらが互いに打ち消し合うことで足が回転前の位置のまま滑らないようにしている
-* 下半身の向きを変える処理
-	* 90 度向きを変えるための、ルートボーンが回転を行うアニメーションシーケンスを用意する
-	* アニメーションモディファイア `TurnYawAnimModifier` を利用してフレームごとの回転をアニメーションカーブ `RemainingTurnYaw` にベイクする
-	* 上半身だけ動かす範囲を超えた操作を行い、下半身の向きを変える必要がある場合は、上記のアニメーションを再生する
-	* アニメーション再生時、ルートボーンに与えていた回転と `AimOffset Player` のパラメータ `Yaw` の回転をアニメーションカーブの値だけ減じる
-
-> 例:  
-> 右 55 度の時点で右回転アニメーションシーケンスを再生するとする場合、アニメーションシーケンスの回転ごとに以下のような値が設定される。  
-> | アニメーションシーケンスの回転	| ルートボーン	| AimOffset の Yaw	|
-> | ----:							| ----:			| ----:				|
-> |  0								| -55			|  55				|
-> | 45								| -10			|  10				|
-> | 90								|  35			| -35				|
-
-「アクターは常に画面正面を向いていて、上半身はそれに追随し、下半身だけ足が滑らないように捻ってる」というのが想像しやすいと思います。
-
-
-
-
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E6%89%80%E5%AE%9A%E3%81%AE%E4%BD%8D%E7%BD%AE%E3%81%A7%E3%81%AE%E6%97%8B%E5%9B%9E
 
 
 各関数で何をやっているのかの解説
@@ -725,32 +853,13 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 
 
 
+TODO: やってることの整理、とりあえずクラスごとに分けましょう。連番リストだと内容が重すぎて終わってるので段落なんかを使うように文章整理しましょう。
 
+[Unreal Engine Forum > Update to UE5.1 have anim layer bug]: https://forums.unrealengine.com/t/update-to-ue5-1-have-anim-layer-bug/693524
 
-### BS_MM_Rifle_Jog_Leans
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
 
-移動する際にカメラを回転させた際、体を傾けるのに使用しているブレンドスペースです。  
-パラメータ `LeanAngle` は左右の傾き具合で、 [ABP_Mannequin_Base::AdditiveLeanAngle] を設定しています。  
-[ABP_Mannequin_Base::AdditiveLeanAngle] はキャラクターの Z 軸の回転のデルタを基本に、キャラクターの状態ごとの係数をかけた値です。  
-
-以下のステートで利用しています。
-* [ABP_Mannequin_Base::Start (state)] にて [ABP_ItemAnimLayersBase::FullBody_StartState] の出力とブレンド
-* [ABP_Mannequin_Base::Cycle (state)] にて [ABP_ItemAnimLayersBase::FullBody_CycleState] の出力とブレンド
-* [ABP_Mannequin_Base::Pivot (state)] にて [ABP_ItemAnimLayersBase::FullBody_PivotState] の出力とブレンド
-
-利用しているアニメーションシーケンスの命名規則は ```MM_Rifle_Jog_Lean(s)?_[Center|Left|Right]``` です。
-
-> **Note**  
-> * ```MM_Rifle_Jog_Leans_Left``` だけ命名規則で ```Leans``` を使用しています。（おそらく命名ミス）
-> * これらのアニメーションシーケンスは以下のような共通点があります
->	* ```MM_Rifle_Jog_Fwd``` の 1 フレーム目を元に作られているようです。
-> 	* 1 フレームのアニメーションシーケンス
-> 	* `Base Pose Type`: `MM_Rifle_Jog_Lean_Center`
-> 	* `Additive Anim Type`: `Local Space`
-
-
-
-
+[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E6%89%80%E5%AE%9A%E3%81%AE%E4%BD%8D%E7%BD%AE%E3%81%A7%E3%81%AE%E6%97%8B%E5%9B%9E
 
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]: https://docs.unrealengine.com/5.1/ja/using-animation-blueprint-linking-in-unreal-engine/
