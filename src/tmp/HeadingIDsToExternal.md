@@ -1,5 +1,7 @@
 [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]: https://forums.unrealengine.com/t/how-to-get-a-anim-layer-node-reference-as-shown-in-the-lyra-example-project/663840
 [Docswell > かわいい女の子になりたいんや！ UE4の最新機能を使ってVTuberしてみた！【UNREAL FEST EAST 2018】 > p.31]: https://www.docswell.com/s/EpicGamesJapan/51YYLZ-UE4_UFE2018_KawaiiVTuber#p31
+[Docswell > 猫でも分かる UE4のAnimation Blueprintの運用について【Unreal Engine Meetup Nagoya #6 in 名古屋城】 > p.101]: https://www.docswell.com/s/EpicGamesJapan/5GL3MK-ManagementAnimationBP_Cat#p101
+[Docswell > 猫でも分かる UE4のAnimation Blueprintの運用について【Unreal Engine Meetup Nagoya #6 in 名古屋城】 > p.62]: https://www.docswell.com/s/EpicGamesJapan/5GL3MK-ManagementAnimationBP_Cat#p62
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.32]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p32
@@ -78,6 +80,7 @@
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]: https://docs.unrealengine.com/5.1/ja/using-animation-blueprint-linking-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > エイム オフセットを作成する]: https://docs.unrealengine.com/5.1/ja/creating-an-aim-offset-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > レイヤー化されたアニメーションを使用する]: https://docs.unrealengine.com/5.1/ja/using-layered-animations-in-unreal-engine/
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > 別のスケルタル メッシュからポーズをコピーする]: https://docs.unrealengine.com/5.1/ja/copy-a-pose-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要]: https://docs.unrealengine.com/5.1/ja/automation-system-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > コンテンツをテストおよび最適化する > 自動化システムの概要 > 機能テスト]: https://docs.unrealengine.com/5.1/ja/functional-testing-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
