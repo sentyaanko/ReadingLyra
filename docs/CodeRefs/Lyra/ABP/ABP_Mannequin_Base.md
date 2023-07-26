@@ -223,81 +223,15 @@
 			* Linked Anim Instance に関する変数です。
 			* 更新は [UpdateLocomotionStateMachine()] で行われます。
 
-# アニメーションスロットについて(about Animation Slot)
-
-* DefaultGroup
-	* FullBody
-	* DefaultSlot
-	* UpperBody
-	* FullBodyAdditivePreAim
-	* UpperBodyAdditive
-	* UpperBodyDynAdditiveBase
-	* UpperBodyDynAdditive
-* AdditiveGroup
-	* AdditiveHitReact
-
-使用状況
-
-* AdditiveGroup.AdditiveHitReact
-	* 被ダメージ時のモンタージュ再生用グループ。
-	* `AM_MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
-		* AdditiveGroup.AdditiveHitReact
-			* `MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
-		* 最後の数字はバリエーションですが、物によりバリエーション数は異なります。
-* DefaultGroup.FullBodyAdditivePreAim
-	* 発砲時のモンタージュ再生用グループ。
-	* `AM_MM_[Pistol|Rifle|Shotgun]_Fire`
-		* DefaultGroup.FullBodyAdditivePreAim
-			* `MM_[Pistol|Rifle|Shotgun]_Fire`
-* DefaultGroup.UpperBody と DefaultGroup.UpperBodyAdditive
-	* 武器装備、解除、近接攻撃、リロード、空打ち、グレネード投擲のモンタージュ再生用グループ。
-	* `AM_MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
-		* DefaultGroup.UpperBody
-			* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]`
-		* DefaultGroup.UpperBodyAdditive
-			* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]_Additive`
-		* `AM_MM_Shotgun_DryFire` は例外的に存在しません。
-	* AM_MM_Generic_Unequip
-		* DefaultGroup.UpperBody
-			* `MM_Pistol_Equip`
-		* DefaultGroup.UpperBodyAdditive
-			* `MM_Pistol_Equip_Additive`
-	* AM_MM_Rifle_GrenadeToss
-		* DefaultGroup.UpperBody
-			* `MM_Rifle_GrenadeToss`
-		* DefaultGroup.UpperBodyAdditive
-			* `MM_Rifle_GrenadeToss_Additive`
-* DefaultGroup.UpperBody
-	* `DropBomb_Montage`
-		* DefaultGroup.UpperBody
-			* `MM_Rifle_GrenadeToss`
-* DefaultGroup.FullBody
-	* 上記以外。
-
-
-# Additive Anim Type について(about Additive Anim Type)
-
-アニメーションスロット名に `Additive` がつくものの殆どは、設定されているアニメーションシーケンスの `Additive Anim Type` に `Local Space Base` が設定されています。
-例外として `DefaultGroup.FullBodyAdditivePreAim` に設定されているアニメーションシーケンスでは `Rotation Offset Mesh Space` が設定されています。
-
-* Local Space Base
-	* `MM_[Pistol|Rifle]_Jump_RecoveryAdditive`
-	* `MM_Rifle_Jog_Lean_[Center|Left|Right]`
-	* `MM_HitReact_[Back|Front|Left|Right]_[Lgt|Med|Hvy]_[01|02|03|04]`
-	* `MM_[Pistol|Rifle|Shotgun]_[DryFire|Equip|Reload|Melee]_Additive`
-	* `MM_Rifle_GrenadeToss_Additive`
-* Rotation Offset Mesh Space
-	* `Manny_Upperarm_r_anim`
-	* `[MM|MF]_[Pistol|Rifle|Shotgun][_Crouch|_Hipfire]*_Idle_ADS_AO_[CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU]`
-	* `MM_Unarmed_Idle_Ready_AO_[CC|CD|CU|LBC|LBD|LBU|LC|LD|LU|RBC|RBD|RBU|RC|RD|RU]`
-	* `MM_[Pistol|Rifle|Shotgun]_Fire`
-
-
 
 # キャッシュポーズについて(about Cache Pose)
 
-* Locomotion
-* UpperbodyLowerbodySplit
+
+| 名前						| 保存内容																							| 利用箇所																	|
+|----						|----																								|----																		|
+| Locomotion				| [LocomotionSM] と [LeftHandPose_OverrideState] の結果												| Slot `UpperBodyAdditive` と `Apply Additive` する際の パラメータ `Base`	|
+| 							|																									| Slot `UpperBody` のパラメータ `Source`									|
+| UpperbodyLowerbodySplit	| キャッシュ Locomotion と `UpperBodyAdditive` と `UpperBody` と `FullBodyAdditivePreAim` の結果	| [FullBody_Aiming] のパラメータ `Pre Aim Pose`								|
 
 
 
@@ -2003,6 +1937,8 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 <!--- ------------------------------------------------------------------ --->
 
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p.156]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p156
+
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > 移動]: https://docs.unrealengine.com/5.1/ja/locomotion-in-unreal-engine/
 
 <!--- ページ内のリンク --->
 

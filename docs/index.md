@@ -13,6 +13,7 @@
 	- [【UE5】Lyra に学ぶ(09) AnimationAssets]
 	- [【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character]
 	- [【UE5】Lyra に学ぶ(10) AnimationMontage for Character]
+	- [【UE5】Lyra に学ぶ(11) AnimationBlueprint for Character]
 - クラス解説
 	- Lyra
 		- ABP
@@ -264,6 +265,7 @@
 [【UE5】Lyra に学ぶ(09) AnimationAssets]: ./Lyra09_AnimationAssets.md
 [【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character]: ./Lyra09_AnimationBlueprintForCharacter.md
 [【UE5】Lyra に学ぶ(10) AnimationMontage for Character]: ./Lyra10_AnimationMontageForCharacter.md
+[【UE5】Lyra に学ぶ(11) AnimationBlueprint for Character]: ./Lyra11_AnimationBlueprintForCharacter.md
 [ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
 [ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
 [ALI_ItemAnimLayers]: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md

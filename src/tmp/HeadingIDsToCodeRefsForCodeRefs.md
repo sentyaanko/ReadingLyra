@@ -181,8 +181,6 @@
 [ABP_ItemAnimLayersBase::LeftHandPoseOverrideWeight]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverrideweight
 [ABP_ItemAnimLayersBase::HandFKWeight]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasehandfkweight
 [ABP_Mannequin_Base]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
-[ABP_Mannequin_Base::アニメーションスロットについて(about Animation Slot)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-animation-slot
-[ABP_Mannequin_Base::Additive Anim Type について(about Additive Anim Type)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseadditive-anim-type-about-additive-anim-type
 [ABP_Mannequin_Base::キャッシュポーズについて(about Cache Pose)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-cache-pose
 [ABP_Mannequin_Base::所定の位置での旋回について(about Turn In Place)]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseabout-turn-in-place
 [ABP_Mannequin_Base::GRAPHS]: ../../Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasegraphs

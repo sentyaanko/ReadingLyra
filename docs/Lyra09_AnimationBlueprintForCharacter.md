@@ -1,20 +1,19 @@
 # 【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
-キャラクター用の AniamtionBlueprint がどのように実装されているかを見ていきます。  
-扱うのはキャラクター用の AnimationBlueprint で、すなわち以下のものです。  
- * [ALI_ItemAnimLayers]
- * [ABP_Mannequin_Base]
- * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
- * `ABP_Mannequin_CopyPose`
- * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess`
-
-主にシューターゲーム用の部分について述べ、他 (TopDownArena 用等) に関しては省略します。  
-実装で使用されている仕組みに関してはほぼ言及しませんので、それらの情報は下記の参考リンク等を確認してください。  
 
 * バージョン
 	* [Lyra Starter Game]
 		* 2022/11/29 版(5.1 用)
+
+
+- [0. 参考](#0-参考)
+- [2. Anim Node の Tag と Anim Node Reference ノード](#2-anim-node-の-tag-と-anim-node-reference-ノード)
+- [3. 所定の位置での旋回(TurnInPlace)](#3-所定の位置での旋回turninplace)
+	- [3.1. 仕組み](#31-仕組み)
+	- [3.2. TurnYawAnimModifier](#32-turnyawanimmodifier)
+- [AnimGrap とアニメーションレイヤーの解説](#animgrap-とアニメーションレイヤーの解説)
+
 
 
 # 0. 参考
@@ -30,165 +29,6 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]
 		* Lyra のアニメーションブループリントで使われている機能がまとめられています。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
-
-
-# 1. ABP 全体のお話
-
-## 1.1. キャラクター関連の ABP 一覧
-
-### 1.1.1. 継承関係
-
-継承ツリーは以下のようになっています。
-
-* `AnimLayerInterface`
-	* [ALI_ItemAnimLayers]
-* `AnimInstance`
-	* [ULyraAnimInstance]
-		* [ABP_Mannequin_Base]
-	* [ABP_ItemAnimLayersBase]
-		* `ABP_PistolAnimLayers`
-		* `ABP_PistolAnimLayers_Feminine`
-		* `ABP_RifleAnimLayers`
-			* `ABP_ShotgunAnimLayers`
-		* `ABP_RifleAnimLayers_Feminine`
-			* `ABP_ShotgunAnimLayers_Feminine`
-		* `ABP_UnarmedAnimLayers`
-		* `ABP_UnarmedAnimLayers_Feminine`
-	* `ABP_Mannequin_CopyPose`
-	* `ABP_Manny_PostProcess`
-	* `ABP_Quinn_PostProcess`
-
-Manny (無印)と Quinn (_Feminine 付き)の継承関係は基本的に兄弟になっています。  
-Shotgun は Rifle の派生クラスとなっています。これは流用が多い為です。  
-[ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] に継承関係はありません。
-
-
-### 1.1.2. クラス名と用途
-
-| クラス名							| 用途																							|
-|----								|----																							|
-| [ALI_ItemAnimLayers]				| 武器毎に異なる AnimGrap を実装するためのアニメーションレイヤーインターフェイスクラスです。	|
-| [ULyraAnimInstance]				| Lyra 用に拡張した `AnimInstance` の派生クラスです。											|
-| [ABP_Mannequin_Base]				| キャラクター用の ABP で [ALI_ItemAnimLayers] の関数を呼び出しをしています。					|
-| [ABP_ItemAnimLayersBase]			| 武器用の基底クラスで [ALI_ItemAnimLayers] の関数を実装しています。							|
-| `ABP_PistolAnimLayers`			| Manny の Pistol 用の DataOnly の ABP です。													|
-| `ABP_PistolAnimLayers_Feminine`	| Quinn の Pistol 用の DataOnly の ABP です。													|
-| `ABP_RifleAnimLayers`				| Manny の Rifle 用の DataOnly の ABP です。													|
-| `ABP_RifleAnimLayers_Feminine`	| Quinn の Rifle 用の DataOnly の ABP です。													|
-| `ABP_ShotgunAnimLayers`			| Manny の Shotgun 用の DataOnly の ABP です。													|
-| `ABP_ShotgunAnimLayers_Feminine`	| Quinn の Shotgun 用の DataOnly の ABP です。													|
-| `ABP_UnarmedAnimLayers`			| Manny の 非武装用の DataOnly の ABP です。													|
-| `ABP_UnarmedAnimLayers_Feminine`	| Quinn の 非武装用の DataOnly の ABP です。													|
-| `ABP_Mannequin_CopyPose`			| 親のメッシュコンポーネントのポーズを複製する ABP です。										|
-| `ABP_Manny_PostProcess`			| Manny の プロシージャルアニメーションのポストプロセス用の ABP です。							|
-| `ABP_Quinn_PostProcess`			| Quinn の プロシージャルアニメーションのポストプロセス用の ABP です。							|
-
-* [ALI_ItemAnimLayers]
-	* [ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] の Class Setting `Interfaces > Implemented Interfaces` で [ALI_ItemAnimLayers] を追加しています。
-		> **Note**  
-		> [Unreal Engine Forum > Update to UE5.1 have anim layer bug]  
-		> 5.1.0 だと不具合がありました。 5.1.1 では修正されているようです。
-	* [ABP_Mannequin_Base] は [ALI_ItemAnimLayers] のインターフェイスを利用する側です。
-	* [ABP_ItemAnimLayersBase] は [ALI_ItemAnimLayers] のインターフェイスを実装する側です。
-
-
-### 1.1.3. 参照元
-
-* [ABP_Mannequin_Base]
-	* キャラクタークラスのメッシュコンポーネントの Anim Class で利用しています。
-	* 具体的には `B_Hero_ShooterMannequin` 等の Mesh コンポーネントのプロパティ `Mesh > Anim Class` にて利用しています。
-* [ABP_ItemAnimLayersBase] の派生クラス
-	* キャラクタークラスの Linked Animation Blueprint で利用しています。
-	* 具体的には `B_WeaponInstance_Base` のイベント `OnEquipped` / `OnUnequipped` 内でノード `LinkAnimClassLayers` を呼び出す事で、 [ABP_Mannequin_Base] の Linked Animation Blueprint として設定しています。
-		> **Note**  
-		> * `B_WeaponInstance_Base` はプロパティ `Animation > Equipped Anim Set` 等を持ち、この値を上記のタイミングで使用します。
-		> * `B_WeaponInstance_Base` は武器毎の派生クラスを持ち、上記のプロパティに [ABP_ItemAnimLayersBase] の武器毎の派生クラスを指定することで武器に合った Linked Animation Blueprint の設定ができるようにしています。
-* `ABP_Mannequin_CopyPose`
-	* キャラクター表示用のアクターのメッシュコンポーネントの Anim Class で利用しています。
-	* 具体的には `B_Hero_ShooterMannequin` 等の子アクター `B_Manny` / `B_Quinn` の Mesh コンポーネントのプロパティ `Mesh > Anim Class` にて利用しています。
-* `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess`
-	* ポストプロセスアニメーションブループリントとして利用しています。
-	* 具体的には `SKM_Manny` / `SKM_Quinn` の `Skeltal Mesh  > Post Process Anim Blueprint` にて利用しています。
-	* AnimGrap で使用しているノードは `Control Rig` と `Pose Driver` のみです。
-		* `Control Rig` は `CR_Mannequin_Procedural` を使用しています。
-		* `Pose Driver` は `Manny` / `Quinn` 毎のポーズアセット 14 種((4(腕) + 3(足)) x 2(左右) )を使用しています。
-
-一体のキャラクターを表示するのに 4 つのアニメーションブループリントが使われていることになります。  
-実行時のキャラクター
-
-
-
-### 1.1.4. 実行時のキャラクターのアクター階層
-
-例として、見た目が Manny で Pistol 装備中という状況で説明します。
-
-* `B_Hero_ShooterMannequin`(`B_Hero_Default`(`Character_Default`(`ALyraCharacter`(`AModularCharacter`(`ACharacter`)))))
-	* `B_Manny`(`ALyraTaggedActor`(`AActor`))
-	* `B_Pistol`(`B_Weapon`(`AActor`))
-
-※カッコの中は基底クラス名です。  
-
-キャラクター (B_Hero_ShooterMannequin) の子にキャラクター表示用のアクター (B_Manny) と武器用アクター (B_Pistol) が作られます。  
-
-### 1.1.5. 実行時のアクターのアニメーションブループリント
-
-| アクター						| Animation Blueprint		| Linked Animation Blueprint			| スケルタルメッシュ	| Post Process Anim Blueprint	|
-|----							|----						|----									|----					|----							|
-| `B_Hero_ShooterMannequin`		| [ABP_Mannequin_Base]		| [ABP_ItemAnimLayersBase] の派生クラス	| `SKM_Manny_Invis`		|								|
-| `B_Manny`						| `ABP_Mannequin_CopyPose`	|										| `SKM_Manny`			| `ABP_Manny_PostProcess`		|
-
-* キャラクターの制御を行っているアクター `B_Hero_ShooterMannequin` に設定されたアニメーションブループリント [ABP_Mannequin_Base] によって基本的なアニメーション制御を行う。
-* 武器毎の処理の差は Linked Animation Blueprint を利用して [ABP_ItemAnimLayersBase] の派生クラスで行う。
-* `B_Hero_ShooterMannequin` に設定されたスケルタルメッシュ `SKM_Manny_Invis` は何も表示されない様に作られている。
-* キャラクターの表示を行っているアクター `B_Manny` に設定されたアニメーションブループリント `ABP_Mannequin_CopyPose` によって親アクター `B_Hero_ShooterMannequin` のメッシュコンポーネントのポーズを複製することでベースとなるポーズの設定を行う。
-* `B_Manny` に設定されたスケルタルメッシュ `SKM_Manny` のプロパティ `Skeletal Mesh > Post Process Anim Blueprint` に設定された `ABP_Manny_PostProcess` により、スケルタルメッシュ毎の調整を行う。
-	* `B_Manny` / `B_Quinn` の EventGraph のコメントを引用
-		> The mesh component has the ABP_Mannequin_CopyPose anim BP,  
-		> which will just copy the pose across from the invisible 'driving' mesh component since the skeletons are directly compatible.  
-		> If you change the mesh to something incompatble, use a Rertarget anim BP instead which targets the correct skeleton.
-		>
-		> ----
-		> このメッシュコンポーネントには ABP_Mannequin_CopyPose アニメーション BP があり、  
-		> スケルトンに直接互換性があるため、不可視の「ドライビング」メッシュコンポーネントからポーズをコピーします。  
-		> メッシュを互換性のないものに変更する場合は、正しいスケルトンをターゲットにする Rertarget anim BP を代わりに使用してください。
-
-アクターの階層 (`B_Manny` / `B_Quinn` のどちらを追加するのか) や各アセットの設定 (どの武器を装備するのか) は実行時に行われます。  
-そのあたりの解説はドキュメントが膨大になるので割愛します。  
-
-
-## 1.2. ABP とアニメーションアセットの関係
-
-* Animation Seaquence
-	* [ABP_Mannequin_Base] では参照しません。
-	* 武器を装備したときの基底クラスである [ABP_ItemAnimLayersBase] では、変数を用意し、武器毎の派生クラスで任意のアニメーションシーケンスを設定できるようにしています。
-* Aim Offset
-	* Animation Seaquence と同様です。
-* Blend Space 1D
-	* [ABP_Mannequin_Base] にて Lean 用のアセットを直接参照しています。
-		> **Note**  
-		> Lean は移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
-* Pose Asset
-	 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Pose Driver` から直接参照しています。
-* Control Rig
-	 * `CR_Mannequin_FootPlant`
-		 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
-			 > **Note**  
-			 > 床の位置に足をあわせるためのコントロールリグです。  
-			 > プロジェクト初期状態ではこちらは利用されていません。  
-			 > 代わりに `5.1` で追加された `Foot Placement` ノードを利用するようになっています。
-	 * `CR_Mannequin_Procedural`
-		 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Control Rig` から直接参照しています。
-
-## 1.3. ABP で記載されているツアーコメントについて
-
-* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
-* 具体的には以下の 2 種があります。
-	* AnimBP Tour
-		* [Comment_AnimBP_Tour.Ja] にコメントをまとめて引用しています。
-	* TurnInPlace
-		* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
-
-
 
 
 # 2. Anim Node の Tag と Anim Node Reference ノード
@@ -660,7 +500,7 @@ TODO: Pivot とは？
 		* `Pre Aim Pose`: 9 の出力
 		* `Aim Yaw`: [ABP_Mannequin_Base::AimYaw]
 			> **Note**  
-			> 詳しくは [所定の位置での旋回] を参照してください。
+			> 詳しくは [3. 所定の位置での旋回(TurnInPlace)] を参照してください。
 		* `Aim Pitch`: [ABP_Mannequin_Base::AimPitch]
 			> **Note**  
 			> この値は `NormalizeAxis(APawn::GetBaseAimRotation().Pitch)` です。  
@@ -855,6 +695,19 @@ TODO: Pivot とは？
 
 TODO: やってることの整理、とりあえずクラスごとに分けましょう。連番リストだと内容が重すぎて終わってるので段落なんかを使うように文章整理しましょう。
 
+
+# 終わりに
+
+数が多く、命名ミスと思われるものがいくつかありますが、概ね一定のルールに沿って作られているのがわかると思います。  
+オリジナルの武器を追加する際等の参考になれば幸いです。
+
+-----
+おしまい。
+
+
+
+
+
 [Unreal Engine Forum > Update to UE5.1 have anim layer bug]: https://forums.unrealengine.com/t/update-to-ue5-1-have-anim-layer-bug/693524
 
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
@@ -870,12 +723,18 @@ TODO: やってることの整理、とりあえずクラスごとに分けま�
 <!-- links -->
 
 <!--- ページ内のリンク --->
+[0. 参考]: #0-参考
+[2. Anim Node の Tag と Anim Node Reference ノード]: #2-anim-node-の-tag-と-anim-node-reference-ノード
+[3. 所定の位置での旋回(TurnInPlace)]: #3-所定の位置での旋回turninplace
+[3.1. 仕組み]: #31-仕組み
+[3.2. TurnYawAnimModifier]: #32-turnyawanimmodifier
+[AnimGrap とアニメーションレイヤーの解説]: #animgrap-とアニメーションレイヤーの解説
+
 
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-[所定の位置での旋回]: #section
-[ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
+[3. 所定の位置での旋回(TurnInPlace)]: #3-turninplace
 [ABP_ItemAnimLayersBase::FullBodyAdditives]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditives
 [ABP_ItemAnimLayersBase::FullBodyAdditive_SM]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyadditivesm
 [ABP_ItemAnimLayersBase::Identity (state)]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidentity-state
@@ -914,7 +773,6 @@ TODO: やってることの整理、とりあえずクラスごとに分けま�
 [ABP_ItemAnimLayersBase::LeftHandPose_Override]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverride
 [ABP_ItemAnimLayersBase::EnableLeftHandPoseOverride]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseenablelefthandposeoverride
 [ABP_ItemAnimLayersBase::LeftHandPoseOverrideWeight]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaselefthandposeoverrideweight
-[ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ABP_Mannequin_Base::LocomotionSM]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaselocomotionsm
 [ABP_Mannequin_Base::Idle (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseidle-state
 [ABP_Mannequin_Base::Start (state)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasestart-state
@@ -929,12 +787,10 @@ TODO: やってることの整理、とりあえずクラスごとに分けま�
 [ABP_Mannequin_Base::Start to Cycle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasestart-to-cycle-rule
 [ABP_Mannequin_Base::Stop to Idle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasestop-to-idle-rule
 [ABP_Mannequin_Base::Pivot to Cycle (rule)]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbasepivot-to-cycle-rule
-[ABP_Mannequin_Base::ShouldEnableControlRig()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseshouldenablecontrolrig
-[ABP_Mannequin_Base::AdditiveLeanAngle]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseadditiveleanangle
+[ABP_Mannequin_Base::UpdateLocomotionStateMachine()]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupdatelocomotionstatemachine
 [ABP_Mannequin_Base::UpperbodyDynamicAdditiveWeight]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseupperbodydynamicadditiveweight
 [ABP_Mannequin_Base::AimPitch]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseaimpitch
 [ABP_Mannequin_Base::AimYaw]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbaseaimyaw
-[ALI_ItemAnimLayers]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
 [ALI_ItemAnimLayers::FullBodyAdditives]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyadditives
 [ALI_ItemAnimLayers::FullBody_IdleState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyidlestate
 [ALI_ItemAnimLayers::FullBody_StartState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodystartstate
@@ -949,12 +805,12 @@ TODO: やってることの整理、とりあえずクラスごとに分けま�
 [ALI_ItemAnimLayers::FullBody_JumpStartLoopState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyjumpstartloopstate
 [ALI_ItemAnimLayers::FullBody_SkeletalControls]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyskeletalcontrols
 [ALI_ItemAnimLayers::LeftHandPose_OverrideState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayerslefthandposeoverridestate
-[Comment_AnimBP_Tour.Ja]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja
-[Comment_TurnInPlace.Ja]: CodeRefs/Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
+[TurnYawAnimModifier]: CodeRefs/Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
 [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]: https://forums.unrealengine.com/t/how-to-get-a-anim-layer-node-reference-as-shown-in-the-lyra-example-project/663840
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p159]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation#p159
 [Lyra Starter Game]: https://www.unrealengine.com/marketplace/ja/product/lyra
+[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > Blend ノード > Inertialization]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-blend-nodes-in-unreal-engine/#inertialization
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]: https://docs.unrealengine.com/5.1/ja/using-animation-blueprint-linking-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > エイム オフセットを作成する]: https://docs.unrealengine.com/5.1/ja/creating-an-aim-offset-in-unreal-engine/
