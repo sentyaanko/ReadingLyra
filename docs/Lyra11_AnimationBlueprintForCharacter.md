@@ -34,9 +34,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
 
 
-# 1. キャラクター関連の ABP 一覧
-
-## 1.1. 継承関係
+# 1. 継承関係
 
 継承ツリーは以下のようになっています。
 
@@ -63,7 +61,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 [ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] に継承関係はありません。
 
 
-## 1.2. クラス名と用途
+# 2. クラス名と用途
 
 | クラス名							| 用途																							|
 |----								|----																							|
@@ -92,7 +90,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 	* [ABP_ItemAnimLayersBase] は [ALI_ItemAnimLayers] のインターフェイスを実装する側です。
 
 
-## 1.3. 参照元
+# 3. 参照元
 
 * [ABP_Mannequin_Base]
 	* キャラクタークラスのメッシュコンポーネントの Anim Class で利用しています。
@@ -116,7 +114,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 一体のキャラクターを表示するのに 4 つのアニメーションブループリントが使われていることになります。  
 
 
-## 1.4. 実行時のキャラクターのアクター階層
+# 4. 実行時のキャラクターのアクター階層
 
 例として、見た目が Manny で Pistol 装備中という状況で説明します。
 
@@ -128,7 +126,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 
 キャラクター (B_Hero_ShooterMannequin) の子にキャラクター表示用のアクター (B_Manny) と武器用アクター (B_Pistol) が作られます。  
 
-## 1.5. 実行時のアクターのアニメーションブループリント
+# 5. 実行時のアクターのアニメーションブループリント
 
 | アクター						| Animation Blueprint		| Linked Animation Blueprint			| スケルタルメッシュ	| Post Process Anim Blueprint	|
 |----							|----						|----									|----					|----							|
@@ -154,7 +152,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 そのあたりの解説はドキュメントが膨大になるので割愛します。  
 
 
-## 2. ABP とアニメーションアセットの関係
+# 6. ABP とアニメーションアセットの関係
 
 * Animation Seaquence
 	* [ABP_Mannequin_Base] では参照しません。
@@ -177,19 +175,10 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 	 * `CR_Mannequin_Procedural`
 		 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Control Rig` から直接参照しています。
 
-## 3. ABP で記載されているツアーコメントについて
-
-* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
-* 具体的には以下の 2 種があります。
-	* AnimBP Tour
-		* [Comment_AnimBP_Tour.Ja] にコメントをまとめて引用しています。
-	* TurnInPlace
-		* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
-
-
 # 終わりに
 
-TODO: 何か書く。
+Lyra のキャラクター用の Animation Blueprint はどのようなものがあり、どこから利用させているか、アニメーションアセットとの関係等についてまとめました。  
+なにかの参考になれば幸いです。
 
 -----
 おしまい。
@@ -208,8 +197,6 @@ TODO: 何か書く。
 [ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ALI_ItemAnimLayers]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
-[Comment_AnimBP_Tour.Ja]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja
-[Comment_TurnInPlace.Ja]: CodeRefs/Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
 [ULyraAnimInstance]: CodeRefs/Lyra/Animation/ULyraAnimInstance.md#ulyraaniminstance
 [Docswell > 猫でも分かる UE4のAnimation Blueprintの運用について【Unreal Engine Meetup Nagoya #6 in 名古屋城】 > p.101]: https://www.docswell.com/s/EpicGamesJapan/5GL3MK-ManagementAnimationBP_Cat#p101
 [Docswell > 猫でも分かる UE4のAnimation Blueprintの運用について【Unreal Engine Meetup Nagoya #6 in 名古屋城】 > p.62]: https://www.docswell.com/s/EpicGamesJapan/5GL3MK-ManagementAnimationBP_Cat#p62

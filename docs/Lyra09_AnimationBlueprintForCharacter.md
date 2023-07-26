@@ -31,6 +31,17 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
 
 
+## 3. ABP で記載されているツアーコメントについて
+
+* ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。
+* 具体的には以下の 2 種があります。
+	* AnimBP Tour
+		* [Comment_AnimBP_Tour.Ja] にコメントをまとめて引用しています。
+	* TurnInPlace
+		* [Comment_TurnInPlace.Ja] にコメントをまとめて引用しています。
+
+
+
 # 2. Anim Node の Tag と Anim Node Reference ノード
 
 * 既存のドキュメント
@@ -805,6 +816,8 @@ TODO: やってることの整理、とりあえずクラスごとに分けま�
 [ALI_ItemAnimLayers::FullBody_JumpStartLoopState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyjumpstartloopstate
 [ALI_ItemAnimLayers::FullBody_SkeletalControls]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayersfullbodyskeletalcontrols
 [ALI_ItemAnimLayers::LeftHandPose_OverrideState]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayerslefthandposeoverridestate
+[Comment_AnimBP_Tour.Ja]: CodeRefs/Lyra/ABP/Comment_AnimBP_Tour.Ja.md#commentanimbptourja
+[Comment_TurnInPlace.Ja]: CodeRefs/Lyra/ABP/Comment_TurnInPlace.Ja.md#commentturninplaceja
 [TurnYawAnimModifier]: CodeRefs/Lyra/ABP/TurnYawAnimModifier.md#turnyawanimmodifier
 [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]: https://forums.unrealengine.com/t/how-to-get-a-anim-layer-node-reference-as-shown-in-the-lyra-example-project/663840
 [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]: https://www.docswell.com/s/EpicGamesJapan/ZY3PDK-UE_CEDECKYUSHU2022_UE5Animation
