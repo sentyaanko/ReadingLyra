@@ -38,7 +38,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # 1. ABP_ItemAnimLayersBase の派生クラスのプロパティに設定されているアセット
 
-基底クラスである [ABP_ItemAnimLayersBase] には Animation Sequence や Aim Offset を設定するプロパティがあります。  
+遠隔武器の基底クラスである [ABP_ItemAnimLayersBase] には Animation Sequence や Aim Offset を設定するプロパティがあります。  
 これらは派生クラスで適切なアセットを指定できるようにするためのものす。  
 派生クラスは(男女 2) x (武器種 3 + 非武装 1) で合計 8 つあります。  
 
