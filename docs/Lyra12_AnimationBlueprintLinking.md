@@ -1,6 +1,13 @@
-# 【UE5】Lyra に学ぶ(09) AnimationBlueprint for Character <!-- omit in toc -->
+# 【UE5】Lyra に学ぶ(12) Animation Blueprint Linking <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
+このプロジェクトではキャラクターの Animation Blueprint では Animation Blueprint Linking システムを利用しています。  
+これを利用することで、武器やスケルタルメッシュ毎に異なるアニメーションの処理を行えるようになっています。  
+このドキュメントではどのような実装がされているかを述べていきます。  
+話題に上げるのは概ね以下のものです。  
+ * [ABP_Mannequin_Base]
+ * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
+ * [ALI_ItemAnimLayers]
 
 * バージョン
 	* [Lyra Starter Game]
@@ -29,6 +36,8 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]
 		* Lyra のアニメーションブループリントで使われている機能がまとめられています。
 	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】]
+
+TODO: まとめ終わったら必要なリンク先の再確認を行う。
 
 
 ## 3. ABP で記載されているツアーコメントについて
