@@ -1,7 +1,7 @@
 # 【UE5】Lyra に学ぶ(11) AnimationBlueprint for Character <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
-キャラクター用の Animation Blueprint がどのように実装されているかを見ていきます。  
+このプロジェクトでキャラクター用の Animation Blueprint はどのようなものがあるのかを見ていきます。  
 話題に上げるのは概ね以下のものです。  
  * [ABP_Mannequin_Base]
  * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
@@ -11,6 +11,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 主にシューターゲーム用の部分について述べ、他 (TopDownArena 用等) に関しては省略します。  
 実装で使用されている仕組みに関してはほぼ言及しませんので、それらの情報は下記の参考リンク等を確認してください。  
+また、各 Animation Blueprint の実装内容に関しても(ドキュメントが肥大化するので)深掘りはしません。
 
 * バージョン
 	* [Lyra Starter Game]
