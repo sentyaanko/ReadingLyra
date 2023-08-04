@@ -72,7 +72,7 @@ TODO: アニメーションシーケンス、モンタージュ、ポーズの�
 				* [PivotSM]
 					* [PivotA (state)]
 					* [PivotB (state)]
-					* [WantsToRePivit (rule)]
+					* [WantsToRePivot (rule)]
 			* [FullBody_Aiming]
 			* [FullBody_JumpStartState]
 			* [FullBody_JumpApexState]
@@ -849,7 +849,7 @@ TODO
 * 概要
 	* 方向転換中にさらに方向転換できるよう、２つのステート [PivotA (state)] / [PivotB (state)] を制御するためのステートマシンです。
 	* [PivotA (state)] / [PivotB (state)] の内容は全く同じです。
-	* ステートを切り替えるルールも両方向ともに Transition Rule Sharing [WantsToRePivit (rule)] を指定しています。
+	* ステートを切り替えるルールも両方向ともに Transition Rule Sharing [WantsToRePivot (rule)] を指定しています。
 
 
 ##### PivotA (state)
@@ -864,7 +864,7 @@ TODO
 	* ノード `Stride Warping` のパラメータ `Alpha` に [StrideWarpingPivotAlpha] が指定されています。
 
 
-##### WantsToRePivit (rule)
+##### WantsToRePivot (rule)
 
 
 
@@ -1360,7 +1360,7 @@ TODO
 * 概要
 	* 方向転換開始時の [ABP_Mannequin_Base::LocalAcceleration2D] のコピーです。
 	* [PivotA (state)] / [PivotB (state)] の開始時に呼び出される [SetUpPivotAnim()] 及び、方向転換中に再び方向転換した際に初期化されます。
-	* [WantsToRePivit (rule)] にてトランジションの判定の一部で利用
+	* [WantsToRePivot (rule)] にてトランジションの判定の一部で利用
 
 
 ### TimeAtPivotStop
@@ -1527,7 +1527,7 @@ TODO
 [PivotSM]: #pivotsm
 [PivotA (state)]: #pivota-state
 [PivotB (state)]: #pivotb-state
-[WantsToRePivit (rule)]: #wantstorepivit-rule
+[WantsToRePivot (rule)]: #wantstorepivot-rule
 [FullBody_Aiming]: #fullbodyaiming
 [FullBody_JumpStartState]: #fullbodyjumpstartstate
 [FullBody_JumpApexState]: #fullbodyjumpapexstate
