@@ -43,7 +43,7 @@
 [ABP_ItemAnimLayersBase::PivotSM]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsm
 [ABP_ItemAnimLayersBase::PivotA (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivota-state
 [ABP_ItemAnimLayersBase::PivotB (state)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotb-state
-[ABP_ItemAnimLayersBase::WantsToRePivit (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivit-rule
+[ABP_ItemAnimLayersBase::WantsToRePivot (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivot-rule
 [ABP_ItemAnimLayersBase::FullBody_Aiming]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyaiming
 [ABP_ItemAnimLayersBase::FullBody_JumpStartState]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyjumpstartstate
 [ABP_ItemAnimLayersBase::FullBody_JumpApexState]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyjumpapexstate
