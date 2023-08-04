@@ -348,7 +348,7 @@
 					* [ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]
 					* [ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]
 				* [ABP_ItemAnimLayersBase::PivotSM] 内の以下のルール
-					* [ABP_ItemAnimLayersBase::WantsToRePivit (rule)]
+					* [ABP_ItemAnimLayersBase::WantsToRePivot (rule)]
 		6. 5 の出力をノード `Rotate Root Bone()` のパラメータ `Base Pose` に渡します。
 			* Tour コメント
 				* [Comment_TurnInPlace.Ja::1]
@@ -2111,7 +2111,7 @@ TODO: ルール全般、コード化して、何を意図しているかの説�
 [ABP_ItemAnimLayersBase::Idle to StanceTransition (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseidle-to-stancetransition-rule
 [ABP_ItemAnimLayersBase::StanceTransition to Idle (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasestancetransition-to-idle-rule
 [ABP_ItemAnimLayersBase::PivotSM]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasepivotsm
-[ABP_ItemAnimLayersBase::WantsToRePivit (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivit-rule
+[ABP_ItemAnimLayersBase::WantsToRePivot (rule)]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasewantstorepivot-rule
 [ABP_ItemAnimLayersBase::FullBody_Aiming]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyaiming
 [ABP_ItemAnimLayersBase::FullBody_SkeletalControls]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbasefullbodyskeletalcontrols
 [ABP_ItemAnimLayersBase::UpdateCycleAnim()]: ../../Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbaseupdatecycleanim
