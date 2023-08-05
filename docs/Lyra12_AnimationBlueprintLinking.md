@@ -1,13 +1,15 @@
 # 【UE5】Lyra に学ぶ(12) Animation Blueprint Linking <!-- omit in toc -->
 
 UE5 の新しい？サンプル [Lyra Starter Game] 。  
-このプロジェクトではキャラクターの Animation Blueprint では Animation Blueprint Linking システムを利用しています。  
+このプロジェクトではキャラクターの Animation Blueprint で Animation Blueprint Linking システムを利用しています。  
 これを利用することで、武器やスケルタルメッシュ毎に異なるアニメーションの処理を行えるようになっています。  
 このドキュメントではどのような実装がされているかを述べていきます。  
 話題に上げるのは概ね以下のものです。  
  * [ABP_Mannequin_Base]
  * [ABP_ItemAnimLayersBase] （と、その派生クラス群）
  * [ALI_ItemAnimLayers]
+
+エンジンの機能解説に関しては最低限しか記しませんので詳細はリンク先を参照ください。
 
 * バージョン
 	* [Lyra Starter Game]
@@ -50,24 +52,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 		- [3.14 FullBodyAdditives \> FullBodyAdditive\_SM](#314-fullbodyadditives--fullbodyadditive_sm)
 - [終わりに](#終わりに)
 
-[FullBody_IdleState]: #31-fullbody_idlestate
-[FullBody_IdleState > IdleSM]: #311-fullbody_idlestate--idlesm
-[FullBody_IdleState > IdleSM > Idle (state) > IdleStance]: #3111-fullbody_idlestate--idlesm--idle-state--idlestance
-[FullBody_StartState]: #32-fullbody_startstate
-[FullBody_CycleState]: #33-fullbody_cyclestate
-[FullBody_StopState]: #34-fullbody_stopstate
-[FullBody_PivotState]: #35-fullbody_pivotstate
-[FullBody_PivotState > PivotSM]: #351-fullbody_pivotstate--pivotsm
-[FullBody_JumpStartState]: #36-fullbody_jumpstartstate
-[FullBody_JumpStartLoopState]: #37-fullbody_jumpstartloopstate
-[FullBody_JumpApexState]: #38-fullbody_jumpapexstate
-[FullBody_FallLoopState]: #39-fullbody_fallloopstate
-[FullBody_FallLandState]: #310-fullbody_falllandstate
-[LeftHandPose_OverrideState]: #311-lefthandpose_overridestate
-[FullBody_SkeletalControls]: #312-fullbody_skeletalcontrols
-[FullBody_Aiming]: #313-fullbody_aiming
-[FullBodyAdditives]: #314-fullbodyadditives
-[FullBodyAdditives > FullBodyAdditive_SM]: #314-fullbodyadditives--fullbodyadditive_sm
+
 
 
 # 0. 参考
@@ -82,15 +67,6 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 * [技術ブログ > Lyra アニメーションを UE5 ゲームに適応する方法について]
 	> Lyra の ABP の改造の手順が解説されています。  
 	> アニメーションを置き換えたり、移動方向にアクターが向くような改造通じて ABP で行っていることやパラメータの調整方法など色々なことが学べます。
-
-## 0.1 Unreal Engine の機能解説
-
-* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]
-	> Animation Layer Interface などの解説です。
-* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > レイヤー化されたアニメーションを使用する]
-	> アニメーションモンタージュのスロット利用したモーションのブレンドの解説をしています。
-
-## 0.2 その他
 
 ブループリントのコメントの中で各機能に関するコメントが複数の場所に連番数字付きで書かれています。  
 具体的には以下の 2 種があります。  
@@ -113,7 +89,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_PivotState > PivotSM]
 			* [FullBody_FallLandState]
 			> **Note**  
-			> ノード `Advance Time by Distance Matching` / `Advance Time by Distance Matching` の使用箇所がそれに当たります。
+			> `Advance Time by Distance Matching` / `Advance Time by Distance Matching` の使用箇所がそれに当たります。
 	* **ストライド ワーピング**
 		* 移動開始時、移動中、ピボット時などに **ストライド ワーピング** を行っています。
 		* これにより、移動速度に合わせて歩幅を調整しています。
@@ -122,7 +98,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_CycleState]
 			* [FullBody_PivotState]
 			> **Note**  
-			> ノード `Stride Warping` の使用箇所がそれに当たります。
+			> `Stride Warping` の使用箇所がそれに当たります。
 	* **オリエンテーション ワープ**
 		* 移動開始時、移動中、ピボット時などに **オリエンテーション ワープ** を行っています。
 		* これにより、移動方向に合わせて脚の方向を調整しています。
@@ -131,7 +107,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_CycleState]
 			* [FullBody_PivotState > PivotSM]
 			> **Note**  
-			> ノード `Orientation Warping` の使用箇所がそれに当たります。
+			> `Orientation Warping` の使用箇所がそれに当たります。
 	* 銃口を徐々に下げる
 		* 移動の際などに銃口を下げるようにしています。
 		* これは以下などで実装しています。
@@ -145,8 +121,8 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_FallLoopState]
 			* [FullBody_FallLandState]
 			> **Note**  
-			> ノード `Sequence Evaluator` の `OnUpdate` に `UpdateHipFireRaiseWeaponPose` を使用した出力を  
-			> ノード `Layerd blend per bone` でブレンドしている箇所がそれに当たります。
+			> `Sequence Evaluator` の `OnUpdate` に `UpdateHipFireRaiseWeaponPose` を使用した出力を  
+			> `Layered blend per bone` でブレンドしている箇所がそれに当たります。
 	* Lean
 		* 移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
 		* これは [ABP_Mannequin_Base] `> AnimGrap > LocomotionSM` 内の以下などで実装しています。
@@ -155,7 +131,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* `Pivot (state)`
 			> **Note**  
 			> この処理は [ABP_Mannequin_Base] で行われているため、武器に依存しません。  
-			> ノード `Blendspace Player` の出力をノード `Apply Additive` でブレンドしている箇所がそれに当たります。  
+			> `Blendspace Player` の出力を `Apply Additive` でブレンドしている箇所がそれに当たります。  
 			> 使用する `Blend Space 1D` は `BS_MM_Rifle_Jog_Leans` 固定の実装となっています。
 * 個別処理
 	* 移動していないときの休止アニメーション
@@ -168,9 +144,14 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_IdleState]
 	* 所定の位置での旋回
 		* 移動せずにカメラを動かす際に、足が滑らないようにしています。
+		* 詳細は [1.2. 所定の位置での旋回(TurnInPlace)] を参照してください。
+		* これは [FullBody_IdleState > IdleSM] 内の以下などで実装しています。
+			* `TurnInPlaceRotation (state)`
+			* `TurnInPlaceRecovery (state)`
+	* Pivot (移動方向を逆方向に変更する)
+		* ベロシティとアクセラレーションが反対方向になった際に専用の移動アニメーションが再生されます。
 		* これは以下などで実装しています。
-			* TurnInPlaceRotation
-			* TurnInPlaceRecovery
+			* [FullBody_PivotState]
 	* 左手のポーズのブレンド
 		* 左手のポーズだけをブレンドする機能が実装されています。
 		* これは以下などで実装しています。
@@ -180,8 +161,6 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 		* これは前述の **銃口を徐々に下げる** と同じような目的です。
 		* これは以下などで実装しています。
 			* [FullBody_Aiming]
-		* 既存のドキュメント
-			* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > エイム オフセットを作成する]
 	* 着地時のアニメーション
 		* 衝撃を和らげるようなアニメーションをブレンドしています。
 		* これは以下などで実装しています。
@@ -197,24 +176,24 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ## 1.1. Anim Node の Tag と Anim Node Reference ノード
 
-* 既存のドキュメント
-	* [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]
-	* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p159]
+既存のドキュメント
+* [Dev Comunity > Forums > How to get a anim layer node reference as shown in the Lyra Example project?]
+* [Docswell > 猫でも分かる UE5.0, 5.1 におけるアニメーションの新機能について【CEDEC+KYUSHU 2022】 > p159]
 
-Lyra では [ABP_Mannequin_Base] `> AnimGraph > LocomotionSM > Start` に配置しているノード [FullBody_StartState] のプロパティ Tag に `StartLayerNode` を設定しています。  
-この Tag を利用し、 [ABP_Mannequin_Base] の `UpdateLocomotionStateMachine()` では、いくつかの関数を経て現在設定されている AnimLayer のリファレンスを取得しています。  
+Lyra では [ABP_Mannequin_Base] `> AnimGraph > LocomotionSM > Start (state)` に配置している [FullBody_StartState] のプロパティ Tag に `StartLayerNode` を設定しています。  
+この Tag を設定することでノード `StartLayerNode` が利用可能になり、 [ABP_Mannequin_Base] の `UpdateLocomotionStateMachine()` では、いくつかの関数を経て現在設定されている AnimLayer のリファレンスを取得しています。  
 このリファレンス先を毎フレームチェックすることで AnimLayer が変更されたかを変数に保存しています。  
 この変更されたかを示す変数は [ABP_Mannequin_Base]  `> AnimGraph > LocomotionSM`  内の複数のトランジションから参照されています。  
 
-例として `Pivot` -> `Cycle` のトランジションで使用されています。  
-また、具体的に AnimLayer が変わるタイミングとしては武器変更時があります。  
+この変数の利用箇所の例をあげると、 `Pivot` -> `Cycle` のトランジションがあります。  
+また、 AnimLayer が変わるタイミングの例をあげると、武器変更時があります。  
 ですので、 `Pivot` 中に武器変更すると `Cycle` に移行する、といった処理を行うためにこの Tag の機能を使用していることになります。
 
 
 ## 1.2. 所定の位置での旋回(TurnInPlace)
 
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]
+既存のドキュメント
+* [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]
 
 ここでは Lyra では、キャラクターが移動しない状態でカメラの向きを変えたときにどのような処理を行っているかについて解説します。
 
@@ -228,22 +207,22 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 * カメラの向きを操作しても、下半身の向きとのなす角が 45 度 + αの範囲内では足を動かさずに上半身の向きだけ変えている。
 * 45 度 + αを超えると 90 度、下半身の向きを変えている。
 
-TODO: リンク
 > **Note**  
 > α は遊びの範囲で、これがあることで 45 度を行き来しただけでアニメーションが再生されないようになります。  
-> 実際には [ABP_ItemAnimLayersBase] `> FullBody_PivotState > PivotSM > WantsTurnInPlace (rule)` にて、回転角の絶対値が 50 度を超えた際にステートが移行されるようになっています。  
+> 実際には [FullBody_IdleState > IdleSM] `> WantsTurnInPlace (rule)` にて、回転角の絶対値が 50 度を超えた際にステートが移行されるようになっています。  
 > （よって、上記の説明のαは 5 度で実装しているということになります）
 
 この挙動は、概ね以下のような処理によって実現しています。  
 
 * 上半身の向きだけ変える処理
-	* 操作した向きの回転をノード `AimOffset Player` のパラメータ `Yaw` に与える
-	* 操作した向きと逆回転をルートボーンに与える（ノード `RotateRootBone` を利用）
+	* 操作した向きの回転を `AimOffset Player` のパラメータ `Yaw` に与える
+	* 操作した向きと逆回転をルートボーンに与える（ `RotateRootBone` を利用）
 	* これらが互いに打ち消し合うことで足が回転前の位置のまま滑らないようにしている
 * 下半身の向きを変える処理
 	* 事前の準備
 		* 90 度向きを変えるための、ルートボーンが回転を行うアニメーションシーケンスを用意する
-		* アニメーションモディファイア [TurnYawAnimModifier] を利用してフレームごとの回転をアニメーションカーブ `RemainingTurnYaw` にベイクする
+		* アニメーションモディファイア `TurnYawAnimModifier` を利用してフレームごとの回転をアニメーションカーブ `RemainingTurnYaw` にベイクする
+			> `TurnYawAnimModifier` については [1.2.2. TurnYawAnimModifier] を参照してください。
 	* 上半身だけ動かす範囲を超えた操作を行い、下半身の向きを変える必要がある場合は、上記のアニメーションを再生する
 	* アニメーション再生時、ルートボーンに与えていた回転と `AimOffset Player` のパラメータ `Yaw` の回転をアニメーションカーブの値だけ減じる
 
@@ -259,15 +238,15 @@ TODO: リンク
 
 ### 1.2.2. TurnYawAnimModifier
 
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]
-		* Animation Modifier の解説。
-		* 以下、説明部分の引用。
-			> Animation Modifiers (Anim Modifier) は、ネイティブまたは ブループリント クラス の一種で、  
-			> アニメーション シーケンス または スケルトン アセットにアクション シーケンスを適用することができます。  
-			> これには、足の自動同期マーカーを作成するなどが考えられます。  
-			> 左または右の足が地面に触れるのはどのフレームであるかをピンポイントで示します。  
-			> こうした情報を使って、足の骨が最も低いポイント (フロアに接触する) にくる場所に Animation Sync Markers を追加します。
+既存のドキュメント
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]
+	* Animation Modifier の解説。
+	* 以下、説明部分の引用。
+		> Animation Modifiers (Anim Modifier) は、ネイティブまたは ブループリント クラス の一種で、  
+		> アニメーション シーケンス または スケルトン アセットにアクション シーケンスを適用することができます。  
+		> これには、足の自動同期マーカーを作成するなどが考えられます。  
+		> 左または右の足が地面に触れるのはどのフレームであるかをピンポイントで示します。  
+		> こうした情報を使って、足の骨が最も低いポイント (フロアに接触する) にくる場所に Animation Sync Markers を追加します。
 
 
 [TurnYawAnimModifier] は Lyra で実装されているアニメーションモディファイアです。  
@@ -277,7 +256,7 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 アニメーションカーブの内容は以下のようになります。
 
 * `RemainingTurnYaw`
-	* 全フレームに自動的にキーを打っている。
+	* 30 fps で自動的にキーを打っている。
 		* 指定したボーン(`root`)の Yaw の最終値から現在のフレームの値を引いた値
 * `TurnYawWeight`
 	* 以下の３箇所に自動的にキーを打っている。
@@ -289,12 +268,9 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 
 
 
-
-
-
-
 # 2. アニメーションレイヤーインターフェイスクラス
 
+既存のドキュメント
 * [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]
 	> Animation Blueprint Linking の公式のドキュメントです。
 
@@ -311,26 +287,28 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 
 アニメーションレイヤーの種類と用途([ABP_Mannequin_Base] でどの様に呼び出されるか)をまとめると以下のようになります。
 
-| アニメーションレイヤー		| 用途															| Note	|
+| アニメーションレイヤー		| 呼び出し元													| Note	|
 |-----							|-----															|----	|
-| [FullBody_IdleState]			| ステートマシン `LocomotionSM` のステート `Idle`				| *1	|
-| [FullBody_StartState]			| ステートマシン `LocomotionSM` のステート `Start`				| *2	|
-| [FullBody_CycleState]			| ステートマシン `LocomotionSM` のステート `Cycle`				| *2	|
-| [FullBody_PivotState]			| ステートマシン `LocomotionSM` のステート `Pivot`				| *2	|
-| [FullBody_StopState]			| ステートマシン `LocomotionSM` のステート `Stop`				| *1	|
-| [FullBody_JumpStartState]		| ステートマシン `LocomotionSM` のステート `JumpStart`			| *1	|
-| [FullBody_JumpStartLoopState]	| ステートマシン `LocomotionSM` のステート `JumpStartLoop`		| *1	|
-| [FullBody_JumpApexState]		| ステートマシン `LocomotionSM` のステート `JumpApex`			| *1	|
-| [FullBody_FallLoopState]		| ステートマシン `LocomotionSM` のステート `FallLoop`			| *1	|
-| [FullBody_FallLandState]		| ステートマシン `LocomotionSM` のステート `FallLand`			| *1	|
+| [FullBody_IdleState]			| `AnimGraph > LocomotionSM > Idle (state)`						| *1	|
+| [FullBody_StartState]			| `AnimGraph > LocomotionSM > Start (state)`					| *2	|
+| [FullBody_CycleState]			| `AnimGraph > LocomotionSM > Cycle (state)`					| *2	|
+| [FullBody_PivotState]			| `AnimGraph > LocomotionSM > Pivot (state)`					| *2	|
+| [FullBody_StopState]			| `AnimGraph > LocomotionSM > Stop (state)`						| *1	|
+| [FullBody_JumpStartState]		| `AnimGraph > LocomotionSM > JumpStart (state)`				| *1	|
+| [FullBody_JumpStartLoopState]	| `AnimGraph > LocomotionSM > JumpStartLoop (state)`			| *1	|
+| [FullBody_JumpApexState]		| `AnimGraph > LocomotionSM > JumpApex (state)`					| *1	|
+| [FullBody_FallLoopState]		| `AnimGraph > LocomotionSM > FallLoop (state)`					| *1	|
+| [FullBody_FallLandState]		| `AnimGraph > LocomotionSM > FallLand (state)`					| *1	|
 | [LeftHandPose_OverrideState]	| `AnimGraph`													|		|
 | [FullBody_Aiming]				| `AnimGraph`													|		|
 | [FullBodyAdditives]			| `AnimGraph`													|		|
 | [FullBody_SkeletalControls]	| `AnimGraph`													|		|
 
 > **Note**  
-> * *1 出力がそのままステートの出力となります。
-> * *2 出力と Lean のブレンド結果がステートの出力となります。
+> * *1. 出力がそのままステートの出力となります。
+> * *2. 出力と Lean のブレンド結果がステートの出力となります。
+> * `LocomotionSM` はステートマシンです。
+> * `LocomotionSM > * (state)` はステートです。
 
 
 # 3. ABP_ItemAnimLayersBase でのアニメーションレイヤーの実装
@@ -340,31 +318,31 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 ## 3.1 FullBody_IdleState
 
 移動していない状態で呼び出される関数です。
-しゃがみ、立ち、 ADS 、そして Aim 操作による転換の処理が行われます。  
-ステートマシン [FullBody_IdleState > IdleSM] の出力が `OutputPose()` につながります。
+しゃがみ、立ち、 ADS 、そして カメラ操作による旋回の処理が行われます。  
+ステートマシン [FullBody_IdleState > IdleSM] の出力が `Output Pose` につながります。
 
 
 ### 3.1.1 FullBody_IdleState > IdleSM
 
-このステートマシンは、アイドル、アイドルの休憩、転換、転換からの復帰の状態制御を行います。  
-ステート名と状態の内容は以下の通りです。
+このステートマシンは、アイドル、アイドルの休憩、旋回、旋回からの復帰の状態制御を行います。  
+ステートマシンが保持するステートの名と状態の内容は以下の通りです。
 
 | ステート名			| 状態の内容																			|
 |----					|----																					|
 | `Idle`				| 何も操作していない状態。																|
 | 						| ステートマシン [FullBody_IdleState > IdleSM > Idle (state) > IdleStance] の出力が		|
-|						| `OutputAnimationPose()` につながります。												|
+|						| `Output Animation Pose` につながります。												|
 | `IdleBreak`			| 何も操作していない状態が続いた際に発生する休憩アニメーションを再生している状態。		|
-| 						| バリエーションのための配列変数が用意されています。									|
-| 						| 休憩用のアニメーションシーケンスを `Sequence Player()` で再生します。					|
-| 						| `Sequence Player()` の出力が `OutputAnimationPose()` につながります。					|
+| 						| アニメーションのバリエーションを設定するための配列変数が用意されています。			|
+| 						| 休憩用のアニメーションシーケンスを `Sequence Player` で再生します。					|
+| 						| `Sequence Player` の出力が `Output Animation Pose` につながります。					|
 | `TurnInPlaceRotation`	| 旋回アニメーション再生中で Yaw が変化中の状態。										|
-| 						| 転換アニメーションを `Sequence Evaluator()` で再生します。							|
+| 						| 旋回アニメーションを `Sequence Evaluator` で再生します。								|
 | 						| バリエーションは ((1(しゃがみ) + 1(立ち)) * 2(左右)) = 4 枠の変数が用意されています。	|
-| 						| `Sequence Evaluator()` の出力が `OutputAnimationPose()` につながります。				|
+| 						| `Sequence Evaluator` の出力が `Output Animation Pose` につながります。				|
 | `TurnInPlaceRecovery`	| 旋回アニメーション再生中で Yaw が変化が終わった後の状態。								|
-| 						| そうでない場合は `TurnInPlaceRotation` で再生していたアニメーションを再生します。		|
-| 						| `Sequence Evaluator()` の出力が `OutputAnimationPose()` につながります。				|
+| 						| `TurnInPlaceRotation` で再生していたアニメーション引き続き再生します。				|
+| 						| `Sequence Player` の出力が `Output Animation Pose` につながります。					|
 
 状態遷移のルールは概ね以下のようになります。
 
@@ -376,20 +354,22 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 	* 下半身と上半身の向きが 50 度を超えていると移行します。
 * `TurnInPlaceRotation` -> `TurnInPlaceRecovery`
 	* `TurnInPlaceRotation` で再生したアニメーションの `root` の Yaw の回転が完了すると移行します。
+* `TurnInPlaceRecovery` -> `Idle`
+	* アニメーションシーケンスの再生が終わると移行します。
 
 #### 3.1.1.1 FullBody_IdleState > IdleSM > Idle (state) > IdleStance
 
-このステートマシンは、アイドル中の立ちとしゃがみのの状態制御を行います。  
-ステート名と状態の内容は以下の通りです。
+このステートマシンは、アイドル中の立ちとしゃがみの状態制御を行います。  
+ステートマシンが保持するステートの名と状態の内容は以下の通りです。
 
 | ステート名			| 状態の内容																			|
 |----					|----																					|
 | `Idle`				| 何も操作していない状態。																|
 | 						| バリエーションは (1(しゃがみ) + 1(立ち) + 1(ADS)) = 3 枠の変数が用意されています。	|
-| 						| `Sequence Player()` の出力が `OutputAnimationPose()` につながります。					|
+| 						| `Sequence Player` の出力が `Output Animation Pose` につながります。					|
 | `StanceTransition`	| 姿勢遷移状態。																		|
 | 						| バリエーションは (2(しゃがみ <-> 立ち)) = 2 枠の変数が用意されています。				|
-| 						| `Sequence Player()` の出力が `OutputAnimationPose()` につながります。					|
+| 						| `Sequence Player` の出力が `Output Animation Pose` につながります。					|
 
 状態遷移のルールは概ね以下のようになります。
 
@@ -403,19 +383,22 @@ TurnInPlace では 90 度振り向くアニメーションシーケンスを利�
 
 移動開始の状態で呼び出される関数です。
 
-Start Cycle Stop のステートは実装がかなり似通っています。
+このステートを含め、以下のステートは実装がかなり似通っています。
+* [FullBody_StartState]
+* [FullBody_CycleState]
+* [FullBody_StopState]
 
 `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **移動開始** のアニメーションのいずれかを基本とし、  
-再生位置には **距離マッチング**  (ノード `Advance Time by Distance Matching`) を用いて算出し、  
+再生位置は **距離マッチング**  (`Advance Time by Distance Matching`) を用いて算出し、  
 発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドし、  
 **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  
-**ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `OutputPose()` につながります。
+**ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `Output Pose` につながります。
 
 処理毎にもう少し補足を入れると以下のようになります。
 
 1. 基本となるアニメーションシーケンスの決定
 	* バリエーションは ((1(しゃがみ) + 1(立ち) + 1(ADS)) * 4(方向))= 12 枠の変数が用意されています。
-	* 再生位置はノード `Advance Time by Distance Matching()` を利用し設定します。	
+	* 再生位置は `Advance Time by Distance Matching` を利用し設定します。	
 	* これは **距離マッチング** と呼ばれる、アニメーションの再生レートを移動距離に合わせる手法です。
 		> **Note**  
 		> * パラメータ `Distance Curve Name`
@@ -431,19 +414,19 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 	* 再生位置は 0 固定です。
 		> **Note**  
 		> このポーズは発砲直後しばらくは銃を前方に構えたままにするのに利用しています。
-3. 1 と 2 をノード `LayeredBlendPerBone()` でブレンド
+3. 1 と 2 を `Layered blend per bone` でブレンド
 	* 1 を Base Pose 、 2 を Blend Pose とします。
 	* `Blend Mode` を `Blend Mask` 、`Blend Masks` に `UpperBodyMask` を指定します
 	* `Blend Masks` の `UpperBodyMask` は `spine_01` から先だけウェイトが設定されており、つまりは上半身だけブレンドします。
-4. 3 の出力を `OrientationWarping()` に通します。
+4. 3 の出力を `Orientation Warping` に通します。
 	* これは **オリエンテーション ワープ** と呼ばれる、動いている方向に合わせて下半身を回転させる手法です。
-5. 4 の出力を `StrideWarping()` に通します。
+5. 4 の出力を `Stride Warping` に通します。
 	* これは **ストライド ワーピング** と呼ばれる、速度に合わせて歩幅を調整する手法です。
 		> **Note**  
 		> * パラメータ `Alpha`
 		> 	* `経過時間が 0.15 秒までは 0.0 で、 0.20 秒にかけて 1.0` になるように実装されています。  
 		> 	* これにより、歩き始めた直後は **距離マッチング** を、ジョグステートに近づくにつれて **ストライド ワーピング** を使用しています。  
-6. 5 の出力が `OutputPose()` につながります。
+6. 5 の出力が `Output Pose` につながります。
 
 
 ### 3.2.1 移動速度についての考察
@@ -468,7 +451,7 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 		|----					|----					|----					|
 		| Max Walk Speed		| 600					| 20					|
 		| Min Analog Walk Speed	| 200					| 6.66					|
-	* 最高速については 600 &#91;cm / s&#93; で考えればよいです。  
+	* 最高速については 600 &#91;cm / s&#93; で考えます。  
 	* 最低速については、 Min Analog Walk Speed は Tooltips に以下のように記載されています。
 		> the ground speed that we should accelerate up to when walking at minimum analog stick tilt.
 		> 
@@ -477,14 +460,13 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 	* アナログスティックを最小に入力し続けたときの上限なので、入力開始直後はもっと低い値となります。
 * アニメーションシーケンスの設定
 	* 使用するアニメーションシーケンスの例として、 `MM_Pistol_Jog_Fwd_Strat` の場合でを見てみましょう。  
-	* `MM_Pistol_Jog_Fwd_Strat` のアニメーションカーブ `Distance` の 0 フレーム付近の値の変化は以下のようになっています。
-		| フレーム(30fps)	| 起点からの移動量	| フレーム間の移動量	| 速度	|
-		|----				|----				|---					|----	|
-		| 0					| -0.439			|						|		|
-		| 1					| 0.146				| 0.585					| 17.55	|
-		| 2					| 2.147				| 2.001					| 60.03 |
-		| 3					| 5.471				| 3.324					| 99.72 |
-	* 0 ～ 1 フレーム間の速度が `17.55` で、時間経過とともに上がっていきます。
+	* このアセットのアニメーションカーブ `Distance` の 0 フレーム付近の値の変化は以下のようになっています。
+		| フレーム(30fps)	| `Distance` の値	|
+		|----				|----				|
+		| 0					| -0.439			|
+		| 1					| 0.146				|
+		| 2					| 2.147				|
+		| 3					| 5.471				|
 * 確認すべき経過時間
 	* 処理が切り替わるタイミングはフレーム換算すると以下のようになります。
 		* 0.15 秒 は 30 fps の 4.5 フレーム
@@ -494,10 +476,8 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 		> **ストライド ワーピング** のパラメータ `Alpha` = (t - 0.15) * 20
 	* 下限クランプ値は上記の値に依存し、以下のように変化します。
 		> 下限クランプ値 = (0.6 - 0.2) * (**ストライド ワーピング** のパラメータ `Alpha`) + 0.2  
-		> 置き換えると  
-		> 下限クランプ値 = (0.6 - 0.2) * ((t - 0.15) * 20) + 0.2
-		> 定数部分を計算して  
-		> 下限クランプ値 = 8 * t - 1
+		> = (0.6 - 0.2) * ((t - 0.15) * 20) + 0.2
+		> = 8 * t - 1
 	* 表にすると以下のようになります。
 		| 時間(フレーム)	| 時間(秒)			| 下限クランプ値	|
 		|----				|----				|----				|
@@ -514,12 +494,15 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 * 経過時間に依らず移動速度が極端に速い場合
 
 > **Warning**  
-> 実装を元にした内容ではなく、(データやコメントや動きを元にまとめた内容のため、参考程度に考えてください。
+> 実装を元にした内容ではなく、データやコメントや動きを元にまとめた内容のため、参考程度に考えてください。
 
 
 #### 3.2.1.1 極端に移動速度が遅い場合
 
 0.15 秒までの間、各フレームでアニメーションシーケンスのどこまで進んでいるかを考えます。
+
+仮に、極端に遅い移動速度を 0.3 とします。  
+移動速度 0.3 を 30 fps でのフレーム毎の移動量に換算すると 0.001 となるので、毎フレーム 0.001 ずつ増えていきます。
 
 | 時間(フレーム)	| 起点からの移動量	| アニメーションシーケンスの位置(フレーム)	| 前フレームからの再生レート	| アニメーション上の起点からの移動量	|
 |----				|----				|----										|----							|----									|
@@ -530,11 +513,6 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 | 4					| 0.004				| 1.550(下限補正前は 0.929)					| 0.200							| 1.246									|
 | 5					| 0.005				| 1.750(下限補正前は 0.929)					| 0.200							| 1.646									|
 
-> **Note**  
-> * 起点からの移動量
-> 	* 仮に、極端に遅い移動速度を 0.3 とします。
-> 	* 移動速度 0.3 を 30 fps でのフレーム毎の移動量に換算すると 0.001 となるので、毎フレーム 0.001 ずつ増えていきます。
-
 移動速度が 0.3 の場合、 5 フレーム目の (0.15 秒を過ぎた) 段階で、アニメーションのポーズとキャラクターの移動量の差は 1.646 - 0.005 = 1.641 となります。  
 
 1 程度の差なので、気にする必要はないでしょう。
@@ -543,6 +521,8 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 #### 3.2.1.2 移動速度が下限の場合
 
 0.2 秒までの間、各フレームでアニメーションシーケンスのどこまで進んでいるかを考えます。
+
+移動速度 10 を 30 fps でのフレーム毎の移動量に換算すると 0.333 となるので、毎フレーム 0.333 ずつ増えていきます。
 
 | 時間(フレーム)	| 起点からの移動量	| アニメーションシーケンスの位置(フレーム)	| 前フレームからの再生レート	| アニメーション上の起点からの移動量	|
 |----				|----				|----										|----							|----									|
@@ -554,18 +534,16 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 | 5					| 1.667				| 2.029(下限補正前は 1.760)					| 0.336							| 2.243									|
 | 6					| 2.000				| 2.629(下限補正前は 1.926)					| 0.600							| 4.239									|
 
-> **Note**  
-> * 起点からの移動量
-> 	* 移動速度 10 を 30 fps でのフレーム毎の移動量に換算すると 0.333 となるので、毎フレーム 0.333 ずつ増えていきます。
-
-移動速度が 10 の場合、 6 フレーム目の (0.20 秒の) 段階で、アニメーションのポーズとキャラクターの移動量の差は 4.239 - 2.000 = 2.239 となります。  
+6 フレーム目の (0.20 秒の) 段階で、アニメーションのポーズとキャラクターの移動量の差は 4.239 - 2.000 = 2.239 となります。  
 その後のアニメーションシーケンス側の移動量は増えていくため、その差はどんどん広がります。  
-ですが 0.2 秒の段階で、 **ストライド ワーピング** のパラメータ `Alpha` が `1.0` となるため、気にする必要はないでしょう。
+ですが 0.2 秒の段階で、 **ストライド ワーピング** のパラメータ `Alpha` が `1.0` となり、以降はそちらに頼ることになります。
 
 
 #### 3.2.1.3 移動速度が極端に速い場合
 
 アニメーション開始直後、各フレームでアニメーションシーケンスのどこまで進んでいるかを考えます。
+
+移動速度 600 を 30 fps でのフレーム毎の移動量に換算すると 20 となるので、毎フレーム 20 ずつ増えていきます。
 
 | 時間(フレーム)	| 起点からの移動量	| アニメーションシーケンスの位置(フレーム)	| 前フレームからの再生レート	| アニメーション上の起点からの移動量	|
 |----				|----				|----										|----							|----									|
@@ -575,25 +553,20 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 | 3					| 60				| 9.498										| 1.729							| 60									|
 | 4					| 80				| 10.972									| 1.474							| 80									|
 
-> **Note**  
-> * 起点からの移動量
-> 	* 移動速度 600 を 30 fps でのフレーム毎の移動量に換算すると 20 となるので、毎フレーム 20 ずつ増えていきます。
-
 アニメーションの移動速度はアニメーション開始時が最もが遅くなっています。  
-移動速度が 600 の場合でも、再生レートが上限の `5.0` を超えることはなく、問題なく動作します。
+移動速度が 600 の場合でも、再生レートが上限の `5.0` を超えることはなく、問題なく動作します。  
 
 
 ## 3.3 FullBody_CycleState
 
 移動中の状態で呼び出される関数です。
 
-Start Cycle Stop のステートは実装がかなり似通っています。
+このステートは [FullBody_StartState] と実装がかなり似通っているので詳細はそちらを確認してください。
 
 `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **移動** のアニメーションのいずれかを基本とし、  
 発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドし、  
 **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  
-**ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `OutputPose()` につながります。
-
+**ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `Output Pose` につながります。  
 **ストライド ワーピング** のパラメータ `Alpha` は通常は `1.0` で、壁に向かって移動すると `0.5` になるように実装されています。
 
 
@@ -601,11 +574,12 @@ Start Cycle Stop のステートは実装がかなり似通っています。
 
 移動終了の状態で呼び出される関数です。
 
-Start Cycle Stop のステートは実装がかなり似通っています。
+このステートは [FullBody_StartState] と実装がかなり似通っているので詳細はそちらを確認してください。
 
 `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **移動終了** のアニメーションのいずれかを基本とし、  
-再生位置には **距離マッチング** (ノード `Distance Match to Target`)を用いて算出し、  
-発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `OutputPose()` につながります。
+再生位置は **距離マッチング** (`Distance Match to Target`)を用いて算出し、  
+発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `Output Pose` につながります。  
+このステートでは [FullBody_StartState] と異なり、 **オリエンテーション ワープ** と **ストライド ワーピング** は使用しません。
 
 
 ## 3.5 FullBody_PivotState
@@ -614,24 +588,22 @@ Pivot (移動方向を逆方向に変更する) の状態で呼び出される�
 
 しゃがみ、立ち、 ADS の Pivot 処理が行われます。  
 ステートマシン [FullBody_PivotState > PivotSM] の出力に
-発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `OutputPose()` につながります。
+発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `Output Pose` につながります。
 
 
 ### 3.5.1 FullBody_PivotState > PivotSM
 
 このステートマシンは、 Pivot の状態制御を行います。  
-> **Note**  
-> Pivot は ベロシティとアクセラレーションが反対方向でトリガーされます。
 
 Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA / PivotB から成ります。  
-ステート名と状態の内容は以下の通りです。
+ステートマシンが保持するステートの名と状態の内容は以下の通りです。
 
 | ステート名			| 状態の内容																												|
 |----					|----																														|
 | `PivotA`				| Pivot を行っている状態。																									|
-| 						| `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **ピボット** の	アニメーションのいずれかを基本とます。	|
-| 						| `Sequence Evaluator()` の出力に **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  		|
-| 						| **ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `OutputAnimationPose()` につながります。				|
+| 						| `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **ピボット** の	アニメーションのいずれかを基本とし、	|
+| 						| `Sequence Evaluator` の出力に **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  			|
+| 						| **ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `Output Animation Pose` につながります。				|
 | `PivotB`				| 同上。																													|
 
 状態遷移のルールは概ね以下のようになります。
@@ -647,11 +619,11 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 	* 再生するアニメーションはステート開始時に決定しますが、最初の 0.2 秒間に移動方向が変わった場合、変更後のアニメーションに切り替えるよう実装されています。
 		> **Note**  
 		> 例えば、前から後に Pivot し、 0.2 秒以内に右に移動すると、 Pivot アニメーションが右用のものに変わっていることが確認できると思います。  
-		> （右 Pivot は大きく左足を開くので見分けやすい）  
+		> （右 Pivot は大きく左足を開くので `Rewind Debugger` 等を使わなくても見分けやすい）  
 * 方向転換前
-	* 方向転換点に近づいている状況なので、距離マッチングにはノード `Distance Match to Target` を使用します。
+	* 方向転換点に近づいている状況なので、**距離マッチング**には `Distance Match to Target` を使用します。
 * 方向転換後
-	* 方向転換点から離れている状況なので、距離マッチングにはノード `Advance Time by Distance Matching` を使用します。
+	* 方向転換点から離れている状況なので、**距離マッチング**には `Advance Time by Distance Matching` を使用します。
 		> **Note**  
 		> 要は Start ステートと同じような計算となります。  
 
@@ -666,22 +638,17 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 * [FullBody_JumpApexState]
 * [FullBody_FallLoopState]
 
-1 種（立ちやしゃがみなどのバリエーションを持たない）の **ジャンプ開始** のアニメーションを基本とし、`Sequence Player()` で再生し、  
-発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `OutputPose()` につながります。
+1 種（立ちやしゃがみなどのバリエーションを持たない）の **ジャンプ開始** のアニメーションを基本とし、`Sequence Player` で再生し、  
+発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `Output Pose` につながります。
 
 
 ## 3.7 FullBody_JumpStartLoopState
 
 ジャンプ上昇中の状態で呼び出される関数です。
 
-このステートを含め、以下のステートは実装がかなり似通っています。
-* [FullBody_JumpStartState]
-* [FullBody_JumpStartLoopState]
-* [FullBody_JumpApexState]
-* [FullBody_FallLoopState]
+このステートは [FullBody_JumpStartState] と実装がかなり似通っているので詳細はそちらを確認してください。
 
 使用するアニメーションが **ジャンプ上昇中** 用のものである以外はほぼ同じです。
-詳しくは [FullBody_JumpStartState] を参照してください。
 
 > **Note**  
 > ベロシティとアクセラレーションから計算した頂点までの距離が `0.4` 未満になると `JumpApexState` に遷移します。
@@ -691,41 +658,30 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 
 ジャンプ頂点付近の状態で呼び出される関数です。
 
-このステートを含め、以下のステートは実装がかなり似通っています。
-* [FullBody_JumpStartState]
-* [FullBody_JumpStartLoopState]
-* [FullBody_JumpApexState]
-* [FullBody_FallLoopState]
+このステートは [FullBody_JumpStartState] と実装がかなり似通っているので詳細はそちらを確認してください。
 
 使用するアニメーションが **ジャンプ頂点付近** 用のものである以外はほぼ同じです。
-詳しくは [FullBody_JumpStartState] を参照してください。
 
 
 ## 3.9 FullBody_FallLoopState
 
 ジャンプ落下中の状態で呼び出される関数です。
 
-このステートを含め、以下のステートは実装がかなり似通っています。
-* [FullBody_JumpStartState]
-* [FullBody_JumpStartLoopState]
-* [FullBody_JumpApexState]
-* [FullBody_FallLoopState]
+このステートは [FullBody_JumpStartState] と実装がかなり似通っているので詳細はそちらを確認してください。
 
 使用するアニメーションが **ジャンプ落下中** 用のものである以外はほぼ同じです。
-詳しくは [FullBody_JumpStartState] を参照してください。
 
 
 ## 3.10 FullBody_FallLandState
 
-ジャンプ着地付近の状態で呼び出される関数です。
+ジャンプ着地直前の状態で呼び出される関数です。
 
-1 種（立ちやしゃがみなどのバリエーションを持たない）の **ジャンプ着地付近** のアニメーションを基本とし、`Sequence Evaluator()` で再生し、  
-再生位置には **距離マッチング** (ノード `Distance Match to Target`)を用いて算出し、  
-発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `OutputPose()` につながります。
+1 種（立ちやしゃがみなどのバリエーションを持たない）の **ジャンプ着地直前** のアニメーションを基本とし、`Sequence Evaluator` で再生し、  
+再生位置は **距離マッチング** (`Distance Match to Target`)を用いて算出し、  
+発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `Output Pose` につながります。
 
 > **Note**  
-> 地面までの距離は [ULyraCharacterMovementComponent] で算出しています。  
-> この値を [ULyraAnimInstance] の `NativeUpdateAnimation()` のタイミングでキャッシュし、利用しています。
+> 地面までの距離は [ULyraCharacterMovementComponent] で算出した値を [ULyraAnimInstance] の `NativeUpdateAnimation()` のタイミングでキャッシュしているものを利用しています。
 
 
 ## 3.11 LeftHandPose_OverrideState
@@ -733,12 +689,12 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 左手のポーズを上書きするための処理を記述するための関数です。
 
 入力されたポーズを基本とし、
-1 種（立ちやしゃがみなどのバリエーションを持たない）のアニメーションを左手だけブレンドした結果が `OutputPose()` につながります。
+1 種（立ちやしゃがみなどのバリエーションを持たない）のアニメーションを左手だけブレンドした結果が `Output Pose` につながります。
 
 > **Note**  
 > * 設定用変数 `Enable Left Hand Pose Override` により、有効無効を切り替えられるようになっています。
 > 	* プロジェクト初期状態では無効になっています。
-> 	* 無効の場合、ノード `Layered blend per bone` のパラメータ `Blend Weights 0` が `0.0` となります。
+> 	* 無効の場合、 `Layered blend per bone` のパラメータ `Blend Weights 0` が `0.0` となります。
 > * ブレンドのウェイトはアニメーションカーブ `DisableLeftHandPoseOverride` を利用することで調整可能になっています。
 > 	* ですがこのアニメーションカーブを持つアニメーションは存在しません。
 > * Shotgun のみアニメーションの指定がされています。
@@ -748,52 +704,55 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 
 IK 等の処理を記述するための関数です。
 
-ノード `Hand IK Retargeting` で Manne と Quin の比率差による手の IK ボーンの制御を行い、  
-ノード `Copy Bone` で左手の IK ボーンの位置を武器用の仮想ボーンの位置に変更し、  
-（ Control Rig による足の位置調整を使用している場合はノード `Transform (modify) Bone` で腰の FK ボーンの位置調整をし、）  
-ノード `Two Bone IK` で左右の手の IK 制御を行い、
-ノード `Foot Placement` で 腰の FK ボーンと足の IK ボーンの制御を行い、
-ノード `Leg IK` で両足の IK 制御を行い、
-ノード `Transform (modify) Bone` で武器切替時などの武器のスケール調整を行った結果が `OutputPose()` につながります。
+`Hand IK Retargeting` で Manne と Quin の比率差による手の IK ボーンの制御を行い、  
+`Copy Bone` で左手の IK ボーンの位置を武器用の仮想ボーンの位置に変更し、  
+（ Control Rig による足の位置調整を使用している場合は `Transform (modify) Bone` で腰の FK ボーンの位置調整をし、）  
+`Two Bone IK` で左右の手の IK 制御を行い、
+`Foot Placement` で 腰の FK ボーンと足の IK ボーンの制御を行い、
+`Leg IK` で両足の IK 制御を行い、
+`Transform (modify) Bone` で武器切替時などの武器のスケール調整を行った結果が `Output Pose` につながります。
 
-* 既存のドキュメント
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Two Bone IK]
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Copy Bone]
-	* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > スケルトン > 仮想ボーン]
-	* [ぼっちプログラマのメモ > 2022/12/13 > 【UE5】UE5のアニメーションに関する新機能をサクッと試せるサンプルを公開しました！]
-	* [twitter > pafuhana1213 > 2022/10/18]
+既存のドキュメント
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Two Bone IK]
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Copy Bone]
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > スケルトン > 仮想ボーン]
+* [ぼっちプログラマのメモ > 2022/12/13 > 【UE5】UE5のアニメーションに関する新機能をサクッと試せるサンプルを公開しました！]
+* [twitter > pafuhana1213 > 2022/10/18]
 
 
 ## 3.13 FullBody_Aiming
 
 エイムの処理を記述するための関数です。
 
-渡されたポーズをベースポーズとし、ノード `AimOffset Player` を 2 つ使い、
-それらの出力をノード `Blend` でブレンドした結果が `OutputPose()` につながります。
+渡されたポーズをベースポーズとし、 `AimOffset Player` を 2 つ使い、
+それらの出力を `Blend` でブレンドした結果が `Output Pose` につながります。
 
 > **Note**  
 > * 二つのエイムオフセット
-> 	* 武器を構えたもの」と、「武器を構えずに頭の向きだけ変えるもの」です。
-> 	* 銃撃後の移動の際、両手を徐々に下げるような表現を行うためのものです。  
+> 	* 「武器を構えたもの」と、「非武装のもの（武器を構えずに頭の向きだけ変えるもの）」です。
+> 	* 銃撃せずに移動している際、両手を徐々に下げるような表現を行うためのものです。  
 > * ポーズキャッシュ `BasePose`
 > 	* 渡されたポーズを保存しています。
 > 	* 2 つのエイムオフセットのベースポーズとして利用します。
+
+既存のドキュメント
+* [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > エイム オフセットを作成する]
+	> Aim Offset アセットの作り方などがまとめられています。
 
 
 ## 3.14 FullBodyAdditives
 
 加算用のポーズを返す処理を記述するための関数です。
 
-しゃがみ、立ち、 ADS の Pivot 処理が行われます。  
-ステートマシン [FullBodyAdditives > FullBodyAdditive_SM] の出力が `OutputPose()` につながります。
+ステートマシン [FullBodyAdditives > FullBodyAdditive_SM] の出力が `Output Pose` につながります。
 
 
 ### 3.14 FullBodyAdditives > FullBodyAdditive_SM
 
 このステートマシンは、着地時の状態制御を行います。  
 
-ステート名と状態の内容は以下の通りです。
+ステートマシンが保持するステートの名と状態の内容は以下の通りです。
 
 | ステート名			| 状態の内容																												|
 |----					|----																														|
@@ -802,9 +761,9 @@ IK 等の処理を記述するための関数です。
 | `AirIdentity`			| 空中にいる状態。																											|
 | 						| 何も返しません。																											|
 | `LandRecovery`		| 地上に着いた直後の状態。																									|
-| 						| ノード `AdditiveIdentityPose()` を使用してデフォルトの加算ポーズを基本とし、												|
-| 						| 1 種（立ちやしゃがみなどのバリエーションを持たない）の **着地復帰** のアニメーションを `Sequence Player()` で再生し、  	|
-| 						| ノード `Blend` でブレンドした結果が `OutputAnimationPose()` につながります。												|
+| 						| `Additive Identity Pose` のデフォルトの加算ポーズを基本とし、																|
+| 						| 1 種（立ちやしゃがみなどのバリエーションを持たない）の **着地復帰** のアニメーションを `Sequence Player` で再生し、  		|
+| 						| `Blend` でブレンドした結果が `Output Animation Pose` につながります。														|
 
 状態遷移のルールは概ね以下のようになります。
 
@@ -817,7 +776,7 @@ IK 等の処理を記述するための関数です。
 
 `LandRecovery` ステート内の処理についてもう少し補足します。  
 
-* ノード `Blend` のパラメータ `Alpha`
+* `Blend` のパラメータ `Alpha`
 	* 以下のような値の変化をします。
 		| 経過時間	| 立ちの場合	| しゃがみの場合	|
 		|----		|----			|----				|
@@ -827,66 +786,46 @@ IK 等の処理を記述するための関数です。
 	* 0.4 秒で最大値となり以降はその値を維持します。
 
 
-
-
-
-
-
-
-
-
-
-TODO: このへんから
-書式統一の見直し。
-
-
-
-
 # 終わりに
 
-数が多く、命名ミスと思われるものがいくつかありますが、概ね一定のルールに沿って作られているのがわかると思います。  
-オリジナルの武器を追加する際等の参考になれば幸いです。
+どこで何をやっているかを中心にまとめました。  
+そのため、やってることが多いところは重めになています。  
+具体的には移動開始 [FullBody_StartState] や ピボット [FullBody_PivotState] 、 IK 関連 [FullBody_SkeletalControls] あたりです。  
+反対に、やっていることを実現するための変数や関数などは（わかりやすくするのも難しく、きりもないので）解説を省略しています。
+なにかの参考になれば幸いです。
+
 
 -----
 おしまい。
 
 
-
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Title:Hand IK Retargeting]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-hand-ik-retargeting-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Copy Bone]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-copy-bone-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > スケルトン > 仮想ボーン]: https://docs.unrealengine.com/5.1/ja/virtual-bones-in-unreal-engine/
-[twitter > pafuhana1213 > 2022/10/18]: https://twitter.com/pafuhana1213/status/1582043354103021569
-[ぼっちプログラマのメモ > 2022/12/13 > 【UE5】UE5のアニメーションに関する新機能をサクッと試せるサンプルを公開しました！]: https://pafuhana1213.hatenablog.com/entry/2022/12/13/000758
-
-
-[Unreal Engine Forum > Update to UE5.1 have anim layer bug]: https://forums.unrealengine.com/t/update-to-ue5-1-have-anim-layer-bug/693524
-
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > Animation Modifier]: https://docs.unrealengine.com/5.1/ja/animation-modifiers-in-unreal-engine/
-
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E6%89%80%E5%AE%9A%E3%81%AE%E4%BD%8D%E7%BD%AE%E3%81%A7%E3%81%AE%E6%97%8B%E5%9B%9E
-
-[Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]: https://docs.unrealengine.com/5.1/ja/using-animation-blueprint-linking-in-unreal-engine/
-
-[技術ブログ > Lyra アニメーションを UE5 ゲームに適応する方法について]: https://www.unrealengine.com/ja/tech-blog/adapting-lyra-animation-to-your-ue5-game
-
-[ぼっちプログラマのメモ > 2022/12/12 > 【UE5】UE5からの新機能「Distance Matching」を使ってみよう！（サンプル配布あり）]: https://pafuhana1213.hatenablog.com/entry/2022/12/12/204036
-
 <!-- links -->
 
 <!--- ページ内のリンク --->
-[0. 参考]: #0-参考
-[2. Anim Node の Tag と Anim Node Reference ノード]: #2-anim-node-の-tag-と-anim-node-reference-ノード
-[3. 所定の位置での旋回(TurnInPlace)]: #3-所定の位置での旋回turninplace
-[3.1. 仕組み]: #31-仕組み
-[3.2. TurnYawAnimModifier]: #32-turnyawanimmodifier
-[AnimGrap とアニメーションレイヤーの解説]: #animgrap-とアニメーションレイヤーの解説
-
+[FullBody_IdleState]: #31-fullbodyidlestate
+[FullBody_IdleState > IdleSM]: #311-fullbodyidlestate--idlesm
+[FullBody_IdleState > IdleSM > Idle (state) > IdleStance]: #3111-fullbodyidlestate--idlesm--idle-state--idlestance
+[FullBody_StartState]: #32-fullbodystartstate
+[FullBody_CycleState]: #33-fullbodycyclestate
+[FullBody_StopState]: #34-fullbodystopstate
+[FullBody_PivotState]: #35-fullbodypivotstate
+[FullBody_PivotState > PivotSM]: #351-fullbodypivotstate--pivotsm
+[FullBody_JumpStartState]: #36-fullbodyjumpstartstate
+[FullBody_JumpStartLoopState]: #37-fullbodyjumpstartloopstate
+[FullBody_JumpApexState]: #38-fullbodyjumpapexstate
+[FullBody_FallLoopState]: #39-fullbodyfallloopstate
+[FullBody_FallLandState]: #310-fullbodyfalllandstate
+[LeftHandPose_OverrideState]: #311-lefthandposeoverridestate
+[FullBody_SkeletalControls]: #312-fullbodyskeletalcontrols
+[FullBody_Aiming]: #313-fullbodyaiming
+[FullBodyAdditives]: #314-fullbodyadditives
+[FullBodyAdditives > FullBodyAdditive_SM]: #314-fullbodyadditives--fullbodyadditivesm
 
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
+[1.2. 所定の位置での旋回(TurnInPlace)]: #12-turninplace
+[1.2.2. TurnYawAnimModifier]: #122-turnyawanimmodifier
 [ABP_ItemAnimLayersBase]: CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md#abpitemanimlayersbase
 [ABP_Mannequin_Base]: CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md#abpmannequinbase
 [ALI_ItemAnimLayers]: CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md#aliitemanimlayers
@@ -907,7 +846,6 @@ TODO: このへんから
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション ノードのリファレンス > スケルタル制御 > Two Bone IK]: https://docs.unrealengine.com/5.1/ja/animation-blueprint-two-bone-ik-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > Animation Blueprint Linking を使用する]: https://docs.unrealengine.com/5.1/ja/using-animation-blueprint-linking-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > エイム オフセットを作成する]: https://docs.unrealengine.com/5.1/ja/creating-an-aim-offset-in-unreal-engine/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーションのワークフロー ガイドと例 > レイヤー化されたアニメーションを使用する]: https://docs.unrealengine.com/5.1/ja/using-layered-animations-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/
 [Unreal Engine 5.1 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra のアニメーション > 所定の位置での旋回]: https://docs.unrealengine.com/5.1/ja/animation-in-lyra-sample-game-in-unreal-engine/#%E6%89%80%E5%AE%9A%E3%81%AE%E4%BD%8D%E7%BD%AE%E3%81%A7%E3%81%AE%E6%97%8B%E5%9B%9E
 [ぼっちプログラマのメモ > 2022/12/12 > 【UE5】UE5からの新機能「Distance Matching」を使ってみよう！（サンプル配布あり）]: https://pafuhana1213.hatenablog.com/entry/2022/12/12/204036
