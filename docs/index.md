@@ -203,6 +203,7 @@
 			- [UUIExtensionSubsystem]
 	- UE
 		- Animation
+			- [IAnimLayerInterface]
 			- [UAimOffsetBlendSpace]
 			- [UAnimDistanceMatchingLibrary]
 			- [UAnimGraphNode_OrientationWarping]
@@ -424,6 +425,7 @@
 [UK2Node_AsyncAction_ListenForGameplayMessages]: ./CodeRefs/Plugin/GameplayMessageSubsystem/UK2Node_AsyncAction_ListenForGameplayMessages.md
 [UUIExtensionPointWidget]: ./CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md
 [UUIExtensionSubsystem]: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md
+[IAnimLayerInterface]: ./CodeRefs/UE/Animation/IAnimLayerInterface.md
 [UAimOffsetBlendSpace]: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace.md
 [UAnimDistanceMatchingLibrary]: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md
 [UAnimGraphNode_OrientationWarping]: ./CodeRefs/UE/Animation/UAnimGraphNode_OrientationWarping.md

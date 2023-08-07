@@ -2,6 +2,9 @@
 
 >> 詳細は未確認です。
 
+* 概要
+	* [IAnimLayerInterface] のインターフェイスの実装をしています。
+
 
 ### FullBodyAdditives
 ### FullBody_IdleState
@@ -23,4 +26,4 @@
 <!--- 自前の画像へのリンク --->
 
 <!--- generated --->
-
+[IAnimLayerInterface]: ../../UE/Animation/IAnimLayerInterface.md#ianimlayerinterface

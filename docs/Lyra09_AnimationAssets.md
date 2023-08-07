@@ -266,13 +266,13 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ## 4.1. 各 Animation Montage の参照元
 
-アニメーションモンタージュは以下のような場所から再生されます。
+Animation Montage は以下のような場所から再生されます。
 * GameplayAbility
 * GameplayCueNotify
 * キャラクターや武器のブループリント
 
 
-| 用途							| アニメーションモンタージュ									| アニメーションシーケンス									| Note	|
+| 用途							| Animation Montage												| Animation Sequence										| Note	|
 |----							|----															|----														|----	|
 | エモート用					| `AM_MF_Emote_FingerGuns`										| `MF_Emote_FingerGuns`										|		|
 | ダッシュ用					| `AM_MM_Dash_[Backward\|Forward\|Left\|Right]`					| `MM_Dash_[Backward\|Forward\|Left\|Right]`				|		|
@@ -300,7 +300,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > 	* `AM_MM_HitReact_Front_Lgt_04`
 > 	* `AM_MM_HitReact_Left_Lgt_01`
 > 	* `AM_MM_HitReact_Right_Lgt_01`
-> * *2. `_Additive` のバリエーションを持つアニメーションがいくつかあります。  
+> * *2. `_Additive` のバリエーションを持つ Animation Sequence がいくつかあります。  
 >	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
 >		> これを使わないと、空中にいるときにアニメーションがブレンドされません。
 >	* `_Additive` が付いている方は、地上に居る際の（下半身を含む）全身のブレンドをするためのものです。  
@@ -368,9 +368,9 @@ Animation Sequence と Pose Asset 、どちらも (男女 2) x (関節 7) x (左
 > **Note**  
 > * *1.	素材撮影用のもののようで、使用されていません。
 > * *2.	しゃがみ状態の転換用のものらしいですが、使用されていません。
-> * *3.	スポーン用のアニメーションらしいですが、使用されていません。
-> 	> スポーン用のアニメーションは `MM_Pistol_Spawn_Turn180` が使用されています。
-> * *4.	`MM_Pistol_Spawn_Turn180` は例外でスポーン時のアニメーションとして利用しています。
+> * *3.	スポーン用のものらしいですが、使用されていません。
+> 	> スポーン用のものは `MM_Pistol_Spawn_Turn180` が使用されています。
+> * *4.	`MM_Pistol_Spawn_Turn180` は例外でスポーン時に利用しています。
 
 
 # 終わりに

@@ -203,6 +203,7 @@ nav:
         - UUIExtensionSubsystem: ./CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem
     - UE:
       - Animation:
+        - IAnimLayerInterface: ./CodeRefs/UE/Animation/IAnimLayerInterface
         - UAimOffsetBlendSpace: ./CodeRefs/UE/Animation/UAimOffsetBlendSpace
         - UAnimDistanceMatchingLibrary: ./CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary
         - UAnimGraphNode_OrientationWarping: ./CodeRefs/UE/Animation/UAnimGraphNode_OrientationWarping

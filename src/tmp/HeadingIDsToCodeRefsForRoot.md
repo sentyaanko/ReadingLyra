@@ -781,6 +781,7 @@
 [UUIExtensionPointWidget]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidget
 [UUIExtensionPointWidget::ExtensionPointTag]: CodeRefs/Plugin/UIExtension/UUIExtensionPointWidget.md#uuiextensionpointwidgetextensionpointtag
 [UUIExtensionSubsystem]: CodeRefs/Plugin/UIExtension/UUIExtensionSubsystem.md#uuiextensionsubsystem
+[IAnimLayerInterface]: CodeRefs/UE/Animation/IAnimLayerInterface.md#ianimlayerinterface
 [UAimOffsetBlendSpace]: CodeRefs/UE/Animation/UAimOffsetBlendSpace.md#uaimoffsetblendspace
 [UAnimDistanceMatchingLibrary]: CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibrary
 [UAnimDistanceMatchingLibrary::AdvanceTimeByDistanceMatching()]: CodeRefs/UE/Animation/UAnimDistanceMatchingLibrary.md#uanimdistancematchinglibraryadvancetimebydistancematching

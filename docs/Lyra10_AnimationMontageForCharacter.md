@@ -1,7 +1,7 @@
 # 【UE5】Lyra に学ぶ(10) AnimationMontage for Character <!-- omit in toc -->
 
 UE5 の新しいサンプル [Lyra Starter Game] 。  
-キャラクター用のアニメーションモンタージュはどういった物があるのか、それらがどの様に使われているのかを見ていきます。  
+キャラクター用の Animation Montage はどういった物があるのか、それらがどの様に使われているのかを見ていきます。  
 
 * バージョン
 	* [Lyra Starter Game]
@@ -10,12 +10,12 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 # 1. 各 Animation Montage の参照元
 
-アニメーションモンタージュは以下のような場所から再生されます。
+Animation Montage は以下のような場所から再生されます。
 * GameplayAbility
 * GameplayCueNotify
 * キャラクターや武器のブループリント
 
-| アニメーションモンタージュ							| 参照元													| 用途			| Note	|
+| Animation Montage										| 参照元													| 用途			| Note	|
 |----													|----														|----			|----	|
 | `AM_MF_Emote_FingerGuns`								| `GA_Emote`												| エモート		|		|
 | `AM_MM_Dash_[Backward\|Forward\|Left\|Right]`			| `GA_Hero_Dash`											| ダッシュ		|		|
@@ -118,7 +118,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 >	> * `Lgt` のバリエーションが `[1-4]` あり、ほかは `1` のみです。
 >	> * `Med` のバリエーションが `[1-2]` あり、ほかは `1` のみです。
 > * *2.	`AM_MM_Shotgun_DryFire` は例外的に存在しません。
-> * *3. `_Additive` のバリエーションがあるアニメーションシーケンスがいくつかあります。  
+> * *3. `_Additive` のバリエーションがある Animation Sequence がいくつかあります。  
 >	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
 >		> ブレンドの際の `Layered blend per bone` のパラメータ `Blend Wights ` は常に 1.0 となります。  
 >		> そのため、地上、空中問わずにこのアニメーションの影響を受けます。  
@@ -224,7 +224,7 @@ enum EAdditiveAnimationType
 
 # 終わりに
 
-主にアニメーションモンタージュが他のアセット等とどの様に関わっているかのについてまとめました。  
+主に Animation Montage が他のアセット等とどの様に関わっているかのについてまとめました。  
 なにかの参考になれば幸いです。
 
 
