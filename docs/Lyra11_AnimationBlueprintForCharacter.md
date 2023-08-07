@@ -1,6 +1,6 @@
 # 【UE5】Lyra に学ぶ(11) AnimationBlueprint for Character <!-- omit in toc -->
 
-UE5 の新しいサンプル [Lyra Starter Game] 。  
+UE5 の新しい？サンプル [Lyra Starter Game] 。  
 このプロジェクトでキャラクター用の Animation Blueprint はどのようなものがあるのかを見ていきます。  
 話題に上げるのは概ね以下のものです。  
  * [ABP_Mannequin_Base]
