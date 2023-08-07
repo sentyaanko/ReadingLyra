@@ -54,67 +54,78 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 > **Note**  
 > * *1. `GA_Weapon_Fire::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
 > * *2. `GA_Melee::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
+>	> つまり、 `HitReact` 系は、実際に使われているのは以下のような状況ということです。
+>	> * `GCNL_Character_DamageTaken`  からのみ参照している。
+>	> * バリエーションは 4 方向分の `Med_01` と前方向の 3 つのバリエーション `Lgt_01` `Lgt_02` `Med_02` の合計 7 つ。
 > * *3. 回復アイテム使用時のアニメーションとして利用しています。
 > * *4. インタラクションで拾うアニメーションとして利用しています。
 
 
-# 2. アニメーションスロットについて(about Animation Slot)
+# 2. アニメーションスロットについて
 
 ## 2.1. Animation Slot の用途
 
-| Group			| Slot							| 用途																|
-|----			|----							|----																|
-| AdditiveGroup	| AdditiveHitReact				| 被ダメージ														|
-| DefaultGroup	| FullBodyAdditivePreAim		| 発砲																|
-| 				| UpperBody						| 武器装備、解除、近接攻撃、リロード、空打ち、投擲					|
-| 				| UpperBodyAdditive				| 同上																|
-| 				| FullBody						| 上記以外（エモート、ダッシュ、死亡、スポーン）					|
-| 				| DefaultSlot					| 未使用															|
-| 				| UpperBodyDynAdditive			| 未使用															|
-| 				| UpperBodyDynAdditiveBase		| 未使用															|
+| Group				| Slot							| 用途																|
+|----				|----							|----																|
+| `AdditiveGroup`	| `AdditiveHitReact`			| 被ダメージ														|
+| `DefaultGroup`	| `FullBodyAdditivePreAim`		| 発砲																|
+|					| `UpperBody`					| 武器装備、解除、近接攻撃、リロード、空打ち、投擲					|
+|					| `UpperBodyAdditive`			| 同上																|
+|					| `FullBody`					| 上記以外（エモート、ダッシュ、死亡、スポーン）					|
+|					| `DefaultSlot`					| 未使用															|
+|					| `UpperBodyDynAdditive`		| 未使用															|
+|					| `UpperBodyDynAdditiveBase`	| 未使用															|
 
-被ダメージ時のモンタージュ再生用だけグループが AdditiveGroup であり、 DefaultGroup とは独立して再生できるようになっています。  
-それ以外はすべて DefaultGroup に属しており、例えばリロード中にエモートをするとリロードのアニメーションが中断されます。
+被ダメージ時のモンタージュ再生用だけグループが `AdditiveGroup` です。  
+それ以外はすべて `DefaultGroup` に属しています。  
 
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション スロット] より引用。
+アニメーショングループについて、 [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション スロット] より引用。
 > スロット グループは整理するためだけのものではありません。  
 > すでに実行されているものと同じグループのスロットを使用するモンタージュをプレイするとき、アクティブであったアニメーションを停止します。  
 > この自動動作によりモンタージュを中断させることができます。  
 > たとえば、武器リロード モンタージュは、能力/近接攻撃モンタージュをプレイするために中断できます。  
 > 両方のモンタージュが、同じグループ内の各スロットでアニメーションをプレイしている場合、後のモンタージュが前のものを中断します。  
 
+つまり、被ダメージ時だけは `DefaultGroup` とは独立して再生できるようになっています。  
+また、被ダメージ時以外のすべてのモンタージュは別のモンタージュが再生されると中断されます。
+> 例: リロード中にエモートをするとリロードのアニメーションが中断されます。
+
 
 ## 2.2. Animation Montage から見た Animation Slot の使用状況
 
 | Animation Montage															| Slot						| Animation Sequence														| Note	|
 |----																		|----						|----																		|----	|
-| `AM_MM_HitReact_[Back\|Front\|Left\|Right]_[Lgt\|Med\|Hvy]_0[1-4]`		| AdditiveHitReact			| `MM_HitReact_[Back\|Front\|Left\|Right]_[Lgt\|Med\|Hvy]_0[1-4]`			| *1	|
-| `AM_MM_[Pistol\|Rifle\|Shotgun]_Fire`										| FullBodyAdditivePreAim	| `MM_[Pistol\|Rifle\|Shotgun]_Fire`										|		|
-| `AM_MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]`			| UpperBody					| `MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]`				| *2	|
-|																			| UpperBodyAdditive			| `MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]_Additive`	| *3	|
-| `AM_MM_Generic_Unequip`													| UpperBody					| `MM_Pistol_Equip`															| 		|
-|																			| UpperBodyAdditive			| `MM_Pistol_Equip_Additive`												| *3	|
-| `AM_MM_Rifle_GrenadeToss`													| UpperBody					| `MM_Rifle_GrenadeToss`													| *4	|
-|																			| UpperBodyAdditive			| `MM_Rifle_GrenadeToss_Additive`											| *3	|
-| `DropBomb_Montage`														| UpperBody					| `MM_Rifle_GrenadeToss`													| 		|
-| `AM_MF_Emote_FingerGuns`													| FullBody					| `MF_Emote_FingerGuns`														|		|
-| `AM_MM_Dash_[Backward\|Forward\|Left\|Right]`								| FullBody					| `MM_Dash_[Backward\|Forward\|Left\|Right]`								|		|
-| `AM_MM_Death_[Back\|Front\|Left\|Right]_01`								| FullBody					| `MM_Death_[Back\|Front\|Left\|Right]_01`									|		|
-| `AM_MM_Death_Front_0[2-3]`												| FullBody					| `MM_Death_Front_0[2-3]`													|		|
-| `AM_MM_Pistol_Spawn`														| FullBody					| `MM_Pistol_Spawn_Turn180`													| *5	|
-| `AM_MM_Dash_Forward_LoadingScreenStills`									| FullBody					| `MM_Dash_Forward_LoadingScreenStills`										|		|
+| `AM_MM_HitReact_[Back\|Front\|Left\|Right]_[Lgt\|Med\|Hvy]_0[1-4]`		| `AdditiveHitReact`		| `MM_HitReact_[Back\|Front\|Left\|Right]_[Lgt\|Med\|Hvy]_0[1-4]`			| *1	|
+| `AM_MM_[Pistol\|Rifle\|Shotgun]_Fire`										| `FullBodyAdditivePreAim`	| `MM_[Pistol\|Rifle\|Shotgun]_Fire`										|		|
+| `AM_MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]`			| `UpperBody`				| `MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]`				| *2	|
+|																			| `UpperBodyAdditive`		| `MM_[Pistol\|Rifle\|Shotgun]_[DryFire\|Equip\|Reload\|Melee]_Additive`	| *3	|
+| `AM_MM_Generic_Unequip`													| `UpperBody`				| `MM_Pistol_Equip`															| 		|
+|																			| `UpperBodyAdditive`		| `MM_Pistol_Equip_Additive`												| *3	|
+| `AM_MM_Rifle_GrenadeToss`													| `UpperBody`				| `MM_Rifle_GrenadeToss`													| *4	|
+|																			| `UpperBodyAdditive`		| `MM_Rifle_GrenadeToss_Additive`											| *3	|
+| `DropBomb_Montage`														| `UpperBody`				| `MM_Rifle_GrenadeToss`													| 		|
+| `AM_MF_Emote_FingerGuns`													| `FullBody`				| `MF_Emote_FingerGuns`														|		|
+| `AM_MM_Dash_[Backward\|Forward\|Left\|Right]`								| `FullBody`				| `MM_Dash_[Backward\|Forward\|Left\|Right]`								|		|
+| `AM_MM_Death_[Back\|Front\|Left\|Right]_01`								| `FullBody`				| `MM_Death_[Back\|Front\|Left\|Right]_01`									|		|
+| `AM_MM_Death_Front_0[2-3]`												| `FullBody`				| `MM_Death_Front_0[2-3]`													|		|
+| `AM_MM_Pistol_Spawn`														| `FullBody`				| `MM_Pistol_Spawn_Turn180`													| *5	|
+| `AM_MM_Dash_Forward_LoadingScreenStills`									| `FullBody`				| `MM_Dash_Forward_LoadingScreenStills`										|		|
 
 > **Note**  
 > * *1.	`[Lgt|Med|Hvy]` や `[1-4]` はバリエーションを表しますが、方向によっては存在しません。
->	> `Front` だけ以下のようにバリエーションが多くなっています。
+>	> つまり `Front` だけ以下のようにバリエーションが多くなっています。
 >	> * `Hvy` のバリエーションが `1` のみあり、ほかはありません。
 >	> * `Lgt` のバリエーションが `[1-4]` あり、ほかは `1` のみです。
 >	> * `Med` のバリエーションが `[1-2]` あり、ほかは `1` のみです。
 > * *2.	`AM_MM_Shotgun_DryFire` は例外的に存在しません。
 > * *3. `_Additive` のバリエーションがあるアニメーションシーケンスがいくつかあります。  
 >	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
+>		> ブレンドの際の `Layered blend per bone` のパラメータ `Blend Wights ` は常に 1.0 となります。  
+>		> そのため、地上、空中問わずにこのアニメーションの影響を受けます。  
 >		> これを使わないと、空中にいるときにアニメーションがブレンドされません。
 >	* `_Additive` が付いている方は、地上に居る際の（下半身を含む）全身のブレンドをするためのものです。  
+>		> ブレンドの際の `Apply Additive` のパラメータ `Alpha` は空中だとほぼ 0.0 となります。  
+>		> そのため、空中にいる間はこのアニメーションの影響をほぼ受けません。  
 >		> これを使わないと、下半身のアニメーションがブレンドされません。
 > * *4.	Rifle と付いていますが、武器に依らず同じアセットを使用しています。
 > * *5.	初期武器が Pistol 固定の為、他の武器用のバリエーションはありません。
@@ -144,7 +155,7 @@ UE5 の新しいサンプル [Lyra Starter Game] 。
 
 Additive Anim Type の説明を [Unreal Engine 4.27 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション シーケンス]  より引用します。
 > **Note**  
-> 5.1 のドキュメントから削除されているので 4.27 から引用しています。
+> 5.1 のドキュメントでは同等の内容が見つからなかったため、 4.27 から引用しています。
 
 > Additive Anim Type  
 > 
@@ -222,9 +233,6 @@ enum EAdditiveAnimationType
 
 
 <!-- links -->
-[Unreal Engine 4.27 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション シーケンス]: https://docs.unrealengine.com/4.27/ja/AnimatingObjects/SkeletalMeshAnimation/Sequences/
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット > メッシュ空間加算]: https://docs.unrealengine.com/5.1/ja/aim-offset-in-unreal-engine/#%E3%83%A1%E3%83%83%E3%82%B7%E3%83%A5%E7%A9%BA%E9%96%93%E5%8A%A0%E7%AE%97
-[Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション ブループリント > アニメーション スロット]: https://docs.unrealengine.com/5.1/ja/animation-slots-in-unreal-engine/
 
 <!--- ページ内のリンク --->
 
