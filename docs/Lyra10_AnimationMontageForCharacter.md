@@ -52,13 +52,13 @@ Animation Montage は以下のような場所から再生されます。
 | `AM_MM_Dash_Forward_LoadingScreenStills`				| 参照元なし												| 				|		|
 
 > **Note**  
-> * *1. `GA_Weapon_Fire::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
-> * *2. `GA_Melee::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
->	> つまり、 `HitReact` 系は、実際に使われているのは以下のような状況ということです。
->	> * `GCNL_Character_DamageTaken`  からのみ参照している。
->	> * バリエーションは 4 方向分の `Med_01` と前方向の 3 つのバリエーション `Lgt_01` `Lgt_02` `Med_02` の合計 7 つ。
-> * *3. 回復アイテム使用時のアニメーションとして利用しています。
-> * *4. インタラクションで拾うアニメーションとして利用しています。
+> * *1.	`GA_Weapon_Fire::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
+> * *2.	`GA_Melee::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
+> 	> つまり、 `HitReact` 系は、実際に使われているのは以下のような状況ということです。
+> 	> * `GCNL_Character_DamageTaken` からのみ参照している。
+> 	> * バリエーションは 4 方向分の `Med_01` と前方向の 3 つのバリエーション `Lgt_01` `Lgt_02` `Med_02` の合計 7 つ。
+> * *3.	回復アイテム使用時のアニメーションとして利用しています。
+> * *4.	インタラクションで拾うアニメーションとして利用しています。
 
 
 # 2. アニメーションスロットについて
@@ -113,20 +113,20 @@ Animation Montage は以下のような場所から再生されます。
 
 > **Note**  
 > * *1.	`[Lgt|Med|Hvy]` や `[1-4]` はバリエーションを表しますが、方向によっては存在しません。
->	> つまり `Front` だけ以下のようにバリエーションが多くなっています。
->	> * `Hvy` のバリエーションが `1` のみあり、ほかはありません。
->	> * `Lgt` のバリエーションが `[1-4]` あり、ほかは `1` のみです。
->	> * `Med` のバリエーションが `[1-2]` あり、ほかは `1` のみです。
+> 	> つまり `Front` だけ以下のようにバリエーションが多くなっています。
+> 	> * `Hvy` のバリエーションが `1` のみあり、ほかはありません。
+> 	> * `Lgt` のバリエーションが `[1-4]` あり、ほかは `1` のみです。
+> 	> * `Med` のバリエーションが `[1-2]` あり、ほかは `1` のみです。
 > * *2.	`AM_MM_Shotgun_DryFire` は例外的に存在しません。
-> * *3. `_Additive` のバリエーションがある Animation Sequence がいくつかあります。  
->	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
->		> ブレンドの際の `Layered blend per bone` のパラメータ `Blend Wights ` は常に 1.0 となります。  
->		> そのため、地上、空中問わずにこのアニメーションの影響を受けます。  
->		> これを使わないと、空中にいるときにアニメーションがブレンドされません。
->	* `_Additive` が付いている方は、地上に居る際の（下半身を含む）全身のブレンドをするためのものです。  
->		> ブレンドの際の `Apply Additive` のパラメータ `Alpha` は空中だとほぼ 0.0 となります。  
->		> そのため、空中にいる間はこのアニメーションの影響をほぼ受けません。  
->		> これを使わないと、下半身のアニメーションがブレンドされません。
+> * *3.	`_Additive` のバリエーションがある Animation Sequence がいくつかあります。  
+> 	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
+> 		> ブレンドの際の `Layered blend per bone` のパラメータ `Blend Wights ` は常に 1.0 となります。  
+> 		> そのため、地上、空中問わずにこのアニメーションの影響を受けます。  
+> 		> これを使わないと、空中にいるときにアニメーションがブレンドされません。
+> 	* `_Additive` が付いている方は、地上に居る際の（下半身を含む）全身のブレンドをするためのものです。  
+> 		> ブレンドの際の `Apply Additive` のパラメータ `Alpha` は空中だとほぼ 0.0 となります。  
+> 		> そのため、空中にいる間はこのアニメーションの影響をほぼ受けません。  
+> 		> これを使わないと、下半身のアニメーションがブレンドされません。
 > * *4.	Rifle と付いていますが、武器に依らず同じアセットを使用しています。
 > * *5.	初期武器が Pistol 固定の為、他の武器用のバリエーションはありません。
 
@@ -145,7 +145,7 @@ Animation Montage は以下のような場所から再生されます。
 	* これでエイムのアニメーションがブレンドされます。
 5. これに **AdditiveHitReact** を再生
 	* これで「被ダメージ」のアニメーションがブレンドされます。
-6. これに  [ABP_ItemAnimLayersBase] `> FullBodyAdditives` をブレンドします。
+6. これに [ABP_ItemAnimLayersBase] `> FullBodyAdditives` をブレンドします。
 	* これで着地時に、着地から通常状態に復帰するアニメーションがブレンドされます。
 7. これに **FullBody** を再生
 	* これで「エモート、ダッシュ、死亡、スポーン」のアニメーションがブレンドされます。
@@ -153,15 +153,15 @@ Animation Montage は以下のような場所から再生されます。
 
 ## 2.4. Animation Sequence の Additive Anim Type
 
-Additive Anim Type の説明を [Unreal Engine 4.27 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション シーケンス]  より引用します。
+Additive Anim Type の説明を [Unreal Engine 4.27 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション シーケンス] より引用します。
 > **Note**  
 > 5.1 のドキュメントでは同等の内容が見つからなかったため、 4.27 から引用しています。
 
 > Additive Anim Type  
 > 
 > The type of additive animation type to use:  
-> No Additive, Local Space or Mesh Space.   
-> Local space is additive and delta is calculated by local space.   
+> No Additive, Local Space or Mesh Space.  
+> Local space is additive and delta is calculated by local space.  
 > Mesh Space is additive and delta will be applied in component space.  
 > 
 > ----
@@ -215,10 +215,10 @@ enum EAdditiveAnimationType
 | `MM_Dash_Forward_LoadingScreenStills`										| None					| 		|
 
 > **Note**  
-> * *1. `MM_[Pistol|Rifle|Shotgun]_Fire` は Aim に関わるので Mesh Space が指定されています。
->  	> 詳しくは [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット > メッシュ空間加算] あたりを参照。
-> * *2. 被ダメージ用はすべて Local Space が指定されています。
-> * *3. `.+_Additive` はすべて Local Space が指定されています。
+> * *1.	`MM_[Pistol|Rifle|Shotgun]_Fire` は Aim に関わるので Mesh Space が指定されています。
+> 	> 詳しくは [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット > メッシュ空間加算] あたりを参照。
+> * *2.	被ダメージ用はすべて Local Space が指定されています。
+> * *3.	`.+_Additive` はすべて Local Space が指定されています。
 > * それら以外は None が指定されています。
 
 

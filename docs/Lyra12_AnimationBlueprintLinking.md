@@ -181,7 +181,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 Lyra では [ABP_Mannequin_Base] `> AnimGraph > LocomotionSM > Start (state)` に配置している [FullBody_StartState] のプロパティ Tag に `StartLayerNode` を設定しています。  
 この Tag を設定することでノード `StartLayerNode` が利用可能になり、 [ABP_Mannequin_Base] の `UpdateLocomotionStateMachine()` では、いくつかの関数を経て現在設定されている AnimLayer のリファレンスを取得しています。  
 このリファレンス先を毎フレームチェックすることで AnimLayer が変更されたかを変数に保存しています。  
-この変更されたかを示す変数は [ABP_Mannequin_Base]  `> AnimGraph > LocomotionSM`  内の複数のトランジションから参照されています。  
+この変更されたかを示す変数は [ABP_Mannequin_Base] `> AnimGraph > LocomotionSM` 内の複数のトランジションから参照されています。  
 
 この変数の利用箇所の例をあげると、 `Pivot` -> `Cycle` のトランジションがあります。  
 また、 AnimLayer が変わるタイミングの例をあげると、武器変更時があります。  
@@ -218,15 +218,15 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 	* これらが互いに打ち消し合うことで足が回転前の位置のまま滑らないようにしている
 * 下半身の向きを変える処理
 	* 事前の準備
-		* 90 度向きを変えるための、ルートボーンが回転を行う Animation Sequence を用意する
-		*  Animation Modifier  `TurnYawAnimModifier` を利用してフレームごとの回転を  Animation Curve `RemainingTurnYaw` にベイクする
+		* 90 度向きを変えるための、ルートモーションで回転を行う Animation Sequence を用意する
+		* Animation Modifier `TurnYawAnimModifier` を利用してフレーム毎の `root` の回転を Animation Curve `RemainingTurnYaw` にベイクする
 			> `TurnYawAnimModifier` については [1.2.2. TurnYawAnimModifier] を参照してください。
 	* 上半身だけ動かす範囲を超えた操作を行い、下半身の向きを変える必要がある場合は、上記のアニメーションを再生する
 	* アニメーション再生時、ルートボーンに与えていた回転と `AimOffset Player` のパラメータ `Yaw` の回転を Animation Curve の値だけ減じる
 
 > 例:  
-> 右 55 度の時点で右回転  Animation Sequence  を再生するとする場合、  Animation Sequence  の回転ごとに以下のような値が設定される。  
-> |  Animation Sequence の回転	| ルートボーン	| AimOffset の Yaw	|
+> 右 55 度の時点で右回転 Animation Sequence を再生するとする場合、 Animation Sequence の回転毎に以下のような値が設定される。  
+> | Animation Sequence の回転	| ルートボーン	| AimOffset の Yaw	|
 > | ----:						| ----:			| ----:				|
 > |  0							| -55			|  55				|
 > | 45							| -10			|  10				|
@@ -303,8 +303,8 @@ Animation Curve の内容は以下のようになります。
 | [FullBody_SkeletalControls]	| `AnimGraph`													|		|
 
 > **Note**  
-> * *1. 出力がそのままステートの出力となります。
-> * *2. 出力と Lean のブレンド結果がステートの出力となります。
+> * *1.	出力がそのままステートの出力となります。
+> * *2.	出力と Lean のブレンド結果がステートの出力となります。
 > * `LocomotionSM` はステートマシンです。
 > * `LocomotionSM > * (state)` はステートです。
 
@@ -387,7 +387,7 @@ Animation Curve の内容は以下のようになります。
 * [FullBody_StopState]
 
 `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **移動開始** のアニメーションのいずれかを基本とし、  
-再生位置は **距離マッチング**  (`Advance Time by Distance Matching`) を用いて算出し、  
+再生位置は **距離マッチング** (`Advance Time by Distance Matching`) を用いて算出し、  
 発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドし、  
 **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  
 **ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `Output Pose` につながります。
@@ -445,10 +445,10 @@ Animation Curve の内容は以下のようになります。
 
 * 移動速度
 	* `B_Hero_ShooterMannequin` の移動速度の設定は以下のようになっています。
-		| プロパティ名			| 値  &#91;cm / s&#93;	| 1 / 30 ごとの移動量	|
-		|----					|----					|----					|
-		| Max Walk Speed		| 600					| 20					|
-		| Min Analog Walk Speed	| 200					| 6.66					|
+		| プロパティ名			| 値 &#91;cm / s&#93;	| 1 / 30 毎の移動量	|
+		|----					|----					|----				|
+		| Max Walk Speed		| 600					| 20				|
+		| Min Analog Walk Speed	| 200					| 6.66				|
 	* 最高速については 600 &#91;cm / s&#93; で考えます。  
 	* 最低速については、 Min Analog Walk Speed は Tooltips に以下のように記載されています。
 		> the ground speed that we should accelerate up to when walking at minimum analog stick tilt.
@@ -600,7 +600,7 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 |----					|----																														|
 | `PivotA`				| Pivot を行っている状態。																									|
 | 						| `しゃがみ or 立ち or ADS` の状態と、 4 方向を掛け合わせた 12 種の **ピボット** の	アニメーションのいずれかを基本とし、	|
-| 						| `Sequence Evaluator` の出力に **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、  			|
+| 						| `Sequence Evaluator` の出力に **オリエンテーション ワープ** を用いて動いている方向に合わせて下半身を回転させ、			|
 | 						| **ストライド ワーピング** を用いて速度に合わせて歩幅を調整した結果が `Output Animation Pose` につながります。				|
 | `PivotB`				| 同上。																													|
 
@@ -760,7 +760,7 @@ IK 等の処理を記述するための関数です。
 | 						| 何も返しません。																											|
 | `LandRecovery`		| 地上に着いた直後の状態。																									|
 | 						| `Additive Identity Pose` のデフォルトの加算ポーズを基本とし、																|
-| 						| 1 種（立ちやしゃがみなどのバリエーションを持たない）の **着地復帰** のアニメーションを `Sequence Player` で再生し、  		|
+| 						| 1 種（立ちやしゃがみなどのバリエーションを持たない）の **着地復帰** のアニメーションを `Sequence Player` で再生し、		|
 | 						| `Blend` でブレンドした結果が `Output Animation Pose` につながります。														|
 
 状態遷移のルールは概ね以下のようになります。

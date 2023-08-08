@@ -13,7 +13,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 ## 0.1. 命名規則
 
 * 男性用 / 女性用でそれぞれ MM / MF と付きます。
-* 武器種ごとに別のアセットがある場合、 Pistol / Rifle/ Shotgun / Unarmed と付きます。
+* 武器種毎に別のアセットがある場合、 Pistol / Rifle/ Shotgun / Unarmed と付きます。
 * 武器種によらないものは武器名が省略されています。
 	* 例：ダッシュなど。
 * すべてアセットがあるわけではなく、用意されていないものは別の性別、武器種のものが設定されています。
@@ -25,7 +25,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 * 命名規則の表
 	* 命名規則の列はアセット名を正規表現にしたものです。
 * アセットの有無の表
-	* Pistol / Rifle/ Shotgun / Unarmed の列が武器種ごとのアセットの存在状況です。
+	* Pistol / Rifle/ Shotgun / Unarmed の列が武器種毎のアセットの存在状況です。
 		* 一文字目が男性用の情報、二文字目が女性用の情報です。
 		* M: 男性用がある
 		* F: 女性用がある
@@ -95,7 +95,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > * *1,2.	武器を持っている場合は上の、持っていない場合は下の命名規則のアセットを使用します。
 > * *3.	このプロパティが設定されているのは Shotgun 用の `ABP_ShotgunAnimLayers(_Feminine)?` のみです。
 
-## 1.2. 命名規則ごとのアセットの有無
+## 1.2. 命名規則毎のアセットの有無
 
 | 命名規則																					| Pistol	| Rifle	| Shotgun	| Unarmed	| Note	|
 |----																						|----		|----	|----		|----		|----	|
@@ -139,7 +139,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > * *1.	`Mf_Rifle_IdleBreak_Fidget` だけ命名規則に沿わずに `Mf` となっています。（おそらく命名ミス）
 > * *2.	`MM_Unarmed_Jog_Right_Pivot` だけアセットがなく、代わりに `MM_Unarmed_Jog_Pivot_Right` があります。（おそらく命名ミス）
 > * *3.	`MF_Pistol_Walk_Left_Start` だけアセットがありません。（おそらく作成漏れ）
-> * *4. `AO_MM_Rifle_Idle_ADS` だけ参照元がありません。	
+> * *4.	`AO_MM_Rifle_Idle_ADS` だけ参照元がありません。	
 
 
 # 2. Blend Space 1D から利用されているアセット
@@ -241,12 +241,12 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > * *1.	`Additive Setting > Preview Base Pose` で指定しています。
 > * *2.	命名規則から `MM_Rifle_Idle_Hipfire` を使うべきだと思いますが、 そうしていない理由は不明です。  
 > 	Editor Only の Preview 用のプロパティなのであまり気にする必要はないと思います。  
-> 	アセット名に ADS や Hipfire と付いていますが、現在の実装ではそれらとは特に関係していません。    
+> 	アセット名に ADS や Hipfire と付いていますが、現在の実装ではそれらとは特に関係していません。  
 > 	ADS 中と腰撃ち中に別のエイムオフセットを使うような実装はされていないので、実行時は状況によりプレビュー時とは異なる見た目になりえます。
 
 命名規則の `[LB|L|C|R|RB][U|C|D]` は `[左後|左|正面|右|右後][上|正面|下]` のバリエーションです。
 
-## 3.3. 命名規則ごとのアセットの有無
+## 3.3. 命名規則毎のアセットの有無
 
 | 命名規則																					| Pistol	| Rifle	| Shotgun	| Unarmed	| Note	|
 |----																						|----		|----	|----		|----		|----	|
@@ -257,7 +257,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 | `[MM\|MF]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_Ready_AO_[LB\|L\|C\|R\|RB][U\|C\|D]`		| --		| --	| --		| M-		|		|
 
 > **Note**  
-> * *1.	`MM_Rifle_Idle_ADS_AO_[LB|L|C|R|RB][U|C|D]` は（参照されていない  `AO_MM_Rifle_Idle_ADS` からしか利用されていないため）利用されていません。
+> * *1.	`MM_Rifle_Idle_ADS_AO_[LB|L|C|R|RB][U|C|D]` は（参照されていない `AO_MM_Rifle_Idle_ADS` からしか利用されていないため）利用されていません。
 > * *2.	`MF_Unarmed_Idle_Ready` は Aim Offset からは利用されていません。
 > 	> 非武装時のプロパティ `Idle ADS` などで利用されています。
 
@@ -294,13 +294,13 @@ Animation Montage は以下のような場所から再生されます。
 | 参照元なし					| `AM_MM_Dash_Forward_LoadingScreenStills`						| `MM_Dash_Forward_LoadingScreenStills`						|		|
 
 > **Note**  
-> * *1. 以下のアセットのバリエーションは参照元がなく、使用されていません。
+> * *1.	以下のアセットのバリエーションは参照元がなく、使用されていません。
 > 	* `AM_MM_HitReact_Back_Lgt_01`
 > 	* `AM_MM_HitReact_Front_Lgt_03`
 > 	* `AM_MM_HitReact_Front_Lgt_04`
 > 	* `AM_MM_HitReact_Left_Lgt_01`
 > 	* `AM_MM_HitReact_Right_Lgt_01`
-> * *2. `_Additive` のバリエーションを持つ Animation Sequence がいくつかあります。  
+> * *2.	`_Additive` のバリエーションを持つ Animation Sequence がいくつかあります。  
 >	* `_Additive` が付いていない方は、（地上に居るかに依らない）上半身のボーンのみをブレンドするためのものです。  
 >		> これを使わないと、空中にいるときにアニメーションがブレンドされません。
 >	* `_Additive` が付いている方は、地上に居る際の（下半身を含む）全身のブレンドをするためのものです。  
@@ -308,7 +308,7 @@ Animation Montage は以下のような場所から再生されます。
 > * *3.	初期武器が Pistol の為、他の武器用のバリエーションは使用していません。
 > * *4.	Rifle と付いていますが、武器に依らず同じアセットを使用しています。
 
-## 4.2. 命名規則ごとのアセットの有無
+## 4.2. 命名規則毎のアセットの有無
 
 | 命名規則																					| Pistol	| Rifle	| Shotgun	| Unarmed	| Note	|
 |----																						|----		|----	|----		|----		|----	|
@@ -340,7 +340,7 @@ Pose Asset は `ABP_[Manny|Quinn]_PostProcess` から利用されています。
 `ABP_[Manny|Quinn]_PostProcess` は、 `SKM_[Manny|Quinn]` のプロパティ `Post Process Anim Blueprint` で指定されています。　　
 用途は未確認です。
 
-## 5.2. 命名規則ごとのアセットの有無
+## 5.2. 命名規則毎のアセットの有無
 
 Animation Sequence と Pose Asset 、どちらも (男女 2) x (関節 7) x (左右 2) の 28 のバリエーションを持っています。
 

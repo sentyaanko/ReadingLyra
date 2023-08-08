@@ -114,7 +114,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 	* 具体的には `B_Hero_ShooterMannequin` 等の子アクター `B_Manny` / `B_Quinn` の Mesh コンポーネントのプロパティ `Mesh > Anim Class` にて利用しています。
 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess`
 	* Post Process Animation Blueprint として利用しています。
-	* 具体的には `SKM_Manny` / `SKM_Quinn` の `Skeltal Mesh  > Post Process Anim Blueprint` にて利用しています。
+	* 具体的には `SKM_Manny` / `SKM_Quinn` の `Skeltal Mesh > Post Process Anim Blueprint` にて利用しています。
 	* AnimGrap で使用しているノードは `Control Rig` と `Pose Driver` のみです。
 		* `Control Rig` は `CR_Mannequin_Procedural` を使用しています。
 		* `Pose Driver` は `Manny` / `Quinn` 毎のポーズアセット 14 種((4(腕) + 3(足)) x 2(左右) )を使用しています。
@@ -175,10 +175,10 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 * Control Rig
 	 * `CR_Mannequin_FootPlant`
 		 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
-			 > **Note**  
-			 > 床の位置に足をあわせるためのコントロールリグです。  
-			 > プロジェクト初期状態ではこちらは利用されていません。  
-			 > 代わりに `5.1` で追加された `Foot Placement` ノードを利用するようになっています。
+			> **Note**  
+			> 床の位置に足をあわせるためのコントロールリグです。  
+			> プロジェクト初期状態ではこちらは利用されていません。  
+			> 代わりに `5.1` で追加された `Foot Placement` ノードを利用するようになっています。
 	 * `CR_Mannequin_Procedural`
 		 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Control Rig` から直接参照しています。
 
