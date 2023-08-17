@@ -10,3 +10,4 @@
 [ReadingLyra > 【UE5】Lyra に学ぶ(10) AnimationMontage for Character]: ./Lyra10_AnimationMontageForCharacter.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(11) AnimationBlueprint for Character]: ./Lyra11_AnimationBlueprintForCharacter.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(12) Animation Blueprint Linking]: ./Lyra12_AnimationBlueprintLinking.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(13) Update5.2]: ./Lyra13_Update5.2_Overview.md
