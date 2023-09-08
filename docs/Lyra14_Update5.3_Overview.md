@@ -109,8 +109,8 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 	> * 同じ `.uplugin` の読み込みを何度も行わないように処理が変更されました。
 
 > **Note**  
-> `NativePointerMemberBehaviorOverride` について
-> 以下のリンクより引用
+> `NativePointerMemberBehaviorOverride` について  
+> 以下のリンクより引用  
 > https://docs.unrealengine.com/5.2/ja/unreal-engine-build-tool-target-reference/
 >> NativePointerMemberBehaviorOverride (Nullable)
 >> UCLASS と USTRUCT がネイティブ ポインタ メンバを持つことを許可するかどうかを制御する動作をオーバーライドするために使用されます。
@@ -146,7 +146,7 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 	> * パラメータ `r.DistanceFieldAO` を設定するセクションが `[ShadowQuality@0]` 等から `[GlobalIlluminationQuality@0]` などに変更されました。
 
 > **Note**  
-> `bSharedLinearTextureEncoding` について
+> `bSharedLinearTextureEncoding` について  
 > `Engine\Source\Runtime\Engine\Private\TextureEncodingSettingsPrivate.h` より
 > ```c++
 > 	// If true, platforms that want to take a linearly encoded texture and then tile them
@@ -300,7 +300,7 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 * Plugins/GameFeatures/ShooterCore/Content/Input/Configs/PMI_ShooterDefaultConfig_Gamepad.uasset
 * Plugins/GameFeatures/ShooterCore/Content/Input/Configs/PMI_ShooterDefaultConfig_KBM.uasset
 
-> * 未設定だったのが以下の項目が登録されるように変更されました。
+> * 以下の項目が追加されました。
 > 	* Native Input Actions
 > 		* IA_Move
 > 		* IA_Look_Mouse
@@ -573,7 +573,7 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 
 ### 7.1.1. `Release Notes` より
 
-以下のリンクに説明がある更新内容です。
+以下のリンクに説明がある更新内容です。  
 https://docs.unrealengine.com/5.3/ja/unreal-engine-5.3-release-notes/
 
 >> アビリティシステムが使用されている場合に、 UAbilitySystemGlobals::InitGlobalData が呼び出されるようにしました。  
@@ -585,7 +585,7 @@ https://docs.unrealengine.com/5.3/ja/unreal-engine-5.3-release-notes/
 
 ### 7.1.2. `Lyra Starter Game を最新エンジン リリースにアップグレードする` より
 
-以下のリンクに説明がある更新内容です。
+以下のリンクに説明がある更新内容です。  
 https://docs.unrealengine.com/5.3/en-US/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
 
 >> いくつかのオブジェクトポインタ変数が `TObjectPtr` を使用するように変更されました。
@@ -874,7 +874,7 @@ https://docs.unrealengine.com/5.3/en-US/upgrading-the-lyra-starter-game-to-the-l
 # 8. 終わりに
 
 公式ドキュメントでまとめられているとおり、新たに利用する機能が多く、その影響の修正もあちこちで発生しています。  
-ゲーム部分の変更は少なめだと思います。
+ゲームの実装だと、インタラクト関連の実装が増えそうな様子があるので今後に期待したいところです。  
 なにかの参考になれば幸いです。
 
 -----
