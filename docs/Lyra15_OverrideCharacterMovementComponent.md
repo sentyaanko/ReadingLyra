@@ -37,7 +37,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 	* 今回使用する実装はこちらの 10 番目の動画で紹介されている手法をベースにしています。
 	* ソースコードも github で公開されています。
 * https://github.com/sentyaanko/WallRunSample
-	* delgoodie 氏のソースコードを元に WallRun の部分だけ残し、少し手を入れたソースを置いています。
+	* delgoodie 氏のプロジェクトの WallRun の部分だけを参考にし、少し手を入れたソースを置いています。
 	* 今回はこれを利用する前提です。
 
 
@@ -53,17 +53,17 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > * Lyra の CharacterMovementComponent
 > 	* Lyra は `ULyraCharacterMovementComponent` という `UCharacterMovementComponent` の派生クラスが作られています。
 > 	* 今回用意した `ULyraWRCharacterMovementComponent` は上記のクラスを派生しています。
-> 	* Lyra は、アップデートが続くため、コンフリクトを避けるためにそうしています。
+> 	* Lyra はアップデートが続くため、コンフリクトを避けるためにそうしています。
 > 	* また、 `ULyraWRCharacterMovementComponent` は `ULyraCharacterMovementComponent` を基底クラスにしていますが、その機能は使用していません。
 > 	* 基底クラスを `UCharacterMovementComponent` に変更すれば、 Lyra 以外のプロジェクトでも使用可能です。
-> 	* 独自のプロジェクトでやる場合、すでにある CharacterMovementComponent にマージしてしまっても良いです。
+> 	* 独自のプロジェクトで利用する際に、すでに CharacterMovementComponent がある場合はマージしてしまっても良いです。
 
 ## 1.2. 使用する CharacterMovementComponent を変更する
 
 1. `B_Hero_ShooterMannequin` を開きます。
-2. Components ウィンドウ の `Character Movement(CharMoveComp)` を選びます。
+2. Components ウィンドウ の `Character Movement(CharMoveComp)` を選びます。  
 	![](images/15-1-2-1.png)
-3. Details ウィンドウの Component Class を `LyraWRCharacterMovementComponent` に変更します。
+3. Details ウィンドウの Component Class を `LyraWRCharacterMovementComponent` に変更します。  
 	![](images/15-1-2-2.png)
 
 > **Note**  
@@ -76,7 +76,8 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 これで、空中で壁に斜めに侵入するように移動すれば壁を移動できるようになります。
 
-<div><video controls src="videos/15-1.mp4" muted="false"></video></div>
+<div><video controls src="https://github.com/sentyaanko/ReadingLyra/assets/48474089/1c1dd75f-31ee-4a32-9442-89f19fd3c720" muted="false"></video></div>
+
 
 
 # 2. アニメーションアセットの用意
@@ -88,14 +89,14 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 ## 2.1. アニメーションモンタージュとブレンドスペースの作成
 
 * `MM_Pistol_Jump_Fall_Loop` を元に、_Back/_Left90/_Right90/_Left180/_Right180 の5種のアニメーションモンタージュを作成します。
-* _Back は後方の壁に、 _Left90/_Right90 は真横の壁に、 _Left180/_Right180 は前方の壁に足をつけているアニメーションにします。
+* _Back は後方の壁に、 _Left90/_Right90 は真横の壁に、 _Left180/_Right180 は前方の壁に足をつけているアニメーションにします。  
 	![](images/15-2-1-1.png)
-* ブレンドスペース 1D を一つ作ります。
+* ブレンドスペース 1D を一つ作ります。  
 	![](images/15-2-1-2.png)
 * アニメーションモンタージュを 5 個とそれを使ってブレンドスペース 1D を 1 個作ります。  
-* Axis Settings > Horizontal Axis の設定を以下のようにします。
+* Axis Settings > Horizontal Axis の設定を以下のようにします。  
 	![](images/15-2-1-3.png)
-* Blend Samples の設定を以下のようにします。
+* Blend Samples の設定を以下のようにします。  
 	![](images/15-2-1-4.png)
 
 
@@ -110,9 +111,9 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ## 3.1. ALI_ItemAnimLayers の変更
 
-* My Blueprint ウィンドウでアニメーションレイヤー `FullBody_WallRunState` を追加します。
+* My Blueprint ウィンドウでアニメーションレイヤー `FullBody_WallRunState` を追加します。  
 	![](images/15-3-1-1.png)
-* Details ウィンドウで他と同じ様に、グループを `ItemAnimLayers` に変更します。
+* Details ウィンドウで他と同じ様に、グループを `ItemAnimLayers` に変更します。  
 	![](images/15-3-1-2.png)
 
 ## 3.2. ABP_Mannequin_Base の変更
@@ -124,30 +125,30 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ### 3.2.1. WallRun の壁の法線のXY平面成分を取得する関数を用意
 
-* My Blueprints ウィンドウで関数 `GetWallRunNormal2D` を追加します。
+* My Blueprints ウィンドウで関数 `GetWallRunNormal2D` を追加します。  
 	![](images/15-3-2-1-1.png)
-* Details ウィンドウで Category を `WallRun` に、 Pure にチェックを入れ、 Outputs を追加し、名前を `ReturnValue` 、型を `Vector` にします。
+* Details ウィンドウで Category を `WallRun` に、 Pure にチェックを入れ、 Outputs を追加し、名前を `ReturnValue` 、型を `Vector` にします。  
 	![](images/15-3-2-1-2.png)
-* 出力のためのノードを組みます。
+* 出力のためのノードを組みます。  
 	![](images/15-3-2-1-3.png)
 
 ### 3.2.2. WallRun の状態を取得する関数を用意
 
 * My Blueprints ウィンドウで関数 `GetWallRunNormal2D` を複製し、 `GetWallRunStatus` を追加します。
 * Details ウィンドウで Outputs の型を `EWallRunStatus` にします。
-* 出力のためのノードを組みます。
+* 出力のためのノードを組みます。  
 	![](images/15-3-2-2-1.png)
 
 ### 3.2.3. LocomotionSM の変更
 
-* ステートエイリアス `WallRunSources` を追加し、 Details ウィンドウで `FallLand` 以外のチェックを入れます。
+* ステートエイリアス `WallRunSources` を追加し、 Details ウィンドウで `FallLand` 以外のチェックを入れます。  
 	![](images/15-3-2-3-1.png)
-* `WallRunSources` からつながる新しいステート `WallRun` を追加します。
+* `WallRunSources` からつながる新しいステート `WallRun` を追加します。  
 	![](images/15-3-2-3-2.png)
 * ステートエイリアス `JumpSources` の Details ウィンドウで `WallRun` のチェックを入れます。
-* ルール `WallRunSources to WallRun (rule)` を開き、遷移ルールを実装します。
+* ルール `WallRunSources to WallRun (rule)` を開き、遷移ルールを実装します。  
 	![](images/15-3-2-3-3.png)
-* ステート `WallRun` を実装します。
+* ステート `WallRun` を実装します。  
 	![](images/15-3-2-3-4.png)
 
 
@@ -160,18 +161,18 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ### 3.3.1. ブレンドスペース 1D のパラメータとして使用可能な変数を用意
 
-* My Blueprints ウィンドウで変数 `WallRunAngle` を追加します。
+* My Blueprints ウィンドウで変数 `WallRunAngle` を追加します。  
 	![](images/15-3-3-1-1.png)
-* Details ウィンドウで Category を `WallRun` にします。
+* Details ウィンドウで Category を `WallRun` にします。  
 	![](images/15-3-3-1-2.png)
 
 ### 3.3.2. 変数を更新するための関数を用意
 
-* My Blueprints ウィンドウで関数 `UpdateWallRunData` を追加します。
+* My Blueprints ウィンドウで関数 `UpdateWallRunData` を追加します。  
 	![](images/15-3-3-2-1.png)
-* Details ウィンドウで Category を `BlueprintThreadSafeUpdate Functions` にし、 Thread Safe にチェックを入れます。
+* Details ウィンドウで Category を `BlueprintThreadSafeUpdate Functions` にし、 Thread Safe にチェックを入れます。  
 	![](images/15-3-3-2-2.png)
-* 変数 `WallRunAngle` を設定するためのノードを組みます。
+* 変数 `WallRunAngle` を設定するためのノードを組みます。  
 	![](images/15-3-3-2-3.png)
 * 作成した関数を `BlueprintThreadSafeUpdateAnimation` の末尾で呼び出します。
 
@@ -180,15 +181,15 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 ### 3.3.3. アニメーションレイヤー `FullBody_WallRunState` の実装
 
-* `FullBody_FallLoopState` の実装をコピーし、 `FullBody_WallRunState` にペーストします。
+* `FullBody_FallLoopState` の実装をコピーし、 `FullBody_WallRunState` にペーストします。  
 	![](images/15-3-3-3-1.png)
 * Asset Browser ウィンドウから `BS_Pistol_WallRun` をドラッグアンドドロップします。
-* ノード `BS_Pistol_WallRun` の Blendspace Player の Details ウィンドウで `Angle` を `WallRunAngle` にバインドします。
+* ノード `BS_Pistol_WallRun` の Blendspace Player の Details ウィンドウで `Angle` を `WallRunAngle` にバインドします。  
 	![](images/15-3-3-3-2.png)
-* ノード `Layered blend per bone` を複製し、 `BlendMasks` を `LowerBodyMask` に変更します。
+* ノード `Layered blend per bone` を複製し、 `BlendMasks` を `LowerBodyMask` に変更します。  
 	![](images/15-3-3-3-3.png)
 * ノード `Property Access` で `GetMainAnimBPThreadSafe.GetWallRunStatus` を指定し、 WallRun の状態ごとの Blend Weight を設定できるようにします。
-* 用意したノードを組み合わせます。
+* 用意したノードを組み合わせます。  
 	![](images/15-3-3-3-4.png)
 
 
@@ -196,7 +197,8 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 * ControlPoints や Elimination をプレイするると、壁に沿って移動できるようになっているのが確認できます。
 
-<div><video controls src="videos/15-4.mp4" muted="false"></video></div>
+<div><video controls src="https://github.com/sentyaanko/ReadingLyra/assets/48474089/df5f22b9-24f4-4d69-8cae-055a89a394a5" muted="false"></video></div>
+
 
 
 # 5. 終わりに
