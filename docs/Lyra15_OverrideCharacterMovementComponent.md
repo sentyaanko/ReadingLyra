@@ -36,7 +36,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 	* delgoodie 氏による CharacterMovementComponent の拡張の解説動画のプレイリストです。
 	* 今回使用する実装はこちらの 10 番目の動画で紹介されている手法をベースにしています。
 	* ソースコードも github で公開されています。
-* https://github.com/sentyaanko/WallRunSample
+* https://github.com/sentyaanko/WallRunSample/tree/v0.0.1
 	* delgoodie 氏のプロジェクトの WallRun の部分だけを参考にし、少し手を入れたソースを置いています。
 	* 今回はこれを利用する前提です。
 
@@ -69,7 +69,6 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 > **Note**  
 > * 設定するキャラクタークラス
 > 	* ShooterGame 類 (ControlPoints/Elimination/ShooterGym) は `B_Hero_ShooterMannequin` を使うのでこれで反映されます。
-> 	* 例えば InventoryTest で使用したい場合は `B_Hero_Explorer` の設定を変える必要があります。
 > 	* C++ でデフォルトの CharacterMovementComponent を変更することもできます。
 > 		* `ALyraCharacter` のコンストラクタで指定しているクラスを変更することで行なえます。
 > 		* Lyra は ShoterGame 以外に TopDownArena 等もあり、 C++ で変更するとそのあたりにも影響するので注意が必要です。
@@ -210,8 +209,6 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 -----
 おしまい。
-
-[YouTube > delgoodie > Unreal Engine | Character Movement Component: In-Depth]: https://www.youtube.com/playlist?list=PLXJlkahwiwPmeABEhjwIALvxRSZkzoQpk
 
 <!--- ページ内のリンク --->
 

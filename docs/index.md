@@ -17,6 +17,7 @@
 	- [【UE5】Lyra に学ぶ(13) Update5.2]
 	- [【UE5】Lyra に学ぶ(14) Update5.3]
 	- [【UE5】Lyra に学ぶ(15) CharacterMovementComponent 拡張]
+	- [【UE5】Lyra に学ぶ(16) CharacterMovementComponent 拡張その２]
 - クラス解説
 	- Lyra
 		- ABP
@@ -273,6 +274,7 @@
 [【UE5】Lyra に学ぶ(13) Update5.2]: ./Lyra13_Update5.2_Overview.md
 [【UE5】Lyra に学ぶ(14) Update5.3]: ./Lyra14_Update5.3_Overview.md
 [【UE5】Lyra に学ぶ(15) CharacterMovementComponent 拡張]: ./Lyra15_OverrideCharacterMovementComponent.md
+[【UE5】Lyra に学ぶ(16) CharacterMovementComponent 拡張その２]: ./Lyra16_OverrideCharacterMovementComponent2.md
 [ABP_ItemAnimLayersBase]: ./CodeRefs/Lyra/ABP/ABP_ItemAnimLayersBase.md
 [ABP_Mannequin_Base]: ./CodeRefs/Lyra/ABP/ABP_Mannequin_Base.md
 [ALI_ItemAnimLayers]: ./CodeRefs/Lyra/ABP/ALI_ItemAnimLayers.md

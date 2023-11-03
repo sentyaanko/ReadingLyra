@@ -732,7 +732,7 @@ https://docs.unrealengine.com/5.3/en-US/upgrading-the-lyra-starter-game-to-the-l
 > * バリデーションチェックの改善が行われました。
 * Plugins/GameSettings/Source/Private/Widgets/GameSettingListEntry.cpp
 
-> * リデーションチェックが追加されました。
+> * バリデーションチェックが追加されました。
 * Source/LyraGame/Character/LyraCharacter.cpp
 * Source/LyraGame/Cosmetics/LyraPawnComponent_CharacterParts.cpp
 * Source/LyraGame/Cosmetics/LyraPawnComponent_CharacterParts.h

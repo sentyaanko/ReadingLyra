@@ -13,3 +13,4 @@
 [ReadingLyra > 【UE5】Lyra に学ぶ(13) Update5.2]: ./Lyra13_Update5.2_Overview.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(14) Update5.3]: ./Lyra14_Update5.3_Overview.md
 [ReadingLyra > 【UE5】Lyra に学ぶ(15) CharacterMovementComponent 拡張]: ./Lyra15_OverrideCharacterMovementComponent.md
+[ReadingLyra > 【UE5】Lyra に学ぶ(16) CharacterMovementComponent 拡張その２]: ./Lyra16_OverrideCharacterMovementComponent2.md

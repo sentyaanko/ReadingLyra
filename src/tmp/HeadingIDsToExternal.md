@@ -93,9 +93,11 @@
 [Unreal Engine 5.1 Documentation > プロダクション パイプラインをセットアップする > Unreal ビルド パイプライン > UnrealBuildTool > モジュールのプロパティ]: https://docs.unrealengine.com/5.1/ja/module-properties-in-unreal-engine/
 [Unreal Engine 5.1 リリース ノート]: https://docs.unrealengine.com/5.1/ja/unreal-engine-5.1-release-notes/
 [Unreal Engine 5.2 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra Starter Game を最新エンジン リリースにアップグレードする]: https://docs.unrealengine.com/5.2/ja/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
+[Unreal Engine 5.3 Documentation > インタラクティブな体験をつくりだす > ネットワークの構築とマルチプレイヤー > チュートリアルと例 > Character Movement コンポーネント]: https://docs.unrealengine.com/5.3/ja/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine/
 [Unreal Engine 5.3 Documentation > サンプルとチュートリアル > サンプル ゲーム プロジェクト > Lyra サンプル ゲーム > Lyra Starter Game を最新エンジン リリースにアップグレードする]: https://docs.unrealengine.com/5.3/ja/upgrading-the-lyra-starter-game-to-the-latest-engine-release-in-unreal-engine/
 [Unreal Engine Forum > Update to UE5.1 have anim layer bug]: https://forums.unrealengine.com/t/update-to-ue5-1-have-anim-layer-bug/693524
 [Unreal Engine Issues > UE-142237]: https://issues.unrealengine.com/issue/UE-142237
+[Vitor Cantão > Recreating the Climbing System from Zelda BOTW in Unreal (C++)]: https://www.vitorcantao.com/post/climbing-system/
 [YouTube > delgoodie > Unreal Engine | Character Movement Component: In-Depth]: https://www.youtube.com/playlist?list=PLXJlkahwiwPmeABEhjwIALvxRSZkzoQpk
 [Youtube > Genius Slackers > UE4 Enhanced Input in CPP Part 1]: https://www.youtube.com/watch?v=gCd_RuRitAs
 [Youtube > Unreal Engine > Lyra Starter Game Overview ｜ Tech Talk ｜ State of Unreal 2022]: https://www.youtube.com/watch?v=Fj1zCsYydD8
