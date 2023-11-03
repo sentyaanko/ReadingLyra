@@ -131,8 +131,9 @@ CMC を独自のものに変更します。
 		* このクラスを使用すると、サーバーのみで実行される `AddStatTagStack` で値を操作し、レプリケーションされた値をクライアントで表示に利用することが出来ます。
 		* この方法だと、減り始めや尽きるタイミングがどうしてもサーバーより遅れるため、 `サーバー修正` の回避が困難で、利用メリットがありません。
 	* 単純な `AttributeSet` / `GameplayEffect` の利用は避ける。
-		* スタミナ値は増減が激しいため、 `AttributeSet` を使う場合は条件付きプロパティのレプリケーションの設定(`DOREPLIFETIME_ACTIVE_OVERRIDE` 等)をする必要があります。
-		* 今回は使用しません。
+		* スタミナ値は増減が激しいため、レプリケーションの設定に工夫が必要になるはずです。
+		* さもないと、頻繁なレプリケーションとヒッチを引き起こします。
+			* これは、増減中にサーバー/クライアント各々がスタミナの現在値の更新を行う為です。
 * スタミナは他のユーザーからは見えなくて良いとする。
 	* スタミナの *現在値* のサーバー/クライアント同期は行わない。
 	* 基本的にサーバー/クライアント各々で計算を行う。
@@ -284,14 +285,8 @@ CMC を独自のものに変更します。
 -----
 おしまい。
 
-
-[【UE5】Lyra に学ぶ(15) CharacterMovementComponent 拡張]: Lyra15_OverrideCharacterMovementComponent.md
 [【UE5】Lyra に学ぶ(04) GameplayMessage]: Lyra04_GameplayMessage.md
-
-[Unreal Engine 5.3 Documentation > インタラクティブな体験をつくりだす > ネットワークの構築とマルチプレイヤー > チュートリアルと例 > Character Movement コンポーネント]: https://docs.unrealengine.com/5.3/ja/understanding-networked-movement-in-the-character-movement-component-for-unreal-engine/
-[YouTube > delgoodie > Unreal Engine | Character Movement Component: In-Depth]: https://www.youtube.com/playlist?list=PLXJlkahwiwPmeABEhjwIALvxRSZkzoQpk
-[Vitor Cantão > Recreating the Climbing System from Zelda BOTW in Unreal (C++)]: https://www.vitorcantao.com/post/climbing-system/
-
+[【UE5】Lyra に学ぶ(15) CharacterMovementComponent 拡張]: Lyra15_OverrideCharacterMovementComponent.md
 
 <!--- ページ内のリンク --->
 [B_Hero_ShooterMannequin]: #31-b_hero_shootermannequin
