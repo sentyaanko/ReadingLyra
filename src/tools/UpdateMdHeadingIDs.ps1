@@ -36,10 +36,13 @@ function Get-SaJoinedSPLReferencing{
 	$IndexOfSPLHeadingAnchors=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){$dicHeadingAnchors[$_]}}
 	[string[]]$SPLHeadingAnchorsReferencing=$IndexOfSPLHeadingAnchors | Sort-Object | ForEach-Object{$SPLHeadingAnchors[$_]}
 
+	# github alerts
+	[string[]]$dicGithubAlerts=@('[!NOTE]', '[!IMPORTANT]', '[!WARNING]');
+
 	# $FPLUsing のうち、 $SPLHeadingAnchors に含まれず、 $SPLHeadingIDs に含まれるものの一覧を作成する
 	# また、どちらにも含まれず、さらに $SPLLocalDefined にも含まれない場合はウォーニングメッセージを出力する。
 	$dicHeadingIDs=Select-SaString -SplitedContent $SPLHeadingIDs -Pattern '^(\[[^\]]{2,}\]): +(.+)$'
-	$IndexOfSPLHeadingIDs=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){}else{if($dicHeadingIDs.ContainsKey($_)){$dicHeadingIDs[$_]}else{if($SPLLocalDefined.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}
+	$IndexOfSPLHeadingIDs=$FPLUsing | ForEach-Object{if($dicHeadingAnchors.ContainsKey($_)){}else{if($dicHeadingIDs.ContainsKey($_)){$dicHeadingIDs[$_]}else{if($SPLLocalDefined.Contains($_)){}else{if($dicGithubAlerts.Contains($_)){}else{Write-Warning -Message "$_ is not found."}}}}}
 	[string[]]$SPLHeadingIDsReferencing=$IndexOfSPLHeadingIDs | Sort-Object | ForEach-Object{$SPLHeadingIDs[$_]}
 
 	$SPLHeading = $SPLHeadingAnchorsReferencing + $SPLHeadingIDsReferencing
