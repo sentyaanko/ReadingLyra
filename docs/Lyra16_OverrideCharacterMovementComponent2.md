@@ -101,13 +101,13 @@ CMC を独自のものに変更します。
 	![](images/16-B_Hero_ShooterMannequin-3.png)
 
 
-> *Note* ShooterGame 類 (ControlPoints/Elimination/ShooterGym 等) で WallRun をする場合に必要です。
+> [!NOTE] ShooterGame 類 (ControlPoints/Elimination/ShooterGym 等) で WallRun をする場合に必要です。
 
 ## 3.2. B_Hero_Explorer
 
 [B_Hero_ShooterMannequin] と同様の変更をします。
 
-> *Note* `L_InventoryTestMap` / `L_InteractionTestMap` で WallRun をする場合に必要です。
+> [!NOTE] `L_InventoryTestMap` / `L_InteractionTestMap` で WallRun をする場合に必要です。
 
 ## 3.3. W_ShooterHUDLayout
 
@@ -166,7 +166,7 @@ CMC を独自のものに変更します。
  * `FSavedMove` 内に `FSavedAutoRecoverableAttribute` を保持しています。
 	 * `FSavedMove` の各種関数内で [ULyraWRCharacterMovementComponent] の `FSafeAutoRecoverableAttribute` を読み書きします。
 
-> *Note*  
+> [!NOTE]  
 > * `FSavedMove` について
 > 	* `FSavedMove_Character` のコメントより
 > 		> `FSavedMove_Character` represents a saved move on the client that has been sent to the server and might need to be played back.  
@@ -174,7 +174,7 @@ CMC を独自のものに変更します。
 > 		> ----
 > 		> `FSavedMove_Character` は、サーバーに送信され、プレイバックする必要があるかもしれない、クライアントで保存された移動を表します。
 > 	* クライアントサイドの CMC ではサーバーとの移動の同期完了まで同期単位ごとの移動情報を保持する `FSavedMove` と呼ばれる構造体のバッファを保持しています。
-> 		> *Note* これはサーバーサイドでは保持していません。 `Listen Server` の場合でも、自身が操作するキャラクターに関しても保持しません。 同様に `Standalone` の場合も保持しません。
+> 		> [!NOTE] これはサーバーサイドでは保持していません。 `Listen Server` の場合でも、自身が操作するキャラクターに関しても保持しません。 同様に `Standalone` の場合も保持しません。
 > * `FSavedMove` のサイズ
 > 	* 現在のバージョンでは `FSavedMove_Character` は 1120 byte あります。
 > 	* 派生した `FSavedMove_WallRun` は 1152 byte ありました。
@@ -194,7 +194,7 @@ CMC を独自のものに変更します。
 > 	* より詳しくは `FSavedMove_Character` のジャンプ関連の変数について調べることをおすすめします。
 
 
-> *Note*  
+> [!NOTE]  
 > * 使用可能な `CustomMovementMode` の値
 > 	* `UCharacterMovementComponent::PackNetworkMovementMode()` を見ると、 `MovementMode` を通信で送る際、 `MovementMode` / `GroundMovementMode` / `CustomMovementMode` が uint8 にパックされます。
 > 	* そのため、 `CustomMovementMode` 自体は uint8 で定義されていますが、 256 通りの値すべてを使えるわけでは有りません。
