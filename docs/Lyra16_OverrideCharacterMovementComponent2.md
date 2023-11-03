@@ -9,9 +9,6 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 	* [Lyra Starter Game]
 		* 2023/09/07 版 (2023/11/02 21:45 時点で更新なし)
 
-TODO: 査読をしていく。
-
-
 # Index <!-- omit in toc -->
 
 - [1. 参考](#1-参考)
@@ -57,7 +54,7 @@ TODO: 査読をしていく。
 	* `GameplayMessage` を利用します。こちらの記事で簡単な説明をしています。
 * 略語
 	* CMC: `CharacterMovementComponent`
-	* GAS: GameplayAbilitySystem
+	* ASC: `AbilitySystemComponent`
 
 
 # 2. 追加・変更するファイル一覧と概要
@@ -96,12 +93,12 @@ TODO: 査読をしていく。
 
 CMC を独自のものに変更します。
 
-* コンポーネント `Character Move(CharaMoveComp)` を選択し、
-![](images/16-B_Hero_ShooterMannequin-1.png)
-* *Details > Variable > Component Class* を [ULyraWRCharacterMovementComponent] に変更します。
-![](images/16-B_Hero_ShooterMannequin-2.png)
-* *Details > Lyra WR > WallRun > Wall Run Gravity Scale Curve* を [C_WallRunGravityScale] に変更します。(しなくても動作はします)
-![](images/16-B_Hero_ShooterMannequin-3.png)
+* コンポーネント `Character Move(CharaMoveComp)` を選択し、  
+	![](images/16-B_Hero_ShooterMannequin-1.png)
+* *Details > Variable > Component Class* を [ULyraWRCharacterMovementComponent] に変更します。  
+	![](images/16-B_Hero_ShooterMannequin-2.png)
+* *Details > Lyra WR > WallRun > Wall Run Gravity Scale Curve* を [C_WallRunGravityScale] に変更します。(しなくても動作はします)  
+	![](images/16-B_Hero_ShooterMannequin-3.png)
 
 
 > *Note* ShooterGame 類 (ControlPoints/Elimination/ShooterGym 等) で WallRun をする場合に必要です。
@@ -116,10 +113,10 @@ CMC を独自のものに変更します。
 
 スタミナ用の widget が表示されるようにレイアウトの設定を行います。
 
-* コンポーネントを追加します。
-![](images/16-W_ShooterHUDLayout-1.png)
-* 位置を設定します。
-![](images/16-W_ShooterHUDLayout-2.png)
+* コンポーネントを追加します。  
+	![](images/16-W_ShooterHUDLayout-1.png)
+* 位置を設定します。  
+	![](images/16-W_ShooterHUDLayout-2.png)
 
 # 4. 解説
 
@@ -134,7 +131,7 @@ CMC を独自のものに変更します。
 		* このクラスを使用すると、サーバーのみで実行される `AddStatTagStack` で値を操作し、レプリケーションされた値をクライアントで表示に利用することが出来ます。
 		* この方法だと、減り始めや尽きるタイミングがどうしてもサーバーより遅れるため、 `サーバー修正` の回避が困難で、利用メリットがありません。
 	* 単純な `AttributeSet` / `GameplayEffect` の利用は避ける。
-		* スタミナ値は増減が激しいため、 `AttributeSet` を使う場合はレプリケーションの設定をする必要があります。
+		* スタミナ値は増減が激しいため、 `AttributeSet` を使う場合は条件付きプロパティのレプリケーションの設定(`DOREPLIFETIME_ACTIVE_OVERRIDE` 等)をする必要があります。
 		* 今回は使用しません。
 * スタミナは他のユーザーからは見えなくて良いとする。
 	* スタミナの *現在値* のサーバー/クライアント同期は行わない。
@@ -208,7 +205,7 @@ CMC を独自のものに変更します。
 
 ## 4.3. Blueprint の実装内容について
 
-以下に新規で追加している [W_WallRunStaminabar] についての補足を記述します。
+以下に新規で追加している [W_WallRunStaminabar] / [C_WallRunGravityScale] についての補足を記述します。
 
 ### 4.3.1. W_WallRunStaminabar
 
