@@ -51,7 +51,7 @@ Animation Montage は以下のような場所から再生されます。
 | `DropBomb_Montage`									| `GA_DropBomb`												| 爆弾設置		|		|
 | `AM_MM_Dash_Forward_LoadingScreenStills`				| 参照元なし												| 				|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`GA_Weapon_Fire::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
 > * *2.	`GA_Melee::SelectHitMongate()` 内で利用されていますが、この関数は利用されていません。
 > 	> つまり、 `HitReact` 系は、実際に使われているのは以下のような状況ということです。
@@ -111,7 +111,7 @@ Animation Montage は以下のような場所から再生されます。
 | `AM_MM_Pistol_Spawn`														| `FullBody`				| `MM_Pistol_Spawn_Turn180`													| *5	|
 | `AM_MM_Dash_Forward_LoadingScreenStills`									| `FullBody`				| `MM_Dash_Forward_LoadingScreenStills`										|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`[Lgt|Med|Hvy]` や `[1-4]` はバリエーションを表しますが、方向によっては存在しません。
 > 	> つまり `Front` だけ以下のようにバリエーションが多くなっています。
 > 	> * `Hvy` のバリエーションが `1` のみあり、ほかはありません。
@@ -154,7 +154,7 @@ Animation Montage は以下のような場所から再生されます。
 ## 2.4. Animation Sequence の Additive Anim Type
 
 Additive Anim Type の説明を [Unreal Engine 4.27 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション シーケンス] より引用します。
-> **Note**  
+> [!NOTE]
 > 5.1 のドキュメントでは同等の内容が見つからなかったため、 4.27 から引用しています。
 
 > Additive Anim Type  
@@ -214,7 +214,7 @@ enum EAdditiveAnimationType
 | `MM_Pistol_Spawn_Turn180`													| None					| 		|
 | `MM_Dash_Forward_LoadingScreenStills`										| None					| 		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`MM_[Pistol|Rifle|Shotgun]_Fire` は Aim に関わるので Mesh Space が指定されています。
 > 	> 詳しくは [Unreal Engine 5.1 Documentation > キャラクターとオブジェクトにアニメーションを設定する > スケルタルメッシュのアニメーション システム > アニメーション アセットと機能 > ブレンド スペース > エイム オフセット > メッシュ空間加算] あたりを参照。
 > * *2.	被ダメージ用はすべて Local Space が指定されています。

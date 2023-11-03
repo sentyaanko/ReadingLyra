@@ -108,7 +108,7 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 	> * ログの保存方法が変更されました。
 	> * 同じ `.uplugin` の読み込みを何度も行わないように処理が変更されました。
 
-> **Note**  
+> [!NOTE]
 > `NativePointerMemberBehaviorOverride` について  
 > 以下のリンクより引用  
 > https://docs.unrealengine.com/5.2/ja/unreal-engine-build-tool-target-reference/
@@ -145,7 +145,7 @@ Unreal Engine 5.3 がリリースされたことで、 5.0 ～ 5.3 用の 4 つ�
 * Config/DefaultScalability.ini
 	> * パラメータ `r.DistanceFieldAO` を設定するセクションが `[ShadowQuality@0]` 等から `[GlobalIlluminationQuality@0]` などに変更されました。
 
-> **Note**  
+> [!NOTE]
 > `bSharedLinearTextureEncoding` について  
 > `Engine\Source\Runtime\Engine\Private\TextureEncodingSettingsPrivate.h` より
 > ```c++
@@ -821,7 +821,7 @@ https://docs.unrealengine.com/5.3/en-US/upgrading-the-lyra-starter-game-to-the-l
 > * `MutableView` を使用するように変更されました。
 * Plugins/GameSettings/Source/Private/Widgets/GameSettingPanel.cpp
 
-> **Note**  
+> [!NOTE]
 > `MutableView` について  
 > 5.3 で追加されたもののようです。  
 > `Engine\Source\Runtime\CoreUObject\Public\UObject\ObjectPtr.h` より  

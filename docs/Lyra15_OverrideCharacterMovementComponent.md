@@ -49,7 +49,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 
 `LyraStarterGame\Source\LyraGame\Character\` に `LyraWRCharacterMovementComponent.cpp / .h` を追加し、ビルドします。
 
-> **Note**  
+> [!NOTE]
 > * Lyra の CharacterMovementComponent
 > 	* Lyra は `ULyraCharacterMovementComponent` という `UCharacterMovementComponent` の派生クラスが作られています。
 > 	* 今回用意した `ULyraWRCharacterMovementComponent` は上記のクラスを派生しています。
@@ -66,7 +66,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 3. Details ウィンドウの Component Class を `LyraWRCharacterMovementComponent` に変更します。  
 	![](images/15-1-2-2.png)
 
-> **Note**  
+> [!NOTE]
 > * 設定するキャラクタークラス
 > 	* ShooterGame 類 (ControlPoints/Elimination/ShooterGym) は `B_Hero_ShooterMannequin` を使うのでこれで反映されます。
 > 	* C++ でデフォルトの CharacterMovementComponent を変更することもできます。
@@ -175,7 +175,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 	![](images/15-3-3-2-3.png)
 * 作成した関数を `BlueprintThreadSafeUpdateAnimation` の末尾で呼び出します。
 
-> **Note**  
+> [!NOTE]
 > * 要は壁の法線とアクターの向きのなす角を -180 から 180 の値で算出し、 `WallRunAngle` に設定しているだけです。
 
 ### 3.3.3. アニメーションレイヤー `FullBody_WallRunState` の実装

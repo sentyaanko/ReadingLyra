@@ -91,7 +91,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 
 * [ALI_ItemAnimLayers]
 	* [ABP_Mannequin_Base] と [ABP_ItemAnimLayersBase] の Class Setting `Interfaces > Implemented Interfaces` で [ALI_ItemAnimLayers] を追加しています。
-		> **Note**  
+		> [!NOTE]
 		> [Unreal Engine Forum > Update to UE5.1 have anim layer bug]  
 		> 5.1.0 だと不具合がありました。 5.1.1 では修正されているようです。
 	* [ABP_Mannequin_Base] は [ALI_ItemAnimLayers] のインターフェイスを利用する側です。
@@ -106,7 +106,7 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 * [ABP_ItemAnimLayersBase] の派生クラス
 	* キャラクタークラスの Linked Animation Blueprint として利用しています。
 	* 具体的には `B_WeaponInstance_Base` のイベント `OnEquipped` / `OnUnequipped` 内でノード `LinkAnimClassLayers` を呼び出す事で、 [ABP_Mannequin_Base] の Linked Animation Blueprint として設定しています。
-		> **Note**  
+		> [!NOTE]
 		> * `B_WeaponInstance_Base` はプロパティ `Animation > Equipped Anim Set` 等を持ち、この値を上記のタイミングで使用します。
 		> * `B_WeaponInstance_Base` は武器毎の派生クラスを持ち、上記のプロパティに [ABP_ItemAnimLayersBase] の武器毎の派生クラスを指定することで武器に合った Linked Animation Blueprint の設定ができるようにしています。
 * `ABP_Mannequin_CopyPose`
@@ -168,14 +168,14 @@ Shotgun は Rifle の派生クラスとなっています。これは流用が�
 	* Animation Seaquence と同様です。
 * Blend Space 1D
 	* [ABP_Mannequin_Base] にて Lean 用のアセットを直接参照しています。
-		> **Note**  
+		> [!NOTE]
 		> Lean は移動中にカメラを左右に回した際、その方向に頭を向け、体を傾ける処理です。
 * Pose Asset
 	 * `ABP_Manny_PostProcess` / `ABP_Quinn_PostProcess` にてノード `Pose Driver` から直接参照しています。
 * Control Rig
 	 * `CR_Mannequin_FootPlant`
 		 * [ABP_Mannequin_Base] にてノード `Control Rig` から直接参照しています。
-			> **Note**  
+			> [!NOTE]
 			> 床の位置に足をあわせるためのコントロールリグです。  
 			> プロジェクト初期状態ではこちらは利用されていません。  
 			> 代わりに `5.1` で追加された `Foot Placement` ノードを利用するようになっています。

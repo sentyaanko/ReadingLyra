@@ -86,7 +86,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_StopState]
 			* [FullBody_PivotState > PivotSM]
 			* [FullBody_FallLandState]
-			> **Note**  
+			> [!NOTE]
 			> `Advance Time by Distance Matching` / `Advance Time by Distance Matching` の使用箇所がそれに当たります。
 	* **ストライド ワーピング**
 		* 移動開始時、移動中、ピボット時などに **ストライド ワーピング** を行っています。
@@ -95,7 +95,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_StartState]
 			* [FullBody_CycleState]
 			* [FullBody_PivotState]
-			> **Note**  
+			> [!NOTE]
 			> `Stride Warping` の使用箇所がそれに当たります。
 	* **オリエンテーション ワープ**
 		* 移動開始時、移動中、ピボット時などに **オリエンテーション ワープ** を行っています。
@@ -104,7 +104,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_StartState]
 			* [FullBody_CycleState]
 			* [FullBody_PivotState > PivotSM]
-			> **Note**  
+			> [!NOTE]
 			> `Orientation Warping` の使用箇所がそれに当たります。
 	* 銃口を徐々に下げる
 		* 移動の際などに銃口を下げるようにしています。
@@ -118,7 +118,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* [FullBody_JumpApexState]
 			* [FullBody_FallLoopState]
 			* [FullBody_FallLandState]
-			> **Note**  
+			> [!NOTE]
 			> `Sequence Evaluator` の `OnUpdate` に `UpdateHipFireRaiseWeaponPose` を使用した出力を  
 			> `Layered blend per bone` でブレンドしている箇所がそれに当たります。
 	* Lean
@@ -127,7 +127,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 			* `Start (state)`
 			* `Cycle (state)`
 			* `Pivot (state)`
-			> **Note**  
+			> [!NOTE]
 			> この処理は [ABP_Mannequin_Base] で行われているため、武器に依存しません。  
 			> `Blendspace Player` の出力を `Apply Additive` でブレンドしている箇所がそれに当たります。  
 			> 使用する `Blend Space 1D` は `BS_MM_Rifle_Jog_Leans` 固定の実装となっています。
@@ -205,7 +205,7 @@ Lyra ではキャラクターアクタはコントローラーのヨー方向に
 * カメラの向きを操作しても、下半身の向きとのなす角が 45 度 + αの範囲内では足を動かさずに上半身の向きだけ変えている。
 * 45 度 + αを超えると 90 度、下半身の向きを変えている。
 
-> **Note**  
+> [!NOTE]
 > α は遊びの範囲で、これがあることで 45 度を行き来しただけでアニメーションが再生されないようになります。  
 > 実際には [FullBody_IdleState > IdleSM] `> WantsTurnInPlace (rule)` にて、回転角の絶対値が 50 度を超えた際にステートが移行されるようになっています。  
 > （よって、上記の説明のαは 5 度で実装しているということになります）
@@ -302,7 +302,7 @@ Animation Curve の内容は以下のようになります。
 | [FullBodyAdditives]			| `AnimGraph`													|		|
 | [FullBody_SkeletalControls]	| `AnimGraph`													|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	出力がそのままステートの出力となります。
 > * *2.	出力と Lean のブレンド結果がステートの出力となります。
 > * `LocomotionSM` はステートマシンです。
@@ -398,7 +398,7 @@ Animation Curve の内容は以下のようになります。
 	* バリエーションは ((1(しゃがみ) + 1(立ち) + 1(ADS)) * 4(方向))= 12 枠の変数が用意されています。
 	* 再生位置は `Advance Time by Distance Matching` を利用し設定します。	
 	* これは **距離マッチング** と呼ばれる、アニメーションの再生レートを移動距離に合わせる手法です。
-		> **Note**  
+		> [!NOTE]
 		> * パラメータ `Distance Curve Name`
 		> 	* `Distance` を指定していますが、これは上記の 12 枠の変数で指定された Animation Sequence に設定されている Animation Curve 名です。
 		> 	* この Animation Curve は Animation Modifier `DistanceCurveModifier` によって出力される `XY` 平面上の開始地点からの距離です。
@@ -410,7 +410,7 @@ Animation Curve の内容は以下のようになります。
 2. (銃を構えるための)上半身用の Animation Sequence の決定
 	* バリエーションは 1(しゃがみ) + 1(立ち) = 2 枠の変数が用意されています。
 	* 再生位置は 0 固定です。
-		> **Note**  
+		> [!NOTE]
 		> このポーズは発砲直後しばらくは銃を前方に構えたままにするのに利用しています。
 3. 1 と 2 を `Layered blend per bone` でブレンド
 	* 1 を Base Pose 、 2 を Blend Pose とします。
@@ -420,7 +420,7 @@ Animation Curve の内容は以下のようになります。
 	* これは **オリエンテーション ワープ** と呼ばれる、動いている方向に合わせて下半身を回転させる手法です。
 5. 4 の出力を `Stride Warping` に通します。
 	* これは **ストライド ワーピング** と呼ばれる、速度に合わせて歩幅を調整する手法です。
-		> **Note**  
+		> [!NOTE]
 		> * パラメータ `Alpha`
 		> 	* `経過時間が 0.15 秒までは 0.0 で、 0.20 秒にかけて 1.0` になるように実装されています。  
 		> 	* これにより、歩き始めた直後は **距離マッチング** を、ジョグステートに近づくにつれて **ストライド ワーピング** を使用しています。  
@@ -615,14 +615,14 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 
 * Pivot 開始直後の向き変更
 	* 再生するアニメーションはステート開始時に決定しますが、最初の 0.2 秒間に移動方向が変わった場合、変更後のアニメーションに切り替えるよう実装されています。
-		> **Note**  
+		> [!NOTE]
 		> 例えば、前から後に Pivot し、 0.2 秒以内に右に移動すると、 Pivot アニメーションが右用のものに変わっていることが確認できると思います。  
 		> （右 Pivot は大きく左足を開くので `Rewind Debugger` 等を使わなくても見分けやすい）  
 * 方向転換前
 	* 方向転換点に近づいている状況なので、**距離マッチング**には `Distance Match to Target` を使用します。
 * 方向転換後
 	* 方向転換点から離れている状況なので、**距離マッチング**には `Advance Time by Distance Matching` を使用します。
-		> **Note**  
+		> [!NOTE]
 		> 要は Start ステートと同じような計算となります。  
 
 
@@ -648,7 +648,7 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 
 使用するアニメーションが **ジャンプ上昇中** 用のものである以外はほぼ同じです。
 
-> **Note**  
+> [!NOTE]
 > ベロシティとアクセラレーションから計算した頂点までの距離が `0.4` 未満になると `JumpApexState` に遷移します。
 
 
@@ -678,7 +678,7 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 再生位置は **距離マッチング** (`Distance Match to Target`)を用いて算出し、  
 発砲直後に銃を降ろさないようにするため、`しゃがみ or 立ち` の銃を構えたアニメーションのいずれかを上半身だけブレンドした結果が `Output Pose` につながります。
 
-> **Note**  
+> [!NOTE]
 > 地面までの距離は [ULyraCharacterMovementComponent] で算出した値を [ULyraAnimInstance] の `NativeUpdateAnimation()` のタイミングでキャッシュしているものを利用しています。
 
 
@@ -689,7 +689,7 @@ Pivot 中に再び Pivot が発生しうるため、実装が全く同じ PivotA
 入力されたポーズを基本とし、
 1 種（立ちやしゃがみなどのバリエーションを持たない）のアニメーションを左手だけブレンドした結果が `Output Pose` につながります。
 
-> **Note**  
+> [!NOTE]
 > * 設定用変数 `Enable Left Hand Pose Override` により、有効無効を切り替えられるようになっています。
 > 	* プロジェクト初期状態では無効になっています。
 > 	* 無効の場合、 `Layered blend per bone` のパラメータ `Blend Weights 0` が `0.0` となります。
@@ -726,7 +726,7 @@ IK 等の処理を記述するための関数です。
 渡されたポーズをベースポーズとし、 `AimOffset Player` を 2 つ使い、
 それらの出力を `Blend` でブレンドした結果が `Output Pose` につながります。
 
-> **Note**  
+> [!NOTE]
 > * 二つのエイムオフセット
 > 	* 「武器を構えたもの」と、「非武装のもの（武器を構えずに頭の向きだけ変えるもの）」です。
 > 	* 銃撃せずに移動している際、両手を徐々に下げるような表現を行うためのものです。  

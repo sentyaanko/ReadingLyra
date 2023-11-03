@@ -91,7 +91,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 |								|									| `AO_[MF\|MM]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_ADS`									|		|
 |								| `Relaxed Aim Offset`				| `AO_[MF\|MM]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_Ready`								|		|
 
-> **Note**  
+> [!NOTE]
 > * *1,2.	武器を持っている場合は上の、持っていない場合は下の命名規則のアセットを使用します。
 > * *3.	このプロパティが設定されているのは Shotgun 用の `ABP_ShotgunAnimLayers(_Feminine)?` のみです。
 
@@ -135,7 +135,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 | `AO_[MF\|MM]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_Hipfire`								| --		| M-	| --		| --		|		|
 | `AO_[MF\|MM]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_ADS`									| MF		| M-	| --		| --		| *4	|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`Mf_Rifle_IdleBreak_Fidget` だけ命名規則に沿わずに `Mf` となっています。（おそらく命名ミス）
 > * *2.	`MM_Unarmed_Jog_Right_Pivot` だけアセットがなく、代わりに `MM_Unarmed_Jog_Pivot_Right` があります。（おそらく命名ミス）
 > * *3.	`MF_Pistol_Walk_Left_Start` だけアセットがありません。（おそらく作成漏れ）
@@ -165,7 +165,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 | `BS_MM_Rifle_Crouch_Walk`	| `MM_Rifle_Crouch_Walk_[Fwd\|Bwd\|Left\|Right]`	|		|
 | `BS_MM_Unarmed_Jog_Walk`	| `MM_Unarmed_[Walk\|Jog]_Fwd`						|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`MM_Rifle_Jog_Leans_Left` のみ `Leans` と `s` が付きます。（おそらく命名ミス）
 
 
@@ -191,7 +191,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 |								| `ABP_UnarmedAnimLayers`			| Relaxed Aim Offse										|		|
 |								| `ABP_UnarmedAnimLayers_Feminine`	| Relaxed Aim Offse										|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	[ABP_ItemAnimLayersBase] `> FullBody_Aiming` 内の `AimOffset Player` のパラメータ `Blend Space` のデフォルト値です。  
 > 	変数にバインドされており、派生クラスで変更できるようになっています。
 > 	`Yaw` と `Pitch` を受け取れるようにするために参照を残しているようです。
@@ -237,7 +237,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 | `AO_MM_Unarmed_Idle_Ready`	| `MM_Unarmed_Idle_Ready_AO_[LB\|L\|C\|R\|RB][U\|C\|D]`	|		|
 |								| `MM_Unarmed_Idle_Ready`								| *1	|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`Additive Setting > Preview Base Pose` で指定しています。
 > * *2.	命名規則から `MM_Rifle_Idle_Hipfire` を使うべきだと思いますが、 そうしていない理由は不明です。  
 > 	Editor Only の Preview 用のプロパティなのであまり気にする必要はないと思います。  
@@ -256,7 +256,7 @@ UE5 の新しい？サンプル [Lyra Starter Game] 。
 | `[MM\|MF]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_Ready`									| --		| --	| --		| MF		| *2	|
 | `[MM\|MF]_[Pistol\|Rifle\|Shotgun\|Unarmed]_Idle_Ready_AO_[LB\|L\|C\|R\|RB][U\|C\|D]`		| --		| --	| --		| M-		|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	`MM_Rifle_Idle_ADS_AO_[LB|L|C|R|RB][U|C|D]` は（参照されていない `AO_MM_Rifle_Idle_ADS` からしか利用されていないため）利用されていません。
 > * *2.	`MF_Unarmed_Idle_Ready` は Aim Offset からは利用されていません。
 > 	> 非武装時のプロパティ `Idle ADS` などで利用されています。
@@ -293,7 +293,7 @@ Animation Montage は以下のような場所から再生されます。
 | TopDownArena の爆弾設置用		| `DropBomb_Montage`											| `MF_Rifle_GrenadeToss`									|		|
 | 参照元なし					| `AM_MM_Dash_Forward_LoadingScreenStills`						| `MM_Dash_Forward_LoadingScreenStills`						|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	以下のアセットのバリエーションは参照元がなく、使用されていません。
 > 	* `AM_MM_HitReact_Back_Lgt_01`
 > 	* `AM_MM_HitReact_Front_Lgt_03`
@@ -365,7 +365,7 @@ Animation Sequence と Pose Asset 、どちらも (男女 2) x (関節 7) x (左
 | `SplashPose_SmearPoses`																	| **		| **	| **		| **		|		|
 | `QuinnIntro_BlockOut_Pose[1-7]_[Manny\|Quinn]`											| **		| **	| **		| **		|		|
 
-> **Note**  
+> [!NOTE]
 > * *1.	素材撮影用のもののようで、使用されていません。
 > * *2.	しゃがみ状態の転換用のものらしいですが、使用されていません。
 > * *3.	スポーン用のものらしいですが、使用されていません。
